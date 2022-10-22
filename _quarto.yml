@@ -11,14 +11,11 @@ book:
     - intro.qmd
     - summary.qmd
     - references.qmd
+    
+language: custom.yml
 
 bibliography: references.bib
 
 format:
   html:
     theme: cosmo
-  pdf:
-    documentclass: scrreprt
-
-
-
