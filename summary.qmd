@@ -2,6 +2,6 @@
 
 In summary, this book has no content whatsoever.
 
-```{r}
+```{python}
 1 + 1
 ```

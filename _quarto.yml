@@ -1,10 +1,11 @@
 project:
   type: book
+  output-dir: docs
 
 book:
-  title: "py4ds"
-  author: "Jane Doe"
-  date: "10/22/2022"
+  title: "Python в науці про дані"
+  author: "Ігор Мірошниченко"
+  date: "2022-10-22"
   chapters:
     - index.qmd
     - intro.qmd
