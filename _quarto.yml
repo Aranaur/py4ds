@@ -9,7 +9,8 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
-    - summary.qmd
+    - type_and_str.qmd
+    - control_constructs.qmd
     - references.qmd
     
 language: custom.yml

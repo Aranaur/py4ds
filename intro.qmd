@@ -1,6 +1,1 @@
 # Вступ до Python
-
-```{python}
-# Python code
-1 + 1
-```
