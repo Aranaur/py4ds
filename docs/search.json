@@ -19,5 +19,19 @@
     "title": "3  Керуючі конструкції",
     "section": "3.2 Порядок присвоєння",
     "text": "3.2 Порядок присвоєння"
+  },
+  {
+    "objectID": "control_constructs.html#присваєння",
+    "href": "control_constructs.html#присваєння",
+    "title": "3  Керуючі конструкції",
+    "section": "3.1 Присваєння",
+    "text": "3.1 Присваєння\nОператор присвоєння - це процес зв’язування імен та значень. Для цього використовується символ =.\n\nname = \"Frodo\"\nring = 1\ndic = {}"
+  },
+  {
+    "objectID": "control_constructs.html#контроль-циклів",
+    "href": "control_constructs.html#контроль-циклів",
+    "title": "3  Керуючі конструкції",
+    "section": "3.3 Контроль циклів",
+    "text": "3.3 Контроль циклів\n\ni = 0\nwhile i < 15:\n    i += 1\n    if i == 7:\n        i = 7\n        continue\n    if i == 13:\n        break\n    print(i)\n\n1\n2\n3\n4\n5\n6\n8\n9\n10\n11\n12"
   }
 ]

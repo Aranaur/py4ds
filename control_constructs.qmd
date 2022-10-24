@@ -11,3 +11,15 @@ dic = {}
 ## Порядок присвоєння
 
 ## Контроль циклів
+
+```{python}
+i = 0
+while i < 15:
+    i += 1
+    if i == 7:
+        i = 7
+        continue
+    if i == 13:
+        break
+    print(i)
+```
