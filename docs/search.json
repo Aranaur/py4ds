@@ -4,21 +4,7 @@
     "href": "index.html",
     "title": "Python в науці про дані",
     "section": "",
-    "text": "Книга-конспект матеріалів з курсу “Python for Data Science”."
-  },
-  {
-    "objectID": "control_constructs.html",
-    "href": "control_constructs.html",
-    "title": "3  Керуючі конструкції",
-    "section": "",
-    "text": "Оператор присвоєння - це процес зв’язування імен та значень. Для цього використовується символ =.\n\nname = \"Frodo\"\nring = 1\ndic = {}"
-  },
-  {
-    "objectID": "control_constructs.html#порядок-присвоєння",
-    "href": "control_constructs.html#порядок-присвоєння",
-    "title": "3  Керуючі конструкції",
-    "section": "3.2 Порядок присвоєння",
-    "text": "3.2 Порядок присвоєння"
+    "text": "Вступне слово\nКнига-конспект матеріалів з курсу “Python for Data Science”."
   },
   {
     "objectID": "control_constructs.html#присваєння",
@@ -26,6 +12,13 @@
     "title": "3  Керуючі конструкції",
     "section": "3.1 Присваєння",
     "text": "3.1 Присваєння\nОператор присвоєння - це процес зв’язування імен та значень. Для цього використовується символ =.\n\nname = \"Frodo\"\nring = 1\ndic = {}"
+  },
+  {
+    "objectID": "control_constructs.html#порядок-присвоєння",
+    "href": "control_constructs.html#порядок-присвоєння",
+    "title": "3  Керуючі конструкції",
+    "section": "3.2 Порядок присвоєння",
+    "text": "3.2 Порядок присвоєння"
   },
   {
     "objectID": "control_constructs.html#контроль-циклів",
