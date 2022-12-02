@@ -13,7 +13,7 @@ book:
     - 03_control_constructs.qmd
     - references.qmd
     
-language: custom.yml
+language: _language-ukr.yml
 
 bibliography: references.bib
 
