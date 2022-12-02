@@ -8,9 +8,9 @@ book:
   date: "2022-10-22"
   chapters:
     - index.qmd
-    - intro.qmd
-    - type_and_str.qmd
-    - control_constructs.qmd
+    - 01_intro.qmd
+    - 02_type_and_str.qmd
+    - 03_control_constructs.qmd
     - references.qmd
     
 language: custom.yml
