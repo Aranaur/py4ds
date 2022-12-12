@@ -11,6 +11,7 @@ book:
     - 01_intro.qmd
     - 02_type_and_str.qmd
     - 03_control_constructs.qmd
+    - 04_quarto.qmd
     - references.qmd
     
 language: _language-ukr.yml

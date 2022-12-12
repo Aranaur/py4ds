@@ -1,0 +1,2 @@
+# Quarto
+[Quarto](https://quarto.org/) - це науково-технічна видавнича система з відкритим кодом, яка грунтується на універсальному конверторі документів [Pandoc](https://pandoc.org/) та використовує мову розмытки [Markdown](https://www.markdownguide.org/).

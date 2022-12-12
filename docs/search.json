@@ -26,5 +26,12 @@
     "title": "3  Керуючі конструкції",
     "section": "3.3 Контроль циклів",
     "text": "3.3 Контроль циклів\n\ni = 0\nwhile i < 15:\n    i += 1\n    if i == 7:\n        i = 7\n        continue\n    if i == 13:\n        break\n    print(i)\n\n1\n2\n3\n4\n5\n6\n8\n9\n10\n11\n12"
+  },
+  {
+    "objectID": "04_quarto.html",
+    "href": "04_quarto.html",
+    "title": "4  Quarto",
+    "section": "",
+    "text": "Quarto - це науково-технічна видавнича система з відкритим кодом, яка грунтується на універсальному конверторі документів Pandoc та використовує мову розмытки Markdown."
   }
 ]
