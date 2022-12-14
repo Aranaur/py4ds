@@ -555,26 +555,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 data-number="4.4.4" class="anchored" data-anchor-id="списки"><span class="header-section-number">4.4.4</span> Списки</h3>
 <table class="table">
 <colgroup>
-<col style="width: 54%">
-<col style="width: 43%">
-<col style="width: 1%">
+<col style="width: 55%">
+<col style="width: 44%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Синтаксис markdown</th>
 <th>Результат</th>
-<th></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td colspan="3"><pre><code>* невпорядкований список                    | -   невпорядкований список            |
-    + підпункт 1                            |                                       |
-    + підпункт 2                            |     -   підпункт 1                    |
-        - під--підпункт 1                    |
-                                            |     -   підпункт 2                    |
-                                            |                                       |
-                                            |         -   під--підпункт 1</code></pre></td>
+<td><pre><code>* невпорядкований список
+    + підпункт 1
+    + підпункт 2
+        - під--підпункт 1</code></pre></td>
+<td><ul>
+<li><p>невпорядкований список</p>
+<ul>
+<li><p>підпункт 1</p></li>
+<li><p>підпункт 2</p>
+<ul>
+<li>під–підпункт 1</li>
+</ul></li>
+</ul></li>
+</ul></td>
 </tr>
 <tr class="even">
 <td><pre><code>*   пункт 2
@@ -584,16 +589,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>пункт 2</p>
 <p>Продовження (відступ 4 інтервали)</p></li>
 </ul></td>
-<td></td>
 </tr>
 <tr class="odd">
-<td colspan="3"><pre><code>1. впорядкований список                     | 1.  впорядкований список              |
-2. пункт 2                                  |                                       |
-    i) підпункт 1                           | 2.  пункт 2                           |
-         A.  під--підпункт 1                 |
-                                            |     i)  підпункт 1                    |
-                                            |                                       |
-                                            |         A.  під--підпункт 1</code></pre></td>
+<td><pre><code>1. впорядкований список
+2. пункт 2
+    i) підпункт 1
+         A.  під--підпункт 1</code></pre></td>
+<td><ol type="1">
+<li><p>впорядкований список</p></li>
+<li><p>пункт 2</p>
+<ol type="i">
+<li><p>підпункт 1</p>
+<ol type="A">
+<li>під–підпункт 1</li>
+</ol></li>
+</ol></li>
+</ol></td>
 </tr>
 <tr class="even">
 <td><pre><code>(@)  Список, нумерація якого
@@ -608,7 +619,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>переривання</li>
 </ol></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td><pre><code>термін
@@ -619,7 +629,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>визначення</p>
 </dd>
 </dl></td>
-<td></td>
 </tr>
 </tbody>
 </table>
