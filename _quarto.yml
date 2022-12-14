@@ -23,3 +23,7 @@ format:
     theme:
       light: cosmo
       dark: superhero
+
+execute:
+  warning: false
+  # cache: true
