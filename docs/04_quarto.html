@@ -250,6 +250,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#налаштування-виводу-1" id="toc-налаштування-виводу-1" class="nav-link" data-scroll-target="#налаштування-виводу-1"><span class="toc-section-number">4.6.1</span>  Налаштування виводу</a></li>
   <li><a href="#вбудований-код" id="toc-вбудований-код" class="nav-link" data-scroll-target="#вбудований-код"><span class="toc-section-number">4.6.2</span>  Вбудований код</a></li>
   </ul></li>
+  <li><a href="#основи-публікації" id="toc-основи-публікації" class="nav-link" data-scroll-target="#основи-публікації"><span class="toc-section-number">4.7</span>  Основи публікації</a></li>
   </ul>
 </nav>
     </div>
@@ -893,8 +894,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Формувати такі таблиці вручну досить складно і незручно. В таких випадках на допомогу приходить <a href="https://www.tablesgenerator.com/markdown_tables">Markdown Tables Generator</a>.</p>
 </section>
 </section>
-<section id="таблиці-з-python" class="level4" data-number="4.5.5.2">
-<h4 data-number="4.5.5.2" class="anchored" data-anchor-id="таблиці-з-python"><span class="header-section-number">4.5.5.2</span> Таблиці з Python</h4>
+<section id="sec-py-table" class="level4" data-number="4.5.5.2">
+<h4 data-number="4.5.5.2" class="anchored" data-anchor-id="sec-py-table"><span class="header-section-number">4.5.5.2</span> Таблиці з Python</h4>
 <ol type="1">
 <li>За допомогою комбінації функцій <code>Markdown()</code> та пакету <code>tabulate</code>:</li>
 </ol>
@@ -976,11 +977,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Можна викликати Python через R за допомогою пакету <code>reticulate</code> та використати функцію <code>kable()</code> з пакету <code>knitr</code>:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R chunk</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(py<span class="sc">$</span>df)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(py<span class="sc">$</span>df)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="tbl-character-2" class="anchored">
 <table class="table table-sm table-striped">
@@ -1376,10 +1376,81 @@ $$E = mc^{2}$$</code></pre></td>
 <p>Зауважте, що ми використовуємо опцію <code>echo: false</code>, щоб не виводити код у фінальний документ, а тільки результат.</p>
 </div>
 </div>
-
-
+</section>
+<section id="knitr" class="level4" data-number="4.6.2.2">
+<h4 data-number="4.6.2.2" class="anchored" data-anchor-id="knitr"><span class="header-section-number">4.6.2.2</span> Knitr</h4>
+<p>Аналогічно до роботи з таблицями у <a href="#sec-py-table"><span>Розділ&nbsp;4.5.5.2</span></a> можемо поєднати можливості R та Python для виводу результату коду в тексті документу.</p>
+<p>Щоб включити вирази в розмітку для Knitr, використовується вираз у <code>`r `</code>:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>circle_area <span class="op">=</span> <span class="bu">round</span>(math.pi <span class="op">*</span> <span class="bu">pow</span>(radius, <span class="dv">2</span>), <span class="dv">2</span>)</span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>Площа кола з радіусом  <span class="in">`r⠀py$radius`</span>  дорівнює <span class="in">`r⠀py$circle_area`</span>.</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Запис <code>py$radius</code> означає: взяти значення змінної Python з ім’ям <code>radius</code>.</p>
+</div>
+</div>
 </section>
 </section>
+</section>
+<section id="основи-публікації" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="основи-публікації"><span class="header-section-number">4.7</span> Основи публікації</h2>
+<p>Існує низка способів публікації документів, презентацій і веб-документів, створених за допомогою Quarto. Оскільки вміст, відтворений за допомогою Quarto, використовує стандартні формати (HTML, PDF, MS Word тощо), його можна опублікувати будь-де. Крім того, доступна команда <code>quarto publish</code> для легкої публікації в різних популярних службах (GitHub, Netlify, RStudio Connect тощо), а також різні інструменти, які полегшують публікацію з системи Неперервної інтеграції (анг. <em>Continuous integration</em>).</p>
+<p>Сервіси для публікації:</p>
+<table class="table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Сервіс</th>
+<th>Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://quarto.org/docs/publishing/quarto-pub.html">Quarto Pub</a></td>
+<td>Публікація документів, веб-сайтів і книг Quarto.</td>
+</tr>
+<tr class="even">
+<td><a href="https://quarto.org/docs/publishing/github-pages.html">GitHub Pages</a></td>
+<td>Публікація документів за допомогою репозиторію GitHub</td>
+</tr>
+<tr class="odd">
+<td><a href="https://quarto.org/docs/publishing/rstudio-connect.html">RStudio Connect</a></td>
+<td>Платформа для безпечного обміну даними в межах організації.</td>
+</tr>
+<tr class="even">
+<td><a href="https://quarto.org/docs/publishing/netlify.html">Netlify</a></td>
+<td>Професійна платформа веб-публікації.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://quarto.org/docs/publishing/other.html">Інші сервіси</a></td>
+<td>Скористайтеся цими сервісами, якщо один із наведених вище методів не відповідає вашим вимогам.</td>
+</tr>
+</tbody>
+</table>
+
+
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
