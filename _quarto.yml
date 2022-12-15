@@ -5,7 +5,8 @@ project:
 book:
   title: "Python в науці про дані"
   author: "Ігор Мірошниченко"
-  date: "2022-10-22"
+  date: today
+  date-format: iso
   chapters:
     - index.qmd
     - 01_intro.qmd
