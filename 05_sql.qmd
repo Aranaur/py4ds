@@ -1,0 +1,77 @@
+# SQL {#sec-sql}
+
+```{python}
+#| file: _common.py
+#| include: false
+```
+
+```{r}
+#| include: false
+source('_common.r')
+```
+У цьому розділі ми будемо використовувати набори даних. Тут зберігається документація, котра допоможе розібратися з ними. У таблиці продемонстровані зв'язки між таблицями, а також опис даних.
+
+## Схема бази даних
+
+```{mermaid}
+erDiagram
+    users }|..|{ user_actions : user_id
+    user_actions }|..|{ orders : order_id
+    user_actions }|..|{ courier_actions : time
+    orders }|..|{ products : product_ids-product_id
+    courier_actions }|..|{ courier : product
+    orders }|..|{ courier_actions : order_id
+    users {
+        DATE birth_date
+        VARCHAR sex
+        INT user_id
+    }
+    user_actions {
+        INT user_id
+        VARCHAR actions
+        INT order_id
+        TIMESTAMP time
+    }
+    orders {
+        INT order_id
+        ARRAY product_ids
+        TIMESTAMP creation_time
+    }
+    products {
+        INT product_id
+        NUMERIC price
+        VARCHAR name
+    }
+    courier_actions {
+        INT courier_id
+        VARCHAR action
+        INT order_id
+        TIMESTAMP time
+    }
+    courier {
+        INT courier_id
+        VARCHAR sex
+        DATE birth_date
+    }
+```
+
+## Типи даних
+В таблицях можуть зберігатися різні типи даних: цілі і дробові числа, текст, дати, масиви чисел. У цих даних ви зустрінетесь з наступними типами:
+
+```{python}
+#| label: sql-df
+#| echo: false
+
+sql_df = pd.DataFrame({'Типи даних': ['INT', 'NUMERIC / DECIMAL', 'VARCHAR', 'DATE', 'TIMESTAMP', '[]'],
+                       'Опис': ['Ціле число', 'Дійсне число', 'Текст', 'Дата з точністю до дня', 'Дата з точністю до секунди', 'Масив'],
+                       'Приклад': ['id користувача: 123', 'Вартість товару: 120.55 ', 'Дія із замовленням: «create_order»', 'Дата народження користувача: 25/03/91', 'Час реєстрації у додатку: 24/08/22 01:52:24', 'Список id товаров у замовленні: [1, 13, 22]']})
+
+(sql_df.style.hide(axis='index').set_table_attributes("class='dataframe table-striped table-sm table-responsive'"))
+```
+
+```{r}
+#| echo: false
+py$sql_df
+```
+
+## Структура та наповнення таблиць

@@ -12,6 +12,11 @@ book:
     - 01_intro.qmd
     - 02_type_and_str.qmd
     - 03_control_constructs.qmd
+    - part: 05_sql.qmd
+      chapters: 
+        - 05_01_basics.qmd
+        - 05_02_filtering.qmd
+        - 05_03_aggregation.qmd
     - 04_quarto.qmd
     - references.qmd
     
@@ -21,6 +26,7 @@ bibliography: references.bib
 
 format:
   html:
+    df-print: kable
     theme:
       light: cosmo
       dark: superhero
