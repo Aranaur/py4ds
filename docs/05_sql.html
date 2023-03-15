@@ -191,20 +191,21 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>У цьому розділі ми будемо використовувати набори даних. Тут зберігається документація, котра допоможе розібратися з ними. У таблиці продемонстровані зв’язки між таблицями, а також опис даних.</p>
 <section id="схема-бази-даних" class="level2">
 <h2 class="anchored" data-anchor-id="схема-бази-даних">Схема бази даних</h2>
+<p>У цьому розділі ми будемо використовувати набори даних. Тут зберігається документація, котра допоможе розібратися з ними. У таблиці продемонстровані зв’язки між таблицями, а також опис даних.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <p>
 </p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-1">erDiagram
+    orders }|..|{ products : product_ids-product_id
+    orders }|..|{ courier_actions : order_id
     users }|..|{ user_actions : user_id
     user_actions }|..|{ orders : order_id
     user_actions }|..|{ courier_actions : time
-    orders }|..|{ products : product_ids-product_id
     courier_actions }|..|{ courier : product
-    orders }|..|{ courier_actions : order_id
+    
     users {
         DATE birth_date
         VARCHAR sex
@@ -250,52 +251,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="типи-даних">Типи даних</h2>
 <p>В таблицях можуть зберігатися різні типи даних: цілі і дробові числа, текст, дати, масиви чисел. У цих даних ви зустрінетесь з наступними типами:</p>
 <div class="cell">
-<div class="cell-output-display">
 
-
-<table id="T_f69ec" class="dataframe table-striped table-sm table-responsive table">
-  <thead>
-    <tr>
-      <th id="T_f69ec_level0_col0" class="col_heading level0 col0">Типи даних</th>
-      <th id="T_f69ec_level0_col1" class="col_heading level0 col1">Опис</th>
-      <th id="T_f69ec_level0_col2" class="col_heading level0 col2">Приклад</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td id="T_f69ec_row0_col0" class="data row0 col0">INT</td>
-      <td id="T_f69ec_row0_col1" class="data row0 col1">Ціле число</td>
-      <td id="T_f69ec_row0_col2" class="data row0 col2">id користувача: 123</td>
-    </tr>
-    <tr>
-      <td id="T_f69ec_row1_col0" class="data row1 col0">NUMERIC / DECIMAL</td>
-      <td id="T_f69ec_row1_col1" class="data row1 col1">Дійсне число</td>
-      <td id="T_f69ec_row1_col2" class="data row1 col2">Вартість товару: 120.55 </td>
-    </tr>
-    <tr>
-      <td id="T_f69ec_row2_col0" class="data row2 col0">VARCHAR</td>
-      <td id="T_f69ec_row2_col1" class="data row2 col1">Текст</td>
-      <td id="T_f69ec_row2_col2" class="data row2 col2">Дія із замовленням: «create_order»</td>
-    </tr>
-    <tr>
-      <td id="T_f69ec_row3_col0" class="data row3 col0">DATE</td>
-      <td id="T_f69ec_row3_col1" class="data row3 col1">Дата з точністю до дня</td>
-      <td id="T_f69ec_row3_col2" class="data row3 col2">Дата народження користувача: 25/03/91</td>
-    </tr>
-    <tr>
-      <td id="T_f69ec_row4_col0" class="data row4 col0">TIMESTAMP</td>
-      <td id="T_f69ec_row4_col1" class="data row4 col1">Дата з точністю до секунди</td>
-      <td id="T_f69ec_row4_col2" class="data row4 col2">Час реєстрації у додатку: 24/08/22 01:52:24</td>
-    </tr>
-    <tr>
-      <td id="T_f69ec_row5_col0" class="data row5 col0">[]</td>
-      <td id="T_f69ec_row5_col1" class="data row5 col1">Масив</td>
-      <td id="T_f69ec_row5_col2" class="data row5 col2">Список id товаров у замовленні: [1, 13, 22]</td>
-    </tr>
-  </tbody>
-</table>
-
-</div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
