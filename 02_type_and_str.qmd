@@ -1,1 +1,11 @@
 # Вбудовані типи та структури даних
+
+```{python}
+#| file: _common.py
+#| include: false
+```
+
+```{r}
+#| include: false
+source('_common.r')
+```

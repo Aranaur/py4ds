@@ -1,2 +1,11 @@
 # Вступ до Python
 
+```{python}
+#| file: _common.py
+#| include: false
+```
+
+```{r}
+#| include: false
+source('_common.r')
+```

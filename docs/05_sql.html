@@ -191,9 +191,11 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>SQL (анг. <em>Structured query language</em>) - мова запитів на якому ми спілкуємось з базами даних.</p>
+<p>База даних - це сховище даних, де зберігаються наші “таблиці”.</p>
 <section id="схема-бази-даних" class="level2">
 <h2 class="anchored" data-anchor-id="схема-бази-даних">Схема бази даних</h2>
-<p>У цьому розділі ми будемо використовувати набори даних. Тут зберігається документація, котра допоможе розібратися з ними. У таблиці продемонстровані зв’язки між таблицями, а також опис даних.</p>
+<p>У цьому розділі ми будемо використовувати набори даних, які представляють сервіс з доставки продуктів. Тут зберігається документація, котра допоможе розібратися з ними. У таблиці продемонстровані зв’язки між таблицями, а також опис даних.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -305,9 +307,241 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+<p>Більш детально почитати про типи даних можна за <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-data-types/">посиланням</a></p>
 </section>
 <section id="структура-та-наповнення-таблиць" class="level2">
 <h2 class="anchored" data-anchor-id="структура-та-наповнення-таблиць">Структура та наповнення таблиць</h2>
+<p><code>user_actions</code> – дії користувачів із замовленнями.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 9%">
+<col style="width: 83%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Стовпчик</th>
+<th style="text-align: left;">Тип даних</th>
+<th style="text-align: left;">Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">user_id</td>
+<td style="text-align: left;">INT</td>
+<td style="text-align: left;">id користувача</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">order_id</td>
+<td style="text-align: left;">INT</td>
+<td style="text-align: left;">id замовлення</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">action</td>
+<td style="text-align: left;">VARCHAR(50)</td>
+<td style="text-align: left;">дія користувача із замовленням; “create_order” - створення замовлення, “cancel_order” - скасування замовлення</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">time</td>
+<td style="text-align: left;">TIMESTAMP</td>
+<td style="text-align: left;">час дії</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p><code>courier_actions</code> – дії кур’єрів із замовленнями.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 82%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Стовпчик</th>
+<th style="text-align: left;">Тип даних</th>
+<th style="text-align: left;">Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">courier_id</td>
+<td style="text-align: left;">INT</td>
+<td style="text-align: left;">id кур’єра</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">order_id</td>
+<td style="text-align: left;">INT</td>
+<td style="text-align: left;">id замовлення</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">action</td>
+<td style="text-align: left;">VARCHAR(50)</td>
+<td style="text-align: left;">дія кур’єра із замовленням; ‘accept order’ - прийняття замовлення, ‘deliver order’ - доставка замовлення</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">time</td>
+<td style="text-align: left;">TIMESTAMP</td>
+<td style="text-align: left;">час дії</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p><code>orders</code> - інформація про замовлення.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Стовпчик</th>
+<th style="text-align: left;">Тип даних</th>
+<th style="text-align: left;">Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">order_id</td>
+<td style="text-align: left;">INT</td>
+<td style="text-align: left;">id замовлення</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">creation_time</td>
+<td style="text-align: left;">TIMESTAMP</td>
+<td style="text-align: left;">час створення замовлення</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">product_ids</td>
+<td style="text-align: left;">integer[]</td>
+<td style="text-align: left;">список id товарів у замовленні</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p><code>users</code> - інформація про користувачів.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Стовпчик</th>
+<th style="text-align: left;">Тип даних</th>
+<th style="text-align: left;">Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">user_id</td>
+<td style="text-align: left;">INT</td>
+<td style="text-align: left;">id користувача</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">birth_date</td>
+<td style="text-align: left;">DATE</td>
+<td style="text-align: left;">дата народження</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sex</td>
+<td style="text-align: left;">VARCHAR(50)</td>
+<td style="text-align: left;">стать</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p><code>couriers</code> - інформація про кур’єрів.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Стовпчик</th>
+<th style="text-align: left;">Тип даних</th>
+<th style="text-align: left;">Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">courier_id</td>
+<td style="text-align: left;">INT</td>
+<td style="text-align: left;">id кур’єра</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">birth_date</td>
+<td style="text-align: left;">DATE</td>
+<td style="text-align: left;">дата народження</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sex</td>
+<td style="text-align: left;">VARCHAR(50)</td>
+<td style="text-align: left;">стать</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p><code>products</code> - інформація про товари, які доставляє сервіс.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Стовпчик</th>
+<th style="text-align: left;">Тип даних</th>
+<th style="text-align: left;">Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">product_id</td>
+<td style="text-align: left;">INT</td>
+<td style="text-align: left;">id продукту</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">VARCHAR(50)</td>
+<td style="text-align: left;">назва товару</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">price</td>
+<td style="text-align: left;">FLOAT(4)</td>
+<td style="text-align: left;">ціна товару</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Примітка!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>У дужках типу <code>VARCHAR</code> вказано максимально допустиму кількість символів у тексті. У типу даних <code>NUMERIC</code> у дужках вказано загальну кількість символів.</p>
+</div>
+</div>
 
 
 </section>
