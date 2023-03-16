@@ -9,7 +9,9 @@
 
 ```{r}
 #| include: false
+
 source('_common.r')
+source('_duckdb.r')
 ```
 
 Давайте напишемо перший запит мовою SQL:

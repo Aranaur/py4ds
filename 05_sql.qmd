@@ -10,7 +10,9 @@ SQL (анг. *Structured query language*) - мова запитів на яко�
 
 ```{r}
 #| include: false
+
 source('_common.r')
+source('_duckdb.r')
 ```
 
 ## Схема бази даних
