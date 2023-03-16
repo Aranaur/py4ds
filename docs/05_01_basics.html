@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Python в науці про дані - 4&nbsp; Базові запити</title>
+<title>Python в науці про дані - 5&nbsp; Базові запити</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -135,7 +135,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Базові запити</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Базові запити</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -183,7 +183,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./05_sql.html" class="sidebar-item-text sidebar-link">SQL</a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">SQL</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -191,24 +191,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_01_basics.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Базові запити</span></a>
+  <a href="./05_sql.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">SQL</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_02_filtering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></a>
+  <a href="./05_01_basics.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Базові запити</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_03_aggregation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Агрегація даних</span></a>
+  <a href="./05_02_filtering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_03_aggregation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Агрегація даних</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_quarto.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quarto</span></a>
+  <a href="./04_quarto.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Quarto</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -225,9 +230,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Зміст</h2>
    
   <ul>
-  <li><a href="#select" id="toc-select" class="nav-link active" data-scroll-target="#select"><span class="toc-section-number">4.1</span>  SELECT</a></li>
-  <li><a href="#order-by" id="toc-order-by" class="nav-link" data-scroll-target="#order-by"><span class="toc-section-number">4.2</span>  ORDER BY</a></li>
-  <li><a href="#типові-помилки-при-написанні-sql-запитів." id="toc-типові-помилки-при-написанні-sql-запитів." class="nav-link" data-scroll-target="#типові-помилки-при-написанні-sql-запитів."><span class="toc-section-number">4.3</span>  Типові помилки при написанні SQL-запитів.</a></li>
+  <li><a href="#select" id="toc-select" class="nav-link active" data-scroll-target="#select"><span class="toc-section-number">5.1</span>  SELECT</a></li>
+  <li><a href="#order-by" id="toc-order-by" class="nav-link" data-scroll-target="#order-by"><span class="toc-section-number">5.2</span>  ORDER BY</a></li>
+  <li><a href="#типові-помилки-при-написанні-sql-запитів." id="toc-типові-помилки-при-написанні-sql-запитів." class="nav-link" data-scroll-target="#типові-помилки-при-написанні-sql-запитів."><span class="toc-section-number">5.3</span>  Типові помилки при написанні SQL-запитів.</a></li>
   </ul>
 </nav>
     </div>
@@ -236,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Базові запити</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Базові запити</span></h1>
 </div>
 
 
@@ -251,8 +256,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="select" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="select"><span class="header-section-number">4.1</span> SELECT</h2>
+<section id="select" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="select"><span class="header-section-number">5.1</span> SELECT</h2>
 <p>Давайте напишемо перший запит мовою SQL:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
@@ -368,8 +373,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>На практиці таблиці можуть бути дуже великими, тому дуже бажано використовувати функцію <code>LIMIT</code> для того щоб не виводити всю таблицю, що може займати магато часу. Крім того, можливо такий запит навіть не буде виконано, оскільки розумні дата інженери заборонили виконувати такі запити.</p>
 </section>
-<section id="order-by" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="order-by"><span class="header-section-number">4.2</span> ORDER BY</h2>
+<section id="order-by" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="order-by"><span class="header-section-number">5.2</span> ORDER BY</h2>
 <p>Для сортування значень по будь-якій колонці SQL використовується оператор <code>ORDER BY</code> з ключовими словами <code>ASC</code> (за зростанням) або <code>DESC</code> (за спаданням).</p>
 <p>При цьому за умовчанням сортування відбувається за зростанням, тобто <code>ASC</code> не обов’язково вказувати. Для сортування за спаданням після <code>ORDER BY</code> необхідно явно вказати <code>DESC</code>:</p>
 <div class="cell">
@@ -451,8 +456,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="типові-помилки-при-написанні-sql-запитів." class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="типові-помилки-при-написанні-sql-запитів."><span class="header-section-number">4.3</span> Типові помилки при написанні SQL-запитів.</h2>
+<section id="типові-помилки-при-написанні-sql-запитів." class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="типові-помилки-при-написанні-sql-запитів."><span class="header-section-number">5.3</span> Типові помилки при написанні SQL-запитів.</h2>
 <ul>
 <li>Неправильний порядок або помилки у ключових словах. Правильний порядок операторів у запиті виглядає так:</li>
 </ul>
@@ -745,12 +750,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./05_sql.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">SQL</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">SQL</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./05_02_filtering.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
