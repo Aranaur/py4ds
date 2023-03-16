@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Python в науці про дані - 4&nbsp; SQL</title>
+<title>Python в науці про дані - SQL</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./05_01_basics.html" rel="next">
-<link href="./03_control_constructs.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -75,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">SQL</span></h1>
+      <h1 class="quarto-secondary-nav-title">SQL</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -121,9 +120,10 @@ ul.task-list li input[type="checkbox"] {
   <a href="./03_control_constructs.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Керуючі конструкції</span></a>
   </div>
 </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">SQL</a>
+            <a href="./05_sql.html" class="sidebar-item-text sidebar-link active">SQL</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -131,29 +131,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_sql.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">SQL</span></a>
+  <a href="./05_01_basics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Базові запити</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_01_basics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Базові запити</span></a>
+  <a href="./05_02_filtering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_02_filtering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./05_03_aggregation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Агрегація даних</span></a>
+  <a href="./05_03_aggregation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Агрегація даних</span></a>
   </div>
 </li>
       </ul>
   </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_quarto.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Quarto</span></a>
+  <a href="./04_quarto.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quarto</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -170,9 +166,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Зміст</h2>
    
   <ul>
-  <li><a href="#схема-бази-даних" id="toc-схема-бази-даних" class="nav-link active" data-scroll-target="#схема-бази-даних"><span class="toc-section-number">4.1</span>  Схема бази даних</a></li>
-  <li><a href="#типи-даних" id="toc-типи-даних" class="nav-link" data-scroll-target="#типи-даних"><span class="toc-section-number">4.2</span>  Типи даних</a></li>
-  <li><a href="#структура-та-наповнення-таблиць" id="toc-структура-та-наповнення-таблиць" class="nav-link" data-scroll-target="#структура-та-наповнення-таблиць"><span class="toc-section-number">4.3</span>  Структура та наповнення таблиць</a></li>
+  <li><a href="#схема-бази-даних" id="toc-схема-бази-даних" class="nav-link active" data-scroll-target="#схема-бази-даних">Схема бази даних</a></li>
+  <li><a href="#типи-даних" id="toc-типи-даних" class="nav-link" data-scroll-target="#типи-даних">Типи даних</a></li>
+  <li><a href="#структура-та-наповнення-таблиць" id="toc-структура-та-наповнення-таблиць" class="nav-link" data-scroll-target="#структура-та-наповнення-таблиць">Структура та наповнення таблиць</a></li>
   </ul>
 </nav>
     </div>
@@ -181,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-sql" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">SQL</span></span></h1>
+<h1 class="title"><span id="sec-sql" class="quarto-section-identifier d-none d-lg-block">SQL</span></h1>
 </div>
 
 
@@ -198,8 +194,8 @@ ul.task-list li input[type="checkbox"] {
 
 <p>SQL (анг. <em>Structured query language</em>) - мова запитів на якому ми спілкуємось з базами даних.</p>
 <p>База даних - це сховище даних, де зберігаються наші “таблиці”.</p>
-<section id="схема-бази-даних" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="схема-бази-даних"><span class="header-section-number">4.1</span> Схема бази даних</h2>
+<section id="схема-бази-даних" class="level2">
+<h2 class="anchored" data-anchor-id="схема-бази-даних">Схема бази даних</h2>
 <p>У цьому розділі ми будемо використовувати набори даних, які представляють сервіс з доставки продуктів. Тут зберігається документація, котра допоможе розібратися з ними. У таблиці продемонстровані зв’язки між таблицями, а також опис даних.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -254,8 +250,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="типи-даних" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="типи-даних"><span class="header-section-number">4.2</span> Типи даних</h2>
+<section id="типи-даних" class="level2">
+<h2 class="anchored" data-anchor-id="типи-даних">Типи даних</h2>
 <p>В таблицях можуть зберігатися різні типи даних: цілі і дробові числа, текст, дати, масиви чисел. У цих даних ви зустрінетесь з наступними типами:</p>
 <div class="cell">
 
@@ -314,8 +310,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>Більш детально почитати про типи даних можна за <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-data-types/">посиланням</a></p>
 </section>
-<section id="структура-та-наповнення-таблиць" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="структура-та-наповнення-таблиць"><span class="header-section-number">4.3</span> Структура та наповнення таблиць</h2>
+<section id="структура-та-наповнення-таблиць" class="level2">
+<h2 class="anchored" data-anchor-id="структура-та-наповнення-таблиць">Структура та наповнення таблиць</h2>
 <p><code>user_actions</code> – дії користувачів із замовленнями.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -802,13 +798,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03_control_constructs.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Керуючі конструкції</span></span>
-      </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./05_01_basics.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Базові запити</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Базові запити</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
