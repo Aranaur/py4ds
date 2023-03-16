@@ -7,5 +7,7 @@
 
 ```{r}
 #| include: false
+
 source('_common.r')
+source('_duckdb.r')
 ```
