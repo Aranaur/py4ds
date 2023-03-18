@@ -403,9 +403,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>      <span class="co">-- сортування за спаданням</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="sec-example-order-1" class="level6" data-number="4.2.0.0.0.1">
-<h6 data-number="4.2.0.0.0.1" class="anchored" data-anchor-id="sec-example-order-1"><span class="header-section-number">4.2.0.0.0.1</span> Приклад</h6>
-<p>Виведіть всі записи з таблиці <code>products</code>, відсортувавши їх за найменуванням товарів <em>у алфавітному порядку</em>, тобто. за зростанням. Для сортування використовуйте оператор <code>ORDER BY</code>.</p>
+<div id="exm-1" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 4.1 </strong></span>Виведіть всі записи з таблиці <code>products</code>, відсортувавши їх за найменуванням товарів <em>у алфавітному порядку</em>, тобто. за зростанням. Для сортування використовуйте оператор <code>ORDER BY</code>.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code></p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -468,6 +467,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 </div>
+</div>
 <p>Сортувати результат SQL-запиту можна відразу за декількома колонками, вказуючи їх після <code>ORDER BY</code> через кому разом із напрямком сортування (<code>ASC</code> або <code>DESC</code>):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
@@ -495,10 +495,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>, column_2</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">100</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="sec-example-order-2" class="level6" data-number="4.2.0.0.0.2">
-<h6 data-number="4.2.0.0.0.2" class="anchored" data-anchor-id="sec-example-order-2"><span class="header-section-number">4.2.0.0.0.2</span> Приклад</h6>
-<p>Відсортуйте таблицю <code>courier_actions</code> спочатку по колонці <code>courier_id</code> за зростанням id кур’єра, потім по колонці <code>action</code> (знову за зростанням), а потім по колонці <code>time</code>, але вже за спаданням — від останньої дії до першої. Не забудьте включити колонку <code>order_id</code>.</p>
+<div id="exm-2" class="custom theorem example">
+<p><span class="theorem-title"><strong>Приклад 4.2 </strong></span>Відсортуйте таблицю <code>courier_actions</code> спочатку по колонці <code>courier_id</code> за зростанням id кур’єра, потім по колонці <code>action</code> (знову за зростанням), а потім по колонці <code>time</code>, але вже за спаданням — від останньої дії до першої. Не забудьте включити колонку <code>order_id</code>.</p>
 <p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
 <p>Поля у результуючій таблиці: <code>courier_id</code>, <code>order_id</code>, <code>action</code>, <code>time</code>.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -597,6 +595,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 </div>
+</div>
 <p>Ось ми й розібралися, як працюють оператори <code>ORDER BY</code> та <code>LIMIT</code>.</p>
 <p>Зараз важливо запам’ятати порядок запису всіх відомих нам ключових слів:</p>
 <ol type="1">
@@ -612,10 +611,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Потім <code>ORDER BY</code> - проводиться сортування результуючої таблиці.</li>
 <li>І наприкінці <code>LIMIT</code> — обмежується кількість записів, що виводяться.</li>
 </ol>
-</section>
-<section id="sec-example-order-3" class="level6" data-number="4.2.0.0.0.3">
-<h6 data-number="4.2.0.0.0.3" class="anchored" data-anchor-id="sec-example-order-3"><span class="header-section-number">4.2.0.0.0.3</span> Приклад</h6>
-<p>Використовуючи оператори <code>SELECT</code>, <code>FROM</code>, <code>ORDER BY</code> та <code>LIMIT</code>, визначте 5 найдорожчих товарів у таблиці <code>products</code>, які доставляє наш сервіс. Виведіть їх найменування та ціну.</p>
+<div id="exm-3" class="custom theorem example">
+<p><span class="theorem-title"><strong>Приклад 4.3 </strong></span>Використовуючи оператори <code>SELECT</code>, <code>FROM</code>, <code>ORDER BY</code> та <code>LIMIT</code>, визначте 5 найдорожчих товарів у таблиці <code>products</code>, які доставляє наш сервіс. Виведіть їх найменування та ціну.</p>
 <p>Поля у результуючій таблиці: <code>name</code>, <code>price</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name,</span>
@@ -656,7 +653,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 </div>
-</section>
+</div>
 </section>
 <section id="as" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="as"><span class="header-section-number">4.3</span> AS</h2>
@@ -670,9 +667,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name new_name</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="sec-example-as-1" class="level6" data-number="4.3.0.0.0.1">
-<h6 data-number="4.3.0.0.0.1" class="anchored" data-anchor-id="sec-example-as-1"><span class="header-section-number">4.3.0.0.0.1</span> Приклад</h6>
-<p>Повторіть запит із попереднього завдання, але тепер колонки <code>name</code> і <code>price</code> перейменуйте відповідно на <code>product_name</code> і <code>product_price</code>.</p>
+<div id="exm-4" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 4.4 </strong></span>Повторіть запит із попереднього завдання <span class="quarto-unresolved-ref">?sec-example-order-3</span>, але тепер колонки <code>name</code> і <code>price</code> перейменуйте відповідно на <code>product_name</code> і <code>product_price</code>.</p>
 <p>Поля у результуючій таблиці: <code>product_name</code>, <code>product_price</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name <span class="kw">AS</span> product_name,</span>
@@ -713,7 +709,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 </div>
-</section>
+</div>
 </section>
 <section id="типові-помилки-при-написанні-sql-запитів." class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="типові-помилки-при-написанні-sql-запитів."><span class="header-section-number">4.4</span> Типові помилки при написанні SQL-запитів.</h2>
@@ -753,6 +749,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Зараз деякі пункти можуть бути незрозумілими, але з часом ви розберетеся, про що йдеться.</p>
 </div>
 </div>
+<p><a href="#exm-1">Приклад&nbsp;<span>4.1</span></a></p>
+<p><a href="#exm-2">Приклад&nbsp;<span>4.2</span></a></p>
 
 
 </section>
