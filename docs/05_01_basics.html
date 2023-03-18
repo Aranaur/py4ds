@@ -229,7 +229,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#select" id="toc-select" class="nav-link active" data-scroll-target="#select"><span class="toc-section-number">4.1</span>  SELECT</a></li>
   <li><a href="#order-by" id="toc-order-by" class="nav-link" data-scroll-target="#order-by"><span class="toc-section-number">4.2</span>  ORDER BY</a></li>
-  <li><a href="#типові-помилки-при-написанні-sql-запитів." id="toc-типові-помилки-при-написанні-sql-запитів." class="nav-link" data-scroll-target="#типові-помилки-при-написанні-sql-запитів."><span class="toc-section-number">4.3</span>  Типові помилки при написанні SQL-запитів.</a></li>
+  <li><a href="#as" id="toc-as" class="nav-link" data-scroll-target="#as"><span class="toc-section-number">4.3</span>  AS</a></li>
+  <li><a href="#типові-помилки-при-написанні-sql-запитів." id="toc-типові-помилки-при-написанні-sql-запитів." class="nav-link" data-scroll-target="#типові-помилки-при-написанні-sql-запитів."><span class="toc-section-number">4.4</span>  Типові помилки при написанні SQL-запитів.</a></li>
   </ul>
 </nav>
     </div>
@@ -368,7 +369,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 </div>
-<p>На практиці таблиці можуть бути дуже великими, тому дуже бажано використовувати функцію <code>LIMIT</code> для того щоб не виводити всю таблицю, що може займати магато часу. Крім того, можливо такий запит навіть не буде виконано, оскільки розумні дата інженери заборонили виконувати такі запити.</p>
+<p>На практиці таблиці можуть бути дуже великими, тому дуже бажано використовувати функцію <code>LIMIT</code> для того щоб не виводити всю таблицю, що може займати багато часу. Крім того, можливо такий запит навіть не буде виконано, оскільки розумні дата інженери заборонили виконувати такі запити.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Примітка!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Оператор <code>FROM</code> завжди вказується після оператора <code>SELECT</code>. У зворотному порядку їх записувати не можна – база даних поверне помилку.</p>
+</div>
+</div>
 </section>
 <section id="order-by" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="order-by"><span class="header-section-number">4.2</span> ORDER BY</h2>
@@ -389,7 +403,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>      <span class="co">-- сортування за спаданням</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>Приклад:</strong> Виведіть всі записи з таблиці <code>products</code>, відсортувавши їх за найменуванням товарів <em>у алфавітному порядку</em>, тобто. за зростанням. Для сортування використовуйте оператор <code>ORDER BY</code>.</p>
+<section id="sec-example-order-1" class="level6" data-number="4.2.0.0.0.1">
+<h6 data-number="4.2.0.0.0.1" class="anchored" data-anchor-id="sec-example-order-1"><span class="header-section-number">4.2.0.0.0.1</span> Приклад</h6>
+<p>Виведіть всі записи з таблиці <code>products</code>, відсортувавши їх за найменуванням товарів <em>у алфавітному порядку</em>, тобто. за зростанням. Для сортування використовуйте оператор <code>ORDER BY</code>.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code></p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -452,20 +468,266 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 </div>
+<p>Сортувати результат SQL-запиту можна відразу за декількома колонками, вказуючи їх після <code>ORDER BY</code> через кому разом із напрямком сортування (<code>ASC</code> або <code>DESC</code>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>, column_2    <span class="co">-- спочатку сортування по першій колонці (за спаданням),</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                                    <span class="co">-- потім по другій (за зростанням)</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Примітка!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Важливо пам’ятати, що при роботі з великими таблицями потрібно по можливості обмежувати кількість виведених записів, щоб не створювати зайве навантаження на базу даних.</p>
+</div>
+</div>
+<p>Оператори <code>ORDER BY</code> та <code>LIMIT</code> можна поєднувати в одному запиті, при цьому оператор <code>LIMIT</code> записується та виконується після оператора <code>ORDER BY</code>, обмежуючи кількість записів у вже відсортованому результаті:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>, column_2</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">100</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="типові-помилки-при-написанні-sql-запитів." class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="типові-помилки-при-написанні-sql-запитів."><span class="header-section-number">4.3</span> Типові помилки при написанні SQL-запитів.</h2>
+<section id="sec-example-order-2" class="level6" data-number="4.2.0.0.0.2">
+<h6 data-number="4.2.0.0.0.2" class="anchored" data-anchor-id="sec-example-order-2"><span class="header-section-number">4.2.0.0.0.2</span> Приклад</h6>
+<p>Відсортуйте таблицю <code>courier_actions</code> спочатку по колонці <code>courier_id</code> за зростанням id кур’єра, потім по колонці <code>action</code> (знову за зростанням), а потім по колонці <code>time</code>, але вже за спаданням — від останньої дії до першої. Не забудьте включити колонку <code>order_id</code>.</p>
+<p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
+<p>Поля у результуючій таблиці: <code>courier_id</code>, <code>order_id</code>, <code>action</code>, <code>time</code>.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Примітка!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Як ви вже здогадалися, сортувати таблиці можна навіть по полях з датами та часом.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> courier_id,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>       order_id,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>       action,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>       <span class="dt">time</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   courier_actions</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> courier_id, action, <span class="dt">time</span> <span class="kw">DESC</span> <span class="kw">limit</span> <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="knitsql-table">
+<table class="table table-sm table-striped">
+<caption>Displaying records 1 - 10</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">courier_id</th>
+<th style="text-align: right;">order_id</th>
+<th style="text-align: left;">action</th>
+<th style="text-align: left;">time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">233</td>
+<td style="text-align: left;">accept_order</td>
+<td style="text-align: left;">25/08/22 01:55</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">194</td>
+<td style="text-align: left;">accept_order</td>
+<td style="text-align: left;">25/08/22 00:57</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: left;">accept_order</td>
+<td style="text-align: left;">24/08/22 21:53</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">233</td>
+<td style="text-align: left;">deliver_order</td>
+<td style="text-align: left;">25/08/22 02:16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">194</td>
+<td style="text-align: left;">deliver_order</td>
+<td style="text-align: left;">25/08/22 01:15</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: left;">deliver_order</td>
+<td style="text-align: left;">24/08/22 22:13</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">413</td>
+<td style="text-align: left;">accept_order</td>
+<td style="text-align: left;">25/08/22 08:29</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">346</td>
+<td style="text-align: left;">accept_order</td>
+<td style="text-align: left;">25/08/22 06:26</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">135</td>
+<td style="text-align: left;">accept_order</td>
+<td style="text-align: left;">24/08/22 23:31</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: left;">accept_order</td>
+<td style="text-align: left;">24/08/22 20:47</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Ось ми й розібралися, як працюють оператори <code>ORDER BY</code> та <code>LIMIT</code>.</p>
+<p>Зараз важливо запам’ятати порядок запису всіх відомих нам ключових слів:</p>
+<ol type="1">
+<li><code>SELECT</code></li>
+<li><code>FROM</code></li>
+<li><code>ORDER BY</code></li>
+<li><code>LIMIT</code></li>
+</ol>
+<p>Також важливо зрозуміти, що порядок їх виконання дещо відрізняється від того, в якій послідовності вони вказуються в SQL-запиті:</p>
+<ol type="1">
+<li>Спочатку виконується оператор <code>FROM</code> – відбувається вибір потрібної таблиці.</li>
+<li>Потім <code>SELECT</code> - відбираються вказані стовпці.</li>
+<li>Потім <code>ORDER BY</code> - проводиться сортування результуючої таблиці.</li>
+<li>І наприкінці <code>LIMIT</code> — обмежується кількість записів, що виводяться.</li>
+</ol>
+</section>
+<section id="sec-example-order-3" class="level6" data-number="4.2.0.0.0.3">
+<h6 data-number="4.2.0.0.0.3" class="anchored" data-anchor-id="sec-example-order-3"><span class="header-section-number">4.2.0.0.0.3</span> Приклад</h6>
+<p>Використовуючи оператори <code>SELECT</code>, <code>FROM</code>, <code>ORDER BY</code> та <code>LIMIT</code>, визначте 5 найдорожчих товарів у таблиці <code>products</code>, які доставляє наш сервіс. Виведіть їх найменування та ціну.</p>
+<p>Поля у результуючій таблиці: <code>name</code>, <code>price</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>       price</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   products</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> price <span class="kw">desc</span> <span class="kw">limit</span> <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="knitsql-table">
+<table class="table table-sm table-striped">
+<caption>5 records</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">name</th>
+<th style="text-align: right;">price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">caviar</td>
+<td style="text-align: right;">800</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mutton</td>
+<td style="text-align: right;">559</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">olive oil</td>
+<td style="text-align: right;">450</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pork</td>
+<td style="text-align: right;">450</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">decaffeinated coffee</td>
+<td style="text-align: right;">400</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="as" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="as"><span class="header-section-number">4.3</span> AS</h2>
+<p>При складанні SQL-запитів колонкам у результуючій таблиці можна надавати будь-які інші імена (їх ще називають «аліасами»). Це можна робити за допомогою оператора <code>AS</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name <span class="kw">AS</span> new_name</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Якщо раптом вам здасться, що на написання оператора <code>AS</code> йде занадто багато часу і сил, його можна опустити, вказавши нове ім’я колонки без нього. Наступний запис також спрацює:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name new_name</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="sec-example-as-1" class="level6" data-number="4.3.0.0.0.1">
+<h6 data-number="4.3.0.0.0.1" class="anchored" data-anchor-id="sec-example-as-1"><span class="header-section-number">4.3.0.0.0.1</span> Приклад</h6>
+<p>Повторіть запит із попереднього завдання, але тепер колонки <code>name</code> і <code>price</code> перейменуйте відповідно на <code>product_name</code> і <code>product_price</code>.</p>
+<p>Поля у результуючій таблиці: <code>product_name</code>, <code>product_price</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name <span class="kw">AS</span> product_name,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>       price <span class="kw">AS</span> product_price</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   products</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> price <span class="kw">desc</span> <span class="kw">limit</span> <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="knitsql-table">
+<table class="table table-sm table-striped">
+<caption>5 records</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">product_name</th>
+<th style="text-align: right;">product_price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">caviar</td>
+<td style="text-align: right;">800</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mutton</td>
+<td style="text-align: right;">559</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">olive oil</td>
+<td style="text-align: right;">450</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pork</td>
+<td style="text-align: right;">450</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">decaffeinated coffee</td>
+<td style="text-align: right;">400</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="типові-помилки-при-написанні-sql-запитів." class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="типові-помилки-при-написанні-sql-запитів."><span class="header-section-number">4.4</span> Типові помилки при написанні SQL-запитів.</h2>
 <ul>
 <li>Неправильний порядок або помилки у ключових словах. Правильний порядок операторів у запиті виглядає так:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>      <span class="co">-- перерахування полів результуючої таблиці</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>        <span class="co">-- вказівка джерела даних</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>       <span class="co">-- фільтрація даних</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span>    <span class="co">-- угруповання даних</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span>      <span class="co">-- фільтрація даних після угруповання</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span>    <span class="co">-- сортування результуючої таблиці</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span>       <span class="co">-- обмеження кількості записів, що виводяться</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>      <span class="co">-- перерахування полів результуючої таблиці</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>        <span class="co">-- вказівка джерела даних</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>       <span class="co">-- фільтрація даних</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span>    <span class="co">-- угруповання даних</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span>      <span class="co">-- фільтрація даних після угруповання</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span>    <span class="co">-- сортування результуючої таблиці</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span>       <span class="co">-- обмеження кількості записів, що виводяться</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Неправильно названі функції та оператори, що використовуються в запиті (наприклад, <code>DATEPART</code>, а не <code>DATE_PART</code>).</li>
