@@ -235,7 +235,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#cast" id="toc-cast" class="nav-link" data-scroll-target="#cast"><span class="toc-section-number">4.6</span>  CAST</a></li>
   <li><a href="#concat" id="toc-concat" class="nav-link" data-scroll-target="#concat"><span class="toc-section-number">4.7</span>  CONCAT</a></li>
   <li><a href="#date_part" id="toc-date_part" class="nav-link" data-scroll-target="#date_part"><span class="toc-section-number">4.8</span>  DATE_PART</a></li>
-  <li><a href="#типові-помилки-при-написанні-sql-запитів." id="toc-типові-помилки-при-написанні-sql-запитів." class="nav-link" data-scroll-target="#типові-помилки-при-написанні-sql-запитів."><span class="toc-section-number">4.9</span>  Типові помилки при написанні SQL-запитів.</a></li>
+  <li><a href="#coalesce" id="toc-coalesce" class="nav-link" data-scroll-target="#coalesce"><span class="toc-section-number">4.9</span>  COALESCE</a></li>
+  <li><a href="#типові-помилки-при-написанні-sql-запитів." id="toc-типові-помилки-при-написанні-sql-запитів." class="nav-link" data-scroll-target="#типові-помилки-при-написанні-sql-запитів."><span class="toc-section-number">4.10</span>  Типові помилки при написанні SQL-запитів.</a></li>
   </ul>
 </nav>
     </div>
@@ -1157,19 +1158,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Ознайомитись з іншими прикладами використання функції <code>DATE_PART</code> можна за <a href="https://www.postgresqltutorial.com/postgresql-date-functions/postgresql-date_part/">посиланням</a>.</p>
+<p>Ознайомитись з іншими прикладами використання функції <code>DATE_PART</code> можна за <a href="https://duckdb.org/docs/sql/functions/timestamptz">посиланням</a>.</p>
 </div>
 </div>
 <div id="exm-sql10" class="theorem example">
-<p><span class="theorem-title"><strong>Приклад 4.10 </strong></span>Виведіть id всіх кур’єрів та їхні роки народження з таблиці <code>couriers</code>.</p>
-<p>Рік народження необхідно одержати з колонки <code>birth_date</code>. Нову колонку з роком назвіть <code>birth_year</code>. Результат відсортуйте спочатку за спаданням року народження кур’єра (тобто від наймолодших до найстарших), потім за зростанням id кур’єра.</p>
+<p><span class="theorem-title"><strong>Приклад 4.10 </strong></span>Виведіть id десяти відсотків кур’єрів та їхні роки народження з таблиці <code>couriers</code>, використовуючи вибірку Бернуллі та встановіть початкове значення генератора випадкових величин (<code>seed</code>) рівний 123.</p>
+<p>Рік народження необхідно одержати з колонки <code>birth_date</code>. Нову колонку з роком назвіть <code>birth_year</code>.</p>
 <p>Поля у результуючій таблиці: <code>courier_id</code>, <code>birth_year</code></p>
+<p>У цьому прикладі ми використаємо випадкову вибірки Бернуллі за допомогою оператора <code>USING SAMPLE</code>, після котрого вказується розмір вибірки, а в дужках метод формування та початкове значення генератора випадкових величин.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Примітка!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ознайомитись з прикладами формування вибірок у DuckDB можна за <a href="https://duckdb.org/docs/sql/samples.html">посиланням</a>.</p>
+</div>
+</div>
 <p><strong>Рішення:</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> courier_id,</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>       date_part(<span class="st">'year'</span>, birth_date) birth_year</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   couriers</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> birth_year <span class="kw">desc</span>, courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="kw">USING</span> <span class="kw">SAMPLE</span> <span class="dv">10</span> <span class="kw">PERCENT</span> (bernoulli, <span class="dv">123</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
 <table class="table table-sm table-striped">
 <caption>Displaying records 1 - 10</caption>
@@ -1181,55 +1196,116 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">1997</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">1986</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">1993</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">1996</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">1995</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">1991</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">1991</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">1986</td>
+</tr>
+<tr class="odd">
 <td style="text-align: right;">83</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">187</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">200</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">232</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">411</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">450</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">467</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">481</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">726</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">790</td>
-<td style="text-align: right;">NA</td>
+<td style="text-align: right;">89</td>
+<td style="text-align: right;">1990</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
+</section>
+<section id="coalesce" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="coalesce"><span class="header-section-number">4.9</span> COALESCE</h2>
+<p>Ви могли помітити, що в минулому прикладі (<a href="#exm-sql10">Приклад&nbsp;<span>4.10</span></a>) для окремих рядків функція <code>DATE_PART</code> не повернула рік народження кур’єра, а замість них утворилися порожні значення. Якщо не помітили, уважно подивіться на результат запиту.</p>
+<p>Насправді це сталося тому, що в наших даних у колонці <code>birth_date</code> є перепустки — так звані значення <code>NULL</code> (у виводі результату це <code>NA</code>). Іншими словами, для окремих кур’єрів просто не вказано їхні дні народження. Є безліч варіантів, чому так могло статися, але ми зараз не маємо часу все це з’ясовувати — нам просто потрібно навчитися якось обробляти такі випадки.</p>
+<p>Давайте зробимо так, щоб замість порожніх значень функція <code>DATE_PART</code> повертала якесь інше значення. У цьому нам допоможе функція <code>COALESCE</code>, яка повертає перше не <code>NULL</code> значення зі списку поданих на вхід аргументів.</p>
+<p>Роботу <code>COALESCE</code> можна описати так: вона буквально читає список значень зліва направо і, як тільки бачить значення, яке не є <code>NULL</code>, відразу ж повертає його та припиняє читання списку. Подивіться уважно на такі приклади:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> courier_id,</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">coalesce</span>(date_part(<span class="st">'year'</span>, birth_date):<span class="ch">:varchar</span>, <span class="st">'unknown'</span>) birth_year</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   couriers</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> birth_year <span class="kw">desc</span>, courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">NULL</span>, <span class="st">'I am not NULL'</span> , <span class="st">'I.love.Python'</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>I am <span class="kw">not</span> <span class="kw">NULL</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">NULL</span>, <span class="dv">25</span>, <span class="dv">100</span>, <span class="dv">150</span>)</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="dv">25</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="st">'NULL'</span>, <span class="st">'I am not NULL'</span>, <span class="st">'I.love.Python'</span>)</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a><span class="kw">NULL</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Одним із аргументів функції <code>COALESCE</code> може бути результат виконання іншої функції:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">NULL</span>, <span class="fu">LOWER</span>(<span class="st">'I am not NULL'</span>), <span class="st">'I.love.Python'</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>i am <span class="kw">not</span> <span class="kw">null</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Щоб заповнити пропуски в колонці, достатньо застосувати функцію <code>COALESCE</code> до колонки з пропусками та вказати як другий аргумент те значення, яке ми хочемо бачити замість <code>NULL</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">column</span>, <span class="st">'filler value'</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Функція <code>COALESCE</code> застосовується до кожного значення колонки. Якщо це значення виявиться <code>NULL</code>, вона замінить його значення, вказане другим аргументом. Якщо значення колонці, навпаки, виявиться не <code>NULL</code>, то функція просто поверне це значення.</p>
+<p>При цьому до колонки з перепустками можна заздалегідь застосовувати різні інші функції:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">LEFT</span>(<span class="kw">column</span>, <span class="dv">5</span>), <span class="st">'filler value'</span>)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Примітка!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>З іншими прикладами використання функції <code>COALESCE</code> можна за <a href="https://duckdb.org/docs/sql/functions/utility">посиланням</a>.</p>
+</div>
+</div>
+<div id="exm-sql11" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 4.11 </strong></span>Як і в попередньому прикладі (<a href="#exm-sql10">Приклад&nbsp;<span>4.10</span></a>), знову виведіть id десяти відсотків кур’єрів та їх роки народження, тільки тепер до вилученого року застосуйте функцію <code>COALESCE</code>. Вкажіть параметри функції так, щоб замість значення <code>NULL</code> в результат потрапляло текстове значення <code>unknown</code>. Назви полів залиште колишніми.</p>
+<p>Поля у результуючій таблиці: <code>courier_id</code>, <code>birth_year</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    courier_id,</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COALESCE</span>(date_part(<span class="st">'year'</span>, birth_date):<span class="ch">:VARCHAR</span>, <span class="st">'unknown'</span>) birth_year</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    couriers</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="kw">USING</span> <span class="kw">SAMPLE</span> <span class="dv">10</span> <span class="kw">PERCENT</span> (bernoulli, <span class="dv">123</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
 <table class="table table-sm table-striped">
 <caption>Displaying records 1 - 10</caption>
@@ -1241,63 +1317,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
+<td style="text-align: right;">17</td>
+<td style="text-align: left;">1997</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">1986</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">40</td>
+<td style="text-align: left;">1993</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">49</td>
+<td style="text-align: left;">1996</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">52</td>
+<td style="text-align: left;">1995</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">64</td>
+<td style="text-align: left;">1991</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">72</td>
+<td style="text-align: left;">1991</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">78</td>
+<td style="text-align: left;">1986</td>
+</tr>
+<tr class="odd">
 <td style="text-align: right;">83</td>
 <td style="text-align: left;">unknown</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">187</td>
-<td style="text-align: left;">unknown</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">200</td>
-<td style="text-align: left;">unknown</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">232</td>
-<td style="text-align: left;">unknown</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">411</td>
-<td style="text-align: left;">unknown</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">450</td>
-<td style="text-align: left;">unknown</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">467</td>
-<td style="text-align: left;">unknown</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">481</td>
-<td style="text-align: left;">unknown</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">726</td>
-<td style="text-align: left;">unknown</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">790</td>
-<td style="text-align: left;">unknown</td>
+<td style="text-align: right;">89</td>
+<td style="text-align: left;">1990</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
+</div>
 </section>
-<section id="типові-помилки-при-написанні-sql-запитів." class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="типові-помилки-при-написанні-sql-запитів."><span class="header-section-number">4.9</span> Типові помилки при написанні SQL-запитів.</h2>
+<section id="типові-помилки-при-написанні-sql-запитів." class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="типові-помилки-при-написанні-sql-запитів."><span class="header-section-number">4.10</span> Типові помилки при написанні SQL-запитів.</h2>
 <ul>
 <li>Неправильний порядок або помилки у ключових словах. Правильний порядок операторів у запиті виглядає так:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>      <span class="co">-- перерахування полів результуючої таблиці</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>        <span class="co">-- вказівка джерела даних</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>       <span class="co">-- фільтрація даних</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span>    <span class="co">-- угруповання даних</span></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span>      <span class="co">-- фільтрація даних після угруповання</span></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span>    <span class="co">-- сортування результуючої таблиці</span></span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span>       <span class="co">-- обмеження кількості записів, що виводяться</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>      <span class="co">-- перерахування полів результуючої таблиці</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>        <span class="co">-- вказівка джерела даних</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>       <span class="co">-- фільтрація даних</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span>    <span class="co">-- угруповання даних</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span>      <span class="co">-- фільтрація даних після угруповання</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span>    <span class="co">-- сортування результуючої таблиці</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span>       <span class="co">-- обмеження кількості записів, що виводяться</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Неправильно названі функції та оператори, що використовуються в запиті (наприклад, <code>DATEPART</code>, а не <code>DATE_PART</code>).</li>
