@@ -589,6 +589,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="exm-sql03" class="theorem example">
 <p><span class="theorem-title"><strong>Приклад 4.3 </strong></span>Використовуючи оператори <code>SELECT</code>, <code>FROM</code>, <code>ORDER BY</code> та <code>LIMIT</code>, визначте 5 найдорожчих товарів у таблиці <code>products</code>, які доставляє наш сервіс. Виведіть їх найменування та ціну.</p>
 <p>Поля у результуючій таблиці: <code>name</code>, <code>price</code>.</p>
+<p><strong>Рішення:</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name,</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>       price</span>
@@ -645,6 +646,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="exm-sql04" class="theorem example">
 <p><span class="theorem-title"><strong>Приклад 4.4 </strong></span>Повторіть запит із з попереднього прикладу (<a href="#exm-sql03">Приклад&nbsp;<span>4.3</span></a>), але тепер колонки <code>name</code> і <code>price</code> перейменуйте відповідно на <code>product_name</code> і <code>product_price</code>.</p>
 <p>Поля у результуючій таблиці: <code>product_name</code>, <code>product_price</code></p>
+<p><strong>Рішення:</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name <span class="kw">AS</span> product_name,</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>       price <span class="kw">AS</span> product_price</span>
@@ -698,13 +700,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Якщо ви коли-небудь працювали в Excel, то вам, напевно, знайомі різні функції на кшталт <code>SUM</code>, <code>MIN</code>, <code>MAX</code> тощо, які роблять деякі обчислення по стовпцях. У SQL вони називаються <em>агрегуючими функціями</em>.</p>
 <p>Зараз як приклад розглянемо функцію <code>LENGTH</code>. Вона виконує досить просте завдання — підраховує кількість символів у поданому їй на вхід значенні текстового типу (текстовий тип даних часто називають рядком — від англ. «string»). Іншими словами, функція <code>LENGTH</code> вимірює довжину деякого рядка у символах:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">LENGTH</span>(<span class="st">'I.love.Python'</span>) <span class="kw">as</span> gendalf_say</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">LENGTH</span>(<span class="st">'I.love.Python'</span>) <span class="kw">as</span> py_love</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
 <table class="table table-sm table-striped">
 <caption>1 records</caption>
 <thead>
 <tr class="header">
-<th style="text-align: right;">gendalf_say</th>
+<th style="text-align: right;">py_love</th>
 </tr>
 </thead>
 <tbody>
@@ -723,6 +725,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="exm-sql05" class="theorem example">
 <p><span class="theorem-title"><strong>Приклад 4.5 </strong></span>Використовуючи оператори <code>SELECT</code>, <code>FROM</code>, <code>ORDER BY</code> та <code>LIMIT</code>, а також функцію <code>LENGTH</code>, визначте товар із найдовшою назвою у таблиці <code>products</code>. Виведіть його найменування, довжину найменування у символах, а також ціну цього товару. Назвіть колонку з довжиною найменування в символах <code>name_length</code>.</p>
 <p>Поля у результуючій таблиці: <code>name</code>, <code>name_length</code>, <code>price</code>.</p>
+<p><strong>Рішення:</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name,</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">length</span>(name) <span class="kw">as</span> name_length,</span>
@@ -979,6 +982,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="theorem-title"><strong>Приклад 4.8 </strong></span>Змініть тип колонки <code>price</code> з таблиці <code>products</code> на <code>VARCHAR</code>. Виведіть колонки з найменуванням товарів, ціною у вихідному форматі та ціною у форматі <code>VARCHAR</code>. Нову колонку з ціною у новому форматі назвіть <code>price_char</code>.</p>
 <p>Результат відсортуйте за зростанням початкового найменування товару в колонці name. Кількість записів, що виводяться, не обмежуйте.</p>
 <p>Поля в результуючій таблиці: <code>name</code>, <code>price</code>, <code>price_char</code></p>
+<p><strong>Рішення:</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    name,</span>
@@ -1063,7 +1067,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">CONCAT</span>(<span class="st">'SQL'</span>, <span class="st">' '</span>, <span class="st">'Python '</span>, <span class="dv">2023</span>)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>SQL Python <span class="dv">2022</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>SQL Python <span class="dv">2023</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>При цьому аргументи не обов’язково мають бути виражені текстовими значеннями — головне, вони мають бути конвертованими в текст. У прикладі вище число 2023 можна конвертувати в текст ‘2023’, тому запит працює без помилок.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -1090,10 +1094,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Рішення:</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CONCAT</span>(<span class="st">'Замовлення № '</span>, order_id, <span class="st">' створено '</span>, creation_time:<span class="ch">:DATE</span>) <span class="kw">as</span> order_info</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   </span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    orders</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CONCAT</span>(</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Замовлення № '</span>,</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>        order_id,</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">' створено '</span>,</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>        creation_time:<span class="ch">:DATE</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>        ) <span class="kw">as</span> order_info</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   </span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    orders</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
 <table class="table table-sm table-striped">
 <caption>5 records</caption>

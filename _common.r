@@ -1,6 +1,5 @@
 library(reticulate)
 
-
 # products %>% 
 #     mutate(name = case_when(
 #         name == 'ананас' ~ 'pineapple',

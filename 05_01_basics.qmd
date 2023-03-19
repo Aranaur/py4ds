@@ -162,6 +162,7 @@ ORDER BY courier_id, action, time DESC limit 5
 
 Поля у результуючій таблиці: `name`, `price`.
 
+**Рішення:**
 ```{sql}
 #| connection: con
 
@@ -197,6 +198,7 @@ FROM table
 
 Поля у результуючій таблиці: `product_name`, `product_price`
 
+**Рішення:**
 ```{sql}
 #| connection: con
 
@@ -229,7 +231,7 @@ FROM table
 ```{sql}
 #| connection: con
 
-SELECT LENGTH('I.love.Python') as gendalf_say
+SELECT LENGTH('I.love.Python') as py_love
 ```
 
 Функція `LENGTH` також може застосовуватись до всього стовпця. У такому випадку довжина символів буде порахована для кожного значення в стовпці. Відповідний запит виглядатиме так:
@@ -246,6 +248,7 @@ FROM table
 
 Поля у результуючій таблиці: `name`, `name_length`, `price`.
 
+**Рішення:**
 ```{sql}
 #| connection: con
 
@@ -445,6 +448,8 @@ SELECT '2022-12-31'::DATE as date
 Результат відсортуйте за зростанням початкового найменування товару в колонці name. Кількість записів, що виводяться, не обмежуйте.
 
 Поля в результуючій таблиці: `name`, `price`, `price_char`
+
+**Рішення:**
 ```{sql}
 #| connection: con
 
@@ -471,7 +476,7 @@ ORDER BY
 SELECT CONCAT('SQL', ' ', 'Python ', 2023)
 
 Результат:
-SQL Python 2022
+SQL Python 2023
 ```
 
 При цьому аргументи не обов'язково мають бути виражені текстовими значеннями — головне, вони мають бути конвертованими в текст. У прикладі вище число 2023 можна конвертувати в текст '2023', тому запит працює без помилок.
@@ -499,7 +504,12 @@ SQL Python 2022
 #| connection: con
 
 SELECT 
-    CONCAT('Замовлення № ', order_id, ' створено ', creation_time::DATE) as order_info
+    CONCAT(
+        'Замовлення № ',
+        order_id,
+        ' створено ',
+        creation_time::DATE
+        ) as order_info
 FROM   
     orders
 LIMIT 5
