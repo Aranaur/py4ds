@@ -20,9 +20,9 @@ title-block-modified: "Змінено"
 
 callout-tip-caption: "Порада!"
 callout-note-caption: "Примітка!"
-callout-warning-caption: "Попередження!"
+callout-warning-caption: "Увага!"
 callout-important-caption: "Важливо!"
-callout-caution-caption: "Небезпечно!"
+callout-caution-caption: "Обережно!"
 
 code-summary: "Код"
 

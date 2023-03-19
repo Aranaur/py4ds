@@ -230,7 +230,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#select" id="toc-select" class="nav-link active" data-scroll-target="#select"><span class="toc-section-number">4.1</span>  SELECT</a></li>
   <li><a href="#order-by" id="toc-order-by" class="nav-link" data-scroll-target="#order-by"><span class="toc-section-number">4.2</span>  ORDER BY</a></li>
   <li><a href="#as" id="toc-as" class="nav-link" data-scroll-target="#as"><span class="toc-section-number">4.3</span>  AS</a></li>
-  <li><a href="#типові-помилки-при-написанні-sql-запитів." id="toc-типові-помилки-при-написанні-sql-запитів." class="nav-link" data-scroll-target="#типові-помилки-при-написанні-sql-запитів."><span class="toc-section-number">4.4</span>  Типові помилки при написанні SQL-запитів.</a></li>
+  <li><a href="#length" id="toc-length" class="nav-link" data-scroll-target="#length"><span class="toc-section-number">4.4</span>  LENGTH</a></li>
+  <li><a href="#split_part" id="toc-split_part" class="nav-link" data-scroll-target="#split_part"><span class="toc-section-number">4.5</span>  SPLIT_PART</a></li>
+  <li><a href="#cast" id="toc-cast" class="nav-link" data-scroll-target="#cast"><span class="toc-section-number">4.6</span>  CAST</a></li>
+  <li><a href="#concat" id="toc-concat" class="nav-link" data-scroll-target="#concat"><span class="toc-section-number">4.7</span>  CONCAT</a></li>
+  <li><a href="#date_part" id="toc-date_part" class="nav-link" data-scroll-target="#date_part"><span class="toc-section-number">4.8</span>  DATE_PART</a></li>
+  <li><a href="#типові-помилки-при-написанні-sql-запитів." id="toc-типові-помилки-при-написанні-sql-запитів." class="nav-link" data-scroll-target="#типові-помилки-при-написанні-sql-запитів."><span class="toc-section-number">4.9</span>  Типові помилки при написанні SQL-запитів.</a></li>
   </ul>
 </nav>
     </div>
@@ -277,31 +282,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td style="text-align: right;">12</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">accept_order</td>
-<td style="text-align: left;">24/08/22 01:52</td>
+<td style="text-align: left;">2022-08-24 01:52:00</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">12</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">deliver_order</td>
-<td style="text-align: left;">24/08/22 02:15</td>
+<td style="text-align: left;">2022-08-24 02:15:00</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">156</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">accept_order</td>
-<td style="text-align: left;">24/08/22 06:37</td>
+<td style="text-align: left;">2022-08-24 06:37:00</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">156</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">deliver_order</td>
-<td style="text-align: left;">24/08/22 06:56</td>
+<td style="text-align: left;">2022-08-24 06:56:00</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">49</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: left;">accept_order</td>
-<td style="text-align: left;">24/08/22 07:35</td>
+<td style="text-align: left;">2022-08-24 07:35:00</td>
 </tr>
 </tbody>
 </table>
@@ -339,37 +344,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td style="text-align: left;">accept_order</td>
 <td style="text-align: right;">12</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">24/08/22 01:52</td>
+<td style="text-align: left;">2022-08-24 01:52:00</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">deliver_order</td>
 <td style="text-align: right;">12</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">24/08/22 02:15</td>
+<td style="text-align: left;">2022-08-24 02:15:00</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">accept_order</td>
 <td style="text-align: right;">156</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: left;">24/08/22 06:37</td>
+<td style="text-align: left;">2022-08-24 06:37:00</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">deliver_order</td>
 <td style="text-align: right;">156</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: left;">24/08/22 06:56</td>
+<td style="text-align: left;">2022-08-24 06:56:00</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">accept_order</td>
 <td style="text-align: right;">49</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: left;">24/08/22 07:35</td>
+<td style="text-align: left;">2022-08-24 07:35:00</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p>На практиці таблиці можуть бути дуже великими, тому дуже бажано використовувати функцію <code>LIMIT</code> для того щоб не виводити всю таблицю, що може займати багато часу. Крім того, можливо такий запит навіть не буде виконано, оскільки розумні дата інженери заборонили виконувати такі запити.</p>
+<p>На практиці таблиці можуть бути дуже великими, тому дуже бажано використовувати оператор <code>LIMIT</code> для того щоб не виводити всю таблицю, що може займати багато часу. Крім того, можливо такий запит навіть не буде виконано, оскільки розумні дата інженери заборонили виконувати такі запити.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -403,7 +408,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>      <span class="co">-- сортування за спаданням</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="exm-1" class="theorem example">
+<div id="exm-sql01" class="theorem example">
 <p><span class="theorem-title"><strong>Приклад 4.1 </strong></span>Виведіть всі записи з таблиці <code>products</code>, відсортувавши їх за найменуванням товарів <em>у алфавітному порядку</em>, тобто. за зростанням. Для сортування використовуйте оператор <code>ORDER BY</code>.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code></p>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -493,9 +498,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>, column_2</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">100</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="exm-2" class="custom theorem example">
+<div id="exm-sql02" class="theorem example">
 <p><span class="theorem-title"><strong>Приклад 4.2 </strong></span>Відсортуйте таблицю <code>courier_actions</code> спочатку по колонці <code>courier_id</code> за зростанням id кур’єра, потім по колонці <code>action</code> (знову за зростанням), а потім по колонці <code>time</code>, але вже за спаданням — від останньої дії до першої. Не забудьте включити колонку <code>order_id</code>.</p>
 <p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
 <p>Поля у результуючій таблиці: <code>courier_id</code>, <code>order_id</code>, <code>action</code>, <code>time</code>.</p>
@@ -518,10 +523,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>       action,</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>       <span class="dt">time</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   courier_actions</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> courier_id, action, <span class="dt">time</span> <span class="kw">DESC</span> <span class="kw">limit</span> <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> courier_id, action, <span class="dt">time</span> <span class="kw">DESC</span> <span class="kw">limit</span> <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
 <table class="table table-sm table-striped">
-<caption>Displaying records 1 - 10</caption>
+<caption>5 records</caption>
 <thead>
 <tr class="header">
 <th style="text-align: right;">courier_id</th>
@@ -535,68 +540,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">233</td>
 <td style="text-align: left;">accept_order</td>
-<td style="text-align: left;">25/08/22 01:55</td>
+<td style="text-align: left;">2022-08-25 01:55:00</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">194</td>
 <td style="text-align: left;">accept_order</td>
-<td style="text-align: left;">25/08/22 00:57</td>
+<td style="text-align: left;">2022-08-25 00:57:00</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">98</td>
 <td style="text-align: left;">accept_order</td>
-<td style="text-align: left;">24/08/22 21:53</td>
+<td style="text-align: left;">2022-08-24 21:53:00</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">233</td>
 <td style="text-align: left;">deliver_order</td>
-<td style="text-align: left;">25/08/22 02:16</td>
+<td style="text-align: left;">2022-08-25 02:16:00</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">194</td>
 <td style="text-align: left;">deliver_order</td>
-<td style="text-align: left;">25/08/22 01:15</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: left;">deliver_order</td>
-<td style="text-align: left;">24/08/22 22:13</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">413</td>
-<td style="text-align: left;">accept_order</td>
-<td style="text-align: left;">25/08/22 08:29</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">346</td>
-<td style="text-align: left;">accept_order</td>
-<td style="text-align: left;">25/08/22 06:26</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">135</td>
-<td style="text-align: left;">accept_order</td>
-<td style="text-align: left;">24/08/22 23:31</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">66</td>
-<td style="text-align: left;">accept_order</td>
-<td style="text-align: left;">24/08/22 20:47</td>
+<td style="text-align: left;">2022-08-25 01:15:00</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<p>Ось ми й розібралися, як працюють оператори <code>ORDER BY</code> та <code>LIMIT</code>.</p>
 <p>Зараз важливо запам’ятати порядок запису всіх відомих нам ключових слів:</p>
 <ol type="1">
 <li><code>SELECT</code></li>
@@ -611,7 +585,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Потім <code>ORDER BY</code> - проводиться сортування результуючої таблиці.</li>
 <li>І наприкінці <code>LIMIT</code> — обмежується кількість записів, що виводяться.</li>
 </ol>
-<div id="exm-3" class="custom theorem example">
+<div id="exm-sql03" class="theorem example">
 <p><span class="theorem-title"><strong>Приклад 4.3 </strong></span>Використовуючи оператори <code>SELECT</code>, <code>FROM</code>, <code>ORDER BY</code> та <code>LIMIT</code>, визначте 5 найдорожчих товарів у таблиці <code>products</code>, які доставляє наш сервіс. Виведіть їх найменування та ціну.</p>
 <p>Поля у результуючій таблиці: <code>name</code>, <code>price</code>.</p>
 <div class="cell">
@@ -667,8 +641,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name new_name</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="exm-4" class="theorem example">
-<p><span class="theorem-title"><strong>Приклад 4.4 </strong></span>Повторіть запит із попереднього завдання <span class="quarto-unresolved-ref">?sec-example-order-3</span>, але тепер колонки <code>name</code> і <code>price</code> перейменуйте відповідно на <code>product_name</code> і <code>product_price</code>.</p>
+<div id="exm-sql04" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 4.4 </strong></span>Повторіть запит із з попереднього прикладу (<a href="#exm-sql03">Приклад&nbsp;<span>4.3</span></a>), але тепер колонки <code>name</code> і <code>price</code> перейменуйте відповідно на <code>product_name</code> і <code>product_price</code>.</p>
 <p>Поля у результуючій таблиці: <code>product_name</code>, <code>product_price</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name <span class="kw">AS</span> product_name,</span>
@@ -711,19 +685,619 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="типові-помилки-при-написанні-sql-запитів." class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="типові-помилки-при-написанні-sql-запитів."><span class="header-section-number">4.4</span> Типові помилки при написанні SQL-запитів.</h2>
+<section id="length" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="length"><span class="header-section-number">4.4</span> LENGTH</h2>
+<p>У SQL-запитах до колонок таблиць можна використовувати різні функції, наприклад, як в Excel.</p>
+<p>У загальному вигляді синтаксис функцій виглядає приблизно так:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">function</span>(a, b, c, <span class="op">..</span>.)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Замість <code>function</code> вказується назва функції, а дужках — її аргументи. Як аргументи можуть виступати як колонки зі значеннями, так і окремі значення. Залежно від функції кількість аргументів може відрізнятися.</p>
+<p>Якщо ви коли-небудь працювали в Excel, то вам, напевно, знайомі різні функції на кшталт <code>SUM</code>, <code>MIN</code>, <code>MAX</code> тощо, які роблять деякі обчислення по стовпцях. У SQL вони називаються <em>агрегуючими функціями</em>.</p>
+<p>Зараз як приклад розглянемо функцію <code>LENGTH</code>. Вона виконує досить просте завдання — підраховує кількість символів у поданому їй на вхід значенні текстового типу (текстовий тип даних часто називають рядком — від англ. «string»). Іншими словами, функція <code>LENGTH</code> вимірює довжину деякого рядка у символах:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">LENGTH</span>(<span class="st">'You shall not pass!'</span>) <span class="kw">as</span> gendalf_say</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="knitsql-table">
+<table class="table table-sm table-striped">
+<caption>1 records</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">gendalf_say</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">19</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Функція <code>LENGTH</code> також може застосовуватись до всього стовпця. У такому випадку довжина символів буде порахована для кожного значення в стовпці. Відповідний запит виглядатиме так:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">LENGTH</span>(<span class="kw">column</span>) <span class="kw">AS</span> column_length</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="exm-sql05" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 4.5 </strong></span>Використовуючи оператори <code>SELECT</code>, <code>FROM</code>, <code>ORDER BY</code> та <code>LIMIT</code>, а також функцію <code>LENGTH</code>, визначте товар із найдовшою назвою у таблиці <code>products</code>. Виведіть його найменування, довжину найменування у символах, а також ціну цього товару. Назвіть колонку з довжиною найменування в символах <code>name_length</code>.</p>
+<p>Поля у результуючій таблиці: <code>name</code>, <code>name_length</code>, <code>price</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name,</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">length</span>(name) <span class="kw">as</span> name_length,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>       price</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   products</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> name_length <span class="kw">desc</span> <span class="kw">limit</span> <span class="dv">1</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="knitsql-table">
+<table class="table table-sm table-striped">
+<caption>1 records</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">name</th>
+<th style="text-align: right;">name_length</th>
+<th style="text-align: right;">price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">fruit drink blueberry</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">170</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Примітка!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Зверніть увагу, що в цьому прикладі ви сортуєте результуючу таблицю по розрахунковій колонці <code>name_length</code>, якої спочатку не було таблиці <code>products</code>.</p>
+<p>Таке сортування за новими колонками можливе, оскільки це узгоджується з порядком виконання операторів у запиті: спочатку виконується вибір колонок і всі перетворення над ними в операторі <code>SELECT</code> — і тільки потім проводиться сортування за вказаними в <code>ORDER BY</code> стовпчиками. Тобто на момент сортування всі розрахункові поля вже існують, а значить, їх можна вказувати в <code>ORDER BY</code>.</p>
+<p>Також зверніть увагу, що ми двічі вказуємо колонку <code>name</code> в операторі <code>SELECT</code>: вперше просто звертаємося до неї за ім’ям, а вдруге - використовуємо її як аргумент функції <code>LENGTH</code>. У цьому випадку теж немає жодних протиріч - ми можемо вибирати колонку стільки разів, скільки необхідно, причому для цього навіть необов’язково надавати цим колонкам різні аліаси (база даних сама перейменує дублікат колонки).</p>
+</div>
+</div>
+</div>
+<p>У SQL, як й у багатьох інших мовах, функції можна застосовувати до інших функцій, тобто. послідовно:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> function_one(function_two(a, b), c)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>У наведеній вище конструкції <code>a</code>, <code>b</code>, <code>c</code> аргументи функцій. При цьому одним із аргументів функції <code>function_one</code> є результат виконання функції <code>function_two</code>.</p>
+<p>Таким чином, спочатку буде виконана функція <code>function_two</code>, а потім її результат буде поданий на вхід функції <code>function_one</code> як один з аргументів.</p>
+<p>Розглянемо такий випадок на прикладі функцій <code>UPPER</code> та <code>LEFT</code>. Функція <code>UPPER</code> наводить подане їй на вхід текстове значення до верхнього регістру:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">UPPER</span>(<span class="st">'You Shall not pass!'</span>) <span class="kw">AS</span> upper_all</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>YOU SHALL <span class="kw">NOT</span> PASS!</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Функція <code>LEFT</code> повертає перші <code>n</code> символів у рядку:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">LEFT</span>(<span class="st">'You shall not pass!'</span>, <span class="dv">9</span>) <span class="kw">AS</span> first_n</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>You shall</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ми можемо застосувати ці функції послідовно і в результаті отримаємо перші три символів верхнього регістру:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">UPPER</span>(<span class="kw">LEFT</span>(<span class="st">'You shall not pass!'</span>, <span class="dv">3</span>))</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>YOU</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Обережно!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Важливо: зверніть увагу, що у блоці <code>SELECT</code> не можна виконати дві операції окремо, тобто. ми не можемо спочатку створити розрахункову колонку з першими шістьма символами, а потім відразу ж звернутися до цієї нової колонки, застосувавши до неї функцію <code>UPPER</code>.</p>
+</div>
+</div>
+<p>Наступний запит не буде виконано, база даних поверне помилку:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">LEFT</span>(<span class="st">'You shall not pass!'</span>, <span class="dv">3</span>) <span class="kw">AS</span> first_n,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">UPPER</span>(first_n) <span class="kw">AS</span> upper_first_n</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>Error running <span class="kw">query</span>: <span class="kw">column</span> <span class="ot">"new_name"</span> does <span class="kw">not</span> exist</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>В межах одного запиту колонки створюються не по черзі, а разом, тому в межах одного запиту колонки <code>upper_first_n</code> не існує, поки блок <code>SELECT</code> не буде повністю виконаний. Дуже важливо враховувати цю особливість мови.</p>
+<p>Однак на практиці до нових колонок доводиться звертатися досить часто — саме для цього є підзапити (запити до інших запитів). А поки що нам достатньо розуміти, що застосовувати функції до розрахункових колонок у тому ж запиті не можна.</p>
+</section>
+<section id="split_part" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="split_part"><span class="header-section-number">4.5</span> SPLIT_PART</h2>
+<p>Функція <code>SPLIT_PART</code> розбиває поданий їй на вхід рядок на кілька частин відповідно до зазначеного роздільника та повертає одну з частин.</p>
+<p>Крім самого рядка (або колонки зі значеннями рядкового типу), функція приймає ще два аргументи — роздільник і порядковий номер частини, яку необхідно повернути. Подивіться наступний приклад:</p>
+<div id="exm-sql06" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 4.6 </strong></span>&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> SPLIT_PART(<span class="st">'You shall not pass!'</span>, <span class="st">' '</span>, <span class="dv">4</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>pass!</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>У прикладі вище рядок ‘You Shall not pass!’ було розбито на чотири частини (‘You’, ‘shall’, ‘not’ і ‘pass!’) по роздільнику “пробіл”. Функція повернула ‘pass’, оскільки третім аргументом ми вказали частину із порядковим номером 4.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Примітка!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Докладніше з іншими функціями для роботи з рядками можна ознайомитись за <a href="https://www.postgresqltutorial.com/postgresql-string-functions/">посиланням</a>.</p>
+</div>
+</div>
+<div id="exm-sql07" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 4.7 </strong></span>Застосуйте послідовно функції <code>UPPER</code> та <code>SPLIT_PART</code> до колонки <code>name</code> та перетворіть найменування товарів у таблиці <code>products</code> так, щоб від назв залишилося тільки перше слово, записане у верхньому регістрі. Колонку з новою назвою, що складається із першого слова, назвіть <code>first_word</code>.</p>
+<p>У результаті виведіть вихідні найменування товарів, нові найменування з першого слова, а також ціну товарів. Результат відсортуйте за зростанням початкового найменування товару в колонці <code>name</code>.</p>
+<p>Поля у результуючій таблиці: <code>name</code>, <code>first_word</code>, <code>price</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    name,</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">UPPER</span>(SPLIT_PART(name, <span class="st">' '</span>, <span class="dv">1</span>)) <span class="kw">AS</span> first_word,</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    price</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    products</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    name</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="knitsql-table">
+<table class="table table-sm table-striped">
+<caption>Displaying records 1 - 10</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">name</th>
+<th style="text-align: left;">first_word</th>
+<th style="text-align: right;">price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">apple juice</td>
+<td style="text-align: left;">APPLE</td>
+<td style="text-align: right;">120</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">apples</td>
+<td style="text-align: left;">APPLES</td>
+<td style="text-align: right;">75</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bagels</td>
+<td style="text-align: left;">BAGELS</td>
+<td style="text-align: right;">45</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">bananas</td>
+<td style="text-align: left;">BANANAS</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">beef</td>
+<td style="text-align: left;">BEEF</td>
+<td style="text-align: right;">370</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">black chocolate</td>
+<td style="text-align: left;">BLACK</td>
+<td style="text-align: right;">60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">black leaf tea</td>
+<td style="text-align: left;">BLACK</td>
+<td style="text-align: right;">84</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">black tea bags</td>
+<td style="text-align: left;">BLACK</td>
+<td style="text-align: right;">56</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bread</td>
+<td style="text-align: left;">BREAD</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">buckwheat</td>
+<td style="text-align: left;">BUCKWHEAT</td>
+<td style="text-align: right;">67</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="cast" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="cast"><span class="header-section-number">4.6</span> CAST</h2>
+<p>Іноді виникає необхідність змінити тип даних у якійсь колонці результуючої таблиці, не змінюючи при цьому властивості вихідної таблиці, наприклад, перетворити число на текст (тип даних <code>VARCHAR</code>). І тому існує функція <code>CAST</code>.</p>
+<p>На вхід функції <code>CAST</code> необхідно подати ім’я колонки, вказавши через <code>AS</code> тип даних, до якого потрібно привести всі значення:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">CAST</span>(<span class="kw">column</span> <span class="kw">AS</span> <span class="dt">VARCHAR</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Також можна змінити тип даних за допомогою спеціального синтаксису з двома двокрапками («<code>::</code>»):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">column</span>:<span class="ch">:VARCHAR</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Наприклад, переведемо текст ‘100’ у число 100:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">CAST</span>(<span class="st">'100'</span> <span class="kw">AS</span> <span class="dt">INTEGER</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Зверніть увагу, що для успішної конвертації значення повинні бути конвертованими у вказаний тип. Наприклад, текст, який не виглядає як число, перевести до числового типу даних не вийде:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">CAST</span>(<span class="st">'text'</span> <span class="kw">AS</span> <span class="dt">INTEGER</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>Error running <span class="kw">query</span>: invalid input syntax <span class="cf">for</span> <span class="kw">type</span> <span class="dt">integer</span>: <span class="ot">"text"</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Аналогічним чином можна, наприклад, перетворити текст на дату (якщо він виглядає як дата):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="st">'2022-12-31'</span>:<span class="ch">:DATE</span> <span class="kw">as</span> <span class="dt">date</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="dv">2022</span><span class="op">-</span><span class="dv">12</span><span class="op">-</span><span class="dv">31</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Примітка!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Докладніше з функцією <code>CAST</code> та перетворенням типів даних можна ознайомитись за цим <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-cast/">посиланням</a>.</p>
+<p>Про самі типи даних можна почитати <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-data-types/">тут</a>.</p>
+</div>
+</div>
+<div id="exm-sql08" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 4.8 </strong></span>Змініть тип колонки <code>price</code> з таблиці <code>products</code> на <code>VARCHAR</code>. Виведіть колонки з найменуванням товарів, ціною у вихідному форматі та ціною у форматі <code>VARCHAR</code>. Нову колонку з ціною у новому форматі назвіть <code>price_char</code>.</p>
+<p>Результат відсортуйте за зростанням початкового найменування товару в колонці name. Кількість записів, що виводяться, не обмежуйте.</p>
+<p>Поля в результуючій таблиці: <code>name</code>, <code>price</code>, <code>price_char</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    name,</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    price,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CAST</span>(price <span class="kw">as</span> <span class="dt">VARCHAR</span>) <span class="kw">as</span> price_char</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    products</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    name</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="knitsql-table">
+<table class="table table-sm table-striped">
+<caption>Displaying records 1 - 10</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">name</th>
+<th style="text-align: right;">price</th>
+<th style="text-align: left;">price_char</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">apple juice</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: left;">120.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">apples</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">75.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bagels</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: left;">45.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">bananas</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">100.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">beef</td>
+<td style="text-align: right;">370</td>
+<td style="text-align: left;">370.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">black chocolate</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: left;">60.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">black leaf tea</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: left;">84.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">black tea bags</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: left;">56.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bread</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: left;">40.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">buckwheat</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: left;">67.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="concat" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="concat"><span class="header-section-number">4.7</span> CONCAT</h2>
+<p>У цьому підрозділі ми ще трохи попрацюємо з текстовими даними та розглянемо функцію <code>CONCAT</code>, за допомогою якої можна з’єднувати в один рядок значення кількох стовпців.</p>
+<p>Функція <code>CONCAT</code> приймає на вхід кілька аргументів і повертає результат їхньої послідовної складання один з одним. Хороша аналогія - складання речень з різних карток зі словами:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">CONCAT</span>(<span class="st">'SQL'</span>, <span class="st">' '</span>, <span class="st">'Python '</span>, <span class="dv">2023</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>SQL Python <span class="dv">2022</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>При цьому аргументи не обов’язково мають бути виражені текстовими значеннями — головне, вони мають бути конвертованими в текст. У прикладі вище число 2023 можна конвертувати в текст ‘2023’, тому запит працює без помилок.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Примітка!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ознайомитись з іншими прикладами використання функції <code>CONCAT</code> можна за <a href="https://www.postgresqltutorial.com/postgresql-string-functions/postgresql-concat-function/">посиланням</a>.</p>
+</div>
+</div>
+<div id="exm-sql09" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 4.9 </strong></span>Для перших 5 записів з таблиці <code>orders</code> виведіть інформацію у такому вигляді (зверніть увагу на пробіли):</p>
+<p>Замовлення № [<code>id_замовлення</code>] створено [<code>дата</code>]</p>
+<p>Отриману колонку назвіть <code>order_info</code>.</p>
+<p>Приклад результату:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>Замовлення № <span class="dv">65</span> створено <span class="dv">2022</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">01</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Рішення:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CONCAT</span>(<span class="st">'Замовлення № '</span>, order_id, <span class="st">' створено '</span>, creation_time:<span class="ch">:DATE</span>) <span class="kw">as</span> order_info</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    orders</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="knitsql-table">
+<table class="table table-sm table-striped">
+<caption>5 records</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">order_info</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Замовлення № 1 створено 2022-08-24</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Замовлення № 2 створено 2022-08-24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Замовлення № 3 створено 2022-08-24</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Замовлення № 4 створено 2022-08-24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Замовлення № 5 створено 2022-08-24</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="date_part" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="date_part"><span class="header-section-number">4.8</span> DATE_PART</h2>
+<p>Як ви вже помітили, у наших таблицях значення деяких колонках представлені у форматі дати (<code>DATE</code>) і часу (<code>TIMESTAMP</code>). Давайте трохи попрацюємо з такими даними.</p>
+<p>Насправді часто зустрічаються завдання, коли потрібна, наприклад, не вся дата, а якась її частина: рік, місяць, день, година тощо. Витягти цю частину вихідних даних дозволяє функція <code>DATE_PART</code>. Її синтаксис наступний:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> DATE_PART(part, <span class="kw">column</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>На місці <code>part</code> необхідно в лапках вказати ту частину, яку потрібно витягти: <code>'year'</code>, <code>'month'</code>, <code>'day'</code>, <code>'hour'</code> тощо. На місці <code>column</code> слід вказати потрібну колонку чи конкретну дату чи час. Наприклад:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> DATE_PART(<span class="st">'day'</span>, <span class="dt">DATE</span> <span class="st">'2022-01-12'</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fl">12.00</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> DATE_PART(<span class="st">'minute'</span>, <span class="dt">TIMESTAMP</span> <span class="st">'2022-01-12 20:31:05'</span>)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="fl">31.00</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Вище ми вказали конкретну дату. На її місці міг бути, наприклад, стовпчик з датами <code>dates</code>. Тоді запит виглядав би так:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> DATE_PART(<span class="st">'day'</span>, dates)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Примітка!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ознайомитись з іншими прикладами використання функції <code>DATE_PART</code> можна за <a href="https://www.postgresqltutorial.com/postgresql-date-functions/postgresql-date_part/">посиланням</a>.</p>
+</div>
+</div>
+<div id="exm-sql10" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 4.10 </strong></span>Виведіть id всіх кур’єрів та їхні роки народження з таблиці <code>couriers</code>.</p>
+<p>Рік народження необхідно одержати з колонки <code>birth_date</code>. Нову колонку з роком назвіть <code>birth_year</code>. Результат відсортуйте спочатку за спаданням року народження кур’єра (тобто від наймолодших до найстарших), потім за зростанням id кур’єра.</p>
+<p>Поля у результуючій таблиці: <code>courier_id</code>, <code>birth_year</code></p>
+<p><strong>Рішення:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> courier_id,</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>       date_part(<span class="st">'year'</span>, birth_date) birth_year</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   couriers</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> birth_year <span class="kw">desc</span>, courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="knitsql-table">
+<table class="table table-sm table-striped">
+<caption>Displaying records 1 - 10</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">courier_id</th>
+<th style="text-align: right;">birth_year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">187</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">200</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">232</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">411</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">450</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">467</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">481</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">726</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">790</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> courier_id,</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">coalesce</span>(date_part(<span class="st">'year'</span>, birth_date):<span class="ch">:varchar</span>, <span class="st">'unknown'</span>) birth_year</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   couriers</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> birth_year <span class="kw">desc</span>, courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="knitsql-table">
+<table class="table table-sm table-striped">
+<caption>Displaying records 1 - 10</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">courier_id</th>
+<th style="text-align: left;">birth_year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">83</td>
+<td style="text-align: left;">unknown</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">187</td>
+<td style="text-align: left;">unknown</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">200</td>
+<td style="text-align: left;">unknown</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">232</td>
+<td style="text-align: left;">unknown</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">411</td>
+<td style="text-align: left;">unknown</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">450</td>
+<td style="text-align: left;">unknown</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">467</td>
+<td style="text-align: left;">unknown</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">481</td>
+<td style="text-align: left;">unknown</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">726</td>
+<td style="text-align: left;">unknown</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">790</td>
+<td style="text-align: left;">unknown</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="типові-помилки-при-написанні-sql-запитів." class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="типові-помилки-при-написанні-sql-запитів."><span class="header-section-number">4.9</span> Типові помилки при написанні SQL-запитів.</h2>
 <ul>
 <li>Неправильний порядок або помилки у ключових словах. Правильний порядок операторів у запиті виглядає так:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>      <span class="co">-- перерахування полів результуючої таблиці</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>        <span class="co">-- вказівка джерела даних</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>       <span class="co">-- фільтрація даних</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span>    <span class="co">-- угруповання даних</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span>      <span class="co">-- фільтрація даних після угруповання</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span>    <span class="co">-- сортування результуючої таблиці</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span>       <span class="co">-- обмеження кількості записів, що виводяться</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>      <span class="co">-- перерахування полів результуючої таблиці</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>        <span class="co">-- вказівка джерела даних</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>       <span class="co">-- фільтрація даних</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span>    <span class="co">-- угруповання даних</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span>      <span class="co">-- фільтрація даних після угруповання</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span>    <span class="co">-- сортування результуючої таблиці</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span>       <span class="co">-- обмеження кількості записів, що виводяться</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Неправильно названі функції та оператори, що використовуються в запиті (наприклад, <code>DATEPART</code>, а не <code>DATE_PART</code>).</li>
@@ -749,8 +1323,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Зараз деякі пункти можуть бути незрозумілими, але з часом ви розберетеся, про що йдеться.</p>
 </div>
 </div>
-<p><a href="#exm-1">Приклад&nbsp;<span>4.1</span></a></p>
-<p><a href="#exm-2">Приклад&nbsp;<span>4.2</span></a></p>
 
 
 </section>
