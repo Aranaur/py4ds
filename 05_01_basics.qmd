@@ -229,7 +229,7 @@ FROM table
 ```{sql}
 #| connection: con
 
-SELECT LENGTH('You shall not pass!') as gendalf_say
+SELECT LENGTH('I.love.Python') as gendalf_say
 ```
 
 Функція `LENGTH` також може застосовуватись до всього стовпця. У такому випадку довжина символів буде порахована для кожного значення в стовпці. Відповідний запит виглядатиме так:
@@ -284,10 +284,10 @@ SELECT function_one(function_two(a, b), c)
 #| eval: false
 
 SELECT 
-    UPPER('You Shall not pass!') AS upper_all
+    UPPER('I.love.Python') AS upper_all
 
 Результат:
-YOU SHALL NOT PASS!
+I.LOVE.PYTHON
 ```
 
 Функція `LEFT` повертає перші `n` символів у рядку:
@@ -296,10 +296,10 @@ YOU SHALL NOT PASS!
 #| eval: false
 
 SELECT 
-    LEFT('You shall not pass!', 9) AS first_n
+    LEFT('I.love.Python', 6) AS first_n
 
 Результат:
-You shall
+I.love
 ```
 
 Ми можемо застосувати ці функції послідовно і в результаті отримаємо перші три символів верхнього регістру:
@@ -308,10 +308,10 @@ You shall
 #| eval: false
 
 SELECT 
-    UPPER(LEFT('You shall not pass!', 3))
+    UPPER(LEFT('I.love.Python', 6))
 
 Результат:
-YOU
+I.LOVE
 ```
 
 ::: {.callout-caution}
@@ -324,7 +324,7 @@ YOU
 #| eval: false
 
 SELECT 
-    LEFT('You shall not pass!', 3) AS first_n,
+    LEFT('I.love.Python', 3) AS first_n,
     UPPER(first_n) AS upper_first_n
 
 Результат:
@@ -345,17 +345,17 @@ Error running query: column "new_name" does not exist
 ```{sql}
 #| eval: false
 
-SELECT SPLIT_PART('You shall not pass!', ' ', 4)
+SELECT SPLIT_PART('I.love.Python', '.', 3)
 
 Результат:
-pass!
+Python
 ```
 :::
 
-У прикладі вище рядок 'You Shall not pass!' було розбито на чотири частини ('You', 'shall', 'not' і 'pass!') по роздільнику "пробіл". Функція повернула 'pass', оскільки третім аргументом ми вказали частину із порядковим номером 4.
+У прикладі вище рядок 'I.love.Python' було розбито на три частини ('I', 'love' та 'Python') по роздільнику ".". Функція повернула 'Python', оскільки третім аргументом ми вказали частину із порядковим номером 3.
 
 ::: {.callout-note}
-Докладніше з іншими функціями для роботи з рядками можна ознайомитись за [посиланням](https://www.postgresqltutorial.com/postgresql-string-functions/).
+Докладніше з іншими функціями для роботи з рядками можна ознайомитись за [посиланням](https://duckdb.org/docs/sql/functions/char).
 :::
 
 ::: {#exm-sql07}
@@ -434,9 +434,9 @@ SELECT '2022-12-31'::DATE as date
 ```
 
 ::: {.callout-note}
-Докладніше з функцією `CAST` та перетворенням типів даних можна ознайомитись за цим [посиланням](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-cast/).
+Докладніше з функцією `CAST` та перетворенням типів даних можна ознайомитись за цим [посиланням](https://duckdb.org/docs/sql/expressions/cast).
 
-Про самі типи даних можна почитати [тут](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-data-types/).
+Про самі типи даних можна почитати [тут](https://duckdb.org/docs/sql/data_types/overview).
 :::
 
 ::: {#exm-sql08}
@@ -477,7 +477,7 @@ SQL Python 2022
 При цьому аргументи не обов'язково мають бути виражені текстовими значеннями — головне, вони мають бути конвертованими в текст. У прикладі вище число 2023 можна конвертувати в текст '2023', тому запит працює без помилок.
 
 ::: {.callout-note}
-Ознайомитись з іншими прикладами використання функції `CONCAT` можна за [посиланням](https://www.postgresqltutorial.com/postgresql-string-functions/postgresql-concat-function/).
+Ознайомитись з іншими прикладами використання функції `CONCAT` можна за [посиланням](https://duckdb.org/docs/sql/functions/char).
 :::
 
 ::: {#exm-sql09}

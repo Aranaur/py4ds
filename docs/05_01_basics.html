@@ -698,7 +698,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Якщо ви коли-небудь працювали в Excel, то вам, напевно, знайомі різні функції на кшталт <code>SUM</code>, <code>MIN</code>, <code>MAX</code> тощо, які роблять деякі обчислення по стовпцях. У SQL вони називаються <em>агрегуючими функціями</em>.</p>
 <p>Зараз як приклад розглянемо функцію <code>LENGTH</code>. Вона виконує досить просте завдання — підраховує кількість символів у поданому їй на вхід значенні текстового типу (текстовий тип даних часто називають рядком — від англ. «string»). Іншими словами, функція <code>LENGTH</code> вимірює довжину деякого рядка у символах:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">LENGTH</span>(<span class="st">'You shall not pass!'</span>) <span class="kw">as</span> gendalf_say</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">LENGTH</span>(<span class="st">'I.love.Python'</span>) <span class="kw">as</span> gendalf_say</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
 <table class="table table-sm table-striped">
 <caption>1 records</caption>
@@ -709,7 +709,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">19</td>
+<td style="text-align: right;">13</td>
 </tr>
 </tbody>
 </table>
@@ -774,26 +774,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Розглянемо такий випадок на прикладі функцій <code>UPPER</code> та <code>LEFT</code>. Функція <code>UPPER</code> наводить подане їй на вхід текстове значення до верхнього регістру:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">UPPER</span>(<span class="st">'You Shall not pass!'</span>) <span class="kw">AS</span> upper_all</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">UPPER</span>(<span class="st">'I.love.Python'</span>) <span class="kw">AS</span> upper_all</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>YOU SHALL <span class="kw">NOT</span> PASS!</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>I.LOVE.PYTHON</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Функція <code>LEFT</code> повертає перші <code>n</code> символів у рядку:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">LEFT</span>(<span class="st">'You shall not pass!'</span>, <span class="dv">9</span>) <span class="kw">AS</span> first_n</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">LEFT</span>(<span class="st">'I.love.Python'</span>, <span class="dv">6</span>) <span class="kw">AS</span> first_n</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>You shall</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>I.love</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Ми можемо застосувати ці функції послідовно і в результаті отримаємо перші три символів верхнього регістру:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">UPPER</span>(<span class="kw">LEFT</span>(<span class="st">'You shall not pass!'</span>, <span class="dv">3</span>))</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">UPPER</span>(<span class="kw">LEFT</span>(<span class="st">'I.love.Python'</span>, <span class="dv">6</span>))</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>YOU</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>I.LOVE</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout-caution callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -811,7 +811,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Наступний запит не буде виконано, база даних поверне помилку:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">LEFT</span>(<span class="st">'You shall not pass!'</span>, <span class="dv">3</span>) <span class="kw">AS</span> first_n,</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">LEFT</span>(<span class="st">'I.love.Python'</span>, <span class="dv">3</span>) <span class="kw">AS</span> first_n,</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">UPPER</span>(first_n) <span class="kw">AS</span> upper_first_n</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>Результат:</span>
@@ -827,13 +827,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="exm-sql06" class="theorem example">
 <p><span class="theorem-title"><strong>Приклад 4.6 </strong></span>&nbsp;</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> SPLIT_PART(<span class="st">'You shall not pass!'</span>, <span class="st">' '</span>, <span class="dv">4</span>)</span>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> SPLIT_PART(<span class="st">'I.love.Python'</span>, <span class="st">'.'</span>, <span class="dv">3</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>pass!</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>Python</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p>У прикладі вище рядок ‘You Shall not pass!’ було розбито на чотири частини (‘You’, ‘shall’, ‘not’ і ‘pass!’) по роздільнику “пробіл”. Функція повернула ‘pass’, оскільки третім аргументом ми вказали частину із порядковим номером 4.</p>
+<p>У прикладі вище рядок ‘I.love.Python’ було розбито на три частини (‘I’, ‘love’ та ‘Python’) по роздільнику “.”. Функція повернула ‘Python’, оскільки третім аргументом ми вказали частину із порядковим номером 3.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -844,7 +844,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Докладніше з іншими функціями для роботи з рядками можна ознайомитись за <a href="https://www.postgresqltutorial.com/postgresql-string-functions/">посиланням</a>.</p>
+<p>Докладніше з іншими функціями для роботи з рядками можна ознайомитись за <a href="https://duckdb.org/docs/sql/functions/char">посиланням</a>.</p>
 </div>
 </div>
 <div id="exm-sql07" class="theorem example">
@@ -971,8 +971,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Докладніше з функцією <code>CAST</code> та перетворенням типів даних можна ознайомитись за цим <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-cast/">посиланням</a>.</p>
-<p>Про самі типи даних можна почитати <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-data-types/">тут</a>.</p>
+<p>Докладніше з функцією <code>CAST</code> та перетворенням типів даних можна ознайомитись за цим <a href="https://duckdb.org/docs/sql/expressions/cast">посиланням</a>.</p>
+<p>Про самі типи даних можна почитати <a href="https://duckdb.org/docs/sql/data_types/overview">тут</a>.</p>
 </div>
 </div>
 <div id="exm-sql08" class="theorem example">
@@ -1076,7 +1076,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Ознайомитись з іншими прикладами використання функції <code>CONCAT</code> можна за <a href="https://www.postgresqltutorial.com/postgresql-string-functions/postgresql-concat-function/">посиланням</a>.</p>
+<p>Ознайомитись з іншими прикладами використання функції <code>CONCAT</code> можна за <a href="https://duckdb.org/docs/sql/functions/char">посиланням</a>.</p>
 </div>
 </div>
 <div id="exm-sql09" class="theorem example">
@@ -1299,6 +1299,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="exm-sql11" class="theorem example">
 <p><span class="theorem-title"><strong>Приклад 4.11 </strong></span>Як і в попередньому прикладі (<a href="#exm-sql10">Приклад&nbsp;<span>4.10</span></a>), знову виведіть id десяти відсотків кур’єрів та їх роки народження, тільки тепер до вилученого року застосуйте функцію <code>COALESCE</code>. Вкажіть параметри функції так, щоб замість значення <code>NULL</code> в результат потрапляло текстове значення <code>unknown</code>. Назви полів залиште колишніми.</p>
 <p>Поля у результуючій таблиці: <code>courier_id</code>, <code>birth_year</code></p>
+<p><strong>Рішення:</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    courier_id,</span>
