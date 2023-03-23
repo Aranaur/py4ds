@@ -236,7 +236,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#concat" id="toc-concat" class="nav-link" data-scroll-target="#concat"><span class="toc-section-number">4.7</span>  CONCAT</a></li>
   <li><a href="#date_part" id="toc-date_part" class="nav-link" data-scroll-target="#date_part"><span class="toc-section-number">4.8</span>  DATE_PART</a></li>
   <li><a href="#coalesce" id="toc-coalesce" class="nav-link" data-scroll-target="#coalesce"><span class="toc-section-number">4.9</span>  COALESCE</a></li>
-  <li><a href="#типові-помилки-при-написанні-sql-запитів." id="toc-типові-помилки-при-написанні-sql-запитів." class="nav-link" data-scroll-target="#типові-помилки-при-написанні-sql-запитів."><span class="toc-section-number">4.10</span>  Типові помилки при написанні SQL-запитів.</a></li>
+  <li><a href="#арифметичні-оператори" id="toc-арифметичні-оператори" class="nav-link" data-scroll-target="#арифметичні-оператори"><span class="toc-section-number">4.10</span>  Арифметичні оператори</a></li>
+  <li><a href="#математичні-функції" id="toc-математичні-функції" class="nav-link" data-scroll-target="#математичні-функції"><span class="toc-section-number">4.11</span>  Математичні функції</a></li>
+  <li><a href="#case" id="toc-case" class="nav-link" data-scroll-target="#case"><span class="toc-section-number">4.12</span>  CASE</a></li>
+  <li><a href="#типові-помилки-при-написанні-sql-запитів." id="toc-типові-помилки-при-написанні-sql-запитів." class="nav-link" data-scroll-target="#типові-помилки-при-написанні-sql-запитів."><span class="toc-section-number">4.13</span>  Типові помилки при написанні SQL-запитів.</a></li>
   </ul>
 </nav>
     </div>
@@ -1310,7 +1313,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Поля у результуючій таблиці: <code>courier_id</code>, <code>birth_year</code></p>
 <p><strong>Рішення:</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    courier_id,</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COALESCE</span>(date_part(<span class="st">'year'</span>, birth_date):<span class="ch">:VARCHAR</span>, <span class="st">'unknown'</span>) birth_year</span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
@@ -1372,19 +1375,325 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="типові-помилки-при-написанні-sql-запитів." class="level2" data-number="4.10">
-<h2 data-number="4.10" class="anchored" data-anchor-id="типові-помилки-при-написанні-sql-запитів."><span class="header-section-number">4.10</span> Типові помилки при написанні SQL-запитів.</h2>
+<section id="арифметичні-оператори" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="арифметичні-оператори"><span class="header-section-number">4.10</span> Арифметичні оператори</h2>
+<p>Для роботи з числовими значеннями в <strong>DuckDB</strong> доступны різні арифметичні оператори. Нижче наведена таблиця з найбільш вживаними операторами:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th><strong>Оператор</strong></th>
+<th><strong>Опис</strong></th>
+<th><strong>Приклад</strong></th>
+<th><strong>Результат</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>+</td>
+<td>Додавання</td>
+<td>2 + 3</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>Віднімання</td>
+<td>2 - 3</td>
+<td>-1</td>
+</tr>
+<tr class="odd">
+<td>*</td>
+<td>Множення</td>
+<td>2 * 3</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>/</td>
+<td>Ділення</td>
+<td>4 / 2</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>%</td>
+<td>Залишок від ділення</td>
+<td>5 % 4</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>^</td>
+<td>Піднесення до степеня</td>
+<td>2 ^ 3</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p>Якби ми захотіли перевести 7600 гривен у долари за курсом 1 долар = 40 гривень, то операція виглядала б так:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="dv">7500</span> <span class="op">/</span> <span class="dv">40</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="dv">190</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Якби нам потрібно було відняти з кожного значення в одній із колонок нашої таблиці якесь число (наприклад, 100), то запит виглядав би так:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">column</span> <span class="op">-</span> <span class="dv">100</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Крім того, в арифметичних операціях можуть брати участь одразу кілька колонок. Наприклад, для кожного рядка таблиці можна обчислити середнє арифметичне двох чисел, які містяться у двох різних колонках:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> (column_1 <span class="op">+</span> column_2) <span class="op">/</span> <span class="dv">2</span> <span class="kw">AS</span> average</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Примітка!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ознайомитись з усіма арифметичними операторами можна за <a href="https://duckdb.org/docs/sql/functions/numeric.html#numeric-operators">посиланням</a>.</p>
+</div>
+</div>
+<div id="exm-sql12" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 4.12 </strong></span>Давайте уявимо, що з якоїсь незрозумілої причини ми раптом вирішили відразу підвищити ціну всіх товарів у таблиці <code>products</code> на <strong>5%</strong>.</p>
+<p>Виведіть id та найменування всіх товарів, їх стару та нову ціну. Колонку зі старою ціною назвіть <code>old_price</code>, а колонку з новою – <code>new_price</code>.</p>
+<p>Результат відсортуйте спочатку за спаданням нової ціни, потім за зростанням id товару.</p>
+<p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>old_price</code>, <code>new_price</code>.</p>
+<p><strong>Рішення:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    product_id,</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    name,</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    price <span class="kw">as</span> old_price,</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    price <span class="op">*</span> <span class="fl">1.05</span> <span class="kw">as</span> new_price</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>    products</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>    new_price <span class="kw">DESC</span>, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="knitsql-table">
+<table class="table table-sm table-striped">
+<caption>Displaying records 1 - 10</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">product_id</th>
+<th style="text-align: left;">name</th>
+<th style="text-align: right;">old_price</th>
+<th style="text-align: right;">new_price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">caviar</td>
+<td style="text-align: right;">800</td>
+<td style="text-align: right;">840.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">37</td>
+<td style="text-align: left;">mutton</td>
+<td style="text-align: right;">559</td>
+<td style="text-align: right;">586.95</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">olive oil</td>
+<td style="text-align: right;">450</td>
+<td style="text-align: right;">472.50</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">57</td>
+<td style="text-align: left;">pork</td>
+<td style="text-align: right;">450</td>
+<td style="text-align: right;">472.50</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">43</td>
+<td style="text-align: left;">decaffeinated coffee</td>
+<td style="text-align: right;">400</td>
+<td style="text-align: right;">420.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">87</td>
+<td style="text-align: left;">veal</td>
+<td style="text-align: right;">398</td>
+<td style="text-align: right;">417.90</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">61</td>
+<td style="text-align: left;">honey</td>
+<td style="text-align: right;">380</td>
+<td style="text-align: right;">399.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">66</td>
+<td style="text-align: left;">beef</td>
+<td style="text-align: right;">370</td>
+<td style="text-align: right;">388.50</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">grain coffee</td>
+<td style="text-align: right;">351</td>
+<td style="text-align: right;">368.55</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">77</td>
+<td style="text-align: left;">chicken</td>
+<td style="text-align: right;">298</td>
+<td style="text-align: right;">312.90</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="математичні-функції" class="level2" data-number="4.11">
+<h2 data-number="4.11" class="anchored" data-anchor-id="математичні-функції"><span class="header-section-number">4.11</span> Математичні функції</h2>
+<p>Поряд з арифметичними операторами <strong>DuckDB</strong> також доступні різні математичні функції. Наприклад, для округлення чисел можна використовувати функцію <code>ROUND</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">ROUND</span>(<span class="fl">100.5454</span>, <span class="dv">2</span>)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="fl">100.55</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">ROUND</span>(<span class="fl">100.551</span>, <span class="dv">1</span>)</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a><span class="fl">100.6</span></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">ROUND</span>(<span class="fl">100.5511</span>)</span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a><span class="fl">101.0</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Першим аргументом вказується саме значення, яке хочемо округлити. Другим число знаків після точки, до якої хочемо округлити. Другий аргумент вказувати не обов’язково: якщо його не вказати, відбудеться округлення до цілого числа (проте тип даних при цьому не зміниться).</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Примітка!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ознайомитись з усіма арифметичними операторами можна за <a href="https://duckdb.org/docs/sql/functions/numeric.html#numeric-functions">посиланням</a>.</p>
+</div>
+</div>
+<div id="exm-sql13" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 4.13 </strong></span>Знову, як і в минулому завданні (<a href="#exm-sql12">Приклад&nbsp;<span>4.12</span></a>), підвищите ціну всіх товарів на 5%, тільки тепер до колонки з новою ціною застосуйте функцію <code>ROUND</code>. Виведіть id та найменування товарів, їх стару ціну, а також нову ціну із округленням. Нову ціну округліть до десятих, але тип даних не змінюйте.</p>
+<p>Результат відсортуйте спочатку за спаданням нової ціни, потім за зростанням id товару.</p>
+<p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>old_price</code>, <code>new_price</code>.</p>
+<p><strong>Рішення:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>    product_id,</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    name,</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>    price <span class="kw">as</span> old_price,</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ROUND</span>(price <span class="op">*</span> <span class="fl">1.05</span>, <span class="dv">1</span>) <span class="kw">as</span> new_price</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>    products</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>    new_price <span class="kw">DESC</span>, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="knitsql-table">
+<table class="table table-sm table-striped">
+<caption>Displaying records 1 - 10</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">product_id</th>
+<th style="text-align: left;">name</th>
+<th style="text-align: right;">old_price</th>
+<th style="text-align: right;">new_price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">caviar</td>
+<td style="text-align: right;">800</td>
+<td style="text-align: right;">840.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">37</td>
+<td style="text-align: left;">mutton</td>
+<td style="text-align: right;">559</td>
+<td style="text-align: right;">587.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">olive oil</td>
+<td style="text-align: right;">450</td>
+<td style="text-align: right;">472.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">57</td>
+<td style="text-align: left;">pork</td>
+<td style="text-align: right;">450</td>
+<td style="text-align: right;">472.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">43</td>
+<td style="text-align: left;">decaffeinated coffee</td>
+<td style="text-align: right;">400</td>
+<td style="text-align: right;">420.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">87</td>
+<td style="text-align: left;">veal</td>
+<td style="text-align: right;">398</td>
+<td style="text-align: right;">417.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">61</td>
+<td style="text-align: left;">honey</td>
+<td style="text-align: right;">380</td>
+<td style="text-align: right;">399.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">66</td>
+<td style="text-align: left;">beef</td>
+<td style="text-align: right;">370</td>
+<td style="text-align: right;">388.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">grain coffee</td>
+<td style="text-align: right;">351</td>
+<td style="text-align: right;">368.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">77</td>
+<td style="text-align: left;">chicken</td>
+<td style="text-align: right;">298</td>
+<td style="text-align: right;">312.9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="case" class="level2" data-number="4.12">
+<h2 data-number="4.12" class="anchored" data-anchor-id="case"><span class="header-section-number">4.12</span> CASE</h2>
+</section>
+<section id="типові-помилки-при-написанні-sql-запитів." class="level2" data-number="4.13">
+<h2 data-number="4.13" class="anchored" data-anchor-id="типові-помилки-при-написанні-sql-запитів."><span class="header-section-number">4.13</span> Типові помилки при написанні SQL-запитів.</h2>
 <ul>
 <li>Неправильний порядок або помилки у ключових словах. Правильний порядок операторів у запиті виглядає так:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>      <span class="co">-- перерахування полів результуючої таблиці</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>        <span class="co">-- вказівка джерела даних</span></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>       <span class="co">-- фільтрація даних</span></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span>    <span class="co">-- угруповання даних</span></span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span>      <span class="co">-- фільтрація даних після угруповання</span></span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span>    <span class="co">-- сортування результуючої таблиці</span></span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span>       <span class="co">-- обмеження кількості записів, що виводяться</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>      <span class="co">-- перерахування полів результуючої таблиці</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>        <span class="co">-- вказівка джерела даних</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>       <span class="co">-- фільтрація даних</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span>    <span class="co">-- угруповання даних</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span>      <span class="co">-- фільтрація даних після угруповання</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span>    <span class="co">-- сортування результуючої таблиці</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span>       <span class="co">-- обмеження кількості записів, що виводяться</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Неправильно названі функції та оператори, що використовуються в запиті (наприклад, <code>DATEPART</code>, а не <code>DATE_PART</code>).</li>
