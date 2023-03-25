@@ -260,6 +260,205 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_2 <span class="op">&gt;=</span> <span class="dv">0</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Наприклад, у результаті зазначеного вище запиту у вибірці попадуть лише записи з невід’ємними значеннями в колонці <code>column_2</code>.</p>
+<p>У свою чергу оператори <code>ORDER BY</code> і <code>LIMIT</code> записуються вже після оператора <code>WHERE</code>. Якщо додати їх у приклад вище, запит виглядатиме так:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_2 <span class="op">&gt;=</span> <span class="dv">0</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">100</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>У результаті ми спочатку відфільтруємо необхідні нам рядки, потім виберемо стовпчики, виділені в <code>SELECT</code>, а потім сортуємо результуючу таблицю, обмеживши число виведених записів.</p>
+<p>Таким чином порядок запису відомих нам на поточний момент ключових слів виглядає так:</p>
+<ol type="1">
+<li><code>SELECT</code></li>
+<li><code>FROM</code></li>
+<li><code>WHERE</code></li>
+<li><code>ORDER BY</code></li>
+<li><code>LIMIT</code></li>
+</ol>
+<p>Знову звернемо увагу, що порядок виконання відрізняється від того, в якій послідовності вони вказуються в запиті:</p>
+<ol type="1">
+<li>Спочатку виконується оператор <code>FROM</code> – відбувається вибір потрібної таблиці.</li>
+<li>Далі <code>WHERE</code> - відфільтровуються рядки, що відповідають умові.</li>
+<li>Потім <code>SELECT</code> - відбираються зазначені стовпці та застосовуються функції.</li>
+<li>Потім <code>ORDER BY</code> - проводиться сортування результуючої таблиці.</li>
+<li>І наприкінці <code>LIMIT</code> — обмежується кількість записів, що виводяться.</li>
+</ol>
+<p>Іншими словами, в результаті виконання запиту спочатку відбувається підготовка таблиці до роботи, а потім над нею виконуються різні операції.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Докладніше про оператор <code>WHERE</code> можна за <a href="https://duckdb.org/docs/sql/query_syntax/where">посиланням</a>.</p>
+</div>
+</div>
+<div id="exr-sql-filter-01" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 5.1 </strong></span>Напишіть SQL-запит до таблиці <code>products</code> та виведіть всю інформацію про товари, ціна яких не перевищує 100 одиниць. Результат відсортуйте за зростанням id товару.</p>
+<p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code></p>
+<p><strong>Рішення:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    product_id,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    name,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    price</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   products</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>  price <span class="op">&lt;=</span> <span class="dv">100</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="knitsql-table">
+<table class="table table-sm table-striped">
+<caption>Displaying records 1 - 10</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">product_id</th>
+<th style="text-align: left;">name</th>
+<th style="text-align: right;">price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">green tea bags</td>
+<td style="text-align: right;">50</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">still water</td>
+<td style="text-align: right;">80</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">lollipops</td>
+<td style="text-align: right;">46</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">coffee 3 in 1</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">crackers</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">drying</td>
+<td style="text-align: right;">30</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">black leaf tea</td>
+<td style="text-align: right;">84</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">seeds</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">mayonnaise</td>
+<td style="text-align: right;">60</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">ketchup</td>
+<td style="text-align: right;">58</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Фільтрувати дані в таблицях можна не тільки по полях з числовими значеннями, але і по полях зі значеннями, представленими у вигляді тексту:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_2 <span class="op">=</span> <span class="st">'text'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>У прикладі вище в результуючу таблицю потраплять лише рядки, значення в яких повністю збігаються із зазначеним у <code>WHERE</code> рядком <code>'text'</code>.</p>
+<p>При порівнянні рядків також допускається використовувати нерівності:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_2 <span class="op">&gt;</span> <span class="st">'text'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Втім, така операція використовується рідше, оскільки не цілком очевидно, що означає «один рядок більше за інший».</p>
+<p>Насправді порядок сортування даних рядкового типу зазвичай визначається заздалегідь встановленими правилами сортування, у яких значення мають довжина рядка в символах, порядок букв відповідно до алфавіту, наявність особливих символів, регістр тощо. Ми не будемо докладно зупинятись на цій темі — за бажання про це можна додатково прочитати у документації.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Докладніше про правила сортування даних рядкового типу можна за <a href="https://duckdb.org/docs/sql/expressions/collations">посиланням</a>.</p>
+</div>
+</div>
+<div id="exr-sql-filter-02" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 5.2 </strong></span>Виберіть користувачів жіночої статі з таблиці <code>users</code>. Виведіть лише id цих користувачів. Результат відсортуйте за зростанням id.</p>
+<p>Додайте в запит оператор <code>LIMIT</code> і виведіть лише <code>1000</code> перших ID з відсортованого списку.</p>
+<p>Поле у результуючій таблиці: <code>user_id</code></p>
+<p><strong>Рішення:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    user_id</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>   </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    users</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>  </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    sex <span class="op">=</span> <span class="st">'female'</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    user_id </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="knitsql-table">
+<table class="table table-sm table-striped">
+<caption>Displaying records 1 - 10</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">user_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">131</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">202</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">246</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">346</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">407</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">474</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">517</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">591</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">686</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 
 
 </section>

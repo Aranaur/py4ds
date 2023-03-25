@@ -18,11 +18,11 @@ title-block-affiliation-plural: "Приналежності"
 title-block-published: "Дата публікації"
 title-block-modified: "Змінено"
 
-callout-tip-caption: "Порада!"
-callout-note-caption: "Примітка!"
-callout-warning-caption: "Увага!"
-callout-important-caption: "Важливо!"
-callout-caution-caption: "Обережно!"
+callout-tip-caption: "Порада"
+callout-note-caption: "Примітка"
+callout-warning-caption: "Увага"
+callout-important-caption: "Важливо"
+callout-caution-caption: "Обережно"
 
 code-summary: "Код"
 

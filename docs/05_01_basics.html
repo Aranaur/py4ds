@@ -386,7 +386,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Примітка!
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -411,8 +411,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>      <span class="co">-- сортування за спаданням</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="exm-sql01" class="theorem example">
-<p><span class="theorem-title"><strong>Приклад 4.1 </strong></span>Виведіть всі записи з таблиці <code>products</code>, відсортувавши їх за найменуванням товарів <em>у алфавітному порядку</em>, тобто. за зростанням. Для сортування використовуйте оператор <code>ORDER BY</code>.</p>
+<div id="exr-sql01" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 4.1 </strong></span>Виведіть всі записи з таблиці <code>products</code>, відсортувавши їх за найменуванням товарів <em>у алфавітному порядку</em>, тобто. за зростанням. Для сортування використовуйте оператор <code>ORDER BY</code>.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code></p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -420,7 +420,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Примітка!
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -487,7 +487,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Примітка!
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -499,8 +499,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>, column_2</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="exm-sql02" class="theorem example">
-<p><span class="theorem-title"><strong>Приклад 4.2 </strong></span>Відсортуйте таблицю <code>courier_actions</code> спочатку по колонці <code>courier_id</code> за зростанням id кур’єра, потім по колонці <code>action</code> (знову за зростанням), а потім по колонці <code>time</code>, але вже за спаданням — від останньої дії до першої. Не забудьте включити колонку <code>order_id</code>.</p>
+<div id="exr-sql02" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 4.2 </strong></span>Відсортуйте таблицю <code>courier_actions</code> спочатку по колонці <code>courier_id</code> за зростанням id кур’єра, потім по колонці <code>action</code> (знову за зростанням), а потім по колонці <code>time</code>, але вже за спаданням — від останньої дії до першої. Не забудьте включити колонку <code>order_id</code>.</p>
 <p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
 <p>Поля у результуючій таблиці: <code>courier_id</code>, <code>order_id</code>, <code>action</code>, <code>time</code>.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -509,7 +509,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Примітка!
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -584,8 +584,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Потім <code>ORDER BY</code> - проводиться сортування результуючої таблиці.</li>
 <li>І наприкінці <code>LIMIT</code> — обмежується кількість записів, що виводяться.</li>
 </ol>
-<div id="exm-sql03" class="theorem example">
-<p><span class="theorem-title"><strong>Приклад 4.3 </strong></span>Використовуючи оператори <code>SELECT</code>, <code>FROM</code>, <code>ORDER BY</code> та <code>LIMIT</code>, визначте 5 найдорожчих товарів у таблиці <code>products</code>, які доставляє наш сервіс. Виведіть їх найменування та ціну.</p>
+<div id="exr-sql03" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 4.3 </strong></span>Використовуючи оператори <code>SELECT</code>, <code>FROM</code>, <code>ORDER BY</code> та <code>LIMIT</code>, визначте 5 найдорожчих товарів у таблиці <code>products</code>, які доставляє наш сервіс. Виведіть їх найменування та ціну.</p>
 <p>Поля у результуючій таблиці: <code>name</code>, <code>price</code>.</p>
 <p><strong>Рішення:</strong></p>
 <div class="cell">
@@ -637,8 +637,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Якщо раптом вам здасться, що на написання оператора <code>AS</code> йде занадто багато часу і сил, його можна опустити, вказавши нове ім’я колонки без нього. Наступний запис також спрацює:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name new_name</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="exm-sql04" class="theorem example">
-<p><span class="theorem-title"><strong>Приклад 4.4 </strong></span>Повторіть запит із з попереднього прикладу (<a href="#exm-sql03">Приклад&nbsp;<span>4.3</span></a>), але тепер колонки <code>name</code> і <code>price</code> перейменуйте відповідно на <code>product_name</code> і <code>product_price</code>.</p>
+<div id="exr-sql04" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 4.4 </strong></span>Повторіть запит із з попереднього прикладу (<span class="quarto-unresolved-ref">?exm-sql03</span>), але тепер колонки <code>name</code> і <code>price</code> перейменуйте відповідно на <code>product_name</code> і <code>product_price</code>.</p>
 <p>Поля у результуючій таблиці: <code>product_name</code>, <code>product_price</code></p>
 <p><strong>Рішення:</strong></p>
 <div class="cell">
@@ -712,8 +712,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Функція <code>LENGTH</code> також може застосовуватись до всього стовпця. У такому випадку довжина символів буде порахована для кожного значення в стовпці. Відповідний запит виглядатиме так:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">LENGTH</span>(<span class="kw">column</span>) <span class="kw">AS</span> column_length</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="exm-sql05" class="theorem example">
-<p><span class="theorem-title"><strong>Приклад 4.5 </strong></span>Використовуючи оператори <code>SELECT</code>, <code>FROM</code>, <code>ORDER BY</code> та <code>LIMIT</code>, а також функцію <code>LENGTH</code>, визначте товар із найдовшою назвою у таблиці <code>products</code>. Виведіть його найменування, довжину найменування у символах, а також ціну цього товару. Назвіть колонку з довжиною найменування в символах <code>name_length</code>.</p>
+<div id="exr-sql05" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 4.5 </strong></span>Використовуючи оператори <code>SELECT</code>, <code>FROM</code>, <code>ORDER BY</code> та <code>LIMIT</code>, а також функцію <code>LENGTH</code>, визначте товар із найдовшою назвою у таблиці <code>products</code>. Виведіть його найменування, довжину найменування у символах, а також ціну цього товару. Назвіть колонку з довжиною найменування в символах <code>name_length</code>.</p>
 <p>Поля у результуючій таблиці: <code>name</code>, <code>name_length</code>, <code>price</code>.</p>
 <p><strong>Рішення:</strong></p>
 <div class="cell">
@@ -748,7 +748,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Примітка!
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -786,7 +786,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Обережно!
+Обережно
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -807,8 +807,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="4.5" class="anchored" data-anchor-id="split_part"><span class="header-section-number">4.5</span> SPLIT_PART</h2>
 <p>Функція <code>SPLIT_PART</code> розбиває поданий їй на вхід рядок на кілька частин відповідно до зазначеного роздільника та повертає одну з частин.</p>
 <p>Крім самого рядка (або колонки зі значеннями рядкового типу), функція приймає ще два аргументи — роздільник і порядковий номер частини, яку необхідно повернути. Подивіться наступний приклад:</p>
-<div id="exm-sql06" class="theorem example">
-<p><span class="theorem-title"><strong>Приклад 4.6 </strong></span>&nbsp;</p>
+<div id="exr-sql06" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 4.6 </strong></span>&nbsp;</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> SPLIT_PART(<span class="st">'I.love.Python'</span>, <span class="st">'.'</span>, <span class="dv">3</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
@@ -821,15 +821,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Примітка!
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Докладніше з іншими функціями для роботи з рядками можна ознайомитись за <a href="https://duckdb.org/docs/sql/functions/char">посиланням</a>.</p>
 </div>
 </div>
-<div id="exm-sql07" class="theorem example">
-<p><span class="theorem-title"><strong>Приклад 4.7 </strong></span>Застосуйте послідовно функції <code>UPPER</code> та <code>SPLIT_PART</code> до колонки <code>name</code> та перетворіть найменування товарів у таблиці <code>products</code> так, щоб від назв залишилося тільки перше слово, записане у верхньому регістрі. Колонку з новою назвою, що складається із першого слова, назвіть <code>first_word</code>.</p>
+<div id="exr-sql07" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 4.7 </strong></span>Застосуйте послідовно функції <code>UPPER</code> та <code>SPLIT_PART</code> до колонки <code>name</code> та перетворіть найменування товарів у таблиці <code>products</code> так, щоб від назв залишилося тільки перше слово, записане у верхньому регістрі. Колонку з новою назвою, що складається із першого слова, назвіть <code>first_word</code>.</p>
 <p>У результаті виведіть вихідні найменування товарів, нові найменування з першого слова, а також ціну товарів. Результат відсортуйте за зростанням початкового найменування товару в колонці <code>name</code>.</p>
 <p>Поля у результуючій таблиці: <code>name</code>, <code>first_word</code>, <code>price</code></p>
 <div class="cell">
@@ -938,7 +938,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Примітка!
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -946,8 +946,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Про самі типи даних можна почитати <a href="https://duckdb.org/docs/sql/data_types/overview">тут</a>.</p>
 </div>
 </div>
-<div id="exm-sql08" class="theorem example">
-<p><span class="theorem-title"><strong>Приклад 4.8 </strong></span>Змініть тип колонки <code>price</code> з таблиці <code>products</code> на <code>VARCHAR</code>. Виведіть колонки з найменуванням товарів, ціною у вихідному форматі та ціною у форматі <code>VARCHAR</code>. Нову колонку з ціною у новому форматі назвіть <code>price_char</code>.</p>
+<div id="exr-sql08" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 4.8 </strong></span>Змініть тип колонки <code>price</code> з таблиці <code>products</code> на <code>VARCHAR</code>. Виведіть колонки з найменуванням товарів, ціною у вихідному форматі та ціною у форматі <code>VARCHAR</code>. Нову колонку з ціною у новому форматі назвіть <code>price_char</code>.</p>
 <p>Результат відсортуйте за зростанням початкового найменування товару в колонці name. Кількість записів, що виводяться, не обмежуйте.</p>
 <p>Поля в результуючій таблиці: <code>name</code>, <code>price</code>, <code>price_char</code></p>
 <p><strong>Рішення:</strong></p>
@@ -1042,15 +1042,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Примітка!
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Ознайомитись з іншими прикладами використання функції <code>CONCAT</code> можна за <a href="https://duckdb.org/docs/sql/functions/char">посиланням</a>.</p>
 </div>
 </div>
-<div id="exm-sql09" class="theorem example">
-<p><span class="theorem-title"><strong>Приклад 4.9 </strong></span>Для перших 5 записів з таблиці <code>orders</code> виведіть інформацію у такому вигляді (зверніть увагу на пробіли):</p>
+<div id="exr-sql09" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 4.9 </strong></span>Для перших 5 записів з таблиці <code>orders</code> виведіть інформацію у такому вигляді (зверніть увагу на пробіли):</p>
 <p>Замовлення № [<code>id_замовлення</code>] створено [<code>дата</code>]</p>
 <p>Отриману колонку назвіть <code>order_info</code>.</p>
 <p>Приклад результату:</p>
@@ -1121,15 +1121,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Примітка!
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Ознайомитись з іншими прикладами використання функції <code>DATE_PART</code> можна за <a href="https://duckdb.org/docs/sql/functions/timestamptz">посиланням</a>.</p>
 </div>
 </div>
-<div id="exm-sql10" class="theorem example">
-<p><span class="theorem-title"><strong>Приклад 4.10 </strong></span>Виведіть id десяти відсотків кур’єрів та їхні роки народження з таблиці <code>couriers</code>, використовуючи вибірку Бернуллі та встановіть початкове значення генератора випадкових величин (<code>seed</code>) рівний 123.</p>
+<div id="exr-sql10" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 4.10 </strong></span>Виведіть id десяти відсотків кур’єрів та їхні роки народження з таблиці <code>couriers</code>, використовуючи вибірку Бернуллі та встановіть початкове значення генератора випадкових величин (<code>seed</code>) рівний 123.</p>
 <p>Рік народження необхідно одержати з колонки <code>birth_date</code>. Нову колонку з роком назвіть <code>birth_year</code>.</p>
 <p>Поля у результуючій таблиці: <code>courier_id</code>, <code>birth_year</code></p>
 <p>У цьому прикладі ми використаємо випадкову вибірки Бернуллі за допомогою оператора <code>USING SAMPLE</code>, після котрого вказується розмір вибірки, а в дужках метод формування та початкове значення генератора випадкових величин.</p>
@@ -1139,7 +1139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Примітка!
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1210,7 +1210,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="coalesce" class="level2" data-number="4.9">
 <h2 data-number="4.9" class="anchored" data-anchor-id="coalesce"><span class="header-section-number">4.9</span> COALESCE</h2>
-<p>Ви могли помітити, що в минулому прикладі (<a href="#exm-sql10">Приклад&nbsp;<span>4.10</span></a>) для окремих рядків функція <code>DATE_PART</code> не повернула рік народження кур’єра, а замість них утворилися порожні значення. Якщо не помітили, уважно подивіться на результат запиту.</p>
+<p>Ви могли помітити, що в минулому прикладі (<span class="quarto-unresolved-ref">?exm-sql10</span>) для окремих рядків функція <code>DATE_PART</code> не повернула рік народження кур’єра, а замість них утворилися порожні значення. Якщо не помітили, уважно подивіться на результат запиту.</p>
 <p>Насправді це сталося тому, що в наших даних у колонці <code>birth_date</code> є перепустки — так звані значення <code>NULL</code> (у виводі результату це <code>NA</code>). Іншими словами, для окремих кур’єрів просто не вказано їхні дні народження. Є безліч варіантів, чому так могло статися, але ми зараз не маємо часу все це з’ясовувати — нам просто потрібно навчитися якось обробляти такі випадки.</p>
 <p>Давайте зробимо так, щоб замість порожніх значень функція <code>DATE_PART</code> повертала якесь інше значення. У цьому нам допоможе функція <code>COALESCE</code>, яка повертає перше не <code>NULL</code> значення зі списку поданих на вхід аргументів.</p>
 <p>Роботу <code>COALESCE</code> можна описати так: вона буквально читає список значень зліва направо і, як тільки бачить значення, яке не є <code>NULL</code>, відразу ж повертає його та припиняє читання списку. Подивіться уважно на такі приклади:</p>
@@ -1248,15 +1248,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Примітка!
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>З іншими прикладами використання функції <code>COALESCE</code> можна за <a href="https://duckdb.org/docs/sql/functions/utility">посиланням</a>.</p>
 </div>
 </div>
-<div id="exm-sql11" class="theorem example">
-<p><span class="theorem-title"><strong>Приклад 4.11 </strong></span>Як і в попередньому прикладі (<a href="#exm-sql10">Приклад&nbsp;<span>4.10</span></a>), знову виведіть id десяти відсотків кур’єрів та їх роки народження, тільки тепер до вилученого року застосуйте функцію <code>COALESCE</code>. Вкажіть параметри функції так, щоб замість значення <code>NULL</code> в результат потрапляло текстове значення <code>unknown</code>. Назви полів залиште колишніми.</p>
+<div id="exr-sql11" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 4.11 </strong></span>Як і в попередньому прикладі (<span class="quarto-unresolved-ref">?exm-sql10</span>), знову виведіть id десяти відсотків кур’єрів та їх роки народження, тільки тепер до вилученого року застосуйте функцію <code>COALESCE</code>. Вкажіть параметри функції так, щоб замість значення <code>NULL</code> в результат потрапляло текстове значення <code>unknown</code>. Назви полів залиште колишніми.</p>
 <p>Поля у результуючій таблиці: <code>courier_id</code>, <code>birth_year</code></p>
 <p><strong>Рішення:</strong></p>
 <div class="cell">
@@ -1390,15 +1390,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Примітка!
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Ознайомитись з усіма арифметичними операторами можна за <a href="https://duckdb.org/docs/sql/functions/numeric.html#numeric-operators">посиланням</a>.</p>
 </div>
 </div>
-<div id="exm-sql12" class="theorem example">
-<p><span class="theorem-title"><strong>Приклад 4.12 </strong></span>Давайте уявимо, що з якоїсь незрозумілої причини ми раптом вирішили відразу підвищити ціну всіх товарів у таблиці <code>products</code> на <strong>5%</strong>.</p>
+<div id="exr-sql12" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 4.12 </strong></span>Давайте уявимо, що з якоїсь незрозумілої причини ми раптом вирішили відразу підвищити ціну всіх товарів у таблиці <code>products</code> на <strong>5%</strong>.</p>
 <p>Виведіть id та найменування всіх товарів, їх стару та нову ціну. Колонку зі старою ціною назвіть <code>old_price</code>, а колонку з новою – <code>new_price</code>.</p>
 <p>Результат відсортуйте спочатку за спаданням нової ціни, потім за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>old_price</code>, <code>new_price</code>.</p>
@@ -1517,15 +1517,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Примітка!
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Ознайомитись з усіма арифметичними операторами можна за <a href="https://duckdb.org/docs/sql/functions/numeric.html#numeric-functions">посиланням</a>.</p>
 </div>
 </div>
-<div id="exm-sql13" class="theorem example">
-<p><span class="theorem-title"><strong>Приклад 4.13 </strong></span>Знову, як і в минулому завданні (<a href="#exm-sql12">Приклад&nbsp;<span>4.12</span></a>), підвищите ціну всіх товарів на 5%, тільки тепер до колонки з новою ціною застосуйте функцію <code>ROUND</code>. Виведіть id та найменування товарів, їх стару ціну, а також нову ціну із округленням. Нову ціну округліть до десятих, але тип даних не змінюйте.</p>
+<div id="exr-sql13" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 4.13 </strong></span>Знову, як і в минулому завданні (<span class="quarto-unresolved-ref">?exm-sql12</span>), підвищите ціну всіх товарів на 5%, тільки тепер до колонки з новою ціною застосуйте функцію <code>ROUND</code>. Виведіть id та найменування товарів, їх стару ціну, а також нову ціну із округленням. Нову ціну округліть до десятих, але тип даних не змінюйте.</p>
 <p>Результат відсортуйте спочатку за спаданням нової ціни, потім за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>old_price</code>, <code>new_price</code>.</p>
 <p><strong>Рішення:</strong></p>
@@ -1750,8 +1750,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>OR</code></li>
 </ol>
 <p>На порядок виконання операторів можна також впливати за допомогою дужок. Вирази, поміщені в дужки, матимуть найвищий пріоритет — як у математиці.</p>
-<div id="exm-sql14" class="theorem example">
-<p><span class="theorem-title"><strong>Приклад 4.14 </strong></span>Підвищіть ціну на <strong>5%</strong> тільки на товари, вартість яких <strong>перевищує 100 одиниць</strong>. Ціну решти товарів залиште без змін. Також <strong>не підвищуйте ціну на ікру</strong> <em>(caviar)</em>, яка й так коштує <strong>800 одиниць</strong>. Виведіть id та найменування всіх товарів, їх стару та нову ціну. Ціну округляти не потрібно.</p>
+<div id="exr-sql14" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 4.14 </strong></span>Підвищіть ціну на <strong>5%</strong> тільки на товари, вартість яких <strong>перевищує 100 одиниць</strong>. Ціну решти товарів залиште без змін. Також <strong>не підвищуйте ціну на ікру</strong> <em>(caviar)</em>, яка й так коштує <strong>800 одиниць</strong>. Виведіть id та найменування всіх товарів, їх стару та нову ціну. Ціну округляти не потрібно.</p>
 <p>Результат відсортуйте спочатку за спаданням нової ціни, потім за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>old_price</code>, <code>new_price</code></p>
 <p><strong>Рішення:</strong></p>
@@ -1846,8 +1846,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Уявіть, що до вас звернувся менеджер із сусіднього відділу із проханням порахувати ПДВ кожного товару. Жодних додаткових даних він вам не надав, тому ви вирішили виконати завдання на власний розсуд, вважаючи, що ПДВ єдиний для всіх товарів і становить 20%.</p>
-<div id="exm-sql15" class="theorem example">
-<p><span class="theorem-title"><strong>Приклад 4.15 </strong></span>Обчисліть ПДВ кожного товару у таблиці <code>products</code> та розрахуйте ціну без урахування ПДВ. Виведіть всю інформацію про товари, включаючи суму податку та ціну без його врахування. Колонки із сумою податку та ціною без ПДВ назвіть відповідно <code>tax</code> та <code>price_before_tax</code>. Округліть значення у цих колонках <strong>до двох знаків після коми</strong>.</p>
+<div id="exr-sql15" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 4.15 </strong></span>Обчисліть ПДВ кожного товару у таблиці <code>products</code> та розрахуйте ціну без урахування ПДВ. Виведіть всю інформацію про товари, включаючи суму податку та ціну без його врахування. Колонки із сумою податку та ціною без ПДВ назвіть відповідно <code>tax</code> та <code>price_before_tax</code>. Округліть значення у цих колонках <strong>до двох знаків після коми</strong>.</p>
 <p>Результат відсортуйте спочатку за спаданням ціни товару без урахування ПДВ, потім за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code>, <code>tax</code>, <code>price_before_tax</code>.</p>
 <p><strong>Рішення:</strong></p>
