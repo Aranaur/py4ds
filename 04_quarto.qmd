@@ -585,8 +585,20 @@ execute:
 ```{{python}}
 #| echo: true
 
+import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
-plt.plot([1, 2, 3, 4])
+
+x = np.arange(-4, 4, .012)
+y = np.arange(-4, 4, .012)
+X, Y = np.meshgrid(x, y)
+Z = 1 - np.abs(X) - np.sin(Y**2)
+W = 1 + Y - np.cos(X**2)
+
+fig = plt.figure(figsize=(8, 8))
+ax = fig.add_subplot(projection='polar')
+plt.scatter(Z, W, alpha=.03, s=0.2)
+plt.axis('off')
 plt.show()
 ```
 
