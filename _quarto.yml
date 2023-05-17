@@ -1,12 +1,14 @@
 project:
   type: book
   output-dir: docs
+  
 
 book:
   title: "Python в науці про дані"
   author: "Ігор Мірошниченко"
   date: today
   date-format: iso
+  google-analytics: 'G-0C9TJBF3C5'
   chapters:
     - index.qmd
     - 01_intro.qmd
@@ -36,3 +38,4 @@ format:
 execute:
   warning: false
   # cache: true
+  
