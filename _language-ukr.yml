@@ -1,11 +1,16 @@
 toc-title-document: "Зміст"
 toc-title-website: "На цій сторінці"
 
+related-formats-title: "Інші формати"
+related-notebooks-title: "Notebooks"
+source-notebooks-prefix: "Джерело"
+
 section-title-abstract: "Анотація"
 section-title-appendices: "Додатки"
 section-title-footnotes: "Зноски"
 section-title-references: "Використана література"
 section-title-reuse: "Повторне використання"
+section-title-copyright: "Авторські права"
 section-title-citation: "Цитата"
 
 appendix-attribution-cite-as: "Будь-ласка, цитуйте цю роботу як:"
@@ -18,13 +23,17 @@ title-block-affiliation-plural: "Приналежності"
 title-block-published: "Дата публікації"
 title-block-modified: "Змінено"
 
-callout-tip-caption: "Порада"
-callout-note-caption: "Примітка"
-callout-warning-caption: "Увага"
-callout-important-caption: "Важливо"
-callout-caution-caption: "Обережно"
+
+callout-tip-title: "Порада"
+callout-note-title: "Примітка"
+callout-warning-title: "Попередження"
+callout-important-title: "Важливо"
+callout-caution-title: "Обережно"
 
 code-summary: "Код"
+
+code-line: "Лінія"
+code-lines: "Лінії"
 
 code-tools-menu-caption: "Код"
 code-tools-show-all-code: "Розгорнути код"
@@ -39,6 +48,8 @@ repo-action-links-edit: "Редагувати сторінку"
 repo-action-links-source: "Переглянути код"
 repo-action-links-issue: "Повідомити про проблему"
 
+back-to-top: "Вгору"
+
 search-no-results-text: "Пошук не дав результату"
 search-matching-documents-text: "Результати пошуку"
 search-copy-link-title: "Скопіюйте посилання для пошуку"
@@ -48,6 +59,13 @@ search-more-matches-text: "Додаткові результати у цьому
 search-clear-button-title: "Очистити"
 search-detached-cancel-button-title: "Скасувати"
 search-submit-button-title: "Надіслати"
+search-label: "Пошук"
+
+toggle-section: "Переключити розділ"
+toggle-sidebar: "Переключити бокову панель навігації"
+toggle-dark-mode: "Переключити темний режим"
+toggle-reader-mode: "Переключити режим читання"
+toggle-navigation: "Переключити навігацію"
 
 crossref-fig-title: "Рисунок"
 crossref-tbl-title: "Таблиця"
