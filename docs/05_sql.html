@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.353">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
+<meta name="description" content="Книга-конспект матеріалів з курсу “Python в науці про дані”.">
 <title>Python в науці про дані - SQL</title>
 <style>
 code{white-space: pre-wrap;}
@@ -22,7 +20,6 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -31,6 +28,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./05_01_basics.html" rel="next">
+<link href="./cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -41,8 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -60,29 +57,18 @@ ul.task-list li input[type="checkbox"] {
     "search-detached-cancel-button-title": "Скасувати",
     "search-submit-button-title": "Надіслати"
   }
-}</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-0C9TJBF3C5"></script>
-
-<script type="text/javascript">
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-0C9TJBF3C5"></script><script type="text/javascript">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
-</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
-
-
+</script><script src="site_libs/quarto-diagram/mermaid.min.js"></script><script src="site_libs/quarto-diagram/mermaid-init.js"></script><link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -93,16 +79,38 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Python в науці про дані</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/Aranaur/py4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+<li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+</div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Переключити темний режим"><i class="bi"></i></a>
 </div>
     </div>
@@ -114,7 +122,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Вступне слово</span></a>
@@ -147,8 +155,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05_01_basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Базові запити</span></span></a>
@@ -167,7 +175,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
@@ -182,26 +190,20 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Зміст</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Зміст</h2>
    
   <ul>
-  <li><a href="#схема-бази-даних" id="toc-схема-бази-даних" class="nav-link active" data-scroll-target="#схема-бази-даних">Схема бази даних</a></li>
-  <li><a href="#типи-даних" id="toc-типи-даних" class="nav-link" data-scroll-target="#типи-даних">Типи даних</a></li>
-  <li><a href="#структура-та-наповнення-таблиць" id="toc-структура-та-наповнення-таблиць" class="nav-link" data-scroll-target="#структура-та-наповнення-таблиць">Структура та наповнення таблиць</a></li>
-  </ul>
-</nav>
+<li><a href="#%D1%81%D1%85%D0%B5%D0%BC%D0%B0-%D0%B1%D0%B0%D0%B7%D0%B8-%D0%B4%D0%B0%D0%BD%D0%B8%D1%85" id="toc-схема-бази-даних" class="nav-link active" data-scroll-target="#%D1%81%D1%85%D0%B5%D0%BC%D0%B0-%D0%B1%D0%B0%D0%B7%D0%B8-%D0%B4%D0%B0%D0%BD%D0%B8%D1%85">Схема бази даних</a></li>
+  <li><a href="#%D1%82%D0%B8%D0%BF%D0%B8-%D0%B4%D0%B0%D0%BD%D0%B8%D1%85" id="toc-типи-даних" class="nav-link" data-scroll-target="#%D1%82%D0%B8%D0%BF%D0%B8-%D0%B4%D0%B0%D0%BD%D0%B8%D1%85">Типи даних</a></li>
+  <li><a href="#%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-%D1%82%D0%B0-%D0%BD%D0%B0%D0%BF%D0%BE%D0%B2%D0%BD%D0%B5%D0%BD%D0%BD%D1%8F-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D1%8C" id="toc-структура-та-наповнення-таблиць" class="nav-link" data-scroll-target="#%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-%D1%82%D0%B0-%D0%BD%D0%B0%D0%BF%D0%BE%D0%B2%D0%BD%D0%B5%D0%BD%D0%BD%D1%8F-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D1%8C">Структура та наповнення таблиць</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title"><span id="sec-sql" class="quarto-section-identifier">SQL</span></h1>
 </div>
 
@@ -215,12 +217,9 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   </div>
   
 
-</header>
-
-<p>SQL (анг. <em>Structured query language</em>) - мова запитів на якому ми спілкуємось з базами даних.</p>
+</header><p>SQL (анг. <em>Structured query language</em>) - мова запитів на якому ми спілкуємось з базами даних.</p>
 <p>База даних - це сховище даних, де зберігаються наші “таблиці”.</p>
-<section id="схема-бази-даних" class="level2">
-<h2 class="anchored" data-anchor-id="схема-бази-даних">Схема бази даних</h2>
+<section id="схема-бази-даних" class="level2"><h2 class="anchored" data-anchor-id="схема-бази-даних">Схема бази даних</h2>
 <p>У цьому розділі ми будемо використовувати набори даних, які представляють сервіс з доставки продуктів. Тут зберігається документація, котра допоможе розібратися з ними. У таблиці продемонстровані зв’язки між таблицями, а також опис даних.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -271,282 +270,92 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-</section>
-<section id="типи-даних" class="level2">
-<h2 class="anchored" data-anchor-id="типи-даних">Типи даних</h2>
+</section><section id="типи-даних" class="level2"><h2 class="anchored" data-anchor-id="типи-даних">Типи даних</h2>
 <p>В таблицях можуть зберігатися різні типи даних: цілі і дробові числа, текст, дати, масиви чисел. У цих даних ви зустрінетесь з наступними типами:</p>
 <div class="cell">
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 30%">
-<col style="width: 49%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Типи даних</th>
-<th style="text-align: left;">Опис</th>
-<th style="text-align: left;">Приклад</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">INT</td>
-<td style="text-align: left;">Ціле число</td>
-<td style="text-align: left;">id користувача: 123</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">NUMERIC / DECIMAL</td>
-<td style="text-align: left;">Дійсне число</td>
-<td style="text-align: left;">Вартість товару: 120.55</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">VARCHAR</td>
-<td style="text-align: left;">Текст</td>
-<td style="text-align: left;">Дія із замовленням: «create_order»</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">DATE</td>
-<td style="text-align: left;">Дата з точністю до дня</td>
-<td style="text-align: left;">Дата народження користувача: 25/03/91</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">TIMESTAMP</td>
-<td style="text-align: left;">Дата з точністю до секунди</td>
-<td style="text-align: left;">Час реєстрації у додатку: 24/08/22 01:52:24</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">[]</td>
-<td style="text-align: left;">Масив</td>
-<td style="text-align: left;">Список id товаров у замовленні: [1, 13, 22]</td>
-</tr>
-</tbody>
-</table>
-</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Типи даних                       Опис
+1               INT                 Ціле число
+2 NUMERIC / DECIMAL               Дійсне число
+3           VARCHAR                      Текст
+4              DATE     Дата з точністю до дня
+5         TIMESTAMP Дата з точністю до секунди
+6                []                      Масив
+                                      Приклад
+1                         id користувача: 123
+2                    Вартість товару: 120.55 
+3          Дія із замовленням: «create_order»
+4       Дата народження користувача: 25/03/91
+5 Час реєстрації у додатку: 24/08/22 01:52:24
+6 Список id товаров у замовленні: [1, 13, 22]</code></pre>
 </div>
 </div>
 <p>Більш детально почитати про типи даних можна за <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-data-types/">посиланням</a></p>
-</section>
-<section id="структура-та-наповнення-таблиць" class="level2">
-<h2 class="anchored" data-anchor-id="структура-та-наповнення-таблиць">Структура та наповнення таблиць</h2>
+</section><section id="структура-та-наповнення-таблиць" class="level2"><h2 class="anchored" data-anchor-id="структура-та-наповнення-таблиць">Структура та наповнення таблиць</h2>
 <p><code>user_actions</code> – дії користувачів із замовленнями.</p>
 <div class="cell">
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 9%">
-<col style="width: 83%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Стовпчик</th>
-<th style="text-align: left;">Тип даних</th>
-<th style="text-align: left;">Опис</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">user_id</td>
-<td style="text-align: left;">INT</td>
-<td style="text-align: left;">id користувача</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">order_id</td>
-<td style="text-align: left;">INT</td>
-<td style="text-align: left;">id замовлення</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">action</td>
-<td style="text-align: left;">VARCHAR(50)</td>
-<td style="text-align: left;">дія користувача із замовленням; “create_order” - створення замовлення, “cancel_order” - скасування замовлення</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">time</td>
-<td style="text-align: left;">TIMESTAMP</td>
-<td style="text-align: left;">час дії</td>
-</tr>
-</tbody>
-</table>
-</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Стовпчик   Тип даних
+1  user_id         INT
+2 order_id         INT
+3   action VARCHAR(50)
+4     time   TIMESTAMP
+                                                                                                           Опис
+1                                                                                                id користувача
+2                                                                                                 id замовлення
+3 дія користувача із замовленням; "create_order" - створення замовлення, "cancel_order" - скасування замовлення
+4                                                                                                       час дії</code></pre>
 </div>
 </div>
 <p><code>courier_actions</code> – дії кур’єрів із замовленнями.</p>
 <div class="cell">
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 8%">
-<col style="width: 9%">
-<col style="width: 82%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Стовпчик</th>
-<th style="text-align: left;">Тип даних</th>
-<th style="text-align: left;">Опис</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">courier_id</td>
-<td style="text-align: left;">INT</td>
-<td style="text-align: left;">id кур’єра</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">order_id</td>
-<td style="text-align: left;">INT</td>
-<td style="text-align: left;">id замовлення</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">action</td>
-<td style="text-align: left;">VARCHAR(50)</td>
-<td style="text-align: left;">дія кур’єра із замовленням; ‘accept order’ - прийняття замовлення, ‘deliver order’ - доставка замовлення</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">time</td>
-<td style="text-align: left;">TIMESTAMP</td>
-<td style="text-align: left;">час дії</td>
-</tr>
-</tbody>
-</table>
-</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Стовпчик   Тип даних
+1 courier_id         INT
+2   order_id         INT
+3     action VARCHAR(50)
+4       time   TIMESTAMP
+                                                                                                      Опис
+1                                                                                               id кур'єра
+2                                                                                            id замовлення
+3 дія кур'єра із замовленням; 'accept order' - прийняття замовлення, 'deliver order' - доставка замовлення
+4                                                                                                  час дії</code></pre>
 </div>
 </div>
 <p><code>orders</code> - інформація про замовлення.</p>
 <div class="cell">
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Стовпчик</th>
-<th style="text-align: left;">Тип даних</th>
-<th style="text-align: left;">Опис</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">order_id</td>
-<td style="text-align: left;">INT</td>
-<td style="text-align: left;">id замовлення</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">creation_time</td>
-<td style="text-align: left;">TIMESTAMP</td>
-<td style="text-align: left;">час створення замовлення</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">product_ids</td>
-<td style="text-align: left;">integer[]</td>
-<td style="text-align: left;">список id товарів у замовленні</td>
-</tr>
-</tbody>
-</table>
-</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Стовпчик Тип даних                           Опис
+1      order_id       INT                  id замовлення
+2 creation_time TIMESTAMP       час створення замовлення
+3   product_ids integer[] список id товарів у замовленні</code></pre>
 </div>
 </div>
 <p><code>users</code> - інформація про користувачів.</p>
 <div class="cell">
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Стовпчик</th>
-<th style="text-align: left;">Тип даних</th>
-<th style="text-align: left;">Опис</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">user_id</td>
-<td style="text-align: left;">INT</td>
-<td style="text-align: left;">id користувача</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">birth_date</td>
-<td style="text-align: left;">DATE</td>
-<td style="text-align: left;">дата народження</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">sex</td>
-<td style="text-align: left;">VARCHAR(50)</td>
-<td style="text-align: left;">стать</td>
-</tr>
-</tbody>
-</table>
-</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Стовпчик   Тип даних            Опис
+1    user_id         INT  id користувача
+2 birth_date        DATE дата народження
+3        sex VARCHAR(50)           стать</code></pre>
 </div>
 </div>
 <p><code>couriers</code> - інформація про кур’єрів.</p>
 <div class="cell">
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Стовпчик</th>
-<th style="text-align: left;">Тип даних</th>
-<th style="text-align: left;">Опис</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">courier_id</td>
-<td style="text-align: left;">INT</td>
-<td style="text-align: left;">id кур’єра</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">birth_date</td>
-<td style="text-align: left;">DATE</td>
-<td style="text-align: left;">дата народження</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">sex</td>
-<td style="text-align: left;">VARCHAR(50)</td>
-<td style="text-align: left;">стать</td>
-</tr>
-</tbody>
-</table>
-</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Стовпчик   Тип даних            Опис
+1 courier_id         INT      id кур'єра
+2 birth_date        DATE дата народження
+3        sex VARCHAR(50)           стать</code></pre>
 </div>
 </div>
 <p><code>products</code> - інформація про товари, які доставляє сервіс.</p>
 <div class="cell">
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Стовпчик</th>
-<th style="text-align: left;">Тип даних</th>
-<th style="text-align: left;">Опис</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">product_id</td>
-<td style="text-align: left;">INT</td>
-<td style="text-align: left;">id продукту</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">name</td>
-<td style="text-align: left;">VARCHAR(50)</td>
-<td style="text-align: left;">назва товару</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">price</td>
-<td style="text-align: left;">FLOAT(4)</td>
-<td style="text-align: left;">ціна товару</td>
-</tr>
-</tbody>
-</table>
-</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Стовпчик   Тип даних         Опис
+1 product_id         INT  id продукту
+2       name VARCHAR(50) назва товару
+3      price  \tFLOAT(4)  ціна товару</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -564,10 +373,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -914,9 +720,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
       <a href="./05_01_basics.html" class="pagination-link">
