@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Книга-конспект матеріалів з курсу “Python в науці про дані”.">
+<meta name="description" content="Книга-конспект матеріалів з Python в науці про дані.">
 
-<title>Python в науці про дані - 3&nbsp; Фільтрація даних</title>
+<title>Python та його друзі в науці про дані - 3&nbsp; Фільтрація даних</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -140,7 +140,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Python в науці про дані</a> 
+      <a href="./">Python та його друзі в науці про дані</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/Aranaur/py4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
@@ -416,7 +416,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div id="exr-sql-filter-02" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.2 </strong></span>Виберіть користувачів жіночої статі з таблиці <code>users</code>. Виведіть лише id цих користувачів. Результат відсортуйте за зростанням id.</p>
-<p>Додайте в запит оператор <code>LIMIT</code> і виведіть лише <code>1000</code> перших ID з відсортованого списку.</p>
+<p>Додайте в запит оператор <code>LIMIT</code> і виведіть лише <code>10</code> перших ID з відсортованого списку.</p>
 <p>Поле у результуючій таблиці: <code>user_id</code></p>
 <p><strong>Рішення:</strong></p>
 </div>
@@ -430,7 +430,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    sex <span class="op">=</span> <span class="st">'female'</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>ORDER BY </span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    user_id </span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>LIMIT <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>LIMIT <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
@@ -464,33 +464,28 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <td>346</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
+<td data-quarto-table-cell-role="th">5</td>
+<td>407</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">511</td>
-<td>21137</td>
+<td data-quarto-table-cell-role="th">6</td>
+<td>474</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">512</td>
-<td>21170</td>
+<td data-quarto-table-cell-role="th">7</td>
+<td>517</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">513</td>
-<td>21291</td>
+<td data-quarto-table-cell-role="th">8</td>
+<td>591</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">514</td>
-<td>21326</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">515</td>
-<td>21402</td>
+<td data-quarto-table-cell-role="th">9</td>
+<td>686</td>
 </tr>
 </tbody>
 </table>
 
-<p>516 rows × 1 columns</p>
 </div>
 </div>
 </div>

@@ -3,9 +3,9 @@ project:
   output-dir: docs
 
 book:
-  title: "Python в науці про дані"
+  title: "Python та його друзі в науці про дані"
   author: "Ігор Мірошниченко"
-  description: Книга-конспект матеріалів з курсу “Python в науці про дані”.
+  description: Книга-конспект матеріалів з Python в науці про дані.
   keyword: polars, pandas, python, dataframe, performance, data science, data engineering
   date: today
   date-format: iso
@@ -42,3 +42,6 @@ format:
       light: cosmo
       dark: superhero
     # backgroundcolor: "#F5F5F5"
+
+launch_buttons:
+  colab_url: "https://colab.research.google.com"

@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Книга-конспект матеріалів з курсу “Python в науці про дані”.">
+<meta name="description" content="Книга-конспект матеріалів з Python в науці про дані.">
 
-<title>Python в науці про дані - SQL</title>
+<title>Python та його друзі в науці про дані - SQL</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -109,7 +143,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Python в науці про дані</a> 
+      <a href="./">Python та його друзі в науці про дані</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/Aranaur/py4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
@@ -223,7 +257,43 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>База даних - це сховище даних, де зберігаються наші “таблиці”.</p>
 <section id="схема-бази-даних" class="level2">
 <h2 class="anchored" data-anchor-id="схема-бази-даних">Схема бази даних</h2>
-<p>У цьому розділі ми будемо використовувати набори даних, які представляють сервіс з доставки продуктів. Тут зберігається документація, котра допоможе розібратися з ними. У таблиці продемонстровані зв’язки між таблицями, а також опис даних.</p>
+<p>У цьому розділі ми будемо використовувати набори даних, які представляють сервіс з доставки продуктів. Тут зберігається документація, котра допоможе розібратися з ними.</p>
+<p>Для запуску бази даних, я використовую <a href="https://duckdb.org/">DuckDB</a>. Самі файли з даними можна знайти в <a href="https://github.com/Aranaur/py4ds/tree/main/00_data/sql">репозиторії</a>. Для локального запуску бази даних необхідно виконати наступний код:</p>
+<div class="cell" data-execution_count="4">
+<details>
+<summary>Код</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Встановлення та імпорт необхідних пакетів</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install <span class="op">--</span>quiet duckdb</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install <span class="op">--</span>quiet jupysql </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install <span class="op">--</span>quiet duckdb<span class="op">-</span>engine</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install <span class="op">--</span>quiet pandas</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install <span class="op">--</span>quiet matplotlib</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> duckdb</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Імпорт Jupyter-розширення jupysql для створення SQL комірок</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>load_ext sql</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Налаштування jupysql, щоб дані поверталися у вигляді DataFrame Pandas з меншим виводом</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config SqlMagic.autopandas <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config SqlMagic.feedback <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config SqlMagic.displaycon <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Підключення до DuckDB в режимі "in-memory"</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>sql duckdb:<span class="op">///</span>:memory:</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Завантаження даних з файлів</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>sql CREATE OR REPLACE TABLE user_actions AS SELECT <span class="op">*</span> FROM read_csv(<span class="st">'00_data/sql/user_actions.csv'</span>, header<span class="op">=</span><span class="va">True</span>, columns<span class="op">=</span>{<span class="st">'user_id'</span>: <span class="st">'INT'</span>, <span class="st">'order_id'</span>: <span class="st">'INT'</span>, <span class="st">'action'</span>: <span class="st">'VARCHAR'</span>, <span class="st">'time'</span>: <span class="st">'TIMESTAMP'</span>}, timestampformat<span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%y %H:%M'</span>)<span class="op">;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>sql CREATE OR REPLACE TABLE courier_actions AS SELECT <span class="op">*</span> FROM read_csv(<span class="st">'00_data/sql/user_actions.csv'</span>, header<span class="op">=</span><span class="va">True</span>, columns<span class="op">=</span>{<span class="st">'courier_id'</span>: <span class="st">'INT'</span>, <span class="st">'order_id'</span>: <span class="st">'INT'</span>, <span class="st">'action'</span>: <span class="st">'VARCHAR'</span>, <span class="st">'time'</span>: <span class="st">'TIMESTAMP'</span>}, timestampformat<span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%y %H:%M'</span>)<span class="op">;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>sql CREATE OR REPLACE TABLE orders AS SELECT <span class="op">*</span> FROM read_csv(<span class="st">'00_data/sql/orders.csv'</span>, header<span class="op">=</span><span class="va">True</span>, columns<span class="op">=</span>{<span class="st">'order_id'</span>: <span class="st">'INT'</span>, <span class="st">'creation_time'</span>: <span class="st">'TIMESTAMP'</span>, <span class="st">'product_ids'</span>: <span class="st">'INT[]'</span>}, timestampformat<span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%y %H:%M'</span>)<span class="op">;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>sql CREATE OR REPLACE TABLE users AS SELECT <span class="op">*</span> FROM read_csv(<span class="st">'00_data/sql/users.csv'</span>, header<span class="op">=</span><span class="va">True</span>, columns<span class="op">=</span>{<span class="st">'user_id'</span>: <span class="st">'INT'</span>, <span class="st">'birth_date'</span>: <span class="st">'DATE'</span>, <span class="st">'sex'</span>: <span class="st">'VARCHAR'</span>}, dateformat<span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%y'</span>)<span class="op">;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>sql CREATE OR REPLACE TABLE couriers AS SELECT <span class="op">*</span> FROM read_csv(<span class="st">'00_data/sql/couriers.csv'</span>, header<span class="op">=</span><span class="va">True</span>, columns<span class="op">=</span>{<span class="st">'courier_id'</span>: <span class="st">'INT'</span>, <span class="st">'birth_date'</span>: <span class="st">'DATE'</span>, <span class="st">'sex'</span>: <span class="st">'VARCHAR'</span>}, dateformat<span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%y'</span>)<span class="op">;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>sql CREATE OR REPLACE TABLE products AS SELECT <span class="op">*</span> FROM read_csv(<span class="st">'00_data/sql/products.csv'</span>, header<span class="op">=</span><span class="va">True</span>, columns<span class="op">=</span>{<span class="st">'product_id'</span>: <span class="st">'INT'</span>, <span class="st">'name'</span>: <span class="st">'VARCHAR'</span>, <span class="st">'price'</span>: <span class="st">'DOUBLE'</span>})<span class="op">;</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>На схемі продемонстровані зв’язки між таблицями, а також опис даних:</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -277,7 +347,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <section id="типи-даних" class="level2">
 <h2 class="anchored" data-anchor-id="типи-даних">Типи даних</h2>
 <p>В таблицях можуть зберігатися різні типи даних: цілі і дробові числа, текст, дати, масиви чисел. У цих даних ви зустрінетесь з наступними типами:</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="6">
 <div id="sql-data-types" class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
@@ -339,7 +409,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <section id="структура-та-наповнення-таблиць" class="level2">
 <h2 class="anchored" data-anchor-id="структура-та-наповнення-таблиць">Структура та наповнення таблиць</h2>
 <p><code>user_actions</code> – дії користувачів із замовленнями.</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="7">
 <div id="sql-user-actions" class="cell-output cell-output-display" data-execution_count="6">
 <div>
 
@@ -385,7 +455,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p><code>courier_actions</code> – дії кур’єрів із замовленнями.</p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="8">
 <div id="sql-courier-actions" class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
@@ -431,7 +501,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p><code>orders</code> - інформація про замовлення.</p>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="9">
 <div id="sql-orders" class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
@@ -471,7 +541,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p><code>users</code> - інформація про користувачів.</p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="10">
 <div id="sql-users" class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
@@ -511,7 +581,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p><code>couriers</code> - інформація про кур’єрів.</p>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="11">
 <div id="sql-couriers" class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
@@ -551,7 +621,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p><code>products</code> - інформація про товари, які доставляє сервіс.</p>
-<div class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="12">
 <div id="sql-products" class="cell-output cell-output-display" data-execution_count="11">
 <div>
 

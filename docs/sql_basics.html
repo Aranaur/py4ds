@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Книга-конспект матеріалів з курсу “Python в науці про дані”.">
+<meta name="description" content="Книга-конспект матеріалів з Python в науці про дані.">
 
-<title>Python в науці про дані - 2&nbsp; Базові запити</title>
+<title>Python та його друзі в науці про дані - 2&nbsp; Базові запити</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -143,7 +143,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Python в науці про дані</a> 
+      <a href="./">Python та його друзі в науці про дані</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/Aranaur/py4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
@@ -227,18 +227,18 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
     <h2 id="toc-title">Зміст</h2>
    
   <ul>
-  <li><a href="#select" id="toc-select" class="nav-link active" data-scroll-target="#select"><span class="header-section-number">2.1</span> SELECT</a></li>
-  <li><a href="#order-by" id="toc-order-by" class="nav-link" data-scroll-target="#order-by"><span class="header-section-number">2.2</span> ORDER BY</a></li>
-  <li><a href="#as" id="toc-as" class="nav-link" data-scroll-target="#as"><span class="header-section-number">2.3</span> AS</a></li>
-  <li><a href="#length" id="toc-length" class="nav-link" data-scroll-target="#length"><span class="header-section-number">2.4</span> LENGTH</a></li>
-  <li><a href="#split_part" id="toc-split_part" class="nav-link" data-scroll-target="#split_part"><span class="header-section-number">2.5</span> SPLIT_PART</a></li>
-  <li><a href="#cast" id="toc-cast" class="nav-link" data-scroll-target="#cast"><span class="header-section-number">2.6</span> CAST</a></li>
-  <li><a href="#concat" id="toc-concat" class="nav-link" data-scroll-target="#concat"><span class="header-section-number">2.7</span> CONCAT</a></li>
-  <li><a href="#date_part" id="toc-date_part" class="nav-link" data-scroll-target="#date_part"><span class="header-section-number">2.8</span> DATE_PART</a></li>
-  <li><a href="#coalesce" id="toc-coalesce" class="nav-link" data-scroll-target="#coalesce"><span class="header-section-number">2.9</span> COALESCE</a></li>
+  <li><a href="#відбір-select" id="toc-відбір-select" class="nav-link active" data-scroll-target="#відбір-select"><span class="header-section-number">2.1</span> Відбір: <code>SELECT</code></a></li>
+  <li><a href="#впорядкування-order-by" id="toc-впорядкування-order-by" class="nav-link" data-scroll-target="#впорядкування-order-by"><span class="header-section-number">2.2</span> Впорядкування: <code>ORDER BY</code></a></li>
+  <li><a href="#зміна-назви-as" id="toc-зміна-назви-as" class="nav-link" data-scroll-target="#зміна-назви-as"><span class="header-section-number">2.3</span> Зміна назви: <code>AS</code></a></li>
+  <li><a href="#кількість-символів-length" id="toc-кількість-символів-length" class="nav-link" data-scroll-target="#кількість-символів-length"><span class="header-section-number">2.4</span> Кількість символів: <code>LENGTH</code></a></li>
+  <li><a href="#поділ-та-повернення-split_part" id="toc-поділ-та-повернення-split_part" class="nav-link" data-scroll-target="#поділ-та-повернення-split_part"><span class="header-section-number">2.5</span> Поділ та повернення: <code>SPLIT_PART</code></a></li>
+  <li><a href="#зміна-типу-cast" id="toc-зміна-типу-cast" class="nav-link" data-scroll-target="#зміна-типу-cast"><span class="header-section-number">2.6</span> Зміна типу: <code>CAST</code></a></li>
+  <li><a href="#обєднання-concat" id="toc-обєднання-concat" class="nav-link" data-scroll-target="#обєднання-concat"><span class="header-section-number">2.7</span> Об’єднання: <code>CONCAT</code></a></li>
+  <li><a href="#частина-дати-date_part" id="toc-частина-дати-date_part" class="nav-link" data-scroll-target="#частина-дати-date_part"><span class="header-section-number">2.8</span> Частина дати: <code>DATE_PART</code></a></li>
+  <li><a href="#перше-ненульове-значення-coalesce" id="toc-перше-ненульове-значення-coalesce" class="nav-link" data-scroll-target="#перше-ненульове-значення-coalesce"><span class="header-section-number">2.9</span> Перше ненульове значення: <code>COALESCE</code></a></li>
   <li><a href="#арифметичні-оператори" id="toc-арифметичні-оператори" class="nav-link" data-scroll-target="#арифметичні-оператори"><span class="header-section-number">2.10</span> Арифметичні оператори</a></li>
   <li><a href="#математичні-функції" id="toc-математичні-функції" class="nav-link" data-scroll-target="#математичні-функції"><span class="header-section-number">2.11</span> Математичні функції</a></li>
-  <li><a href="#case" id="toc-case" class="nav-link" data-scroll-target="#case"><span class="header-section-number">2.12</span> CASE</a></li>
+  <li><a href="#умовна-конструкція-case-when" id="toc-умовна-конструкція-case-when" class="nav-link" data-scroll-target="#умовна-конструкція-case-when"><span class="header-section-number">2.12</span> Умовна конструкція: <code>CASE</code> <code>WHEN</code></a></li>
   <li><a href="#типові-помилки-при-написанні-sql-запитів." id="toc-типові-помилки-при-написанні-sql-запитів." class="nav-link" data-scroll-target="#типові-помилки-при-написанні-sql-запитів."><span class="header-section-number">2.13</span> Типові помилки при написанні SQL-запитів.</a></li>
   </ul>
 </nav>
@@ -263,8 +263,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 
 </header>
 
-<section id="select" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="select"><span class="header-section-number">2.1</span> SELECT</h2>
+<section id="відбір-select" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="відбір-select"><span class="header-section-number">2.1</span> Відбір: <code>SELECT</code></h2>
 <p>Давайте напишемо перший запит мовою SQL:</p>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
@@ -409,8 +409,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </section>
-<section id="order-by" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="order-by"><span class="header-section-number">2.2</span> ORDER BY</h2>
+<section id="впорядкування-order-by" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="впорядкування-order-by"><span class="header-section-number">2.2</span> Впорядкування: <code>ORDER BY</code></h2>
 <p>Для сортування значень по будь-якій колонці SQL використовується оператор <code>ORDER BY</code> з ключовими словами <code>ASC</code> (за зростанням) або <code>DESC</code> (за спаданням).</p>
 <p>При цьому за умовчанням сортування відбувається за зростанням, тобто <code>ASC</code> не обов’язково вказувати. Для сортування за спаданням після <code>ORDER BY</code> необхідно явно вказати <code>DESC</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
@@ -677,8 +677,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </section>
-<section id="as" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="as"><span class="header-section-number">2.3</span> AS</h2>
+<section id="зміна-назви-as" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="зміна-назви-as"><span class="header-section-number">2.3</span> Зміна назви: <code>AS</code></h2>
 <p>При складанні SQL-запитів колонкам у результуючій таблиці можна надавати будь-які інші імена (їх ще називають «аліасами»). Це можна робити за допомогою оператора <code>AS</code>:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name <span class="kw">AS</span> new_name</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -742,8 +742,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </section>
-<section id="length" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="length"><span class="header-section-number">2.4</span> LENGTH</h2>
+<section id="кількість-символів-length" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="кількість-символів-length"><span class="header-section-number">2.4</span> Кількість символів: <code>LENGTH</code></h2>
 <p>У SQL-запитах до колонок таблиць можна використовувати різні функції, наприклад, як в Excel.</p>
 <p>У загальному вигляді синтаксис функцій виглядає приблизно так:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">function</span>(a, b, c, <span class="op">..</span>.)</span>
@@ -878,8 +878,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>В межах одного запиту колонки створюються не по черзі, а разом, тому в межах одного запиту колонки <code>upper_first_n</code> не існує, поки блок <code>SELECT</code> не буде повністю виконаний. Дуже важливо враховувати цю особливість мови.</p>
 <p>Однак на практиці до нових колонок доводиться звертатися досить часто — саме для цього є підзапити (запити до інших запитів). А поки що нам достатньо розуміти, що застосовувати функції до розрахункових колонок у тому ж запиті не можна.</p>
 </section>
-<section id="split_part" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="split_part"><span class="header-section-number">2.5</span> SPLIT_PART</h2>
+<section id="поділ-та-повернення-split_part" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="поділ-та-повернення-split_part"><span class="header-section-number">2.5</span> Поділ та повернення: <code>SPLIT_PART</code></h2>
 <p>Функція <code>SPLIT_PART</code> розбиває поданий їй на вхід рядок на кілька частин відповідно до зазначеного роздільника та повертає одну з частин.</p>
 <p>Крім самого рядка (або колонки зі значеннями рядкового типу), функція приймає ще два аргументи — роздільник і порядковий номер частини, яку необхідно повернути. Подивіться наступний приклад:</p>
 <div id="exr-sql06" class="theorem exercise">
@@ -1006,8 +1006,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </section>
-<section id="cast" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="cast"><span class="header-section-number">2.6</span> CAST</h2>
+<section id="зміна-типу-cast" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="зміна-типу-cast"><span class="header-section-number">2.6</span> Зміна типу: <code>CAST</code></h2>
 <p>Іноді виникає необхідність змінити тип даних у якійсь колонці результуючої таблиці, не змінюючи при цьому властивості вихідної таблиці, наприклад, перетворити число на текст (тип даних <code>VARCHAR</code>). І тому існує функція <code>CAST</code>.</p>
 <p>На вхід функції <code>CAST</code> необхідно подати ім’я колонки, вказавши через <code>AS</code> тип даних, до якого потрібно привести всі значення:</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">CAST</span>(<span class="kw">column</span> <span class="kw">AS</span> <span class="dt">VARCHAR</span>)</span>
@@ -1148,8 +1148,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </section>
-<section id="concat" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="concat"><span class="header-section-number">2.7</span> CONCAT</h2>
+<section id="обєднання-concat" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="обєднання-concat"><span class="header-section-number">2.7</span> Об’єднання: <code>CONCAT</code></h2>
 <p>У цьому підрозділі ми ще трохи попрацюємо з текстовими даними та розглянемо функцію <code>CONCAT</code>, за допомогою якої можна з’єднувати в один рядок значення кількох стовпців.</p>
 <p>Функція <code>CONCAT</code> приймає на вхід кілька аргументів і повертає результат їхньої послідовної складання один з одним. Хороша аналогія - складання речень з різних карток зі словами:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">CONCAT</span>(<span class="st">'SQL'</span>, <span class="st">' '</span>, <span class="st">'Python '</span>, <span class="dv">2023</span>)</span>
@@ -1229,8 +1229,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </section>
-<section id="date_part" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="date_part"><span class="header-section-number">2.8</span> DATE_PART</h2>
+<section id="частина-дати-date_part" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="частина-дати-date_part"><span class="header-section-number">2.8</span> Частина дати: <code>DATE_PART</code></h2>
 <p>Як ви вже помітили, у наших таблицях значення деяких колонках представлені у форматі дати (<code>DATE</code>) і часу (<code>TIMESTAMP</code>). Давайте трохи попрацюємо з такими даними.</p>
 <p>Насправді часто зустрічаються завдання, коли потрібна, наприклад, не вся дата, а якась її частина: рік, місяць, день, година тощо. Витягти цю частину вихідних даних дозволяє функція <code>DATE_PART</code>. Її синтаксис наступний:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> DATE_PART(part, <span class="kw">column</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1509,8 +1509,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </section>
-<section id="coalesce" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="coalesce"><span class="header-section-number">2.9</span> COALESCE</h2>
+<section id="перше-ненульове-значення-coalesce" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="перше-ненульове-значення-coalesce"><span class="header-section-number">2.9</span> Перше ненульове значення: <code>COALESCE</code></h2>
 <p>Ви могли помітити, що в минулому прикладі (<a href="#exr-sql10">Завдання&nbsp;<span>2.10</span></a>) для окремих рядків функція <code>DATE_PART</code> не повернула рік народження кур’єра, а замість них утворилися порожні значення. Якщо не помітили, уважно подивіться на результат запиту.</p>
 <p>Насправді це сталося тому, що в наших даних у колонці <code>birth_date</code> є перепустки — так звані значення <code>NULL</code> (у виводі результату це <code>NA</code>). Іншими словами, для окремих кур’єрів просто не вказано їхні дні народження. Є безліч варіантів, чому так могло статися, але ми зараз не маємо часу все це з’ясовувати — нам просто потрібно навчитися якось обробляти такі випадки.</p>
 <p>Давайте зробимо так, щоб замість порожніх значень функція <code>DATE_PART</code> повертала якесь інше значення. У цьому нам допоможе функція <code>COALESCE</code>, яка повертає перше не <code>NULL</code> значення зі списку поданих на вхід аргументів.</p>
@@ -1988,8 +1988,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </section>
-<section id="case" class="level2" data-number="2.12">
-<h2 data-number="2.12" class="anchored" data-anchor-id="case"><span class="header-section-number">2.12</span> CASE</h2>
+<section id="умовна-конструкція-case-when" class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="умовна-конструкція-case-when"><span class="header-section-number">2.12</span> Умовна конструкція: <code>CASE</code> <code>WHEN</code></h2>
 <p>А якби ми захотіли підвищити ціну не на всі товари, а, скажімо, тільки на дорогі?</p>
 <p>Для цього нам потрібно було б створити деяку функцію, яка перевіряла б кожне значення в колонці <code>price</code> і порівнювала б його з якимось пороговим значенням. Якби ціна виявлялася вищою за цей поріг, то функція підвищувала б ціну, а якщо ні — залишала б без змін.</p>
 <p>І таку функцію можна задати за допомогою умовної конструкції <code>CASE</code>. Вона має наступний синтаксис:</p>
