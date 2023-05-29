@@ -1,20 +1,14 @@
 # Базові запити
 
-## SELECT
-
 ```{python}
 #| file: _common.py
 #| include: false
 ```
 
-```{r}
-#| include: false
-
-source('_common.r')
-source('_duckdb.r')
-```
+## SELECT
 
 Давайте напишемо перший запит мовою SQL:
+
 ```{sql}
 #| connection: con
 

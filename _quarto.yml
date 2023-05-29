@@ -20,19 +20,14 @@ book:
   sharing: [twitter, facebook, linkedin]
   google-analytics: 'G-0C9TJBF3C5'
   chapters:
-    - index.qmd
-    - 01_intro.qmd
-    - 02_type_and_str.qmd
-    - 03_control_constructs.qmd
+    - index.ipynb
     - text: "---"
-    - part: 05_sql.qmd
+    - part: sql.ipynb
       chapters: 
-        - 05_01_basics.qmd
-        - 05_02_filtering.qmd
-        - 05_03_aggregation.qmd
+      - sql_basics.ipynb
+      - sql_filtering.ipynb
     - text: "---"
-    - 04_quarto.qmd
-    - references.qmd
+    - quarto.ipynb
     
 language: _language-ukr.yml
 
@@ -40,6 +35,7 @@ bibliography: references.bib
 
 format:
   html:
+    df-print: kable
     code-overflow: wrap
     code-link: true
     theme:

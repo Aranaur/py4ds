@@ -3,17 +3,6 @@
 SQL (анг. *Structured query language*) - мова запитів на якому ми спілкуємось з базами даних.
 
 База даних - це сховище даних, де зберігаються наші "таблиці".
-```{python}
-#| file: _common.py
-#| include: false
-```
-
-```{r}
-#| include: false
-
-source('_common.r')
-source('_duckdb.r')
-```
 
 ## Схема бази даних
 
@@ -70,6 +59,8 @@ erDiagram
 #| label: sql-df
 #| echo: false
 
+import pandas as pd
+
 sql_data_types = pd.DataFrame({'Типи даних': ['INT', 'NUMERIC / DECIMAL', 'VARCHAR', 'DATE', 'TIMESTAMP', '[]'],
                                 'Опис': ['Ціле число', 'Дійсне число', 'Текст', 'Дата з точністю до дня', 'Дата з точністю до секунди', 'Масив'],
                                 'Приклад': ['id користувача: 123', 'Вартість товару: 120.55 ', 'Дія із замовленням: «create_order»', 'Дата народження користувача: 25/03/91', 'Час реєстрації у додатку: 24/08/22 01:52:24', 'Список id товаров у замовленні: [1, 13, 22]']})
@@ -100,10 +91,10 @@ products = pd.DataFrame({'Стовпчик': ['product_id', 'name', 'price'],
 ```
 
 
-```{r}
+```{python}
 #| label: sql-data-types
 #| echo: false
-py$sql_data_types
+sql_data_types
 ```
 
 Більш детально почитати про типи даних можна за [посиланням](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-data-types/)
@@ -111,45 +102,45 @@ py$sql_data_types
 ## Структура та наповнення таблиць
 
 `user_actions` – дії користувачів із замовленнями.
-```{r}
+```{python}
 #| label: sql-user-actions
 #| echo: false
-py$user_actions
+user_actions
 ```
 
 `courier_actions` – дії кур'єрів із замовленнями.
-```{r}
+```{pyhton}
 #| label: sql-courier-actions
 #| echo: false
-py$courier_actions
+courier_actions
 ```
 
 `orders` - інформація про замовлення.
-```{r}
+```{python}
 #| label: sql-orders
 #| echo: false
-py$orders
+orders
 ```
 
 `users` - інформація про користувачів.
-```{r}
+```{python}
 #| label: sql-users
 #| echo: false
-py$users
+users
 ```
 
 `couriers` - інформація про кур'єрів.
-```{r}
+```{python}
 #| label: sql-couriers
 #| echo: false
-py$couriers
+couriers
 ```
 
 `products` - інформація про товари, які доставляє сервіс.
-```{r}
+```{python}
 #| label: sql-products
 #| echo: false
-py$products
+products
 ```
 
 ::: {.callout-note}
