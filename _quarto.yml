@@ -27,7 +27,7 @@ book:
       - sql_basics.ipynb
       - sql_filtering.ipynb
     - text: "---"
-    - quarto.ipynb
+    - quarto.qmd
     
 language: _language-ukr.yml
 
