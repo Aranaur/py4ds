@@ -227,6 +227,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <li><a href="#базова-фільтрація-where" id="toc-базова-фільтрація-where" class="nav-link active" data-scroll-target="#базова-фільтрація-where"><span class="header-section-number">3.1</span> Базова фільтрація: <code>WHERE</code></a></li>
   <li><a href="#пошук-за-шаблоном-like" id="toc-пошук-за-шаблоном-like" class="nav-link" data-scroll-target="#пошук-за-шаблоном-like"><span class="header-section-number">3.2</span> Пошук за шаблоном: <code>LIKE</code></a></li>
   <li><a href="#in-та-between-для-фільтрації" id="toc-in-та-between-для-фільтрації" class="nav-link" data-scroll-target="#in-та-between-для-фільтрації"><span class="header-section-number">3.3</span> <code>IN</code> та <code>BETWEEN</code> для фільтрації</a></li>
+  <li><a href="#фільтрація-з-null" id="toc-фільтрація-з-null" class="nav-link" data-scroll-target="#фільтрація-з-null"><span class="header-section-number">3.4</span> Фільтрація з <code>NULL</code></a></li>
+  <li><a href="#додаткові-завдання" id="toc-додаткові-завдання" class="nav-link" data-scroll-target="#додаткові-завдання"><span class="header-section-number">3.5</span> Додаткові завдання</a></li>
+  <li><a href="#фільтрація-по-даті-та-часу" id="toc-фільтрація-по-даті-та-часу" class="nav-link" data-scroll-target="#фільтрація-по-даті-та-часу"><span class="header-section-number">3.6</span> Фільтрація по даті та часу</a></li>
+  <li><a href="#фільтрація-з-case-when" id="toc-фільтрація-з-case-when" class="nav-link" data-scroll-target="#фільтрація-з-case-when"><span class="header-section-number">3.7</span> Фільтрація з <code>CASE WHEN</code></a></li>
   </ul>
 </nav>
     </div>
@@ -298,11 +302,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div id="exr-sql-filter-01" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 3.1 </strong></span>Напишіть SQL-запит до таблиці <code>products</code> та виведіть всю інформацію про товари, ціна яких не перевищує 100 одиниць. Результат відсортуйте за зростанням id товару.</p>
+<p><span class="theorem-title"><strong>Завдання 3.1 </strong></span><br>Напишіть SQL-запит до таблиці <code>products</code> та виведіть всю інформацію про товари, ціна яких не перевищує 100 одиниць. Результат відсортуйте за зростанням id товару.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code></p>
-<p><strong>Рішення:</strong></p>
 </div>
 <div class="cell" data-execution_count="2">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>SELECT </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    product_id,</span>
@@ -312,7 +317,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>WHERE  price <span class="op">&lt;=</span> <span class="dv">100</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>ORDER BY product_id</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>LIMIT  <span class="dv">10</span><span class="op">;</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+</details>
+<div class="cell-output cell-output-display" data-execution_count="36">
 <div>
 
 
@@ -417,12 +423,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div id="exr-sql-filter-02" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 3.2 </strong></span>Виберіть користувачів жіночої статі з таблиці <code>users</code>. Виведіть лише id цих користувачів. Результат відсортуйте за зростанням id.</p>
+<p><span class="theorem-title"><strong>Завдання 3.2 </strong></span><br>Виберіть користувачів жіночої статі з таблиці <code>users</code>. Виведіть лише id цих користувачів. Результат відсортуйте за зростанням id.</p>
 <p>Додайте в запит оператор <code>LIMIT</code> і виведіть лише <code>10</code> перших ID з відсортованого списку.</p>
 <p>Поле у результуючій таблиці: <code>user_id</code></p>
-<p><strong>Рішення:</strong></p>
 </div>
 <div class="cell" data-execution_count="3">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>SELECT </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    user_id</span>
@@ -433,7 +440,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>ORDER BY </span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    user_id </span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>LIMIT <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+</details>
+<div class="cell-output cell-output-display" data-execution_count="37">
 <div>
 
 
@@ -510,14 +518,15 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>      <span class="kw">AND</span> column_3 <span class="op">=</span> <span class="st">'2022-12-31'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Давайте якраз вирішимо завдання одразу з кількома умовами!</p>
 <div id="exr-sql-filter-03" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 3.3 </strong></span>Виберіть з таблиці <code>user_actions</code> усі дії користувачів зі створення замовлень, які були зроблені ними <code>після опівночі 6 вересня 2022 року</code>. Виведіть колонки з id користувачів, id створених замовлень та часом їх створення.</p>
+<p><span class="theorem-title"><strong>Завдання 3.3 </strong></span><br>Виберіть з таблиці <code>user_actions</code> усі дії користувачів зі створення замовлень, які були зроблені ними <code>після опівночі 6 вересня 2022 року</code>. Виведіть колонки з id користувачів, id створених замовлень та часом їх створення.</p>
 <p>Результат має бути відсортований за зростанням id замовлення.</p>
 <p>Поля в результуючій таблиці: <code>user_id</code>, <code>order_id</code>, <code>time</code></p>
 <p><strong>Пояснення:</strong></p>
 <p>Зверніть увагу, що в таблиці user_actions у кожного користувача можуть бути записи не тільки з часом створення замовлення, а й часом його скасування. Нам необхідно отримати лише записи із створенням замовлень.</p>
-<p><strong>Рішення:</strong></p>
 </div>
 <div class="cell" data-execution_count="4">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>SELECT user_id,</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>       order_id,</span>
@@ -525,7 +534,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>FROM   user_actions</span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>WHERE  action <span class="op">=</span> <span class="st">'create_order'</span> <span class="kw">and</span> time <span class="op">&gt;</span> <span class="st">'2022-09-06'</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>ORDER BY order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+</details>
+<div class="cell-output cell-output-display" data-execution_count="38">
 <div>
 
 
@@ -645,12 +655,16 @@ WHERE share &gt; 50</code></pre>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> same_column <span class="op">&gt;</span> <span class="dv">0</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>При вказівці фільтрів у блоці <code>WHERE</code> важливо враховувати розглянуті особливості. Можете керуватися наступним правилом: якщо збираєтеся фільтрувати дані по розрахунковій колонці, то дублюйте розрахунки <code>WHERE</code> і не використовуйте аліаси, присвоєні новим колонкам.</p>
-<p>::: {#exr-sql-filter-04} Призначте знижку <code>20%</code> на всі товари з таблиці <code>products</code> та відберіть ті, ціна на які <code>з урахуванням знижки</code> перевищує <code>100</code>. Виведіть id товарів, їх найменування, колишню ціну та нову ціну з урахуванням знижки. Колонку зі старою ціною назвіть <code>old_price</code>, новою — <code>new_price</code>.</p>
+<div id="exr-sql-filter-04" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 3.4 </strong></span><br>Призначте знижку <code>20%</code> на всі товари з таблиці <code>products</code> та відберіть ті, ціна на які <code>з урахуванням знижки</code> перевищує <code>100</code>. Виведіть id товарів, їх найменування, колишню ціну та нову ціну з урахуванням знижки. Колонку зі старою ціною назвіть <code>old_price</code>, новою — <code>new_price</code>.</p>
 <p>Результат має бути відсортований за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>old_price</code>, <code>new_price</code></p>
 <p><strong>Пояснення:</strong></p>
 <p>Будьте уважні, коли вказуватимете фільтр після оператора <code>WHERE</code>.</p>
+</div>
 <div class="cell" data-execution_count="5">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
@@ -660,7 +674,8 @@ WHERE share &gt; 50</code></pre>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>WHERE  price <span class="op">*</span> <span class="fl">0.8</span> <span class="op">&gt;</span> <span class="dv">100</span></span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>ORDER BY product_id</span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>LIMIT <span class="dv">10</span> <span class="op">--</span> для скорочення виводу</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+</details>
+<div class="cell-output cell-output-display" data-execution_count="39">
 <div>
 
 
@@ -763,7 +778,7 @@ WHERE share &gt; 50</code></pre>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span> </span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="fu">LOWER</span>(new_column_1) <span class="op">=</span> <span class="st">'i.love.python'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="exr-sql-filter-05" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 3.4 </strong></span>Відберіть із таблиці <code>products</code> всі товари, назви яких або починаються зі слова «<code>tea</code>», або складаються <code>з п'яти символів</code>. Виведіть дві колонки: id товарів та їх найменування.</p>
+<p><span class="theorem-title"><strong>Завдання 3.5 </strong></span><br>Відберіть із таблиці <code>products</code> всі товари, назви яких або починаються зі слова «<code>tea</code>», або складаються <code>з п'яти символів</code>. Виведіть дві колонки: id товарів та їх найменування.</p>
 <p>Результат має бути відсортований за зростанням id товару.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code></p>
 <p><strong>Пояснення:</strong></p>
@@ -786,6 +801,8 @@ WHERE share &gt; 50</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="6">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>       name</span>
@@ -793,7 +810,8 @@ WHERE share &gt; 50</code></pre>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>WHERE  split_part(name, <span class="st">' '</span>, <span class="dv">1</span>) <span class="op">=</span> <span class="st">'tea'</span></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">or</span> length(name) <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>ORDER BY product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+</details>
+<div class="cell-output cell-output-display" data-execution_count="40">
 <div>
 
 
@@ -940,19 +958,21 @@ WHERE share &gt; 50</code></pre>
 </div>
 </div>
 <div id="exr-sql-filter-06" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 3.5 </strong></span>Відберіть із таблиці <code>products</code> всі товари, що містять у своїй назві послідовність символів «<code>tea</code>» (без лапок). Виведіть дві колонки: id продукту та його назву.</p>
+<p><span class="theorem-title"><strong>Завдання 3.6 </strong></span><br>Відберіть із таблиці <code>products</code> всі товари, що містять у своїй назві послідовність символів «<code>tea</code>» (без лапок). Виведіть дві колонки: id продукту та його назву.</p>
 <p>Результат має бути відсортований за зростанням id товару.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code></p>
-<p><strong>Рішення</strong></p>
 </div>
 <div class="cell" data-execution_count="7">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>SELECT  product_id,</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        name</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>FROM    products</span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>WHERE   name LIKE <span class="st">'%tea%'</span></span>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>ORDER BY product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+</details>
+<div class="cell-output cell-output-display" data-execution_count="41">
 <div>
 
 
@@ -1018,7 +1038,7 @@ WHERE share &gt; 50</code></pre>
 </div>
 <p>Тепер зробимо наш фільтр трохи цікавішим.</p>
 <div id="exr-sql-filter-07" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 3.6 </strong></span>Виберіть із таблиці <code>products</code> id та найменування лише тих товарів, назви яких починаються на букву “<code>c</code>” і містять <code>лише одне слово</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 3.7 </strong></span><br>Виберіть із таблиці <code>products</code> id та найменування лише тих товарів, назви яких починаються на букву “<code>c</code>” і містять <code>лише одне слово</code>.</p>
 <p>Результат має бути відсортований за зростанням id товару.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code></p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1038,9 +1058,10 @@ WHERE share &gt; 50</code></pre>
 </div>
 </div>
 </div>
-<p><strong>Рішення</strong></p>
 </div>
 <div class="cell" data-execution_count="8">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>       name</span>
@@ -1048,7 +1069,8 @@ WHERE share &gt; 50</code></pre>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>WHERE  name like <span class="st">'c%'</span></span>
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>   <span class="kw">and</span> name <span class="kw">not</span> like <span class="st">'</span><span class="sc">% %</span><span class="st">'</span></span>
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>ORDER BY product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+</details>
+<div class="cell-output cell-output-display" data-execution_count="42">
 <div>
 
 
@@ -1110,7 +1132,7 @@ WHERE share &gt; 50</code></pre>
 <p>Уявіть, що напередодні Нового року до вас звернувся менеджер, якому на думку спала ідея зробити знижку на найдорожчий чай. Він попросив вас надати йому вивантаження з бази даних з усіма чаями та новими цінами на них з урахуванням знижки.</p>
 <p>Що він далі робитиме з цими даними, вам невідомо, але завдання є завдання, до того ж не таке вже й складне. Спробуймо його вирішити!</p>
 <div id="exr-sql-filter-08" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 3.7 </strong></span>Складіть SQL-запит, який вибирає з таблиці <code>products</code> <strong>всі чаї вартістю більше 60</strong> і нараховує їм <strong>знижку 25%</strong>.</p>
+<p><span class="theorem-title"><strong>Завдання 3.8 </strong></span><br>Складіть SQL-запит, який вибирає з таблиці <code>products</code> <strong>всі чаї вартістю більше 60</strong> і нараховує їм <strong>знижку 25%</strong>.</p>
 <p>Знижку в % менеджер попросив вказати в окремому стовпці у форматі тексту, тобто так: «<strong>25%</strong>» (без лапок). Стовпці зі знижкою та новою ціною назвіть відповідно <code>discount</code> та <code>new_price</code>.</p>
 <p>Також необхідно будь-яким відомим способом позбавитися «<strong>tea mushroom</strong>»: навряд чи менеджер мав на увазі і його, коли ставив нам завдання.</p>
 <p>Результат має бути відсортований за зростанням id товару.</p>
@@ -1119,9 +1141,10 @@ WHERE share &gt; 50</code></pre>
 <p>Щоб вказати стовпець з одним значенням для всіх записів (у нашому випадку це стовпець зі знижкою), достатньо просто ввести потрібне значення і дати стовпцю якусь назву - вказане значення автоматично проставиться у всіх рядках результуючої таблиці:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, <span class="st">'text'</span> <span class="kw">AS</span> column_2</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Рішення:</strong></p>
 </div>
 <div class="cell" data-execution_count="9">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
@@ -1133,7 +1156,8 @@ WHERE share &gt; 50</code></pre>
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>   <span class="kw">and</span> name <span class="op">!=</span> <span class="st">'tea mushroom'</span></span>
 <span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>   <span class="kw">and</span> name like <span class="st">'%tea%'</span></span>
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>ORDER BY product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+</details>
+<div class="cell-output cell-output-display" data-execution_count="43">
 <div>
 
 
@@ -1235,11 +1259,12 @@ WHERE share &gt; 50</code></pre>
 </div>
 </div>
 <div id="exr-sql-filter-09" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 3.8 </strong></span>З таблиці <code>user_actions</code> виведіть всю інформацію про дії користувачів з id <strong>170</strong>, <strong>200</strong> та <strong>230</strong> за період <strong>з 25 серпня до 4 вересня 2022 року включно</strong>. Результат відсортуйте за зменшенням id замовлення - тобто від останніх до найпізніших.</p>
+<p><span class="theorem-title"><strong>Завдання 3.9 </strong></span><br>З таблиці <code>user_actions</code> виведіть всю інформацію про дії користувачів з id <strong>170</strong>, <strong>200</strong> та <strong>230</strong> за період <strong>з 25 серпня до 4 вересня 2022 року включно</strong>. Результат відсортуйте за зменшенням id замовлення - тобто від останніх до найпізніших.</p>
 <p>Поля у результуючій таблиці: <code>user_id</code>, <code>order_id</code>, <code>action</code>, <code>time</code></p>
-<p><strong>Рішення:</strong></p>
 </div>
 <div class="cell" data-execution_count="10">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>SELECT user_id,</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>       order_id,</span>
@@ -1250,7 +1275,8 @@ WHERE share &gt; 50</code></pre>
 <span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>   <span class="kw">and</span> time <span class="op">&gt;=</span> <span class="st">'2022-08-25'</span></span>
 <span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>   <span class="kw">and</span> time <span class="op">&lt;</span> <span class="st">'2022-09-05'</span> <span class="op">--</span> уважно з датами<span class="op">!</span></span>
 <span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>ORDER BY order_id desc</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+</details>
+<div class="cell-output cell-output-display" data-execution_count="44">
 <div>
 
 
@@ -1397,6 +1423,9 @@ WHERE share &gt; 50</code></pre>
 </div>
 </div>
 </div>
+</section>
+<section id="фільтрація-з-null" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="фільтрація-з-null"><span class="header-section-number">3.4</span> Фільтрація з <code>NULL</code></h2>
 <p>Раніше <a href="sql_basics.html#exr-sql11">Завдання&nbsp;<span>2.11</span></a> ми зіткнулися з пропущеними значеннями в таблиці <code>couriers</code> — у деяких кур’єрів не було зазначено їхні дні народження.</p>
 <p>Для перевірки на <code>NULL</code> значення <strong>SQL</strong> є оператор <code>IS NULL</code>. У поєднанні з <code>WHERE</code> записується він так:</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
@@ -1438,6 +1467,727 @@ WHERE share &gt; 50</code></pre>
 </div>
 <div class="callout-body-container callout-body">
 <p>Детальніше про значення <code>NULL</code> можна прочитати <a href="https://duckdb.org/docs/sql/data_types/nulls.html">тут</a>.</p>
+</div>
+</div>
+<div id="exr-sql-filter-10" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 3.10 </strong></span><br>Напишіть SQL-запит до таблиці <code>couriers</code> та виведіть всю інформацію про кур’єрів, у яких не вказано їх день народження.</p>
+<p>Результат має бути відсортований за зростанням id кур’єра.</p>
+<p>Поля в результуючій таблиці: <code>birth_date</code>, <code>courier_id</code>, <code>sex</code></p>
+</div>
+<div class="cell" data-execution_count="11">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>SELECT birth_date,</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>       courier_id,</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>       sex</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>FROM   couriers</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>WHERE  birth_date <span class="kw">is</span> null</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>ORDER BY courier_id</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>LIMIT <span class="dv">10</span> <span class="op">--</span> для скорочення виводу</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="45">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">birth_date</th>
+<th data-quarto-table-cell-role="th">courier_id</th>
+<th data-quarto-table-cell-role="th">sex</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>NaT</td>
+<td>83</td>
+<td>male</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>NaT</td>
+<td>187</td>
+<td>male</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>NaT</td>
+<td>200</td>
+<td>male</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>NaT</td>
+<td>232</td>
+<td>male</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>NaT</td>
+<td>411</td>
+<td>male</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>NaT</td>
+<td>450</td>
+<td>male</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>NaT</td>
+<td>467</td>
+<td>male</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>NaT</td>
+<td>481</td>
+<td>male</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>NaT</td>
+<td>726</td>
+<td>male</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>NaT</td>
+<td>790</td>
+<td>male</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="додаткові-завдання" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="додаткові-завдання"><span class="header-section-number">3.5</span> Додаткові завдання</h2>
+<p>Давайте вирішимо ще кілька завдань, щоб переконатися, що ми розібралися з фільтрацією даних.</p>
+<div id="exr-sql-filter-11" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 3.11 </strong></span><br> Визначте id та дати народження <strong>10 наймолодших користувачів <ins>чоловічої</ins> статі</strong> з таблиці <code>users</code>. Не враховуйте користувачів, у яких не вказано дату народження.</p>
+<p>Поле в результуючій таблиці: <code>user_id</code>, <code>birth_date</code></p>
+<p><strong>Пояснення:</strong> будьте уважні і пам’ятайте про значення <code>NULL</code>.</p>
+</div>
+<div class="cell" data-execution_count="12">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>SELECT user_id,</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>       birth_date</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>FROM   users</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>WHERE  birth_date IS NOT NULL</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>   AND sex <span class="op">=</span> <span class="st">'male'</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>ORDER BY birth_date DESC</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>LIMIT <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="46">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">user_id</th>
+<th data-quarto-table-cell-role="th">birth_date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>11419</td>
+<td>2003-09-02</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>11461</td>
+<td>2002-11-05</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>9257</td>
+<td>2002-07-11</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>20804</td>
+<td>2002-01-09</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>14956</td>
+<td>2001-08-09</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>7047</td>
+<td>2001-06-11</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>11725</td>
+<td>2001-05-27</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>4374</td>
+<td>2001-04-29</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>15102</td>
+<td>2001-04-21</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>14571</td>
+<td>2001-03-31</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="exr-sql-filter-12" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 3.12 </strong></span><br> Напишіть SQL-запит до таблиці <code>courier_actions</code>, щоб дізнатися ID та час доставки <strong>останніх 10 замовлень</strong>, доставлених кур’єром з <strong>ID 100</strong>.</p>
+<p>Поля у результуючій таблиці: <code>order_id</code>, <code>time</code></p>
+<p><strong>Пояснення</strong>: Зверніть увагу, що у вихідній таблиці є записи не лише з часом доставки, а й з часом прийняття замовлення.</p>
+</div>
+<div class="cell" data-execution_count="13">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>SELECT order_id,</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>       time</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>FROM   courier_actions</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>WHERE  courier_id <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>   AND action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>ORDER BY order_id desc limit <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="47">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">order_id</th>
+<th data-quarto-table-cell-role="th">time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>57791</td>
+<td>2022-09-08 18:18:00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>55095</td>
+<td>2022-09-08 07:51:00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>53500</td>
+<td>2022-09-07 23:05:00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>49779</td>
+<td>2022-09-07 07:34:00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>48406</td>
+<td>2022-09-06 22:13:00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>44546</td>
+<td>2022-09-05 21:13:00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>42258</td>
+<td>2022-09-05 11:49:00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>41606</td>
+<td>2022-09-05 09:00:00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>41440</td>
+<td>2022-09-05 08:14:00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>38536</td>
+<td>2022-09-04 18:57:00</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="фільтрація-по-даті-та-часу" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="фільтрація-по-даті-та-часу"><span class="header-section-number">3.6</span> Фільтрація по даті та часу</h2>
+<p>І ще кілька завдань на роботу з датами та часом.</p>
+<div id="exr-sql-filter-13" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 3.13 </strong></span><br> З таблиці <code>user_actions</code> отримаєте id всіх замовлень, зроблених користувачами сервісу <strong>у серпні 2022 року</strong>.</p>
+<p>Результат відсортуйте за зростанням id замовлення.</p>
+<p>Поле у результуючій таблиці: <code>order_id</code></p>
+<p><strong>Пояснення</strong>: зверніть увагу, що у вихідній таблиці є записи не лише з часом оформлення, а й часом скасування замовлення.У цій задачі може стати в нагоді функція <code>DATE_PART</code>. Ми розглядали її в <a href="sql_basics.html#exr-sql10">Завдання&nbsp;<span>2.10</span></a>.</p>
+</div>
+<div class="cell" data-execution_count="14">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>SELECT order_id</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>FROM   user_actions</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>WHERE  action <span class="op">=</span> <span class="st">'create_order'</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>   AND DATE_PART(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">8</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>   AND DATE_PART(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>ORDER BY order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="48">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">order_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18794</td>
+<td>18795</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">18795</td>
+<td>18796</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18796</td>
+<td>18797</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">18797</td>
+<td>18798</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18798</td>
+<td>18799</td>
+</tr>
+</tbody>
+</table>
+
+<p>18799 rows × 1 columns</p>
+</div>
+</div>
+</div>
+<div id="exr-sql-filter-14" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 3.14 </strong></span><br> З таблиці <code>couriers</code> відберіть id всіх кур’єрів, що народилися в період <strong>з 1990 по 1995 включно</strong>.</p>
+<p>Результат відсортуйте за зростанням id кур’єра.</p>
+<p>Поле у результуючій таблиці: <code>courier_id</code></p>
+<p><strong>Пояснення</strong>: у цьому завдання знову може стати в нагоді функція <code>DATE_PART</code>.</p>
+</div>
+<div class="cell" data-execution_count="15">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>SELECT courier_id</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>FROM   couriers</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>WHERE  date_part(<span class="st">'year'</span>, birth_date) BETWEEN <span class="dv">1990</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>   AND <span class="dv">1995</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>ORDER BY courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="49">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">courier_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1522</td>
+<td>3153</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1523</td>
+<td>3160</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1524</td>
+<td>3161</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1525</td>
+<td>3166</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1526</td>
+<td>3167</td>
+</tr>
+</tbody>
+</table>
+
+<p>1527 rows × 1 columns</p>
+</div>
+</div>
+</div>
+<div id="exr-sql-filter-15" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 3.15 </strong></span><br> З таблиці <code>user_actions</code> отримайте інформацію про всі скасування замовлень, які користувачі здійснювали <strong>протягом серпня 2022 по середах з 12:00 до 15:59</strong>.</p>
+<p>Результат відсортуйте за зменшенням id скасованих замовлень.</p>
+<p>Поля у результуючій таблиці: <code>user_id</code>, <code>order_id</code>, <code>action</code>, <code>time</code></p>
+<p>Пояснення: будьте уважні при роботі з датами та часом. Для вирішення задачі вам знадобиться функція <code>DATE_PART</code>. Для отримання дня тижня можна вказати аргумент <code>'dow'</code> (“day of week”):</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> DATE_PART(<span class="st">'dow'</span>, <span class="dt">DATE</span> <span class="st">'2022-12-31'</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fl">6.00</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>В <strong>DuckDB</strong> дні тижня рахуються з неділі (0) до суботи (6).</p>
+</div>
+<div class="cell" data-execution_count="16">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>SELECT  user_id,</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>        order_id,</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>        action,</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>        time</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>FROM   user_actions</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>    AND DATE_PART(<span class="st">'dow'</span>, time) <span class="op">=</span> <span class="dv">0</span><span class="er">3</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    AND DATE_PART(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">0</span><span class="er">8</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>    AND DATE_PART(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>    AND DATE_PART(<span class="st">'h'</span>, time) BETWEEN <span class="dv">12</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>    AND <span class="dv">15</span></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>ORDER BY order_id DESC</span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>LIMIT <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="50">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">user_id</th>
+<th data-quarto-table-cell-role="th">order_id</th>
+<th data-quarto-table-cell-role="th">action</th>
+<th data-quarto-table-cell-role="th">time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>8117</td>
+<td>17307</td>
+<td>cancel_order</td>
+<td>2022-08-31 15:59:00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>8107</td>
+<td>17282</td>
+<td>cancel_order</td>
+<td>2022-08-31 15:50:00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1495</td>
+<td>17272</td>
+<td>cancel_order</td>
+<td>2022-08-31 15:46:00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>7427</td>
+<td>17252</td>
+<td>cancel_order</td>
+<td>2022-08-31 15:38:00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>3207</td>
+<td>17231</td>
+<td>cancel_order</td>
+<td>2022-08-31 15:33:00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>8077</td>
+<td>17218</td>
+<td>cancel_order</td>
+<td>2022-08-31 15:30:00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>3446</td>
+<td>17216</td>
+<td>cancel_order</td>
+<td>2022-08-31 15:28:00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>8076</td>
+<td>17214</td>
+<td>cancel_order</td>
+<td>2022-08-31 15:26:00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>6116</td>
+<td>17190</td>
+<td>cancel_order</td>
+<td>2022-08-31 15:17:00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>8057</td>
+<td>17151</td>
+<td>cancel_order</td>
+<td>2022-08-31 15:02:00</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="фільтрація-з-case-when" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="фільтрація-з-case-when"><span class="header-section-number">3.7</span> Фільтрація з <code>CASE WHEN</code></h2>
+<p>І насамкінець давайте повернемося до наших податків.</p>
+<p>Минулого разу ми вирішили завдання для одного з менеджерів та порахували ПДВ кожного товару. Ви довго дивилися на розрахунки, що вийшли, і вас все-таки замучила совість: адже ви точно знаєте, що на окремі групи товарів ПДВ становить не 20%, а 10%.</p>
+<p>Оскільки менеджер раптово перестав відповідати на ваші повідомлення, ви вирішили написати безпосередньо бухгалтеру та запросили список товарів, на які поширюється ПДВ 10%.</p>
+<p>Ось який список ви отримали:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>'sugar', 'crackers', 'drying', 'seeds',</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>'linseed oil', 'grapes', 'olive oil',</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>'watermelon', 'baton', 'yogurt', 'cream', 'buckwheat',</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>'oatmeal', 'pasta', 'mutton', 'oranges',</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>'bagels', 'bread', 'peas', 'sour cream', 'smoked fish',</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>'flour', 'sprats', 'sausages', 'pork', 'rice',</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>'sesame oil', 'condensed milk', 'pineapple', 'beef',</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>'salt', 'dried fish', 'sunflower oil', 'apples',</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>'pears', 'flatbread', 'milk', 'chicken', 'lavash', 'waffles', 'tangerines'</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="exr-sql-filter-16" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 3.16 </strong></span><br> Як і у минулому завданні (<a href="sql_basics.html#exr-sql15">Завдання&nbsp;<span>2.15</span></a>), обчисліть ПДВ кожного товару в таблиці <code>products</code> і розрахуйте ціну без урахування ПДВ. Однак тепер врахуйте, що для товарів зі списку податок становить <strong>10%</strong>. Для решти товарів ПДВ той самий — <strong>20%</strong>.</p>
+<p>Виведіть всю інформацію про товари, включаючи суму податку та ціну без його врахування. Колонки із сумою податку та ціною без ПДВ назвіть відповідно <code>tax</code> та <code>price_before_tax</code>. Округліть значення у цих колонках <strong>до двох знаків після коми</strong>.</p>
+<p>Результат відсортуйте спочатку за спаданням ціни товару без урахування ПДВ, потім за зростанням id товару.</p>
+<p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code>, <code>tax</code>, <code>price_before_tax</code></p>
+<p><strong>Пояснення:</strong> порядок розрахунку податку той самий, що й у <a href="sql_basics.html#exr-sql15">Завдання&nbsp;<span>2.15</span></a>. Для вирішення завдання вам можуть стати в нагоді конструкція <code>CASE</code> та оператор <code>IN</code>. Конструкцію <code>CASE</code> ми розглядали у <a href="sql_basics.html#exr-sql14">Завдання&nbsp;<span>2.14</span></a>.</p>
+</div>
+<div class="cell" data-execution_count="17">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>       price,</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>       <span class="bu">round</span>(price <span class="op">*</span> (case when name <span class="kw">in</span> (<span class="st">'sugar'</span>, <span class="st">'crackers'</span>, <span class="st">'drying'</span>, <span class="st">'seeds'</span>,</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">'linseed oil'</span>, <span class="st">'grapes'</span>, <span class="st">'olive oil'</span>,</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">'watermelon'</span>, <span class="st">'baton'</span>, <span class="st">'yogurt'</span>, <span class="st">'cream'</span>, <span class="st">'buckwheat'</span>,</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">'oatmeal'</span>, <span class="st">'pasta'</span>, <span class="st">'mutton'</span>, <span class="st">'oranges'</span>,</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">'bagels'</span>, <span class="st">'bread'</span>, <span class="st">'peas'</span>, <span class="st">'sour cream'</span>, <span class="st">'smoked fish'</span>,</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">'flour'</span>, <span class="st">'sprats'</span>, <span class="st">'sausages'</span>, <span class="st">'pork'</span>, <span class="st">'rice'</span>,</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">'sesame oil'</span>, <span class="st">'condensed milk'</span>, <span class="st">'pineapple'</span>, <span class="st">'beef'</span>,</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">'salt'</span>, <span class="st">'dried fish'</span>, <span class="st">'sunflower oil'</span>, <span class="st">'apples'</span>,</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">'pears'</span>, <span class="st">'flatbread'</span>, <span class="st">'milk'</span>, <span class="st">'chicken'</span>, <span class="st">'lavash'</span>, <span class="st">'waffles'</span>, <span class="st">'tangerines'</span>)</span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>                      then <span class="fl">0.1</span> <span class="op">/</span> <span class="fl">1.1</span></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>                      <span class="cf">else</span> <span class="fl">0.2</span> <span class="op">/</span> <span class="fl">1.2</span> end), <span class="dv">2</span>) <span class="im">as</span> tax,</span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>       <span class="bu">round</span>(price <span class="op">/</span> (case when name <span class="kw">in</span> (<span class="st">'sugar'</span>, <span class="st">'crackers'</span>, <span class="st">'drying'</span>, <span class="st">'seeds'</span>,</span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">'linseed oil'</span>, <span class="st">'grapes'</span>, <span class="st">'olive oil'</span>,</span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">'watermelon'</span>, <span class="st">'baton'</span>, <span class="st">'yogurt'</span>, <span class="st">'cream'</span>, <span class="st">'buckwheat'</span>,</span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">'oatmeal'</span>, <span class="st">'pasta'</span>, <span class="st">'mutton'</span>, <span class="st">'oranges'</span>,</span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">'bagels'</span>, <span class="st">'bread'</span>, <span class="st">'peas'</span>, <span class="st">'sour cream'</span>, <span class="st">'smoked fish'</span>,</span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">'flour'</span>, <span class="st">'sprats'</span>, <span class="st">'sausages'</span>, <span class="st">'pork'</span>, <span class="st">'rice'</span>,</span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">'sesame oil'</span>, <span class="st">'condensed milk'</span>, <span class="st">'pineapple'</span>, <span class="st">'beef'</span>,</span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">'salt'</span>, <span class="st">'dried fish'</span>, <span class="st">'sunflower oil'</span>, <span class="st">'apples'</span>,</span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">'pears'</span>, <span class="st">'flatbread'</span>, <span class="st">'milk'</span>, <span class="st">'chicken'</span>, <span class="st">'lavash'</span>, <span class="st">'waffles'</span>, <span class="st">'tangerines'</span>)</span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a>                      then <span class="fl">1.1</span></span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a>                      <span class="cf">else</span> <span class="fl">1.2</span> end), <span class="dv">2</span>) <span class="im">as</span> price_before_tax</span>
+<span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
+<span id="cb41-28"><a href="#cb41-28" aria-hidden="true" tabindex="-1"></a>ORDER BY price_before_tax desc, product_id asc<span class="op">;</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="51">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">product_id</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">tax</th>
+<th data-quarto-table-cell-role="th">price_before_tax</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>13</td>
+<td>caviar</td>
+<td>800.0</td>
+<td>133.33</td>
+<td>666.67</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>37</td>
+<td>mutton</td>
+<td>559.0</td>
+<td>50.82</td>
+<td>508.18</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>15</td>
+<td>olive oil</td>
+<td>450.0</td>
+<td>40.91</td>
+<td>409.09</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>57</td>
+<td>pork</td>
+<td>450.0</td>
+<td>40.91</td>
+<td>409.09</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>66</td>
+<td>beef</td>
+<td>370.0</td>
+<td>33.64</td>
+<td>336.36</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">82</td>
+<td>6</td>
+<td>crackers</td>
+<td>25.0</td>
+<td>2.27</td>
+<td>22.73</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">83</td>
+<td>5</td>
+<td>coffee 3 in 1</td>
+<td>15.0</td>
+<td>2.50</td>
+<td>12.50</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">84</td>
+<td>73</td>
+<td>cake</td>
+<td>15.0</td>
+<td>2.50</td>
+<td>12.50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">85</td>
+<td>10</td>
+<td>seeds</td>
+<td>12.0</td>
+<td>1.09</td>
+<td>10.91</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">86</td>
+<td>54</td>
+<td>paper bag</td>
+<td>1.0</td>
+<td>0.17</td>
+<td>0.83</td>
+</tr>
+</tbody>
+</table>
+
+<p>87 rows × 5 columns</p>
+</div>
 </div>
 </div>
 

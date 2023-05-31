@@ -287,16 +287,18 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div id="exr-sql01" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.1 </strong></span>Виведіть усі записи з таблиці <code>products</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 2.1 </strong></span><br>Виведіть усі записи з таблиці <code>products</code>.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code></p>
-<p><strong>Рішення:</strong></p>
 </div>
 <div class="cell" data-execution_count="4">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>       price</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>FROM   products</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
@@ -404,7 +406,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>      <span class="co">-- сортування за спаданням</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="exr-sql02" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.2 </strong></span>Виведіть всі записи з таблиці <code>products</code>, відсортувавши їх за найменуванням товарів <em>у алфавітному порядку</em>, тобто за зростанням. Для сортування використовуйте оператор <code>ORDER BY</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 2.2 </strong></span><br>Виведіть всі записи з таблиці <code>products</code>, відсортувавши їх за найменуванням товарів <em>у алфавітному порядку</em>, тобто за зростанням. Для сортування використовуйте оператор <code>ORDER BY</code>.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -419,9 +421,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Сортування можна робити не тільки по полях зі значеннями, вираженими числами, але й по полях, значення яких представлені у вигляді тексту, як у нашому випадку.</p>
 </div>
 </div>
-<p><strong>Рішення:</strong></p>
 </div>
 <div class="cell" data-execution_count="5">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
@@ -429,6 +432,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>ORDER BY name</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>LIMIT <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
@@ -503,7 +507,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>, column_2</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="exr-sql03" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.3 </strong></span>Відсортуйте таблицю <code>courier_actions</code> спочатку по колонці <code>courier_id</code> за зростанням id кур’єра, потім по колонці <code>action</code> (знову за зростанням), а потім по колонці <code>time</code>, але вже за спаданням — від останньої дії до першої. Не забудьте включити колонку <code>order_id</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 2.3 </strong></span><br>Відсортуйте таблицю <code>courier_actions</code> спочатку по колонці <code>courier_id</code> за зростанням id кур’єра, потім по колонці <code>action</code> (знову за зростанням), а потім по колонці <code>time</code>, але вже за спаданням — від останньої дії до першої. Не забудьте включити колонку <code>order_id</code>.</p>
 <p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
 <p>Поля у результуючій таблиці: <code>courier_id</code>, <code>order_id</code>, <code>action</code>, <code>time</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -521,6 +525,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="cell" data-execution_count="6">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>SELECT courier_id,</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>       order_id,</span>
@@ -528,6 +534,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>       time</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>FROM   courier_actions</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>ORDER BY courier_id, action, time DESC limit <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 
@@ -599,16 +606,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <li>І наприкінці <code>LIMIT</code> — обмежується кількість записів, що виводяться.</li>
 </ol>
 <div id="exr-sql04" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.4 </strong></span>Використовуючи оператори <code>SELECT</code>, <code>FROM</code>, <code>ORDER BY</code> та <code>LIMIT</code>, визначте 5 найдорожчих товарів у таблиці <code>products</code>, які доставляє наш сервіс. Виведіть їх найменування та ціну.</p>
+<p><span class="theorem-title"><strong>Завдання 2.4 </strong></span><br>Використовуючи оператори <code>SELECT</code>, <code>FROM</code>, <code>ORDER BY</code> та <code>LIMIT</code>, визначте 5 найдорожчих товарів у таблиці <code>products</code>, які доставляє наш сервіс. Виведіть їх найменування та ціну.</p>
 <p>Поля у результуючій таблиці: <code>name</code>, <code>price</code>.</p>
 <p><strong>Рішення:</strong></p>
 </div>
 <div class="cell" data-execution_count="7">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>SELECT name,</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>       price</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>ORDER BY price desc limit <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
@@ -663,17 +673,20 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name new_name</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="exr-sql05" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.5 </strong></span>Повторіть запит із з попереднього прикладу (<a href="#exr-sql03">Завдання&nbsp;<span>2.3</span></a>), але тепер колонки <code>name</code> і <code>price</code> перейменуйте відповідно на <code>product_name</code> і <code>product_price</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 2.5 </strong></span><br>Повторіть запит із з попереднього прикладу (<a href="#exr-sql03">Завдання&nbsp;<span>2.3</span></a>), але тепер колонки <code>name</code> і <code>price</code> перейменуйте відповідно на <code>product_name</code> і <code>product_price</code>.</p>
 <p>Поля у результуючій таблиці: <code>product_name</code>, <code>product_price</code></p>
 <p><strong>Рішення:</strong></p>
 </div>
 <div class="cell" data-execution_count="8">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>SELECT name AS product_name,</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>       price AS product_price</span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>ORDER BY price desc limit <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
@@ -757,17 +770,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="sourceCode" id="cb14"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">LENGTH</span>(<span class="kw">column</span>) <span class="kw">AS</span> column_length</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="exr-sql06" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.6 </strong></span>Використовуючи оператори <code>SELECT</code>, <code>FROM</code>, <code>ORDER BY</code> та <code>LIMIT</code>, а також функцію <code>LENGTH</code>, визначте товар із найдовшою назвою у таблиці <code>products</code>. Виведіть його найменування, довжину найменування у символах, а також ціну цього товару. Назвіть колонку з довжиною найменування в символах <code>name_length</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 2.6 </strong></span><br>Використовуючи оператори <code>SELECT</code>, <code>FROM</code>, <code>ORDER BY</code> та <code>LIMIT</code>, а також функцію <code>LENGTH</code>, визначте товар із найдовшою назвою у таблиці <code>products</code>. Виведіть його найменування, довжину найменування у символах, а також ціну цього товару. Назвіть колонку з довжиною найменування в символах <code>name_length</code>.</p>
 <p>Поля у результуючій таблиці: <code>name</code>, <code>name_length</code>, <code>price</code>.</p>
-<p><strong>Рішення:</strong></p>
 </div>
 <div class="cell" data-execution_count="10">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>SELECT name,</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>       length(name) <span class="im">as</span> name_length,</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>       price</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>ORDER BY name_length desc limit <span class="dv">1</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
@@ -878,11 +893,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div id="exr-sql07" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.7 </strong></span>Застосуйте послідовно функції <code>UPPER</code> та <code>SPLIT_PART</code> до колонки <code>name</code> та перетворіть найменування товарів у таблиці <code>products</code> так, щоб від назв залишилося тільки перше слово, записане у верхньому регістрі. Колонку з новою назвою, що складається із першого слова, назвіть <code>first_word</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 2.7 </strong></span><br>Застосуйте послідовно функції <code>UPPER</code> та <code>SPLIT_PART</code> до колонки <code>name</code> та перетворіть найменування товарів у таблиці <code>products</code> так, щоб від назв залишилося тільки перше слово, записане у верхньому регістрі. Колонку з новою назвою, що складається із першого слова, назвіть <code>first_word</code>.</p>
 <p>У результаті виведіть вихідні найменування товарів, нові найменування з першого слова, а також ціну товарів. Результат відсортуйте за зростанням початкового найменування товару в колонці <code>name</code>.</p>
 <p>Поля у результуючій таблиці: <code>name</code>, <code>first_word</code>, <code>price</code></p>
 </div>
 <div class="cell" data-execution_count="11">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>SELECT</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    name,</span>
@@ -892,6 +909,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    products</span>
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>ORDER BY</span>
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    name</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 
@@ -1019,12 +1037,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div id="exr-sql08" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.8 </strong></span>Змініть тип колонки <code>price</code> з таблиці <code>products</code> на <code>VARCHAR</code>. Виведіть колонки з найменуванням товарів, ціною у вихідному форматі та ціною у форматі <code>VARCHAR</code>. Нову колонку з ціною у новому форматі назвіть <code>price_char</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 2.8 </strong></span><br>Змініть тип колонки <code>price</code> з таблиці <code>products</code> на <code>VARCHAR</code>. Виведіть колонки з найменуванням товарів, ціною у вихідному форматі та ціною у форматі <code>VARCHAR</code>. Нову колонку з ціною у новому форматі назвіть <code>price_char</code>.</p>
 <p>Результат відсортуйте за зростанням початкового найменування товару в колонці name. Кількість записів, що виводяться, не обмежуйте.</p>
 <p>Поля в результуючій таблиці: <code>name</code>, <code>price</code>, <code>price_char</code></p>
-<p><strong>Рішення:</strong></p>
 </div>
 <div class="cell" data-execution_count="12">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>SELECT </span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    name,</span>
@@ -1034,6 +1053,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    products</span>
 <span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>ORDER BY</span>
 <span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    name</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 
@@ -1145,14 +1165,15 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div id="exr-sql09" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.9 </strong></span>Для перших 200 записів з таблиці <code>orders</code> виведіть інформацію у такому вигляді (зверніть увагу на пробіли):</p>
+<p><span class="theorem-title"><strong>Завдання 2.9 </strong></span><br>Для перших 200 записів з таблиці <code>orders</code> виведіть інформацію у такому вигляді (зверніть увагу на пробіли):</p>
 <p>Замовлення № [<code>id_замовлення</code>] створено [<code>дата</code>]</p>
 <p>Отриману колонку назвіть <code>order_info</code>.</p>
 <p>Приклад результату:</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>Замовлення № <span class="dv">65</span> створено <span class="dv">2022</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">01</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Рішення:</strong></p>
 </div>
 <div class="cell" data-execution_count="13">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>SELECT </span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    CONCAT(</span>
@@ -1164,6 +1185,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>FROM   </span>
 <span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    orders</span>
 <span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>LIMIT <span class="dv">200</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
@@ -1260,17 +1282,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div id="exr-sql10" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.10 </strong></span>Виведіть id всіх кур’єрів та їхні роки народження з таблиці <code>couriers</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 2.10 </strong></span><br>Виведіть id всіх кур’єрів та їхні роки народження з таблиці <code>couriers</code>.</p>
 <p>Рік народження необхідно одержати з колонки <code>birth_date</code>. Нову колонку з роком назвіть <code>birth_year</code>. Результат відсортуйте спочатку за спаданням року народження кур’єра (тобто від наймолодших до найстарших), потім за зростанням id кур’єра.</p>
 <p>Поля у результуючій таблиці: <code>courier_id</code>, <code>birth_year</code></p>
-<p><strong>Рішення:</strong></p>
 </div>
 <div class="cell" data-execution_count="14">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>SELECT courier_id,</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>       date_part(<span class="st">'year'</span>, birth_date) <span class="im">as</span> birth_year</span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>FROM   couriers</span>
 <span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>ORDER BY birth_year desc, courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
@@ -1395,11 +1419,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div id="exr-sql11" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.11 </strong></span>Як і в попередньому прикладі (<a href="#exr-sql10">Завдання&nbsp;<span>2.10</span></a>), знову виведіть id десяти відсотків кур’єрів та їх роки народження, тільки тепер до вилученого року застосуйте функцію <code>COALESCE</code>. Вкажіть параметри функції так, щоб замість значення <code>NULL</code> в результат потрапляло текстове значення <code>unknown</code>. Назви полів залиште колишніми.</p>
+<p><span class="theorem-title"><strong>Завдання 2.11 </strong></span><br>Як і в попередньому прикладі (<a href="#exr-sql10">Завдання&nbsp;<span>2.10</span></a>), знову виведіть id десяти відсотків кур’єрів та їх роки народження, тільки тепер до вилученого року застосуйте функцію <code>COALESCE</code>. Вкажіть параметри функції так, щоб замість значення <code>NULL</code> в результат потрапляло текстове значення <code>unknown</code>. Назви полів залиште колишніми.</p>
 <p>Поля у результуючій таблиці: <code>courier_id</code>, <code>birth_year</code></p>
-<p><strong>Рішення:</strong></p>
 </div>
 <div class="cell" data-execution_count="15">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>SELECT</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    courier_id,</span>
@@ -1407,6 +1432,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>FROM</span>
 <span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    couriers</span>
 <span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>USING SAMPLE <span class="dv">10</span> PERCENT (bernoulli, <span class="dv">123</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 
@@ -1559,13 +1585,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div id="exr-sql12" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.12 </strong></span>Давайте уявимо, що з якоїсь незрозумілої причини ми раптом вирішили відразу підвищити ціну всіх товарів у таблиці <code>products</code> на <strong>5%</strong>.</p>
+<p><span class="theorem-title"><strong>Завдання 2.12 </strong></span><br>Давайте уявимо, що з якоїсь незрозумілої причини ми раптом вирішили відразу підвищити ціну всіх товарів у таблиці <code>products</code> на <strong>5%</strong>.</p>
 <p>Виведіть id та найменування всіх товарів, їх стару та нову ціну. Колонку зі старою ціною назвіть <code>old_price</code>, а колонку з новою – <code>new_price</code>.</p>
 <p>Результат відсортуйте спочатку за спаданням нової ціни, потім за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>old_price</code>, <code>new_price</code>.</p>
-<p><strong>Рішення:</strong></p>
 </div>
 <div class="cell" data-execution_count="16">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
@@ -1573,6 +1600,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>       price<span class="op">*</span><span class="fl">1.05</span> <span class="im">as</span> new_price</span>
 <span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
 <span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>ORDER BY new_price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <div>
 
@@ -1707,12 +1735,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div id="exr-sql13" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.13 </strong></span>Знову, як і в минулому завданні (<a href="#exr-sql12">Завдання&nbsp;<span>2.12</span></a>), підвищите ціну всіх товарів на 5%, тільки тепер до колонки з новою ціною застосуйте функцію <code>ROUND</code>. Виведіть id та найменування товарів, їх стару ціну, а також нову ціну із округленням. Нову ціну округліть до десятих, але тип даних не змінюйте.</p>
+<p><span class="theorem-title"><strong>Завдання 2.13 </strong></span><br>Знову, як і в минулому завданні (<a href="#exr-sql12">Завдання&nbsp;<span>2.12</span></a>), підвищите ціну всіх товарів на 5%, тільки тепер до колонки з новою ціною застосуйте функцію <code>ROUND</code>. Виведіть id та найменування товарів, їх стару ціну, а також нову ціну із округленням. Нову ціну округліть до десятих, але тип даних не змінюйте.</p>
 <p>Результат відсортуйте спочатку за спаданням нової ціни, потім за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>old_price</code>, <code>new_price</code>.</p>
-<p><strong>Рішення:</strong></p>
 </div>
 <div class="cell" data-execution_count="17">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
@@ -1720,6 +1749,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>       <span class="bu">round</span>(price <span class="op">*</span> <span class="fl">1.05</span>, <span class="dv">1</span>) <span class="im">as</span> new_price</span>
 <span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
 <span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>ORDER BY new_price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <div>
 
@@ -1954,12 +1984,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </ol>
 <p>На порядок виконання операторів можна також впливати за допомогою дужок. Вирази, поміщені в дужки, матимуть найвищий пріоритет — як у математиці.</p>
 <div id="exr-sql14" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.14 </strong></span>Підвищіть ціну на <strong>5%</strong> тільки на товари, вартість яких <strong>перевищує 100 одиниць</strong>. Ціну решти товарів залиште без змін. Також <strong>не підвищуйте ціну на ікру</strong> <em>(caviar)</em>, яка й так коштує <strong>800 одиниць</strong>. Виведіть id та найменування всіх товарів, їх стару та нову ціну. Ціну округляти не потрібно.</p>
+<p><span class="theorem-title"><strong>Завдання 2.14 </strong></span><br>Підвищіть ціну на <strong>5%</strong> тільки на товари, вартість яких <strong>перевищує 100 одиниць</strong>. Ціну решти товарів залиште без змін. Також <strong>не підвищуйте ціну на ікру</strong> <em>(caviar)</em>, яка й так коштує <strong>800 одиниць</strong>. Виведіть id та найменування всіх товарів, їх стару та нову ціну. Ціну округляти не потрібно.</p>
 <p>Результат відсортуйте спочатку за спаданням нової ціни, потім за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>old_price</code>, <code>new_price</code></p>
-<p><strong>Рішення:</strong></p>
 </div>
 <div class="cell" data-execution_count="18">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
@@ -1969,6 +2000,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span> price <span class="op">*</span> <span class="fl">1.05</span> end <span class="im">as</span> new_price</span>
 <span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
 <span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>ORDER BY new_price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <div>
 
@@ -2070,12 +2102,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <p>Уявіть, що до вас звернувся менеджер із сусіднього відділу із проханням порахувати ПДВ кожного товару. Жодних додаткових даних він вам не надав, тому ви вирішили виконати завдання на власний розсуд, вважаючи, що ПДВ єдиний для всіх товарів і становить 20%.</p>
 <div id="exr-sql15" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.15 </strong></span>Обчисліть ПДВ кожного товару у таблиці <code>products</code> та розрахуйте ціну без урахування ПДВ. Виведіть всю інформацію про товари, включаючи суму податку та ціну без його врахування. Колонки із сумою податку та ціною без ПДВ назвіть відповідно <code>tax</code> та <code>price_before_tax</code>. Округліть значення у цих колонках <strong>до двох знаків після коми</strong>.</p>
+<p><span class="theorem-title"><strong>Завдання 2.15 </strong></span><br>Обчисліть ПДВ кожного товару у таблиці <code>products</code> та розрахуйте ціну без урахування ПДВ. Виведіть всю інформацію про товари, включаючи суму податку та ціну без його врахування. Колонки із сумою податку та ціною без ПДВ назвіть відповідно <code>tax</code> та <code>price_before_tax</code>. Округліть значення у цих колонках <strong>до двох знаків після коми</strong>.</p>
 <p>Результат відсортуйте спочатку за спаданням ціни товару без урахування ПДВ, потім за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code>, <code>tax</code>, <code>price_before_tax</code>.</p>
-<p><strong>Рішення:</strong></p>
 </div>
 <div class="cell" data-execution_count="19">
+<details>
+<summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
@@ -2084,6 +2117,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>       <span class="bu">round</span>(price <span class="op">/</span> <span class="fl">1.2</span>, <span class="dv">2</span>) <span class="im">as</span> price_before_tax</span>
 <span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
 <span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>ORDER BY price_before_tax desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 
