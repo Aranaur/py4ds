@@ -5,7 +5,7 @@ project:
 book:
   title: "Python та його друзі в науці про дані"
   author: "Ігор Мірошниченко"
-  description: Книга-конспект матеріалів з Python в науці про дані.
+  description: Книга-конспект матеріалів.
   keyword: polars, pandas, python, dataframe, performance, data science, data engineering
   date: today
   date-format: iso
