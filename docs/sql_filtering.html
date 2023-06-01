@@ -308,9 +308,21 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Докладніше про оператор <code>WHERE</code> можна за <a href="https://duckdb.org/docs/sql/query_syntax/where">посиланням</a>.</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exr-sql-filter-01" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.1 </strong></span><br>Напишіть SQL-запит до таблиці <code>products</code> та виведіть всю інформацію про товари, ціна яких не перевищує 100 одиниць. Результат відсортуйте за зростанням id товару.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code></p>
+</div>
+</div>
 </div>
 <div class="cell" data-execution_count="2">
 <details>
@@ -429,10 +441,22 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Докладніше про правила сортування даних рядкового типу можна за <a href="https://duckdb.org/docs/sql/expressions/collations">посиланням</a>.</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exr-sql-filter-02" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.2 </strong></span><br>Виберіть користувачів жіночої статі з таблиці <code>users</code>. Виведіть лише id цих користувачів. Результат відсортуйте за зростанням id.</p>
 <p>Додайте в запит оператор <code>LIMIT</code> і виведіть лише <code>10</code> перших ID з відсортованого списку.</p>
 <p>Поле у результуючій таблиці: <code>user_id</code></p>
+</div>
+</div>
 </div>
 <div class="cell" data-execution_count="3">
 <details>
@@ -524,12 +548,23 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>      <span class="kw">AND</span> column_2 <span class="op">=</span> <span class="st">'some text'</span> </span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>      <span class="kw">AND</span> column_3 <span class="op">=</span> <span class="st">'2022-12-31'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Давайте якраз вирішимо завдання одразу з кількома умовами!</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exr-sql-filter-03" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 3.3 </strong></span><br>Виберіть з таблиці <code>user_actions</code> усі дії користувачів зі створення замовлень, які були зроблені ними <code>після опівночі 6 вересня 2022 року</code>. Виведіть колонки з id користувачів, id створених замовлень та часом їх створення.</p>
+<p><span class="theorem-title"><strong>Завдання 3.3 </strong></span><br> Виберіть з таблиці <code>user_actions</code> усі дії користувачів зі створення замовлень, які були зроблені ними <code>після опівночі 6 вересня 2022 року</code>. Виведіть колонки з id користувачів, id створених замовлень та часом їх створення.</p>
 <p>Результат має бути відсортований за зростанням id замовлення.</p>
 <p>Поля в результуючій таблиці: <code>user_id</code>, <code>order_id</code>, <code>time</code></p>
-<p><strong>Пояснення:</strong></p>
-<p>Зверніть увагу, що в таблиці user_actions у кожного користувача можуть бути записи не тільки з часом створення замовлення, а й часом його скасування. Нам необхідно отримати лише записи із створенням замовлень.</p>
+<p><strong>Пояснення:</strong> зверніть увагу, що в таблиці user_actions у кожного користувача можуть бути записи не тільки з часом створення замовлення, а й часом його скасування. Нам необхідно отримати лише записи із створенням замовлень.</p>
+</div>
+</div>
 </div>
 <div class="cell" data-execution_count="4">
 <details>
@@ -640,20 +675,20 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> (column_1 <span class="op">+</span> column_2) <span class="op">*</span> <span class="fl">0.5</span> <span class="op">=</span> <span class="dv">10</span> </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У прикладі вище ми відфільтруємо тільки ті записи, для яких середнє арифметичне двох чисел, що містяться в колонках <code>column_1</code> і <code>column_2</code>, дорівнюватиме <code>10</code>.</p>
 <p>Також важливо враховувати, що використовувати в блоці <code>WHERE</code> аліаси, які присвоєно новим розрахунковим колонкам, не можна. Зверніть увагу на приклади наступних запитів, які вважають частку значень колонки <code>column_1</code> у відповідних їм значеннях колонки <code>column_2</code>. Перший запит спрацює, а другий поверне помилку:</p>
-<pre class="{sql}"><code>-- Цей запит спрацює:
-
-SELECT column_1, column_2, 
-       column_1 / column_2 AS share
-FROM table
-WHERE column_1 / column_2 &gt; 50
-
-
--- Цей запит поверне помилку:
-
-SELECT column_1, column_2, 
-       column_1 / column_2 AS share
-FROM table
-WHERE share &gt; 50</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Цей запит спрацює:</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2, </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>       column_1 <span class="op">/</span> column_2 <span class="kw">AS</span> <span class="kw">share</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_1 <span class="op">/</span> column_2 <span class="op">&gt;</span> <span class="dv">50</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">-- Цей запит поверне помилку:</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2, </span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>       column_1 <span class="op">/</span> column_2 <span class="kw">AS</span> <span class="kw">share</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="kw">share</span> <span class="op">&gt;</span> <span class="dv">50</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Це пов’язано всі з тією ж послідовністю виконання операторів у запиті: на момент виконання оператора <code>WHERE</code> аліас колонці ще не присвоєно, і тому база даних поки не знає про існування колонки з новим ім’ям.</p>
 <p>Можна розглянути ще більш тривіальний приклад: навіть якщо ми просто зробимо дублікат колонки з іншим ім’ям і спробуємо використати це ім’я в <code>WHERE</code>, все одно отримаємо помилку:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Цей запит поверне помилку:</span></span>
@@ -662,12 +697,23 @@ WHERE share &gt; 50</code></pre>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> same_column <span class="op">&gt;</span> <span class="dv">0</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>При вказівці фільтрів у блоці <code>WHERE</code> важливо враховувати розглянуті особливості. Можете керуватися наступним правилом: якщо збираєтеся фільтрувати дані по розрахунковій колонці, то дублюйте розрахунки <code>WHERE</code> і не використовуйте аліаси, присвоєні новим колонкам.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exr-sql-filter-04" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.4 </strong></span><br>Призначте знижку <code>20%</code> на всі товари з таблиці <code>products</code> та відберіть ті, ціна на які <code>з урахуванням знижки</code> перевищує <code>100</code>. Виведіть id товарів, їх найменування, колишню ціну та нову ціну з урахуванням знижки. Колонку зі старою ціною назвіть <code>old_price</code>, новою — <code>new_price</code>.</p>
 <p>Результат має бути відсортований за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>old_price</code>, <code>new_price</code></p>
-<p><strong>Пояснення:</strong></p>
-<p>Будьте уважні, коли вказуватимете фільтр після оператора <code>WHERE</code>.</p>
+<p><strong>Пояснення:</strong> будьте уважні, коли вказуватимете фільтр після оператора <code>WHERE</code>.</p>
+</div>
+</div>
 </div>
 <div class="cell" data-execution_count="5">
 <details>
@@ -784,14 +830,26 @@ WHERE share &gt; 50</code></pre>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1 <span class="kw">AS</span> new_column_1, column_2</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span> </span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="fu">LOWER</span>(new_column_1) <span class="op">=</span> <span class="st">'i.love.python'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exr-sql-filter-05" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.5 </strong></span><br>Відберіть із таблиці <code>products</code> всі товари, назви яких або починаються зі слова «<code>tea</code>», або складаються <code>з п'яти символів</code>. Виведіть дві колонки: id товарів та їх найменування.</p>
 <p>Результат має бути відсортований за зростанням id товару.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code></p>
-<p><strong>Пояснення:</strong></p>
-<p>Для вирішення завдання вам знадобляться функції <code>SPLIT_PART</code> та <code>LENGTH</code>, які ми розглядали раніше.</p>
+<p><strong>Пояснення:</strong> для вирішення завдання вам знадобляться функції <code>SPLIT_PART</code> та <code>LENGTH</code>, які ми розглядали раніше.</p>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -800,10 +858,9 @@ WHERE share &gt; 50</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Для вирішення завдання в операторі WHERE до колонки з назвами товарів необхідно застосувати функцію <code>SPLIT_PART</code>, розділивши по пробілу на окремі слова і відібравши тільки ті, в яких перше слово - «<code>tea</code>». Також через <code>OR</code> необхідно додати другу умову з функцією <code>LENGTH</code> для перевірки, що найменування складається з 5 символів.</p>
-</div>
 </div>
 </div>
 </div>
@@ -964,10 +1021,22 @@ WHERE share &gt; 50</code></pre>
 <p>Докладніше про оператор <code>LIKE</code> та шаблони можна почитати <a href="https://duckdb.org/docs/sql/functions/patternmatching.html">тут</a>.</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exr-sql-filter-06" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.6 </strong></span><br>Відберіть із таблиці <code>products</code> всі товари, що містять у своїй назві послідовність символів «<code>tea</code>» (без лапок). Виведіть дві колонки: id продукту та його назву.</p>
 <p>Результат має бути відсортований за зростанням id товару.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code></p>
+</div>
+</div>
 </div>
 <div class="cell" data-execution_count="7">
 <details>
@@ -1044,12 +1113,25 @@ WHERE share &gt; 50</code></pre>
 </div>
 </div>
 <p>Тепер зробимо наш фільтр трохи цікавішим.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exr-sql-filter-07" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.7 </strong></span><br>Виберіть із таблиці <code>products</code> id та найменування лише тих товарів, назви яких починаються на букву “<code>c</code>” і містять <code>лише одне слово</code>.</p>
 <p>Результат має бути відсортований за зростанням id товару.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code></p>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1058,11 +1140,10 @@ WHERE share &gt; 50</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Якщо з буквою «<code>c</code>» все зрозуміло, то з фільтром на одне слово ситуація трохи складніша: подумайте, яким символом принципово відрізняються рядки з одним і двома словами. Складіть шаблон для пошуку рядка, що складається з двох слів і виключіть такі рядки з результату.</p>
 <p>Також будьте уважні мовою введення: латинська літера “<code>c</code>” та кирилична “<code>с</code>” виглядають однаково, але для бази даних це різні символи.</p>
-</div>
 </div>
 </div>
 </div>
@@ -1138,6 +1219,16 @@ WHERE share &gt; 50</code></pre>
 </div>
 <p>Уявіть, що напередодні Нового року до вас звернувся менеджер, якому на думку спала ідея зробити знижку на найдорожчий чай. Він попросив вас надати йому вивантаження з бази даних з усіма чаями та новими цінами на них з урахуванням знижки.</p>
 <p>Що він далі робитиме з цими даними, вам невідомо, але завдання є завдання, до того ж не таке вже й складне. Спробуймо його вирішити!</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exr-sql-filter-08" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.8 </strong></span><br>Складіть SQL-запит, який вибирає з таблиці <code>products</code> <strong>всі чаї вартістю більше 60</strong> і нараховує їм <strong>знижку 25%</strong>.</p>
 <p>Знижку в % менеджер попросив вказати в окремому стовпці у форматі тексту, тобто так: «<strong>25%</strong>» (без лапок). Стовпці зі знижкою та новою ціною назвіть відповідно <code>discount</code> та <code>new_price</code>.</p>
@@ -1148,6 +1239,8 @@ WHERE share &gt; 50</code></pre>
 <p>Щоб вказати стовпець з одним значенням для всіх записів (у нашому випадку це стовпець зі знижкою), достатньо просто ввести потрібне значення і дати стовпцю якусь назву - вказане значення автоматично проставиться у всіх рядках результуючої таблиці:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, <span class="st">'text'</span> <span class="kw">AS</span> column_2</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </div>
 <div class="cell" data-execution_count="9">
 <details>
@@ -1265,9 +1358,21 @@ WHERE share &gt; 50</code></pre>
 <p>Детальніше про оператори <code>IN</code> та <code>BETWEEN</code> можна прочитати <a href="https://duckdb.org/docs/sql/expressions/in.html">тут</a> і <a href="https://duckdb.org/docs/sql/expressions/comparison_operators.html">тут</a>.</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exr-sql-filter-09" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.9 </strong></span><br>З таблиці <code>user_actions</code> виведіть всю інформацію про дії користувачів з id <strong>170</strong>, <strong>200</strong> та <strong>230</strong> за період <strong>з 25 серпня до 4 вересня 2022 року включно</strong>. Результат відсортуйте за зменшенням id замовлення - тобто від останніх до найпізніших.</p>
 <p>Поля у результуючій таблиці: <code>user_id</code>, <code>order_id</code>, <code>action</code>, <code>time</code></p>
+</div>
+</div>
 </div>
 <div class="cell" data-execution_count="10">
 <details>
@@ -1433,7 +1538,7 @@ WHERE share &gt; 50</code></pre>
 </section>
 <section id="фільтрація-з-null" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="фільтрація-з-null"><span class="header-section-number">3.4</span> Фільтрація з <code>NULL</code></h2>
-<p>Раніше <a href="#exr-sql11">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql11</span></a> ми зіткнулися з пропущеними значеннями в таблиці <code>couriers</code> — у деяких кур’єрів не було зазначено їхні дні народження.</p>
+<p>Раніше <a href="sql_basics.html#exr-sql11">Завдання&nbsp;<span>2.11</span></a> ми зіткнулися з пропущеними значеннями в таблиці <code>couriers</code> — у деяких кур’єрів не було зазначено їхні дні народження.</p>
 <p>Для перевірки на <code>NULL</code> значення <strong>SQL</strong> є оператор <code>IS NULL</code>. У поєднанні з <code>WHERE</code> записується він так:</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
@@ -1476,10 +1581,22 @@ WHERE share &gt; 50</code></pre>
 <p>Детальніше про значення <code>NULL</code> можна прочитати <a href="https://duckdb.org/docs/sql/data_types/nulls.html">тут</a>.</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exr-sql-filter-10" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.10 </strong></span><br>Напишіть SQL-запит до таблиці <code>couriers</code> та виведіть всю інформацію про кур’єрів, у яких не вказано їх день народження.</p>
 <p>Результат має бути відсортований за зростанням id кур’єра.</p>
 <p>Поля в результуючій таблиці: <code>birth_date</code>, <code>courier_id</code>, <code>sex</code></p>
+</div>
+</div>
 </div>
 <div class="cell" data-execution_count="11">
 <details>
@@ -1577,10 +1694,22 @@ WHERE share &gt; 50</code></pre>
 <section id="додаткові-завдання" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="додаткові-завдання"><span class="header-section-number">3.5</span> Додаткові завдання</h2>
 <p>Давайте вирішимо ще кілька завдань, щоб переконатися, що ми розібралися з фільтрацією даних.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exr-sql-filter-11" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.11 </strong></span><br> Визначте id та дати народження <strong>10 наймолодших користувачів <ins>чоловічої</ins> статі</strong> з таблиці <code>users</code>. Не враховуйте користувачів, у яких не вказано дату народження.</p>
 <p>Поле в результуючій таблиці: <code>user_id</code>, <code>birth_date</code></p>
 <p><strong>Пояснення:</strong> будьте уважні і пам’ятайте про значення <code>NULL</code>.</p>
+</div>
+</div>
 </div>
 <div class="cell" data-execution_count="12">
 <details>
@@ -1663,10 +1792,22 @@ WHERE share &gt; 50</code></pre>
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exr-sql-filter-12" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.12 </strong></span><br> Напишіть SQL-запит до таблиці <code>courier_actions</code>, щоб дізнатися ID та час доставки <strong>останніх 10 замовлень</strong>, доставлених кур’єром з <strong>ID 100</strong>.</p>
 <p>Поля у результуючій таблиці: <code>order_id</code>, <code>time</code></p>
 <p><strong>Пояснення</strong>: Зверніть увагу, що у вихідній таблиці є записи не лише з часом доставки, а й з часом прийняття замовлення.</p>
+</div>
+</div>
 </div>
 <div class="cell" data-execution_count="13">
 <details>
@@ -1752,11 +1893,23 @@ WHERE share &gt; 50</code></pre>
 <section id="фільтрація-по-даті-та-часу" class="level2" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="фільтрація-по-даті-та-часу"><span class="header-section-number">3.6</span> Фільтрація по даті та часу</h2>
 <p>І ще кілька завдань на роботу з датами та часом.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exr-sql-filter-13" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.13 </strong></span><br> З таблиці <code>user_actions</code> отримаєте id всіх замовлень, зроблених користувачами сервісу <strong>у серпні 2022 року</strong>.</p>
 <p>Результат відсортуйте за зростанням id замовлення.</p>
 <p>Поле у результуючій таблиці: <code>order_id</code></p>
-<p><strong>Пояснення</strong>: зверніть увагу, що у вихідній таблиці є записи не лише з часом оформлення, а й часом скасування замовлення.У цій задачі може стати в нагоді функція <code>DATE_PART</code>. Ми розглядали її в <a href="#exr-sql10">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql10</span></a>.</p>
+<p><strong>Пояснення</strong>: зверніть увагу, що у вихідній таблиці є записи не лише з часом оформлення, а й часом скасування замовлення.У цій задачі може стати в нагоді функція <code>DATE_PART</code>. Ми розглядали її в <a href="sql_basics.html#exr-sql10">Завдання&nbsp;<span>2.10</span></a>.</p>
+</div>
+</div>
 </div>
 <div class="cell" data-execution_count="14">
 <details>
@@ -1832,11 +1985,23 @@ WHERE share &gt; 50</code></pre>
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exr-sql-filter-14" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.14 </strong></span><br> З таблиці <code>couriers</code> відберіть id всіх кур’єрів, що народилися в період <strong>з 1990 по 1995 включно</strong>.</p>
 <p>Результат відсортуйте за зростанням id кур’єра.</p>
 <p>Поле у результуючій таблиці: <code>courier_id</code></p>
 <p><strong>Пояснення</strong>: у цьому завдання знову може стати в нагоді функція <code>DATE_PART</code>.</p>
+</div>
+</div>
 </div>
 <div class="cell" data-execution_count="15">
 <details>
@@ -1911,6 +2076,16 @@ WHERE share &gt; 50</code></pre>
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exr-sql-filter-15" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.15 </strong></span><br> З таблиці <code>user_actions</code> отримайте інформацію про всі скасування замовлень, які користувачі здійснювали <strong>протягом серпня 2022 по середах з 12:00 до 15:59</strong>.</p>
 <p>Результат відсортуйте за зменшенням id скасованих замовлень.</p>
@@ -1921,6 +2096,8 @@ WHERE share &gt; 50</code></pre>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fl">6.00</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>В <strong>DuckDB</strong> дні тижня рахуються з неділі (0) до суботи (6).</p>
+</div>
+</div>
 </div>
 <div class="cell" data-execution_count="16">
 <details>
@@ -2047,12 +2224,24 @@ WHERE share &gt; 50</code></pre>
 <span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>'sesame oil', 'condensed milk', 'pineapple', 'beef',</span>
 <span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>'salt', 'dried fish', 'sunflower oil', 'apples',</span>
 <span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>'pears', 'flatbread', 'milk', 'chicken', 'lavash', 'waffles', 'tangerines'</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <div id="exr-sql-filter-16" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 3.16 </strong></span><br> Як і у минулому завданні (<a href="#exr-sql15">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql15</span></a>), обчисліть ПДВ кожного товару в таблиці <code>products</code> і розрахуйте ціну без урахування ПДВ. Однак тепер врахуйте, що для товарів зі списку податок становить <strong>10%</strong>. Для решти товарів ПДВ той самий — <strong>20%</strong>.</p>
+<p><span class="theorem-title"><strong>Завдання 3.16 </strong></span><br> Як і у минулому завданні (<a href="sql_basics.html#exr-sql15">Завдання&nbsp;<span>2.15</span></a>), обчисліть ПДВ кожного товару в таблиці <code>products</code> і розрахуйте ціну без урахування ПДВ. Однак тепер врахуйте, що для товарів зі списку податок становить <strong>10%</strong>. Для решти товарів ПДВ той самий — <strong>20%</strong>.</p>
 <p>Виведіть всю інформацію про товари, включаючи суму податку та ціну без його врахування. Колонки із сумою податку та ціною без ПДВ назвіть відповідно <code>tax</code> та <code>price_before_tax</code>. Округліть значення у цих колонках <strong>до двох знаків після коми</strong>.</p>
 <p>Результат відсортуйте спочатку за спаданням ціни товару без урахування ПДВ, потім за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code>, <code>tax</code>, <code>price_before_tax</code></p>
-<p><strong>Пояснення:</strong> порядок розрахунку податку той самий, що й у <a href="#exr-sql15">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql15</span></a>. Для вирішення завдання вам можуть стати в нагоді конструкція <code>CASE</code> та оператор <code>IN</code>. Конструкцію <code>CASE</code> ми розглядали у <a href="#exr-sql14">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql14</span></a>.</p>
+<p><strong>Пояснення:</strong> порядок розрахунку податку той самий, що й у <a href="sql_basics.html#exr-sql15">Завдання&nbsp;<span>2.15</span></a>. Для вирішення завдання вам можуть стати в нагоді конструкція <code>CASE</code> та оператор <code>IN</code>. Конструкцію <code>CASE</code> ми розглядали у <a href="sql_basics.html#exr-sql14">Завдання&nbsp;<span>2.14</span></a>.</p>
+</div>
+</div>
 </div>
 <div class="cell" data-execution_count="17">
 <details>
