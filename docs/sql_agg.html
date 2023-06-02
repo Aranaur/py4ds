@@ -289,7 +289,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>FROM   user_actions</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>ORDER BY user_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="82">
 <div>
 
 
@@ -383,7 +383,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>FROM   courier_actions</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>ORDER BY courier_id, order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="83">
 <div>
 
 
@@ -519,7 +519,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>       <span class="bu">min</span>(price) <span class="im">as</span> min_price</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>FROM   products</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="84">
 <div>
 
 
@@ -575,7 +575,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>       count(birth_date) <span class="im">as</span> dates_not_null</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>FROM   users</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="85">
 <div>
 
 
@@ -631,7 +631,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>       count(distinct user_id) <span class="im">as</span> unique_users</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>FROM   user_actions</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="86">
 <div>
 
 
@@ -690,7 +690,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>FROM   couriers</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>WHERE  sex <span class="op">=</span> <span class="st">'female'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="87">
 <div>
 
 
@@ -740,7 +740,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>FROM   courier_actions</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="88">
 <div>
 
 
@@ -808,7 +808,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>WHERE  name <span class="kw">in</span> (<span class="st">'crackers'</span>, <span class="st">'chips'</span>, <span class="st">'energy drink'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="89">
 <div>
 
 
@@ -904,7 +904,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>FROM   orders</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>WHERE  array_length(product_ids, <span class="dv">1</span>) <span class="op">&gt;=</span> <span class="dv">9</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="90">
 <div>
 
 
@@ -994,7 +994,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>FROM   couriers</span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>WHERE  sex <span class="op">=</span> <span class="st">'male'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="91">
 <div>
 
 
@@ -1008,7 +1008,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>17 years 7 months 4 days 21:59:59.291</td>
+<td>17 years 7 months 5 days 16:45:22.196</td>
 </tr>
 </tbody>
 </table>
@@ -1082,7 +1082,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span> <span class="dv">0</span> end) <span class="im">as</span> order_price</span>
 <span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>FROM   products</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="92">
 <div>
 
 
@@ -1141,7 +1141,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>   <span class="kw">and</span> name <span class="kw">not</span> like <span class="st">'</span><span class="sc">%i</span><span class="st">van-tea%'</span></span>
 <span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>   <span class="kw">and</span> name <span class="kw">not</span> like <span class="st">'%mushroom%'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="93">
 <div>
 
 
@@ -1156,6 +1156,222 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
 <td>135.23</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Втім, бувають і випадки, коли як аргументи деякої функції виступають відразу кілька агрегатних функцій:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> some_function(<span class="fu">SUM</span>(column_1), <span class="fu">SUM</span>(column_2)) <span class="kw">AS</span> result</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Наприклад, нам уже знайома функція <code>AGE</code>, яка може приймати одразу два аргументи - дату кінця та дату початку деякого періоду часу.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-agg-13" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 4.13 </strong></span><br> Скористайтеся функцією <code>AGE</code> та розрахуйте <strong>різницю у віці між найстарішим та наймолодшим користувачами чоловічої статі</strong> у таблиці <code>users</code>.</p>
+<p>Різницю у віці висловіть кількістю років, місяців та днів, перевівши її у тип <code>VARCHAR</code>.</p>
+<p>Назвіть колонку з порахованим значенням <code>age_diff</code>.</p>
+<p>Поле у результуючій таблиці: <code>age_diff</code></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Підказка
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Це завдання можна вирішити різними способами: можна просто знайти різницю між датами народження наймолодшого і найстарішого користувачів, а можна порахувати різницю між їх віком. Можете піти будь-яким шляхом. Якщо рахуватимете вік, то в якості першої дати використовуйте свою поточну дату (<code>current_date</code>).</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="14">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>SELECT age(<span class="bu">max</span>(birth_date), <span class="bu">min</span>(birth_date))::varchar <span class="im">as</span> age_diff</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>FROM   users</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>WHERE  sex <span class="op">=</span> <span class="st">'male'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="94">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">age_diff</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>21 years 9 months 27 days</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>А тепер розглянемо приклад, коли агрегатна функція приймає в якості аргументу одну функцію і при цьому сама є аргументом іншої функції.</p>
+<p>Виглядати це може так:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> function_two(<span class="fu">SUM</span>(funtion_one(<span class="kw">column</span>))) <span class="kw">AS</span> result</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>У цьому прикладі спочатку до колонки <code>column</code> застосовується функція <code>funtion_one</code>, потім за допомогою функції <code>SUM</code> буде пораховано суму отриманих значень, і тільки потім до результату агрегації застосовується функція <code>funtion_two</code>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-agg-14" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 4.14 </strong></span><br> Розрахуйте <strong>середню кількість товарів у замовленнях</strong> з таблиці <code>orders</code>, які користувачі оформляли у вихідні дні (субота та неділя) протягом усього часу роботи сервісу.</p>
+<p>Отримане значення округліть до двох знаків після коми. Назвіть колонку з ним <code>avg_order_size</code>.</p>
+<p>Поле у результуючій таблиці: <code>avg_order_size</code></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Підказка
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Для розрахунку кількості товарів у замовленнях скористайтесь функцією <code>array_length</code>. Для фільтрації таблиці у вихідні дні можна використовувати функцію <code>DATE_PART</code> з параметром <code>'dow'</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>SELECT <span class="bu">round</span>(avg(array_length(product_ids, <span class="dv">1</span>)), <span class="dv">2</span>) <span class="im">as</span> avg_order_size</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>FROM   orders</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>WHERE  date_part(<span class="st">'dow'</span>, creation_time) <span class="kw">in</span> (<span class="dv">6</span>, <span class="dv">0</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="95">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">avg_order_size</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>3.39</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Результати декількох агрегатних функцій можна використовувати в одному запиті для проведення над ними арифметичних операцій:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> (<span class="fu">SUM</span>(column_1) <span class="op">+</span> <span class="fu">SUM</span>(column_2)) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>У запиті вище буде пораховано середнє арифметичне двох сум — значень колонки <code>column_1</code> і значень колонки <code>column_2</code>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-agg-15" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 4.15 </strong></span><br> На основі даних у таблиці <code>user_actions</code> порахуйте: - <strong>кількість унікальних користувачів</strong> сервісу; - <strong>кількість унікальних замовлень</strong> - <strong>скільки замовлень припадає на одного користувача</strong>.</p>
+<p>У результуючій таблиці відобразіть усі три значення – поля назвіть відповідно <code>unique_users</code>, <code>unique_orders</code>, <code>orders_per_user</code>.</p>
+<p>Показник числа замовлень користувача округліть <strong>до двох знаків після коми</strong>.</p>
+<p>Поля у результуючій таблиці: <code>unique_users</code>, <code>unique_orders</code>, <code>orders_per_user</code></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Важливо
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Щоб отримати коректний результат поділу, необхідно хоча б одне із значень попередньо привести до типу <code>DECIMAL</code> (або помножити на <code>1.0</code>). Інакше результатом розподілу цілого числа інше ціле число буде теж ціле число.</p>
+<p>До речі, з подібною проблемою можна ознайомитись на <a href="https://stackoverflow.com/questions/34504497/division-not-giving-my-answer-in-postgresql">stackoverflow</a>. Це дуже корисний ресурс для пошуку відповідей на свої запитання. Навіть досвідчені програмісти часто ним користуються. Можете вже зараз почати виробляти звичку звертатися до нього за необхідності.</p>
+<p>Також пам’ятайте, що використовувати в розрахунках аліаси нових колонок не можна.</p>
+</div>
+</div>
+<div class="cell" data-execution_count="16">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>SELECT count(distinct user_id) <span class="im">as</span> unique_users,</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>       count(distinct order_id) <span class="im">as</span> unique_orders,</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>       <span class="bu">round</span>(count(distinct order_id) <span class="op">*</span> <span class="fl">1.0</span> <span class="op">/</span> count(distinct user_id),</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>             <span class="dv">2</span>) <span class="im">as</span> orders_per_user</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>FROM   user_actions</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> Рішення через DECIMAL</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> SELECT count(distinct user_id) <span class="im">as</span> unique_users,</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>        count(distinct order_id) <span class="im">as</span> unique_orders,</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>        <span class="bu">round</span>(count(distinct order_id)::DECIMAL <span class="op">/</span> count(distinct user_id),</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>              <span class="dv">2</span>) <span class="im">as</span> orders_per_user</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> FROM   user_actions</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="96">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">unique_users</th>
+<th data-quarto-table-cell-role="th">unique_orders</th>
+<th data-quarto-table-cell-role="th">orders_per_user</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>21401</td>
+<td>59595</td>
+<td>2.78</td>
 </tr>
 </tbody>
 </table>
