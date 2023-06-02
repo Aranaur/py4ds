@@ -25,8 +25,9 @@ book:
     - part: sql.ipynb
       chapters: 
       - sql_basics.ipynb
-      - sql_filtering.ipynb
+      - sql_filter.ipynb
       - sql_agg.ipynb
+      - sql_groupby.ipynb
     - text: "---"
     - quarto.qmd
     

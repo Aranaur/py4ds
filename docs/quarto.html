@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.3.353">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="description" content="Книга-конспект матеріалів.">
-<title>Python та його друзі в науці про дані - 5&nbsp; Quarto</title>
+<title>Python та його друзі в науці про дані - 6&nbsp; Quarto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,7 +107,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quarto.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quarto</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quarto.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Quarto</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -181,7 +181,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sql_filtering.html" class="sidebar-item-text sidebar-link">
+  <a href="./sql_filter.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></span></a>
   </div>
 </li>
@@ -191,13 +191,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Агрегація даних</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_groupby.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Групування даних</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./quarto.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
   </div>
 </li>
     </ul>
@@ -209,67 +215,67 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
    
   <ul>
 <li>
-<a href="#%D1%89%D0%BE-%D1%82%D0%B0%D0%BA%D0%B5-quarto" id="toc-що-таке-quarto" class="nav-link active" data-scroll-target="#%D1%89%D0%BE-%D1%82%D0%B0%D0%BA%D0%B5-quarto"><span class="header-section-number">5.1</span> Що таке Quarto</a>
+<a href="#%D1%89%D0%BE-%D1%82%D0%B0%D0%BA%D0%B5-quarto" id="toc-що-таке-quarto" class="nav-link active" data-scroll-target="#%D1%89%D0%BE-%D1%82%D0%B0%D0%BA%D0%B5-quarto"><span class="header-section-number">6.1</span> Що таке Quarto</a>
   <ul class="collapse">
-<li><a href="#%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0-quarto" id="toc-назва-quarto" class="nav-link" data-scroll-target="#%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0-quarto"><span class="header-section-number">5.1.1</span> Назва Quarto</a></li>
-  <li><a href="#%D0%BC%D0%BE%D0%B6%D0%BB%D0%B8%D0%B2%D0%BE%D1%81%D1%82%D1%96-quarto" id="toc-можливості-quarto" class="nav-link" data-scroll-target="#%D0%BC%D0%BE%D0%B6%D0%BB%D0%B8%D0%B2%D0%BE%D1%81%D1%82%D1%96-quarto"><span class="header-section-number">5.1.2</span> Можливості Quarto</a></li>
+<li><a href="#%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0-quarto" id="toc-назва-quarto" class="nav-link" data-scroll-target="#%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0-quarto"><span class="header-section-number">6.1.1</span> Назва Quarto</a></li>
+  <li><a href="#%D0%BC%D0%BE%D0%B6%D0%BB%D0%B8%D0%B2%D0%BE%D1%81%D1%82%D1%96-quarto" id="toc-можливості-quarto" class="nav-link" data-scroll-target="#%D0%BC%D0%BE%D0%B6%D0%BB%D0%B8%D0%B2%D0%BE%D1%81%D1%82%D1%96-quarto"><span class="header-section-number">6.1.2</span> Можливості Quarto</a></li>
   </ul>
 </li>
   <li>
-<a href="#%D0%BF%D0%BE%D1%87%D0%B0%D1%82%D0%BE%D0%BA-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8-%D0%B7-quarto" id="toc-початок-роботи-з-quarto" class="nav-link" data-scroll-target="#%D0%BF%D0%BE%D1%87%D0%B0%D1%82%D0%BE%D0%BA-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8-%D0%B7-quarto"><span class="header-section-number">5.2</span> Початок роботи з Quarto</a>
+<a href="#%D0%BF%D0%BE%D1%87%D0%B0%D1%82%D0%BE%D0%BA-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8-%D0%B7-quarto" id="toc-початок-роботи-з-quarto" class="nav-link" data-scroll-target="#%D0%BF%D0%BE%D1%87%D0%B0%D1%82%D0%BE%D0%BA-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8-%D0%B7-quarto"><span class="header-section-number">6.2</span> Початок роботи з Quarto</a>
   <ul class="collapse">
-<li><a href="#%D0%B2%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F-quarto" id="toc-встановлення-quarto" class="nav-link" data-scroll-target="#%D0%B2%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F-quarto"><span class="header-section-number">5.2.1</span> Встановлення Quarto</a></li>
-  <li><a href="#%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B0-%D0%B7-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0%D0%BC%D0%B8" id="toc-робота-з-проектами" class="nav-link" data-scroll-target="#%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B0-%D0%B7-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0%D0%BC%D0%B8"><span class="header-section-number">5.2.2</span> Робота з проектами</a></li>
-  <li><a href="#%D1%8F%D0%BA-%D0%BF%D1%80%D0%B0%D1%86%D1%8E%D1%94-quarto" id="toc-як-працює-quarto" class="nav-link" data-scroll-target="#%D1%8F%D0%BA-%D0%BF%D1%80%D0%B0%D1%86%D1%8E%D1%94-quarto"><span class="header-section-number">5.2.3</span> Як працює Quarto</a></li>
-  <li><a href="#%D1%80%D0%B5%D0%BD%D0%B4%D0%B5%D1%80%D1%96%D0%BD%D0%B3" id="toc-рендерінг" class="nav-link" data-scroll-target="#%D1%80%D0%B5%D0%BD%D0%B4%D0%B5%D1%80%D1%96%D0%BD%D0%B3"><span class="header-section-number">5.2.4</span> Рендерінг</a></li>
+<li><a href="#%D0%B2%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F-quarto" id="toc-встановлення-quarto" class="nav-link" data-scroll-target="#%D0%B2%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F-quarto"><span class="header-section-number">6.2.1</span> Встановлення Quarto</a></li>
+  <li><a href="#%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B0-%D0%B7-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0%D0%BC%D0%B8" id="toc-робота-з-проектами" class="nav-link" data-scroll-target="#%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B0-%D0%B7-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0%D0%BC%D0%B8"><span class="header-section-number">6.2.2</span> Робота з проектами</a></li>
+  <li><a href="#%D1%8F%D0%BA-%D0%BF%D1%80%D0%B0%D1%86%D1%8E%D1%94-quarto" id="toc-як-працює-quarto" class="nav-link" data-scroll-target="#%D1%8F%D0%BA-%D0%BF%D1%80%D0%B0%D1%86%D1%8E%D1%94-quarto"><span class="header-section-number">6.2.3</span> Як працює Quarto</a></li>
+  <li><a href="#%D1%80%D0%B5%D0%BD%D0%B4%D0%B5%D1%80%D1%96%D0%BD%D0%B3" id="toc-рендерінг" class="nav-link" data-scroll-target="#%D1%80%D0%B5%D0%BD%D0%B4%D0%B5%D1%80%D1%96%D0%BD%D0%B3"><span class="header-section-number">6.2.4</span> Рендерінг</a></li>
   </ul>
 </li>
   <li>
-<a href="#%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%96%D0%B2-quatro" id="toc-структура-документів-quatro" class="nav-link" data-scroll-target="#%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%96%D0%B2-quatro"><span class="header-section-number">5.3</span> Структура документів Quatro</a>
+<a href="#%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%96%D0%B2-quatro" id="toc-структура-документів-quatro" class="nav-link" data-scroll-target="#%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%96%D0%B2-quatro"><span class="header-section-number">6.3</span> Структура документів Quatro</a>
   <ul class="collapse">
-<li><a href="#yaml%D1%88%D0%B0%D0%BF%D0%BA%D0%B0" id="toc-yamlшапка" class="nav-link" data-scroll-target="#yaml%D1%88%D0%B0%D0%BF%D0%BA%D0%B0"><span class="header-section-number">5.3.1</span> YAML–шапка</a></li>
-  <li><a href="#%D1%82%D0%B5%D0%BA%D1%81%D1%82-%D0%B7-%D0%B2%D0%B8%D0%BA%D0%BE%D1%80%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D0%BD%D1%8F%D0%BC-%D1%80%D0%BE%D0%B7%D0%BC%D1%96%D1%82%D0%BA%D0%B8-markdown" id="toc-текст-з-використанням-розмітки-markdown" class="nav-link" data-scroll-target="#%D1%82%D0%B5%D0%BA%D1%81%D1%82-%D0%B7-%D0%B2%D0%B8%D0%BA%D0%BE%D1%80%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D0%BD%D1%8F%D0%BC-%D1%80%D0%BE%D0%B7%D0%BC%D1%96%D1%82%D0%BA%D0%B8-markdown"><span class="header-section-number">5.3.2</span> Текст з використанням розмітки Markdown</a></li>
-  <li><a href="#%D1%87%D0%B0%D0%BD%D0%BA%D0%B8-%D0%B7-%D0%BA%D0%BE%D0%B4%D0%BE%D0%BC" id="toc-чанки-з-кодом" class="nav-link" data-scroll-target="#%D1%87%D0%B0%D0%BD%D0%BA%D0%B8-%D0%B7-%D0%BA%D0%BE%D0%B4%D0%BE%D0%BC"><span class="header-section-number">5.3.3</span> Чанки з кодом</a></li>
+<li><a href="#yaml%D1%88%D0%B0%D0%BF%D0%BA%D0%B0" id="toc-yamlшапка" class="nav-link" data-scroll-target="#yaml%D1%88%D0%B0%D0%BF%D0%BA%D0%B0"><span class="header-section-number">6.3.1</span> YAML–шапка</a></li>
+  <li><a href="#%D1%82%D0%B5%D0%BA%D1%81%D1%82-%D0%B7-%D0%B2%D0%B8%D0%BA%D0%BE%D1%80%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D0%BD%D1%8F%D0%BC-%D1%80%D0%BE%D0%B7%D0%BC%D1%96%D1%82%D0%BA%D0%B8-markdown" id="toc-текст-з-використанням-розмітки-markdown" class="nav-link" data-scroll-target="#%D1%82%D0%B5%D0%BA%D1%81%D1%82-%D0%B7-%D0%B2%D0%B8%D0%BA%D0%BE%D1%80%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D0%BD%D1%8F%D0%BC-%D1%80%D0%BE%D0%B7%D0%BC%D1%96%D1%82%D0%BA%D0%B8-markdown"><span class="header-section-number">6.3.2</span> Текст з використанням розмітки Markdown</a></li>
+  <li><a href="#%D1%87%D0%B0%D0%BD%D0%BA%D0%B8-%D0%B7-%D0%BA%D0%BE%D0%B4%D0%BE%D0%BC" id="toc-чанки-з-кодом" class="nav-link" data-scroll-target="#%D1%87%D0%B0%D0%BD%D0%BA%D0%B8-%D0%B7-%D0%BA%D0%BE%D0%B4%D0%BE%D0%BC"><span class="header-section-number">6.3.3</span> Чанки з кодом</a></li>
   </ul>
 </li>
   <li>
-<a href="#yaml-%D1%88%D0%B0%D0%BF%D0%BA%D0%B0" id="toc-yaml-шапка" class="nav-link" data-scroll-target="#yaml-%D1%88%D0%B0%D0%BF%D0%BA%D0%B0"><span class="header-section-number">5.4</span> YAML-шапка</a>
+<a href="#yaml-%D1%88%D0%B0%D0%BF%D0%BA%D0%B0" id="toc-yaml-шапка" class="nav-link" data-scroll-target="#yaml-%D1%88%D0%B0%D0%BF%D0%BA%D0%B0"><span class="header-section-number">6.4</span> YAML-шапка</a>
   <ul class="collapse">
-<li><a href="#%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B2%D0%B8%D0%B2%D0%BE%D0%B4%D1%83" id="toc-налаштування-виводу" class="nav-link" data-scroll-target="#%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B2%D0%B8%D0%B2%D0%BE%D0%B4%D1%83"><span class="header-section-number">5.4.1</span> Налаштування виводу</a></li>
-  <li><a href="#%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0-%D0%B4%D0%B0%D1%82%D0%B0-%D1%82%D0%B0-%D0%B0%D0%B2%D1%82%D0%BE%D1%80" id="toc-назва-дата-та-автор" class="nav-link" data-scroll-target="#%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0-%D0%B4%D0%B0%D1%82%D0%B0-%D1%82%D0%B0-%D0%B0%D0%B2%D1%82%D0%BE%D1%80"><span class="header-section-number">5.4.2</span> Назва, дата та автор</a></li>
-  <li><a href="#%D0%B7%D0%BC%D1%96%D1%81%D1%82" id="toc-зміст" class="nav-link" data-scroll-target="#%D0%B7%D0%BC%D1%96%D1%81%D1%82"><span class="header-section-number">5.4.3</span> Зміст</a></li>
-  <li><a href="#%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D1%96%D0%B7%D0%B0%D1%86%D1%96%D1%8F-%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%83" id="toc-локалізація-документу" class="nav-link" data-scroll-target="#%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D1%96%D0%B7%D0%B0%D1%86%D1%96%D1%8F-%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%83"><span class="header-section-number">5.4.4</span> Локалізація документу</a></li>
+<li><a href="#%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B2%D0%B8%D0%B2%D0%BE%D0%B4%D1%83" id="toc-налаштування-виводу" class="nav-link" data-scroll-target="#%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B2%D0%B8%D0%B2%D0%BE%D0%B4%D1%83"><span class="header-section-number">6.4.1</span> Налаштування виводу</a></li>
+  <li><a href="#%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0-%D0%B4%D0%B0%D1%82%D0%B0-%D1%82%D0%B0-%D0%B0%D0%B2%D1%82%D0%BE%D1%80" id="toc-назва-дата-та-автор" class="nav-link" data-scroll-target="#%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0-%D0%B4%D0%B0%D1%82%D0%B0-%D1%82%D0%B0-%D0%B0%D0%B2%D1%82%D0%BE%D1%80"><span class="header-section-number">6.4.2</span> Назва, дата та автор</a></li>
+  <li><a href="#%D0%B7%D0%BC%D1%96%D1%81%D1%82" id="toc-зміст" class="nav-link" data-scroll-target="#%D0%B7%D0%BC%D1%96%D1%81%D1%82"><span class="header-section-number">6.4.3</span> Зміст</a></li>
+  <li><a href="#%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D1%96%D0%B7%D0%B0%D1%86%D1%96%D1%8F-%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%83" id="toc-локалізація-документу" class="nav-link" data-scroll-target="#%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D1%96%D0%B7%D0%B0%D1%86%D1%96%D1%8F-%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%83"><span class="header-section-number">6.4.4</span> Локалізація документу</a></li>
   </ul>
 </li>
   <li>
-<a href="#%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B8-markdown" id="toc-основи-markdown" class="nav-link" data-scroll-target="#%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B8-markdown"><span class="header-section-number">5.5</span> Основи Markdown</a>
+<a href="#%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B8-markdown" id="toc-основи-markdown" class="nav-link" data-scroll-target="#%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B8-markdown"><span class="header-section-number">6.5</span> Основи Markdown</a>
   <ul class="collapse">
-<li><a href="#%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D1%82%D0%B5%D0%BA%D1%81%D1%82%D1%83" id="toc-форматування-тексту" class="nav-link" data-scroll-target="#%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D1%82%D0%B5%D0%BA%D1%81%D1%82%D1%83"><span class="header-section-number">5.5.1</span> Форматування тексту</a></li>
-  <li><a href="#sec-headers" id="toc-sec-headers" class="nav-link" data-scroll-target="#sec-headers"><span class="header-section-number">5.5.2</span> Заголовки</a></li>
-  <li><a href="#%D0%BF%D0%BE%D1%81%D0%B8%D0%BB%D0%B0%D0%BD%D0%BD%D1%8F-%D1%82%D0%B0-%D1%80%D0%B8%D1%81%D1%83%D0%BD%D0%BA%D0%B8" id="toc-посилання-та-рисунки" class="nav-link" data-scroll-target="#%D0%BF%D0%BE%D1%81%D0%B8%D0%BB%D0%B0%D0%BD%D0%BD%D1%8F-%D1%82%D0%B0-%D1%80%D0%B8%D1%81%D1%83%D0%BD%D0%BA%D0%B8"><span class="header-section-number">5.5.3</span> Посилання та рисунки</a></li>
-  <li><a href="#%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B8" id="toc-списки" class="nav-link" data-scroll-target="#%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B8"><span class="header-section-number">5.5.4</span> Списки</a></li>
-  <li><a href="#%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D1%96" id="toc-таблиці" class="nav-link" data-scroll-target="#%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D1%96"><span class="header-section-number">5.5.5</span> Таблиці</a></li>
-  <li><a href="#%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F" id="toc-рівняння" class="nav-link" data-scroll-target="#%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F"><span class="header-section-number">5.5.6</span> Рівняння</a></li>
-  <li><a href="#%D0%B4%D1%96%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%B8" id="toc-діаграми" class="nav-link" data-scroll-target="#%D0%B4%D1%96%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%B8"><span class="header-section-number">5.5.7</span> Діаграми</a></li>
-  <li><a href="#%D0%B2%D1%96%D0%B4%D0%B5%D0%BE" id="toc-відео" class="nav-link" data-scroll-target="#%D0%B2%D1%96%D0%B4%D0%B5%D0%BE"><span class="header-section-number">5.5.8</span> Відео</a></li>
-  <li><a href="#%D0%B2%D0%B8%D0%BD%D0%BE%D1%81%D0%BA%D0%B8" id="toc-виноски" class="nav-link" data-scroll-target="#%D0%B2%D0%B8%D0%BD%D0%BE%D1%81%D0%BA%D0%B8"><span class="header-section-number">5.5.9</span> Виноски</a></li>
-  <li><a href="#%D1%81%D0%BF%D0%B5%D1%86%D1%96%D0%B0%D0%BB%D1%8C%D0%BD%D1%96-%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D0%B8" id="toc-спеціальні-символи" class="nav-link" data-scroll-target="#%D1%81%D0%BF%D0%B5%D1%86%D1%96%D0%B0%D0%BB%D1%8C%D0%BD%D1%96-%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D0%B8"><span class="header-section-number">5.5.10</span> Спеціальні символи</a></li>
+<li><a href="#%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D1%82%D0%B5%D0%BA%D1%81%D1%82%D1%83" id="toc-форматування-тексту" class="nav-link" data-scroll-target="#%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D1%82%D0%B5%D0%BA%D1%81%D1%82%D1%83"><span class="header-section-number">6.5.1</span> Форматування тексту</a></li>
+  <li><a href="#sec-headers" id="toc-sec-headers" class="nav-link" data-scroll-target="#sec-headers"><span class="header-section-number">6.5.2</span> Заголовки</a></li>
+  <li><a href="#%D0%BF%D0%BE%D1%81%D0%B8%D0%BB%D0%B0%D0%BD%D0%BD%D1%8F-%D1%82%D0%B0-%D1%80%D0%B8%D1%81%D1%83%D0%BD%D0%BA%D0%B8" id="toc-посилання-та-рисунки" class="nav-link" data-scroll-target="#%D0%BF%D0%BE%D1%81%D0%B8%D0%BB%D0%B0%D0%BD%D0%BD%D1%8F-%D1%82%D0%B0-%D1%80%D0%B8%D1%81%D1%83%D0%BD%D0%BA%D0%B8"><span class="header-section-number">6.5.3</span> Посилання та рисунки</a></li>
+  <li><a href="#%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B8" id="toc-списки" class="nav-link" data-scroll-target="#%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B8"><span class="header-section-number">6.5.4</span> Списки</a></li>
+  <li><a href="#%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D1%96" id="toc-таблиці" class="nav-link" data-scroll-target="#%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D1%96"><span class="header-section-number">6.5.5</span> Таблиці</a></li>
+  <li><a href="#%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F" id="toc-рівняння" class="nav-link" data-scroll-target="#%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F"><span class="header-section-number">6.5.6</span> Рівняння</a></li>
+  <li><a href="#%D0%B4%D1%96%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%B8" id="toc-діаграми" class="nav-link" data-scroll-target="#%D0%B4%D1%96%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%B8"><span class="header-section-number">6.5.7</span> Діаграми</a></li>
+  <li><a href="#%D0%B2%D1%96%D0%B4%D0%B5%D0%BE" id="toc-відео" class="nav-link" data-scroll-target="#%D0%B2%D1%96%D0%B4%D0%B5%D0%BE"><span class="header-section-number">6.5.8</span> Відео</a></li>
+  <li><a href="#%D0%B2%D0%B8%D0%BD%D0%BE%D1%81%D0%BA%D0%B8" id="toc-виноски" class="nav-link" data-scroll-target="#%D0%B2%D0%B8%D0%BD%D0%BE%D1%81%D0%BA%D0%B8"><span class="header-section-number">6.5.9</span> Виноски</a></li>
+  <li><a href="#%D1%81%D0%BF%D0%B5%D1%86%D1%96%D0%B0%D0%BB%D1%8C%D0%BD%D1%96-%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D0%B8" id="toc-спеціальні-символи" class="nav-link" data-scroll-target="#%D1%81%D0%BF%D0%B5%D1%86%D1%96%D0%B0%D0%BB%D1%8C%D0%BD%D1%96-%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D0%B8"><span class="header-section-number">6.5.10</span> Спеціальні символи</a></li>
   </ul>
 </li>
   <li>
-<a href="#%D0%B2%D0%B8%D0%BA%D0%BE%D0%BD%D0%B0%D0%BD%D0%BD%D1%8F-%D0%BA%D0%BE%D0%B4%D1%83" id="toc-виконання-коду" class="nav-link" data-scroll-target="#%D0%B2%D0%B8%D0%BA%D0%BE%D0%BD%D0%B0%D0%BD%D0%BD%D1%8F-%D0%BA%D0%BE%D0%B4%D1%83"><span class="header-section-number">5.6</span> Виконання коду</a>
+<a href="#%D0%B2%D0%B8%D0%BA%D0%BE%D0%BD%D0%B0%D0%BD%D0%BD%D1%8F-%D0%BA%D0%BE%D0%B4%D1%83" id="toc-виконання-коду" class="nav-link" data-scroll-target="#%D0%B2%D0%B8%D0%BA%D0%BE%D0%BD%D0%B0%D0%BD%D0%BD%D1%8F-%D0%BA%D0%BE%D0%B4%D1%83"><span class="header-section-number">6.6</span> Виконання коду</a>
   <ul class="collapse">
-<li><a href="#%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B2%D0%B8%D0%B2%D0%BE%D0%B4%D1%83-1" id="toc-налаштування-виводу-1" class="nav-link" data-scroll-target="#%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B2%D0%B8%D0%B2%D0%BE%D0%B4%D1%83-1"><span class="header-section-number">5.6.1</span> Налаштування виводу</a></li>
-  <li><a href="#%D0%B2%D0%B1%D1%83%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9-%D0%BA%D0%BE%D0%B4" id="toc-вбудований-код" class="nav-link" data-scroll-target="#%D0%B2%D0%B1%D1%83%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9-%D0%BA%D0%BE%D0%B4"><span class="header-section-number">5.6.2</span> Вбудований код</a></li>
+<li><a href="#%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B2%D0%B8%D0%B2%D0%BE%D0%B4%D1%83-1" id="toc-налаштування-виводу-1" class="nav-link" data-scroll-target="#%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B2%D0%B8%D0%B2%D0%BE%D0%B4%D1%83-1"><span class="header-section-number">6.6.1</span> Налаштування виводу</a></li>
+  <li><a href="#%D0%B2%D0%B1%D1%83%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9-%D0%BA%D0%BE%D0%B4" id="toc-вбудований-код" class="nav-link" data-scroll-target="#%D0%B2%D0%B1%D1%83%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9-%D0%BA%D0%BE%D0%B4"><span class="header-section-number">6.6.2</span> Вбудований код</a></li>
   </ul>
 </li>
-  <li><a href="#%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B8-%D0%BF%D1%83%D0%B1%D0%BB%D1%96%D0%BA%D0%B0%D1%86%D1%96%D1%97" id="toc-основи-публікації" class="nav-link" data-scroll-target="#%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B8-%D0%BF%D1%83%D0%B1%D0%BB%D1%96%D0%BA%D0%B0%D1%86%D1%96%D1%97"><span class="header-section-number">5.7</span> Основи публікації</a></li>
+  <li><a href="#%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B8-%D0%BF%D1%83%D0%B1%D0%BB%D1%96%D0%BA%D0%B0%D1%86%D1%96%D1%97" id="toc-основи-публікації" class="nav-link" data-scroll-target="#%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B8-%D0%BF%D1%83%D0%B1%D0%BB%D1%96%D0%BA%D0%B0%D1%86%D1%96%D1%97"><span class="header-section-number">6.7</span> Основи публікації</a></li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quarto</span>
+<span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Quarto</span>
 </h1>
 </div>
 
@@ -283,20 +289,20 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   </div>
   
 
-</header><section id="що-таке-quarto" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="що-таке-quarto">
-<span class="header-section-number">5.1</span> Що таке Quarto</h2>
+</header><section id="що-таке-quarto" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="що-таке-quarto">
+<span class="header-section-number">6.1</span> Що таке Quarto</h2>
 <p><a href="https://quarto.org/">Quarto</a> — це науково–технічна видавнича система з відкритим кодом, яка ґрунтується на універсальному конверторі документів <a href="https://pandoc.org/">Pandoc</a> та використовує мову розмітки <a href="https://www.markdownguide.org/">Markdown</a>. Це універсальний інструмент для тих, хто пише на R, Python, Julia та Observable JavaScript.</p>
 <p>За допомогою Quarto можна поєднувати описовий текст і код для створення відформатованих документів, веб–сторінок, постів у блогах, книг тощо.</p>
-<section id="назва-quarto" class="level3" data-number="5.1.1"><h3 data-number="5.1.1" class="anchored" data-anchor-id="назва-quarto">
-<span class="header-section-number">5.1.1</span> Назва Quarto</h3>
+<section id="назва-quarto" class="level3" data-number="6.1.1"><h3 data-number="6.1.1" class="anchored" data-anchor-id="назва-quarto">
+<span class="header-section-number">6.1.1</span> Назва Quarto</h3>
 <p>Розробники Quarto хотіли використати ім’я, яке мало деяке значення в історії видавничої справи. Вибір пав на Quarto (від латинського <em>quārtō</em>, скорочено <em>Qto</em>, <em>4t</em>o або <em>4º</em>) — це формат книги або брошури в одну четвертину топографічного листа. На кожній стороні листа при цьому поміщається 4 сторінки книги (8 сторінок на один лист).</p>
 <p>Найраннішим відомим виданням такого формату була Книга Сивіл (англ. <em>Sibyllenbuch</em>), що була надрукована Йоганном Гутенбергом у 1452–1453 роках.</p>
 <div id="fig-quarto" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><a href="https://en.wikipedia.org/wiki/Quarto"><img src="img/quarto2.jpg" class="img-fluid figure-img"></a></p>
-<figcaption class="figure-caption">Рисунок&nbsp;5.1: Quarto</figcaption></figure>
+<figcaption class="figure-caption">Рисунок&nbsp;6.1: Quarto</figcaption></figure>
 </div>
-</section><section id="можливості-quarto" class="level3" data-number="5.1.2"><h3 data-number="5.1.2" class="anchored" data-anchor-id="можливості-quarto">
-<span class="header-section-number">5.1.2</span> Можливості Quarto</h3>
+</section><section id="можливості-quarto" class="level3" data-number="6.1.2"><h3 data-number="6.1.2" class="anchored" data-anchor-id="можливості-quarto">
+<span class="header-section-number">6.1.2</span> Можливості Quarto</h3>
 <p>Quarto являє собою текстовий документ спеціального формату <code>.qmd</code>, який можна скомпілювати у різноманітні документи:</p>
 <ul>
 <li>Документи у форматах:
@@ -345,10 +351,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </li>
 </ul>
 </li>
-</ul></section></section><section id="початок-роботи-з-quarto" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="початок-роботи-з-quarto">
-<span class="header-section-number">5.2</span> Початок роботи з Quarto</h2>
-<section id="встановлення-quarto" class="level3" data-number="5.2.1"><h3 data-number="5.2.1" class="anchored" data-anchor-id="встановлення-quarto">
-<span class="header-section-number">5.2.1</span> Встановлення Quarto</h3>
+</ul></section></section><section id="початок-роботи-з-quarto" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="початок-роботи-з-quarto">
+<span class="header-section-number">6.2</span> Початок роботи з Quarto</h2>
+<section id="встановлення-quarto" class="level3" data-number="6.2.1"><h3 data-number="6.2.1" class="anchored" data-anchor-id="встановлення-quarto">
+<span class="header-section-number">6.2.1</span> Встановлення Quarto</h3>
 <p>Для роботи з Quarto потрібно: 1. Встановити <a href="https://quarto.org/docs/download/">інтерфейс командного рядка Quarto</a> (CLI) під актуальну операційну систему (Windows, Linux або Mac OS).</p>
 <ol start="2" type="1">
 <li>Встановити плагін для інтегрованого середовища розробки (IDE). На даний момент підтримуються:
@@ -358,8 +364,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <li><a href="https://quarto.org/docs/get-started/hello/jupyter.html">Jupyter</a></li>
 </ul>
 </li>
-</ol></section><section id="робота-з-проектами" class="level3" data-number="5.2.2"><h3 data-number="5.2.2" class="anchored" data-anchor-id="робота-з-проектами">
-<span class="header-section-number">5.2.2</span> Робота з проектами</h3>
+</ol></section><section id="робота-з-проектами" class="level3" data-number="6.2.2"><h3 data-number="6.2.2" class="anchored" data-anchor-id="робота-з-проектами">
+<span class="header-section-number">6.2.2</span> Робота з проектами</h3>
 <p>Створити Quarto–проект можна декількома шляхами:</p>
 <ol type="1">
 <li>За допомогою командного рядка:</li>
@@ -387,7 +393,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </ul>
 <div id="fig-vscode" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/vscode.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;5.2: Меню створення Quarto–проекту у VS Code</figcaption></figure>
+<figcaption class="figure-caption">Рисунок&nbsp;6.2: Меню створення Quarto–проекту у VS Code</figcaption></figure>
 </div>
 <ul>
 <li>
@@ -396,23 +402,23 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </ul>
 <div id="fig-rstudio" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/rstudio.jpg" class="img-fluid figure-img" style="width:85.0%"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;5.3: Меню створення Quarto–проекту у RStudio</figcaption></figure>
+<figcaption class="figure-caption">Рисунок&nbsp;6.3: Меню створення Quarto–проекту у RStudio</figcaption></figure>
 </div>
-</section><section id="як-працює-quarto" class="level3" data-number="5.2.3"><h3 data-number="5.2.3" class="anchored" data-anchor-id="як-працює-quarto">
-<span class="header-section-number">5.2.3</span> Як працює Quarto</h3>
+</section><section id="як-працює-quarto" class="level3" data-number="6.2.3"><h3 data-number="6.2.3" class="anchored" data-anchor-id="як-працює-quarto">
+<span class="header-section-number">6.2.3</span> Як працює Quarto</h3>
 <p>Спочатку Knitr (для R) або Jupyter (для Python або Julia) виконує всі фрагменти коду .qmd-файлу і створює новий markdown (.md) документ, який включає в себе код і всі його результати. Далі .md–файл оброблюється Pandoc для перетворення у різноманітні формати файлів (HTML, PDF, Word тощо).</p>
 <div id="fig-qmd-jupyter" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/qmd-jupyter.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;5.4: Процедура рендерінгу документів в Quarto</figcaption></figure>
+<figcaption class="figure-caption">Рисунок&nbsp;6.4: Процедура рендерінгу документів в Quarto</figcaption></figure>
 </div>
-</section><section id="рендерінг" class="level3" data-number="5.2.4"><h3 data-number="5.2.4" class="anchored" data-anchor-id="рендерінг">
-<span class="header-section-number">5.2.4</span> Рендерінг</h3>
+</section><section id="рендерінг" class="level3" data-number="6.2.4"><h3 data-number="6.2.4" class="anchored" data-anchor-id="рендерінг">
+<span class="header-section-number">6.2.4</span> Рендерінг</h3>
 <ol type="1">
 <li>Для рендерінгу документу можна використати кнопку <strong>Render</strong> в VS Code.</li>
 </ol>
 <div id="fig-qmd-render" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/render.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;5.5: Клавіша рендерінгу документу в VS Code</figcaption></figure>
+<figcaption class="figure-caption">Рисунок&nbsp;6.5: Клавіша рендерінгу документу в VS Code</figcaption></figure>
 </div>
 <ol start="2" type="1">
 <li>Рендерінг за допомогою командного рядку:</li>
@@ -426,8 +432,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Наприклад:</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render document.qmd <span class="at">--to</span> docx</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="структура-документів-quatro" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="структура-документів-quatro">
-<span class="header-section-number">5.3</span> Структура документів Quatro</h2>
+</section></section><section id="структура-документів-quatro" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="структура-документів-quatro">
+<span class="header-section-number">6.3</span> Структура документів Quatro</h2>
 <p>Quatro документи складаються з трьох базових складових:</p>
 <ul>
 <li>YAML–шапки<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
@@ -435,8 +441,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <li>Текст з використанням розмітки Markdown</li>
 <li>Чанків (анг. <em>chunks</em>) з кодом</li>
 </ul>
-<section id="yamlшапка" class="level3" data-number="5.3.1"><h3 data-number="5.3.1" class="anchored" data-anchor-id="yamlшапка">
-<span class="header-section-number">5.3.1</span> YAML–шапка</h3>
+<section id="yamlшапка" class="level3" data-number="6.3.1"><h3 data-number="6.3.1" class="anchored" data-anchor-id="yamlшапка">
+<span class="header-section-number">6.3.1</span> YAML–шапка</h3>
 <p>YAML–шапка знаходиться нагорі документу і відділена трьома дефісами (<code>---</code>) зверху та знизу. В ній зберігається мета–інформація документу: назва, дата створення, автор, інформація щодо роботи коду, контенту і процесу рендерінгу.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Dracula"</span></span>
@@ -447,23 +453,23 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section><section id="текст-з-використанням-розмітки-markdown" class="level3" data-number="5.3.2"><h3 data-number="5.3.2" class="anchored" data-anchor-id="текст-з-використанням-розмітки-markdown">
-<span class="header-section-number">5.3.2</span> Текст з використанням розмітки Markdown</h3>
+</section><section id="текст-з-використанням-розмітки-markdown" class="level3" data-number="6.3.2"><h3 data-number="6.3.2" class="anchored" data-anchor-id="текст-з-використанням-розмітки-markdown">
+<span class="header-section-number">6.3.2</span> Текст з використанням розмітки Markdown</h3>
 <p>Ця частина документу йде одраtextзу після YAML–шапки і складає основну частину документу.</p>
 <p>Markdown — це популярна і зручна мова розмітки. Ви непевно зустрічали її в <code>README.md</code>–файлах репозиторіїв GitHub, а також у Telegram–повідомленнях.</p>
-</section><section id="чанки-з-кодом" class="level3" data-number="5.3.3"><h3 data-number="5.3.3" class="anchored" data-anchor-id="чанки-з-кодом">
-<span class="header-section-number">5.3.3</span> Чанки з кодом</h3>
+</section><section id="чанки-з-кодом" class="level3" data-number="6.3.3"><h3 data-number="6.3.3" class="anchored" data-anchor-id="чанки-з-кодом">
+<span class="header-section-number">6.3.3</span> Чанки з кодом</h3>
 <p>Чанки — це блоки, які відділяються від тексту потрійними зворотніми лапками <code>```</code> ( анг. <em>backtick</em>) на початку та в кінці. У фігурних дужках вказується мова програмування на якій необхідно виконати код.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Fly, you fools!'</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Результат чанку за замовчування виводиться одразу після нього, але все це можна налаштувати.</p>
-</section></section><section id="yaml-шапка" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="yaml-шапка">
-<span class="header-section-number">5.4</span> YAML-шапка</h2>
+</section></section><section id="yaml-шапка" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="yaml-шапка">
+<span class="header-section-number">6.4</span> YAML-шапка</h2>
 <p>Метадані документу можуть бути задані у шапці документу або окремим <code>_quarto.yml</code>-файлом.</p>
 <p>В цій частині документу зберігається інформація щодо назви документу, дати, автора, налаштування рендерінгу, параметри чанків та інші додаткові налаштування. Всі параметри встановлюються у форматі <code>key: value</code>.</p>
-<section id="налаштування-виводу" class="level3" data-number="5.4.1"><h3 data-number="5.4.1" class="anchored" data-anchor-id="налаштування-виводу">
-<span class="header-section-number">5.4.1</span> Налаштування виводу</h3>
+<section id="налаштування-виводу" class="level3" data-number="6.4.1"><h3 data-number="6.4.1" class="anchored" data-anchor-id="налаштування-виводу">
+<span class="header-section-number">6.4.1</span> Налаштування виводу</h3>
 <p>Ключ <code>format:</code> відповідає за тип вихідного файлу.</p>
 <table class="table">
 <colgroup>
@@ -540,8 +546,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tbody>
 </table>
 <p>А також цілу низку інших форматів, документацію по котрим можна отримати в розділі <a href="https://quarto.org/docs/reference/">Reference</a> документації.</p>
-</section><section id="назва-дата-та-автор" class="level3" data-number="5.4.2"><h3 data-number="5.4.2" class="anchored" data-anchor-id="назва-дата-та-автор">
-<span class="header-section-number">5.4.2</span> Назва, дата та автор</h3>
+</section><section id="назва-дата-та-автор" class="level3" data-number="6.4.2"><h3 data-number="6.4.2" class="anchored" data-anchor-id="назва-дата-та-автор">
+<span class="header-section-number">6.4.2</span> Назва, дата та автор</h3>
 <p>В залежності від типу вихідного документу, ці ключі можуть відрізнятися, але наведу основні:</p>
 <table class="table">
 <colgroup>
@@ -570,9 +576,9 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <td>Автор або автори документа</td>
 </tr>
 </tbody>
-</table></section><section id="зміст" class="level3" data-number="5.4.3"><h3 data-number="5.4.3" class="anchored" data-anchor-id="зміст">
-<span class="header-section-number">5.4.3</span> Зміст</h3>
-<p>Для генерації змісту (анг. <em>table of contents</em>, скорочено <em>toc</em>) необхідно ключу <code>toc</code> задати значення <code>true</code>. В залежності від типу вихідного документу зміст буде згенерований відповідно до заголовків (<a href="#sec-headers"><span>Розділ&nbsp;5.5.2</span></a>).</p>
+</table></section><section id="зміст" class="level3" data-number="6.4.3"><h3 data-number="6.4.3" class="anchored" data-anchor-id="зміст">
+<span class="header-section-number">6.4.3</span> Зміст</h3>
+<p>Для генерації змісту (анг. <em>table of contents</em>, скорочено <em>toc</em>) необхідно ключу <code>toc</code> задати значення <code>true</code>. В залежності від типу вихідного документу зміст буде згенерований відповідно до заголовків (<a href="#sec-headers"><span>Розділ&nbsp;6.5.2</span></a>).</p>
 <table class="table">
 <colgroup>
 <col style="width: 22%">
@@ -596,11 +602,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <td>Заголовок, використаний для змісту.</td>
 </tr>
 </tbody>
-</table></section><section id="локалізація-документу" class="level3" data-number="5.4.4"><h3 data-number="5.4.4" class="anchored" data-anchor-id="локалізація-документу">
-<span class="header-section-number">5.4.4</span> Локалізація документу</h3>
+</table></section><section id="локалізація-документу" class="level3" data-number="6.4.4"><h3 data-number="6.4.4" class="anchored" data-anchor-id="локалізація-документу">
+<span class="header-section-number">6.4.4</span> Локалізація документу</h3>
 <p>Quarto, Pandoc та LaTeX генерують текстові елементи документу, які потребують локалізації. Наприклад: “Рисунок” або “Таблиця” для перехресних посилань, назви виносок тощо.</p>
-<section id="налаштування-lang" class="level4" data-number="5.4.4.1"><h4 data-number="5.4.4.1" class="anchored" data-anchor-id="налаштування-lang">
-<span class="header-section-number">5.4.4.1</span> Налаштування <code>lang</code>
+<section id="налаштування-lang" class="level4" data-number="6.4.4.1"><h4 data-number="6.4.4.1" class="anchored" data-anchor-id="налаштування-lang">
+<span class="header-section-number">6.4.4.1</span> Налаштування <code>lang</code>
 </h4>
 <p>Приклад використання польської локалізації документу:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
@@ -624,8 +630,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <li>французька (<code>fr</code>)</li>
 <li>чеська (<code>cs</code>)</li>
 <li>японська (<code>ja</code>)</li>
-</ul></section><section id="власна-локалізація" class="level4" data-number="5.4.4.2"><h4 data-number="5.4.4.2" class="anchored" data-anchor-id="власна-локалізація">
-<span class="header-section-number">5.4.4.2</span> Власна локалізація</h4>
+</ul></section><section id="власна-локалізація" class="level4" data-number="6.4.4.2"><h4 data-number="6.4.4.2" class="anchored" data-anchor-id="власна-локалізація">
+<span class="header-section-number">6.4.4.2</span> Власна локалізація</h4>
 <p>Якщо вас не влаштовує мова за умовчанням, яка використовується для певної частини документа, ви можете вказати альтернативну мову за допомогою ключа <code>language</code>. Наприклад, щоб замінити значення підписів «Author» і «Published», які використовуються в блоках заголовків, ви можете зробити це:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Мій документ"</span></span>
@@ -644,12 +650,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Я зробив власну українську локалізацію Quarto-документів, яку Ви можете завантажити з мого GitHub-репозиторія: https://github.com/aranaur/quarto-ukrainian.</p>
 <p>Ознайомитися з усіма офіційними локалізаціями можна за посиланням: https://github.com/quarto-dev/quarto-cli/tree/main/src/resources/language.</p>
-</section></section></section><section id="основи-markdown" class="level2" data-number="5.5"><h2 data-number="5.5" class="anchored" data-anchor-id="основи-markdown">
-<span class="header-section-number">5.5</span> Основи Markdown</h2>
+</section></section></section><section id="основи-markdown" class="level2" data-number="6.5"><h2 data-number="6.5" class="anchored" data-anchor-id="основи-markdown">
+<span class="header-section-number">6.5</span> Основи Markdown</h2>
 <p>Quarto ґрунтується на Pandoc та використовує різновид markdown в якості базового синтаксису. Pandoc markdown — це розширена та злегка перероблена версія синтаксису markdown.</p>
 <p>Markdown — це формат звичайного тексту, який розроблено таким чином, щоб його було легко писати та, що ще важливіше, легко читати.</p>
-<section id="форматування-тексту" class="level3" data-number="5.5.1"><h3 data-number="5.5.1" class="anchored" data-anchor-id="форматування-тексту">
-<span class="header-section-number">5.5.1</span> Форматування тексту</h3>
+<section id="форматування-тексту" class="level3" data-number="6.5.1"><h3 data-number="6.5.1" class="anchored" data-anchor-id="форматування-тексту">
+<span class="header-section-number">6.5.1</span> Форматування тексту</h3>
 <table class="table">
 <colgroup>
 <col style="width: 52%">
@@ -680,8 +686,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <td><code>дослівний код</code></td>
 </tr>
 </tbody>
-</table></section><section id="sec-headers" class="level3" data-number="5.5.2"><h3 data-number="5.5.2" class="anchored">
-<span class="header-section-number">5.5.2</span> Заголовки</h3>
+</table></section><section id="sec-headers" class="level3" data-number="6.5.2"><h3 data-number="6.5.2" class="anchored">
+<span class="header-section-number">6.5.2</span> Заголовки</h3>
 <table class="table">
 <colgroup>
 <col style="width: 32%">
@@ -717,8 +723,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <td><h6 id="заголовок-6" class="heading-output unnumbered anchored">Заголовок 6</h6></td>
 </tr>
 </tbody>
-</table></section><section id="посилання-та-рисунки" class="level3" data-number="5.5.3"><h3 data-number="5.5.3" class="anchored" data-anchor-id="посилання-та-рисунки">
-<span class="header-section-number">5.5.3</span> Посилання та рисунки</h3>
+</table></section><section id="посилання-та-рисунки" class="level3" data-number="6.5.3"><h3 data-number="6.5.3" class="anchored" data-anchor-id="посилання-та-рисунки">
+<span class="header-section-number">6.5.3</span> Посилання та рисунки</h3>
 <table class="table">
 <thead><tr class="header">
 <th>Синтаксис markdown</th>
@@ -746,8 +752,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <td><a href="https://www.python.org"><img src="img/python-logo.jpg" class="img-fluid" alt="A line drawing of an elephant."></a></td>
 </tr>
 </tbody>
-</table></section><section id="списки" class="level3" data-number="5.5.4"><h3 data-number="5.5.4" class="anchored" data-anchor-id="списки">
-<span class="header-section-number">5.5.4</span> Списки</h3>
+</table></section><section id="списки" class="level3" data-number="6.5.4"><h3 data-number="6.5.4" class="anchored" data-anchor-id="списки">
+<span class="header-section-number">6.5.4</span> Списки</h3>
 <table class="table">
 <colgroup>
 <col style="width: 55%">
@@ -836,10 +842,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </dl></td>
 </tr>
 </tbody>
-</table></section><section id="таблиці" class="level3" data-number="5.5.5"><h3 data-number="5.5.5" class="anchored" data-anchor-id="таблиці">
-<span class="header-section-number">5.5.5</span> Таблиці</h3>
-<section id="таблиці-markdown" class="level4" data-number="5.5.5.1"><h4 data-number="5.5.5.1" class="anchored" data-anchor-id="таблиці-markdown">
-<span class="header-section-number">5.5.5.1</span> Таблиці markdown</h4>
+</table></section><section id="таблиці" class="level3" data-number="6.5.5"><h3 data-number="6.5.5" class="anchored" data-anchor-id="таблиці">
+<span class="header-section-number">6.5.5</span> Таблиці</h3>
+<section id="таблиці-markdown" class="level4" data-number="6.5.5.1"><h4 data-number="6.5.5.1" class="anchored" data-anchor-id="таблиці-markdown">
+<span class="header-section-number">6.5.5.1</span> Таблиці markdown</h4>
 <section id="синтаксис-markdown" class="level5 unnumbered"><h5 class="unnumbered anchored" data-anchor-id="синтаксис-markdown">Синтаксис markdown</h5>
 <pre><code>| Зліва | Справа | За замовчуванням | По центру |
 |------:|:-------|------------------|:---------:|
@@ -876,8 +882,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tbody>
 </table>
 <p>Формувати такі таблиці вручну досить складно і незручно. В таких випадках на допомогу приходить <a href="https://www.tablesgenerator.com/markdown_tables">Markdown Tables Generator</a>.</p>
-</section></section><section id="sec-py-table" class="level4" data-number="5.5.5.2"><h4 data-number="5.5.5.2" class="anchored" data-anchor-id="sec-py-table">
-<span class="header-section-number">5.5.5.2</span> Таблиці з Python</h4>
+</section></section><section id="sec-py-table" class="level4" data-number="6.5.5.2"><h4 data-number="6.5.5.2" class="anchored" data-anchor-id="sec-py-table">
+<span class="header-section-number">6.5.5.2</span> Таблиці з Python</h4>
 <ol type="1">
 <li>За допомогою комбінації функцій <code>Markdown()</code> та пакету <code>tabulate</code>:</li>
 </ol>
@@ -901,7 +907,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div id="tbl-character-1" class="anchored">
 <table class="table table-sm table-striped small">
-<caption>Таблиця&nbsp;5.1: Персонажі Середзем’я</caption>
+<caption>Таблиця&nbsp;6.1: Персонажі Середзем’я</caption>
 <thead><tr class="header">
 <th style="text-align: left;">Name</th>
 <th style="text-align: left;">Race</th>
@@ -967,7 +973,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div id="tbl-character-2" class="anchored">
 <table class="table table-sm table-striped small">
-<caption>Таблиця&nbsp;5.2: Персонажі Середзем’я</caption>
+<caption>Таблиця&nbsp;6.2: Персонажі Середзем’я</caption>
 <thead><tr class="header">
 <th style="text-align: left;">Name</th>
 <th style="text-align: left;">Race</th>
@@ -1012,7 +1018,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div id="tbl-character-3" class="anchored">
 <table class="lightable-classic-2 table table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Таблиця&nbsp;5.3: Персонажі Середзем’я</caption>
+<caption>Таблиця&nbsp;6.3: Персонажі Середзем’я</caption>
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Name</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Race</th>
@@ -1046,8 +1052,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 
 </div>
 </div>
-</section></section><section id="рівняння" class="level3" data-number="5.5.6"><h3 data-number="5.5.6" class="anchored" data-anchor-id="рівняння">
-<span class="header-section-number">5.5.6</span> Рівняння</h3>
+</section></section><section id="рівняння" class="level3" data-number="6.5.6"><h3 data-number="6.5.6" class="anchored" data-anchor-id="рівняння">
+<span class="header-section-number">6.5.6</span> Рівняння</h3>
 <p>Для запису рівняння в середині тексту використовується одинарний символ <code>$</code> та подвійний <code>$$</code> для запису рівняння з нового рядка:</p>
 <table class="table">
 <colgroup>
@@ -1074,8 +1080,8 @@ $$E = mc^{2}$$</code></pre></td>
 </tbody>
 </table>
 <p>В якості допомоги формування рівнянь рекомендую ресурс <a href="https://latex.codecogs.com/eqneditor/editor.php">Online LaTeX Equation Editor</a>.</p>
-</section><section id="діаграми" class="level3" data-number="5.5.7"><h3 data-number="5.5.7" class="anchored" data-anchor-id="діаграми">
-<span class="header-section-number">5.5.7</span> Діаграми</h3>
+</section><section id="діаграми" class="level3" data-number="6.5.7"><h3 data-number="6.5.7" class="anchored" data-anchor-id="діаграми">
+<span class="header-section-number">6.5.7</span> Діаграми</h3>
 <p>Quarto має вбудовану підтримку для створення діаграм <a href="https://mermaid-js.github.io/mermaid/#/">Mermaid</a> та <a href="https://graphviz.org/">Graphviz</a>. Це дає змогу створювати блок–схеми, діаграми послідовності, діаграми станів тощо, використовуючи синтаксис простого тексту.</p>
 <p>Приклад створення блок–схеми за допомогою Mermaid:</p>
 <div class="cell">
@@ -1100,16 +1106,16 @@ $$E = mc^{2}$$</code></pre></td>
 </div>
 </div>
 <p>Більше інформації у розділі <a href="https://quarto.org/docs/authoring/diagrams.html">Diagrams</a>.</p>
-</section><section id="відео" class="level3" data-number="5.5.8"><h3 data-number="5.5.8" class="anchored" data-anchor-id="відео">
-<span class="header-section-number">5.5.8</span> Відео</h3>
+</section><section id="відео" class="level3" data-number="6.5.8"><h3 data-number="6.5.8" class="anchored" data-anchor-id="відео">
+<span class="header-section-number">6.5.8</span> Відео</h3>
 <p>Вставляти відео у документи можна за допомогою запису <code>{{&lt; video &gt;}}</code>.</p>
 <p>Приклад використання відео з Youtube:</p>
 <div class="sourceCode" id="cb40" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/embed/qOhk7YyxXQ4 &gt;}}</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Більше інформації у розділі <a href="https://quarto.org/docs/authoring/videos.html">Videos</a>.</p>
-</section><section id="виноски" class="level3" data-number="5.5.9"><h3 data-number="5.5.9" class="anchored" data-anchor-id="виноски">
-<span class="header-section-number">5.5.9</span> Виноски</h3>
-<section id="типи-виносок" class="level4" data-number="5.5.9.1"><h4 data-number="5.5.9.1" class="anchored" data-anchor-id="типи-виносок">
-<span class="header-section-number">5.5.9.1</span> Типи виносок</h4>
+</section><section id="виноски" class="level3" data-number="6.5.9"><h3 data-number="6.5.9" class="anchored" data-anchor-id="виноски">
+<span class="header-section-number">6.5.9</span> Виноски</h3>
+<section id="типи-виносок" class="level4" data-number="6.5.9.1"><h4 data-number="6.5.9.1" class="anchored" data-anchor-id="типи-виносок">
+<span class="header-section-number">6.5.9.1</span> Типи виносок</h4>
 <p>Виноски — чудовий спосіб привернути додаткову увагу до певних понять або чіткіше вказати, що певний вміст є додатковим або потребує додаткової уваги.</p>
 <p>У Quarto є п’ять різноманітних виносок: - примітка (<code>note</code>) - застереження (<code>warning</code>) - важливо (<code>important</code>) - підказка (<code>tip</code>) - попередження (<code>caution</code>)</p>
 <p>Колір і значок відрізнятимуться залежно від обраного типу. Ось як виглядають різні виноски в HTML:</p>
@@ -1181,8 +1187,8 @@ $$E = mc^{2}$$</code></pre></td>
 </div>
 </div>
 </div>
-</section><section id="синтаксис-markdown-1" class="level4" data-number="5.5.9.2"><h4 data-number="5.5.9.2" class="anchored" data-anchor-id="синтаксис-markdown-1">
-<span class="header-section-number">5.5.9.2</span> Синтаксис markdown</h4>
+</section><section id="синтаксис-markdown-1" class="level4" data-number="6.5.9.2"><h4 data-number="6.5.9.2" class="anchored" data-anchor-id="синтаксис-markdown-1">
+<span class="header-section-number">6.5.9.2</span> Синтаксис markdown</h4>
 <p>Створіть виноски в розмітці за допомогою наступного синтаксису (зверніть увагу, що перший заголовок, використаний у виносці, використовується як заголовок виноски):</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">## Примітка</span></span>
@@ -1203,8 +1209,8 @@ $$E = mc^{2}$$</code></pre></td>
 <span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>Це приклад «згорнутої» виноски з попередженням.</span>
 <span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>Використайте <span class="in">`collapse="true"`</span> щоб згорнути її за замовчуванням та <span class="in">`collapse="false"`</span> щоб виноска могла бути згорнута, але була розгорнути за замовчуванням.</span>
 <span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section></section><section id="спеціальні-символи" class="level3" data-number="5.5.10"><h3 data-number="5.5.10" class="anchored" data-anchor-id="спеціальні-символи">
-<span class="header-section-number">5.5.10</span> Спеціальні символи</h3>
+</section></section><section id="спеціальні-символи" class="level3" data-number="6.5.10"><h3 data-number="6.5.10" class="anchored" data-anchor-id="спеціальні-символи">
+<span class="header-section-number">6.5.10</span> Спеціальні символи</h3>
 <table class="table">
 <colgroup>
 <col style="width: 47%">
@@ -1246,10 +1252,10 @@ $$E = mc^{2}$$</code></pre></td>
 </ol>
 </div>
 </div>
-</section></section><section id="виконання-коду" class="level2" data-number="5.6"><h2 data-number="5.6" class="anchored" data-anchor-id="виконання-коду">
-<span class="header-section-number">5.6</span> Виконання коду</h2>
-<section id="налаштування-виводу-1" class="level3" data-number="5.6.1"><h3 data-number="5.6.1" class="anchored" data-anchor-id="налаштування-виводу-1">
-<span class="header-section-number">5.6.1</span> Налаштування виводу</h3>
+</section></section><section id="виконання-коду" class="level2" data-number="6.6"><h2 data-number="6.6" class="anchored" data-anchor-id="виконання-коду">
+<span class="header-section-number">6.6</span> Виконання коду</h2>
+<section id="налаштування-виводу-1" class="level3" data-number="6.6.1"><h3 data-number="6.6.1" class="anchored" data-anchor-id="налаштування-виводу-1">
+<span class="header-section-number">6.6.1</span> Налаштування виводу</h3>
 <p>Існує широкий спектр доступних параметрів для налаштування виводу виконаного коду. Усі ці параметри можна вказати глобально (у YAML-шапці з ключем <code>execute</code>) або для кожного блоку коду.</p>
 <ul>
 <li>Приклад глобальних налаштувань:</li>
@@ -1314,11 +1320,11 @@ $$E = mc^{2}$$</code></pre></td>
 <td>Запобігає виводу коду та його результатів.</td>
 </tr>
 </tbody>
-</table></section><section id="вбудований-код" class="level3" data-number="5.6.2"><h3 data-number="5.6.2" class="anchored" data-anchor-id="вбудований-код">
-<span class="header-section-number">5.6.2</span> Вбудований код</h3>
+</table></section><section id="вбудований-код" class="level3" data-number="6.6.2"><h3 data-number="6.6.2" class="anchored" data-anchor-id="вбудований-код">
+<span class="header-section-number">6.6.2</span> Вбудований код</h3>
 <p>Quarto дозволяє виводити результат коду в середині тексту. Це особливо зручно, якщо необхідно щоб документ використовував найсвіжіші розрахунки. Проте синтаксис виводу залежить від рушія (анг. <em>engine</em>) Quarto: Jupyter, Knitr або OJS.</p>
-<section id="jupyter" class="level4" data-number="5.6.2.1"><h4 data-number="5.6.2.1" class="anchored" data-anchor-id="jupyter">
-<span class="header-section-number">5.6.2.1</span> Jupyter</h4>
+<section id="jupyter" class="level4" data-number="6.6.2.1"><h4 data-number="6.6.2.1" class="anchored" data-anchor-id="jupyter">
+<span class="header-section-number">6.6.2.1</span> Jupyter</h4>
 <p>Щоб включити збережену змінну, використовуєте <a href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html">IPython.display.Markdown</a>.</p>
 <p>Наприклад, виведемо площу кола за заданим радіусом (<code>radius</code>):</p>
 <div class="sourceCode" id="cb47"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
@@ -1348,9 +1354,9 @@ $$E = mc^{2}$$</code></pre></td>
 <p>Зауважте, що ми використовуємо опцію <code>echo: false</code>, щоб не виводити код у фінальний документ, а тільки результат.</p>
 </div>
 </div>
-</section><section id="knitr" class="level4" data-number="5.6.2.2"><h4 data-number="5.6.2.2" class="anchored" data-anchor-id="knitr">
-<span class="header-section-number">5.6.2.2</span> Knitr</h4>
-<p>Аналогічно до роботи з таблицями (див. <a href="#sec-py-table"><span>Розділ&nbsp;5.5.5.2</span></a>) можемо поєднати можливості R та Python для виводу результату коду в тексті документу.</p>
+</section><section id="knitr" class="level4" data-number="6.6.2.2"><h4 data-number="6.6.2.2" class="anchored" data-anchor-id="knitr">
+<span class="header-section-number">6.6.2.2</span> Knitr</h4>
+<p>Аналогічно до роботи з таблицями (див. <a href="#sec-py-table"><span>Розділ&nbsp;6.5.5.2</span></a>) можемо поєднати можливості R та Python для виводу результату коду в тексті документу.</p>
 <p>Щоб включити вирази в розмітку для Knitr, використовується вираз у <code>`r `</code>:</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
@@ -1379,8 +1385,8 @@ $$E = mc^{2}$$</code></pre></td>
 <p>Запис <code>py$radius</code> означає: взяти значення змінної Python з ім’ям <code>radius</code>.</p>
 </div>
 </div>
-</section></section></section><section id="основи-публікації" class="level2" data-number="5.7"><h2 data-number="5.7" class="anchored" data-anchor-id="основи-публікації">
-<span class="header-section-number">5.7</span> Основи публікації</h2>
+</section></section></section><section id="основи-публікації" class="level2" data-number="6.7"><h2 data-number="6.7" class="anchored" data-anchor-id="основи-публікації">
+<span class="header-section-number">6.7</span> Основи публікації</h2>
 <p>Існує низка способів публікації документів, презентацій і веб-документів, створених за допомогою Quarto. Оскільки вміст, відтворений за допомогою Quarto, використовує стандартні формати (HTML, PDF, MS Word тощо), його можна опублікувати будь-де. Крім того, доступна команда <code>quarto publish</code> для легкої публікації в різних популярних службах (GitHub, Netlify, RStudio Connect тощо), а також різні інструменти, які полегшують публікацію з системи Неперервної інтеграції (анг. <em>Continuous integration</em>).</p>
 <p>Сервіси для публікації:</p>
 <table class="table">

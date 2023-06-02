@@ -6,11 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ігор Мірошниченко">
-<meta name="dcterms.date" content="2023-06-02">
 <meta name="description" content="Книга-конспект матеріалів.">
 
-<title>Python та його друзі в науці про дані</title>
+<title>Python та його друзі в науці про дані - 5&nbsp; Групування даних</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -33,6 +65,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./sql_agg.html" rel="prev">
 <link href="./cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -73,6 +106,9 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -86,7 +122,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Вступне слово</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql.html">SQL</a></li><li class="breadcrumb-item"><a href="./sql_groupby.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Групування даних</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -143,7 +179,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Вступне слово</span></span></a>
   </div>
 </li>
@@ -177,7 +213,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sql_groupby.html" class="sidebar-item-text sidebar-link">
+  <a href="./sql_groupby.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Групування даних</span></span></a>
   </div>
 </li>
@@ -200,7 +236,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
     <h2 id="toc-title">Зміст</h2>
    
   <ul>
-  <li><a href="#вступне-слово" id="toc-вступне-слово" class="nav-link active" data-scroll-target="#вступне-слово">Вступне слово</a></li>
+  <li><a href="#оператор-group-by" id="toc-оператор-group-by" class="nav-link active" data-scroll-target="#оператор-group-by"><span class="header-section-number">5.1</span> Оператор <code>GROUP BY</code></a></li>
   </ul>
 </nav>
     </div>
@@ -209,31 +245,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Python та його друзі в науці про дані</h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Групування даних</span></h1>
 </div>
 
-<div>
-  <div class="description">
-    Книга-конспект матеріалів.
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Автор</div>
-    <div class="quarto-title-meta-contents">
-             <p>Ігор Мірошниченко </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Дата публікації</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2023-06-02</p>
-    </div>
-  </div>
   
     
   </div>
@@ -241,27 +260,120 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 
 </header>
 
-<section id="вступне-слово" class="level1 unnumbered">
-<h1 class="unnumbered">Вступне слово</h1>
-<div class="callout callout-style-default callout-important callout-titled">
+<section id="оператор-group-by" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="оператор-group-by"><span class="header-section-number">5.1</span> Оператор <code>GROUP BY</code></h2>
+<p>Для групування даних в SQL використовується оператор <code>GROUP BY</code>. Він дозволяє групувати дані по одному або декільком стовпцям таблиці. При цьому вибірка даних буде містити лише унікальні значення з вказаних стовпців:</p>
+<ol type="1">
+<li>Спочатку в таблиці визначаються рядки, в яких у вказаному в <code>GROUP BY</code> стовпці є однакові значення.</li>
+<li>Далі за цими значеннями записи об’єднуються у групи, причому у групі може бути навіть один запис.</li>
+<li>Після цього над елементами цих груп, як правило, проводяться якісь операції за допомогою агрегатних функцій: наприклад, за допомогою <code>SUM()</code> обчислюється сума значень в якому-небудь стовпці в кожній групі:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, <span class="fu">SUM</span>(column_2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> column_1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li>Потім у результуючий запит потрапляє по одному унікальному запису зі стовпця, по якому здійснювалося групування. При цьому навпроти кожного такого значення відображається результат агрегації по відповідній групі, якщо агрегація проводилася.</li>
+</ol>
+<p>Тут важливо зробити кілька уточнень:</p>
+<ul>
+<li>По-перше, групування виконується після фільтрації, тобто спочатку виконуються інструкції <code>WHERE</code> і лише потім дані групуються через <code>GROUP BY</code>.</li>
+<li>По-друге, до груп, що утворилися в результаті застосування <code>GROUP BY</code>, можна застосовувати відразу кілька агрегатних функцій (у тому числі до різних колонок).</li>
+<li>По-третє, групування можна робити відразу за новими полями, порахованими в <code>SELECT</code>: при цьому допускається використання в <code>GROUP BY</code> аліасу колонки, зазначеного в SELECT. Наступні два запити дадуть однаковий результат:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="dt">DATE</span>(column_1) <span class="kw">AS</span> <span class="dt">date</span>, <span class="fu">SUM</span>(column_2)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="dt">DATE</span>(column_1)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="dt">DATE</span>(column_1) <span class="kw">AS</span> <span class="dt">date</span>, <span class="fu">SUM</span>(column_2)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="dt">date</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>По-четверте, робити агрегацію після групування необов’язково. Якщо не вказувати агрегатну функцію, то запит поверне унікальні значення в стовпці, тобто той самий результат, як і оператор <code>DISTINCT</code>. Можете самостійно запустити наступний запит та переконатися:</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> user_id</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> user_actions</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> user_id</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> user_id</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> user_actions</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>До речі, питання про те, як можна відібрати унікальні значення, досвідчені аналітики люблять ставити на співбесідах своїм менш досвідченим колегам.</p>
+<p>І нарешті, останнє важливе уточнення: під час використання групування колонки, вказаних у <code>SELECT</code>, повинні бути і <code>GROUP BY</code>, якщо вони використовуються у агрегатних функціях. Це обов’язкова умова, і якщо вона не буде виконана, база даних поверне помилку.</p>
+<p>Наступний запит не працюватиме, оскільки в <code>GROUP BY</code> вказані не всі неагреговані колонки з блоку <code>SELECT</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2, <span class="fu">SUM</span>(column_3)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> column_1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Водночас такий запит спрацює:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(column_2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> column_1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Зверніть увагу, що у цьому запиті у блоці <code>SELECT</code> немає колонки, вказаної у <code>GROUP BY</code>, тобто у зворотний бік правило не працює: якщо ми щось вказали в <code>GROUP BY</code>, це не обов’язково вказувати в <code>SELECT</code>. Інакше кажучи, виводити найменування груп необов’язково.</p>
+<p>І ще: замість назв колонок у блоці <code>GROUP BY</code> можна використовувати номер колонки, вказаної у <code>SELECT</code>. Наприклад, наступні два запити еквівалентні:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2, <span class="fu">SUM</span>(column_3)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> column_1, column_2</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2, <span class="fu">SUM</span>(column_3)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="dv">1</span>, <span class="dv">2</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>При цьому номери колонок із <code>SELECT</code> також можна використовувати при сортуванні в операторі <code>ORDER BY</code>. Можете самі поекспериментувати із цим у наступних завданнях.</p>
+<p>З теорією начебто розібралися, тепер приступимо до практики. Минулого разу ми вже рахували кількість кур’єрів жіночої статі та використовували для цього фільтрацію. Групування дозволить нам провести розрахунки відразу для двох статей.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Важливо
+Завдання
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Ця книга знаходиться на стадії розробки.</p>
+<div id="exr-sql-groupby-01" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 5.1 </strong></span><br> За допомогою групування порахуйте кількість кур’єрів чоловічої та жіночої статі у таблиці <code>couriers</code>. Нову колонку з числом кур’єром назвіть <code>couriers_count</code>. Результат відсортуйте по цій колонці за зростанням.</p>
+<p>Поля у результуючій таблиці: <code>sex</code>, <code>couriers_count</code></p>
 </div>
 </div>
-<p>Шановні читачі,</p>
-<p>Запрошую до книги “Python та його друзі в науці про дані”! Сьогодні ми відкриваємо двері до захоплюючого світу аналізу даних та наукових досліджень, в якому Python стає вашим найкращим другом. Завдяки своїй простоті, гнучкості та потужності, Python виходить за межі звичайної мови програмування, перетворюючись на незамінного помічника для розв’язання складних задач і виявлення прихованих закономірностей.</p>
-<p>У цій книзі ми збираємося подорожувати у світі науки про дані, де Python та інші дотичні інструменти стають невід’ємною частиною процесу відкриття знань та розуміння складних систем. Ви дізнаєтеся, як за допомогою Python можна ефективно обробляти, аналізувати та візуалізувати дані, виявляти закономірності та робити передбачення. Завдяки цим інструментам ви зможете розкрити потужний потенціал ваших даних та прийняти обґрунтовані рішення на основі наукових фактів.</p>
-<p>Я запрошую вас на цю захоплюючу подорож, де ми разом з вами розкриємо секрети Python у науці про дані. Незалежно від вашого досвіду в програмуванні або знань про науку про дані, ця книга надасть вам необхідні знання та інструменти для успішного впровадження Python у ваші проекти. Будьте впевнені, що по закінченні цього шляху ви будете готові до викликів, які стоять перед вами у світі науки та досліджень.</p>
-<p>Нехай ця книга стане вашим надійним провідником у справжньому дослідницькому пригоді, де Python та його друзі стають вашими найкращими союзниками. Розпочнемо нашу подорож разом!</p>
-<p>З найкращими побажаннями, Ігор Мірошниченко</p>
+</div>
+<div class="cell" data-execution_count="2">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>SELECT sex,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>       count(courier_id) <span class="im">as</span> couriers_count</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>FROM   couriers</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>GROUP BY sex</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>ORDER BY couriers_count</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">couriers_count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>female</td>
+<td>1149</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>male</td>
+<td>1674</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 
 
 </section>
@@ -615,6 +727,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./sql_agg.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Агрегація даних</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
