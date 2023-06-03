@@ -742,7 +742,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql05" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.5 </strong></span><br>Повторіть запит із з попереднього прикладу (<a href="#exr-sql03">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql03</span></a>), але тепер колонки <code>name</code> і <code>price</code> перейменуйте відповідно на <code>product_name</code> і <code>product_price</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 2.5 </strong></span><br>Повторіть запит із з попереднього прикладу (<a href="#exr-sql03">Завдання&nbsp;<span>2.3</span></a>), але тепер колонки <code>name</code> і <code>price</code> перейменуйте відповідно на <code>product_name</code> і <code>product_price</code>.</p>
 <p>Поля у результуючій таблиці: <code>product_name</code>, <code>product_price</code></p>
 </div>
 </div>
@@ -1502,7 +1502,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </section>
 <section id="перше-ненульове-значення-coalesce" class="level2" data-number="2.9">
 <h2 data-number="2.9" class="anchored" data-anchor-id="перше-ненульове-значення-coalesce"><span class="header-section-number">2.9</span> Перше ненульове значення: <code>COALESCE</code></h2>
-<p>Ви могли помітити, що в минулому прикладі (<a href="#exr-sql10">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql10</span></a>) для окремих рядків функція <code>DATE_PART</code> не повернула рік народження кур’єра, а замість них утворилися порожні значення. Якщо не помітили, уважно подивіться на результат запиту.</p>
+<p>Ви могли помітити, що в минулому прикладі (<a href="#exr-sql10">Завдання&nbsp;<span>2.10</span></a>) для окремих рядків функція <code>DATE_PART</code> не повернула рік народження кур’єра, а замість них утворилися порожні значення. Якщо не помітили, уважно подивіться на результат запиту.</p>
 <p>Насправді це сталося тому, що в наших даних у колонці <code>birth_date</code> є перепустки — так звані значення <code>NULL</code> (у виводі результату це <code>NA</code>). Іншими словами, для окремих кур’єрів просто не вказано їхні дні народження. Є безліч варіантів, чому так могло статися, але ми зараз не маємо часу все це з’ясовувати — нам просто потрібно навчитися якось обробляти такі випадки.</p>
 <p>Давайте зробимо так, щоб замість порожніх значень функція <code>DATE_PART</code> повертала якесь інше значення. У цьому нам допоможе функція <code>COALESCE</code>, яка повертає перше не <code>NULL</code> значення зі списку поданих на вхід аргументів.</p>
 <p>Роботу <code>COALESCE</code> можна описати так: вона буквально читає список значень зліва направо і, як тільки бачить значення, яке не є <code>NULL</code>, відразу ж повертає його та припиняє читання списку. Подивіться уважно на такі приклади:</p>
@@ -1558,7 +1558,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql11" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.11 </strong></span><br>Як і в попередньому прикладі (<a href="#exr-sql10">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql10</span></a>), знову виведіть id десяти відсотків кур’єрів та їх роки народження, тільки тепер до вилученого року застосуйте функцію <code>COALESCE</code>. Вкажіть параметри функції так, щоб замість значення <code>NULL</code> в результат потрапляло текстове значення <code>unknown</code>. Назви полів залиште колишніми.</p>
+<p><span class="theorem-title"><strong>Завдання 2.11 </strong></span><br>Як і в попередньому прикладі (<a href="#exr-sql10">Завдання&nbsp;<span>2.10</span></a>), знову виведіть id десяти відсотків кур’єрів та їх роки народження, тільки тепер до вилученого року застосуйте функцію <code>COALESCE</code>. Вкажіть параметри функції так, щоб замість значення <code>NULL</code> в результат потрапляло текстове значення <code>unknown</code>. Назви полів залиште колишніми.</p>
 <p>Поля у результуючій таблиці: <code>courier_id</code>, <code>birth_year</code></p>
 </div>
 </div>
@@ -1898,7 +1898,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql13" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.13 </strong></span><br>Знову, як і в минулому завданні (<a href="#exr-sql12">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql12</span></a>), підвищите ціну всіх товарів на 5%, тільки тепер до колонки з новою ціною застосуйте функцію <code>ROUND</code>. Виведіть id та найменування товарів, їх стару ціну, а також нову ціну із округленням. Нову ціну округліть до десятих, але тип даних не змінюйте.</p>
+<p><span class="theorem-title"><strong>Завдання 2.13 </strong></span><br>Знову, як і в минулому завданні (<a href="#exr-sql12">Завдання&nbsp;<span>2.12</span></a>), підвищите ціну всіх товарів на 5%, тільки тепер до колонки з новою ціною застосуйте функцію <code>ROUND</code>. Виведіть id та найменування товарів, їх стару ціну, а також нову ціну із округленням. Нову ціну округліть до десятих, але тип даних не змінюйте.</p>
 <p>Результат відсортуйте спочатку за спаданням нової ціни, потім за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>old_price</code>, <code>new_price</code>.</p>
 </div>

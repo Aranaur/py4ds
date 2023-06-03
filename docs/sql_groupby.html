@@ -346,7 +346,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>GROUP BY sex</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>ORDER BY couriers_count</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 
 
@@ -402,7 +402,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>GROUP BY sex</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>ORDER BY max_age</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <div>
 
 
@@ -460,7 +460,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>ORDER BY age</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>LIMIT <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="17">
 <div>
 
 
@@ -560,7 +560,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>ORDER BY age, sex</span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>LIMIT <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <div>
 
 
@@ -700,7 +700,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>GROUP BY month, action</span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>ORDER BY month, action</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 
 
@@ -771,7 +771,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>GROUP BY order_size</span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>ORDER BY order_size</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="20">
 <div>
 
 
@@ -877,7 +877,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>HAVING count(order_id) <span class="op">&gt;</span> <span class="dv">5000</span></span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>ORDER BY order_size</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div class="cell-output cell-output-display" data-execution_count="21">
 <div>
 
 
@@ -909,6 +909,477 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <td data-quarto-table-cell-role="th">3</td>
 <td>5</td>
 <td>8065</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Перед тим, як рухатися далі, пропонуємо вам вирішити ще кілька завдань на групування.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-groupby-08" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 5.8 </strong></span><br> З таблиці <code>courier_actions</code> відберіть id <strong>трьох кур’єрів</strong>, які доставили <strong>найбільшу кількість замовлень у серпні 2022 року</strong>. Виведіть дві колонки – id кур’єра та кількість доставлених замовлень. Назвіть колонку з кількістю доставлених замовлень <code>delivered_orders</code>. Відсортуйте результат за спаданням delivered_orders.</p>
+<p>Поля у результуючій таблиці: <code>courier_id</code>, <code>delivered_orders</code></p>
+<p>Пояснення: пам’ятайте, що у таблиці <code>courier_actions</code> є інформація як про прийняті, так і про доставлені замовлення.</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>SELECT courier_id,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>       count(courier_id) <span class="im">as</span> delivered_orders</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>FROM   courier_actions</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>   <span class="kw">and</span> date_part(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>   <span class="kw">and</span> date_part(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">0</span><span class="er">8</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>GROUP BY courier_id</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>ORDER BY delivered_orders desc</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>LIMIT <span class="dv">3</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">courier_id</th>
+<th data-quarto-table-cell-role="th">delivered_orders</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>179</td>
+<td>36</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>329</td>
+<td>34</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>103</td>
+<td>31</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-groupby-09" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 5.9 </strong></span><br> А тепер відберіть лише тих кур’єрів, які у <strong>вересні 2022 року</strong> встигли доставити тільки за одне замовлення. Таблиця та сама - <code>courier_actions</code>. Знову виведіть дві колонки – id кур’єра та кількість доставлених замовлень. Назвіть колонку з числом замовлень <code>delivered_orders</code>. Результат відсортуйте за зростанням id кур’єра.</p>
+<p>Поля у результуючій таблиці: <code>courier_id</code>, <code>delivered_orders</code></p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>SELECT courier_id,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>       count(distinct courier_id) <span class="im">as</span> delivered_orders</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>FROM   courier_actions</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>   <span class="kw">and</span> date_part(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>   <span class="kw">and</span> date_part(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">0</span><span class="er">9</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>GROUP BY courier_id having count(distinct courier_id) <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>ORDER BY courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">courier_id</th>
+<th data-quarto-table-cell-role="th">delivered_orders</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2817</td>
+<td>3163</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2818</td>
+<td>3164</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2819</td>
+<td>3165</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2820</td>
+<td>3166</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2821</td>
+<td>3167</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+<p>2822 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<p>Ой, до нас у кабінет знову постукали! Це знову маркетологи: кажуть, що хочуть розіслати пуш-повідомлення зі спеціальною пропозицією. Аудиторія – користувачі, які давно не робили у нас замовлення.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-groupby-10" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 5.10 </strong></span><br> З таблиці <code>user_actions</code> відберіть користувачів, у яких останнє <strong>замовлення було створено до 8 вересня 2022 року</strong>. Виведіть тільки їх ID, дату створення замовлення виводити не потрібно. Результат відсортуйте за зростанням id користувача.</p>
+<p>Поле у результуючій таблиці: <code>user_id</code></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Підказка
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Щоб розв’язати завдання, потрібно спочатку для кожного користувача знайти останній <code>TIMESTAMP</code>, коли він робив замовлення, а потім відібрати тих, хто робив це занадто давно. Враховуйте, що в таблиці є не лише час створення, а й час скасування замовлення.</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>SELECT DISTINCT user_id</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>FROM   user_actions</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>WHERE  action <span class="op">=</span> <span class="st">'create_order'</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>GROUP BY user_id</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>HAVING <span class="bu">max</span>(time) <span class="op">&lt;</span> <span class="st">'2022-09-08'</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>ORDER BY user_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">user_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">17368</td>
+<td>19727</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17369</td>
+<td>19728</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">17370</td>
+<td>19729</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17371</td>
+<td>19730</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">17372</td>
+<td>19731</td>
+</tr>
+</tbody>
+</table>
+
+<p>17373 rows × 1 columns</p>
+</div>
+</div>
+</div>
+<p>А тепер спробуємо вирішити складніше завдання. Для нього нам знову знадобиться агрегатний вираз із фільтрацією, який ми розглядали у <a href="sql_agg.html#exr-sql-agg-16">Завдання&nbsp;<span>4.16</span></a>. Цю конструкцію можна застосовувати не лише до всієї таблиці, а й окремо до кожної групи, сформованої внаслідок застосування оператора <code>GROUP BY</code>. Загалом вона виглядатиме так:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, agg_function(column_2) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> [condition])</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> column_1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Приклад:</strong></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, <span class="fu">AVG</span>(column_2) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> column_3 <span class="op">&gt;</span> <span class="dv">100</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> column_1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-groupby-11" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 5.11 </strong></span><br> Для кожного користувача в таблиці <code>user_actions</code> порахуйте <strong>частку скасованих замовлень</strong>. Виведіть дві колонки: ID користувача та розрахований показник. Нову колонку з показником округліть <strong>до двох знаків після коми</strong> та назвіть <code>cancel_rate</code>. Результат відсортуйте за зростанням id користувача.</p>
+<p>Поля у результуючій таблиці: <code>user_id</code>, <code>cancel_rate</code></p>
+<p>Пояснення: щоб порахувати частку скасованих замовлень, необхідно поділити кількість скасованих замовлень на загальну кількість унікальних замовлень користувача. Пам’ятайте, що для отримання коректного результату поділу потрібно хоча б одне із значень привести до типу <code>DECIMAL</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>SELECT user_id,</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>       <span class="bu">round</span>(count(action) <span class="bu">filter</span> (WHERE action <span class="op">=</span> <span class="st">'cancel_order'</span>)::decimal <span class="op">/</span> count(action) <span class="bu">filter</span> (WHERE action <span class="op">=</span> <span class="st">'create_order'</span>),</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>             <span class="dv">2</span>) <span class="im">as</span> cancel_rate</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>FROM   user_actions</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>GROUP BY user_id</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>ORDER BY user_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">user_id</th>
+<th data-quarto-table-cell-role="th">cancel_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">21396</td>
+<td>21398</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21397</td>
+<td>21399</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">21398</td>
+<td>21400</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21399</td>
+<td>21401</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">21400</td>
+<td>21402</td>
+<td>0.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>21401 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<p>Повернімося до запиту з групуванням користувачів за віком, який робили у <a href="sql_agg.html#exr-sql-agg-03">завданні&nbsp;<span>4.3</span></a>.</p>
+<p>Ми порахували кількість користувачів кожного віку, але дивитися на дані саме в такому угрупованні не дуже цікаво. Давайте перейдемо від конкретних значень віку до вікових груп.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-groupby-12" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 5.12 </strong></span><br> Розбийте користувачів із таблиці <code>users</code> на 4 вікові групи:</p>
+<ul>
+<li>від 19 до 24 років;</li>
+<li>від 25 до 29 років;</li>
+<li>від 30 до 35 років;</li>
+<li>від 36 до 41 року.</li>
+</ul>
+<p>Порахуйте кількість користувачів, які потрапили до кожної вікової групи. Групи назвіть відповідно <code>19-24</code>, <code>25-29</code>, <code>30-35</code>, <code>36-41</code>. Виведіть найменування груп та кількість користувачів у них. Назвіть колонку з найменуванням груп <code>group_age</code>, а колонку з числом користувачів — <code>users_count</code>. Відсортуйте отриману таблицю по колонці з найменуванням груп за зростання.</p>
+<p>Поля у результуючій таблиці: <code>group_age</code>, <code>users_count</code></p>
+<p><strong>Пояснення:</strong> для вирішення цього завдання підійде конструкція <code>CASE</code>. Як і минулого разу, вік розглядайте, як кількість повних років.</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>SELECT case when date_part(<span class="st">'year'</span>, age(birth_date)) between <span class="dv">19</span> <span class="kw">and</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">24</span> then <span class="st">'19-24'</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>            when date_part(<span class="st">'year'</span>, age(birth_date)) between <span class="dv">25</span> <span class="kw">and</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">29</span> then <span class="st">'25-29'</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>            when date_part(<span class="st">'year'</span>, age(birth_date)) between <span class="dv">30</span> <span class="kw">and</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">35</span> then <span class="st">'30-35'</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>            when date_part(<span class="st">'year'</span>, age(birth_date)) between <span class="dv">36</span> <span class="kw">and</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">41</span> then <span class="st">'36-41'</span> end <span class="im">as</span> group_age,</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>       count(user_id) <span class="im">as</span> users_count</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>FROM   users</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>WHERE  birth_date <span class="kw">is</span> <span class="kw">not</span> null</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>GROUP BY group_age</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>ORDER BY group_age</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">group_age</th>
+<th data-quarto-table-cell-role="th">users_count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>19-24</td>
+<td>348</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>25-29</td>
+<td>7722</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>30-35</td>
+<td>11673</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>36-41</td>
+<td>538</td>
 </tr>
 </tbody>
 </table>

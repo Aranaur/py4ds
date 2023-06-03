@@ -1544,7 +1544,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </section>
 <section id="фільтрація-з-null" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="фільтрація-з-null"><span class="header-section-number">3.4</span> Фільтрація з <code>NULL</code></h2>
-<p>Раніше <a href="#exr-sql11">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql11</span></a> ми зіткнулися з пропущеними значеннями в таблиці <code>couriers</code> — у деяких кур’єрів не було зазначено їхні дні народження.</p>
+<p>Раніше <a href="sql_basics.html#exr-sql11">Завдання&nbsp;<span>2.11</span></a> ми зіткнулися з пропущеними значеннями в таблиці <code>couriers</code> — у деяких кур’єрів не було зазначено їхні дні народження.</p>
 <p>Для перевірки на <code>NULL</code> значення <strong>SQL</strong> є оператор <code>IS NULL</code>. У поєднанні з <code>WHERE</code> записується він так:</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
@@ -1913,7 +1913,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p><span class="theorem-title"><strong>Завдання 3.13 </strong></span><br> З таблиці <code>user_actions</code> отримаєте id всіх замовлень, зроблених користувачами сервісу <strong>у серпні 2022 року</strong>.</p>
 <p>Результат відсортуйте за зростанням id замовлення.</p>
 <p>Поле у результуючій таблиці: <code>order_id</code></p>
-<p><strong>Пояснення</strong>: зверніть увагу, що у вихідній таблиці є записи не лише з часом оформлення, а й часом скасування замовлення.У цій задачі може стати в нагоді функція <code>DATE_PART</code>. Ми розглядали її в <a href="#exr-sql10">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql10</span></a>.</p>
+<p><strong>Пояснення</strong>: зверніть увагу, що у вихідній таблиці є записи не лише з часом оформлення, а й часом скасування замовлення.У цій задачі може стати в нагоді функція <code>DATE_PART</code>. Ми розглядали її в <a href="sql_basics.html#exr-sql10">Завдання&nbsp;<span>2.10</span></a>.</p>
 </div>
 </div>
 </div>
@@ -2241,11 +2241,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-filter-16" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 3.16 </strong></span><br> Як і у минулому завданні (<a href="#exr-sql15">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql15</span></a>), обчисліть ПДВ кожного товару в таблиці <code>products</code> і розрахуйте ціну без урахування ПДВ. Однак тепер врахуйте, що для товарів зі списку податок становить <strong>10%</strong>. Для решти товарів ПДВ той самий — <strong>20%</strong>.</p>
+<p><span class="theorem-title"><strong>Завдання 3.16 </strong></span><br> Як і у минулому завданні (<a href="sql_basics.html#exr-sql15">Завдання&nbsp;<span>2.15</span></a>), обчисліть ПДВ кожного товару в таблиці <code>products</code> і розрахуйте ціну без урахування ПДВ. Однак тепер врахуйте, що для товарів зі списку податок становить <strong>10%</strong>. Для решти товарів ПДВ той самий — <strong>20%</strong>.</p>
 <p>Виведіть всю інформацію про товари, включаючи суму податку та ціну без його врахування. Колонки із сумою податку та ціною без ПДВ назвіть відповідно <code>tax</code> та <code>price_before_tax</code>. Округліть значення у цих колонках <strong>до двох знаків після коми</strong>.</p>
 <p>Результат відсортуйте спочатку за спаданням ціни товару без урахування ПДВ, потім за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code>, <code>tax</code>, <code>price_before_tax</code></p>
-<p><strong>Пояснення:</strong> порядок розрахунку податку той самий, що й у <a href="#exr-sql15">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql15</span></a>. Для вирішення завдання вам можуть стати в нагоді конструкція <code>CASE</code> та оператор <code>IN</code>. Конструкцію <code>CASE</code> ми розглядали у <a href="#exr-sql14">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql14</span></a>.</p>
+<p><strong>Пояснення:</strong> порядок розрахунку податку той самий, що й у <a href="sql_basics.html#exr-sql15">Завдання&nbsp;<span>2.15</span></a>. Для вирішення завдання вам можуть стати в нагоді конструкція <code>CASE</code> та оператор <code>IN</code>. Конструкцію <code>CASE</code> ми розглядали у <a href="sql_basics.html#exr-sql14">Завдання&nbsp;<span>2.14</span></a>.</p>
 </div>
 </div>
 </div>
