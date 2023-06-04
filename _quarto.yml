@@ -28,6 +28,7 @@ book:
       - sql_filter.ipynb
       - sql_agg.ipynb
       - sql_groupby.ipynb
+      - sql_subquery.ipynb
     - text: "---"
     - quarto.qmd
     
