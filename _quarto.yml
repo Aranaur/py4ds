@@ -41,6 +41,7 @@ format:
     df-print: kable
     code-overflow: wrap
     code-link: true
+    code-line-numbers: true
     theme:
       light: cosmo
       dark: superhero
