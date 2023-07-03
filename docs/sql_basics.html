@@ -285,12 +285,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <h2 data-number="2.1" class="anchored" data-anchor-id="відбір-select"><span class="header-section-number">2.1</span> Відбір: <code>SELECT</code></h2>
 <p>Давайте спочатку напишемо найпростіший запит і подивимося, як виглядає таблиця <code>products</code>.</p>
 <p>Щоб вивести всі записи зі значеннями у всіх колонках, необхідно або перерахувати всі колонки в операторі <code>SELECT</code> або вказати після оператора спеціальний символ “<code>*</code>”:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2, <span class="op">..</span>.</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">SELECT</span> column_1, column_2, <span class="op">..</span>.</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -323,11 +323,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="4">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>       price</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>FROM   products</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="op">%%</span>sql</span>
+<span id="cb2-2"><a href="#cb2-2"></a>SELECT product_id,</span>
+<span id="cb2-3"><a href="#cb2-3"></a>       name,</span>
+<span id="cb2-4"><a href="#cb2-4"></a>       price</span>
+<span id="cb2-5"><a href="#cb2-5"></a>FROM   products</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
@@ -422,19 +422,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <h2 data-number="2.2" class="anchored" data-anchor-id="впорядкування-order-by"><span class="header-section-number">2.2</span> Впорядкування: <code>ORDER BY</code></h2>
 <p>Для сортування значень по будь-якій колонці SQL використовується оператор <code>ORDER BY</code> з ключовими словами <code>ASC</code> (за зростанням) або <code>DESC</code> (за спаданням).</p>
 <p>При цьому за умовчанням сортування відбувається за зростанням, тобто <code>ASC</code> не обов’язково вказувати. Для сортування за спаданням після <code>ORDER BY</code> необхідно явно вказати <code>DESC</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1           <span class="co">-- сортування за зростанням</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">ASC</span>       <span class="co">-- сортування за зростанням</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>      <span class="co">-- сортування за спаданням</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1           <span class="co">-- сортування за зростанням</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">ASC</span>       <span class="co">-- сортування за зростанням</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a></span>
+<span id="cb3-10"><a href="#cb3-10"></a></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>      <span class="co">-- сортування за спаданням</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -467,13 +467,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="5">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>       price</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>ORDER BY name</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>LIMIT <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="op">%%</span>sql</span>
+<span id="cb4-2"><a href="#cb4-2"></a>SELECT product_id,</span>
+<span id="cb4-3"><a href="#cb4-3"></a>       name,</span>
+<span id="cb4-4"><a href="#cb4-4"></a>       price</span>
+<span id="cb4-5"><a href="#cb4-5"></a>FROM   products</span>
+<span id="cb4-6"><a href="#cb4-6"></a>ORDER BY name</span>
+<span id="cb4-7"><a href="#cb4-7"></a>LIMIT <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
@@ -526,10 +526,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>Сортувати результат SQL-запиту можна відразу за декількома колонками, вказуючи їх після <code>ORDER BY</code> через кому разом із напрямком сортування (<code>ASC</code> або <code>DESC</code>):</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>, column_2    <span class="co">-- спочатку сортування по першій колонці (за спаданням),</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                                    <span class="co">-- потім по другій (за зростанням)</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>, column_2    <span class="co">-- спочатку сортування по першій колонці (за спаданням),</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>                                    <span class="co">-- потім по другій (за зростанням)</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -544,10 +544,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>Оператори <code>ORDER BY</code> та <code>LIMIT</code> можна поєднувати в одному запиті, при цьому оператор <code>LIMIT</code> записується та виконується після оператора <code>ORDER BY</code>, обмежуючи кількість записів у вже відсортованому результаті:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>, column_2</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>, column_2</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="kw">LIMIT</span> <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -581,13 +581,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="6">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>SELECT courier_id,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>       order_id,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>       action,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>       time</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>FROM   courier_actions</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>ORDER BY courier_id, action, time DESC limit <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="op">%%</span>sql</span>
+<span id="cb7-2"><a href="#cb7-2"></a>SELECT courier_id,</span>
+<span id="cb7-3"><a href="#cb7-3"></a>       order_id,</span>
+<span id="cb7-4"><a href="#cb7-4"></a>       action,</span>
+<span id="cb7-5"><a href="#cb7-5"></a>       time</span>
+<span id="cb7-6"><a href="#cb7-6"></a>FROM   courier_actions</span>
+<span id="cb7-7"><a href="#cb7-7"></a>ORDER BY courier_id, action, time DESC limit <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
@@ -678,11 +678,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="7">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>SELECT name,</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>       price</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>ORDER BY price desc limit <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="op">%%</span>sql</span>
+<span id="cb8-2"><a href="#cb8-2"></a>SELECT name,</span>
+<span id="cb8-3"><a href="#cb8-3"></a>       price</span>
+<span id="cb8-4"><a href="#cb8-4"></a>FROM   products</span>
+<span id="cb8-5"><a href="#cb8-5"></a>ORDER BY price desc limit <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
@@ -732,11 +732,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <section id="зміна-назви-as" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="зміна-назви-as"><span class="header-section-number">2.3</span> Зміна назви: <code>AS</code></h2>
 <p>При складанні SQL-запитів колонкам у результуючій таблиці можна надавати будь-які інші імена (їх ще називають «аліасами»). Це можна робити за допомогою оператора <code>AS</code>:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name <span class="kw">AS</span> new_name</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">SELECT</span> name <span class="kw">AS</span> new_name</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Якщо раптом вам здасться, що на написання оператора <code>AS</code> йде занадто багато часу і сил, його можна опустити, вказавши нове ім’я колонки без нього. Наступний запис також спрацює:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name new_name</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">SELECT</span> name new_name</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -748,7 +748,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql05" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.5 </strong></span><br>Повторіть запит із з попереднього прикладу (<a href="#exr-sql03">Завдання&nbsp;<span>2.3</span></a>), але тепер колонки <code>name</code> і <code>price</code> перейменуйте відповідно на <code>product_name</code> і <code>product_price</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 2.5 </strong></span><br>Повторіть запит із з попереднього прикладу (<a href="#exr-sql03">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql03</span></a>), але тепер колонки <code>name</code> і <code>price</code> перейменуйте відповідно на <code>product_name</code> і <code>product_price</code>.</p>
 <p>Поля у результуючій таблиці: <code>product_name</code>, <code>product_price</code></p>
 </div>
 </div>
@@ -756,12 +756,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="8">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>SELECT name AS product_name,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>       price AS product_price</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>ORDER BY price desc limit <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="op">%%</span>sql</span>
+<span id="cb11-2"><a href="#cb11-2"></a></span>
+<span id="cb11-3"><a href="#cb11-3"></a>SELECT name AS product_name,</span>
+<span id="cb11-4"><a href="#cb11-4"></a>       price AS product_price</span>
+<span id="cb11-5"><a href="#cb11-5"></a>FROM   products</span>
+<span id="cb11-6"><a href="#cb11-6"></a>ORDER BY price desc limit <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
@@ -812,14 +812,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <h2 data-number="2.4" class="anchored" data-anchor-id="кількість-символів-length"><span class="header-section-number">2.4</span> Кількість символів: <code>LENGTH</code></h2>
 <p>У SQL-запитах до колонок таблиць можна використовувати різні функції, наприклад, як в Excel.</p>
 <p>У загальному вигляді синтаксис функцій виглядає приблизно так:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">function</span>(a, b, c, <span class="op">..</span>.)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">SELECT</span> <span class="kw">function</span>(a, b, c, <span class="op">..</span>.)</span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Замість <code>function</code> вказується назва функції, а дужках — її аргументи. Як аргументи можуть виступати як колонки зі значеннями, так і окремі значення. Залежно від функції кількість аргументів може відрізнятися.</p>
 <p>Якщо ви коли-небудь працювали в Excel, то вам, напевно, знайомі різні функції на кшталт <code>SUM</code>, <code>MIN</code>, <code>MAX</code> тощо, які роблять деякі обчислення по стовпцях. У SQL вони називаються <em>агрегуючими функціями</em>.</p>
 <p>Зараз як приклад розглянемо функцію <code>LENGTH</code>. Вона виконує досить просте завдання — підраховує кількість символів у поданому їй на вхід значенні текстового типу (текстовий тип даних часто називають рядком — від англ. «string»). Іншими словами, функція <code>LENGTH</code> вимірює довжину деякого рядка у символах:</p>
 <div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>SELECT LENGTH(<span class="st">'I.love.Python'</span>) <span class="im">as</span> py_love</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="op">%%</span>sql</span>
+<span id="cb13-2"><a href="#cb13-2"></a>SELECT LENGTH(<span class="st">'I.love.Python'</span>) <span class="im">as</span> py_love</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
@@ -843,8 +843,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>Функція <code>LENGTH</code> також може застосовуватись до всього стовпця. У такому випадку довжина символів буде порахована для кожного значення в стовпці. Відповідний запит виглядатиме так:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">LENGTH</span>(<span class="kw">column</span>) <span class="kw">AS</span> column_length</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">SELECT</span> <span class="fu">LENGTH</span>(<span class="kw">column</span>) <span class="kw">AS</span> column_length</span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -864,12 +864,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="10">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>SELECT name,</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>       length(name) <span class="im">as</span> name_length,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>       price</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>ORDER BY name_length desc limit <span class="dv">1</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="op">%%</span>sql</span>
+<span id="cb15-2"><a href="#cb15-2"></a>SELECT name,</span>
+<span id="cb15-3"><a href="#cb15-3"></a>       length(name) <span class="im">as</span> name_length,</span>
+<span id="cb15-4"><a href="#cb15-4"></a>       price</span>
+<span id="cb15-5"><a href="#cb15-5"></a>FROM   products</span>
+<span id="cb15-6"><a href="#cb15-6"></a>ORDER BY name_length desc limit <span class="dv">1</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div>
@@ -913,27 +913,27 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>У SQL, як й у багатьох інших мовах, функції можна застосовувати до інших функцій, тобто. послідовно:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> function_one(function_two(a, b), c)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">SELECT</span> function_one(function_two(a, b), c)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У наведеній вище конструкції <code>a</code>, <code>b</code>, <code>c</code> аргументи функцій. При цьому одним із аргументів функції <code>function_one</code> є результат виконання функції <code>function_two</code>.</p>
 <p>Таким чином, спочатку буде виконана функція <code>function_two</code>, а потім її результат буде поданий на вхід функції <code>function_one</code> як один з аргументів.</p>
 <p>Розглянемо такий випадок на прикладі функцій <code>UPPER</code> та <code>LEFT</code>. Функція <code>UPPER</code> наводить подане їй на вхід текстове значення до верхнього регістру:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">UPPER</span>(<span class="st">'I.love.Python'</span>) <span class="kw">AS</span> upper_all</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>I.LOVE.PYTHON</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb17-2"><a href="#cb17-2"></a>    <span class="fu">UPPER</span>(<span class="st">'I.love.Python'</span>) <span class="kw">AS</span> upper_all</span>
+<span id="cb17-3"><a href="#cb17-3"></a></span>
+<span id="cb17-4"><a href="#cb17-4"></a>Результат:</span>
+<span id="cb17-5"><a href="#cb17-5"></a>I.LOVE.PYTHON</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Функція <code>LEFT</code> повертає перші <code>n</code> символів у рядку:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">LEFT</span>(<span class="st">'I.love.Python'</span>, <span class="dv">6</span>) <span class="kw">AS</span> first_n</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>I.love</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb18-2"><a href="#cb18-2"></a>    <span class="kw">LEFT</span>(<span class="st">'I.love.Python'</span>, <span class="dv">6</span>) <span class="kw">AS</span> first_n</span>
+<span id="cb18-3"><a href="#cb18-3"></a></span>
+<span id="cb18-4"><a href="#cb18-4"></a>Результат:</span>
+<span id="cb18-5"><a href="#cb18-5"></a>I.love</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ми можемо застосувати ці функції послідовно і в результаті отримаємо перші три символів верхнього регістру:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">UPPER</span>(<span class="kw">LEFT</span>(<span class="st">'I.love.Python'</span>, <span class="dv">6</span>))</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>I.LOVE</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb19-2"><a href="#cb19-2"></a>    <span class="fu">UPPER</span>(<span class="kw">LEFT</span>(<span class="st">'I.love.Python'</span>, <span class="dv">6</span>))</span>
+<span id="cb19-3"><a href="#cb19-3"></a></span>
+<span id="cb19-4"><a href="#cb19-4"></a>Результат:</span>
+<span id="cb19-5"><a href="#cb19-5"></a>I.LOVE</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -948,12 +948,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>Наступний запит не буде виконано, база даних поверне помилку:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">LEFT</span>(<span class="st">'I.love.Python'</span>, <span class="dv">3</span>) <span class="kw">AS</span> first_n,</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">UPPER</span>(first_n) <span class="kw">AS</span> upper_first_n</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>Error running <span class="kw">query</span>: <span class="kw">column</span> <span class="ot">"new_name"</span> does <span class="kw">not</span> exist</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb20-2"><a href="#cb20-2"></a>    <span class="kw">LEFT</span>(<span class="st">'I.love.Python'</span>, <span class="dv">3</span>) <span class="kw">AS</span> first_n,</span>
+<span id="cb20-3"><a href="#cb20-3"></a>    <span class="fu">UPPER</span>(first_n) <span class="kw">AS</span> upper_first_n</span>
+<span id="cb20-4"><a href="#cb20-4"></a></span>
+<span id="cb20-5"><a href="#cb20-5"></a>Результат:</span>
+<span id="cb20-6"><a href="#cb20-6"></a>Error running <span class="kw">query</span>: <span class="kw">column</span> <span class="ot">"new_name"</span> does <span class="kw">not</span> exist</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>В межах одного запиту колонки створюються не по черзі, а разом, тому в межах одного запиту колонки <code>upper_first_n</code> не існує, поки блок <code>SELECT</code> не буде повністю виконаний. Дуже важливо враховувати цю особливість мови.</p>
 <p>Однак на практиці до нових колонок доводиться звертатися досить часто — саме для цього є підзапити (запити до інших запитів). А поки що нам достатньо розуміти, що застосовувати функції до розрахункових колонок у тому ж запиті не можна.</p>
 </section>
@@ -961,10 +961,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <h2 data-number="2.5" class="anchored" data-anchor-id="поділ-та-повернення-split_part"><span class="header-section-number">2.5</span> Поділ та повернення: <code>SPLIT_PART</code></h2>
 <p>Функція <code>SPLIT_PART</code> розбиває поданий їй на вхід рядок на кілька частин відповідно до зазначеного роздільника та повертає одну з частин.</p>
 <p>Крім самого рядка (або колонки зі значеннями рядкового типу), функція приймає ще два аргументи — роздільник і порядковий номер частини, яку необхідно повернути. Подивіться наступний приклад:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> SPLIT_PART(<span class="st">'I.love.Python'</span>, <span class="st">'.'</span>, <span class="dv">3</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>Python</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">SELECT</span> SPLIT_PART(<span class="st">'I.love.Python'</span>, <span class="st">'.'</span>, <span class="dv">3</span>)</span>
+<span id="cb21-2"><a href="#cb21-2"></a></span>
+<span id="cb21-3"><a href="#cb21-3"></a>Результат:</span>
+<span id="cb21-4"><a href="#cb21-4"></a>Python</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У прикладі вище рядок <code>'I.love.Python'</code> було розбито на три частини (<code>'I'</code>, <code>'love'</code> та <code>'Python'</code>) по роздільнику “<code>.</code>”. Функція повернула <code>'Python'</code>, оскільки третім аргументом ми вказали частину із порядковим номером 3.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -999,15 +999,15 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="11">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>SELECT</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    name,</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    UPPER(SPLIT_PART(name, <span class="st">' '</span>, <span class="dv">1</span>)) AS first_word,</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    price</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>FROM</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    products</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>ORDER BY</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    name</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="op">%%</span>sql</span>
+<span id="cb22-2"><a href="#cb22-2"></a>SELECT</span>
+<span id="cb22-3"><a href="#cb22-3"></a>    name,</span>
+<span id="cb22-4"><a href="#cb22-4"></a>    UPPER(SPLIT_PART(name, <span class="st">' '</span>, <span class="dv">1</span>)) AS first_word,</span>
+<span id="cb22-5"><a href="#cb22-5"></a>    price</span>
+<span id="cb22-6"><a href="#cb22-6"></a>FROM</span>
+<span id="cb22-7"><a href="#cb22-7"></a>    products</span>
+<span id="cb22-8"><a href="#cb22-8"></a>ORDER BY</span>
+<span id="cb22-9"><a href="#cb22-9"></a>    name</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <div>
@@ -1101,26 +1101,26 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <h2 data-number="2.6" class="anchored" data-anchor-id="зміна-типу-cast"><span class="header-section-number">2.6</span> Зміна типу: <code>CAST</code></h2>
 <p>Іноді виникає необхідність змінити тип даних у якійсь колонці результуючої таблиці, не змінюючи при цьому властивості вихідної таблиці, наприклад, перетворити число на текст (тип даних <code>VARCHAR</code>). І тому існує функція <code>CAST</code>.</p>
 <p>На вхід функції <code>CAST</code> необхідно подати ім’я колонки, вказавши через <code>AS</code> тип даних, до якого потрібно привести всі значення:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">CAST</span>(<span class="kw">column</span> <span class="kw">AS</span> <span class="dt">VARCHAR</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">SELECT</span> <span class="fu">CAST</span>(<span class="kw">column</span> <span class="kw">AS</span> <span class="dt">VARCHAR</span>)</span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Також можна змінити тип даних за допомогою спеціального синтаксису з двома двокрапками («<code>::</code>»):</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">column</span>:<span class="ch">:VARCHAR</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">SELECT</span> <span class="kw">column</span>:<span class="ch">:VARCHAR</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Наприклад, переведемо текст ‘100’ у число 100:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">CAST</span>(<span class="st">'100'</span> <span class="kw">AS</span> <span class="dt">INTEGER</span>)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">SELECT</span> <span class="fu">CAST</span>(<span class="st">'100'</span> <span class="kw">AS</span> <span class="dt">INTEGER</span>)</span>
+<span id="cb25-2"><a href="#cb25-2"></a></span>
+<span id="cb25-3"><a href="#cb25-3"></a>Результат:</span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="dv">100</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Зверніть увагу, що для успішної конвертації значення повинні бути конвертованими у вказаний тип. Наприклад, текст, який не виглядає як число, перевести до числового типу даних не вийде:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">CAST</span>(<span class="st">'text'</span> <span class="kw">AS</span> <span class="dt">INTEGER</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>Error running <span class="kw">query</span>: invalid input syntax <span class="cf">for</span> <span class="kw">type</span> <span class="dt">integer</span>: <span class="ot">"text"</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">SELECT</span> <span class="fu">CAST</span>(<span class="st">'text'</span> <span class="kw">AS</span> <span class="dt">INTEGER</span>)</span>
+<span id="cb26-2"><a href="#cb26-2"></a></span>
+<span id="cb26-3"><a href="#cb26-3"></a>Результат:</span>
+<span id="cb26-4"><a href="#cb26-4"></a>Error running <span class="kw">query</span>: invalid input syntax <span class="cf">for</span> <span class="kw">type</span> <span class="dt">integer</span>: <span class="ot">"text"</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Аналогічним чином можна, наприклад, перетворити текст на дату (якщо він виглядає як дата):</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="st">'2022-12-31'</span>:<span class="ch">:DATE</span> <span class="kw">as</span> <span class="dt">date</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="dv">2022</span><span class="op">-</span><span class="dv">12</span><span class="op">-</span><span class="dv">31</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">SELECT</span> <span class="st">'2022-12-31'</span>:<span class="ch">:DATE</span> <span class="kw">as</span> <span class="dt">date</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a></span>
+<span id="cb27-3"><a href="#cb27-3"></a>Результат:</span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="dv">2022</span><span class="op">-</span><span class="dv">12</span><span class="op">-</span><span class="dv">31</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1155,15 +1155,15 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="12">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>SELECT </span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    name,</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    price,</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    CAST(price <span class="im">as</span> VARCHAR) <span class="im">as</span> price_char</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>FROM</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    products</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>ORDER BY</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    name</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="op">%%</span>sql</span>
+<span id="cb28-2"><a href="#cb28-2"></a>SELECT </span>
+<span id="cb28-3"><a href="#cb28-3"></a>    name,</span>
+<span id="cb28-4"><a href="#cb28-4"></a>    price,</span>
+<span id="cb28-5"><a href="#cb28-5"></a>    CAST(price <span class="im">as</span> VARCHAR) <span class="im">as</span> price_char</span>
+<span id="cb28-6"><a href="#cb28-6"></a>FROM</span>
+<span id="cb28-7"><a href="#cb28-7"></a>    products</span>
+<span id="cb28-8"><a href="#cb28-8"></a>ORDER BY</span>
+<span id="cb28-9"><a href="#cb28-9"></a>    name</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <div>
@@ -1257,10 +1257,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <h2 data-number="2.7" class="anchored" data-anchor-id="обєднання-concat"><span class="header-section-number">2.7</span> Об’єднання: <code>CONCAT</code></h2>
 <p>У цьому підрозділі ми ще трохи попрацюємо з текстовими даними та розглянемо функцію <code>CONCAT</code>, за допомогою якої можна з’єднувати в один рядок значення кількох стовпців.</p>
 <p>Функція <code>CONCAT</code> приймає на вхід кілька аргументів і повертає результат їхньої послідовної складання один з одним. Хороша аналогія - складання речень з різних карток зі словами:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">CONCAT</span>(<span class="st">'SQL'</span>, <span class="st">' '</span>, <span class="st">'Python '</span>, <span class="dv">2023</span>)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>SQL Python <span class="dv">2023</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb29-1"><a href="#cb29-1"></a><span class="kw">SELECT</span> <span class="fu">CONCAT</span>(<span class="st">'SQL'</span>, <span class="st">' '</span>, <span class="st">'Python '</span>, <span class="dv">2023</span>)</span>
+<span id="cb29-2"><a href="#cb29-2"></a></span>
+<span id="cb29-3"><a href="#cb29-3"></a>Результат:</span>
+<span id="cb29-4"><a href="#cb29-4"></a>SQL Python <span class="dv">2023</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>При цьому аргументи не обов’язково мають бути виражені текстовими значеннями — головне, вони мають бути конвертованими в текст. У прикладі вище число 2023 можна конвертувати в текст ‘2023’, тому запит працює без помилок.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1290,24 +1290,24 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Замовлення № [<code>id_замовлення</code>] створено [<code>дата</code>]</p>
 <p>Отриману колонку назвіть <code>order_info</code>.</p>
 <p>Приклад результату:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>Замовлення № <span class="dv">65</span> створено <span class="dv">2022</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">01</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a href="#cb30-1"></a>Замовлення № <span class="dv">65</span> створено <span class="dv">2022</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">01</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 <div class="cell" data-execution_count="13">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>SELECT </span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    CONCAT(</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Замовлення № '</span>,</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>        order_id,</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">' створено '</span>,</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>        creation_time::DATE</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>        ) <span class="im">as</span> order_info</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>FROM   </span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    orders</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>LIMIT <span class="dv">200</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="op">%%</span>sql</span>
+<span id="cb31-2"><a href="#cb31-2"></a>SELECT </span>
+<span id="cb31-3"><a href="#cb31-3"></a>    CONCAT(</span>
+<span id="cb31-4"><a href="#cb31-4"></a>        <span class="st">'Замовлення № '</span>,</span>
+<span id="cb31-5"><a href="#cb31-5"></a>        order_id,</span>
+<span id="cb31-6"><a href="#cb31-6"></a>        <span class="st">' створено '</span>,</span>
+<span id="cb31-7"><a href="#cb31-7"></a>        creation_time::DATE</span>
+<span id="cb31-8"><a href="#cb31-8"></a>        ) <span class="im">as</span> order_info</span>
+<span id="cb31-9"><a href="#cb31-9"></a>FROM   </span>
+<span id="cb31-10"><a href="#cb31-10"></a>    orders</span>
+<span id="cb31-11"><a href="#cb31-11"></a>LIMIT <span class="dv">200</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <div>
@@ -1377,20 +1377,20 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <h2 data-number="2.8" class="anchored" data-anchor-id="частина-дати-date_part"><span class="header-section-number">2.8</span> Частина дати: <code>DATE_PART</code></h2>
 <p>Як ви вже помітили, у наших таблицях значення деяких колонках представлені у форматі дати (<code>DATE</code>) і часу (<code>TIMESTAMP</code>). Давайте трохи попрацюємо з такими даними.</p>
 <p>Насправді часто зустрічаються завдання, коли потрібна, наприклад, не вся дата, а якась її частина: рік, місяць, день, година тощо. Витягти цю частину вихідних даних дозволяє функція <code>DATE_PART</code>. Її синтаксис наступний:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> DATE_PART(part, <span class="kw">column</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">SELECT</span> DATE_PART(part, <span class="kw">column</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>На місці <code>part</code> необхідно в лапках вказати ту частину, яку потрібно витягти: <code>'year'</code>, <code>'month'</code>, <code>'day'</code>, <code>'hour'</code> тощо. На місці <code>column</code> слід вказати потрібну колонку чи конкретну дату чи час. Наприклад:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> DATE_PART(<span class="st">'day'</span>, <span class="dt">DATE</span> <span class="st">'2022-01-12'</span>)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fl">12.00</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> DATE_PART(<span class="st">'minute'</span>, <span class="dt">TIMESTAMP</span> <span class="st">'2022-01-12 20:31:05'</span>)</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="fl">31.00</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1"></a><span class="kw">SELECT</span> DATE_PART(<span class="st">'day'</span>, <span class="dt">DATE</span> <span class="st">'2022-01-12'</span>)</span>
+<span id="cb33-2"><a href="#cb33-2"></a></span>
+<span id="cb33-3"><a href="#cb33-3"></a>Результат:</span>
+<span id="cb33-4"><a href="#cb33-4"></a><span class="fl">12.00</span></span>
+<span id="cb33-5"><a href="#cb33-5"></a></span>
+<span id="cb33-6"><a href="#cb33-6"></a></span>
+<span id="cb33-7"><a href="#cb33-7"></a><span class="kw">SELECT</span> DATE_PART(<span class="st">'minute'</span>, <span class="dt">TIMESTAMP</span> <span class="st">'2022-01-12 20:31:05'</span>)</span>
+<span id="cb33-8"><a href="#cb33-8"></a></span>
+<span id="cb33-9"><a href="#cb33-9"></a>Результат:</span>
+<span id="cb33-10"><a href="#cb33-10"></a><span class="fl">31.00</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Вище ми вказали конкретну дату. На її місці міг бути, наприклад, стовпчик з датами <code>dates</code>. Тоді запит виглядав би так:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> DATE_PART(<span class="st">'day'</span>, dates)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb34-1"><a href="#cb34-1"></a><span class="kw">SELECT</span> DATE_PART(<span class="st">'day'</span>, dates)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1424,11 +1424,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="14">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>SELECT courier_id,</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>       date_part(<span class="st">'year'</span>, birth_date) <span class="im">as</span> birth_year</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>FROM   couriers</span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>ORDER BY birth_year desc, courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="op">%%</span>sql</span>
+<span id="cb35-2"><a href="#cb35-2"></a>SELECT courier_id,</span>
+<span id="cb35-3"><a href="#cb35-3"></a>       date_part(<span class="st">'year'</span>, birth_date) <span class="im">as</span> birth_year</span>
+<span id="cb35-4"><a href="#cb35-4"></a>FROM   couriers</span>
+<span id="cb35-5"><a href="#cb35-5"></a>ORDER BY birth_year desc, courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <div>
@@ -1508,38 +1508,38 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </section>
 <section id="перше-ненульове-значення-coalesce" class="level2" data-number="2.9">
 <h2 data-number="2.9" class="anchored" data-anchor-id="перше-ненульове-значення-coalesce"><span class="header-section-number">2.9</span> Перше ненульове значення: <code>COALESCE</code></h2>
-<p>Ви могли помітити, що в минулому прикладі (<a href="#exr-sql10">Завдання&nbsp;<span>2.10</span></a>) для окремих рядків функція <code>DATE_PART</code> не повернула рік народження кур’єра, а замість них утворилися порожні значення. Якщо не помітили, уважно подивіться на результат запиту.</p>
+<p>Ви могли помітити, що в минулому прикладі (<a href="#exr-sql10">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql10</span></a>) для окремих рядків функція <code>DATE_PART</code> не повернула рік народження кур’єра, а замість них утворилися порожні значення. Якщо не помітили, уважно подивіться на результат запиту.</p>
 <p>Насправді це сталося тому, що в наших даних у колонці <code>birth_date</code> є перепустки — так звані значення <code>NULL</code> (у виводі результату це <code>NA</code>). Іншими словами, для окремих кур’єрів просто не вказано їхні дні народження. Є безліч варіантів, чому так могло статися, але ми зараз не маємо часу все це з’ясовувати — нам просто потрібно навчитися якось обробляти такі випадки.</p>
 <p>Давайте зробимо так, щоб замість порожніх значень функція <code>DATE_PART</code> повертала якесь інше значення. У цьому нам допоможе функція <code>COALESCE</code>, яка повертає перше не <code>NULL</code> значення зі списку поданих на вхід аргументів.</p>
 <p>Роботу <code>COALESCE</code> можна описати так: вона буквально читає список значень зліва направо і, як тільки бачить значення, яке не є <code>NULL</code>, відразу ж повертає його та припиняє читання списку. Подивіться уважно на такі приклади:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">NULL</span>, <span class="st">'I am not NULL'</span> , <span class="st">'I.love.Python'</span>)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>I am <span class="kw">not</span> <span class="kw">NULL</span></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">NULL</span>, <span class="dv">25</span>, <span class="dv">100</span>, <span class="dv">150</span>)</span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="dv">25</span></span>
-<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="st">'NULL'</span>, <span class="st">'I am not NULL'</span>, <span class="st">'I.love.Python'</span>)</span>
-<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a><span class="kw">NULL</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb36-1"><a href="#cb36-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">NULL</span>, <span class="st">'I am not NULL'</span> , <span class="st">'I.love.Python'</span>)</span>
+<span id="cb36-2"><a href="#cb36-2"></a></span>
+<span id="cb36-3"><a href="#cb36-3"></a>Результат:</span>
+<span id="cb36-4"><a href="#cb36-4"></a>I am <span class="kw">not</span> <span class="kw">NULL</span></span>
+<span id="cb36-5"><a href="#cb36-5"></a></span>
+<span id="cb36-6"><a href="#cb36-6"></a></span>
+<span id="cb36-7"><a href="#cb36-7"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">NULL</span>, <span class="dv">25</span>, <span class="dv">100</span>, <span class="dv">150</span>)</span>
+<span id="cb36-8"><a href="#cb36-8"></a></span>
+<span id="cb36-9"><a href="#cb36-9"></a>Результат:</span>
+<span id="cb36-10"><a href="#cb36-10"></a><span class="dv">25</span></span>
+<span id="cb36-11"><a href="#cb36-11"></a></span>
+<span id="cb36-12"><a href="#cb36-12"></a></span>
+<span id="cb36-13"><a href="#cb36-13"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="st">'NULL'</span>, <span class="st">'I am not NULL'</span>, <span class="st">'I.love.Python'</span>)</span>
+<span id="cb36-14"><a href="#cb36-14"></a></span>
+<span id="cb36-15"><a href="#cb36-15"></a>Результат:</span>
+<span id="cb36-16"><a href="#cb36-16"></a><span class="kw">NULL</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Одним із аргументів функції <code>COALESCE</code> може бути результат виконання іншої функції:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">NULL</span>, <span class="fu">LOWER</span>(<span class="st">'I am not NULL'</span>), <span class="st">'I.love.Python'</span>)</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>i am <span class="kw">not</span> <span class="kw">null</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb37-1"><a href="#cb37-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">NULL</span>, <span class="fu">LOWER</span>(<span class="st">'I am not NULL'</span>), <span class="st">'I.love.Python'</span>)</span>
+<span id="cb37-2"><a href="#cb37-2"></a></span>
+<span id="cb37-3"><a href="#cb37-3"></a>Результат:</span>
+<span id="cb37-4"><a href="#cb37-4"></a>i am <span class="kw">not</span> <span class="kw">null</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Щоб заповнити пропуски в колонці, достатньо застосувати функцію <code>COALESCE</code> до колонки з пропусками та вказати як другий аргумент те значення, яке ми хочемо бачити замість <code>NULL</code>:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">column</span>, <span class="st">'filler value'</span>)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb38-1"><a href="#cb38-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">column</span>, <span class="st">'filler value'</span>)</span>
+<span id="cb38-2"><a href="#cb38-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Функція <code>COALESCE</code> застосовується до кожного значення колонки. Якщо це значення виявиться <code>NULL</code>, вона замінить його значення, вказане другим аргументом. Якщо значення колонці, навпаки, виявиться не <code>NULL</code>, то функція просто поверне це значення.</p>
 <p>При цьому до колонки з перепустками можна заздалегідь застосовувати різні інші функції:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">LEFT</span>(<span class="kw">column</span>, <span class="dv">5</span>), <span class="st">'filler value'</span>)</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb39-1"><a href="#cb39-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">LEFT</span>(<span class="kw">column</span>, <span class="dv">5</span>), <span class="st">'filler value'</span>)</span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1564,7 +1564,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql11" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.11 </strong></span><br>Як і в попередньому прикладі (<a href="#exr-sql10">Завдання&nbsp;<span>2.10</span></a>), знову виведіть id десяти відсотків кур’єрів та їх роки народження, тільки тепер до вилученого року застосуйте функцію <code>COALESCE</code>. Вкажіть параметри функції так, щоб замість значення <code>NULL</code> в результат потрапляло текстове значення <code>unknown</code>. Назви полів залиште колишніми.</p>
+<p><span class="theorem-title"><strong>Завдання 2.11 </strong></span><br>Як і в попередньому прикладі (<a href="#exr-sql10">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql10</span></a>), знову виведіть id десяти відсотків кур’єрів та їх роки народження, тільки тепер до вилученого року застосуйте функцію <code>COALESCE</code>. Вкажіть параметри функції так, щоб замість значення <code>NULL</code> в результат потрапляло текстове значення <code>unknown</code>. Назви полів залиште колишніми.</p>
 <p>Поля у результуючій таблиці: <code>courier_id</code>, <code>birth_year</code></p>
 </div>
 </div>
@@ -1572,13 +1572,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="15">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>SELECT</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    courier_id,</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    COALESCE(date_part(<span class="st">'year'</span>, birth_date)::VARCHAR, <span class="st">'unknown'</span>) birth_year</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>FROM</span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    couriers</span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>USING SAMPLE <span class="dv">10</span> PERCENT (bernoulli, <span class="dv">123</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="op">%%</span>sql</span>
+<span id="cb40-2"><a href="#cb40-2"></a>SELECT</span>
+<span id="cb40-3"><a href="#cb40-3"></a>    courier_id,</span>
+<span id="cb40-4"><a href="#cb40-4"></a>    COALESCE(date_part(<span class="st">'year'</span>, birth_date)::VARCHAR, <span class="st">'unknown'</span>) birth_year</span>
+<span id="cb40-5"><a href="#cb40-5"></a>FROM</span>
+<span id="cb40-6"><a href="#cb40-6"></a>    couriers</span>
+<span id="cb40-7"><a href="#cb40-7"></a>USING SAMPLE <span class="dv">10</span> PERCENT (bernoulli, <span class="dv">123</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <div>
@@ -1708,16 +1708,16 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tbody>
 </table>
 <p>Якби ми захотіли перевести 7600 гривен у долари за курсом 1 долар = 40 гривень, то операція виглядала б так:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="dv">7500</span> <span class="op">/</span> <span class="dv">40</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="dv">190</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb41-1"><a href="#cb41-1"></a><span class="kw">SELECT</span> <span class="dv">7500</span> <span class="op">/</span> <span class="dv">40</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a></span>
+<span id="cb41-3"><a href="#cb41-3"></a>Результат:</span>
+<span id="cb41-4"><a href="#cb41-4"></a><span class="dv">190</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Якби нам потрібно було відняти з кожного значення в одній із колонок нашої таблиці якесь число (наприклад, 100), то запит виглядав би так:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">column</span> <span class="op">-</span> <span class="dv">100</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb42-1"><a href="#cb42-1"></a><span class="kw">SELECT</span> <span class="kw">column</span> <span class="op">-</span> <span class="dv">100</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Крім того, в арифметичних операціях можуть брати участь одразу кілька колонок. Наприклад, для кожного рядка таблиці можна обчислити середнє арифметичне двох чисел, які містяться у двох різних колонках:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> (column_1 <span class="op">+</span> column_2) <span class="op">/</span> <span class="dv">2</span> <span class="kw">AS</span> average</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb43-1"><a href="#cb43-1"></a><span class="kw">SELECT</span> (column_1 <span class="op">+</span> column_2) <span class="op">/</span> <span class="dv">2</span> <span class="kw">AS</span> average</span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1752,13 +1752,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="16">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>       price <span class="im">as</span> old_price,</span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>       price<span class="op">*</span><span class="fl">1.05</span> <span class="im">as</span> new_price</span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
-<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>ORDER BY new_price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="op">%%</span>sql</span>
+<span id="cb44-2"><a href="#cb44-2"></a>SELECT product_id,</span>
+<span id="cb44-3"><a href="#cb44-3"></a>       name,</span>
+<span id="cb44-4"><a href="#cb44-4"></a>       price <span class="im">as</span> old_price,</span>
+<span id="cb44-5"><a href="#cb44-5"></a>       price<span class="op">*</span><span class="fl">1.05</span> <span class="im">as</span> new_price</span>
+<span id="cb44-6"><a href="#cb44-6"></a>FROM   products</span>
+<span id="cb44-7"><a href="#cb44-7"></a>ORDER BY new_price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <div>
@@ -1863,22 +1863,22 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <section id="математичні-функції" class="level2" data-number="2.11">
 <h2 data-number="2.11" class="anchored" data-anchor-id="математичні-функції"><span class="header-section-number">2.11</span> Математичні функції</h2>
 <p>Поряд з арифметичними операторами <strong>DuckDB</strong> також доступні різні математичні функції. Наприклад, для округлення чисел можна використовувати функцію <code>ROUND</code>:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">ROUND</span>(<span class="fl">100.5454</span>, <span class="dv">2</span>)</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="fl">100.55</span></span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">ROUND</span>(<span class="fl">100.551</span>, <span class="dv">1</span>)</span>
-<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a><span class="fl">100.6</span></span>
-<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">ROUND</span>(<span class="fl">100.5511</span>)</span>
-<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>Результат:</span>
-<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a><span class="fl">101.0</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb45-1"><a href="#cb45-1"></a><span class="kw">SELECT</span> <span class="fu">ROUND</span>(<span class="fl">100.5454</span>, <span class="dv">2</span>)</span>
+<span id="cb45-2"><a href="#cb45-2"></a></span>
+<span id="cb45-3"><a href="#cb45-3"></a>Результат:</span>
+<span id="cb45-4"><a href="#cb45-4"></a><span class="fl">100.55</span></span>
+<span id="cb45-5"><a href="#cb45-5"></a></span>
+<span id="cb45-6"><a href="#cb45-6"></a></span>
+<span id="cb45-7"><a href="#cb45-7"></a><span class="kw">SELECT</span> <span class="fu">ROUND</span>(<span class="fl">100.551</span>, <span class="dv">1</span>)</span>
+<span id="cb45-8"><a href="#cb45-8"></a></span>
+<span id="cb45-9"><a href="#cb45-9"></a>Результат:</span>
+<span id="cb45-10"><a href="#cb45-10"></a><span class="fl">100.6</span></span>
+<span id="cb45-11"><a href="#cb45-11"></a></span>
+<span id="cb45-12"><a href="#cb45-12"></a></span>
+<span id="cb45-13"><a href="#cb45-13"></a><span class="kw">SELECT</span> <span class="fu">ROUND</span>(<span class="fl">100.5511</span>)</span>
+<span id="cb45-14"><a href="#cb45-14"></a></span>
+<span id="cb45-15"><a href="#cb45-15"></a>Результат:</span>
+<span id="cb45-16"><a href="#cb45-16"></a><span class="fl">101.0</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Першим аргументом вказується саме значення, яке хочемо округлити. Другим число знаків після точки, до якої хочемо округлити. Другий аргумент вказувати не обов’язково: якщо його не вказати, відбудеться округлення до цілого числа (проте тип даних при цьому не зміниться).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1904,7 +1904,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql13" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 2.13 </strong></span><br>Знову, як і в минулому завданні (<a href="#exr-sql12">Завдання&nbsp;<span>2.12</span></a>), підвищите ціну всіх товарів на 5%, тільки тепер до колонки з новою ціною застосуйте функцію <code>ROUND</code>. Виведіть id та найменування товарів, їх стару ціну, а також нову ціну із округленням. Нову ціну округліть до десятих, але тип даних не змінюйте.</p>
+<p><span class="theorem-title"><strong>Завдання 2.13 </strong></span><br>Знову, як і в минулому завданні (<a href="#exr-sql12">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql12</span></a>), підвищите ціну всіх товарів на 5%, тільки тепер до колонки з новою ціною застосуйте функцію <code>ROUND</code>. Виведіть id та найменування товарів, їх стару ціну, а також нову ціну із округленням. Нову ціну округліть до десятих, але тип даних не змінюйте.</p>
 <p>Результат відсортуйте спочатку за спаданням нової ціни, потім за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>old_price</code>, <code>new_price</code>.</p>
 </div>
@@ -1913,13 +1913,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="17">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>       price <span class="im">as</span> old_price,</span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>       <span class="bu">round</span>(price <span class="op">*</span> <span class="fl">1.05</span>, <span class="dv">1</span>) <span class="im">as</span> new_price</span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
-<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>ORDER BY new_price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="op">%%</span>sql</span>
+<span id="cb46-2"><a href="#cb46-2"></a>SELECT product_id,</span>
+<span id="cb46-3"><a href="#cb46-3"></a>       name,</span>
+<span id="cb46-4"><a href="#cb46-4"></a>       price <span class="im">as</span> old_price,</span>
+<span id="cb46-5"><a href="#cb46-5"></a>       <span class="bu">round</span>(price <span class="op">*</span> <span class="fl">1.05</span>, <span class="dv">1</span>) <span class="im">as</span> new_price</span>
+<span id="cb46-6"><a href="#cb46-6"></a>FROM   products</span>
+<span id="cb46-7"><a href="#cb46-7"></a>ORDER BY new_price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <div>
@@ -2026,12 +2026,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>А якби ми захотіли підвищити ціну не на всі товари, а, скажімо, тільки на дорогі?</p>
 <p>Для цього нам потрібно було б створити деяку функцію, яка перевіряла б кожне значення в колонці <code>price</code> і порівнювала б його з якимось пороговим значенням. Якби ціна виявлялася вищою за цей поріг, то функція підвищувала б ціну, а якщо ні — залишала б без змін.</p>
 <p>І таку функцію можна задати за допомогою умовної конструкції <code>CASE</code>. Вона має наступний синтаксис:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="cf">CASE</span>  </span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="cf">WHEN</span> logical_expression_1 <span class="cf">THEN</span> expression_1</span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="cf">WHEN</span> logical_expression_2 <span class="cf">THEN</span> expression_2</span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="cf">ELSE</span> expression_else</span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="cf">END</span> <span class="kw">AS</span> case_example</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb47-1"><a href="#cb47-1"></a><span class="cf">CASE</span>  </span>
+<span id="cb47-2"><a href="#cb47-2"></a><span class="cf">WHEN</span> logical_expression_1 <span class="cf">THEN</span> expression_1</span>
+<span id="cb47-3"><a href="#cb47-3"></a><span class="cf">WHEN</span> logical_expression_2 <span class="cf">THEN</span> expression_2</span>
+<span id="cb47-4"><a href="#cb47-4"></a><span class="op">..</span>.</span>
+<span id="cb47-5"><a href="#cb47-5"></a><span class="cf">ELSE</span> expression_else</span>
+<span id="cb47-6"><a href="#cb47-6"></a><span class="cf">END</span> <span class="kw">AS</span> case_example</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ця конструкція може бути громіздкою, але насправді в ній немає нічого складного. Логіка роботи оператора <code>CASE</code> досить проста:</p>
 <ol type="1">
 <li>На кожному етапі <code>WHEN - THEN</code> обчислюється деякий логічний вираз <code>logical_expression</code>, що стоїть після <code>WHEN</code>. Якщо воно виявляється істинним (<code>TRUE</code>), то в якості результату оператор повертає вираз <code>expression</code>, що стоїть після <code>THEN</code>, і закінчує свою роботу.</li>
@@ -2040,13 +2040,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <li>Насамкінець обов’язково вказується ключове слово <code>END</code>, яке говорить про закінчення конструкції <code>CASE</code>. Також після <code>END</code> новому розрахунковому полю за допомогою <code>AS</code> можна надати деяке ім’я, але це робити не обов’язково. Обов’язковими є лише ключові слова <code>CASE</code>, <code>WHEN</code>, <code>THEN</code> та <code>END</code>.</li>
 </ol>
 <p>Наступна конструкція розіб’є весь список найменувань на три категорії: «м’ясо», «риба» та «інше». Відповідно, якщо у перших двох умовах ми не врахуємо якісь назви з колонки <code>name</code> (наприклад, «телятину»), то вони потраплять до категорії «інше».</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name,</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>       <span class="cf">CASE</span> </span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>       <span class="cf">WHEN</span> name<span class="op">=</span><span class="st">'свинина'</span> <span class="kw">OR</span> name<span class="op">=</span><span class="st">'баранина'</span> <span class="kw">OR</span> name<span class="op">=</span><span class="st">'курка'</span> <span class="cf">THEN</span> <span class="ot">"м'ясо"</span></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>       <span class="cf">WHEN</span> name<span class="op">=</span><span class="st">'тріска'</span> <span class="kw">OR</span> name<span class="op">=</span><span class="st">'форель'</span> <span class="kw">OR</span> name<span class="op">=</span><span class="st">'окунь'</span> <span class="cf">THEN</span> <span class="st">'риба'</span></span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>       <span class="cf">ELSE</span> <span class="st">'інше'</span></span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>       <span class="cf">END</span> <span class="kw">AS</span> сategory</span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb48-1"><a href="#cb48-1"></a><span class="kw">SELECT</span> name,</span>
+<span id="cb48-2"><a href="#cb48-2"></a>       <span class="cf">CASE</span> </span>
+<span id="cb48-3"><a href="#cb48-3"></a>       <span class="cf">WHEN</span> name<span class="op">=</span><span class="st">'свинина'</span> <span class="kw">OR</span> name<span class="op">=</span><span class="st">'баранина'</span> <span class="kw">OR</span> name<span class="op">=</span><span class="st">'курка'</span> <span class="cf">THEN</span> <span class="ot">"м'ясо"</span></span>
+<span id="cb48-4"><a href="#cb48-4"></a>       <span class="cf">WHEN</span> name<span class="op">=</span><span class="st">'тріска'</span> <span class="kw">OR</span> name<span class="op">=</span><span class="st">'форель'</span> <span class="kw">OR</span> name<span class="op">=</span><span class="st">'окунь'</span> <span class="cf">THEN</span> <span class="st">'риба'</span></span>
+<span id="cb48-5"><a href="#cb48-5"></a>       <span class="cf">ELSE</span> <span class="st">'інше'</span></span>
+<span id="cb48-6"><a href="#cb48-6"></a>       <span class="cf">END</span> <span class="kw">AS</span> сategory</span>
+<span id="cb48-7"><a href="#cb48-7"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Тепер трохи про логічні вирази: SQL можуть включати <em>оператори порівняння</em> і <em>логічні операції</em>.</p>
 <p>До <strong>операторів порівняння</strong> належать:</p>
 <ul>
@@ -2143,7 +2143,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Таким чином, оператори порівняння та логічні операції дозволяють писати комплексні логічні вирази.</p>
 <p>Запам’ятати всі ці таблиці та комбінації не обов’язково. Головне, завжди тримайте цю пам’ятку під рукою.</p>
 <p>Припустимо, відомо, що <span class="math inline">\(a=10\)</span> і <span class="math inline">\(b=5\)</span>. Тоді наступний логічний вираз поверне <code>TRUE</code>:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ex">a</span> <span class="op">&gt;</span>= 10 OR b <span class="op">&gt;</span> 10</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1"></a><span class="ex">a</span> <span class="op">&gt;</span>= 10 OR b <span class="op">&gt;</span> 10</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Також важливо розуміти, що є пріоритети виконання операцій:</p>
 <ol type="1">
 <li>множення та ділення (<code>*</code> та <code>/</code>)</li>
@@ -2174,15 +2174,15 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="18">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>       price <span class="im">as</span> old_price,</span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>       <span class="cf">case</span> when price <span class="op">&lt;=</span> <span class="dv">100</span> <span class="kw">or</span></span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>                 name <span class="op">=</span> <span class="st">'caviar'</span> then price</span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span> price <span class="op">*</span> <span class="fl">1.05</span> end <span class="im">as</span> new_price</span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>ORDER BY new_price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="op">%%</span>sql</span>
+<span id="cb50-2"><a href="#cb50-2"></a>SELECT product_id,</span>
+<span id="cb50-3"><a href="#cb50-3"></a>       name,</span>
+<span id="cb50-4"><a href="#cb50-4"></a>       price <span class="im">as</span> old_price,</span>
+<span id="cb50-5"><a href="#cb50-5"></a>       <span class="cf">case</span> when price <span class="op">&lt;=</span> <span class="dv">100</span> <span class="kw">or</span></span>
+<span id="cb50-6"><a href="#cb50-6"></a>                 name <span class="op">=</span> <span class="st">'caviar'</span> then price</span>
+<span id="cb50-7"><a href="#cb50-7"></a>            <span class="cf">else</span> price <span class="op">*</span> <span class="fl">1.05</span> end <span class="im">as</span> new_price</span>
+<span id="cb50-8"><a href="#cb50-8"></a>FROM   products</span>
+<span id="cb50-9"><a href="#cb50-9"></a>ORDER BY new_price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <div>
@@ -2304,14 +2304,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="19">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>       price,</span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>       <span class="bu">round</span>((price <span class="op">*</span> <span class="fl">0.2</span>) <span class="op">/</span> <span class="fl">1.2</span>, <span class="dv">2</span>) <span class="im">as</span> tax,</span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>       <span class="bu">round</span>(price <span class="op">/</span> <span class="fl">1.2</span>, <span class="dv">2</span>) <span class="im">as</span> price_before_tax</span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
-<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>ORDER BY price_before_tax desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="op">%%</span>sql</span>
+<span id="cb51-2"><a href="#cb51-2"></a>SELECT product_id,</span>
+<span id="cb51-3"><a href="#cb51-3"></a>       name,</span>
+<span id="cb51-4"><a href="#cb51-4"></a>       price,</span>
+<span id="cb51-5"><a href="#cb51-5"></a>       <span class="bu">round</span>((price <span class="op">*</span> <span class="fl">0.2</span>) <span class="op">/</span> <span class="fl">1.2</span>, <span class="dv">2</span>) <span class="im">as</span> tax,</span>
+<span id="cb51-6"><a href="#cb51-6"></a>       <span class="bu">round</span>(price <span class="op">/</span> <span class="fl">1.2</span>, <span class="dv">2</span>) <span class="im">as</span> price_before_tax</span>
+<span id="cb51-7"><a href="#cb51-7"></a>FROM   products</span>
+<span id="cb51-8"><a href="#cb51-8"></a>ORDER BY price_before_tax desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <div>
@@ -2430,13 +2430,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <ul>
 <li>Неправильний порядок або помилки у ключових словах. Правильний порядок операторів у запиті виглядає так:</li>
 </ul>
-<div class="sourceCode" id="cb52"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>      <span class="co">-- перерахування полів результуючої таблиці</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>        <span class="co">-- вказівка джерела даних</span></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>       <span class="co">-- фільтрація даних</span></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span>    <span class="co">-- угруповання даних</span></span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span>      <span class="co">-- фільтрація даних після угруповання</span></span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span>    <span class="co">-- сортування результуючої таблиці</span></span>
-<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span>       <span class="co">-- обмеження кількості записів, що виводяться</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb52-1"><a href="#cb52-1"></a><span class="kw">SELECT</span>      <span class="co">-- перерахування полів результуючої таблиці</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a><span class="kw">FROM</span>        <span class="co">-- вказівка джерела даних</span></span>
+<span id="cb52-3"><a href="#cb52-3"></a><span class="kw">WHERE</span>       <span class="co">-- фільтрація даних</span></span>
+<span id="cb52-4"><a href="#cb52-4"></a><span class="kw">GROUP</span> <span class="kw">BY</span>    <span class="co">-- угруповання даних</span></span>
+<span id="cb52-5"><a href="#cb52-5"></a><span class="kw">HAVING</span>      <span class="co">-- фільтрація даних після угруповання</span></span>
+<span id="cb52-6"><a href="#cb52-6"></a><span class="kw">ORDER</span> <span class="kw">BY</span>    <span class="co">-- сортування результуючої таблиці</span></span>
+<span id="cb52-7"><a href="#cb52-7"></a><span class="kw">LIMIT</span>       <span class="co">-- обмеження кількості записів, що виводяться</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Неправильно названі функції та оператори, що використовуються в запиті (наприклад, <code>DATEPART</code>, а не <code>DATE_PART</code>).</li>
 <li>Неправильно вказано імена стовпців.</li>
