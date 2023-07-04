@@ -508,7 +508,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
 <td>23.0</td>
-<td>76</td>
+<td>75</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
@@ -523,12 +523,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <tr class="odd">
 <td data-quarto-table-cell-role="th">8</td>
 <td>26.0</td>
-<td>864</td>
+<td>865</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">9</td>
 <td>27.0</td>
-<td>1454</td>
+<td>1451</td>
 </tr>
 </tbody>
 </table>
@@ -627,19 +627,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <td data-quarto-table-cell-role="th">7</td>
 <td>23</td>
 <td>male</td>
-<td>39</td>
+<td>38</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">8</td>
 <td>24</td>
 <td>female</td>
-<td>112</td>
+<td>111</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">9</td>
 <td>24</td>
 <td>male</td>
-<td>95</td>
+<td>96</td>
 </tr>
 </tbody>
 </table>
@@ -751,7 +751,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p>У <a href="#exr-sql-agg-09">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql-agg-09</span></a> ми навчилися працювати з функцією <code>array_length</code> і навіть порахували з її допомогою кількість товарів у кожному замовленні. Давайте для кожного розміру замовлення, яке зустрічається у даних, порахуємо загальну кількість замовлень такого розміру.</p>
+<p>У <a href="sql_agg.html#exr-sql-agg-09">Завдання&nbsp;<span>4.9</span></a> ми навчилися працювати з функцією <code>array_length</code> і навіть порахували з її допомогою кількість товарів у кожному замовленні. Давайте для кожного розміру замовлення, яке зустрічається у даних, порахуємо загальну кількість замовлень такого розміру.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1200,7 +1200,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p>А тепер спробуємо вирішити складніше завдання. Для нього нам знову знадобиться агрегатний вираз із фільтрацією, який ми розглядали у <a href="#exr-sql-agg-16">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql-agg-16</span></a>. Цю конструкцію можна застосовувати не лише до всієї таблиці, а й окремо до кожної групи, сформованої внаслідок застосування оператора <code>GROUP BY</code>. Загалом вона виглядатиме так:</p>
+<p>А тепер спробуємо вирішити складніше завдання. Для нього нам знову знадобиться агрегатний вираз із фільтрацією, який ми розглядали у <a href="sql_agg.html#exr-sql-agg-16">Завдання&nbsp;<span>4.16</span></a>. Цю конструкцію можна застосовувати не лише до всієї таблиці, а й окремо до кожної групи, сформованої внаслідок застосування оператора <code>GROUP BY</code>. Загалом вона виглядатиме так:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">SELECT</span> column_1, agg_function(column_2) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> [condition])</span>
 <span id="cb21-2"><a href="#cb21-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb21-3"><a href="#cb21-3"></a><span class="kw">GROUP</span> <span class="kw">BY</span> column_1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1311,7 +1311,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p>Повернімося до запиту з групуванням користувачів за віком, який робили у <a href="#exr-sql-agg-03">завданні&nbsp;<span class="quarto-unresolved-ref ref-noprefix">exr-sql-agg-03</span></a>.</p>
+<p>Повернімося до запиту з групуванням користувачів за віком, який робили у <a href="sql_agg.html#exr-sql-agg-03">завданні&nbsp;<span>4.3</span></a>.</p>
 <p>Ми порахували кількість користувачів кожного віку, але дивитися на дані саме в такому угрупованні не дуже цікаво. Давайте перейдемо від конкретних значень віку до вікових груп.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1371,22 +1371,22 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
 <td>19-24</td>
-<td>323</td>
+<td>322</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>25-29</td>
-<td>7521</td>
+<td>7507</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>30-35</td>
-<td>11866</td>
+<td>11879</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>36-41</td>
-<td>571</td>
+<td>573</td>
 </tr>
 </tbody>
 </table>

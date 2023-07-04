@@ -247,6 +247,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <li><a href="#табличні-вирази-with" id="toc-табличні-вирази-with" class="nav-link" data-scroll-target="#табличні-вирази-with"><span class="header-section-number">6.3</span> Табличні вирази: <code>WITH</code></a></li>
   <li><a href="#підзапит-з-інтервалом-часу-interval" id="toc-підзапит-з-інтервалом-часу-interval" class="nav-link" data-scroll-target="#підзапит-з-інтервалом-часу-interval"><span class="header-section-number">6.4</span> Підзапит з інтервалом часу: <code>INTERVAL</code></a></li>
   <li><a href="#підзапити-в-блоці-select" id="toc-підзапити-в-блоці-select" class="nav-link" data-scroll-target="#підзапити-в-блоці-select"><span class="header-section-number">6.5</span> Підзапити в блоці SELECT</a></li>
+  <li><a href="#розгортання-списків-unnest" id="toc-розгортання-списків-unnest" class="nav-link" data-scroll-target="#розгортання-списків-unnest"><span class="header-section-number">6.6</span> Розгортання списків: UNNEST()</a></li>
   </ul>
 </nav>
     </div>
@@ -1391,6 +1392,576 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p><span class="theorem-title"><strong>Завдання 6.11 </strong></span><br> Призначте знижку <strong>15%</strong> на товари, ціна яких <strong>перевищує середню ціну на всі товари на 50 і більше одиниць</strong>, а також знижку <strong>10%</strong> на товари, ціна яких <strong>нижча за середню на 50 і більше одиниць</strong>. Ціну інших товарів усередині діапазону (середнє – 50; середнє + 50) залиште без змін. При розрахунку середньої ціни округліть її <strong>до двох знаків після коми</strong>.</p>
 <p>Виведіть інформацію про всі товари із зазначенням старої та нової ціни. Колонку із новою ціною назвіть <code>new_price</code>. Результат відсортуйте спочатку за спаданням колишньої ціни в колонці <code>price</code>, потім за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code>, <code>new_price</code></p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="op">%%</span>sql</span>
+<span id="cb31-2"><a href="#cb31-2"></a>SELECT </span>
+<span id="cb31-3"><a href="#cb31-3"></a>  product_id,</span>
+<span id="cb31-4"><a href="#cb31-4"></a>  name,</span>
+<span id="cb31-5"><a href="#cb31-5"></a>  price,</span>
+<span id="cb31-6"><a href="#cb31-6"></a>  CASE</span>
+<span id="cb31-7"><a href="#cb31-7"></a>    WHEN price <span class="op">&gt;</span> (SELECT ROUND(AVG(price), <span class="dv">2</span>) <span class="op">+</span> <span class="dv">50</span> FROM products) THEN ROUND(price <span class="op">*</span> <span class="fl">0.85</span>, <span class="dv">2</span>)</span>
+<span id="cb31-8"><a href="#cb31-8"></a>    WHEN price <span class="op">&lt;</span> (SELECT ROUND(AVG(price), <span class="dv">2</span>) <span class="op">-</span> <span class="dv">50</span> FROM products) THEN ROUND(price <span class="op">*</span> <span class="fl">0.9</span>, <span class="dv">2</span>)</span>
+<span id="cb31-9"><a href="#cb31-9"></a>    ELSE price</span>
+<span id="cb31-10"><a href="#cb31-10"></a>  END AS new_price</span>
+<span id="cb31-11"><a href="#cb31-11"></a>FROM products</span>
+<span id="cb31-12"><a href="#cb31-12"></a>ORDER BY price DESC, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">product_id</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">new_price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>13</td>
+<td>caviar</td>
+<td>800.0</td>
+<td>680.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>37</td>
+<td>mutton</td>
+<td>559.0</td>
+<td>475.15</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>15</td>
+<td>olive oil</td>
+<td>450.0</td>
+<td>382.50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>57</td>
+<td>pork</td>
+<td>450.0</td>
+<td>382.50</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>43</td>
+<td>decaffeinated coffee</td>
+<td>400.0</td>
+<td>340.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">82</td>
+<td>6</td>
+<td>crackers</td>
+<td>25.0</td>
+<td>22.50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">83</td>
+<td>5</td>
+<td>coffee 3 in 1</td>
+<td>15.0</td>
+<td>13.50</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">84</td>
+<td>73</td>
+<td>cake</td>
+<td>15.0</td>
+<td>13.50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">85</td>
+<td>10</td>
+<td>seeds</td>
+<td>12.0</td>
+<td>10.80</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">86</td>
+<td>54</td>
+<td>paper bag</td>
+<td>1.0</td>
+<td>0.90</td>
+</tr>
+</tbody>
+</table>
+
+<p>87 rows × 4 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="розгортання-списків-unnest" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="розгортання-списків-unnest"><span class="header-section-number">6.6</span> Розгортання списків: UNNEST()</h2>
+<p>Давайте знову попрацюємо з масивами і освоїмо нову функцію <code>unnest</code>, яка стане нам у нагоді в подальших завданнях. Функція <code>unnest</code> призначена для розгортання масивів та перетворення їх на набір рядків:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">SELECT</span> unnest(<span class="dt">ARRAY</span>[<span class="st">'one'</span>,<span class="st">'two'</span>,<span class="st">'three'</span>])</span>
+<span id="cb32-2"><a href="#cb32-2"></a></span>
+<span id="cb32-3"><a href="#cb32-3"></a>Результат:</span>
+<span id="cb32-4"><a href="#cb32-4"></a>one</span>
+<span id="cb32-5"><a href="#cb32-5"></a>two</span>
+<span id="cb32-6"><a href="#cb32-6"></a>three</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>У прикладі вище функція <code>unnest</code> перетворила вихідний список із трьох елементів на набір із трьох рядків.</p>
+<p>Якби у вихідній таблиці крім списку був стовпець з будь-яким значенням, то це значення автоматично проставилося б навпроти значень у кожному рядку, що утворився:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1"></a><span class="kw">SELECT</span> <span class="st">'row'</span>, unnest(<span class="dt">ARRAY</span>[<span class="st">'one'</span>,<span class="st">'two'</span>,<span class="st">'three'</span>])</span>
+<span id="cb33-2"><a href="#cb33-2"></a></span>
+<span id="cb33-3"><a href="#cb33-3"></a>Результат:</span>
+<span id="cb33-4"><a href="#cb33-4"></a><span class="kw">row</span>    one</span>
+<span id="cb33-5"><a href="#cb33-5"></a><span class="kw">row</span>    two</span>
+<span id="cb33-6"><a href="#cb33-6"></a><span class="kw">row</span>    three</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-subquery-12" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 6.12 </strong></span><br> Виберіть всі колонки з таблиці <code>orders</code>, але як останню колонку вкажіть функцію <code>unnest</code>, застосовану до колонки <code>product_ids</code>. Нову колонку назвіть <code>product_id</code>. Виведіть лише <strong>перші 100 записів</strong> результуючої таблиці. Подивіться результат роботи unnest і постарайтеся розібратися, що сталося з вихідною таблицею.</p>
+<p>Поля в результуючій таблиці: <code>creation_time</code>, <code>order_id</code>, <code>product_ids</code>, <code>product_id</code></p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="op">%%</span>sql</span>
+<span id="cb34-2"><a href="#cb34-2"></a>SELECT creation_time,</span>
+<span id="cb34-3"><a href="#cb34-3"></a>       order_id,</span>
+<span id="cb34-4"><a href="#cb34-4"></a>       product_ids,</span>
+<span id="cb34-5"><a href="#cb34-5"></a>       unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb34-6"><a href="#cb34-6"></a>FROM   orders</span>
+<span id="cb34-7"><a href="#cb34-7"></a>LIMIT <span class="dv">100</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">creation_time</th>
+<th data-quarto-table-cell-role="th">order_id</th>
+<th data-quarto-table-cell-role="th">product_ids</th>
+<th data-quarto-table-cell-role="th">product_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2022-08-24 01:52:00</td>
+<td>1</td>
+<td>[65, 28]</td>
+<td>65</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2022-08-24 01:52:00</td>
+<td>1</td>
+<td>[65, 28]</td>
+<td>28</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2022-08-24 06:37:00</td>
+<td>2</td>
+<td>[35, 30, 42, 34]</td>
+<td>35</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2022-08-24 06:37:00</td>
+<td>2</td>
+<td>[35, 30, 42, 34]</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2022-08-24 06:37:00</td>
+<td>2</td>
+<td>[35, 30, 42, 34]</td>
+<td>42</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">95</td>
+<td>2022-08-24 18:57:00</td>
+<td>30</td>
+<td>[9, 32, 42, 8]</td>
+<td>32</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">96</td>
+<td>2022-08-24 18:57:00</td>
+<td>30</td>
+<td>[9, 32, 42, 8]</td>
+<td>42</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">97</td>
+<td>2022-08-24 18:57:00</td>
+<td>30</td>
+<td>[9, 32, 42, 8]</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">98</td>
+<td>2022-08-24 18:58:00</td>
+<td>31</td>
+<td>[77, 67, 25, 23]</td>
+<td>77</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">99</td>
+<td>2022-08-24 18:58:00</td>
+<td>31</td>
+<td>[77, 67, 25, 23]</td>
+<td>67</td>
+</tr>
+</tbody>
+</table>
+
+<p>100 rows × 4 columns</p>
+</div>
+</div>
+</div>
+<p>А тепер застосуємо unnest для вирішення практичного завдання.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-subquery-13" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 6.13 </strong></span><br> Використовуючи функцію <code>unnest</code>, визначте <strong>10 найпопулярніших товарів</strong> у таблиці <code>orders</code>. Найпопулярнішими вважатимемо ті, які зустрічалися в замовленнях найчастіше. Якщо товар зустрічається в одному замовленні кілька разів (тобто було куплено кілька одиниць товару), це теж враховується при підрахунку.</p>
+<p>Виведіть id товарів та скільки разів вони зустрічалися в замовленнях. Нову колонку з кількістю покупок товару назвіть <code>times_purchased</code>.</p>
+<p>Поля у результуючій таблиці: <code>product_id</code>, <code>times_purchased</code></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>У цьому завданні необхідно спочатку розгорнути списки з товарами в замовленнях, а потім для кожного товару порахувати, скільки разів він зустрівся в даних. Для визначення найпопулярніших товарів використовуйте оператор <code>LIMIT</code>.</p>
+</div>
+</div>
+<div class="cell" data-execution_count="14">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="op">%%</span>sql</span>
+<span id="cb35-2"><a href="#cb35-2"></a>SELECT unnest(product_ids) <span class="im">as</span> product_id,</span>
+<span id="cb35-3"><a href="#cb35-3"></a>       count(<span class="op">*</span>) <span class="im">as</span> times_purchased</span>
+<span id="cb35-4"><a href="#cb35-4"></a>FROM   orders</span>
+<span id="cb35-5"><a href="#cb35-5"></a>GROUP BY product_id</span>
+<span id="cb35-6"><a href="#cb35-6"></a>ORDER BY times_purchased desc</span>
+<span id="cb35-7"><a href="#cb35-7"></a>LIMIT <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>І насамкінець ще пара завдань зі зірочкою, щоб точно переконатися, що ми розібралися з підзапитами.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-subquery-14" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 6.14 </strong></span><br> З таблиці <code>orders</code> виведіть id та вміст замовлень, які включають хоча б <strong>один із п’яти найдорожчих товарів</strong>, доступних у нашому сервісі. Результат відсортуйте за зростанням id замовлення.</p>
+<p>Поля у результуючій таблиці: <code>order_id</code>, <code>product_ids</code></p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="op">%%</span>sql</span>
+<span id="cb36-2"><a href="#cb36-2"></a><span class="cf">with</span>    top_products <span class="im">as</span> (SELECT product_id</span>
+<span id="cb36-3"><a href="#cb36-3"></a>                      FROM   products</span>
+<span id="cb36-4"><a href="#cb36-4"></a>                      ORDER BY price desc limit <span class="dv">5</span>),</span>
+<span id="cb36-5"><a href="#cb36-5"></a>        unnest <span class="im">as</span> (SELECT order_id,</span>
+<span id="cb36-6"><a href="#cb36-6"></a>                   product_ids,</span>
+<span id="cb36-7"><a href="#cb36-7"></a>                   unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb36-8"><a href="#cb36-8"></a>                   FROM   orders)</span>
+<span id="cb36-9"><a href="#cb36-9"></a>SELECT DISTINCT order_id,</span>
+<span id="cb36-10"><a href="#cb36-10"></a>                product_ids</span>
+<span id="cb36-11"><a href="#cb36-11"></a>FROM   unnest</span>
+<span id="cb36-12"><a href="#cb36-12"></a>WHERE  product_id <span class="kw">in</span> (SELECT <span class="op">*</span></span>
+<span id="cb36-13"><a href="#cb36-13"></a>                      FROM   top_products)</span>
+<span id="cb36-14"><a href="#cb36-14"></a>ORDER BY order_id</span>
+<span id="cb36-15"><a href="#cb36-15"></a></span>
+<span id="cb36-16"><a href="#cb36-16"></a><span class="op">--</span> або з `exists`</span>
+<span id="cb36-17"><a href="#cb36-17"></a><span class="op">--</span> SELECT order_id,</span>
+<span id="cb36-18"><a href="#cb36-18"></a><span class="op">--</span>        product_ids</span>
+<span id="cb36-19"><a href="#cb36-19"></a><span class="op">--</span> FROM   orders</span>
+<span id="cb36-20"><a href="#cb36-20"></a><span class="op">--</span> WHERE  exists (</span>
+<span id="cb36-21"><a href="#cb36-21"></a><span class="op">--</span>  SELECT <span class="dv">1</span></span>
+<span id="cb36-22"><a href="#cb36-22"></a><span class="op">--</span>  FROM   unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb36-23"><a href="#cb36-23"></a><span class="op">--</span>  WHERE  product_id <span class="kw">in</span> (</span>
+<span id="cb36-24"><a href="#cb36-24"></a><span class="op">--</span>      SELECT product_id</span>
+<span id="cb36-25"><a href="#cb36-25"></a><span class="op">--</span>      FROM   products</span>
+<span id="cb36-26"><a href="#cb36-26"></a><span class="op">--</span>      ORDER BY price desc</span>
+<span id="cb36-27"><a href="#cb36-27"></a><span class="op">--</span>      LIMIT <span class="dv">5</span></span>
+<span id="cb36-28"><a href="#cb36-28"></a><span class="op">--</span>      )</span>
+<span id="cb36-29"><a href="#cb36-29"></a><span class="op">--</span> )</span>
+<span id="cb36-30"><a href="#cb36-30"></a><span class="op">--</span> ORDER BY order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">order_id</th>
+<th data-quarto-table-cell-role="th">product_ids</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>7</td>
+<td>[35, 74, 15, 34, 80]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>9</td>
+<td>[40, 27, 24, 39, 62, 15]</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>11</td>
+<td>[84, 14, 57]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>14</td>
+<td>[65, 1, 26, 43, 6]</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>26</td>
+<td>[19, 37, 72, 9]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8176</td>
+<td>59573</td>
+<td>[2, 55, 37]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8177</td>
+<td>59576</td>
+<td>[33, 5, 28, 37]</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8178</td>
+<td>59578</td>
+<td>[82, 25, 50, 37]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8179</td>
+<td>59580</td>
+<td>[75, 40, 50, 57, 67]</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8180</td>
+<td>59586</td>
+<td>[18, 70, 15, 24]</td>
+</tr>
+</tbody>
+</table>
+
+<p>8181 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-subquery-15" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 6.15 </strong></span><br> Порахуйте <strong>вік кожного користувача</strong> у таблиці <code>users</code>. Вік виміряйте числом повних років, як ми робили на минулих уроках. Вік рахуйте щодо останньої дати в таблиці <code>user_actions</code>. У результаті включіть колонки з id користувача та віком. <strong>Для тих користувачів, у яких у таблиці <code>users</code> не вказано дату народження, вкажіть середнє значення віку решти користувачів, округлене до цілого числа</strong>. Колонку з віком назвіть <code>age</code>. Результат відсортуйте за зростанням id користувача.</p>
+<p>Поля у результуючій таблиці: <code>user_id</code>, <code>age</code></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>У цьому завдання вам доведеться написати кілька підзапитів і, можливо, використовувати табличні вирази. Придадуться функції <code>DATE_PART</code>, <code>AGE</code> та <code>COALESCE</code>. Основна складність полягає у заповненні перепусток середнім значенням — подумайте, як це можна зробити, та побудуйте запит навколо свого підходу.</p>
+</div>
+</div>
+<div class="cell" data-execution_count="16">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="op">%%</span>sql</span>
+<span id="cb37-2"><a href="#cb37-2"></a></span>
+<span id="cb37-3"><a href="#cb37-3"></a><span class="cf">with</span> users_age <span class="im">as</span> (</span>
+<span id="cb37-4"><a href="#cb37-4"></a>    SELECT  user_id,</span>
+<span id="cb37-5"><a href="#cb37-5"></a>            date_part(<span class="st">'year'</span>, age((SELECT <span class="bu">max</span>(time) FROM   user_actions), birth_date)) <span class="im">as</span> age</span>
+<span id="cb37-6"><a href="#cb37-6"></a>    FROM   users)</span>
+<span id="cb37-7"><a href="#cb37-7"></a></span>
+<span id="cb37-8"><a href="#cb37-8"></a>SELECT user_id,</span>
+<span id="cb37-9"><a href="#cb37-9"></a>       coalesce(age, (SELECT <span class="bu">round</span>(avg(age))</span>
+<span id="cb37-10"><a href="#cb37-10"></a>               FROM   users_age)) <span class="im">as</span> age</span>
+<span id="cb37-11"><a href="#cb37-11"></a>FROM   users_age</span>
+<span id="cb37-12"><a href="#cb37-12"></a>ORDER BY user_id</span>
+<span id="cb37-13"><a href="#cb37-13"></a></span>
+<span id="cb37-14"><a href="#cb37-14"></a><span class="op">--</span> або без `coalesce`</span>
+<span id="cb37-15"><a href="#cb37-15"></a><span class="op">--</span> <span class="cf">with</span> max_time <span class="im">as</span> (</span>
+<span id="cb37-16"><a href="#cb37-16"></a><span class="op">--</span>     SELECT <span class="bu">max</span>(time) <span class="im">as</span> <span class="bu">max</span></span>
+<span id="cb37-17"><a href="#cb37-17"></a><span class="op">--</span>     FROM user_actions </span>
+<span id="cb37-18"><a href="#cb37-18"></a><span class="op">--</span>     ),</span>
+<span id="cb37-19"><a href="#cb37-19"></a><span class="op">--</span>     user_age <span class="im">as</span> (</span>
+<span id="cb37-20"><a href="#cb37-20"></a><span class="op">--</span>     SELECT  user_id,</span>
+<span id="cb37-21"><a href="#cb37-21"></a><span class="op">--</span>             DATE_PART(<span class="st">'year'</span>, age((SELECT <span class="bu">max</span> FROM max_time), birth_date)) <span class="im">as</span> age</span>
+<span id="cb37-22"><a href="#cb37-22"></a><span class="op">--</span>     FROM users</span>
+<span id="cb37-23"><a href="#cb37-23"></a><span class="op">--</span>     ),</span>
+<span id="cb37-24"><a href="#cb37-24"></a><span class="op">--</span>     user_avg_age <span class="im">as</span> (</span>
+<span id="cb37-25"><a href="#cb37-25"></a><span class="op">--</span>     SELECT AVG(age)::integer <span class="im">as</span> avg_age</span>
+<span id="cb37-26"><a href="#cb37-26"></a><span class="op">--</span>     FROM user_age</span>
+<span id="cb37-27"><a href="#cb37-27"></a><span class="op">--</span>     )</span>
+<span id="cb37-28"><a href="#cb37-28"></a><span class="op">--</span>     </span>
+<span id="cb37-29"><a href="#cb37-29"></a><span class="op">--</span> SELECT  user_id,</span>
+<span id="cb37-30"><a href="#cb37-30"></a><span class="op">--</span>         case when age IS NULL THEN (SELECT avg_age FROM user_avg_age)</span>
+<span id="cb37-31"><a href="#cb37-31"></a><span class="op">--</span>     ELSE age</span>
+<span id="cb37-32"><a href="#cb37-32"></a><span class="op">--</span>     end</span>
+<span id="cb37-33"><a href="#cb37-33"></a><span class="op">--</span> FROM user_age</span>
+<span id="cb37-34"><a href="#cb37-34"></a><span class="op">--</span> ORDER BY user_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">user_id</th>
+<th data-quarto-table-cell-role="th">age</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>30.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>29.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>28.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>30.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>34.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20326</td>
+<td>21398</td>
+<td>29.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">20327</td>
+<td>21399</td>
+<td>35.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20328</td>
+<td>21400</td>
+<td>35.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">20329</td>
+<td>21401</td>
+<td>29.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20330</td>
+<td>21402</td>
+<td>31.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>20331 rows × 2 columns</p>
 </div>
 </div>
 </div>
