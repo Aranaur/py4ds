@@ -251,6 +251,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <li><a href="#основні-типи-обєднань-join" id="toc-основні-типи-обєднань-join" class="nav-link active" data-scroll-target="#основні-типи-обєднань-join"><span class="header-section-number">7.1</span> Основні типи об’єднань JOIN</a></li>
   <li><a href="#як-працює-обєднання-таблиць" id="toc-як-працює-обєднання-таблиць" class="nav-link" data-scroll-target="#як-працює-обєднання-таблиць"><span class="header-section-number">7.2</span> Як працює об’єднання таблиць</a></li>
   <li><a href="#inner-join" id="toc-inner-join" class="nav-link" data-scroll-target="#inner-join"><span class="header-section-number">7.3</span> INNER JOIN</a></li>
+  <li><a href="#left-join" id="toc-left-join" class="nav-link" data-scroll-target="#left-join"><span class="header-section-number">7.4</span> LEFT JOIN</a></li>
   </ul>
 </nav>
     </div>
@@ -486,9 +487,9 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Для початку спробуйте виконати наступні два запити та порахувати кількість унікальних користувачів у таблицях <code>users</code> та <code>user_actions</code>:</p>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="op">%%</span>sql</span>
-<span id="cb9-2"><a href="#cb9-2"></a>SELECT COUNT(DISTINCT user_id)</span>
+<span id="cb9-2"><a href="#cb9-2"></a>SELECT COUNT(DISTINCT user_id) AS users_count</span>
 <span id="cb9-3"><a href="#cb9-3"></a>FROM users</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="31">
 <div>
 
 
@@ -496,7 +497,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">count(DISTINCT user_id)</th>
+<th data-quarto-table-cell-role="th">users_count</th>
 </tr>
 </thead>
 <tbody>
@@ -512,9 +513,9 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="op">%%</span>sql</span>
-<span id="cb10-2"><a href="#cb10-2"></a>SELECT COUNT(DISTINCT user_id)</span>
+<span id="cb10-2"><a href="#cb10-2"></a>SELECT COUNT(DISTINCT user_id) <span class="im">as</span> users_count</span>
 <span id="cb10-3"><a href="#cb10-3"></a>FROM user_actions</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="32">
 <div>
 
 
@@ -522,7 +523,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">count(DISTINCT user_id)</th>
+<th data-quarto-table-cell-role="th">users_count</th>
 </tr>
 </thead>
 <tbody>
@@ -588,7 +589,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb12-9"><a href="#cb12-9"></a>FROM   user_actions a join users b using (user_id)</span>
 <span id="cb12-10"><a href="#cb12-10"></a>ORDER BY user_id_left</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display column-body-outset" data-execution_count="5">
+<div class="cell-output cell-output-display column-body-outset" data-execution_count="33">
 <div>
 
 
@@ -720,6 +721,177 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </table>
 
 <p>59346 rows × 7 columns</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-join-01" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.2 </strong></span><br> А тепер спробуйте трохи переписати запит із минулого завдання та порахувати кількість унікальних id в об’єднаній таблиці. Тобто знову поєднайте таблиці, але цього разу просто порахуйте унікальні <code>user_id</code> в одній з колонок з id. Виведіть цю кількість як результат. Назвіть колонку з порахованим значенням <code>users_count</code>.</p>
+<p>Поле у результуючій таблиці: <code>users_count</code></p>
+<p>Після того, як вирішите завдання, порівняйте отримане значення з кількістю унікальних користувачів у таблицях <code>users</code> та <code>user_actions</code>, яку ми порахували раніше. З яким значенням воно збігається?</p>
+</div>
+</div>
+</div>
+<div class="cell page-columns page-full" data-execution_count="6">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="op">%%</span>sql</span>
+<span id="cb13-2"><a href="#cb13-2"></a>SELECT count(distinct a.user_id) <span class="im">as</span> users_count</span>
+<span id="cb13-3"><a href="#cb13-3"></a>FROM   user_actions a join users b using (user_id)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display column-body-outset" data-execution_count="34">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">users_count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>20331</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="left-join" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="left-join"><span class="header-section-number">7.4</span> LEFT JOIN</h2>
+<p>Наступний тип об’єднання, який ми розглянемо, це <code>LEFT OUTER JOIN</code> (або просто <code>LEFT JOIN</code>).</p>
+<p><code>LEFT JOIN</code>— це оператор зовнішнього об’єднання, котрій важливий порядок таблиць у запиті, тобто на відміну від <code>INNER JOIN</code>, він не є симетричним.</p>
+<p>Тому наступні два записи вже не є еквівалентними:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="kw">FROM</span> table_1 <span class="kw">LEFT</span> <span class="kw">JOIN</span> table_2</span>
+<span id="cb14-3"><a href="#cb14-3"></a>     <span class="kw">ON</span> [condition]</span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="op">..</span>.</span>
+<span id="cb14-5"><a href="#cb14-5"></a></span>
+<span id="cb14-6"><a href="#cb14-6"></a></span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
+<span id="cb14-8"><a href="#cb14-8"></a><span class="kw">FROM</span> table_2 <span class="kw">LEFT</span> <span class="kw">JOIN</span> table_1 </span>
+<span id="cb14-9"><a href="#cb14-9"></a>     <span class="kw">ON</span> [condition]</span>
+<span id="cb14-10"><a href="#cb14-10"></a><span class="op">..</span>.</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Результат об’єднання <code>LEFT JOIN</code> формується так:</p>
+<ol type="1">
+<li>Спочатку кожен рядок лівої таблиці зіставляється з кожним рядком правої таблиці (відбувається декартів добуток).</li>
+<li>Потім для кожного об’єднаного рядка перевіряється умова з’єднання, вказана після оператора <code>ON</code>.</li>
+<li>Після цього всі об’єднані рядки, для яких умова виявилася істинною, додаються до результуючої таблиці.</li>
+<li>Далі в результат додаються ті записи з лівої таблиці (<strong>увага: тільки з лівої</strong>), для яких умова виявилася хибною і які не увійшли до об’єднання на попередньому кроці. При цьому для таких записів відповідні поля правої таблиці заповнюються значеннями <code>NULL</code>.</li>
+</ol>
+<p>Якщо уважно подивитися на описаний алгоритм, можна зрозуміти, що він легко зводиться до наступної послідовності дій:</p>
+<ul>
+<li>Спочатку відповідно до зазначеної умови виконується <code>INNER JOIN</code> першої та другої таблиць.</li>
+<li>Потім до результату додаються ті записи з лівої таблиці (<strong>увага: тільки з лівої</strong>), для яких умова виявилася хибною і які не увійшли до об’єднання на попередньому кроці. При цьому для таких записів відповідні поля правої таблиці заповнюються значеннями <code>NULL</code>.</li>
+</ul>
+<p>Ось і вся магія!</p>
+<p>Об’єднання <code>RIGHT JOIN</code> працює аналогічним чином, тільки на другому етапі результат <code>INNER JOIN</code> додаються записи не з лівої, а <strong>з правої таблиці</strong>.</p>
+<p>Давайте знову розглянемо кілька простих прикладів.</p>
+<p>Так буде виглядати запит та його результат із <code>LEFT JOIN</code>:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">SELECT</span> A.<span class="kw">id</span> <span class="kw">as</span> <span class="kw">id</span>,</span>
+<span id="cb15-2"><a href="#cb15-2"></a>       A.city <span class="kw">as</span> city,</span>
+<span id="cb15-3"><a href="#cb15-3"></a>       B.country <span class="kw">as</span> country</span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="kw">FROM</span> table_A <span class="kw">as</span> A</span>
+<span id="cb15-5"><a href="#cb15-5"></a>     <span class="kw">LEFT</span> <span class="kw">JOIN</span> table_B <span class="kw">as</span> B</span>
+<span id="cb15-6"><a href="#cb15-6"></a>     <span class="kw">ON</span> A.<span class="kw">id</span> <span class="op">=</span> B.<span class="kw">id</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-panel" class="tbl-parent quarto-layout-panel anchored">
+<div class="panel-caption table-caption">
+<p>Таблиця&nbsp;7.2: Приклад роботи <code>LEFT JOIN</code></p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-A-left" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table-sm table-primary table-bordered small table">
+<caption>(a) Таблиця A</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">id</th>
+<th style="text-align: left;">city</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">01</td>
+<td style="text-align: left;">London</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">02</td>
+<td style="text-align: left;">Kyiv</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl-B-left" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table-sm table-secondary table-bordered small table">
+<caption>(b) Таблиця B</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">id</th>
+<th style="text-align: left;">country</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">02</td>
+<td style="text-align: left;">Ukraine</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">03</td>
+<td style="text-align: left;">Poland</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-C-left" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 100.0%;justify-content: center;">
+<table class="table-sm table-success table-bordered small table">
+<caption>(c) Таблиця C</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">id</th>
+<th style="text-align: left;">city</th>
+<th style="text-align: left;">country</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">01</td>
+<td style="text-align: left;">London</td>
+<td style="text-align: left;">NULL</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">02</td>
+<td style="text-align: left;">Kyiv</td>
+<td style="text-align: left;">Ukraine</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>У цьому випадку до результату потрапить запис з <code>id 2</code>, оскільки вона є в обох таблицях, а також запис з <code>id 1</code> з лівої таблиці.</p>
+<p>Діаграма Венна для <code>LEFT JOIN</code> виглядає так:</p>
+<div class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div id="sql_left_join" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="sql_join_files/figure-html/sql_left_join-output-1.png" width="511" height="389" class="figure-img"></p>
+<figcaption class="figure-caption">Діаграма Венна: LEFT JOIN</figcaption>
+</figure>
 </div>
 </div>
 </div>
