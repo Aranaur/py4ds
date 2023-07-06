@@ -251,7 +251,9 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <li><a href="#основні-типи-обєднань-join" id="toc-основні-типи-обєднань-join" class="nav-link active" data-scroll-target="#основні-типи-обєднань-join"><span class="header-section-number">7.1</span> Основні типи об’єднань JOIN</a></li>
   <li><a href="#як-працює-обєднання-таблиць" id="toc-як-працює-обєднання-таблиць" class="nav-link" data-scroll-target="#як-працює-обєднання-таблиць"><span class="header-section-number">7.2</span> Як працює об’єднання таблиць</a></li>
   <li><a href="#inner-join" id="toc-inner-join" class="nav-link" data-scroll-target="#inner-join"><span class="header-section-number">7.3</span> INNER JOIN</a></li>
-  <li><a href="#left-join" id="toc-left-join" class="nav-link" data-scroll-target="#left-join"><span class="header-section-number">7.4</span> LEFT JOIN</a></li>
+  <li><a href="#left-та-right-join" id="toc-left-та-right-join" class="nav-link" data-scroll-target="#left-та-right-join"><span class="header-section-number">7.4</span> LEFT та RIGHT JOIN</a></li>
+  <li><a href="#full-join" id="toc-full-join" class="nav-link" data-scroll-target="#full-join"><span class="header-section-number">7.5</span> FULL JOIN</a></li>
+  <li><a href="#операції-над-множинами" id="toc-операції-над-множинами" class="nav-link" data-scroll-target="#операції-над-множинами"><span class="header-section-number">7.6</span> Операції над множинами</a></li>
   </ul>
 </nav>
     </div>
@@ -459,13 +461,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>Оскільки таблиці збігаються лише за одним значенням у стовпці <code>id</code>, то в результат буде включено лише одне запис.</p>
-<p>Схематично результат роботи об’єднань прийнято зображувати за допомогою <a href="https://uk.wikipedia.org/wiki/%D0%94%D1%96%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%B0_%D0%92%D0%B5%D0%BD%D0%BD%D0%B0">діаграм Венна</a>. Для <code>INNER JOIN</code> діаграма виглядає так:</p>
+<p>Схематично результат роботи об’єднань прийнято зображувати за допомогою <a href="https://uk.wikipedia.org/wiki/%D0%94%D1%96%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%B0_%D0%92%D0%B5%D0%BD%D0%BD%D0%B0">діаграм Венна</a>. Для <code>INNER JOIN</code> наведено на <a href="#fig-sql-inner-join">рисунку&nbsp;<span>7.2</span></a>.</p>
 <div class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
-<div id="sql_inner_join" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-sql-inner-join" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="sql_join_files/figure-html/sql_inner_join-output-1.png" width="511" height="389" class="figure-img"></p>
-<figcaption class="figure-caption">Діаграма Венна: INNER JOIN</figcaption>
+<p><img src="sql_join_files/figure-html/fig-sql-inner-join-output-1.png" width="511" height="389" class="figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;7.2: Діаграма Венна: INNER JOIN</figcaption>
 </figure>
 </div>
 </div>
@@ -489,7 +491,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="op">%%</span>sql</span>
 <span id="cb9-2"><a href="#cb9-2"></a>SELECT COUNT(DISTINCT user_id) AS users_count</span>
 <span id="cb9-3"><a href="#cb9-3"></a>FROM users</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -515,7 +517,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="op">%%</span>sql</span>
 <span id="cb10-2"><a href="#cb10-2"></a>SELECT COUNT(DISTINCT user_id) <span class="im">as</span> users_count</span>
 <span id="cb10-3"><a href="#cb10-3"></a>FROM user_actions</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="32">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
@@ -589,7 +591,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb12-9"><a href="#cb12-9"></a>FROM   user_actions a join users b using (user_id)</span>
 <span id="cb12-10"><a href="#cb12-10"></a>ORDER BY user_id_left</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display column-body-outset" data-execution_count="33">
+<div class="cell-output cell-output-display column-body-outset" data-execution_count="5">
 <div>
 
 
@@ -734,21 +736,22 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div id="exr-sql-join-01" class="theorem exercise">
+<div id="exr-sql-join-02" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 7.2 </strong></span><br> А тепер спробуйте трохи переписати запит із минулого завдання та порахувати кількість унікальних id в об’єднаній таблиці. Тобто знову поєднайте таблиці, але цього разу просто порахуйте унікальні <code>user_id</code> в одній з колонок з id. Виведіть цю кількість як результат. Назвіть колонку з порахованим значенням <code>users_count</code>.</p>
 <p>Поле у результуючій таблиці: <code>users_count</code></p>
 <p>Після того, як вирішите завдання, порівняйте отримане значення з кількістю унікальних користувачів у таблицях <code>users</code> та <code>user_actions</code>, яку ми порахували раніше. З яким значенням воно збігається?</p>
 </div>
 </div>
 </div>
-<div class="cell page-columns page-full" data-execution_count="6">
+<div class="cell" data-execution_count="6">
 <details>
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="op">%%</span>sql</span>
 <span id="cb13-2"><a href="#cb13-2"></a>SELECT count(distinct a.user_id) <span class="im">as</span> users_count</span>
-<span id="cb13-3"><a href="#cb13-3"></a>FROM   user_actions a join users b using (user_id)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-3"><a href="#cb13-3"></a>FROM   user_actions a </span>
+<span id="cb13-4"><a href="#cb13-4"></a>    JOIN users b using (user_id)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display column-body-outset" data-execution_count="34">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 
 
@@ -771,8 +774,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </section>
-<section id="left-join" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="left-join"><span class="header-section-number">7.4</span> LEFT JOIN</h2>
+<section id="left-та-right-join" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="left-та-right-join"><span class="header-section-number">7.4</span> LEFT та RIGHT JOIN</h2>
 <p>Наступний тип об’єднання, який ми розглянемо, це <code>LEFT OUTER JOIN</code> (або просто <code>LEFT JOIN</code>).</p>
 <p><code>LEFT JOIN</code>— це оператор зовнішнього об’єднання, котрій важливий порядок таблиць у запиті, тобто на відміну від <code>INNER JOIN</code>, він не є симетричним.</p>
 <p>Тому наступні два записи вже не є еквівалентними:</p>
@@ -884,14 +887,1160 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>У цьому випадку до результату потрапить запис з <code>id 2</code>, оскільки вона є в обох таблицях, а також запис з <code>id 1</code> з лівої таблиці.</p>
-<p>Діаграма Венна для <code>LEFT JOIN</code> виглядає так:</p>
+<p>Діаграма Венна для <code>LEFT JOIN</code> наведено на <a href="#fig-sql_left-join">рис.&nbsp;<span>7.3</span></a>.</p>
 <div class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
-<div id="sql_left_join" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-sql_left-join" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="sql_join_files/figure-html/sql_left_join-output-1.png" width="511" height="389" class="figure-img"></p>
-<figcaption class="figure-caption">Діаграма Венна: LEFT JOIN</figcaption>
+<p><img src="sql_join_files/figure-html/fig-sql_left-join-output-1.png" width="511" height="389" class="figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;7.3: Діаграма Венна: LEFT JOIN</figcaption>
 </figure>
+</div>
+</div>
+</div>
+<p>А ось таким вийде результат запиту з <code>RIGHT JOIN</code>:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">SELECT</span> B.<span class="kw">id</span> <span class="kw">as</span> <span class="kw">id</span>,</span>
+<span id="cb16-2"><a href="#cb16-2"></a>       A.city <span class="kw">as</span> city,</span>
+<span id="cb16-3"><a href="#cb16-3"></a>       B.country <span class="kw">as</span> country</span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="kw">FROM</span> table_A <span class="kw">as</span> A</span>
+<span id="cb16-5"><a href="#cb16-5"></a>     <span class="kw">RIGHT</span> <span class="kw">JOIN</span> table_B <span class="kw">as</span> B</span>
+<span id="cb16-6"><a href="#cb16-6"></a>     <span class="kw">ON</span> A.<span class="kw">id</span> <span class="op">=</span> B.<span class="kw">id</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-panel" class="tbl-parent quarto-layout-panel anchored">
+<div class="panel-caption table-caption">
+<p>Таблиця&nbsp;7.3: Приклад роботи <code>RIGHT JOIN</code></p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-A-right" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table-sm table-primary table-bordered small table">
+<caption>(a) Таблиця A</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">id</th>
+<th style="text-align: left;">city</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">01</td>
+<td style="text-align: left;">London</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">02</td>
+<td style="text-align: left;">Kyiv</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl-B-right" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table-sm table-secondary table-bordered small table">
+<caption>(b) Таблиця B</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">id</th>
+<th style="text-align: left;">country</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">02</td>
+<td style="text-align: left;">Ukraine</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">03</td>
+<td style="text-align: left;">Poland</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-C-right" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 100.0%;justify-content: center;">
+<table class="table-sm table-success table-bordered small table">
+<caption>(c) Таблиця C</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">id</th>
+<th style="text-align: left;">city</th>
+<th style="text-align: left;">country</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">02</td>
+<td style="text-align: left;">Kyiv</td>
+<td style="text-align: left;">Ukraine</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">03</td>
+<td style="text-align: left;">NULL</td>
+<td style="text-align: left;">Poland</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Все як і у випадку з <code>LEFT JOIN</code>, тільки в результат вже потрапить запис з <code>id 3</code> з правої таблиці.</p>
+<p>Діаграма Венна для <code>RIGHT JOIN</code> зображена на <a href="#fig-sql_right-join">рис.&nbsp;<span>7.4</span></a></p>
+<div class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+<div id="fig-sql_right-join" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="sql_join_files/figure-html/fig-sql_right-join-output-1.png" width="511" height="389" class="figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;7.4: Діаграма Венна: LEFT JOIN</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>А тепер розглянемо на прикладі наших даних.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-join-03" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.3 </strong></span><br> За допомогою <code>LEFT JOIN</code> об’єднайте таблиці <code>user_actions</code> та <code>users</code> за ключом <code>user_id</code>. Зверніть увагу на порядок таблиць – ліворуч <code>users_actions</code>, праворуч <code>users</code>. У результаті включіть дві колонки з <code>user_id</code> з обох таблиць. Ці дві колонки назвіть відповідно <code>user_id_left</code> та <code>user_id_right</code>. Також у результат увімкніть колонки <code>order_id</code>, <code>time</code>, <code>action</code>, <code>sex</code>, <code>birth_date</code>. Відсортуйте таблицю, що вийшла, за зростанням id користувача (у колонці з <strong>лівої</strong> таблиці).</p>
+<p>Поля в результуючій таблиці: <code>user_id_left</code>, <code>user_id_right</code>, <code>order_id</code>, <code>time</code>, <code>action</code>, <code>sex</code>, <code>birth_date</code></p>
+<p>Після того як розв’яжете завдання, зверніть увагу на колонки з <code>user_id</code>. Чи немає в якомусь із них пропущених значень?</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="op">%%</span>sql</span>
+<span id="cb17-2"><a href="#cb17-2"></a>SELECT a.user_id <span class="im">as</span> user_id_left,</span>
+<span id="cb17-3"><a href="#cb17-3"></a>       b.user_id <span class="im">as</span> user_id_right,</span>
+<span id="cb17-4"><a href="#cb17-4"></a>       order_id,</span>
+<span id="cb17-5"><a href="#cb17-5"></a>       time,</span>
+<span id="cb17-6"><a href="#cb17-6"></a>       action,</span>
+<span id="cb17-7"><a href="#cb17-7"></a>       sex,</span>
+<span id="cb17-8"><a href="#cb17-8"></a>       birth_date</span>
+<span id="cb17-9"><a href="#cb17-9"></a>FROM   user_actions a</span>
+<span id="cb17-10"><a href="#cb17-10"></a>    LEFT JOIN users b using (user_id)</span>
+<span id="cb17-11"><a href="#cb17-11"></a>ORDER BY user_id_left</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">user_id_left</th>
+<th data-quarto-table-cell-role="th">user_id_right</th>
+<th data-quarto-table-cell-role="th">order_id</th>
+<th data-quarto-table-cell-role="th">time</th>
+<th data-quarto-table-cell-role="th">action</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">birth_date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>1.0</td>
+<td>1</td>
+<td>2022-08-24 01:52:00</td>
+<td>create_order</td>
+<td>female</td>
+<td>1991-10-23</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>1.0</td>
+<td>4683</td>
+<td>2022-08-27 20:56:00</td>
+<td>create_order</td>
+<td>female</td>
+<td>1991-10-23</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1</td>
+<td>1.0</td>
+<td>22901</td>
+<td>2022-09-02 00:58:00</td>
+<td>create_order</td>
+<td>female</td>
+<td>1991-10-23</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1</td>
+<td>1.0</td>
+<td>23149</td>
+<td>2022-09-02 02:36:00</td>
+<td>create_order</td>
+<td>female</td>
+<td>1991-10-23</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2</td>
+<td>2.0</td>
+<td>2</td>
+<td>2022-08-24 06:37:00</td>
+<td>create_order</td>
+<td>female</td>
+<td>1993-06-18</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">62569</td>
+<td>21399</td>
+<td>21399.0</td>
+<td>59583</td>
+<td>2022-09-08 23:56:00</td>
+<td>create_order</td>
+<td>female</td>
+<td>1987-04-27</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">62570</td>
+<td>21399</td>
+<td>21399.0</td>
+<td>59587</td>
+<td>2022-09-08 23:58:00</td>
+<td>create_order</td>
+<td>female</td>
+<td>1987-04-27</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">62571</td>
+<td>21400</td>
+<td>21400.0</td>
+<td>59586</td>
+<td>2022-09-08 23:57:00</td>
+<td>create_order</td>
+<td>male</td>
+<td>1986-12-31</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">62572</td>
+<td>21401</td>
+<td>21401.0</td>
+<td>59589</td>
+<td>2022-09-08 23:58:00</td>
+<td>create_order</td>
+<td>female</td>
+<td>1993-03-20</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">62573</td>
+<td>21402</td>
+<td>21402.0</td>
+<td>59591</td>
+<td>2022-09-08 23:58:00</td>
+<td>create_order</td>
+<td>female</td>
+<td>1991-05-24</td>
+</tr>
+</tbody>
+</table>
+
+<p>62574 rows × 7 columns</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-join-04" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.4 </strong></span><br> Тепер знову спробуйте трохи переписати запит з минулого завдання та порахуйте кількість унікальних id у колонці <code>user_id</code>, що надійшла з лівої таблиці <code>user_actions</code>. Виведіть цю кількість як результат. Назвіть колонку з порахованим значенням <code>users_count</code>.</p>
+<p>Поле у результуючій таблиці: <code>users_count</code></p>
+<p>Після того, як вирішите завдання, порівняйте отримане значення з кількістю унікальних користувачів у таблицях <code>users</code> та <code>user_actions</code>. З яким значенням воно збіглося цього разу?</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="op">%%</span>sql</span>
+<span id="cb18-2"><a href="#cb18-2"></a>SELECT count(distinct a.user_id) <span class="im">as</span> users_count</span>
+<span id="cb18-3"><a href="#cb18-3"></a>FROM   user_actions a</span>
+<span id="cb18-4"><a href="#cb18-4"></a>    LEFT JOIN users b using (user_id)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">users_count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>21401</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Ви могли помітити, що при об’єднанні таблиць <code>user_actions</code> і <code>users</code> за допомогою <code>LEFT JOIN</code> у стовпцях, що прийшли з правої таблиці <code>users</code>, утворилися значення <code>NULL</code>. Якщо не помітили, спробуйте відсортувати об’єднану таблицю по полях <code>users.user_id</code> і <code>users.birth_date</code>.</p>
+<p>Це саме те, про що ми говорили — при формуванні об’єднаних рядків для тих id з лівої таблиці, яких не було в правій таблиці, поля з правої таблиці були заповнені порожніми значеннями.</p>
+<p>А тепер давайте перевернемо один трюк.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-join-05" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.5 </strong></span><br> Візьміть запит із <a href="#exr-sql-join-03">завдання&nbsp;<span>7.3</span></a>, де ви об’єднували таблиці <code>user_actions</code> і <code>users</code> за допомогою <code>LEFT JOIN</code>, додайте до запиту оператор <code>WHERE</code> і виключіть значення <code>NULL</code> в колонці <code>user_id</code> з правої таблиці. Включіть у результат ті самі колонки і відсортуйте таблицю, що вийшла, за зростанням id користувача в колонці з лівої таблиці.</p>
+<p>Поля в результуючій таблиці: <code>user_id_left</code>, <code>user_id_right</code>, <code>order_id</code>, <code>time</code>, <code>action</code>, <code>sex</code>, <code>birth_date</code></p>
+<p>Після того як розв’яжете завдання, спробуйте порівняти це рішення із <span class="quarto-unresolved-ref">?exr-sql-join-1</span>. Подумайте, який <code>JOIN</code> ми отримали після всіх маніпуляцій з результатом. Заодно можете порахувати кількість унікальних <code>user_id</code> у запиті з цього завдання, щоб розставити всі крапки над “i”.</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="op">%%</span>sql</span>
+<span id="cb19-2"><a href="#cb19-2"></a>SELECT a.user_id <span class="im">as</span> user_id_left,</span>
+<span id="cb19-3"><a href="#cb19-3"></a>       b.user_id <span class="im">as</span> user_id_right,</span>
+<span id="cb19-4"><a href="#cb19-4"></a>       order_id,</span>
+<span id="cb19-5"><a href="#cb19-5"></a>       time,</span>
+<span id="cb19-6"><a href="#cb19-6"></a>       action,</span>
+<span id="cb19-7"><a href="#cb19-7"></a>       sex,</span>
+<span id="cb19-8"><a href="#cb19-8"></a>       birth_date</span>
+<span id="cb19-9"><a href="#cb19-9"></a>FROM   user_actions a</span>
+<span id="cb19-10"><a href="#cb19-10"></a>    LEFT JOIN users b using (user_id)</span>
+<span id="cb19-11"><a href="#cb19-11"></a>WHERE  b.user_id IS NOT NULL</span>
+<span id="cb19-12"><a href="#cb19-12"></a>ORDER BY user_id_left</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">user_id_left</th>
+<th data-quarto-table-cell-role="th">user_id_right</th>
+<th data-quarto-table-cell-role="th">order_id</th>
+<th data-quarto-table-cell-role="th">time</th>
+<th data-quarto-table-cell-role="th">action</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">birth_date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>2022-08-24 01:52:00</td>
+<td>create_order</td>
+<td>female</td>
+<td>1991-10-23</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>1</td>
+<td>4683</td>
+<td>2022-08-27 20:56:00</td>
+<td>create_order</td>
+<td>female</td>
+<td>1991-10-23</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1</td>
+<td>1</td>
+<td>22901</td>
+<td>2022-09-02 00:58:00</td>
+<td>create_order</td>
+<td>female</td>
+<td>1991-10-23</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1</td>
+<td>1</td>
+<td>23149</td>
+<td>2022-09-02 02:36:00</td>
+<td>create_order</td>
+<td>female</td>
+<td>1991-10-23</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2022-08-24 06:37:00</td>
+<td>create_order</td>
+<td>female</td>
+<td>1993-06-18</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">59341</td>
+<td>21399</td>
+<td>21399</td>
+<td>59583</td>
+<td>2022-09-08 23:56:00</td>
+<td>create_order</td>
+<td>female</td>
+<td>1987-04-27</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">59342</td>
+<td>21399</td>
+<td>21399</td>
+<td>59587</td>
+<td>2022-09-08 23:58:00</td>
+<td>create_order</td>
+<td>female</td>
+<td>1987-04-27</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">59343</td>
+<td>21400</td>
+<td>21400</td>
+<td>59586</td>
+<td>2022-09-08 23:57:00</td>
+<td>create_order</td>
+<td>male</td>
+<td>1986-12-31</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">59344</td>
+<td>21401</td>
+<td>21401</td>
+<td>59589</td>
+<td>2022-09-08 23:58:00</td>
+<td>create_order</td>
+<td>female</td>
+<td>1993-03-20</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">59345</td>
+<td>21402</td>
+<td>21402</td>
+<td>59591</td>
+<td>2022-09-08 23:58:00</td>
+<td>create_order</td>
+<td>female</td>
+<td>1991-05-24</td>
+</tr>
+</tbody>
+</table>
+
+<p>59346 rows × 7 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="full-join" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="full-join"><span class="header-section-number">7.5</span> FULL JOIN</h2>
+<p>Щоб краще розібратися з джойнами, розглянемо ще один тип об’єднання таблиць — <code>FULL OUTER JOIN</code> або просто <code>FULL JOIN</code>. Це оператор повного зовнішнього об’єднання, для якого, як і <code>INNER JOIN</code>, неважливий порядок вказівки таблиць. Проте працює він зовсім інакше.</p>
+<p>Запит із <code>FULL OUTER JOIN</code> виглядає приблизно так:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="kw">FROM</span> table_1 <span class="kw">FULL</span> <span class="kw">JOIN</span> table_2</span>
+<span id="cb20-3"><a href="#cb20-3"></a>     <span class="kw">ON</span> [condition]</span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="op">..</span>.</span>
+<span id="cb20-5"><a href="#cb20-5"></a></span>
+<span id="cb20-6"><a href="#cb20-6"></a></span>
+<span id="cb20-7"><a href="#cb20-7"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
+<span id="cb20-8"><a href="#cb20-8"></a><span class="kw">FROM</span> table_2 <span class="kw">FULL</span> <span class="kw">JOIN</span> table_1 </span>
+<span id="cb20-9"><a href="#cb20-9"></a>     <span class="kw">ON</span> [condition]</span>
+<span id="cb20-10"><a href="#cb20-10"></a><span class="op">..</span>.</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Результат об’єднання <code>FULL JOIN</code> формується так:</p>
+<ol type="1">
+<li>Спочатку кожен рядок лівої таблиці зіставляється з кожним рядком правої таблиці (відбувається декартів добуток).</li>
+<li>Потім для кожного об’єднаного рядка перевіряється умова об’єднання, вказана після оператора <code>ON</code>.</li>
+<li>Після цього всі об’єднані рядки, для яких умова виявилася істинною, додаються до результуючої таблиці.</li>
+<li>Далі в результат додаються ті записи з лівої та правої таблиць (<strong>увага: з обох таблиць</strong>), для яких умова виявилася хибною і які не увійшли до об’єднання на попередньому кроці. При цьому для таких записів відповідні поля з іншої таблиці (для лівої це поля з правої, для правої це поля з лівої) заповнюються значеннями <code>NULL</code>.</li>
+</ol>
+<p>Цей алгоритм можна звести до наступної послідовності дій:</p>
+<ul>
+<li>Спочатку відповідно до зазначеної умови виконується <code>INNER JOIN</code> лівої та правої таблиць.</li>
+<li>Далі в результат додаються ті записи з лівої та правої таблиць (<strong>увага: з обох таблиць</strong>), для яких умова виявилася хибною і які не увійшли до об’єднання на попередньому кроці. При цьому для таких записів відповідні поля з іншої таблиці (для лівої це поля з правої, для правої це поля з лівої) заповнюються значеннями <code>NULL</code>.</li>
+</ul>
+<p>Розглянемо найпростіший приклад.</p>
+<p>Так буде виглядати запит та його результат з FULL JOIN:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">SELECT</span> A.<span class="kw">id</span> <span class="kw">as</span> <span class="kw">id</span>,</span>
+<span id="cb21-2"><a href="#cb21-2"></a>       A.city <span class="kw">as</span> city,</span>
+<span id="cb21-3"><a href="#cb21-3"></a>       B.country <span class="kw">as</span> country</span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="kw">FROM</span> table_A <span class="kw">as</span> A</span>
+<span id="cb21-5"><a href="#cb21-5"></a>     <span class="kw">FULL</span> <span class="kw">JOIN</span> table_B <span class="kw">as</span> B</span>
+<span id="cb21-6"><a href="#cb21-6"></a>     <span class="kw">ON</span> A.<span class="kw">id</span> <span class="op">=</span> B.<span class="kw">id</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-panel" class="tbl-parent quarto-layout-panel anchored">
+<div class="panel-caption table-caption">
+<p>Таблиця&nbsp;7.4: Приклад роботи <code>FULL JOIN</code></p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-A-full" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table-sm table-primary table-bordered small table">
+<caption>(a) Таблиця A</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">id</th>
+<th style="text-align: left;">city</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">01</td>
+<td style="text-align: left;">London</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">02</td>
+<td style="text-align: left;">Kyiv</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl-B-full" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table-sm table-secondary table-bordered small table">
+<caption>(b) Таблиця B</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">id</th>
+<th style="text-align: left;">country</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">02</td>
+<td style="text-align: left;">Ukraine</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">03</td>
+<td style="text-align: left;">Poland</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-C-full" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 100.0%;justify-content: center;">
+<table class="table-sm table-success table-bordered small table">
+<caption>(c) Таблиця C</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">id</th>
+<th style="text-align: left;">city</th>
+<th style="text-align: left;">country</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">01</td>
+<td style="text-align: left;">London</td>
+<td style="text-align: left;">NULL</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">02</td>
+<td style="text-align: left;">Kyiv</td>
+<td style="text-align: left;">Ukraine</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">03</td>
+<td style="text-align: left;">NULL</td>
+<td style="text-align: left;">Poland</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>В результат потрапив спільний запис з <code>id 2</code>, а також всі записи, до яких не було знайдено відповідності з інших таблиць. Усі невідповідності були заповнені порожніми значеннями.</p>
+<p>Діграма Венна для <code>FULL JOIN</code> наведено на <a href="#fig-sql-join-full-venn">рисунку&nbsp;<span>7.5</span></a>.</p>
+<div class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+<div id="fig-sql-join-full-venn" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="sql_join_files/figure-html/fig-sql-join-full-venn-output-1.png" width="511" height="389" class="figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;7.5: Діаграма Венна: FULL JOIN</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>А тепер розберемося з <code>FULL JOIN</code> на прикладі нашої бази даних.</p>
+<p>У нас є дві таблиці з датами народження користувачів та кур’єрів – <code>users</code> та <code>couriers</code>. Можна припустити, що в кожній таблиці у колонці <code>birth_date</code> є якісь дати, яких немає в іншій таблиці. Тобто такі дати, в які народився хтось із кур’єрів, але не народився жоден користувач, і навпаки. Ну що ж, спробуємо перевірити цю гіпотезу.</p>
+<p>Для початку згрупуємо дві таблиці по колонці <code>birth_date</code> і порахуємо скільки користувачів/кур’єрів народилися в кожен з днів. Для цього можете виконати такий запит:</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="op">%%</span>sql</span>
+<span id="cb22-2"><a href="#cb22-2"></a>SELECT birth_date, COUNT(user_id) AS users_count</span>
+<span id="cb22-3"><a href="#cb22-3"></a>FROM users</span>
+<span id="cb22-4"><a href="#cb22-4"></a>WHERE birth_date IS NOT NULL</span>
+<span id="cb22-5"><a href="#cb22-5"></a>GROUP BY birth_date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">birth_date</th>
+<th data-quarto-table-cell-role="th">users_count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1991-05-24</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1994-07-21</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1992-01-09</td>
+<td>13</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1997-05-05</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1990-08-16</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4471</td>
+<td>1999-12-01</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4472</td>
+<td>1998-12-05</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4473</td>
+<td>1987-09-24</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4474</td>
+<td>1998-01-02</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4475</td>
+<td>1988-07-27</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+<p>4476 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="op">%%</span>sql</span>
+<span id="cb23-2"><a href="#cb23-2"></a>SELECT birth_date, COUNT(courier_id) AS couriers_count</span>
+<span id="cb23-3"><a href="#cb23-3"></a>FROM couriers</span>
+<span id="cb23-4"><a href="#cb23-4"></a>WHERE birth_date IS NOT NULL</span>
+<span id="cb23-5"><a href="#cb23-5"></a>GROUP BY birth_date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">birth_date</th>
+<th data-quarto-table-cell-role="th">couriers_count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1981-06-11</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1991-06-27</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1994-05-04</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1999-06-02</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1998-12-22</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2169</td>
+<td>1999-09-19</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2170</td>
+<td>1990-06-23</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2171</td>
+<td>1991-02-21</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2172</td>
+<td>1990-06-04</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2173</td>
+<td>1997-04-15</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+<p>2174 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<p>У результаті ви отримаєте дві таблиці з унікальними датами і кількістю людей, що народилися у кожен з днів. Давайте їх об’єднаємо.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-join-06" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.6 </strong></span><br> За допомогою <code>FULL JOIN</code> об’єднайте по ключу <code>birth_date</code> таблиці, отримані в результаті вищезазначених запитів (тобто об’єднайте один з одним два підзапити). Не потрібно змінювати їх, просто додайте потрібний <code>JOIN</code>.</p>
+<p>У результат включіть дві колонки з <code>birth_date</code> з обох таблиць. Ці дві колонки назвіть відповідно <code>users_birth_date</code> та <code>couriers_birth_date</code>. Також включіть у результат колонки з кількістю користувачів та кур’єрів - <code>users_count</code> та <code>couriers_count</code>.</p>
+<p>Відсортуйте таблицю спочатку по колонці <code>users_birth_date</code> за зростанням, потім по колонці <code>couriers_birth_date</code> - теж за зростанням.</p>
+<p>Поля в результуючій таблиці: <code>users_birth_date</code>, <code>users_count</code>, <code>couriers_birth_date</code>, <code>couriers_count</code></p>
+<p>Після того як розв’яжете завдання, проаналізуйте результат. Зверніть увагу на пропущені значення у колонках з датами народження кур’єрів та користувачів. Чи підтвердилося наше припущення?</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="op">%%</span>sql</span>
+<span id="cb24-2"><a href="#cb24-2"></a>WITH a AS (</span>
+<span id="cb24-3"><a href="#cb24-3"></a>    SELECT birth_date, COUNT(user_id) AS users_count</span>
+<span id="cb24-4"><a href="#cb24-4"></a>    FROM users</span>
+<span id="cb24-5"><a href="#cb24-5"></a>    WHERE birth_date IS NOT NULL</span>
+<span id="cb24-6"><a href="#cb24-6"></a>    GROUP BY birth_date</span>
+<span id="cb24-7"><a href="#cb24-7"></a>    ),</span>
+<span id="cb24-8"><a href="#cb24-8"></a>    b AS (</span>
+<span id="cb24-9"><a href="#cb24-9"></a>    SELECT birth_date, COUNT(courier_id) AS couriers_count</span>
+<span id="cb24-10"><a href="#cb24-10"></a>    FROM couriers</span>
+<span id="cb24-11"><a href="#cb24-11"></a>    WHERE birth_date IS NOT NULL</span>
+<span id="cb24-12"><a href="#cb24-12"></a>    GROUP BY birth_date</span>
+<span id="cb24-13"><a href="#cb24-13"></a>    )</span>
+<span id="cb24-14"><a href="#cb24-14"></a>    </span>
+<span id="cb24-15"><a href="#cb24-15"></a>SELECT </span>
+<span id="cb24-16"><a href="#cb24-16"></a>    a.birth_date AS users_birth_date,</span>
+<span id="cb24-17"><a href="#cb24-17"></a>    a.users_count,</span>
+<span id="cb24-18"><a href="#cb24-18"></a>    b.birth_date AS couriers_birth_date,</span>
+<span id="cb24-19"><a href="#cb24-19"></a>    b.couriers_count</span>
+<span id="cb24-20"><a href="#cb24-20"></a>FROM a</span>
+<span id="cb24-21"><a href="#cb24-21"></a>FULL JOIN b on a.birth_date <span class="op">=</span> b.birth_date</span>
+<span id="cb24-22"><a href="#cb24-22"></a>ORDER BY users_birth_date, couriers_birth_date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">users_birth_date</th>
+<th data-quarto-table-cell-role="th">users_count</th>
+<th data-quarto-table-cell-role="th">couriers_birth_date</th>
+<th data-quarto-table-cell-role="th">couriers_count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>NaT</td>
+<td>NaN</td>
+<td>1973-07-05</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>NaT</td>
+<td>NaN</td>
+<td>1978-01-04</td>
+<td>1.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>NaT</td>
+<td>NaN</td>
+<td>1978-07-18</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>NaT</td>
+<td>NaN</td>
+<td>1979-12-14</td>
+<td>1.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>NaT</td>
+<td>NaN</td>
+<td>1981-01-05</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4841</td>
+<td>2002-05-11</td>
+<td>1.0</td>
+<td>NaT</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4842</td>
+<td>2002-06-15</td>
+<td>1.0</td>
+<td>NaT</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4843</td>
+<td>2002-07-11</td>
+<td>1.0</td>
+<td>NaT</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4844</td>
+<td>2002-11-05</td>
+<td>1.0</td>
+<td>NaT</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4845</td>
+<td>2003-09-02</td>
+<td>1.0</td>
+<td>NaT</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+<p>4846 rows × 4 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="операції-над-множинами" class="level2 page-columns page-full" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="операції-над-множинами"><span class="header-section-number">7.6</span> Операції над множинами</h2>
+<p>Чудово. Запит із <code>FULL JOIN</code> ми начебто склали, але як нам тепер визначити, що кількість записів в отриманій таблиці збігається із загальним числом унікальних дат у двох таблицях — <code>users</code> та <code>couriers</code>? Адже саме стільки рядків ми й очікували отримати, правда?</p>
+<p>Перевірити себе нам допоможуть операції з множинами. У мові SQL їх три:</p>
+<ul>
+<li>UNION</li>
+<li>EXCEPT</li>
+<li>INTERSECT</li>
+</ul>
+<p>Вони дозволяють комбінувати результати кількох запитів один з одним та отримувати один загальний результат. Причому саме комбінувати, а не об’єднувати, як це роблять джойни.</p>
+<p>Цю різницю важливо розуміти: в операціях з множинами не відбувається суміщення стовпців з двох таблиць - база даних просто відбирає рядки з таблиць, що задовольняють типу операції, і додає їх до загального результату.</p>
+<p>Операції над множинами мають наступний синтаксис:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="kw">FROM</span> table_1</span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="kw">UNION</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb25-5"><a href="#cb25-5"></a><span class="kw">FROM</span> table_2</span>
+<span id="cb25-6"><a href="#cb25-6"></a></span>
+<span id="cb25-7"><a href="#cb25-7"></a></span>
+<span id="cb25-8"><a href="#cb25-8"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb25-9"><a href="#cb25-9"></a><span class="kw">FROM</span> table_1</span>
+<span id="cb25-10"><a href="#cb25-10"></a><span class="kw">EXCEPT</span></span>
+<span id="cb25-11"><a href="#cb25-11"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb25-12"><a href="#cb25-12"></a><span class="kw">FROM</span> table_2</span>
+<span id="cb25-13"><a href="#cb25-13"></a></span>
+<span id="cb25-14"><a href="#cb25-14"></a></span>
+<span id="cb25-15"><a href="#cb25-15"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb25-16"><a href="#cb25-16"></a><span class="kw">FROM</span> table_1</span>
+<span id="cb25-17"><a href="#cb25-17"></a><span class="kw">INTERSECT</span></span>
+<span id="cb25-18"><a href="#cb25-18"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb25-19"><a href="#cb25-19"></a><span class="kw">FROM</span> table_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Операція <code>EXCEPT</code> повертає всі записи, які є у першому запиті, але відсутні у другому (різниця множин).</li>
+<li>Операція <code>INTERSECT</code> повертає всі записи, які є і в першому, і в другому запиті (перетин множин).</li>
+<li>Операція <code>UNION</code> поєднує записи із двох запитів в один загальний результат (об’єднання множин).</li>
+</ul>
+<p>При цьому за замовчанням ці операції виключають із результату рядки-дублікати. Щоб дублікати не виключалися із результату, необхідно після імені операції вказати ключове слово <code>ALL</code>. Наприклад, так:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="kw">FROM</span> table_1</span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="kw">UNION</span> <span class="kw">ALL</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb26-5"><a href="#cb26-5"></a><span class="kw">FROM</span> table_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Діаграми Венна для операцій над множинами виглядають зображено на <a href="#fig-sql-join-venn">рисунку&nbsp;<span>7.6</span></a>.</p>
+<div id="fig-sql-join-venn" class="cell column-page-inset quarto-layout-panel" data-execution_count="16">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
+<div id="fig-sql-join-venn-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="sql_join_files/figure-html/fig-sql-join-venn-output-1.png" class="img-fluid figure-img" data-ref-parent="fig-sql-join-venn" width="511"></p>
+<figcaption class="figure-caption">(a)</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
+<div id="fig-sql-join-venn-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="sql_join_files/figure-html/fig-sql-join-venn-output-2.png" class="img-fluid figure-img" data-ref-parent="fig-sql-join-venn" width="511"></p>
+<figcaption class="figure-caption">(b)</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
+<div id="fig-sql-join-venn-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="sql_join_files/figure-html/fig-sql-join-venn-output-3.png" class="img-fluid figure-img" data-ref-parent="fig-sql-join-venn" width="511"></p>
+<figcaption class="figure-caption">(c)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Рисунок&nbsp;7.6: Операції над множинами: діаграма Венна</figcaption><p></p>
+</figure>
+</div>
+<p>Для роботи цих операцій необхідно, щоб виконувались такі умови:</p>
+<ol type="1">
+<li>У кожному запиті <code>SELECT</code> має бути однакова кількість стовпців.</li>
+<li>Типи даних у стовпцях мають бути сумісні.</li>
+</ol>
+<p>При цьому кількість стовпців в операторі <code>SELECT</code> може бути будь-якою — головне, щоб вона була однаковою.</p>
+<p>Наприклад, наступний запит поверне унікальні ID користувачів, які щось замовляли в нашому сервісі, але яких з якоїсь причини немає в таблиці <code>users</code>:</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="op">%%</span>sql</span>
+<span id="cb27-2"><a href="#cb27-2"></a>SELECT user_id</span>
+<span id="cb27-3"><a href="#cb27-3"></a>FROM user_actions</span>
+<span id="cb27-4"><a href="#cb27-4"></a>EXCEPT</span>
+<span id="cb27-5"><a href="#cb27-5"></a>SELECT user_id</span>
+<span id="cb27-6"><a href="#cb27-6"></a>FROM users</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">user_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>54</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>86</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>103</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>116</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>120</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1065</td>
+<td>18352</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1066</td>
+<td>12713</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1067</td>
+<td>18246</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1068</td>
+<td>18015</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1069</td>
+<td>20398</td>
+</tr>
+</tbody>
+</table>
+
+<p>1070 rows × 1 columns</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Докладніше про операції над множинами можна прочитати у <a href="https://duckdb.org/docs/sql/query_syntax/setops.html">документації DuckDB</a>.</p>
+<p>Про теорію множин можна почитати у <a href="https://uk.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BE%D1%80%D1%96%D1%8F_%D0%BC%D0%BD%D0%BE%D0%B6%D0%B8%D0%BD">статті на Вікіпедії</a>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-join-07" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.7 </strong></span><br> Поєднайте два наступні запити один з одним так, щоб на виході вийшов набір унікальних дат із таблиць <code>users</code> та <code>couriers</code>:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">SELECT</span> birth_date</span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="kw">FROM</span> users</span>
+<span id="cb28-3"><a href="#cb28-3"></a><span class="kw">WHERE</span> birth_date <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb29-1"><a href="#cb29-1"></a><span class="kw">SELECT</span> birth_date</span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="kw">FROM</span> couriers</span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="kw">WHERE</span> birth_date <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Помістіть у підзапит набраний після об’єднання набір дат і порахуйте їх кількість. Назвіть колонку з числом дат <code>dates_count</code>.</p>
+<p>Поле у результуючій таблиці: <code>dates_count</code></p>
+<p>Після того, як вирішите задачу, порівняйте отримане число дат з кількістю рядків у таблиці, яку ми отримали в минулому завданні. Чи збіглися ці значення?</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="18">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="op">%%</span>sql</span>
+<span id="cb30-2"><a href="#cb30-2"></a>WITH sub_union <span class="im">as</span> (</span>
+<span id="cb30-3"><a href="#cb30-3"></a>    SELECT birth_date</span>
+<span id="cb30-4"><a href="#cb30-4"></a>    FROM users</span>
+<span id="cb30-5"><a href="#cb30-5"></a>    WHERE birth_date IS NOT NULL</span>
+<span id="cb30-6"><a href="#cb30-6"></a>    UNION</span>
+<span id="cb30-7"><a href="#cb30-7"></a>    SELECT birth_date</span>
+<span id="cb30-8"><a href="#cb30-8"></a>    FROM couriers</span>
+<span id="cb30-9"><a href="#cb30-9"></a>    WHERE birth_date IS NOT NULL</span>
+<span id="cb30-10"><a href="#cb30-10"></a>    )</span>
+<span id="cb30-11"><a href="#cb30-11"></a>    </span>
+<span id="cb30-12"><a href="#cb30-12"></a>SELECT COUNT(DISTINCT birth_date) <span class="im">as</span> dates_count</span>
+<span id="cb30-13"><a href="#cb30-13"></a>FROM sub_union</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">dates_count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>4846</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
 </div>
