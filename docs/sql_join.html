@@ -254,6 +254,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <li><a href="#left-та-right-join" id="toc-left-та-right-join" class="nav-link" data-scroll-target="#left-та-right-join"><span class="header-section-number">7.4</span> LEFT та RIGHT JOIN</a></li>
   <li><a href="#full-join" id="toc-full-join" class="nav-link" data-scroll-target="#full-join"><span class="header-section-number">7.5</span> FULL JOIN</a></li>
   <li><a href="#операції-над-множинами" id="toc-операції-над-множинами" class="nav-link" data-scroll-target="#операції-над-множинами"><span class="header-section-number">7.6</span> Операції над множинами</a></li>
+  <li><a href="#cross-join" id="toc-cross-join" class="nav-link" data-scroll-target="#cross-join"><span class="header-section-number">7.7</span> CROSS JOIN</a></li>
   </ul>
 </nav>
     </div>
@@ -1821,9 +1822,9 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Чудово. Запит із <code>FULL JOIN</code> ми начебто склали, але як нам тепер визначити, що кількість записів в отриманій таблиці збігається із загальним числом унікальних дат у двох таблицях — <code>users</code> та <code>couriers</code>? Адже саме стільки рядків ми й очікували отримати, правда?</p>
 <p>Перевірити себе нам допоможуть операції з множинами. У мові SQL їх три:</p>
 <ul>
-<li>UNION</li>
-<li>EXCEPT</li>
-<li>INTERSECT</li>
+<li><code>UNION</code></li>
+<li><code>EXCEPT</code></li>
+<li><code>INTERSECT</code></li>
 </ul>
 <p>Вони дозволяють комбінувати результати кількох запитів один з одним та отримувати один загальний результат. Причому саме комбінувати, а не об’єднувати, як це роблять джойни.</p>
 <p>Цю різницю важливо розуміти: в операціях з множинами не відбувається суміщення стовпців з двох таблиць - база даних просто відбирає рядки з таблиць, що задовольняють типу операції, і додає їх до загального результату.</p>
@@ -2041,6 +2042,602 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tbody>
 </table>
 
+</div>
+</div>
+</div>
+</section>
+<section id="cross-join" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="cross-join"><span class="header-section-number">7.7</span> CROSS JOIN</h2>
+<p>Насправді <code>CROSS JOIN</code> - це просто декартів добуток двох таблиць, тобто саме те, що відбувається на першому етапі решти джойнів. Важлива відмінність у синтаксисі <code>CROSS JOIN</code> полягає в тому, що для нього не потрібно вказувати умову для об’єднання:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">SELECT</span> column_1, column_2, <span class="op">..</span>.</span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="kw">FROM</span> table_1</span>
+<span id="cb31-3"><a href="#cb31-3"></a>     <span class="kw">CROSS</span> <span class="kw">JOIN</span> table_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Той самий результат можна отримати за допомогою наступного запису:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">SELECT</span> column_1, column_2, <span class="op">..</span>.</span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="kw">FROM</span> table_1, table_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Розглянемо простий приклад:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1"></a><span class="kw">SELECT</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>    A.city <span class="kw">as</span> city,</span>
+<span id="cb33-3"><a href="#cb33-3"></a>    B.country <span class="kw">as</span> country</span>
+<span id="cb33-4"><a href="#cb33-4"></a><span class="kw">FROM</span> table_A <span class="kw">as</span> A</span>
+<span id="cb33-5"><a href="#cb33-5"></a>     <span class="kw">CROSS</span> <span class="kw">JOIN</span> table_B <span class="kw">as</span> B</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>За допомогою <code>CROSS JOIN</code> ми отримуємо всі можливі комбінації значень із першої та другої таблиці:</p>
+<div id="tbl-panel" class="tbl-parent quarto-layout-panel anchored">
+<div class="panel-caption table-caption">
+<p>Таблиця&nbsp;7.5: Приклад роботи <code>FULL JOIN</code></p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-A-cross" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table-sm table-primary table-bordered small table">
+<caption>(a) Таблиця A</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">city</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">London</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kyiv</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl-B-cross" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table-sm table-secondary table-bordered small table">
+<caption>(b) Таблиця B</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">country</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">UK</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ukraine</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Poland</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="tbl-C-cross" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 100.0%;justify-content: center;">
+<table class="table-sm table-success table-bordered small table">
+<caption>(c) Таблиця C</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">city</th>
+<th style="text-align: left;">country</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">London</td>
+<td style="text-align: left;">UK</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">London</td>
+<td style="text-align: left;">Ukraine</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">London</td>
+<td style="text-align: left;">Poland</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kyiv</td>
+<td style="text-align: left;">UK</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kyiv</td>
+<td style="text-align: left;">Ukraine</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kyiv</td>
+<td style="text-align: left;">Poland</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>А теперь давайте решим простую задачу.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-join-08" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.8 </strong></span><br> З таблиці <code>users</code> відберіть id <strong>перших 100</strong> користувачів (просто виберіть перші 100 записів, використовуючи простий <code>LIMIT</code>) і за допомогою <code>CROSS JOIN</code> поєднайте їх з усіма найменуваннями товарів з таблиці <code>products</code>. Виведіть дві колонки - ID користувача та найменування товару. Результат відсортуйте спочатку за зростанням id користувача, потім на ім’я товару — теж за зростанням.</p>
+<p>Поля у результуючій таблиці: <code>user_id</code>, <code>name</code></p>
+<p>Після того як вирішите задачу, подивіться скільки спочатку було рядків у кожній таблиці і порівняйте з тим, скільки їх вийшло після об’єднання.</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="19">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="op">%%</span>sql</span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="cf">with</span> user_100 <span class="im">as</span> (</span>
+<span id="cb34-3"><a href="#cb34-3"></a>    SELECT user_id</span>
+<span id="cb34-4"><a href="#cb34-4"></a>    <span class="im">from</span> users</span>
+<span id="cb34-5"><a href="#cb34-5"></a>    LIMIT <span class="dv">100</span></span>
+<span id="cb34-6"><a href="#cb34-6"></a>    )</span>
+<span id="cb34-7"><a href="#cb34-7"></a></span>
+<span id="cb34-8"><a href="#cb34-8"></a>SELECT  user_100.user_id,</span>
+<span id="cb34-9"><a href="#cb34-9"></a>        products.name</span>
+<span id="cb34-10"><a href="#cb34-10"></a>FROM user_100</span>
+<span id="cb34-11"><a href="#cb34-11"></a>CROSS JOIN products</span>
+<span id="cb34-12"><a href="#cb34-12"></a>ORDER BY user_id, name</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">user_id</th>
+<th data-quarto-table-cell-role="th">name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>185</td>
+<td>apple juice</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>185</td>
+<td>apples</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>185</td>
+<td>bagels</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>185</td>
+<td>bananas</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>185</td>
+<td>beef</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8695</td>
+<td>21402</td>
+<td>waffles</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8696</td>
+<td>21402</td>
+<td>watermelon</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8697</td>
+<td>21402</td>
+<td>white chocolate</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8698</td>
+<td>21402</td>
+<td>yogurt</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8699</td>
+<td>21402</td>
+<td>сowberry juice</td>
+</tr>
+</tbody>
+</table>
+
+<p>8700 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<p>Здається, ми розглянули достатньо прикладів об’єднання таблиць. Час переходити до практики!</p>
+<p>Проведемо невелику аналітику нашого сервісу і порахуємо, скільки в середньому товарів замовляє кожен користувач.</p>
+<p>Завдання може звучати досить абстрактно мовою бізнесу, але не переживайте! Вирішуватимемо її поетапно, поступово перекладаючи її на мову SQL.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-join-09" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.9 </strong></span><br> Спочатку об’єднайте таблиці <code>user_actions</code> і <code>orders</code> — це ви вже вмієте робити. Як ключ використовуйте поле <code>order_id</code>. Виведіть id користувачів та замовлень, а також список товарів у замовленні. Відсортуйте таблицю за id користувача за зростанням, потім за id замовлення теж за зростанням.</p>
+<p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
+<p>Поля в результуючій таблиці: <code>user_id</code>, <code>order_id</code>, <code>product_ids</code></p>
+<p><strong>Пояснення:</strong> перед тим, як об’єднувати таблиці, подумайте, який тип з’єднання можна використовувати. Спробуйте різні способи та порівняйте результати.</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="20">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="op">%%</span>sql</span>
+<span id="cb35-2"><a href="#cb35-2"></a>SELECT  user_id,</span>
+<span id="cb35-3"><a href="#cb35-3"></a>        order_id,</span>
+<span id="cb35-4"><a href="#cb35-4"></a>        product_ids</span>
+<span id="cb35-5"><a href="#cb35-5"></a>FROM user_actions</span>
+<span id="cb35-6"><a href="#cb35-6"></a>LEFT JOIN orders using (order_id)</span>
+<span id="cb35-7"><a href="#cb35-7"></a>ORDER BY user_id, order_id</span>
+<span id="cb35-8"><a href="#cb35-8"></a>LIMIT <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">user_id</th>
+<th data-quarto-table-cell-role="th">order_id</th>
+<th data-quarto-table-cell-role="th">product_ids</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>1</td>
+<td>[65, 28]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>4683</td>
+<td>[1, 15, 40]</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1</td>
+<td>22901</td>
+<td>[65, 72, 83]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1</td>
+<td>23149</td>
+<td>[6, 84, 32]</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2</td>
+<td>2</td>
+<td>[35, 30, 42, 34]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">995</td>
+<td>227</td>
+<td>12572</td>
+<td>[76, 47, 37, 31]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">996</td>
+<td>227</td>
+<td>12578</td>
+<td>[58]</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">997</td>
+<td>227</td>
+<td>23268</td>
+<td>[74, 25, 67]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">998</td>
+<td>227</td>
+<td>25873</td>
+<td>[74, 72, 46]</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">999</td>
+<td>227</td>
+<td>25885</td>
+<td>[40, 58, 83]</td>
+</tr>
+</tbody>
+</table>
+
+<p>1000 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<p>Тепер трохи уточнимо наш запит, оскільки нас цікавлять не всі замовлення з таблиці <code>user_actions</code>, а лише ті, які не були скасовані користувачами, причому унікальні.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-join-10" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.10 </strong></span><br> Знову об’єднайте таблиці <code>user_actions</code> та <code>orders</code>, але тепер залиште лише унікальні нескасовані замовлення (ми робили схожий запит у <a href="sql_subquery.html#exr-sql-subquery-07">завданні&nbsp;<span>6.7</span></a>). Інші умови завдання ті самі: вивести ID користувачів та замовлень, а також список товарів у замовленні. Відсортуйте таблицю за id користувача за зростанням, потім за id замовлення теж за зростанням.</p>
+<p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
+<p>Поля в результуючій таблиці: <code>user_id</code>, <code>order_id</code>, <code>product_ids</code></p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="21">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="op">%%</span>sql</span>
+<span id="cb36-2"><a href="#cb36-2"></a>SELECT  user_id,</span>
+<span id="cb36-3"><a href="#cb36-3"></a>        order_id,</span>
+<span id="cb36-4"><a href="#cb36-4"></a>        product_ids</span>
+<span id="cb36-5"><a href="#cb36-5"></a>FROM user_actions</span>
+<span id="cb36-6"><a href="#cb36-6"></a>LEFT JOIN orders using (order_id)</span>
+<span id="cb36-7"><a href="#cb36-7"></a>WHERE  order_id <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb36-8"><a href="#cb36-8"></a>                    FROM   courier_actions</span>
+<span id="cb36-9"><a href="#cb36-9"></a>                    WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span>)</span>
+<span id="cb36-10"><a href="#cb36-10"></a>ORDER BY user_id, order_id</span>
+<span id="cb36-11"><a href="#cb36-11"></a>LIMIT <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">user_id</th>
+<th data-quarto-table-cell-role="th">order_id</th>
+<th data-quarto-table-cell-role="th">product_ids</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>1</td>
+<td>[65, 28]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>4683</td>
+<td>[1, 15, 40]</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1</td>
+<td>22901</td>
+<td>[65, 72, 83]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1</td>
+<td>23149</td>
+<td>[6, 84, 32]</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2</td>
+<td>2</td>
+<td>[35, 30, 42, 34]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">995</td>
+<td>248</td>
+<td>13935</td>
+<td>[75, 28, 86]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">996</td>
+<td>248</td>
+<td>15518</td>
+<td>[67, 79, 63]</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">997</td>
+<td>249</td>
+<td>287</td>
+<td>[26, 74, 53, 23]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">998</td>
+<td>249</td>
+<td>758</td>
+<td>[45, 57, 78]</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">999</td>
+<td>249</td>
+<td>7347</td>
+<td>[30, 14, 6, 9]</td>
+</tr>
+</tbody>
+</table>
+
+<p>1000 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<p>Здається, все готове для того, щоб для кожного користувача порахувати середню кількість товарів у замовленні.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-join-11" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.11 </strong></span><br> Використовуючи запит із попереднього завдання, порахуйте, скільки в середньому товарів замовляє кожен користувач. Виведіть id користувача та середню кількість товарів у замовленні. Середнє значення округліть до двох знаків після коми. Колонку обчисленими значеннями назвіть <code>avg_order_size</code>. Результат виконання запиту відсортуйте за зростанням ID користувача.</p>
+<p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
+<p>Поля у результуючій таблиці: <code>user_id</code>, <code>avg_order_size</code></p>
+<p><strong>Пояснення:</strong> для вирішення вам знадобиться функція <code>array_length</code>. Ми розглядали її у <a href="sql_agg.html#exr-sql-agg-09">завданні&nbsp;<span>4.9</span></a>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Підказка на випадок, якщо зовсім не виходить
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Щоб вирішити завдання, достатньо взяти запит з минулого завдання, порахувати розмір нескасованих замовлень, а потім зробити групування за користувачами і для кожного з них порахувати середній розмір замовлення.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="22">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="op">%%</span>sql</span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="cf">with</span> user_order_prod <span class="im">as</span> (</span>
+<span id="cb37-3"><a href="#cb37-3"></a>    SELECT  user_id,</span>
+<span id="cb37-4"><a href="#cb37-4"></a>            order_id,</span>
+<span id="cb37-5"><a href="#cb37-5"></a>            product_ids</span>
+<span id="cb37-6"><a href="#cb37-6"></a>    FROM user_actions</span>
+<span id="cb37-7"><a href="#cb37-7"></a>    LEFT JOIN orders using (order_id)</span>
+<span id="cb37-8"><a href="#cb37-8"></a>    WHERE  order_id <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb37-9"><a href="#cb37-9"></a>                    FROM   courier_actions</span>
+<span id="cb37-10"><a href="#cb37-10"></a>                    WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span>)</span>
+<span id="cb37-11"><a href="#cb37-11"></a>    )</span>
+<span id="cb37-12"><a href="#cb37-12"></a>    </span>
+<span id="cb37-13"><a href="#cb37-13"></a>SELECT  user_id,</span>
+<span id="cb37-14"><a href="#cb37-14"></a>        ROUND(AVG(array_length(product_ids, <span class="dv">1</span>)), <span class="dv">2</span>) <span class="im">as</span> avg_order_size</span>
+<span id="cb37-15"><a href="#cb37-15"></a>FROM user_order_prod</span>
+<span id="cb37-16"><a href="#cb37-16"></a>GROUP BY user_id</span>
+<span id="cb37-17"><a href="#cb37-17"></a>ORDER BY user_id</span>
+<span id="cb37-18"><a href="#cb37-18"></a>LIMIT <span class="dv">1000</span></span>
+<span id="cb37-19"><a href="#cb37-19"></a></span>
+<span id="cb37-20"><a href="#cb37-20"></a><span class="op">--</span> або</span>
+<span id="cb37-21"><a href="#cb37-21"></a><span class="op">--</span> SELECT user_id,</span>
+<span id="cb37-22"><a href="#cb37-22"></a><span class="op">--</span>        <span class="bu">round</span>(avg(array_length(product_ids, <span class="dv">1</span>)), <span class="dv">2</span>) <span class="im">as</span> avg_order_size</span>
+<span id="cb37-23"><a href="#cb37-23"></a><span class="op">--</span> FROM   (SELECT user_id,</span>
+<span id="cb37-24"><a href="#cb37-24"></a><span class="op">--</span>                order_id</span>
+<span id="cb37-25"><a href="#cb37-25"></a><span class="op">--</span>         FROM   user_actions</span>
+<span id="cb37-26"><a href="#cb37-26"></a><span class="op">--</span>         WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb37-27"><a href="#cb37-27"></a><span class="op">--</span>                                 FROM   user_actions</span>
+<span id="cb37-28"><a href="#cb37-28"></a><span class="op">--</span>                                 WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)) t1</span>
+<span id="cb37-29"><a href="#cb37-29"></a><span class="op">--</span>     LEFT JOIN orders using(order_id)</span>
+<span id="cb37-30"><a href="#cb37-30"></a><span class="op">--</span> GROUP BY user_id</span>
+<span id="cb37-31"><a href="#cb37-31"></a><span class="op">--</span> ORDER BY user_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">user_id</th>
+<th data-quarto-table-cell-role="th">avg_order_size</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>2.75</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>4.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>4.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>3.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>1.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">995</td>
+<td>1001</td>
+<td>2.71</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">996</td>
+<td>1002</td>
+<td>2.67</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">997</td>
+<td>1003</td>
+<td>3.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">998</td>
+<td>1004</td>
+<td>3.40</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">999</td>
+<td>1005</td>
+<td>2.00</td>
+</tr>
+</tbody>
+</table>
+
+<p>1000 rows × 2 columns</p>
 </div>
 </div>
 </div>
