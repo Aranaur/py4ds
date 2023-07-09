@@ -109,6 +109,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
 
 
 </head>
@@ -255,6 +256,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <li><a href="#full-join" id="toc-full-join" class="nav-link" data-scroll-target="#full-join"><span class="header-section-number">7.5</span> FULL JOIN</a></li>
   <li><a href="#операції-над-множинами" id="toc-операції-над-множинами" class="nav-link" data-scroll-target="#операції-над-множинами"><span class="header-section-number">7.6</span> Операції над множинами</a></li>
   <li><a href="#cross-join" id="toc-cross-join" class="nav-link" data-scroll-target="#cross-join"><span class="header-section-number">7.7</span> CROSS JOIN</a></li>
+  <li><a href="#збираємо-списки-array_agg" id="toc-збираємо-списки-array_agg" class="nav-link" data-scroll-target="#збираємо-списки-array_agg"><span class="header-section-number">7.8</span> Збираємо списки: <code>array_agg()</code></a></li>
+  <li><a href="#self-join" id="toc-self-join" class="nav-link" data-scroll-target="#self-join"><span class="header-section-number">7.9</span> SELF JOIN</a></li>
   </ul>
 </nav>
     </div>
@@ -492,7 +495,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="op">%%</span>sql</span>
 <span id="cb9-2"><a href="#cb9-2"></a>SELECT COUNT(DISTINCT user_id) AS users_count</span>
 <span id="cb9-3"><a href="#cb9-3"></a>FROM users</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="251">
 <div>
 
 
@@ -518,7 +521,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="op">%%</span>sql</span>
 <span id="cb10-2"><a href="#cb10-2"></a>SELECT COUNT(DISTINCT user_id) <span class="im">as</span> users_count</span>
 <span id="cb10-3"><a href="#cb10-3"></a>FROM user_actions</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="252">
 <div>
 
 
@@ -541,6 +544,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>Ви помітите, що у таблиці <code>user_actions</code> унікальних користувачів більше. Це означає, що про частину користувачів ми щось не знаємо — у нас просто немає інформації в таблиці <code>users</code>. Тому в результаті об’єднання цих двох таблиць за допомогою <code>INNER JOIN</code> цю частину користувачів буде виключено з результату.</p>
+<hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -592,7 +596,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb12-9"><a href="#cb12-9"></a>FROM   user_actions a join users b using (user_id)</span>
 <span id="cb12-10"><a href="#cb12-10"></a>ORDER BY user_id_left</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display column-body-outset" data-execution_count="5">
+<div class="cell-output cell-output-display column-body-outset" data-execution_count="253">
 <div>
 
 
@@ -727,6 +731,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
+<hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -752,7 +757,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb13-3"><a href="#cb13-3"></a>FROM   user_actions a </span>
 <span id="cb13-4"><a href="#cb13-4"></a>    JOIN users b using (user_id)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="254">
 <div>
 
 
@@ -774,6 +779,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
+<hr>
 </section>
 <section id="left-та-right-join" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="left-та-right-join"><span class="header-section-number">7.4</span> LEFT та RIGHT JOIN</h2>
@@ -994,6 +1000,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>А тепер розглянемо на прикладі наших даних.</p>
+<hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1026,7 +1033,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb17-10"><a href="#cb17-10"></a>    LEFT JOIN users b using (user_id)</span>
 <span id="cb17-11"><a href="#cb17-11"></a>ORDER BY user_id_left</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="257">
 <div>
 
 
@@ -1161,6 +1168,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
+<hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1186,7 +1194,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb18-3"><a href="#cb18-3"></a>FROM   user_actions a</span>
 <span id="cb18-4"><a href="#cb18-4"></a>    LEFT JOIN users b using (user_id)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="258">
 <div>
 
 
@@ -1208,9 +1216,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
+<hr>
 <p>Ви могли помітити, що при об’єднанні таблиць <code>user_actions</code> і <code>users</code> за допомогою <code>LEFT JOIN</code> у стовпцях, що прийшли з правої таблиці <code>users</code>, утворилися значення <code>NULL</code>. Якщо не помітили, спробуйте відсортувати об’єднану таблицю по полях <code>users.user_id</code> і <code>users.birth_date</code>.</p>
 <p>Це саме те, про що ми говорили — при формуванні об’єднаних рядків для тих id з лівої таблиці, яких не було в правій таблиці, поля з правої таблиці були заповнені порожніми значеннями.</p>
 <p>А тепер давайте перевернемо один трюк.</p>
+<hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1224,7 +1234,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="exr-sql-join-05" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 7.5 </strong></span><br> Візьміть запит із <a href="#exr-sql-join-03">завдання&nbsp;<span>7.3</span></a>, де ви об’єднували таблиці <code>user_actions</code> і <code>users</code> за допомогою <code>LEFT JOIN</code>, додайте до запиту оператор <code>WHERE</code> і виключіть значення <code>NULL</code> в колонці <code>user_id</code> з правої таблиці. Включіть у результат ті самі колонки і відсортуйте таблицю, що вийшла, за зростанням id користувача в колонці з лівої таблиці.</p>
 <p>Поля в результуючій таблиці: <code>user_id_left</code>, <code>user_id_right</code>, <code>order_id</code>, <code>time</code>, <code>action</code>, <code>sex</code>, <code>birth_date</code></p>
-<p>Після того як розв’яжете завдання, спробуйте порівняти це рішення із <span class="quarto-unresolved-ref">?exr-sql-join-1</span>. Подумайте, який <code>JOIN</code> ми отримали після всіх маніпуляцій з результатом. Заодно можете порахувати кількість унікальних <code>user_id</code> у запиті з цього завдання, щоб розставити всі крапки над “i”.</p>
+<p>Після того як розв’яжете завдання, спробуйте порівняти це рішення із <a href="#exr-sql-join-01">завданням&nbsp;<span>7.1</span></a>. Подумайте, який <code>JOIN</code> ми отримали після всіх маніпуляцій з результатом. Заодно можете порахувати кількість унікальних <code>user_id</code> у запиті з цього завдання, щоб розставити всі крапки над “i”.</p>
 </div>
 </div>
 </div>
@@ -1244,7 +1254,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb19-11"><a href="#cb19-11"></a>WHERE  b.user_id IS NOT NULL</span>
 <span id="cb19-12"><a href="#cb19-12"></a>ORDER BY user_id_left</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="259">
 <div>
 
 
@@ -1379,6 +1389,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
+<hr>
 </section>
 <section id="full-join" class="level2" data-number="7.5">
 <h2 data-number="7.5" class="anchored" data-anchor-id="full-join"><span class="header-section-number">7.5</span> FULL JOIN</h2>
@@ -1515,7 +1526,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb22-3"><a href="#cb22-3"></a>FROM users</span>
 <span id="cb22-4"><a href="#cb22-4"></a>WHERE birth_date IS NOT NULL</span>
 <span id="cb22-5"><a href="#cb22-5"></a>GROUP BY birth_date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="261">
 <div>
 
 
@@ -1596,7 +1607,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb23-3"><a href="#cb23-3"></a>FROM couriers</span>
 <span id="cb23-4"><a href="#cb23-4"></a>WHERE birth_date IS NOT NULL</span>
 <span id="cb23-5"><a href="#cb23-5"></a>GROUP BY birth_date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="262">
 <div>
 
 
@@ -1672,6 +1683,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>У результаті ви отримаєте дві таблиці з унікальними датами і кількістю людей, що народилися у кожен з днів. Давайте їх об’єднаємо.</p>
+<hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1717,7 +1729,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb24-21"><a href="#cb24-21"></a>FULL JOIN b on a.birth_date <span class="op">=</span> b.birth_date</span>
 <span id="cb24-22"><a href="#cb24-22"></a>ORDER BY users_birth_date, couriers_birth_date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="263">
 <div>
 
 
@@ -1816,6 +1828,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
+<hr>
 </section>
 <section id="операції-над-множинами" class="level2 page-columns page-full" data-number="7.6">
 <h2 data-number="7.6" class="anchored" data-anchor-id="операції-над-множинами"><span class="header-section-number">7.6</span> Операції над множинами</h2>
@@ -1905,7 +1918,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb27-4"><a href="#cb27-4"></a>EXCEPT</span>
 <span id="cb27-5"><a href="#cb27-5"></a>SELECT user_id</span>
 <span id="cb27-6"><a href="#cb27-6"></a>FROM users</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="265">
 <div>
 
 
@@ -1982,6 +1995,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Про теорію множин можна почитати у <a href="https://uk.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BE%D1%80%D1%96%D1%8F_%D0%BC%D0%BD%D0%BE%D0%B6%D0%B8%D0%BD">статті на Вікіпедії</a>.</p>
 </div>
 </div>
+<hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2023,7 +2037,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb30-12"><a href="#cb30-12"></a>SELECT COUNT(DISTINCT birth_date) <span class="im">as</span> dates_count</span>
 <span id="cb30-13"><a href="#cb30-13"></a>FROM sub_union</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="18">
+<div class="cell-output cell-output-display" data-execution_count="266">
 <div>
 
 
@@ -2045,6 +2059,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
+<hr>
 </section>
 <section id="cross-join" class="level2" data-number="7.7">
 <h2 data-number="7.7" class="anchored" data-anchor-id="cross-join"><span class="header-section-number">7.7</span> CROSS JOIN</h2>
@@ -2148,6 +2163,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>А теперь давайте решим простую задачу.</p>
+<hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2181,7 +2197,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb34-11"><a href="#cb34-11"></a>CROSS JOIN products</span>
 <span id="cb34-12"><a href="#cb34-12"></a>ORDER BY user_id, name</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div class="cell-output cell-output-display" data-execution_count="267">
 <div>
 
 
@@ -2256,9 +2272,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
+<hr>
 <p>Здається, ми розглянули достатньо прикладів об’єднання таблиць. Час переходити до практики!</p>
 <p>Проведемо невелику аналітику нашого сервісу і порахуємо, скільки в середньому товарів замовляє кожен користувач.</p>
 <p>Завдання може звучати досить абстрактно мовою бізнесу, але не переживайте! Вирішуватимемо її поетапно, поступово перекладаючи її на мову SQL.</p>
+<hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2289,7 +2307,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb35-7"><a href="#cb35-7"></a>ORDER BY user_id, order_id</span>
 <span id="cb35-8"><a href="#cb35-8"></a>LIMIT <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="20">
+<div class="cell-output cell-output-display" data-execution_count="268">
 <div>
 
 
@@ -2376,7 +2394,9 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
+<hr>
 <p>Тепер трохи уточнимо наш запит, оскільки нас цікавлять не всі замовлення з таблиці <code>user_actions</code>, а лише ті, які не були скасовані користувачами, причому унікальні.</p>
+<hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2409,7 +2429,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb36-10"><a href="#cb36-10"></a>ORDER BY user_id, order_id</span>
 <span id="cb36-11"><a href="#cb36-11"></a>LIMIT <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="269">
 <div>
 
 
@@ -2496,7 +2516,9 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
+<hr>
 <p>Здається, все готове для того, щоб для кожного користувача порахувати середню кількість товарів у замовленні.</p>
+<hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2566,7 +2588,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb37-30"><a href="#cb37-30"></a><span class="op">--</span> GROUP BY user_id</span>
 <span id="cb37-31"><a href="#cb37-31"></a><span class="op">--</span> ORDER BY user_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div class="cell-output cell-output-display" data-execution_count="270">
 <div>
 
 
@@ -2641,11 +2663,1234 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
+<hr>
+<p>А що якби ми захотіли зробити докладнішу аналітику і, наприклад, порахувати середню вартість замовлення (середній чек) кожного клієнта? Для цього нам би знадобилася інформація про вартість кожного окремого замовлення. Давайте проведемо такі розрахунки.</p>
+<hr>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-join-12" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.12 </strong></span><br> Для початку до таблиці із замовленнями (<code>orders</code>) застосуйте функцію <code>unnest</code>, як ми робили <a href="sql_subquery.html#exr-sql-subquery-12">завданні&nbsp;<span>6.12</span></a>. Колонку із id товарів назвіть <code>product_id</code>. Потім до розширеної таблиці, що утворилася, за ключом <code>product_id</code> додайте інформацію про ціни на товари (з таблиці <code>products</code>). Повинна вийти таблиця із замовленнями, товарами всередині кожного замовлення та цінами на ці товари. Виведіть колонки з id замовлення, id товару та ціною товару. Результат відсортуйте спочатку за зростанням id замовлення, потім за зростанням id товару.</p>
+<p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
+<p>Поля у результуючій таблиці: <code>order_id</code>, <code>product_id</code>, <code>price</code></p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="23">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="op">%%</span>sql</span>
+<span id="cb38-2"><a href="#cb38-2"></a><span class="cf">with</span> unnest_id <span class="im">as</span> (SELECT order_id,</span>
+<span id="cb38-3"><a href="#cb38-3"></a>                          unnest(orders.product_ids) <span class="im">as</span> product_id</span>
+<span id="cb38-4"><a href="#cb38-4"></a>                   FROM   orders)</span>
+<span id="cb38-5"><a href="#cb38-5"></a>SELECT order_id,</span>
+<span id="cb38-6"><a href="#cb38-6"></a>       product_id,</span>
+<span id="cb38-7"><a href="#cb38-7"></a>       products.price</span>
+<span id="cb38-8"><a href="#cb38-8"></a>FROM   unnest_id</span>
+<span id="cb38-9"><a href="#cb38-9"></a>    LEFT JOIN products using (product_id)</span>
+<span id="cb38-10"><a href="#cb38-10"></a>ORDER BY order_id, product_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="271">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">order_id</th>
+<th data-quarto-table-cell-role="th">product_id</th>
+<th data-quarto-table-cell-role="th">price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>28</td>
+<td>75.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>65</td>
+<td>100.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2</td>
+<td>30</td>
+<td>140.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2</td>
+<td>34</td>
+<td>98.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2</td>
+<td>35</td>
+<td>90.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">995</td>
+<td>299</td>
+<td>83</td>
+<td>55.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">996</td>
+<td>299</td>
+<td>87</td>
+<td>398.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">997</td>
+<td>300</td>
+<td>57</td>
+<td>450.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">998</td>
+<td>300</td>
+<td>67</td>
+<td>30.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">999</td>
+<td>301</td>
+<td>1</td>
+<td>150.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>1000 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<hr>
+<p>Маючи таблицю із замовленнями, що містить список товарів та їх ціни, тепер можна легко порахувати вартість кожного замовлення.</p>
+<hr>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-join-13" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.13 </strong></span><br> Використовуючи запит із <a href="#exr-sql-join-12">завдання&nbsp;<span>7.12</span></a>, розрахуйте сумарну вартість кожного замовлення. Виведіть колонки з id замовлень та їх вартістю. Колонку із вартістю замовлення назвіть <code>order_price</code>. Результат відсортуйте за зростанням id замовлення.</p>
+<p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
+<p>Поля у результуючій таблиці: <code>order_id</code>, <code>order_price</code></p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="24">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="op">%%</span>sql</span>
+<span id="cb39-2"><a href="#cb39-2"></a>SELECT order_id,</span>
+<span id="cb39-3"><a href="#cb39-3"></a>       <span class="bu">sum</span>(price) <span class="im">as</span> order_price</span>
+<span id="cb39-4"><a href="#cb39-4"></a>FROM   (SELECT order_id,</span>
+<span id="cb39-5"><a href="#cb39-5"></a>               product_ids,</span>
+<span id="cb39-6"><a href="#cb39-6"></a>               unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb39-7"><a href="#cb39-7"></a>        FROM   orders) t1</span>
+<span id="cb39-8"><a href="#cb39-8"></a>    LEFT JOIN products using(product_id)</span>
+<span id="cb39-9"><a href="#cb39-9"></a>GROUP BY order_id</span>
+<span id="cb39-10"><a href="#cb39-10"></a>ORDER BY order_id limit <span class="dv">1000</span></span>
+<span id="cb39-11"><a href="#cb39-11"></a></span>
+<span id="cb39-12"><a href="#cb39-12"></a><span class="op">--</span> або</span>
+<span id="cb39-13"><a href="#cb39-13"></a><span class="op">--</span> <span class="cf">with</span>    unnest_id <span class="im">as</span> (</span>
+<span id="cb39-14"><a href="#cb39-14"></a><span class="op">--</span>             SELECT  order_id,</span>
+<span id="cb39-15"><a href="#cb39-15"></a><span class="op">--</span>                     unnest(orders.product_ids) <span class="im">as</span> product_id</span>
+<span id="cb39-16"><a href="#cb39-16"></a><span class="op">--</span>             FROM   orders</span>
+<span id="cb39-17"><a href="#cb39-17"></a><span class="op">--</span>         ),</span>
+<span id="cb39-18"><a href="#cb39-18"></a><span class="op">--</span>         price_tbl <span class="im">as</span> (</span>
+<span id="cb39-19"><a href="#cb39-19"></a><span class="op">--</span>             SELECT  order_id,</span>
+<span id="cb39-20"><a href="#cb39-20"></a><span class="op">--</span>                     product_id,</span>
+<span id="cb39-21"><a href="#cb39-21"></a><span class="op">--</span>                     products.price</span>
+<span id="cb39-22"><a href="#cb39-22"></a><span class="op">--</span>             FROM   unnest_id</span>
+<span id="cb39-23"><a href="#cb39-23"></a><span class="op">--</span>             LEFT JOIN products using (product_id)</span>
+<span id="cb39-24"><a href="#cb39-24"></a><span class="op">--</span>                       )</span>
+<span id="cb39-25"><a href="#cb39-25"></a>        </span>
+<span id="cb39-26"><a href="#cb39-26"></a><span class="op">--</span> SELECT  order_id,</span>
+<span id="cb39-27"><a href="#cb39-27"></a><span class="op">--</span>         <span class="bu">sum</span>(price) <span class="im">as</span> order_price</span>
+<span id="cb39-28"><a href="#cb39-28"></a><span class="op">--</span> FROM price_tbl</span>
+<span id="cb39-29"><a href="#cb39-29"></a><span class="op">--</span> GROUP BY order_id</span>
+<span id="cb39-30"><a href="#cb39-30"></a><span class="op">--</span> ORDER BY order_id</span>
+<span id="cb39-31"><a href="#cb39-31"></a><span class="op">--</span> LIMIT <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="272">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">order_id</th>
+<th data-quarto-table-cell-role="th">order_price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>175.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>394.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>493.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>156.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>51.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">995</td>
+<td>996</td>
+<td>295.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">996</td>
+<td>997</td>
+<td>150.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">997</td>
+<td>998</td>
+<td>358.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">998</td>
+<td>999</td>
+<td>289.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">999</td>
+<td>1000</td>
+<td>69.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>1000 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<hr>
+<p>Ось тепер у нас є все необхідне, щоб зробити наш перший серйозний аналітичний запит і порахувати різні метрики користувача!</p>
+<p>Давайте об’єднаємо в один запит дані про кількість товарів на замовлення наших користувачів з інформацією про вартість кожного замовлення, а потім розрахуємо кілька корисних показників.</p>
+<hr>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-join-14" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.14 </strong></span><br> Використовуючи результати попередніх завдань (<a href="#exr-sql-join-13">завд.&nbsp;<span>7.13</span></a> та <a href="#exr-sql-join-11">завд.&nbsp;<span>7.11</span></a>), напишіть запит для отримання інформації для кожного користувача:</p>
+<ul>
+<li>загальна кількість замовлень - колонку назвіть <code>orders_count</code></li>
+<li>середня кількість товарів у замовленні — <code>avg_order_size</code></li>
+<li>сумарну вартість усіх покупок - <code>sum_order_value</code></li>
+<li>середня вартість замовлення - <code>avg_order_value</code></li>
+<li>мінімальну вартість замовлення - <code>min_order_value</code></li>
+<li>максимальну вартість замовлення - <code>max_order_value</code></li>
+</ul>
+<p>Отриманий результат відсортуйте за зростанням id користувача.</p>
+<p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
+<p>Пам’ятайте, що в розрахунках ми, як і раніше, враховуємо лише нескасовані замовлення. При розрахунку середніх значень округляйте їх <strong>до двох знаків</strong> після коми.</p>
+<p>Поля в результуючій таблиці: <code>user_id</code>, <code>orders_count</code>, <code>avg_order_size</code>, <code>sum_order_value</code>, <code>avg_order_value</code>, <code>min_order_value</code>, <code>max_order_value</code></p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="25">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="op">%%</span>sql</span>
+<span id="cb40-2"><a href="#cb40-2"></a><span class="cf">with</span>    unnest_id <span class="im">as</span> (</span>
+<span id="cb40-3"><a href="#cb40-3"></a>            SELECT  order_id,</span>
+<span id="cb40-4"><a href="#cb40-4"></a>                    unnest(orders.product_ids) <span class="im">as</span> product_id</span>
+<span id="cb40-5"><a href="#cb40-5"></a>            FROM   orders</span>
+<span id="cb40-6"><a href="#cb40-6"></a>            ),</span>
+<span id="cb40-7"><a href="#cb40-7"></a>        price_tbl <span class="im">as</span> (</span>
+<span id="cb40-8"><a href="#cb40-8"></a>            SELECT  order_id,</span>
+<span id="cb40-9"><a href="#cb40-9"></a>                    product_id,</span>
+<span id="cb40-10"><a href="#cb40-10"></a>                    products.price</span>
+<span id="cb40-11"><a href="#cb40-11"></a>            FROM   unnest_id</span>
+<span id="cb40-12"><a href="#cb40-12"></a>            LEFT JOIN products using (product_id)</span>
+<span id="cb40-13"><a href="#cb40-13"></a>            ),</span>
+<span id="cb40-14"><a href="#cb40-14"></a>        user_order_prod <span class="im">as</span> (</span>
+<span id="cb40-15"><a href="#cb40-15"></a>            SELECT  user_id,</span>
+<span id="cb40-16"><a href="#cb40-16"></a>                    order_id,</span>
+<span id="cb40-17"><a href="#cb40-17"></a>                    product_ids</span>
+<span id="cb40-18"><a href="#cb40-18"></a>            FROM   user_actions</span>
+<span id="cb40-19"><a href="#cb40-19"></a>            LEFT JOIN orders using (order_id)</span>
+<span id="cb40-20"><a href="#cb40-20"></a>            WHERE  order_id <span class="kw">in</span> (</span>
+<span id="cb40-21"><a href="#cb40-21"></a>                SELECT order_id</span>
+<span id="cb40-22"><a href="#cb40-22"></a>                FROM   courier_actions</span>
+<span id="cb40-23"><a href="#cb40-23"></a>                WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span>)</span>
+<span id="cb40-24"><a href="#cb40-24"></a>            ),</span>
+<span id="cb40-25"><a href="#cb40-25"></a>        order_size <span class="im">as</span> (</span>
+<span id="cb40-26"><a href="#cb40-26"></a>            SELECT user_id,</span>
+<span id="cb40-27"><a href="#cb40-27"></a>                    order_id,</span>
+<span id="cb40-28"><a href="#cb40-28"></a>                    <span class="bu">round</span>(avg(array_length(product_ids, <span class="dv">1</span>)), <span class="dv">2</span>) <span class="im">as</span> avg_order_size</span>
+<span id="cb40-29"><a href="#cb40-29"></a>            FROM   user_order_prod</span>
+<span id="cb40-30"><a href="#cb40-30"></a>            GROUP BY user_id, order_id</span>
+<span id="cb40-31"><a href="#cb40-31"></a>            ),</span>
+<span id="cb40-32"><a href="#cb40-32"></a>        order_price <span class="im">as</span> (</span>
+<span id="cb40-33"><a href="#cb40-33"></a>            SELECT  order_id,</span>
+<span id="cb40-34"><a href="#cb40-34"></a>                    <span class="bu">sum</span>(price) <span class="im">as</span> order_price</span>
+<span id="cb40-35"><a href="#cb40-35"></a>            FROM   price_tbl</span>
+<span id="cb40-36"><a href="#cb40-36"></a>            GROUP BY order_id</span>
+<span id="cb40-37"><a href="#cb40-37"></a>            )</span>
+<span id="cb40-38"><a href="#cb40-38"></a>            </span>
+<span id="cb40-39"><a href="#cb40-39"></a>SELECT  user_id,</span>
+<span id="cb40-40"><a href="#cb40-40"></a>        COUNT(user_id) <span class="im">as</span> orders_count,</span>
+<span id="cb40-41"><a href="#cb40-41"></a>        ROUND(AVG(avg_order_size), <span class="dv">2</span>) <span class="im">as</span> avg_order_size,</span>
+<span id="cb40-42"><a href="#cb40-42"></a>        SUM(order_price) <span class="im">as</span> sum_order_value,</span>
+<span id="cb40-43"><a href="#cb40-43"></a>        ROUND(AVG(order_price), <span class="dv">2</span>) <span class="im">as</span> avg_order_value,</span>
+<span id="cb40-44"><a href="#cb40-44"></a>        MIN(order_price) <span class="im">as</span> min_order_value,</span>
+<span id="cb40-45"><a href="#cb40-45"></a>        MAX(order_price) <span class="im">as</span> max_order_value</span>
+<span id="cb40-46"><a href="#cb40-46"></a>FROM order_size</span>
+<span id="cb40-47"><a href="#cb40-47"></a>LEFT JOIN order_price using (order_id)</span>
+<span id="cb40-48"><a href="#cb40-48"></a>GROUP BY user_id</span>
+<span id="cb40-49"><a href="#cb40-49"></a>ORDER BY user_id</span>
+<span id="cb40-50"><a href="#cb40-50"></a>LIMIT <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="273">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">user_id</th>
+<th data-quarto-table-cell-role="th">orders_count</th>
+<th data-quarto-table-cell-role="th">avg_order_size</th>
+<th data-quarto-table-cell-role="th">sum_order_value</th>
+<th data-quarto-table-cell-role="th">avg_order_value</th>
+<th data-quarto-table-cell-role="th">min_order_value</th>
+<th data-quarto-table-cell-role="th">max_order_value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>4</td>
+<td>2.75</td>
+<td>1206.0</td>
+<td>301.50</td>
+<td>170.0</td>
+<td>640.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>2</td>
+<td>4.00</td>
+<td>590.0</td>
+<td>295.00</td>
+<td>196.0</td>
+<td>394.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>4</td>
+<td>4.00</td>
+<td>2154.0</td>
+<td>538.50</td>
+<td>336.0</td>
+<td>772.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>2</td>
+<td>3.00</td>
+<td>329.0</td>
+<td>164.50</td>
+<td>156.0</td>
+<td>173.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>1</td>
+<td>1.00</td>
+<td>51.0</td>
+<td>51.00</td>
+<td>51.0</td>
+<td>51.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">995</td>
+<td>1001</td>
+<td>7</td>
+<td>2.71</td>
+<td>2376.0</td>
+<td>339.43</td>
+<td>60.0</td>
+<td>596.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">996</td>
+<td>1002</td>
+<td>3</td>
+<td>2.67</td>
+<td>1365.0</td>
+<td>455.00</td>
+<td>75.0</td>
+<td>665.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">997</td>
+<td>1003</td>
+<td>1</td>
+<td>3.00</td>
+<td>200.0</td>
+<td>200.00</td>
+<td>200.0</td>
+<td>200.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">998</td>
+<td>1004</td>
+<td>5</td>
+<td>3.40</td>
+<td>1906.0</td>
+<td>381.20</td>
+<td>245.0</td>
+<td>498.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">999</td>
+<td>1005</td>
+<td>1</td>
+<td>2.00</td>
+<td>94.0</td>
+<td>94.00</td>
+<td>94.0</td>
+<td>94.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>1000 rows × 7 columns</p>
+</div>
+</div>
+</div>
+<hr>
+<p>З великим завданням ми впоралися – тепер давайте вирішимо кілька додаткових завдань на закріплення нових знань.</p>
+<hr>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-join-15" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.15 </strong></span><br> За таблицями <code>courier_actions</code>, <code>orders</code> та <code>products</code> визначте <strong>10 найпопулярніших товарів, доставлених у вересні 2022 року</strong>. Найпопулярнішими товарами вважатимемо ті, що зустрічалися в замовленнях найчастіше. Якщо товар зустрічається в одному замовленні кілька разів (було куплено кілька одиниць товару), то при підрахунку враховуємо лише одну одиницю товару. Виведіть найменування товарів та скільки разів вони зустрічалися в замовленнях. Нову колонку з кількістю покупок товару назвіть <code>times_purchased</code>.</p>
+<p>Поля у результуючій таблиці: <code>name</code>, <code>times_purchased</code></p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="26">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="op">%%</span>sql</span>
+<span id="cb41-2"><a href="#cb41-2"></a>SELECT name,</span>
+<span id="cb41-3"><a href="#cb41-3"></a>       count(product_id) <span class="im">as</span> times_purchased</span>
+<span id="cb41-4"><a href="#cb41-4"></a>FROM   (SELECT order_id,</span>
+<span id="cb41-5"><a href="#cb41-5"></a>               product_id,</span>
+<span id="cb41-6"><a href="#cb41-6"></a>               name</span>
+<span id="cb41-7"><a href="#cb41-7"></a>        FROM   (SELECT DISTINCT order_id,</span>
+<span id="cb41-8"><a href="#cb41-8"></a>                                unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb41-9"><a href="#cb41-9"></a>                FROM   orders</span>
+<span id="cb41-10"><a href="#cb41-10"></a>                    LEFT JOIN courier_actions using (order_id)</span>
+<span id="cb41-11"><a href="#cb41-11"></a>                WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb41-12"><a href="#cb41-12"></a>                   <span class="kw">and</span> date_part(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">9</span></span>
+<span id="cb41-13"><a href="#cb41-13"></a>                   <span class="kw">and</span> date_part(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span>) t1</span>
+<span id="cb41-14"><a href="#cb41-14"></a>            LEFT JOIN products using (product_id)) t2</span>
+<span id="cb41-15"><a href="#cb41-15"></a>GROUP BY name</span>
+<span id="cb41-16"><a href="#cb41-16"></a>ORDER BY times_purchased desc limit <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="274">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">times_purchased</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>bananas</td>
+<td>2632</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>pasta</td>
+<td>2623</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>long loaf</td>
+<td>2622</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>sugar</td>
+<td>2617</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>bread</td>
+<td>2605</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>chicken</td>
+<td>2585</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>black tea bags</td>
+<td>2581</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>milk</td>
+<td>2564</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>instant coffee</td>
+<td>2460</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>apple juice</td>
+<td>2373</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<hr>
+<p>Раніше ми вважали рахували скасованих замовлень (<code>cancel_rate</code>) для кожного користувача. Тепер у нашому розпорядженні є всі необхідні знання, щоб порахувати цей показник у розрізі статі.</p>
+<hr>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-join-16" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.16 </strong></span><br> Візьміть за основу запит із <a href="sql_groupby.html#exr-sql-groupby-11">завдання&nbsp;<span>5.11</span></a> і підтягніть до нього з таблиці <code>users</code> дані про поле користувачів таким чином, щоб усі користувачі з таблиці <code>users_actions</code> залишилися в результаті. Потім порахуйте середнє значення <code>cancel_rate</code> для кожної статі, заокругливши його <strong>до трьох знаків після ком</strong>и. Колонку з порахованим середнім значенням назвіть <code>avg_cancel_rate</code>.</p>
+<p>Пам’ятайте про відсутність інформації про поле деяких користувачів після об’єднання таблиць, тому що не всі користувачі таблиці <code>user_action</code> є в таблиці users. Для цієї групи також порахуйте <code>cancel_rate</code> і в результуючій таблиці для порожнього значення в колонці з підлогою вкажіть <strong>‘unknown’</strong> (без лапок). Можливо, для цього доведеться згадати, як працює <code>COALESCE</code>.</p>
+<p>Результат відсортуйте по колонці зі статтю користувача за зростанням.</p>
+<p>Поля у результуючій таблиці: <code>sex</code>, <code>avg_cancel_rate</code></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Пояснення
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Метрику <code>cancel_rate</code> у розрізі статі можна порахувати різними способами, у цій задачі пропонуємо наступний алгоритм:</p>
+<ol type="1">
+<li>Спочатку порахуйте <code>cancel_rate</code> для кожного користувача.</li>
+<li>Потім додайте інформацію про поле користувачів.</li>
+<li>Потім розрахуйте <code>avg_cancel_rate</code> для кожної статі та округліть значення до трьох знаків після коми.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="27">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="op">%%</span>sql</span>
+<span id="cb42-2"><a href="#cb42-2"></a>SELECT coalesce(sex, <span class="st">'unknown'</span>) <span class="im">as</span> sex,</span>
+<span id="cb42-3"><a href="#cb42-3"></a>       <span class="bu">round</span>(avg(cancel_rate), <span class="dv">3</span>) <span class="im">as</span> avg_cancel_rate</span>
+<span id="cb42-4"><a href="#cb42-4"></a>FROM   (SELECT user_id,</span>
+<span id="cb42-5"><a href="#cb42-5"></a>               sex,</span>
+<span id="cb42-6"><a href="#cb42-6"></a>               count(distinct order_id) <span class="bu">filter</span> (WHERE action <span class="op">=</span> <span class="st">'cancel_order'</span>)::decimal <span class="op">/</span> count(distinct order_id) <span class="im">as</span> cancel_rate</span>
+<span id="cb42-7"><a href="#cb42-7"></a>        FROM   user_actions</span>
+<span id="cb42-8"><a href="#cb42-8"></a>            LEFT JOIN users using(user_id)</span>
+<span id="cb42-9"><a href="#cb42-9"></a>        GROUP BY user_id, sex</span>
+<span id="cb42-10"><a href="#cb42-10"></a>        ORDER BY cancel_rate desc) t</span>
+<span id="cb42-11"><a href="#cb42-11"></a>GROUP BY sex</span>
+<span id="cb42-12"><a href="#cb42-12"></a>ORDER BY sex</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="275">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">avg_cancel_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>female</td>
+<td>0.051</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>male</td>
+<td>0.048</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>unknown</td>
+<td>0.046</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<hr>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-join-17" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.17 </strong></span><br> За таблицями <code>orders</code> та <code>courier_actions</code> визначте id десяти замовлень, які доставляли найдовше.</p>
+<p>Поле у результуючій таблиці: <code>order_id</code></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Пояснення
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Для розрахунку часу, витраченого на доставку замовлення, використовуйте інформацію про час доставки та час створення замовлення - з даними у форматі часу можна також проводити арифметичні операції (наприклад, обчислювати різницю між ними). Зауважте, що колонки з цими даними знаходяться в різних таблицях. Для визначення найдовших замовлень використовуйте оператор <code>LIMIT</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="28">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="op">%%</span>sql</span>
+<span id="cb43-2"><a href="#cb43-2"></a>SELECT order_id</span>
+<span id="cb43-3"><a href="#cb43-3"></a>FROM   (SELECT order_id,</span>
+<span id="cb43-4"><a href="#cb43-4"></a>               time <span class="op">-</span> creation_time <span class="im">as</span> time_to_deliv</span>
+<span id="cb43-5"><a href="#cb43-5"></a>        FROM   orders</span>
+<span id="cb43-6"><a href="#cb43-6"></a>            LEFT JOIN courier_actions using (order_id)</span>
+<span id="cb43-7"><a href="#cb43-7"></a>        WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb43-8"><a href="#cb43-8"></a>        ORDER BY time_to_deliv desc) <span class="im">as</span> t1 limit <span class="dv">10</span></span>
+<span id="cb43-9"><a href="#cb43-9"></a></span>
+<span id="cb43-10"><a href="#cb43-10"></a><span class="op">--</span> або</span>
+<span id="cb43-11"><a href="#cb43-11"></a><span class="op">--</span> SELECT order_id</span>
+<span id="cb43-12"><a href="#cb43-12"></a><span class="op">--</span> FROM   (SELECT order_id,</span>
+<span id="cb43-13"><a href="#cb43-13"></a><span class="op">--</span>                time <span class="op">-</span> creation_time <span class="im">as</span> time_to_deliv</span>
+<span id="cb43-14"><a href="#cb43-14"></a><span class="op">--</span>         FROM   orders</span>
+<span id="cb43-15"><a href="#cb43-15"></a><span class="op">--</span>             LEFT JOIN courier_actions using (order_id)</span>
+<span id="cb43-16"><a href="#cb43-16"></a><span class="op">--</span>         WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb43-17"><a href="#cb43-17"></a><span class="op">--</span>         ORDER BY time_to_deliv desc) <span class="im">as</span> t1 limit <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="276">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">order_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>22408</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>58491</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1155</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1464</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>4788</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>11064</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>12150</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>14647</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>18991</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>22907</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="збираємо-списки-array_agg" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="збираємо-списки-array_agg"><span class="header-section-number">7.8</span> Збираємо списки: <code>array_agg()</code></h2>
+<p>Днями менеджер знову звернувся до вас із завданням: попросив зробити вивантаження з таблиці <code>orders</code> з усіма замовленнями та їх вмістом. З листування ви так і не зрозуміли, навіщо всі ці дані, але завдання зробили: натиснули <code>SELECT *</code> і відправили йому excel-файл із замовленнями. Наступного ранку з’ясувалося, що такі дані його не влаштовують, оскільки він не розуміє, що це за списки з наборами чисел. Справді, цей момент ви не врахували. Давайте виправлятися!</p>
+<p><code>array_agg</code> — це просунута агрегатна функція, яка збирає всі значення в зазначеному стовпці в єдиний список (<code>ARRAY</code>). По суті <code>array_agg</code> - це операція, зворотна <code>unnest</code>, її синтаксис нічим не відрізняється від синтаксису інших агрегатних функцій:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb44-1"><a href="#cb44-1"></a><span class="kw">SELECT</span> column_1, array_agg(column_2) <span class="kw">AS</span> new_array</span>
+<span id="cb44-2"><a href="#cb44-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb44-3"><a href="#cb44-3"></a><span class="kw">GROUP</span> <span class="kw">BY</span> column_1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Перед тим, як вирішувати завдання, спробуйте спочатку виконати просту вправу: розгорніть списки з id товарів, помістіть результат у підзапит, а потім відразу ж поверніть все назад у списки за допомогою <code>array_agg</code>. Алгоритм вирішення цього завдання приблизно такий самий.</p>
+<hr>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-join-18" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.18 </strong></span><br> Змініть списки з id товарів з таблиці <code>orders</code> на списки з найменуваннями товарів. Назви візьміть з таблиці <code>products</code>. Назвіть колонку з новими списками найменувань <code>product_names</code>.</p>
+<p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
+<p>Поля у результуючій таблиці: <code>order_id</code>, <code>product_names</code></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Пояснення
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Для вирішення задачі вам потрібно зробити <code>unnest</code> колонки <code>product_ids</code>, об’єднати проміжний результат з таблицею <code>products</code> для отримання найменувань товарів, а потім зробити групування з агрегацією в список найменувань.</p>
+<p>Для того, щоб зробити агрегацію значень у колонці до списку, необхідно скористатися функцією <code>array_agg</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="29">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="op">%%</span>sql</span>
+<span id="cb45-2"><a href="#cb45-2"></a>SELECT order_id,</span>
+<span id="cb45-3"><a href="#cb45-3"></a>       array_agg(name) <span class="im">as</span> product_names</span>
+<span id="cb45-4"><a href="#cb45-4"></a>FROM   (SELECT order_id,</span>
+<span id="cb45-5"><a href="#cb45-5"></a>               unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb45-6"><a href="#cb45-6"></a>        FROM   orders) t join products using(product_id)</span>
+<span id="cb45-7"><a href="#cb45-7"></a>GROUP BY order_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="277">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">order_id</th>
+<th data-quarto-table-cell-role="th">product_names</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>[bananas, cream]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>3</td>
+<td>[orange juice, sunflower oil, chicken]</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>19</td>
+<td>[bread, buckwheat, oranges, cream]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>53</td>
+<td>[sunflower oil, peas, apple juice, cranberry j...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>54</td>
+<td>[black tea bags]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">995</td>
+<td>9783</td>
+<td>[pork, milk, chips]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">996</td>
+<td>9789</td>
+<td>[bananas, energy drink, grain coffee, dried fi...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">997</td>
+<td>9880</td>
+<td>[lemonade, cookie]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">998</td>
+<td>9895</td>
+<td>[сowberry juice]</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">999</td>
+<td>9910</td>
+<td>[green tea bags, pork, apple juice, mutton, bl...</td>
+</tr>
+</tbody>
+</table>
+
+<p>1000 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<hr>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-join-19" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.19 </strong></span><br> З’ясуйте, хто замовляв та доставляв найбільші замовлення. Найбільшими вважають замовлення з найбільшою кількістю товарів.</p>
+<p>Виведіть id замовлення, id користувача та id кур’єра. Також в окремих колонках вкажіть вік користувача та вік кур’єра. <strong>Вік виміряйте числом повних років</strong>, як ми робили раніше. Рахуйте його щодо останньої дати в таблиці <code>user_actions</code> як для користувачів, так і для кур’єрів. Колонки з віком назвіть <code>user_age</code> та <code>courier_age</code>. Результат відсортуйте за зростанням id замовлення.</p>
+<p>Поля в результуючій таблиці: <code>order_id</code>, <code>user_id</code>, <code>user_age</code>, <code>courier_id</code>, <code>courier_age</code></p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="30">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="op">%%</span>sql</span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="cf">with</span> order_id_large_size <span class="im">as</span> (SELECT order_id</span>
+<span id="cb46-3"><a href="#cb46-3"></a>                             FROM   orders</span>
+<span id="cb46-4"><a href="#cb46-4"></a>                             WHERE  array_length(product_ids, <span class="dv">1</span>) <span class="op">=</span> (SELECT <span class="bu">max</span>(array_length(product_ids, <span class="dv">1</span>))</span>
+<span id="cb46-5"><a href="#cb46-5"></a>                                                                    FROM   orders))</span>
+<span id="cb46-6"><a href="#cb46-6"></a>SELECT DISTINCT order_id,</span>
+<span id="cb46-7"><a href="#cb46-7"></a>                user_id,</span>
+<span id="cb46-8"><a href="#cb46-8"></a>                date_part(<span class="st">'year'</span>, age((SELECT <span class="bu">max</span>(time)</span>
+<span id="cb46-9"><a href="#cb46-9"></a>                       FROM   user_actions), users.birth_date))::integer <span class="im">as</span> user_age, courier_id, date_part(<span class="st">'year'</span>, age((SELECT <span class="bu">max</span>(time)</span>
+<span id="cb46-10"><a href="#cb46-10"></a>                                                                                                  FROM   user_actions), couriers.birth_date))::integer <span class="im">as</span> courier_age</span>
+<span id="cb46-11"><a href="#cb46-11"></a>FROM   (SELECT order_id,</span>
+<span id="cb46-12"><a href="#cb46-12"></a>               user_id</span>
+<span id="cb46-13"><a href="#cb46-13"></a>        FROM   user_actions</span>
+<span id="cb46-14"><a href="#cb46-14"></a>        WHERE  order_id <span class="kw">in</span> (SELECT <span class="op">*</span></span>
+<span id="cb46-15"><a href="#cb46-15"></a>                            FROM   order_id_large_size)) t1</span>
+<span id="cb46-16"><a href="#cb46-16"></a>    LEFT JOIN (SELECT order_id,</span>
+<span id="cb46-17"><a href="#cb46-17"></a>                      courier_id</span>
+<span id="cb46-18"><a href="#cb46-18"></a>               FROM   courier_actions</span>
+<span id="cb46-19"><a href="#cb46-19"></a>               WHERE  order_id <span class="kw">in</span> (SELECT <span class="op">*</span></span>
+<span id="cb46-20"><a href="#cb46-20"></a>                                   FROM   order_id_large_size)) t2 using(order_id)</span>
+<span id="cb46-21"><a href="#cb46-21"></a>    LEFT JOIN users using(user_id)</span>
+<span id="cb46-22"><a href="#cb46-22"></a>    LEFT JOIN couriers using(courier_id)</span>
+<span id="cb46-23"><a href="#cb46-23"></a>ORDER BY order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="278">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">order_id</th>
+<th data-quarto-table-cell-role="th">user_id</th>
+<th data-quarto-table-cell-role="th">user_age</th>
+<th data-quarto-table-cell-role="th">courier_id</th>
+<th data-quarto-table-cell-role="th">courier_age</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>7949</td>
+<td>3804</td>
+<td>29</td>
+<td>845</td>
+<td>19</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>18853</td>
+<td>5433</td>
+<td>31</td>
+<td>1537</td>
+<td>33</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>29786</td>
+<td>12728</td>
+<td>33</td>
+<td>431</td>
+<td>26</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>49755</td>
+<td>18622</td>
+<td>29</td>
+<td>1619</td>
+<td>32</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>51414</td>
+<td>17170</td>
+<td>31</td>
+<td>2564</td>
+<td>27</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="self-join" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="self-join"><span class="header-section-number">7.9</span> SELF JOIN</h2>
+<p>І насамкінець розглянемо ще один тип об’єднання таблиць, який теж потрібно знати. Це так званий <code>SELF JOIN</code>.</p>
+<p><code>SELF JOIN</code> - не що інше, як об’єднання таблиці із самою собою. Так, така операція також можлива і, більше того, часто буває корисною.</p>
+<p>Приєднати таблицю до себе можна з допомогою будь-якого розглянутого раніше типу джойна:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb47-1"><a href="#cb47-1"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
+<span id="cb47-2"><a href="#cb47-2"></a><span class="kw">FROM</span> <span class="kw">table</span> <span class="kw">JOIN</span> <span class="kw">table</span></span>
+<span id="cb47-3"><a href="#cb47-3"></a>     <span class="kw">ON</span> [condition]</span>
+<span id="cb47-4"><a href="#cb47-4"></a></span>
+<span id="cb47-5"><a href="#cb47-5"></a></span>
+<span id="cb47-6"><a href="#cb47-6"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
+<span id="cb47-7"><a href="#cb47-7"></a><span class="kw">FROM</span> <span class="kw">table</span> <span class="kw">LEFT</span> <span class="kw">JOIN</span> <span class="kw">table</span></span>
+<span id="cb47-8"><a href="#cb47-8"></a>     <span class="kw">ON</span> [condition]</span>
+<span id="cb47-9"><a href="#cb47-9"></a></span>
+<span id="cb47-10"><a href="#cb47-10"></a></span>
+<span id="cb47-11"><a href="#cb47-11"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
+<span id="cb47-12"><a href="#cb47-12"></a><span class="kw">FROM</span> <span class="kw">table</span> <span class="kw">FULL</span> <span class="kw">JOIN</span> <span class="kw">table</span></span>
+<span id="cb47-13"><a href="#cb47-13"></a>     <span class="kw">ON</span> [condition]</span>
+<span id="cb47-14"><a href="#cb47-14"></a></span>
+<span id="cb47-15"><a href="#cb47-15"></a></span>
+<span id="cb47-16"><a href="#cb47-16"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
+<span id="cb47-17"><a href="#cb47-17"></a><span class="kw">FROM</span> <span class="kw">table</span> <span class="kw">CROSS</span> <span class="kw">JOIN</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-join-20" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.20 </strong></span><br> З’ясуйте, які пари товарів купують разом найчастіше.</p>
+<p>Пари товарів сформуйте на основі таблиці із замовленнями. Скасовані замовлення не враховуйте. Як результат виведіть дві колонки - колонку з парами найменувань товарів і колонку зі значеннями, які показують, скільки разів конкретна пара зустрілася у замовленнях користувачів. Колонки назвіть відповідно <code>pair</code> та <code>count_pair</code>.</p>
+<p>Пари товарів мають бути представлені у вигляді списків із двох найменувань. Пари товарів усередині списків мають бути відсортовані у порядку зростання найменування. Результат відсортуйте спочатку за зменшенням частоти зустрічі пари товарів у замовленнях, потім по колонці <code>pair</code> — за зростанням.</p>
+<p>Поля у результуючій таблиці: <code>pair</code>, <code>count_pair</code></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Пояснення + підказка
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>У цій задачі вам необхідно зробити <code>SELF JOIN</code>. Подумайте, яку таблицю потрібно приєднати до себе і заздалегідь обробіть дані. Для вирішення рекомендуємо скористатися табличними виразами. Також вам знадобляться <a href="https://duckdb.org/docs/sql/functions/nested.html">функції для роботи зі списками</a>. Ознайомтеся з прикладами документації та подумайте, що можна використовувати у своєму рішенні.</p>
+<p>Завдання творче і може бути вирішене різними способами.</p>
+<p>Для кожної пари товарів вам необхідно порахувати скільки разів вона зустрілася в замовленнях користувачів. Головна проблема полягає в тому, що при <code>SELF JOIN</code> кожен товар утворює пару з самим собою (<strong>«A-A»</strong>) і при цьому кожна пара зустрічається двічі (<strong>«A-B»</strong> та <strong>«B-A»</strong>). Суть завдання полягає в тому, щоб позбавитися цих двох проблем і отримати коректні розрахунки.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="31">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="op">%%</span>sql</span>
+<span id="cb48-2"><a href="#cb48-2"></a><span class="cf">with</span> main_table <span class="im">as</span> (SELECT DISTINCT order_id,</span>
+<span id="cb48-3"><a href="#cb48-3"></a>                                    product_id,</span>
+<span id="cb48-4"><a href="#cb48-4"></a>                                    name</span>
+<span id="cb48-5"><a href="#cb48-5"></a>                    FROM   (SELECT order_id,</span>
+<span id="cb48-6"><a href="#cb48-6"></a>                                   unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb48-7"><a href="#cb48-7"></a>                            FROM   orders</span>
+<span id="cb48-8"><a href="#cb48-8"></a>                            WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb48-9"><a href="#cb48-9"></a>                                                    FROM   user_actions</span>
+<span id="cb48-10"><a href="#cb48-10"></a>                                                    WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
+<span id="cb48-11"><a href="#cb48-11"></a>                               <span class="kw">and</span> order_id <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb48-12"><a href="#cb48-12"></a>                                             FROM   user_actions</span>
+<span id="cb48-13"><a href="#cb48-13"></a>                                             WHERE  action <span class="op">=</span> <span class="st">'create_order'</span>)) t join products using(product_id)</span>
+<span id="cb48-14"><a href="#cb48-14"></a>                    ORDER BY order_id, name)</span>
+<span id="cb48-15"><a href="#cb48-15"></a>SELECT pair,</span>
+<span id="cb48-16"><a href="#cb48-16"></a>       count(order_id) <span class="im">as</span> count_pair</span>
+<span id="cb48-17"><a href="#cb48-17"></a>FROM   (SELECT DISTINCT a.order_id,</span>
+<span id="cb48-18"><a href="#cb48-18"></a>                        <span class="cf">case</span> when a.name <span class="op">&gt;</span> b.name then string_to_array(concat(b.name, <span class="st">'+'</span>, a.name), <span class="st">'+'</span>)</span>
+<span id="cb48-19"><a href="#cb48-19"></a>                             <span class="cf">else</span> string_to_array(concat(a.name, <span class="st">'+'</span>, b.name), <span class="st">'+'</span>) end <span class="im">as</span> pair</span>
+<span id="cb48-20"><a href="#cb48-20"></a>        FROM   main_table a join main_table b</span>
+<span id="cb48-21"><a href="#cb48-21"></a>                ON a.order_id <span class="op">=</span> b.order_id <span class="kw">and</span></span>
+<span id="cb48-22"><a href="#cb48-22"></a>                   a.name <span class="op">!=</span> b.name) t</span>
+<span id="cb48-23"><a href="#cb48-23"></a>GROUP BY pair</span>
+<span id="cb48-24"><a href="#cb48-24"></a>ORDER BY count_pair desc, pair</span>
+<span id="cb48-25"><a href="#cb48-25"></a></span>
+<span id="cb48-26"><a href="#cb48-26"></a><span class="op">--</span> або</span>
+<span id="cb48-27"><a href="#cb48-27"></a><span class="op">--</span> <span class="cf">with</span> </span>
+<span id="cb48-28"><a href="#cb48-28"></a><span class="op">--</span>     t <span class="im">as</span> (select order_id, </span>
+<span id="cb48-29"><a href="#cb48-29"></a><span class="op">--</span>             unnest(product_ids) <span class="im">as</span> product_id <span class="im">from</span> orders</span>
+<span id="cb48-30"><a href="#cb48-30"></a><span class="op">--</span>             left join user_actions using(order_id)</span>
+<span id="cb48-31"><a href="#cb48-31"></a><span class="op">--</span>             where order_id NOT IN (SELECT order_id FROM user_actions WHERE action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
+<span id="cb48-32"><a href="#cb48-32"></a><span class="op">--</span>             ),</span>
+<span id="cb48-33"><a href="#cb48-33"></a></span>
+<span id="cb48-34"><a href="#cb48-34"></a><span class="op">--</span>     k <span class="im">as</span> (select order_id, t.product_id <span class="im">as</span> pr, t1.product_id <span class="im">as</span> pr1</span>
+<span id="cb48-35"><a href="#cb48-35"></a><span class="op">--</span>             <span class="im">from</span> t</span>
+<span id="cb48-36"><a href="#cb48-36"></a><span class="op">--</span>             join t <span class="im">as</span> t1 using(order_id)</span>
+<span id="cb48-37"><a href="#cb48-37"></a><span class="op">--</span>             where t.product_id <span class="op">!=</span> t1.product_id),</span>
+<span id="cb48-38"><a href="#cb48-38"></a><span class="op">--</span> </span>
+<span id="cb48-39"><a href="#cb48-39"></a><span class="op">--</span>     p <span class="im">as</span> (select order_id, pr, pr1, name </span>
+<span id="cb48-40"><a href="#cb48-40"></a><span class="op">--</span>             <span class="im">from</span> k</span>
+<span id="cb48-41"><a href="#cb48-41"></a><span class="op">--</span>             left join products on pr <span class="op">=</span> products.product_id),</span>
+<span id="cb48-42"><a href="#cb48-42"></a><span class="op">--</span> </span>
+<span id="cb48-43"><a href="#cb48-43"></a><span class="op">--</span>     s <span class="im">as</span> (select order_id, p.name <span class="im">as</span> name, products.name <span class="im">as</span> name1</span>
+<span id="cb48-44"><a href="#cb48-44"></a><span class="op">--</span>             <span class="im">from</span> p</span>
+<span id="cb48-45"><a href="#cb48-45"></a><span class="op">--</span>             left join products on pr1 <span class="op">=</span> products.product_id),</span>
+<span id="cb48-46"><a href="#cb48-46"></a><span class="op">--</span> </span>
+<span id="cb48-47"><a href="#cb48-47"></a><span class="op">--</span>    l <span class="im">as</span> (select  distinct</span>
+<span id="cb48-48"><a href="#cb48-48"></a><span class="op">--</span>                 order_id, </span>
+<span id="cb48-49"><a href="#cb48-49"></a><span class="op">--</span>                 array_sort(array_cat(array[name], array[name1])) <span class="im">as</span> pair </span>
+<span id="cb48-50"><a href="#cb48-50"></a><span class="op">--</span>             <span class="im">from</span> s)</span>
+<span id="cb48-51"><a href="#cb48-51"></a></span>
+<span id="cb48-52"><a href="#cb48-52"></a><span class="op">--</span> select pair, count(<span class="op">*</span>) <span class="im">as</span> count_pair <span class="im">from</span> l</span>
+<span id="cb48-53"><a href="#cb48-53"></a><span class="op">--</span> group by  pair</span>
+<span id="cb48-54"><a href="#cb48-54"></a><span class="op">--</span> order by count_pair desc, pair </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"f5a8ee4b89644dacb56caccd11192442","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="279">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">pair</th>
+<th data-quarto-table-cell-role="th">count_pair</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>[bread, chicken]</td>
+<td>249</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>[bread, sugar]</td>
+<td>237</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>[black tea bags, coffee 3 in 1]</td>
+<td>235</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>[bread, long loaf]</td>
+<td>235</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>[chicken, sugar]</td>
+<td>233</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3735</td>
+<td>[honey, sesame oil]</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3736</td>
+<td>[jam, salted fish]</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3737</td>
+<td>[linseed oil, sesame oil]</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3738</td>
+<td>[sesame oil, sprats]</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3739</td>
+<td>[dried fruits, tea mushroom]</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+<p>3740 rows × 2 columns</p>
+</div>
+</div>
+</div>
 
 
 </section>
 
 </main> <!-- /main -->
+<script type="application/vnd.jupyter.widget-state+json">
+{"state":{"1123446d92764a24852ff370df960fc5":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_fb81040f4690491a89d3eb13ddf53894","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_34fd1bbfd9ac4bf5bf994518eb283d4e","tabbable":null,"tooltip":null,"value":100}},"11f3789a568e486591d87d956fb9bd3a":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"1a48ffa88ffc4ef792acd2303e6323e0":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"2a5edfe0df2544ef9b0ec26509527371":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"34fd1bbfd9ac4bf5bf994518eb283d4e":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"3780066a62604a8d89348a4197ec7638":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"37f251be45f34b1b985fc05ef2c90a7b":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"41ac5d7fd50a4c44b7fc4be3c09d85d6":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_8474a38577c7417fafb1f26772f5c878","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_64da299c718a434d8189692d18c5c05d","tabbable":null,"tooltip":null,"value":100}},"4ab7aab905de4d86b1a4ac2c0b76fcc3":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_1a48ffa88ffc4ef792acd2303e6323e0","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_9a5dc30a7d824a4b989cccdc033596bd","tabbable":null,"tooltip":null,"value":100}},"508e7e22fec34c41954f817c09624878":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_d9cf34bff61a4f0ba18eef0ec2d62a9b","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_2a5edfe0df2544ef9b0ec26509527371","tabbable":null,"tooltip":null,"value":100}},"50b334ef7d334d3f80939cedabefa8da":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_78b9c5200a7e47dda3ba2b65a24409b3","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_d4983b3ed58946b0919d232549476dd2","tabbable":null,"tooltip":null,"value":100}},"64da299c718a434d8189692d18c5c05d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"77404e5546474aefb9b7c10dd0527bf3":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"78b9c5200a7e47dda3ba2b65a24409b3":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"8474a38577c7417fafb1f26772f5c878":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"9882edb635804463aecd5ee1406c18c1":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"9a5dc30a7d824a4b989cccdc033596bd":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"ac8fe489697940e991b1c1bf3c5abc1e":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"b6ad36c5fb1644b2a7a0a0814fc879e8":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_9882edb635804463aecd5ee1406c18c1","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_11f3789a568e486591d87d956fb9bd3a","tabbable":null,"tooltip":null,"value":100}},"c08cb2652bb64f19a9500b2c5e5c5aa5":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_77404e5546474aefb9b7c10dd0527bf3","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_ac8fe489697940e991b1c1bf3c5abc1e","tabbable":null,"tooltip":null,"value":100}},"c2aef7fb5a4b41c791f9a291606af400":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"d4983b3ed58946b0919d232549476dd2":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"d9cf34bff61a4f0ba18eef0ec2d62a9b":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"e441af6d14d849768289187b8c1a5eaa":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"f5a8ee4b89644dacb56caccd11192442":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_37f251be45f34b1b985fc05ef2c90a7b","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_c2aef7fb5a4b41c791f9a291606af400","tabbable":null,"tooltip":null,"value":100}},"fb81040f4690491a89d3eb13ddf53894":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"fbd49434e1a6406e92b69838dd710c05":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_3780066a62604a8d89348a4197ec7638","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_e441af6d14d849768289187b8c1a5eaa","tabbable":null,"tooltip":null,"value":100}}},"version_major":2,"version_minor":0}
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
