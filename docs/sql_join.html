@@ -495,7 +495,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="op">%%</span>sql</span>
 <span id="cb9-2"><a href="#cb9-2"></a>SELECT COUNT(DISTINCT user_id) AS users_count</span>
 <span id="cb9-3"><a href="#cb9-3"></a>FROM users</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="251">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -521,7 +521,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="op">%%</span>sql</span>
 <span id="cb10-2"><a href="#cb10-2"></a>SELECT COUNT(DISTINCT user_id) <span class="im">as</span> users_count</span>
 <span id="cb10-3"><a href="#cb10-3"></a>FROM user_actions</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="252">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
@@ -596,7 +596,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb12-9"><a href="#cb12-9"></a>FROM   user_actions a join users b using (user_id)</span>
 <span id="cb12-10"><a href="#cb12-10"></a>ORDER BY user_id_left</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display column-body-outset" data-execution_count="253">
+<div class="cell-output cell-output-display column-body-outset" data-execution_count="5">
 <div>
 
 
@@ -757,7 +757,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb13-3"><a href="#cb13-3"></a>FROM   user_actions a </span>
 <span id="cb13-4"><a href="#cb13-4"></a>    JOIN users b using (user_id)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="254">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 
 
@@ -1033,7 +1033,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb17-10"><a href="#cb17-10"></a>    LEFT JOIN users b using (user_id)</span>
 <span id="cb17-11"><a href="#cb17-11"></a>ORDER BY user_id_left</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="257">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
 
@@ -1194,7 +1194,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb18-3"><a href="#cb18-3"></a>FROM   user_actions a</span>
 <span id="cb18-4"><a href="#cb18-4"></a>    LEFT JOIN users b using (user_id)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="258">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
 
@@ -1254,7 +1254,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb19-11"><a href="#cb19-11"></a>WHERE  b.user_id IS NOT NULL</span>
 <span id="cb19-12"><a href="#cb19-12"></a>ORDER BY user_id_left</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="259">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 
 
@@ -1526,7 +1526,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb22-3"><a href="#cb22-3"></a>FROM users</span>
 <span id="cb22-4"><a href="#cb22-4"></a>WHERE birth_date IS NOT NULL</span>
 <span id="cb22-5"><a href="#cb22-5"></a>GROUP BY birth_date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="261">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
 
@@ -1607,7 +1607,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb23-3"><a href="#cb23-3"></a>FROM couriers</span>
 <span id="cb23-4"><a href="#cb23-4"></a>WHERE birth_date IS NOT NULL</span>
 <span id="cb23-5"><a href="#cb23-5"></a>GROUP BY birth_date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="262">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
 
@@ -1729,7 +1729,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb24-21"><a href="#cb24-21"></a>FULL JOIN b on a.birth_date <span class="op">=</span> b.birth_date</span>
 <span id="cb24-22"><a href="#cb24-22"></a>ORDER BY users_birth_date, couriers_birth_date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="263">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 
 
@@ -1918,7 +1918,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb27-4"><a href="#cb27-4"></a>EXCEPT</span>
 <span id="cb27-5"><a href="#cb27-5"></a>SELECT user_id</span>
 <span id="cb27-6"><a href="#cb27-6"></a>FROM users</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="265">
+<div class="cell-output cell-output-display" data-execution_count="17">
 <div>
 
 
@@ -2037,7 +2037,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb30-12"><a href="#cb30-12"></a>SELECT COUNT(DISTINCT birth_date) <span class="im">as</span> dates_count</span>
 <span id="cb30-13"><a href="#cb30-13"></a>FROM sub_union</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="266">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <div>
 
 
@@ -2197,7 +2197,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb34-11"><a href="#cb34-11"></a>CROSS JOIN products</span>
 <span id="cb34-12"><a href="#cb34-12"></a>ORDER BY user_id, name</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="267">
+<div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 
 
@@ -2307,7 +2307,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb35-7"><a href="#cb35-7"></a>ORDER BY user_id, order_id</span>
 <span id="cb35-8"><a href="#cb35-8"></a>LIMIT <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="268">
+<div class="cell-output cell-output-display" data-execution_count="20">
 <div>
 
 
@@ -2429,7 +2429,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb36-10"><a href="#cb36-10"></a>ORDER BY user_id, order_id</span>
 <span id="cb36-11"><a href="#cb36-11"></a>LIMIT <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="269">
+<div class="cell-output cell-output-display" data-execution_count="21">
 <div>
 
 
@@ -2588,7 +2588,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb37-30"><a href="#cb37-30"></a><span class="op">--</span> GROUP BY user_id</span>
 <span id="cb37-31"><a href="#cb37-31"></a><span class="op">--</span> ORDER BY user_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="270">
+<div class="cell-output cell-output-display" data-execution_count="22">
 <div>
 
 
@@ -2697,7 +2697,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb38-9"><a href="#cb38-9"></a>    LEFT JOIN products using (product_id)</span>
 <span id="cb38-10"><a href="#cb38-10"></a>ORDER BY order_id, product_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="271">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <div>
 
 
@@ -2839,7 +2839,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb39-30"><a href="#cb39-30"></a><span class="op">--</span> ORDER BY order_id</span>
 <span id="cb39-31"><a href="#cb39-31"></a><span class="op">--</span> LIMIT <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="272">
+<div class="cell-output cell-output-display" data-execution_count="24">
 <div>
 
 
@@ -2999,7 +2999,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb40-49"><a href="#cb40-49"></a>ORDER BY user_id</span>
 <span id="cb40-50"><a href="#cb40-50"></a>LIMIT <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="273">
+<div class="cell-output cell-output-display" data-execution_count="25">
 <div>
 
 
@@ -3173,7 +3173,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb41-15"><a href="#cb41-15"></a>GROUP BY name</span>
 <span id="cb41-16"><a href="#cb41-16"></a>ORDER BY times_purchased desc limit <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="274">
+<div class="cell-output cell-output-display" data-execution_count="26">
 <div>
 
 
@@ -3300,7 +3300,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb42-11"><a href="#cb42-11"></a>GROUP BY sex</span>
 <span id="cb42-12"><a href="#cb42-12"></a>ORDER BY sex</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="275">
+<div class="cell-output cell-output-display" data-execution_count="27">
 <div>
 
 
@@ -3388,7 +3388,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb43-16"><a href="#cb43-16"></a><span class="op">--</span>         WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
 <span id="cb43-17"><a href="#cb43-17"></a><span class="op">--</span>         ORDER BY time_to_deliv desc) <span class="im">as</span> t1 limit <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="276">
+<div class="cell-output cell-output-display" data-execution_count="28">
 <div>
 
 
@@ -3502,7 +3502,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb45-6"><a href="#cb45-6"></a>        FROM   orders) t join products using(product_id)</span>
 <span id="cb45-7"><a href="#cb45-7"></a>GROUP BY order_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="277">
+<div class="cell-output cell-output-display" data-execution_count="29">
 <div>
 
 
@@ -3622,7 +3622,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb46-22"><a href="#cb46-22"></a>    LEFT JOIN couriers using(courier_id)</span>
 <span id="cb46-23"><a href="#cb46-23"></a>ORDER BY order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="278">
+<div class="cell-output cell-output-display" data-execution_count="30">
 <div>
 
 
@@ -3748,7 +3748,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="31">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python code-overflow-scroll number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="op">%%</span>sql</span>
 <span id="cb48-2"><a href="#cb48-2"></a><span class="cf">with</span> main_table <span class="im">as</span> (SELECT DISTINCT order_id,</span>
 <span id="cb48-3"><a href="#cb48-3"></a>                                    product_id,</span>
 <span id="cb48-4"><a href="#cb48-4"></a>                                    name</span>
@@ -3805,10 +3805,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"f5a8ee4b89644dacb56caccd11192442","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+{"model_id":"40a7178abeb8421f964fd0c7c4a8ffb5","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="279">
+<div class="cell-output cell-output-display" data-execution_count="31">
 <div>
 
 
@@ -3889,7 +3889,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 
 </main> <!-- /main -->
 <script type="application/vnd.jupyter.widget-state+json">
-{"state":{"1123446d92764a24852ff370df960fc5":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_fb81040f4690491a89d3eb13ddf53894","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_34fd1bbfd9ac4bf5bf994518eb283d4e","tabbable":null,"tooltip":null,"value":100}},"11f3789a568e486591d87d956fb9bd3a":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"1a48ffa88ffc4ef792acd2303e6323e0":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"2a5edfe0df2544ef9b0ec26509527371":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"34fd1bbfd9ac4bf5bf994518eb283d4e":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"3780066a62604a8d89348a4197ec7638":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"37f251be45f34b1b985fc05ef2c90a7b":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"41ac5d7fd50a4c44b7fc4be3c09d85d6":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_8474a38577c7417fafb1f26772f5c878","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_64da299c718a434d8189692d18c5c05d","tabbable":null,"tooltip":null,"value":100}},"4ab7aab905de4d86b1a4ac2c0b76fcc3":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_1a48ffa88ffc4ef792acd2303e6323e0","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_9a5dc30a7d824a4b989cccdc033596bd","tabbable":null,"tooltip":null,"value":100}},"508e7e22fec34c41954f817c09624878":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_d9cf34bff61a4f0ba18eef0ec2d62a9b","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_2a5edfe0df2544ef9b0ec26509527371","tabbable":null,"tooltip":null,"value":100}},"50b334ef7d334d3f80939cedabefa8da":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_78b9c5200a7e47dda3ba2b65a24409b3","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_d4983b3ed58946b0919d232549476dd2","tabbable":null,"tooltip":null,"value":100}},"64da299c718a434d8189692d18c5c05d":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"77404e5546474aefb9b7c10dd0527bf3":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"78b9c5200a7e47dda3ba2b65a24409b3":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"8474a38577c7417fafb1f26772f5c878":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"9882edb635804463aecd5ee1406c18c1":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"9a5dc30a7d824a4b989cccdc033596bd":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"ac8fe489697940e991b1c1bf3c5abc1e":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"b6ad36c5fb1644b2a7a0a0814fc879e8":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_9882edb635804463aecd5ee1406c18c1","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_11f3789a568e486591d87d956fb9bd3a","tabbable":null,"tooltip":null,"value":100}},"c08cb2652bb64f19a9500b2c5e5c5aa5":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_77404e5546474aefb9b7c10dd0527bf3","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_ac8fe489697940e991b1c1bf3c5abc1e","tabbable":null,"tooltip":null,"value":100}},"c2aef7fb5a4b41c791f9a291606af400":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"d4983b3ed58946b0919d232549476dd2":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"d9cf34bff61a4f0ba18eef0ec2d62a9b":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"e441af6d14d849768289187b8c1a5eaa":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"f5a8ee4b89644dacb56caccd11192442":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_37f251be45f34b1b985fc05ef2c90a7b","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_c2aef7fb5a4b41c791f9a291606af400","tabbable":null,"tooltip":null,"value":100}},"fb81040f4690491a89d3eb13ddf53894":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"fbd49434e1a6406e92b69838dd710c05":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_3780066a62604a8d89348a4197ec7638","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_e441af6d14d849768289187b8c1a5eaa","tabbable":null,"tooltip":null,"value":100}}},"version_major":2,"version_minor":0}
+{"state":{"40a7178abeb8421f964fd0c7c4a8ffb5":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_76693b712fb547319a8707ed9d545b77","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_d6ecc069eb62436f82dc481253218119","tabbable":null,"tooltip":null,"value":100}},"76693b712fb547319a8707ed9d545b77":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"d6ecc069eb62436f82dc481253218119":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}}},"version_major":2,"version_minor":0}
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
