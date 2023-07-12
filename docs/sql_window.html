@@ -110,6 +110,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -266,6 +268,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <li><a href="#віконні-функції-та-partition-by" id="toc-віконні-функції-та-partition-by" class="nav-link" data-scroll-target="#віконні-функції-та-partition-by"><span class="header-section-number">8.10</span> Віконні функції та <code>PARTITION BY</code></a></li>
   <li><a href="#віконні-функції-та-зміщення" id="toc-віконні-функції-та-зміщення" class="nav-link" data-scroll-target="#віконні-функції-та-зміщення"><span class="header-section-number">8.11</span> Віконні функції та зміщення</a></li>
   <li><a href="#задачі-з-rows-between" id="toc-задачі-з-rows-between" class="nav-link" data-scroll-target="#задачі-з-rows-between"><span class="header-section-number">8.12</span> Задачі з <code>ROWS BETWEEN</code></a></li>
+  <li><a href="#задача-з-case" id="toc-задача-з-case" class="nav-link" data-scroll-target="#задача-з-case"><span class="header-section-number">8.13</span> Задача з <code>CASE</code></a></li>
+  <li><a href="#задача-з-filter" id="toc-задача-з-filter" class="nav-link" data-scroll-target="#задача-з-filter"><span class="header-section-number">8.14</span> Задача з <code>FILTER</code></a></li>
   </ul>
 </nav>
     </div>
@@ -617,7 +621,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb17-7"><a href="#cb17-7"></a>       dense_rank() OVER (ORDER BY price desc) <span class="im">as</span> product_dense_rank</span>
 <span id="cb17-8"><a href="#cb17-8"></a>FROM   products</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div class="cell-output cell-output-display" data-execution_count="102">
 <div>
 
 
@@ -779,7 +783,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb19-7"><a href="#cb19-7"></a>FROM   products</span>
 <span id="cb19-8"><a href="#cb19-8"></a>ORDER BY price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div class="cell-output cell-output-display" data-execution_count="103">
 <div>
 
 
@@ -925,7 +929,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb20-7"><a href="#cb20-7"></a>FROM   products</span>
 <span id="cb20-8"><a href="#cb20-8"></a>ORDER BY price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="27">
+<div class="cell-output cell-output-display" data-execution_count="104">
 <div>
 
 
@@ -1076,7 +1080,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb21-10"><a href="#cb21-10"></a>    SUM(orders_count) OVER (ORDER BY date)::integer <span class="im">as</span> orders_cum_count</span>
 <span id="cb21-11"><a href="#cb21-11"></a>FROM t1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="28">
+<div class="cell-output cell-output-display" data-execution_count="105">
 <div>
 
 
@@ -1267,7 +1271,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb24-14"><a href="#cb24-14"></a>                        WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
 <span id="cb24-15"><a href="#cb24-15"></a>ORDER BY user_id, order_number limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="29">
+<div class="cell-output cell-output-display" data-execution_count="106">
 <div>
 
 
@@ -1442,7 +1446,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb26-17"><a href="#cb26-17"></a>GROUP BY user_id</span>
 <span id="cb26-18"><a href="#cb26-18"></a>ORDER BY user_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="30">
+<div class="cell-output cell-output-display" data-execution_count="107">
 <div>
 
 
@@ -1573,7 +1577,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb29-12"><a href="#cb29-12"></a>                                WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
 <span id="cb29-13"><a href="#cb29-13"></a>        GROUP BY date) <span class="im">as</span> t1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="31">
+<div class="cell-output cell-output-display" data-execution_count="108">
 <div>
 
 
@@ -1682,6 +1686,1191 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <td>2022-09-08</td>
 <td>5474</td>
 <td>4301.00</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="задача-з-case" class="level2" data-number="8.13">
+<h2 data-number="8.13" class="anchored" data-anchor-id="задача-з-case"><span class="header-section-number">8.13</span> Задача з <code>CASE</code></h2>
+<p>Тепер навчимося разом із віконними функціями застосовувати конструкцію <code>CASE</code>. Приклад такого запису:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a href="#cb30-1"></a><span class="kw">SELECT</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a>    <span class="cf">CASE</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a>    <span class="cf">WHEN</span> <span class="fu">SUM</span>(<span class="kw">column</span>) <span class="kw">OVER</span> (<span class="op">..</span>.) <span class="op">&gt;</span> <span class="dv">100</span> <span class="cf">THEN</span> <span class="st">'above 100'</span></span>
+<span id="cb30-4"><a href="#cb30-4"></a>    <span class="cf">WHEN</span> <span class="fu">SUM</span>(<span class="kw">column</span>) <span class="kw">OVER</span> (<span class="op">..</span>.) <span class="op">&lt;</span> <span class="dv">100</span> <span class="cf">THEN</span> <span class="st">'below 100'</span></span>
+<span id="cb30-5"><a href="#cb30-5"></a>    <span class="cf">ELSE</span> <span class="st">'equal 100'</span></span>
+<span id="cb30-6"><a href="#cb30-6"></a>    <span class="cf">END</span> <span class="kw">AS</span> sum_case</span>
+<span id="cb30-7"><a href="#cb30-7"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-window-09" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 8.9 </strong></span><br> Позначте в окремій таблиці тих кур’єрів, які доставили у <strong>вересні 2022 замовлень більше, ніж у середньому всі кур’єри</strong>.</p>
+<p>Спочатку для кожного кур’єра у таблиці <code>courier_actions</code> розрахуйте загальну кількість доставлених у вересні замовлень. Потім в окремому стовпці за допомогою віконної функції вкажіть, скільки в середньому замовлень доставили цього місяця всі кур’єри. Після цього порівняйте кількість замовлень, доставлених кожним кур’єром, із середнім значенням у новому стовпці. Якщо кур’єр доставив більше замовлень, ніж у середньому всі кур’єри, то окремому стовпці за допомогою <code>CASE</code> вкажіть число 1, інакше вкажіть 0.</p>
+<p>Колонку з результатом порівняння назвіть <code>is_above_avg</code>, колонку з кількістю доставлених замовлень кожним кур’єром – <code>delivered_orders</code>, а колонку із середнім значенням – <code>avg_delivered_orders</code>. При розрахунку середнього значення округліть його <strong>до двох знаків</strong> після коми. Результат відсортуйте за зростанням id кур’єра.</p>
+<p>Поля в результуючій таблиці: <code>courier_id</code>, <code>delivered_orders</code>, <code>avg_delivered_orders</code>, <code>is_above_avg</code></p>
+<p><strong>Пояснення:</strong></p>
+<p>Таблицю з кур’єрами та числом доставлених замовлень сформуйте на основі таблиці <code>courier_actions</code> та перед застосуванням віконних функцій помістіть її у підзапит.</p>
+<p>З цим завданням можна впоратися без конструкції <code>CASE</code>, якщо сконвертувати результат логічної операції (<code>TRUE</code> чи <code>FALSE</code>) у тип даних <code>INT</code>. Можете спробувати розв’язати завдання різними способами.</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="op">%%</span>sql</span>
+<span id="cb31-2"><a href="#cb31-2"></a>SELECT courier_id,</span>
+<span id="cb31-3"><a href="#cb31-3"></a>       delivered_orders,</span>
+<span id="cb31-4"><a href="#cb31-4"></a>       <span class="bu">round</span>(avg(delivered_orders) OVER (), <span class="dv">2</span>) <span class="im">as</span> avg_delivered_orders,</span>
+<span id="cb31-5"><a href="#cb31-5"></a>       <span class="cf">case</span> when delivered_orders <span class="op">&gt;</span> <span class="bu">round</span>(avg(delivered_orders) OVER (), <span class="dv">2</span>) then <span class="dv">1</span></span>
+<span id="cb31-6"><a href="#cb31-6"></a>            <span class="cf">else</span> <span class="dv">0</span> end <span class="im">as</span> is_above_avg</span>
+<span id="cb31-7"><a href="#cb31-7"></a>FROM   (SELECT courier_id,</span>
+<span id="cb31-8"><a href="#cb31-8"></a>               count(order_id) <span class="im">as</span> delivered_orders</span>
+<span id="cb31-9"><a href="#cb31-9"></a>        FROM   courier_actions</span>
+<span id="cb31-10"><a href="#cb31-10"></a>        WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb31-11"><a href="#cb31-11"></a>           <span class="kw">and</span> date_part(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">9</span></span>
+<span id="cb31-12"><a href="#cb31-12"></a>           <span class="kw">and</span> date_part(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span></span>
+<span id="cb31-13"><a href="#cb31-13"></a>        GROUP BY courier_id) t</span>
+<span id="cb31-14"><a href="#cb31-14"></a>ORDER BY courier_id</span>
+<span id="cb31-15"><a href="#cb31-15"></a></span>
+<span id="cb31-16"><a href="#cb31-16"></a><span class="op">--</span> або</span>
+<span id="cb31-17"><a href="#cb31-17"></a><span class="op">--</span> SELECT <span class="op">*</span>,</span>
+<span id="cb31-18"><a href="#cb31-18"></a><span class="op">--</span>        <span class="bu">round</span>(avg(delivered_orders) OVER (), <span class="dv">2</span>) <span class="im">as</span> avg_delivered_orders,</span>
+<span id="cb31-19"><a href="#cb31-19"></a><span class="op">--</span>        (delivered_orders <span class="op">&gt;</span> avg(delivered_orders) OVER ())::integer <span class="im">as</span> is_above_avg</span>
+<span id="cb31-20"><a href="#cb31-20"></a><span class="op">--</span> FROM   (SELECT courier_id,</span>
+<span id="cb31-21"><a href="#cb31-21"></a><span class="op">--</span>                count(<span class="op">*</span>) <span class="im">as</span> delivered_orders</span>
+<span id="cb31-22"><a href="#cb31-22"></a><span class="op">--</span>         FROM   courier_actions</span>
+<span id="cb31-23"><a href="#cb31-23"></a><span class="op">--</span>         WHERE  date_part(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">0</span><span class="er">9</span></span>
+<span id="cb31-24"><a href="#cb31-24"></a><span class="op">--</span>            <span class="kw">and</span> date_part(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span></span>
+<span id="cb31-25"><a href="#cb31-25"></a><span class="op">--</span>            <span class="kw">and</span> action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb31-26"><a href="#cb31-26"></a><span class="op">--</span>         GROUP BY courier_id) t1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="109">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">courier_id</th>
+<th data-quarto-table-cell-role="th">delivered_orders</th>
+<th data-quarto-table-cell-role="th">avg_delivered_orders</th>
+<th data-quarto-table-cell-role="th">is_above_avg</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>20</td>
+<td>13.76</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>14</td>
+<td>13.76</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>23</td>
+<td>13.76</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>9</td>
+<td>13.76</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>23</td>
+<td>13.76</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2817</td>
+<td>3163</td>
+<td>4</td>
+<td>13.76</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2818</td>
+<td>3164</td>
+<td>3</td>
+<td>13.76</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2819</td>
+<td>3165</td>
+<td>2</td>
+<td>13.76</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2820</td>
+<td>3166</td>
+<td>2</td>
+<td>13.76</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2821</td>
+<td>3167</td>
+<td>3</td>
+<td>13.76</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<p>2822 rows × 4 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="задача-з-filter" class="level2" data-number="8.14">
+<h2 data-number="8.14" class="anchored" data-anchor-id="задача-з-filter"><span class="header-section-number">8.14</span> Задача з <code>FILTER</code></h2>
+<p>У цьому завданні розглянемо ще більш сучасний функціонал і навчимося разом з віконними функціями застосовувати оператор <code>FILTER</code>, з яким ми вже працювали у <span class="quarto-unresolved-ref">?exr-sql-groupby-17</span>.</p>
+<p>Якщо до визначення віконної функції додати пропозицію <code>FILTER</code>, то у вікно потраплять лише ті вхідні рядки, для яких умова фільтра буде обчислена як дійсна.</p>
+<p>При цьому пропозиція <code>FILTER</code> допускається тільки для агрегатних віконних функцій.</p>
+<p>У загальному вигляді вся конструкція виглядає так:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">SELECT</span> agg_function(<span class="kw">column</span>) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> [condition]) <span class="kw">OVER</span> (<span class="op">..</span>.)</span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Приклад:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(column_1) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> column_2 <span class="op">&gt;</span> <span class="dv">100</span>) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> column_3 <span class="kw">ORDER</span> <span class="kw">BY</span> column_4) <span class="kw">AS</span> <span class="fu">sum</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-window-10" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 8.10 </strong></span><br> Застосуйте віконну функцію до таблиці <code>products</code> та за допомогою агрегуючої функції в окремій колонці для кожного запису проставте середню ціну всіх товарів. Колонку із цим значенням назвіть <code>avg_price</code>. Потім за допомогою віконної функції та оператора <code>FILTER</code> в окремій колонці розрахуйте середню ціну товарів без урахування найдорожчого. Колонку із цим середнім значенням назвіть <code>avg_price_filtered</code>. Отримані середні значення в колонках <code>avg_price</code> та <code>avg_price_filtered</code> округліть <strong>до двох знаків після коми</strong>.</p>
+<p>Виведіть всю інформацію про товари, включаючи значення у нових колонках. Результат відсортуйте спочатку за спаданням ціни товару, потім за зростанням id товару.</p>
+<p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code>, <code>avg_price</code>, <code>avg_price_filtered</code></p>
+<p><strong>Пояснення:</strong></p>
+<p>У цьому завданні вікном знову виступає вся таблиця. Сортувати всередині вікна не потрібно.</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="op">%%</span>sql</span>
+<span id="cb34-2"><a href="#cb34-2"></a>SELECT product_id,</span>
+<span id="cb34-3"><a href="#cb34-3"></a>       name,</span>
+<span id="cb34-4"><a href="#cb34-4"></a>       price,</span>
+<span id="cb34-5"><a href="#cb34-5"></a>       <span class="bu">round</span>(avg(price) OVER (), <span class="dv">2</span>) <span class="im">as</span> avg_price,</span>
+<span id="cb34-6"><a href="#cb34-6"></a>       <span class="bu">round</span>(avg(price) <span class="bu">filter</span> (WHERE price <span class="op">!=</span> (SELECT <span class="bu">max</span>(price)</span>
+<span id="cb34-7"><a href="#cb34-7"></a>                                         FROM   products))</span>
+<span id="cb34-8"><a href="#cb34-8"></a>OVER (), <span class="dv">2</span>) <span class="im">as</span> avg_price_filtered</span>
+<span id="cb34-9"><a href="#cb34-9"></a>FROM   products</span>
+<span id="cb34-10"><a href="#cb34-10"></a>ORDER BY price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="110">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">product_id</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">avg_price</th>
+<th data-quarto-table-cell-role="th">avg_price_filtered</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>13</td>
+<td>caviar</td>
+<td>800.0</td>
+<td>133.54</td>
+<td>125.79</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>37</td>
+<td>mutton</td>
+<td>559.0</td>
+<td>133.54</td>
+<td>125.79</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>15</td>
+<td>olive oil</td>
+<td>450.0</td>
+<td>133.54</td>
+<td>125.79</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>57</td>
+<td>pork</td>
+<td>450.0</td>
+<td>133.54</td>
+<td>125.79</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>43</td>
+<td>decaffeinated coffee</td>
+<td>400.0</td>
+<td>133.54</td>
+<td>125.79</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">82</td>
+<td>6</td>
+<td>crackers</td>
+<td>25.0</td>
+<td>133.54</td>
+<td>125.79</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">83</td>
+<td>5</td>
+<td>coffee 3 in 1</td>
+<td>15.0</td>
+<td>133.54</td>
+<td>125.79</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">84</td>
+<td>73</td>
+<td>cake</td>
+<td>15.0</td>
+<td>133.54</td>
+<td>125.79</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">85</td>
+<td>10</td>
+<td>seeds</td>
+<td>12.0</td>
+<td>133.54</td>
+<td>125.79</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">86</td>
+<td>54</td>
+<td>paper bag</td>
+<td>1.0</td>
+<td>133.54</td>
+<td>125.79</td>
+</tr>
+</tbody>
+</table>
+
+<p>87 rows × 5 columns</p>
+</div>
+</div>
+</div>
+<hr>
+<p>А тепер ще одне завдання на фільтрацію по вікну — цього разу складніше.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-window-11" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 8.11 </strong></span><br> Для кожного запису в таблиці user_actions за допомогою віконних функцій та <code>FILTER</code> порахуйте скільки замовлень зробив і скільки скасував кожен користувач на момент здійснення нової дії.</p>
+<p>Іншими словами, <strong>для кожного користувача в кожний момент часу</strong> порахуйте дві накопичувальні суми - числа оформлених та відмінених замовлень. Якщо користувач оформляє замовлення, кількість оформлених ним замовлень збільшуйте на 1, якщо скасовує — збільшуйте на 1 кількість скасуваних.</p>
+<p>Колонки з накопичувальними сумами числа оформлених та скасованих замовлень назвіть відповідно <code>created_orders</code> та <code>canceled_orders</code>. На основі цих двох колонок для кожного запису користувача порахуйте показник <code>cancel_rate</code>, тобто частку скасованих замовлень у загальній кількості оформлених замовлень. Значення показника округліть <strong>до двох знаків після коми</strong>. Назвіть колонку з ним <code>cancel_rate</code>.</p>
+<p>В результаті у вас повинні вийти три нові колонки з динамічними показниками, які змінюються в часі з кожною новою дією користувача.</p>
+<p>У результуючій таблиці відобразіть усі колонки з вихідної таблиці разом із новими колонками. Відсортуйте результат за колонками <code>user_id</code>, <code>order_id</code>, <code>time</code> – за зростанням значень у кожній.</p>
+<p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
+<p>Поля в результуючій таблиці: <code>user_id</code>, <code>order_id</code>, <code>action</code>, <code>time</code>, <code>created_orders</code>, <code>canceled_orders</code>, cance`l_rate</p>
+<p><strong>Пояснення:</strong></p>
+<p>Подумайте, як правильно встановити вікна і які фільтри в них потрібно вказати.</p>
+<p>Не забудьте змінити тип даних під час поділу двох цілих значень.</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="op">%%</span>sql</span>
+<span id="cb35-2"><a href="#cb35-2"></a>SELECT user_id,</span>
+<span id="cb35-3"><a href="#cb35-3"></a>       order_id,</span>
+<span id="cb35-4"><a href="#cb35-4"></a>       action,</span>
+<span id="cb35-5"><a href="#cb35-5"></a>       time,</span>
+<span id="cb35-6"><a href="#cb35-6"></a>       created_orders,</span>
+<span id="cb35-7"><a href="#cb35-7"></a>       canceled_orders,</span>
+<span id="cb35-8"><a href="#cb35-8"></a>       <span class="bu">round</span>(canceled_orders::decimal <span class="op">/</span> created_orders, <span class="dv">2</span>) <span class="im">as</span> cancel_rate</span>
+<span id="cb35-9"><a href="#cb35-9"></a>FROM   (SELECT user_id,</span>
+<span id="cb35-10"><a href="#cb35-10"></a>               order_id,</span>
+<span id="cb35-11"><a href="#cb35-11"></a>               action,</span>
+<span id="cb35-12"><a href="#cb35-12"></a>               time,</span>
+<span id="cb35-13"><a href="#cb35-13"></a>               count(order_id) <span class="bu">filter</span> (WHERE action <span class="op">!=</span> <span class="st">'cancel_order'</span>) OVER (PARTITION BY user_id</span>
+<span id="cb35-14"><a href="#cb35-14"></a>                                                                             ORDER BY time) <span class="im">as</span> created_orders,</span>
+<span id="cb35-15"><a href="#cb35-15"></a>               count(order_id) <span class="bu">filter</span> (WHERE action <span class="op">=</span> <span class="st">'cancel_order'</span>) OVER (PARTITION BY user_id</span>
+<span id="cb35-16"><a href="#cb35-16"></a>                                                                            ORDER BY time) <span class="im">as</span> canceled_orders</span>
+<span id="cb35-17"><a href="#cb35-17"></a>        FROM   user_actions) t</span>
+<span id="cb35-18"><a href="#cb35-18"></a>ORDER BY user_id, order_id, time limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="111">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">user_id</th>
+<th data-quarto-table-cell-role="th">order_id</th>
+<th data-quarto-table-cell-role="th">action</th>
+<th data-quarto-table-cell-role="th">time</th>
+<th data-quarto-table-cell-role="th">created_orders</th>
+<th data-quarto-table-cell-role="th">canceled_orders</th>
+<th data-quarto-table-cell-role="th">cancel_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>1</td>
+<td>create_order</td>
+<td>2022-08-24 01:52:00</td>
+<td>1</td>
+<td>0</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>4683</td>
+<td>create_order</td>
+<td>2022-08-27 20:56:00</td>
+<td>2</td>
+<td>0</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1</td>
+<td>22901</td>
+<td>create_order</td>
+<td>2022-09-02 00:58:00</td>
+<td>3</td>
+<td>0</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1</td>
+<td>23149</td>
+<td>create_order</td>
+<td>2022-09-02 02:36:00</td>
+<td>4</td>
+<td>0</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2</td>
+<td>2</td>
+<td>create_order</td>
+<td>2022-08-24 06:37:00</td>
+<td>1</td>
+<td>0</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">995</td>
+<td>227</td>
+<td>12572</td>
+<td>create_order</td>
+<td>2022-08-30 08:36:00</td>
+<td>4</td>
+<td>0</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">996</td>
+<td>227</td>
+<td>12578</td>
+<td>create_order</td>
+<td>2022-08-30 08:38:00</td>
+<td>5</td>
+<td>0</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">997</td>
+<td>227</td>
+<td>23268</td>
+<td>create_order</td>
+<td>2022-09-02 04:03:00</td>
+<td>6</td>
+<td>0</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">998</td>
+<td>227</td>
+<td>25873</td>
+<td>create_order</td>
+<td>2022-09-02 17:52:00</td>
+<td>7</td>
+<td>0</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">999</td>
+<td>227</td>
+<td>25885</td>
+<td>create_order</td>
+<td>2022-09-02 17:54:00</td>
+<td>8</td>
+<td>0</td>
+<td>0.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>1000 rows × 7 columns</p>
+</div>
+</div>
+</div>
+<hr>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-window-12" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 8.12 </strong></span><br> З таблиці <code>courier_actions</code> відберіть <strong>топ 10%</strong> кур’єрів за кількістю доставлених за весь час замовлень. Виведіть id кур’єрів, кількість доставлених замовлень та порядковий номер кур’єра відповідно до кількості доставлених замовлень.</p>
+<p>У кур’єра, який доставив найбільше замовлень, порядковий номер повинен дорівнювати 1, а кур’єра з найменшою кількістю замовлень — числу, що дорівнює десяти відсоткам від кількості кур’єрів у таблиці <code>courier_actions</code>.</p>
+<p>Під час розрахунку номера останнього кур’єра округляйте значення <strong>до цілого числа</strong>.</p>
+<p>Колонки з кількістю доставлених замовлень та порядковим номером назвіть відповідно <code>orders_count</code> та <code>courier_rank</code>. Результат відсортуйте за зростанням порядкового номера кур’єра.</p>
+<p>Поля у результуючій таблиці: <code>courier_id</code>, <code>orders_count</code>, <code>courier_rank</code></p>
+<p><strong>Пояснення:</strong></p>
+<p>Якщо у двох кур’єрів виявилося однакове число доставлених замовлень, вищий ранг ми надамо кур’єру з меншим id. Наприклад, якщо у кур’єрів з id <code>10</code> і <code>80</code> виявилася максимальна кількість замовлень, то перший ранг ми надамо кур’єру з id <code>10</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="op">%%</span>sql</span>
+<span id="cb36-2"><a href="#cb36-2"></a><span class="cf">with</span> courier_count <span class="im">as</span> (SELECT count(distinct courier_id)</span>
+<span id="cb36-3"><a href="#cb36-3"></a>                       FROM   courier_actions)</span>
+<span id="cb36-4"><a href="#cb36-4"></a>SELECT courier_id,</span>
+<span id="cb36-5"><a href="#cb36-5"></a>       orders_count,</span>
+<span id="cb36-6"><a href="#cb36-6"></a>       courier_rank</span>
+<span id="cb36-7"><a href="#cb36-7"></a>FROM   (SELECT courier_id,</span>
+<span id="cb36-8"><a href="#cb36-8"></a>               count(distinct order_id) <span class="im">as</span> orders_count,</span>
+<span id="cb36-9"><a href="#cb36-9"></a>               row_number() OVER (ORDER BY count(distinct order_id) desc, courier_id) <span class="im">as</span> courier_rank</span>
+<span id="cb36-10"><a href="#cb36-10"></a>        FROM   courier_actions</span>
+<span id="cb36-11"><a href="#cb36-11"></a>        WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb36-12"><a href="#cb36-12"></a>        GROUP BY courier_id</span>
+<span id="cb36-13"><a href="#cb36-13"></a>        ORDER BY orders_count desc, courier_id) <span class="im">as</span> t1</span>
+<span id="cb36-14"><a href="#cb36-14"></a>WHERE  courier_rank <span class="op">&lt;=</span> <span class="bu">round</span>((SELECT <span class="op">*</span></span>
+<span id="cb36-15"><a href="#cb36-15"></a>                              FROM   courier_count)<span class="op">*</span><span class="fl">0.1</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="112">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">courier_id</th>
+<th data-quarto-table-cell-role="th">orders_count</th>
+<th data-quarto-table-cell-role="th">courier_rank</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>492</td>
+<td>54</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>708</td>
+<td>53</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>23</td>
+<td>52</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>252</td>
+<td>52</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>291</td>
+<td>52</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">278</td>
+<td>540</td>
+<td>38</td>
+<td>279</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">279</td>
+<td>589</td>
+<td>38</td>
+<td>280</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">280</td>
+<td>622</td>
+<td>38</td>
+<td>281</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">281</td>
+<td>693</td>
+<td>38</td>
+<td>282</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">282</td>
+<td>753</td>
+<td>38</td>
+<td>283</td>
+</tr>
+</tbody>
+</table>
+
+<p>283 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<hr>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-window-13" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 8.13 </strong></span><br> За допомогою віконної функції відберіть із таблиці <code>courier_actions</code> всіх кур’єрів, які працюють у нашій компанії <strong>10 і більше днів</strong>. Також розрахуйте <strong>скільки замовлень вони вже встигли доставити за весь час роботи</strong>.</p>
+<p>Вважатимемо, що наш сервіс пропонує найвигідніші умови праці і тому за весь аналізований період жоден кур’єр не звільнився з компанії. Можливих перерв між змінами не враховуйте — для нас важлива лише різниця в часі між першою дією кур’єра і поточною позначкою часу.</p>
+<p>Поточною відміткою часу, щодо якої необхідно розраховувати тривалість роботи кур’єра, вважайте час останньої дії таблиці <code>courier_actions</code>. Враховуйте лише цілі дні, що пройшли з моменту першого виходу кур’єра на роботу (<strong>години та хвилини не враховуйте</strong>).</p>
+<p>У результат включіть три колонки: id кур’єра, тривалість роботи в днях та кількість доставлених замовлень. Дві нові колонки назвіть відповідно <code>days_employed</code> та <code>delivered_orders</code>. Результат відсортуйте спочатку за зменшенням кількості відпрацьованих днів, потім за зростанням id кур’єра.</p>
+<p>Поля в результуючій таблиці: <code>courier_id</code>, <code>days_employed</code>, <code>delivered_orders</code></p>
+<p><strong>Пояснення:</strong></p>
+<p>Для вирішення задачі крім віконної функції вам можуть стати у нагоді функція <code>DATE_PART</code> та оператор <code>FILTER</code>.</p>
+<p>Число днів, які відпрацював кур’єр - це кількість днів, що пройшли з першого прийнятого замовлення до часу останнього запису в таблиці <code>courier_actions</code>. Простежте, щоб кількість днів у результуючій таблиці було виражено <strong>цілим числом</strong>.</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="op">%%</span>sql</span>
+<span id="cb37-2"><a href="#cb37-2"></a>SELECT courier_id,</span>
+<span id="cb37-3"><a href="#cb37-3"></a>       days_employed,</span>
+<span id="cb37-4"><a href="#cb37-4"></a>       delivered_orders</span>
+<span id="cb37-5"><a href="#cb37-5"></a>FROM   (SELECT courier_id,</span>
+<span id="cb37-6"><a href="#cb37-6"></a>               delivered_orders,</span>
+<span id="cb37-7"><a href="#cb37-7"></a>               date_part(<span class="st">'days'</span>, <span class="bu">max</span>(max_time) OVER() <span class="op">-</span> min_time)::integer <span class="im">as</span> days_employed</span>
+<span id="cb37-8"><a href="#cb37-8"></a>        FROM   (SELECT courier_id,</span>
+<span id="cb37-9"><a href="#cb37-9"></a>                       count(distinct order_id) <span class="bu">filter</span> (WHERE action <span class="op">=</span> <span class="st">'deliver_order'</span>) <span class="im">as</span> delivered_orders,</span>
+<span id="cb37-10"><a href="#cb37-10"></a>                       <span class="bu">min</span>(time) <span class="im">as</span> min_time,</span>
+<span id="cb37-11"><a href="#cb37-11"></a>                       <span class="bu">max</span>(time) <span class="im">as</span> max_time</span>
+<span id="cb37-12"><a href="#cb37-12"></a>                FROM   courier_actions</span>
+<span id="cb37-13"><a href="#cb37-13"></a>                GROUP BY courier_id) t1) t2</span>
+<span id="cb37-14"><a href="#cb37-14"></a>WHERE  days_employed <span class="op">&gt;=</span> <span class="dv">10</span></span>
+<span id="cb37-15"><a href="#cb37-15"></a>ORDER BY days_employed desc, courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="113">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">courier_id</th>
+<th data-quarto-table-cell-role="th">days_employed</th>
+<th data-quarto-table-cell-role="th">delivered_orders</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>15</td>
+<td>45</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>15</td>
+<td>35</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>15</td>
+<td>45</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>5</td>
+<td>15</td>
+<td>43</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>7</td>
+<td>15</td>
+<td>40</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1059</td>
+<td>1194</td>
+<td>10</td>
+<td>21</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1060</td>
+<td>1198</td>
+<td>10</td>
+<td>35</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1061</td>
+<td>1203</td>
+<td>10</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1062</td>
+<td>1204</td>
+<td>10</td>
+<td>26</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1063</td>
+<td>1205</td>
+<td>10</td>
+<td>18</td>
+</tr>
+</tbody>
+</table>
+
+<p>1064 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<hr>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-window-14" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 8.14 </strong></span><br> За допомогою інформації в таблицях <code>orders</code> і <code>products</code> розрахуйте вартість кожного замовлення, щоденний виторг сервісу та частку вартості кожного замовлення в щоденній виручці, виражену у відсотках. У результаті включіть наступні колонки: id замовлення, час створення замовлення, вартість замовлення, виручку за день, в який було здійснено замовлення, а також частку вартості замовлення у виручці за день, що виражається у відсотках.</p>
+<p>При розрахунку часток округляйте їх <strong>до трьох знаків після коми</strong>.</p>
+<p>Результат відсортуйте спочатку за спаданням дати здійснення замовлення (саме дати, а не часу), потім за зменшенням частки замовлення у виручці за день, потім за зростанням id замовлення.</p>
+<p>Під час проведення розрахунків скасовані замовлення не враховуйте.</p>
+<p>Поля в результуючій таблиці: <code>order_id</code>, <code>creation_time</code>, <code>order_price</code>, <code>daily_revenue</code>, <code>percentage_of_daily_revenue</code></p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="14">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="op">%%</span>sql</span>
+<span id="cb38-2"><a href="#cb38-2"></a>SELECT</span>
+<span id="cb38-3"><a href="#cb38-3"></a>  order_id,</span>
+<span id="cb38-4"><a href="#cb38-4"></a>  creation_time,</span>
+<span id="cb38-5"><a href="#cb38-5"></a>  order_price,</span>
+<span id="cb38-6"><a href="#cb38-6"></a>  <span class="bu">sum</span>(order_price) OVER(PARTITION BY creation_time::date) <span class="im">as</span> daily_revenue,</span>
+<span id="cb38-7"><a href="#cb38-7"></a>  <span class="bu">round</span>(</span>
+<span id="cb38-8"><a href="#cb38-8"></a>    <span class="dv">100</span> <span class="op">*</span> order_price :: decimal <span class="op">/</span> <span class="bu">sum</span>(order_price) OVER(PARTITION BY creation_time::date),</span>
+<span id="cb38-9"><a href="#cb38-9"></a>    <span class="dv">3</span></span>
+<span id="cb38-10"><a href="#cb38-10"></a>  ) <span class="im">as</span> percentage_of_daily_revenue</span>
+<span id="cb38-11"><a href="#cb38-11"></a>FROM</span>
+<span id="cb38-12"><a href="#cb38-12"></a>  (</span>
+<span id="cb38-13"><a href="#cb38-13"></a>    SELECT</span>
+<span id="cb38-14"><a href="#cb38-14"></a>      order_id,</span>
+<span id="cb38-15"><a href="#cb38-15"></a>      creation_time,</span>
+<span id="cb38-16"><a href="#cb38-16"></a>      <span class="bu">sum</span>(price) <span class="im">as</span> order_price</span>
+<span id="cb38-17"><a href="#cb38-17"></a>    FROM</span>
+<span id="cb38-18"><a href="#cb38-18"></a>      (</span>
+<span id="cb38-19"><a href="#cb38-19"></a>        SELECT</span>
+<span id="cb38-20"><a href="#cb38-20"></a>          order_id,</span>
+<span id="cb38-21"><a href="#cb38-21"></a>          creation_time,</span>
+<span id="cb38-22"><a href="#cb38-22"></a>          product_ids,</span>
+<span id="cb38-23"><a href="#cb38-23"></a>          unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb38-24"><a href="#cb38-24"></a>        FROM</span>
+<span id="cb38-25"><a href="#cb38-25"></a>          orders</span>
+<span id="cb38-26"><a href="#cb38-26"></a>        WHERE</span>
+<span id="cb38-27"><a href="#cb38-27"></a>          order_id <span class="kw">not</span> <span class="kw">in</span> (</span>
+<span id="cb38-28"><a href="#cb38-28"></a>            SELECT</span>
+<span id="cb38-29"><a href="#cb38-29"></a>              order_id</span>
+<span id="cb38-30"><a href="#cb38-30"></a>            FROM</span>
+<span id="cb38-31"><a href="#cb38-31"></a>              user_actions</span>
+<span id="cb38-32"><a href="#cb38-32"></a>            WHERE</span>
+<span id="cb38-33"><a href="#cb38-33"></a>              action <span class="op">=</span> <span class="st">'cancel_order'</span></span>
+<span id="cb38-34"><a href="#cb38-34"></a>          )</span>
+<span id="cb38-35"><a href="#cb38-35"></a>      ) t3</span>
+<span id="cb38-36"><a href="#cb38-36"></a>      LEFT JOIN products using(product_id)</span>
+<span id="cb38-37"><a href="#cb38-37"></a>    GROUP BY</span>
+<span id="cb38-38"><a href="#cb38-38"></a>      order_id,</span>
+<span id="cb38-39"><a href="#cb38-39"></a>      creation_time</span>
+<span id="cb38-40"><a href="#cb38-40"></a>  ) t</span>
+<span id="cb38-41"><a href="#cb38-41"></a>ORDER BY</span>
+<span id="cb38-42"><a href="#cb38-42"></a>  creation_time::date desc,</span>
+<span id="cb38-43"><a href="#cb38-43"></a>  percentage_of_daily_revenue desc,</span>
+<span id="cb38-44"><a href="#cb38-44"></a>  order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<hr>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-window-15" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 8.15 </strong></span><br> За допомогою інформації в таблицях <code>orders</code> та <code>products</code> розрахуйте щоденну виручку сервісу та відобразіть її в колонці <code>daily_revenue</code>. Потім за допомогою віконних функцій та функцій зміщення порахуйте щоденний приріст виручки. Приріст виручки відобразіть як у абсолютних значеннях, і у % щодо попереднього дня. Колонку з абсолютним приростом назвіть <code>revenue_growth_abs</code>, а колонку з відносним – <code>revenue_growth_percentage</code>.</p>
+<p>Для першого дня вкажіть приріст рівним 0 в обох колонках. Під час проведення розрахунків скасовані замовлення не враховуйте. Результат відсортуйте по колонці з датами зростання.</p>
+<p>Метрики <code>daily_revenue</code>, <code>revenue_growth_abs</code>, <code>revenue_growth_percentage</code> округліть <strong>до одного знака</strong> за допомогою <code>ROUND()</code>.</p>
+<p>Поля в результуючій таблиці: <code>date</code>, <code>daily_revenue</code>, <code>revenue_growth_abs</code>, <code>revenue_growth_percentage</code></p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="op">%%</span>sql</span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="cf">with</span> t1 <span class="im">as</span> (</span>
+<span id="cb39-3"><a href="#cb39-3"></a>    SELECT order_id,</span>
+<span id="cb39-4"><a href="#cb39-4"></a>                       creation_time,</span>
+<span id="cb39-5"><a href="#cb39-5"></a>                       product_ids,</span>
+<span id="cb39-6"><a href="#cb39-6"></a>                       unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb39-7"><a href="#cb39-7"></a>                FROM   orders</span>
+<span id="cb39-8"><a href="#cb39-8"></a>                WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb39-9"><a href="#cb39-9"></a>                                        FROM   user_actions</span>
+<span id="cb39-10"><a href="#cb39-10"></a>                                        WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
+<span id="cb39-11"><a href="#cb39-11"></a>    ),</span>
+<span id="cb39-12"><a href="#cb39-12"></a>    t2 <span class="im">as</span> (</span>
+<span id="cb39-13"><a href="#cb39-13"></a>    SELECT creation_time::date <span class="im">as</span> date,</span>
+<span id="cb39-14"><a href="#cb39-14"></a>               <span class="bu">sum</span>(price) <span class="im">as</span> daily_revenue</span>
+<span id="cb39-15"><a href="#cb39-15"></a>        FROM t1</span>
+<span id="cb39-16"><a href="#cb39-16"></a>        LEFT JOIN products using(product_id)</span>
+<span id="cb39-17"><a href="#cb39-17"></a>        GROUP BY date</span>
+<span id="cb39-18"><a href="#cb39-18"></a>    )</span>
+<span id="cb39-19"><a href="#cb39-19"></a>    </span>
+<span id="cb39-20"><a href="#cb39-20"></a>SELECT date,</span>
+<span id="cb39-21"><a href="#cb39-21"></a>       <span class="bu">round</span>(daily_revenue, <span class="dv">1</span>) <span class="im">as</span> daily_revenue,</span>
+<span id="cb39-22"><a href="#cb39-22"></a>       <span class="bu">round</span>(coalesce(daily_revenue <span class="op">-</span> lag(daily_revenue, <span class="dv">1</span>) OVER (ORDER BY date), <span class="dv">0</span>), <span class="dv">1</span>) <span class="im">as</span> revenue_growth_abs,</span>
+<span id="cb39-23"><a href="#cb39-23"></a>       <span class="bu">round</span>(coalesce(<span class="bu">round</span>((daily_revenue <span class="op">-</span> lag(daily_revenue, <span class="dv">1</span>) OVER (ORDER BY date))::decimal <span class="op">/</span> lag(daily_revenue, <span class="dv">1</span>) OVER (ORDER BY date) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>), <span class="dv">0</span>), <span class="dv">1</span>) <span class="im">as</span> revenue_growth_percentage</span>
+<span id="cb39-24"><a href="#cb39-24"></a>FROM t2</span>
+<span id="cb39-25"><a href="#cb39-25"></a>ORDER BY date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="114">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th">daily_revenue</th>
+<th data-quarto-table-cell-role="th">revenue_growth_abs</th>
+<th data-quarto-table-cell-role="th">revenue_growth_percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2022-08-24</td>
+<td>49924.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2022-08-25</td>
+<td>430860.0</td>
+<td>380936.0</td>
+<td>763.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2022-08-26</td>
+<td>534766.0</td>
+<td>103906.0</td>
+<td>24.1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2022-08-27</td>
+<td>817053.0</td>
+<td>282287.0</td>
+<td>52.8</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2022-08-28</td>
+<td>1133370.0</td>
+<td>316317.0</td>
+<td>38.7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>2022-08-29</td>
+<td>1279891.0</td>
+<td>146521.0</td>
+<td>12.9</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>2022-08-30</td>
+<td>1279377.0</td>
+<td>-514.0</td>
+<td>-0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>2022-08-31</td>
+<td>1312720.0</td>
+<td>33343.0</td>
+<td>2.6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>2022-09-01</td>
+<td>1406101.0</td>
+<td>93381.0</td>
+<td>7.1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>2022-09-02</td>
+<td>1907107.0</td>
+<td>501006.0</td>
+<td>35.6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>2022-09-03</td>
+<td>2210988.0</td>
+<td>303881.0</td>
+<td>15.9</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>2022-09-04</td>
+<td>2294009.0</td>
+<td>83021.0</td>
+<td>3.8</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>2022-09-05</td>
+<td>1784690.0</td>
+<td>-509319.0</td>
+<td>-22.2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>2022-09-06</td>
+<td>1330931.0</td>
+<td>-453759.0</td>
+<td>-25.4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>2022-09-07</td>
+<td>1807800.0</td>
+<td>476869.0</td>
+<td>35.8</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>2022-09-08</td>
+<td>2099508.0</td>
+<td>291708.0</td>
+<td>16.1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<hr>
+<p>І наприкінці давайте спробуємо застосувати віконні функції на вирішення нетривіальної задачі.</p>
+<p>Насправді при розрахунку середніх значень аналітикам часто доводиться мати справу з екстремально малими чи екстремально великими значеннями у вибірках. Тому замість звичайного середнього іноді доводиться рахувати медіану.</p>
+<p><strong>Медіана</strong> - це таке значення в деякому впорядкованому за зростанням наборі чисел, що одна половина елементів набору не менше за нього, а інша половина не більше. Тобто це таке число, що знаходиться десь у середині цього набору.</p>
+<p>Наведемо приклад. Допустимо, у нас є набір наступних чисел:</p>
+<pre><code>1, 5, 2, 12, 17, 8, 50, 12, 9, 1, 3</code></pre>
+<p>Якщо ми впорядкуємо цей набір за зростанням, то отримаємо наступний числовий ряд:</p>
+<pre><code>1, 1, 2, 3, 5, 8, 9, 12, 12, 17, 50</code></pre>
+<p>Давайте пронумеруємо елементи впорядкованого набору:</p>
+<pre><code>Числовий ряд:
+1, 1, 2, 3, 5, 8, 9, 12, 12, 17, 50
+
+Номер елемента:
+1, 2, 3, 4, 5, 6, 7,  8,  9, 10, 11  </code></pre>
+<p>Тепер добре видно, що центральним елементом ряду є число 8 (елемент під номером 6), оскільки одна половина значень (елементи під номерами 1-5) не більша за 8, а друга половина (елементи під номерами 7-11) не менше 8. Таким чином, медіана нашого ряду дорівнює 8.</p>
+<p>Але це працює, коли ряд складається з непарної кількості елементів (у нас їх 11). Якщо ж у вибірці парне число елементів, тоді як медіану вважають середнє значення двох елементів, що у середині ряду.</p>
+<p>Давайте додамо до нашого ряду число 0 і подивимося, що в результаті вийде:</p>
+<pre><code>Числовий ряд:
+0, 1, 1, 2, 3, 5, 8, 9, 12, 12, 17, 50
+
+Номер елемента:
+1, 2, 3, 4, 5, 6, 7, 8,  9, 10, 11, 12  </code></pre>
+<p>Тепер центральними є числа 5 та 8 (елементи під номерами 6 та 7). Медіана у цьому випадку дорівнює: <span class="math display">\[(5+8)/2=6.5\]</span></p>
+<p>Знову половина значень (елементи під номерами 1-5) не більше 6.5, а друга половина (елементи під номерами 7-11) не менше 6.5.</p>
+<p>Трапляються випадки, коли в ряді, що складається з парного числа елементів, граничними є два однакові значення. Давайте замінимо у нашому ряді число 8 на число 5:</p>
+<pre><code>Числовий ряд:
+0, 1, 1, 2, 3, 5, 5, 9, 12, 12, 17, 50
+
+Номер елемента:
+1, 2, 3, 4, 5, 6, 7, 8,  9, 10, 11, 12  </code></pre>
+<p>Тепер медіаною буде число 5, оскільки: <span class="math display">\[(5+5)/2=5\]</span></p>
+<p>На цьому наш невеликий лікнеп добігає кінця, і ми повертаємося до практики.</p>
+<hr>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-window-16" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 8.16 </strong></span><br> За допомогою віконної функції розрахуйте медіанну вартість всіх замовлень із таблиці <code>orders</code>, оформлених у нашому сервісі. Як результат виведіть одне число. Назвіть колонку з ним <code>median_price</code>. Скасовані замовлення не враховуйте.</p>
+<p>Поле у результуючій таблиці: <code>median_price</code></p>
+<p><strong>Пояснення:</strong></p>
+<p>Запит повинен враховувати два можливі сценарії: для парного та непарного числа замовлень. Вбудовані функції для розрахунку квантилей застосовувати не можна.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Підказка на випадок, якщо зовсім не виходить
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Для розрахунку медіани необхідно впорядкувати та пронумерувати вартість замовлень, а потім вибрати необхідний елемент/елементи послідовності.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="16">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="op">%%</span>sql</span>
+<span id="cb45-2"><a href="#cb45-2"></a>WITH orders_prods AS (SELECT <span class="op">*</span>,</span>
+<span id="cb45-3"><a href="#cb45-3"></a>                             unnest(product_ids) AS product_id</span>
+<span id="cb45-4"><a href="#cb45-4"></a>                      FROM orders),</span>
+<span id="cb45-5"><a href="#cb45-5"></a>                      </span>
+<span id="cb45-6"><a href="#cb45-6"></a>total AS (SELECT order_id,</span>
+<span id="cb45-7"><a href="#cb45-7"></a>                SUM(p.price) AS order_price,</span>
+<span id="cb45-8"><a href="#cb45-8"></a>                ROW_NUMBER() OVER(ORDER BY SUM(p.price)) AS number</span>
+<span id="cb45-9"><a href="#cb45-9"></a>          FROM orders_prods AS o</span>
+<span id="cb45-10"><a href="#cb45-10"></a>          JOIN products AS p ON o.product_id <span class="op">=</span> p.product_id</span>
+<span id="cb45-11"><a href="#cb45-11"></a>          </span>
+<span id="cb45-12"><a href="#cb45-12"></a>          WHERE order_id NOT IN (SELECT order_id</span>
+<span id="cb45-13"><a href="#cb45-13"></a>                             FROM user_actions</span>
+<span id="cb45-14"><a href="#cb45-14"></a>                             WHERE action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
+<span id="cb45-15"><a href="#cb45-15"></a>          GROUP BY order_id),</span>
+<span id="cb45-16"><a href="#cb45-16"></a>          </span>
+<span id="cb45-17"><a href="#cb45-17"></a>median_numbers AS (SELECT CASE MAX(number) <span class="op">%</span> <span class="dv">2</span> WHEN <span class="dv">0</span></span>
+<span id="cb45-18"><a href="#cb45-18"></a>                                               THEN MAX(number) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb45-19"><a href="#cb45-19"></a>                                               ELSE (MAX(number) <span class="op">+</span><span class="dv">1</span>) <span class="op">/</span> <span class="dv">2</span> END AS number_1,</span>
+<span id="cb45-20"><a href="#cb45-20"></a>                       </span>
+<span id="cb45-21"><a href="#cb45-21"></a>                          CASE MAX(number) <span class="op">%</span> <span class="dv">2</span> WHEN <span class="dv">0</span></span>
+<span id="cb45-22"><a href="#cb45-22"></a>                                                THEN MAX(number) <span class="op">/</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span>    </span>
+<span id="cb45-23"><a href="#cb45-23"></a>                                                END AS number_2</span>
+<span id="cb45-24"><a href="#cb45-24"></a>                    FROM total),</span>
+<span id="cb45-25"><a href="#cb45-25"></a>                    </span>
+<span id="cb45-26"><a href="#cb45-26"></a>number_one AS (SELECT number_1</span>
+<span id="cb45-27"><a href="#cb45-27"></a>                FROM median_numbers),</span>
+<span id="cb45-28"><a href="#cb45-28"></a>                </span>
+<span id="cb45-29"><a href="#cb45-29"></a></span>
+<span id="cb45-30"><a href="#cb45-30"></a>number_two AS (SELECT number_2</span>
+<span id="cb45-31"><a href="#cb45-31"></a>                FROM median_numbers)</span>
+<span id="cb45-32"><a href="#cb45-32"></a>                </span>
+<span id="cb45-33"><a href="#cb45-33"></a>SELECT AVG(order_price) AS median_price</span>
+<span id="cb45-34"><a href="#cb45-34"></a>FROM total</span>
+<span id="cb45-35"><a href="#cb45-35"></a></span>
+<span id="cb45-36"><a href="#cb45-36"></a>WHERE number IN (SELECT <span class="op">*</span></span>
+<span id="cb45-37"><a href="#cb45-37"></a>                FROM number_one</span>
+<span id="cb45-38"><a href="#cb45-38"></a>                UNION SELECT <span class="op">*</span></span>
+<span id="cb45-39"><a href="#cb45-39"></a>                FROM number_two)</span>
+<span id="cb45-40"><a href="#cb45-40"></a></span>
+<span id="cb45-41"><a href="#cb45-41"></a><span class="op">---</span> або</span>
+<span id="cb45-42"><a href="#cb45-42"></a><span class="op">--</span> WITH main_table AS (</span>
+<span id="cb45-43"><a href="#cb45-43"></a><span class="op">--</span>   SELECT</span>
+<span id="cb45-44"><a href="#cb45-44"></a><span class="op">--</span>     order_price,</span>
+<span id="cb45-45"><a href="#cb45-45"></a><span class="op">--</span>     ROW_NUMBER() OVER (</span>
+<span id="cb45-46"><a href="#cb45-46"></a><span class="op">--</span>       ORDER BY</span>
+<span id="cb45-47"><a href="#cb45-47"></a><span class="op">--</span>         order_price</span>
+<span id="cb45-48"><a href="#cb45-48"></a><span class="op">--</span>     ) AS row_number,</span>
+<span id="cb45-49"><a href="#cb45-49"></a><span class="op">--</span>     COUNT(<span class="op">*</span>) OVER() AS total_rows</span>
+<span id="cb45-50"><a href="#cb45-50"></a><span class="op">--</span>   FROM</span>
+<span id="cb45-51"><a href="#cb45-51"></a><span class="op">--</span>     (</span>
+<span id="cb45-52"><a href="#cb45-52"></a><span class="op">--</span>       SELECT</span>
+<span id="cb45-53"><a href="#cb45-53"></a><span class="op">--</span>         SUM(price) AS order_price</span>
+<span id="cb45-54"><a href="#cb45-54"></a><span class="op">--</span>       FROM</span>
+<span id="cb45-55"><a href="#cb45-55"></a><span class="op">--</span>         (</span>
+<span id="cb45-56"><a href="#cb45-56"></a><span class="op">--</span>           SELECT</span>
+<span id="cb45-57"><a href="#cb45-57"></a><span class="op">--</span>             order_id,</span>
+<span id="cb45-58"><a href="#cb45-58"></a><span class="op">--</span>             product_ids,</span>
+<span id="cb45-59"><a href="#cb45-59"></a><span class="op">--</span>             UNNEST(product_ids) AS product_id</span>
+<span id="cb45-60"><a href="#cb45-60"></a><span class="op">--</span>           FROM</span>
+<span id="cb45-61"><a href="#cb45-61"></a><span class="op">--</span>             orders</span>
+<span id="cb45-62"><a href="#cb45-62"></a><span class="op">--</span>           WHERE</span>
+<span id="cb45-63"><a href="#cb45-63"></a><span class="op">--</span>             order_id NOT IN (</span>
+<span id="cb45-64"><a href="#cb45-64"></a><span class="op">--</span>               SELECT</span>
+<span id="cb45-65"><a href="#cb45-65"></a><span class="op">--</span>                 order_id</span>
+<span id="cb45-66"><a href="#cb45-66"></a><span class="op">--</span>               FROM</span>
+<span id="cb45-67"><a href="#cb45-67"></a><span class="op">--</span>                 user_actions</span>
+<span id="cb45-68"><a href="#cb45-68"></a><span class="op">--</span>               WHERE</span>
+<span id="cb45-69"><a href="#cb45-69"></a><span class="op">--</span>                 action <span class="op">=</span> <span class="st">'cancel_order'</span></span>
+<span id="cb45-70"><a href="#cb45-70"></a><span class="op">--</span>             )</span>
+<span id="cb45-71"><a href="#cb45-71"></a><span class="op">--</span>         ) t3</span>
+<span id="cb45-72"><a href="#cb45-72"></a><span class="op">--</span>         LEFT JOIN products USING(product_id)</span>
+<span id="cb45-73"><a href="#cb45-73"></a><span class="op">--</span>       GROUP BY</span>
+<span id="cb45-74"><a href="#cb45-74"></a><span class="op">--</span>         order_id</span>
+<span id="cb45-75"><a href="#cb45-75"></a><span class="op">--</span>     ) t1</span>
+<span id="cb45-76"><a href="#cb45-76"></a><span class="op">--</span> )</span>
+<span id="cb45-77"><a href="#cb45-77"></a><span class="op">--</span> SELECT</span>
+<span id="cb45-78"><a href="#cb45-78"></a><span class="op">--</span>   AVG(order_price) AS median_price</span>
+<span id="cb45-79"><a href="#cb45-79"></a><span class="op">--</span> FROM</span>
+<span id="cb45-80"><a href="#cb45-80"></a><span class="op">--</span>   main_table</span>
+<span id="cb45-81"><a href="#cb45-81"></a><span class="op">--</span> WHERE</span>
+<span id="cb45-82"><a href="#cb45-82"></a><span class="op">--</span>   row_number BETWEEN total_rows <span class="op">/</span> <span class="fl">2.0</span></span>
+<span id="cb45-83"><a href="#cb45-83"></a><span class="op">--</span>   AND total_rows <span class="op">/</span> <span class="fl">2.0</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="115">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">median_price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>321.0</td>
 </tr>
 </tbody>
 </table>
