@@ -617,7 +617,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb17-7"><a href="#cb17-7"></a>       dense_rank() OVER (ORDER BY price desc) <span class="im">as</span> product_dense_rank</span>
 <span id="cb17-8"><a href="#cb17-8"></a>FROM   products</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="25">
 <div>
 
 
@@ -779,7 +779,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb19-7"><a href="#cb19-7"></a>FROM   products</span>
 <span id="cb19-8"><a href="#cb19-8"></a>ORDER BY price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="26">
 <div>
 
 
@@ -925,7 +925,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb20-7"><a href="#cb20-7"></a>FROM   products</span>
 <span id="cb20-8"><a href="#cb20-8"></a>ORDER BY price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="27">
 <div>
 
 
@@ -1076,7 +1076,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb21-10"><a href="#cb21-10"></a>    SUM(orders_count) OVER (ORDER BY date)::integer <span class="im">as</span> orders_cum_count</span>
 <span id="cb21-11"><a href="#cb21-11"></a>FROM t1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="28">
 <div>
 
 
@@ -1267,7 +1267,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb24-14"><a href="#cb24-14"></a>                        WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
 <span id="cb24-15"><a href="#cb24-15"></a>ORDER BY user_id, order_number limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="29">
 <div>
 
 
@@ -1442,7 +1442,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb26-17"><a href="#cb26-17"></a>GROUP BY user_id</span>
 <span id="cb26-18"><a href="#cb26-18"></a>ORDER BY user_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="30">
 <div>
 
 
@@ -1560,19 +1560,20 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <details>
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="op">%%</span>sql</span>
-<span id="cb29-2"><a href="#cb29-2"></a>SELECT date, orders_count, </span>
-<span id="cb29-3"><a href="#cb29-3"></a>       <span class="bu">round</span>(AVG(orders_count) over </span>
-<span id="cb29-4"><a href="#cb29-4"></a>        ( order by orders_count  rows between <span class="dv">3</span> preceding <span class="kw">and</span> <span class="dv">1</span> preceding),<span class="dv">2</span>) <span class="im">as</span> moving_avg</span>
-<span id="cb29-5"><a href="#cb29-5"></a><span class="im">from</span>  (SELECT creation_time :: date <span class="im">as</span> date,</span>
-<span id="cb29-6"><a href="#cb29-6"></a>              count(order_id) <span class="im">as</span> orders_count,</span>
-<span id="cb29-7"><a href="#cb29-7"></a>              <span class="bu">sum</span>(count(order_id)) OVER (ORDER BY creation_time :: date) <span class="im">as</span> orders_cum_count</span>
-<span id="cb29-8"><a href="#cb29-8"></a>       FROM   orders</span>
-<span id="cb29-9"><a href="#cb29-9"></a>       WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
-<span id="cb29-10"><a href="#cb29-10"></a>                               FROM   user_actions</span>
-<span id="cb29-11"><a href="#cb29-11"></a>                               WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
-<span id="cb29-12"><a href="#cb29-12"></a>       GROUP BY date) <span class="im">as</span> t1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-2"><a href="#cb29-2"></a>SELECT date,</span>
+<span id="cb29-3"><a href="#cb29-3"></a>       orders_count,</span>
+<span id="cb29-4"><a href="#cb29-4"></a>       <span class="bu">round</span>(avg(orders_count) OVER (ORDER BY date rows between <span class="dv">3</span> preceding <span class="kw">and</span> <span class="dv">1</span> preceding),</span>
+<span id="cb29-5"><a href="#cb29-5"></a>             <span class="dv">2</span>) <span class="im">as</span> moving_avg</span>
+<span id="cb29-6"><a href="#cb29-6"></a>FROM   (SELECT creation_time :: date <span class="im">as</span> date,</span>
+<span id="cb29-7"><a href="#cb29-7"></a>               count(order_id) <span class="im">as</span> orders_count,</span>
+<span id="cb29-8"><a href="#cb29-8"></a>               <span class="bu">sum</span>(count(order_id)) OVER (ORDER BY creation_time :: date) <span class="im">as</span> orders_cum_count</span>
+<span id="cb29-9"><a href="#cb29-9"></a>        FROM   orders</span>
+<span id="cb29-10"><a href="#cb29-10"></a>        WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb29-11"><a href="#cb29-11"></a>                                FROM   user_actions</span>
+<span id="cb29-12"><a href="#cb29-12"></a>                                WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
+<span id="cb29-13"><a href="#cb29-13"></a>        GROUP BY date) <span class="im">as</span> t1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="31">
 <div>
 
 
@@ -1636,51 +1637,51 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">8</td>
-<td>2022-09-06</td>
-<td>3451</td>
+<td>2022-09-01</td>
+<td>3688</td>
 <td>3349.33</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">9</td>
-<td>2022-09-01</td>
-<td>3688</td>
-<td>3410.67</td>
+<td>2022-09-02</td>
+<td>5001</td>
+<td>3489.67</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">10</td>
-<td>2022-09-05</td>
-<td>4675</td>
-<td>3516.33</td>
+<td>2022-09-03</td>
+<td>5709</td>
+<td>4033.00</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">11</td>
-<td>2022-09-07</td>
-<td>4777</td>
-<td>3938.00</td>
+<td>2022-09-04</td>
+<td>6010</td>
+<td>4799.33</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">12</td>
-<td>2022-09-02</td>
-<td>5001</td>
-<td>4380.00</td>
+<td>2022-09-05</td>
+<td>4675</td>
+<td>5573.33</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">13</td>
-<td>2022-09-08</td>
-<td>5474</td>
-<td>4817.67</td>
+<td>2022-09-06</td>
+<td>3451</td>
+<td>5464.67</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">14</td>
-<td>2022-09-03</td>
-<td>5709</td>
-<td>5084.00</td>
+<td>2022-09-07</td>
+<td>4777</td>
+<td>4712.00</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">15</td>
-<td>2022-09-04</td>
-<td>6010</td>
-<td>5394.67</td>
+<td>2022-09-08</td>
+<td>5474</td>
+<td>4301.00</td>
 </tr>
 </tbody>
 </table>
