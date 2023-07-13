@@ -237,13 +237,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Віконні функції</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_analytic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Практичні задачі</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
   </div>
 </li>
     </ul>
@@ -3263,7 +3269,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-join-16" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 7.16 </strong></span><br> Візьміть за основу запит із <a href="sql_groupby.html#exr-sql-groupby-11">завдання&nbsp;<span>5.11</span></a> і підтягніть до нього з таблиці <code>users</code> дані про поле користувачів таким чином, щоб усі користувачі з таблиці <code>users_actions</code> залишилися в результаті. Потім порахуйте середнє значення <code>cancel_rate</code> для кожної статі, заокругливши його <strong>до трьох знаків після ком</strong>и. Колонку з порахованим середнім значенням назвіть <code>avg_cancel_rate</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 7.16 </strong></span><br> Візьміть за основу запит із <a href="sql_groupby.html#exr-sql-groupby-11">завдання&nbsp;<span>5.16</span></a> і підтягніть до нього з таблиці <code>users</code> дані про поле користувачів таким чином, щоб усі користувачі з таблиці <code>users_actions</code> залишилися в результаті. Потім порахуйте середнє значення <code>cancel_rate</code> для кожної статі, заокругливши його <strong>до трьох знаків після ком</strong>и. Колонку з порахованим середнім значенням назвіть <code>avg_cancel_rate</code>.</p>
 <p>Пам’ятайте про відсутність інформації про поле деяких користувачів після об’єднання таблиць, тому що не всі користувачі таблиці <code>user_action</code> є в таблиці users. Для цієї групи також порахуйте <code>cancel_rate</code> і в результуючій таблиці для порожнього значення в колонці з підлогою вкажіть <strong>‘unknown’</strong> (без лапок). Можливо, для цього доведеться згадати, як працює <code>COALESCE</code>.</p>
 <p>Результат відсортуйте по колонці зі статтю користувача за зростанням.</p>
 <p>Поля у результуючій таблиці: <code>sex</code>, <code>avg_cancel_rate</code></p>
@@ -3812,7 +3818,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"532f0131a22a41e68d02d18b6e389feb","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+{"model_id":"e8cf179bf0f243ca99d7c288bf860055","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="31">
@@ -3896,7 +3902,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 
 </main> <!-- /main -->
 <script type="application/vnd.jupyter.widget-state+json">
-{"state":{"532f0131a22a41e68d02d18b6e389feb":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_e16d97327f784eedb26330f7a663bc60","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_82d189c664d049fd8c909db625e462a5","tabbable":null,"tooltip":null,"value":100}},"82d189c664d049fd8c909db625e462a5":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"e16d97327f784eedb26330f7a663bc60":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}}},"version_major":2,"version_minor":0}
+{"state":{"8fbcc777d940429b9c8ea5e42d7c5b1a":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"d60bb82978984ad28b451871849b6dcf":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"e8cf179bf0f243ca99d7c288bf860055":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_8fbcc777d940429b9c8ea5e42d7c5b1a","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_d60bb82978984ad28b451871849b6dcf","tabbable":null,"tooltip":null,"value":100}}},"version_major":2,"version_minor":0}
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

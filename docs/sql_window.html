@@ -65,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./sql_analytic.html" rel="next">
 <link href="./sql_join.html" rel="prev">
 <link href="./cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -237,13 +238,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Віконні функції</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_analytic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Практичні задачі</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
   </div>
 </li>
     </ul>
@@ -621,7 +628,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb17-7"><a href="#cb17-7"></a>       dense_rank() OVER (ORDER BY price desc) <span class="im">as</span> product_dense_rank</span>
 <span id="cb17-8"><a href="#cb17-8"></a>FROM   products</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="117">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -783,7 +790,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb19-7"><a href="#cb19-7"></a>FROM   products</span>
 <span id="cb19-8"><a href="#cb19-8"></a>ORDER BY price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="118">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -929,7 +936,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb20-7"><a href="#cb20-7"></a>FROM   products</span>
 <span id="cb20-8"><a href="#cb20-8"></a>ORDER BY price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="119">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
@@ -1080,7 +1087,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb21-10"><a href="#cb21-10"></a>    SUM(orders_count) OVER (ORDER BY date)::integer <span class="im">as</span> orders_cum_count</span>
 <span id="cb21-11"><a href="#cb21-11"></a>FROM t1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="120">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
 
@@ -1271,7 +1278,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb24-14"><a href="#cb24-14"></a>                        WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
 <span id="cb24-15"><a href="#cb24-15"></a>ORDER BY user_id, order_number limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="121">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 
 
@@ -1446,7 +1453,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb26-17"><a href="#cb26-17"></a>GROUP BY user_id</span>
 <span id="cb26-18"><a href="#cb26-18"></a>ORDER BY user_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="122">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
 
@@ -1577,7 +1584,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb29-12"><a href="#cb29-12"></a>                                WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
 <span id="cb29-13"><a href="#cb29-13"></a>        GROUP BY date) <span class="im">as</span> t1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="123">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
 
@@ -1756,7 +1763,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb31-25"><a href="#cb31-25"></a><span class="op">--</span>            <span class="kw">and</span> action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
 <span id="cb31-26"><a href="#cb31-26"></a><span class="op">--</span>         GROUP BY courier_id) t1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="124">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
 
@@ -1858,7 +1865,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </section>
 <section id="задача-з-filter" class="level2" data-number="8.14">
 <h2 data-number="8.14" class="anchored" data-anchor-id="задача-з-filter"><span class="header-section-number">8.14</span> Задача з <code>FILTER</code></h2>
-<p>У цьому завданні розглянемо ще більш сучасний функціонал і навчимося разом з віконними функціями застосовувати оператор <code>FILTER</code>, з яким ми вже працювали у <a href="sql_groupby.html#exr-sql-groupby-11">завданні&nbsp;<span>5.11</span></a>.</p>
+<p>У цьому завданні розглянемо ще більш сучасний функціонал і навчимося разом з віконними функціями застосовувати оператор <code>FILTER</code>, з яким ми вже працювали у <a href="sql_groupby.html#exr-sql-groupby-11">завданні&nbsp;<span>5.16</span></a>.</p>
 <p>Якщо до визначення віконної функції додати пропозицію <code>FILTER</code>, то у вікно потраплять лише ті вхідні рядки, для яких умова фільтра буде обчислена як дійсна.</p>
 <p>При цьому пропозиція <code>FILTER</code> допускається тільки для агрегатних віконних функцій.</p>
 <p>У загальному вигляді вся конструкція виглядає так:</p>
@@ -1901,7 +1908,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb34-9"><a href="#cb34-9"></a>FROM   products</span>
 <span id="cb34-10"><a href="#cb34-10"></a>ORDER BY price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="125">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
 
@@ -2060,7 +2067,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb35-17"><a href="#cb35-17"></a>        FROM   user_actions) t</span>
 <span id="cb35-18"><a href="#cb35-18"></a>ORDER BY user_id, order_id, time limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="126">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 
 
@@ -2236,7 +2243,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb36-14"><a href="#cb36-14"></a>WHERE  courier_rank <span class="op">&lt;=</span> <span class="bu">round</span>((SELECT <span class="op">*</span></span>
 <span id="cb36-15"><a href="#cb36-15"></a>                              FROM   courier_count)<span class="op">*</span><span class="fl">0.1</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="127">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 
 
@@ -2365,7 +2372,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb37-14"><a href="#cb37-14"></a>WHERE  days_employed <span class="op">&gt;=</span> <span class="dv">10</span></span>
 <span id="cb37-15"><a href="#cb37-15"></a>ORDER BY days_employed desc, courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="128">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
 
@@ -2569,7 +2576,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb39-24"><a href="#cb39-24"></a>FROM t2</span>
 <span id="cb39-25"><a href="#cb39-25"></a>ORDER BY date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="129">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
 
@@ -2856,7 +2863,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb45-82"><a href="#cb45-82"></a><span class="op">--</span>   row_number BETWEEN total_rows <span class="op">/</span> <span class="fl">2.0</span></span>
 <span id="cb45-83"><a href="#cb45-83"></a><span class="op">--</span>   AND total_rows <span class="op">/</span> <span class="fl">2.0</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="130">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 
 
@@ -3238,6 +3245,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./sql_analytic.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Практичні задачі</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

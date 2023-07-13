@@ -31,6 +31,7 @@ book:
       - sql_subquery.ipynb
       - sql_join.ipynb
       - sql_window.ipynb
+      - sql_analytic.ipynb
     - text: "---"
     - quarto.qmd
     
