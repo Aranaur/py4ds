@@ -6,11 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ігор Мірошниченко">
-<meta name="dcterms.date" content="2023-07-16">
 <meta name="description" content="Книга-конспект матеріалів.">
 
-<title>Python та його друзі в науці про дані</title>
+<title>Python та його друзі в науці про дані - 10&nbsp; Аналіз продуктових метрик</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,6 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./sql_analytic.html" rel="prev">
 <link href="./cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -73,6 +72,9 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -86,7 +88,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Вступне слово</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql.html">SQL</a></li><li class="breadcrumb-item"><a href="./sql_metrics.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Аналіз продуктових метрик</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -143,7 +145,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Вступне слово</span></span></a>
   </div>
 </li>
@@ -207,7 +209,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sql_metrics.html" class="sidebar-item-text sidebar-link">
+  <a href="./sql_metrics.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Аналіз продуктових метрик</span></span></a>
   </div>
 </li>
@@ -230,7 +232,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
     <h2 id="toc-title">Зміст</h2>
    
   <ul>
-  <li><a href="#вступне-слово" id="toc-вступне-слово" class="nav-link active" data-scroll-target="#вступне-слово">Вступне слово</a></li>
+  <li><a href="#задача-1" id="toc-задача-1" class="nav-link active" data-scroll-target="#задача-1"><span class="header-section-number">10.1</span> Задача 1</a></li>
   </ul>
 </nav>
     </div>
@@ -239,31 +241,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Python та його друзі в науці про дані</h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Аналіз продуктових метрик</span></h1>
 </div>
 
-<div>
-  <div class="description">
-    Книга-конспект матеріалів.
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Автор</div>
-    <div class="quarto-title-meta-contents">
-             <p>Ігор Мірошниченко </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Дата публікації</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2023-07-16</p>
-    </div>
-  </div>
   
     
   </div>
@@ -271,27 +256,59 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 
 </header>
 
-<section id="вступне-слово" class="level1 unnumbered">
-<h1 class="unnumbered">Вступне слово</h1>
-<div class="callout callout-style-default callout-important callout-titled">
+<p>Минулого разу ми навчилися будувати повноцінні дашборди і представляти результати аналізу у зрозумілій бізнесі формі — це дуже важлива навичка, необхідна будь-якому аналітику.</p>
+<p>Цього разу ми трохи докладніше поговоримо про аналіз найважливіших метрик, які дозволяють з різних боків оцінити те, наскільки добре працює наш продукт.</p>
+<p>Насправді раніше ми вже рахували окремі показники — наприклад, метрики залучення користувачів <strong>DAU</strong>, <strong>WAU</strong> та <strong>MAU</strong>, кількість замовлень, частку скасованих замовлень тощо. Це дійсно важливі показники, але часто представники бізнесу в першу чергу звертають увагу на більш зрозумілі показники, виражені в грошовій формі. Це можуть бути виручка, витрати чи рентабельність, а також відносні показники на кшталт доходу на одного користувача та середнього чека – все це теж важливо вміти розраховувати, чим ми з вами й займемося.</p>
+<p>Крім того, наприкінці ми обговоримо методику розрахунку ще одного важливого показника – <strong>Retention rate</strong>.</p>
+<p>На цей раз вам знову буде запропоновано написати кілька SQL-запитів і візуалізувати їх результат за допомогою графіків.</p>
+<section id="задача-1" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="задача-1"><span class="header-section-number">10.1</span> Задача 1</h2>
+<p>Почнемо з виручки - найбільш загального показника, який покаже, який дохід приносить наш сервіс.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-metrics-01" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 10.1 </strong></span><br> Для кожного дня в таблиці <code>orders</code> розрахуйте такі показники:</p>
+<ol type="1">
+<li>Виручку, одержану в цей день.</li>
+<li>Сумарний виторг на поточний день.</li>
+<li>Приріст виручки, отриманої цього дня, щодо значення виручки за попередній день.</li>
+</ol>
+<p>Колонки з показниками назвіть відповідно <code>revenue</code>, <code>total_revenue</code>, <code>revenue_change</code>. Колонку з датами назвіть <code>date</code>.</p>
+<p>Приріст виручки розрахуйте у відсотках та округліть значення <strong>до двох знаків після коми</strong>.</p>
+<p>Результат має бути відсортований за зростанням дати.</p>
+<p>Поля в результуючій таблиці: <code>date</code>, <code>revenue</code>, <code>total_revenue</code>, <code>revenue_change</code></p>
+<p><strong>Пояснення:</strong></p>
+<p>Вважатимемо, що оплата за замовлення надходить відразу після його оформлення, тобто випадки, коли замовлення було оформлено в один день, а оплата отримана наступного, виникнути не можуть.</p>
+<p>Сумарна виручка на поточний день – це результат складання виручки, отриманої поточного дня, зі значеннями аналогічного показника всіх попередніх днів.</p>
+<p>При розрахунку виручки пам’ятайте, що не всі замовлення були сплачені, деякі були скасовані користувачами.</p>
+<p>Не забувайте при діленні заздалегідь переводити значення до потрібного типу даних. Пропущені значення приросту для першої дати не заповнюйте - просто залиште поля в цьому рядку порожніми.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Важливо
+Підказка на випадок, якщо зовсім не виходить
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Ця книга знаходиться на стадії розробки.</p>
+<p>Для вирішення завдання вам знадобиться інформація про замовлення з таблиці <code>orders</code> та ціни на товари з таблиці <code>products</code>. Щоб порахувати виторг для кожного дня, спочатку необхідно порахувати вартість кожного замовлення. Це можна зробити, склавши ціни товарів, що входять на замовлення. Щоб правильно приєднати дані про ціни на товари, списки із вмістом замовлень потрібно попередньо розширити за допомогою функції <code>unnest</code>. Після того як для кожного дня буде порахована сумарна вартість усіх замовлень (виручка), за допомогою віконних функцій можна порахувати суму наростаючим підсумком (загальну виручку) та приріст виручки (різницю між виручкою в поточний день та виручкою в попередній день, поділену на виручку в попередній день).</p>
 </div>
 </div>
-<p>Шановні читачі,</p>
-<p>Запрошую до книги “Python та його друзі в науці про дані”! Сьогодні ми відкриваємо двері до захоплюючого світу аналізу даних та наукових досліджень, в якому Python стає вашим найкращим другом. Завдяки своїй простоті, гнучкості та потужності, Python виходить за межі звичайної мови програмування, перетворюючись на незамінного помічника для розв’язання складних задач і виявлення прихованих закономірностей.</p>
-<p>У цій книзі ми збираємося подорожувати у світі науки про дані, де Python та інші дотичні інструменти стають невід’ємною частиною процесу відкриття знань та розуміння складних систем. Ви дізнаєтеся, як за допомогою Python можна ефективно обробляти, аналізувати та візуалізувати дані, виявляти закономірності та робити передбачення. Завдяки цим інструментам ви зможете розкрити потужний потенціал ваших даних та прийняти обґрунтовані рішення на основі наукових фактів.</p>
-<p>Я запрошую вас на цю захоплюючу подорож, де ми разом з вами розкриємо секрети Python у науці про дані. Незалежно від вашого досвіду в програмуванні або знань про науку про дані, ця книга надасть вам необхідні знання та інструменти для успішного впровадження Python у ваші проекти. Будьте впевнені, що по закінченні цього шляху ви будете готові до викликів, які стоять перед вами у світі науки та досліджень.</p>
-<p>Нехай ця книга стане вашим надійним провідником у справжньому дослідницькому пригоді, де Python та його друзі стають вашими найкращими союзниками. Розпочнемо нашу подорож разом!</p>
-<p>З найкращими побажаннями, Ігор Мірошниченко</p>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -645,6 +662,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./sql_analytic.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Практичні задачі</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
