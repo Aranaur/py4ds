@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -75,7 +109,25 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (typeof require !== 'undefined') {
+require.undef("plotly");
+requirejs.config({
+    paths: {
+        'plotly': ['https://cdn.plot.ly/plotly-2.18.2.min']
+    }
+});
+require(['plotly'], function(Plotly) {
+    window._Plotly = Plotly;
+});
+}
+</script>
 
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -233,11 +285,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
    
   <ul>
   <li><a href="#задача-1" id="toc-задача-1" class="nav-link active" data-scroll-target="#задача-1"><span class="header-section-number">10.1</span> Задача 1</a></li>
+  <li><a href="#задача-2" id="toc-задача-2" class="nav-link" data-scroll-target="#задача-2"><span class="header-section-number">10.2</span> Задача 2</a></li>
+  <li><a href="#задача-3" id="toc-задача-3" class="nav-link" data-scroll-target="#задача-3"><span class="header-section-number">10.3</span> Задача 3</a></li>
+  <li><a href="#задача-4" id="toc-задача-4" class="nav-link" data-scroll-target="#задача-4"><span class="header-section-number">10.4</span> Задача 4</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -261,7 +316,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Насправді раніше ми вже рахували окремі показники — наприклад, метрики залучення користувачів <strong>DAU</strong>, <strong>WAU</strong> та <strong>MAU</strong>, кількість замовлень, частку скасованих замовлень тощо. Це дійсно важливі показники, але часто представники бізнесу в першу чергу звертають увагу на більш зрозумілі показники, виражені в грошовій формі. Це можуть бути виручка, витрати чи рентабельність, а також відносні показники на кшталт доходу на одного користувача та середнього чека – все це теж важливо вміти розраховувати, чим ми з вами й займемося.</p>
 <p>Крім того, наприкінці ми обговоримо методику розрахунку ще одного важливого показника – <strong>Retention rate</strong>.</p>
 <p>На цей раз вам знову буде запропоновано написати кілька SQL-запитів і візуалізувати їх результат за допомогою графіків.</p>
-<section id="задача-1" class="level2" data-number="10.1">
+<section id="задача-1" class="level2 page-columns page-full" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="задача-1"><span class="header-section-number">10.1</span> Задача 1</h2>
 <p>Почнемо з виручки - найбільш загального показника, який покаже, який дохід приносить наш сервіс.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -309,6 +364,1302 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
+<div class="cell" data-execution_count="2">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">%%</span>sql</span>
+<span id="cb1-2"><a href="#cb1-2"></a>SELECT date,</span>
+<span id="cb1-3"><a href="#cb1-3"></a>       revenue,</span>
+<span id="cb1-4"><a href="#cb1-4"></a>       <span class="bu">sum</span>(revenue) OVER (ORDER BY date) <span class="im">as</span> total_revenue,</span>
+<span id="cb1-5"><a href="#cb1-5"></a>       <span class="bu">round</span>(<span class="dv">100</span> <span class="op">*</span> (revenue <span class="op">-</span> lag(revenue, <span class="dv">1</span>) OVER (ORDER BY date))::decimal <span class="op">/</span> lag(revenue, <span class="dv">1</span>) OVER (ORDER BY date),</span>
+<span id="cb1-6"><a href="#cb1-6"></a>             <span class="dv">2</span>) <span class="im">as</span> revenue_change</span>
+<span id="cb1-7"><a href="#cb1-7"></a>FROM   (SELECT creation_time::date <span class="im">as</span> date,</span>
+<span id="cb1-8"><a href="#cb1-8"></a>               <span class="bu">sum</span>(price) <span class="im">as</span> revenue</span>
+<span id="cb1-9"><a href="#cb1-9"></a>        FROM   (SELECT creation_time,</span>
+<span id="cb1-10"><a href="#cb1-10"></a>                       unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb1-11"><a href="#cb1-11"></a>                FROM   orders</span>
+<span id="cb1-12"><a href="#cb1-12"></a>                WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb1-13"><a href="#cb1-13"></a>                                        FROM   user_actions</span>
+<span id="cb1-14"><a href="#cb1-14"></a>                                        WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)) t1</span>
+<span id="cb1-15"><a href="#cb1-15"></a>            LEFT JOIN products using (product_id)</span>
+<span id="cb1-16"><a href="#cb1-16"></a>        GROUP BY date) t2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="51">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th">revenue</th>
+<th data-quarto-table-cell-role="th">total_revenue</th>
+<th data-quarto-table-cell-role="th">revenue_change</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2022-08-24</td>
+<td>49924.0</td>
+<td>49924.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2022-08-25</td>
+<td>430860.0</td>
+<td>480784.0</td>
+<td>763.03</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2022-08-26</td>
+<td>534766.0</td>
+<td>1015550.0</td>
+<td>24.12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2022-08-27</td>
+<td>817053.0</td>
+<td>1832603.0</td>
+<td>52.79</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2022-08-28</td>
+<td>1133370.0</td>
+<td>2965973.0</td>
+<td>38.71</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>2022-08-29</td>
+<td>1279891.0</td>
+<td>4245864.0</td>
+<td>12.93</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>2022-08-30</td>
+<td>1279377.0</td>
+<td>5525241.0</td>
+<td>-0.04</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>2022-08-31</td>
+<td>1312720.0</td>
+<td>6837961.0</td>
+<td>2.61</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>2022-09-01</td>
+<td>1406101.0</td>
+<td>8244062.0</td>
+<td>7.11</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>2022-09-02</td>
+<td>1907107.0</td>
+<td>10151169.0</td>
+<td>35.63</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>2022-09-03</td>
+<td>2210988.0</td>
+<td>12362157.0</td>
+<td>15.93</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>2022-09-04</td>
+<td>2294009.0</td>
+<td>14656166.0</td>
+<td>3.75</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>2022-09-05</td>
+<td>1784690.0</td>
+<td>16440856.0</td>
+<td>-22.20</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>2022-09-06</td>
+<td>1330931.0</td>
+<td>17771787.0</td>
+<td>-25.43</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>2022-09-07</td>
+<td>1807800.0</td>
+<td>19579587.0</td>
+<td>35.83</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>2022-09-08</td>
+<td>2099508.0</td>
+<td>21679095.0</td>
+<td>16.14</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Запишемо результат запиту у змінну <code>results_1</code>.</p>
+<div class="cell" data-execution_count="3">
+<details>
+<summary>Код</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="op">%%</span>sql</span>
+<span id="cb2-2"><a href="#cb2-2"></a>results_1 <span class="op">&lt;&lt;</span> SELECT date,</span>
+<span id="cb2-3"><a href="#cb2-3"></a>       revenue,</span>
+<span id="cb2-4"><a href="#cb2-4"></a>       <span class="bu">sum</span>(revenue) OVER (ORDER BY date) <span class="im">as</span> total_revenue,</span>
+<span id="cb2-5"><a href="#cb2-5"></a>       <span class="bu">round</span>(<span class="dv">100</span> <span class="op">*</span> (revenue <span class="op">-</span> lag(revenue, <span class="dv">1</span>) OVER (ORDER BY date))::decimal <span class="op">/</span> lag(revenue, <span class="dv">1</span>) OVER (ORDER BY date),</span>
+<span id="cb2-6"><a href="#cb2-6"></a>             <span class="dv">2</span>) <span class="im">as</span> revenue_change</span>
+<span id="cb2-7"><a href="#cb2-7"></a>FROM   (SELECT creation_time::date <span class="im">as</span> date,</span>
+<span id="cb2-8"><a href="#cb2-8"></a>               <span class="bu">sum</span>(price) <span class="im">as</span> revenue</span>
+<span id="cb2-9"><a href="#cb2-9"></a>        FROM   (SELECT creation_time,</span>
+<span id="cb2-10"><a href="#cb2-10"></a>                       unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb2-11"><a href="#cb2-11"></a>                FROM   orders</span>
+<span id="cb2-12"><a href="#cb2-12"></a>                WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb2-13"><a href="#cb2-13"></a>                                        FROM   user_actions</span>
+<span id="cb2-14"><a href="#cb2-14"></a>                                        WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)) t1</span>
+<span id="cb2-15"><a href="#cb2-15"></a>            LEFT JOIN products using (product_id)</span>
+<span id="cb2-16"><a href="#cb2-16"></a>        GROUP BY date) t2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Побудуємо візуалізацію за отриманими даними:</p>
+<div class="page-columns page-full">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="im">from</span> plotly.subplots <span class="im">import</span> make_subplots</span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a>fig <span class="op">=</span> make_subplots(specs<span class="op">=</span>[[{<span class="st">"secondary_y"</span>: <span class="va">True</span>}]])</span>
+<span id="cb3-6"><a href="#cb3-6"></a>fig.add_trace(</span>
+<span id="cb3-7"><a href="#cb3-7"></a>    go.Bar(</span>
+<span id="cb3-8"><a href="#cb3-8"></a>        name<span class="op">=</span><span class="st">"revenue_change"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9"></a>        x<span class="op">=</span>results_1.date,</span>
+<span id="cb3-10"><a href="#cb3-10"></a>        y<span class="op">=</span>results_1.revenue_change,</span>
+<span id="cb3-11"><a href="#cb3-11"></a>        offsetgroup<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb3-12"><a href="#cb3-12"></a>    ),</span>
+<span id="cb3-13"><a href="#cb3-13"></a>    secondary_y<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb3-14"><a href="#cb3-14"></a>)</span>
+<span id="cb3-15"><a href="#cb3-15"></a></span>
+<span id="cb3-16"><a href="#cb3-16"></a>fig.add_trace(</span>
+<span id="cb3-17"><a href="#cb3-17"></a>    go.Scatter(name<span class="op">=</span><span class="st">"revenue"</span>, x<span class="op">=</span>results_1.date, y<span class="op">=</span>results_1.revenue, offsetgroup<span class="op">=</span><span class="dv">2</span>),</span>
+<span id="cb3-18"><a href="#cb3-18"></a>    secondary_y<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb3-19"><a href="#cb3-19"></a>)</span>
+<span id="cb3-20"><a href="#cb3-20"></a>fig.update_yaxes(rangemode<span class="op">=</span><span class="st">"tozero"</span>, secondary_y<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-21"><a href="#cb3-21"></a>fig.update_layout(</span>
+<span id="cb3-22"><a href="#cb3-22"></a>    legend<span class="op">=</span><span class="bu">dict</span>(orientation<span class="op">=</span><span class="st">"h"</span>, yanchor<span class="op">=</span><span class="st">"bottom"</span>, y<span class="op">=</span><span class="fl">1.02</span>, xanchor<span class="op">=</span><span class="st">"right"</span>, x<span class="op">=</span><span class="dv">1</span>),</span>
+<span id="cb3-23"><a href="#cb3-23"></a>)</span>
+<span id="cb3-24"><a href="#cb3-24"></a></span>
+<span id="cb3-25"><a href="#cb3-25"></a>fig.show()</span>
+<span id="cb3-26"><a href="#cb3-26"></a></span>
+<span id="cb3-27"><a href="#cb3-27"></a>fig <span class="op">=</span> go.Figure()</span>
+<span id="cb3-28"><a href="#cb3-28"></a>fig.add_trace(</span>
+<span id="cb3-29"><a href="#cb3-29"></a>    go.Scatter(</span>
+<span id="cb3-30"><a href="#cb3-30"></a>        x<span class="op">=</span>results_1.date,</span>
+<span id="cb3-31"><a href="#cb3-31"></a>        y<span class="op">=</span>results_1.total_revenue,</span>
+<span id="cb3-32"><a href="#cb3-32"></a>        mode<span class="op">=</span><span class="st">"lines+markers"</span>,</span>
+<span id="cb3-33"><a href="#cb3-33"></a>        name<span class="op">=</span><span class="st">"total_revenue"</span>,</span>
+<span id="cb3-34"><a href="#cb3-34"></a>    )</span>
+<span id="cb3-35"><a href="#cb3-35"></a>)</span>
+<span id="cb3-36"><a href="#cb3-36"></a>fig.update_layout(</span>
+<span id="cb3-37"><a href="#cb3-37"></a>    legend<span class="op">=</span><span class="bu">dict</span>(orientation<span class="op">=</span><span class="st">"h"</span>, yanchor<span class="op">=</span><span class="st">"bottom"</span>, y<span class="op">=</span><span class="fl">1.02</span>, xanchor<span class="op">=</span><span class="st">"right"</span>, x<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-38"><a href="#cb3-38"></a>)</span>
+<span id="cb3-39"><a href="#cb3-39"></a>fig.show()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-sql-metrics-01" class="cell column-screen-inset-shaded quarto-layout-panel" data-execution_count="4">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="fig-sql-metrics-01-1" class="quarto-figure quarto-figure-center anchored" style="flex-basis: 50.0%;justify-content: center;">
+<figure class="figure">
+
+<div>                            <div id="2e268f26-db61-42b3-b733-467fe796d9fb" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("2e268f26-db61-42b3-b733-467fe796d9fb")) {                    Plotly.newPlot(                        "2e268f26-db61-42b3-b733-467fe796d9fb",                        [{"name":"revenue_change","offsetgroup":"1","x":["2022-08-24T00:00:00","2022-08-25T00:00:00","2022-08-26T00:00:00","2022-08-27T00:00:00","2022-08-28T00:00:00","2022-08-29T00:00:00","2022-08-30T00:00:00","2022-08-31T00:00:00","2022-09-01T00:00:00","2022-09-02T00:00:00","2022-09-03T00:00:00","2022-09-04T00:00:00","2022-09-05T00:00:00","2022-09-06T00:00:00","2022-09-07T00:00:00","2022-09-08T00:00:00"],"y":[null,763.03,24.12,52.79,38.71,12.93,-0.04,2.61,7.11,35.63,15.93,3.75,-22.2,-25.43,35.83,16.14],"type":"bar","xaxis":"x","yaxis":"y"},{"name":"revenue","offsetgroup":"2","x":["2022-08-24T00:00:00","2022-08-25T00:00:00","2022-08-26T00:00:00","2022-08-27T00:00:00","2022-08-28T00:00:00","2022-08-29T00:00:00","2022-08-30T00:00:00","2022-08-31T00:00:00","2022-09-01T00:00:00","2022-09-02T00:00:00","2022-09-03T00:00:00","2022-09-04T00:00:00","2022-09-05T00:00:00","2022-09-06T00:00:00","2022-09-07T00:00:00","2022-09-08T00:00:00"],"y":[49924.0,430860.0,534766.0,817053.0,1133370.0,1279891.0,1279377.0,1312720.0,1406101.0,1907107.0,2210988.0,2294009.0,1784690.0,1330931.0,1807800.0,2099508.0],"type":"scatter","xaxis":"x","yaxis":"y2"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,0.94]},"yaxis":{"anchor":"x","domain":[0.0,1.0]},"yaxis2":{"anchor":"x","overlaying":"y","side":"right","rangemode":"tozero"},"legend":{"orientation":"h","yanchor":"bottom","y":1.02,"xanchor":"right","x":1}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('2e268f26-db61-42b3-b733-467fe796d9fb');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+<figcaption class="figure-caption">(a) Динаміка щоденної виручки</figcaption>
+</figure>
+</div>
+<div id="fig-sql-metrics-01-2" class="quarto-figure quarto-figure-center anchored" style="flex-basis: 50.0%;justify-content: center;">
+<figure class="figure">
+
+<div>                            <div id="ee1a7e2f-0afa-425f-8759-ea0729288d4b" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("ee1a7e2f-0afa-425f-8759-ea0729288d4b")) {                    Plotly.newPlot(                        "ee1a7e2f-0afa-425f-8759-ea0729288d4b",                        [{"mode":"lines+markers","name":"total_revenue","x":["2022-08-24T00:00:00","2022-08-25T00:00:00","2022-08-26T00:00:00","2022-08-27T00:00:00","2022-08-28T00:00:00","2022-08-29T00:00:00","2022-08-30T00:00:00","2022-08-31T00:00:00","2022-09-01T00:00:00","2022-09-02T00:00:00","2022-09-03T00:00:00","2022-09-04T00:00:00","2022-09-05T00:00:00","2022-09-06T00:00:00","2022-09-07T00:00:00","2022-09-08T00:00:00"],"y":[49924.0,480784.0,1015550.0,1832603.0,2965973.0,4245864.0,5525241.0,6837961.0,8244062.0,10151169.0,12362157.0,14656166.0,16440856.0,17771787.0,19579587.0,21679095.0],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"legend":{"orientation":"h","yanchor":"bottom","y":1.02,"xanchor":"right","x":1}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('ee1a7e2f-0afa-425f-8759-ea0729288d4b');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+<figcaption class="figure-caption">(b) Динаміка загальної виручки</figcaption>
+</figure>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Рисунок&nbsp;10.1: Графік за результатами SQL-запиту</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p>Проаналізуйте побудовані графіки та спробуйте відповісти на такі питання:</p>
+<ol type="1">
+<li>Які дні спостерігалося помітне зниження щоденної виручки?</li>
+<li>Із чим це могло бути пов’язане?</li>
+</ol>
+</section>
+<section id="задача-2" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="задача-2"><span class="header-section-number">10.2</span> Задача 2</h2>
+<p>Тепер на основі даних про виторг розрахуємо кілька відносних показників, які покажуть, скільки в середньому споживачі готові платити за послуги нашого сервісу доставки. Зупинимося на наступних метриках:</p>
+<ol type="1">
+<li><strong>ARPU (Average Revenue Per User)</strong> - середня виручка на одного користувача за певний період.</li>
+<li><strong>ARPPU (Average Revenue Per Paying User)</strong> - середня виручка на одного користувача, що оплачує замовлення за певний період.</li>
+<li><strong>AOV (Average Order Value)</strong> - середній чек або відношення виручки за певний період до загальної кількості замовлень за цей час.</li>
+</ol>
+<p>Якщо за період, що розглядається, сервіс заробив 100 000 грошових одиниць і при цьому ним користувалися 500 унікальних користувачів, з яких 400 зробили загалом 650 замовлень, тоді метрики будуть мати наступні значення:</p>
+<p><span class="math display">\[ARPU = 100000/500 = 200\]</span></p>
+<p><span class="math display">\[ARPPU = 100 000/400 = 250\]</span></p>
+<p><span class="math display">\[AOV=100000/650≈153,85\]</span></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-metrics-02" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 10.2 </strong></span><br> Для кожного дня в таблицях <code>orders</code> та <code>user_actions</code> розрахуйте такі показники:</p>
+<ol type="1">
+<li>Виручку користувача (<strong>ARPU</strong>) за поточний день.</li>
+<li>Виручку на користувача, що платить (<strong>ARPPU</strong>) за поточний день.</li>
+<li>Виручку із замовлення, або середній чек (<strong>AOV</strong>) за поточний день.</li>
+</ol>
+<p>Колонки з показниками назвіть відповідно <code>arpu</code>, <code>arppu</code>, <code>aov</code>. Колонку з датами назвіть <code>date</code>.</p>
+<p>Під час розрахунку всіх показників округляйте значення <strong>до двох знаків після коми</strong>.</p>
+<p>Результат має бути відсортований за зростанням дати.</p>
+<p>Поля в результуючій таблиці: <code>date</code>, <code>arpu</code>, <code>arppu</code>, <code>aov</code></p>
+<p><strong>Пояснення:</strong></p>
+<p>Вважатимемо, що оплата за замовлення надходить відразу після його оформлення, тобто випадки, коли замовлення було оформлено в один день, а оплата отримана наступного, виникнути не можуть.</p>
+<p>Користувачами, що оплатили замовлення будемо вважати тих, які в даний день оформили хоча б одне замовлення, яке надалі не було скасовано.</p>
+<p>При розрахунку виручки пам’ятайте, що не всі замовлення були сплачені, деякі були скасовані користувачами.</p>
+<p>Не забувайте при діленні заздалегідь приводити значення до потрібного типу даних.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Підказка на випадок, якщо зовсім не виходить
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Для вирішення завдання необхідно спочатку для кожного дня порахувати виручку, кількість всіх користувачів, кількість користувачів, що сплатили замовлення і кількість замовлень. Потім необхідно об’єднати отримані таблиці та розрахувати всі необхідні відносні показники. Виручку ми вже рахували у минулому завданні.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="op">%%</span>sql</span>
+<span id="cb4-2"><a href="#cb4-2"></a>SELECT date,</span>
+<span id="cb4-3"><a href="#cb4-3"></a>       <span class="bu">round</span>(revenue::decimal <span class="op">/</span> users, <span class="dv">2</span>) <span class="im">as</span> arpu,</span>
+<span id="cb4-4"><a href="#cb4-4"></a>       <span class="bu">round</span>(revenue::decimal <span class="op">/</span> paying_users, <span class="dv">2</span>) <span class="im">as</span> arppu,</span>
+<span id="cb4-5"><a href="#cb4-5"></a>       <span class="bu">round</span>(revenue::decimal <span class="op">/</span> orders, <span class="dv">2</span>) <span class="im">as</span> aov</span>
+<span id="cb4-6"><a href="#cb4-6"></a>FROM   (SELECT creation_time::date <span class="im">as</span> date,</span>
+<span id="cb4-7"><a href="#cb4-7"></a>               count(distinct order_id) <span class="im">as</span> orders,</span>
+<span id="cb4-8"><a href="#cb4-8"></a>               <span class="bu">sum</span>(price) <span class="im">as</span> revenue</span>
+<span id="cb4-9"><a href="#cb4-9"></a>        FROM   (SELECT order_id,</span>
+<span id="cb4-10"><a href="#cb4-10"></a>                       creation_time,</span>
+<span id="cb4-11"><a href="#cb4-11"></a>                       unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb4-12"><a href="#cb4-12"></a>                FROM   orders</span>
+<span id="cb4-13"><a href="#cb4-13"></a>                WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb4-14"><a href="#cb4-14"></a>                                        FROM   user_actions</span>
+<span id="cb4-15"><a href="#cb4-15"></a>                                        WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)) t1</span>
+<span id="cb4-16"><a href="#cb4-16"></a>            LEFT JOIN products using(product_id)</span>
+<span id="cb4-17"><a href="#cb4-17"></a>        GROUP BY date) t2</span>
+<span id="cb4-18"><a href="#cb4-18"></a>    LEFT JOIN (SELECT time::date <span class="im">as</span> date,</span>
+<span id="cb4-19"><a href="#cb4-19"></a>                      count(distinct user_id) <span class="im">as</span> users</span>
+<span id="cb4-20"><a href="#cb4-20"></a>               FROM   user_actions</span>
+<span id="cb4-21"><a href="#cb4-21"></a>               GROUP BY date) t3 using (date)</span>
+<span id="cb4-22"><a href="#cb4-22"></a>    LEFT JOIN (SELECT time::date <span class="im">as</span> date,</span>
+<span id="cb4-23"><a href="#cb4-23"></a>                      count(distinct user_id) <span class="im">as</span> paying_users</span>
+<span id="cb4-24"><a href="#cb4-24"></a>               FROM   user_actions</span>
+<span id="cb4-25"><a href="#cb4-25"></a>               WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb4-26"><a href="#cb4-26"></a>                                       FROM   user_actions</span>
+<span id="cb4-27"><a href="#cb4-27"></a>                                       WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
+<span id="cb4-28"><a href="#cb4-28"></a>               GROUP BY date) t4 using (date)</span>
+<span id="cb4-29"><a href="#cb4-29"></a>ORDER BY date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="54">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th">arpu</th>
+<th data-quarto-table-cell-role="th">arppu</th>
+<th data-quarto-table-cell-role="th">aov</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2022-08-24</td>
+<td>372.57</td>
+<td>393.10</td>
+<td>361.77</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2022-08-25</td>
+<td>508.09</td>
+<td>525.44</td>
+<td>406.86</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2022-08-26</td>
+<td>452.04</td>
+<td>470.33</td>
+<td>369.57</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2022-08-27</td>
+<td>509.38</td>
+<td>527.81</td>
+<td>381.62</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2022-08-28</td>
+<td>528.38</td>
+<td>544.10</td>
+<td>378.04</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>2022-08-29</td>
+<td>559.15</td>
+<td>581.24</td>
+<td>391.76</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>2022-08-30</td>
+<td>546.74</td>
+<td>567.85</td>
+<td>379.52</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>2022-08-31</td>
+<td>517.63</td>
+<td>540.21</td>
+<td>384.96</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>2022-09-01</td>
+<td>499.33</td>
+<td>518.86</td>
+<td>381.26</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>2022-09-02</td>
+<td>537.67</td>
+<td>556.17</td>
+<td>381.35</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>2022-09-03</td>
+<td>565.90</td>
+<td>582.76</td>
+<td>387.28</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>2022-09-04</td>
+<td>541.55</td>
+<td>558.97</td>
+<td>381.70</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>2022-09-05</td>
+<td>512.84</td>
+<td>530.84</td>
+<td>381.75</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>2022-09-06</td>
+<td>475.33</td>
+<td>492.75</td>
+<td>385.67</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>2022-09-07</td>
+<td>496.65</td>
+<td>514.02</td>
+<td>378.44</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>2022-09-08</td>
+<td>521.10</td>
+<td>536.68</td>
+<td>383.54</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Збережемо результат запиту у змінну <code>results_2</code>.</p>
+<div class="cell" data-execution_count="6">
+<details>
+<summary>Код</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="op">%%</span>sql</span>
+<span id="cb5-2"><a href="#cb5-2"></a>results_2 <span class="op">&lt;&lt;</span> SELECT date,</span>
+<span id="cb5-3"><a href="#cb5-3"></a>       <span class="bu">round</span>(revenue::decimal <span class="op">/</span> users, <span class="dv">2</span>) <span class="im">as</span> arpu,</span>
+<span id="cb5-4"><a href="#cb5-4"></a>       <span class="bu">round</span>(revenue::decimal <span class="op">/</span> paying_users, <span class="dv">2</span>) <span class="im">as</span> arppu,</span>
+<span id="cb5-5"><a href="#cb5-5"></a>       <span class="bu">round</span>(revenue::decimal <span class="op">/</span> orders, <span class="dv">2</span>) <span class="im">as</span> aov</span>
+<span id="cb5-6"><a href="#cb5-6"></a>FROM   (SELECT creation_time::date <span class="im">as</span> date,</span>
+<span id="cb5-7"><a href="#cb5-7"></a>               count(distinct order_id) <span class="im">as</span> orders,</span>
+<span id="cb5-8"><a href="#cb5-8"></a>               <span class="bu">sum</span>(price) <span class="im">as</span> revenue</span>
+<span id="cb5-9"><a href="#cb5-9"></a>        FROM   (SELECT order_id,</span>
+<span id="cb5-10"><a href="#cb5-10"></a>                       creation_time,</span>
+<span id="cb5-11"><a href="#cb5-11"></a>                       unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb5-12"><a href="#cb5-12"></a>                FROM   orders</span>
+<span id="cb5-13"><a href="#cb5-13"></a>                WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb5-14"><a href="#cb5-14"></a>                                        FROM   user_actions</span>
+<span id="cb5-15"><a href="#cb5-15"></a>                                        WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)) t1</span>
+<span id="cb5-16"><a href="#cb5-16"></a>            LEFT JOIN products using(product_id)</span>
+<span id="cb5-17"><a href="#cb5-17"></a>        GROUP BY date) t2</span>
+<span id="cb5-18"><a href="#cb5-18"></a>    LEFT JOIN (SELECT time::date <span class="im">as</span> date,</span>
+<span id="cb5-19"><a href="#cb5-19"></a>                      count(distinct user_id) <span class="im">as</span> users</span>
+<span id="cb5-20"><a href="#cb5-20"></a>               FROM   user_actions</span>
+<span id="cb5-21"><a href="#cb5-21"></a>               GROUP BY date) t3 using (date)</span>
+<span id="cb5-22"><a href="#cb5-22"></a>    LEFT JOIN (SELECT time::date <span class="im">as</span> date,</span>
+<span id="cb5-23"><a href="#cb5-23"></a>                      count(distinct user_id) <span class="im">as</span> paying_users</span>
+<span id="cb5-24"><a href="#cb5-24"></a>               FROM   user_actions</span>
+<span id="cb5-25"><a href="#cb5-25"></a>               WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb5-26"><a href="#cb5-26"></a>                                       FROM   user_actions</span>
+<span id="cb5-27"><a href="#cb5-27"></a>                                       WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
+<span id="cb5-28"><a href="#cb5-28"></a>               GROUP BY date) t4 using (date)</span>
+<span id="cb5-29"><a href="#cb5-29"></a>ORDER BY date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Візуалізуємо отримані дані:</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>fig <span class="op">=</span> go.Figure()</span>
+<span id="cb6-2"><a href="#cb6-2"></a>fig.add_trace(</span>
+<span id="cb6-3"><a href="#cb6-3"></a>    go.Scatter(x<span class="op">=</span>results_2.date, y<span class="op">=</span>results_2.arpu, mode<span class="op">=</span><span class="st">"lines+markers"</span>, name<span class="op">=</span><span class="st">"arpu"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4"></a>)</span>
+<span id="cb6-5"><a href="#cb6-5"></a>fig.add_trace(</span>
+<span id="cb6-6"><a href="#cb6-6"></a>    go.Scatter(</span>
+<span id="cb6-7"><a href="#cb6-7"></a>        x<span class="op">=</span>results_2.date,</span>
+<span id="cb6-8"><a href="#cb6-8"></a>        y<span class="op">=</span>results_2.arppu,</span>
+<span id="cb6-9"><a href="#cb6-9"></a>        mode<span class="op">=</span><span class="st">"lines+markers"</span>,</span>
+<span id="cb6-10"><a href="#cb6-10"></a>        name<span class="op">=</span><span class="st">"arppu"</span>,</span>
+<span id="cb6-11"><a href="#cb6-11"></a>    )</span>
+<span id="cb6-12"><a href="#cb6-12"></a>)</span>
+<span id="cb6-13"><a href="#cb6-13"></a>fig.add_trace(</span>
+<span id="cb6-14"><a href="#cb6-14"></a>    go.Scatter(</span>
+<span id="cb6-15"><a href="#cb6-15"></a>        x<span class="op">=</span>results_2.date,</span>
+<span id="cb6-16"><a href="#cb6-16"></a>        y<span class="op">=</span>results_2.aov,</span>
+<span id="cb6-17"><a href="#cb6-17"></a>        mode<span class="op">=</span><span class="st">"lines+markers"</span>,</span>
+<span id="cb6-18"><a href="#cb6-18"></a>        name<span class="op">=</span><span class="st">"aov"</span>,</span>
+<span id="cb6-19"><a href="#cb6-19"></a>    )</span>
+<span id="cb6-20"><a href="#cb6-20"></a>)</span>
+<span id="cb6-21"><a href="#cb6-21"></a>fig.update_layout(</span>
+<span id="cb6-22"><a href="#cb6-22"></a>    legend<span class="op">=</span><span class="bu">dict</span>(orientation<span class="op">=</span><span class="st">"h"</span>, yanchor<span class="op">=</span><span class="st">"bottom"</span>, y<span class="op">=</span><span class="fl">1.02</span>, xanchor<span class="op">=</span><span class="st">"right"</span>, x<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb6-23"><a href="#cb6-23"></a>)</span>
+<span id="cb6-24"><a href="#cb6-24"></a>fig.show()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-sql-analytic-02" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+
+<div>                            <div id="e0ba429c-534e-4bec-85b7-ccabc7117225" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("e0ba429c-534e-4bec-85b7-ccabc7117225")) {                    Plotly.newPlot(                        "e0ba429c-534e-4bec-85b7-ccabc7117225",                        [{"mode":"lines+markers","name":"arpu","x":["2022-08-24T00:00:00","2022-08-25T00:00:00","2022-08-26T00:00:00","2022-08-27T00:00:00","2022-08-28T00:00:00","2022-08-29T00:00:00","2022-08-30T00:00:00","2022-08-31T00:00:00","2022-09-01T00:00:00","2022-09-02T00:00:00","2022-09-03T00:00:00","2022-09-04T00:00:00","2022-09-05T00:00:00","2022-09-06T00:00:00","2022-09-07T00:00:00","2022-09-08T00:00:00"],"y":[372.57,508.09,452.04,509.38,528.38,559.15,546.74,517.63,499.33,537.67,565.9,541.55,512.84,475.33,496.65,521.1],"type":"scatter"},{"mode":"lines+markers","name":"arppu","x":["2022-08-24T00:00:00","2022-08-25T00:00:00","2022-08-26T00:00:00","2022-08-27T00:00:00","2022-08-28T00:00:00","2022-08-29T00:00:00","2022-08-30T00:00:00","2022-08-31T00:00:00","2022-09-01T00:00:00","2022-09-02T00:00:00","2022-09-03T00:00:00","2022-09-04T00:00:00","2022-09-05T00:00:00","2022-09-06T00:00:00","2022-09-07T00:00:00","2022-09-08T00:00:00"],"y":[393.1,525.44,470.33,527.81,544.1,581.24,567.85,540.21,518.86,556.17,582.76,558.97,530.84,492.75,514.02,536.68],"type":"scatter"},{"mode":"lines+markers","name":"aov","x":["2022-08-24T00:00:00","2022-08-25T00:00:00","2022-08-26T00:00:00","2022-08-27T00:00:00","2022-08-28T00:00:00","2022-08-29T00:00:00","2022-08-30T00:00:00","2022-08-31T00:00:00","2022-09-01T00:00:00","2022-09-02T00:00:00","2022-09-03T00:00:00","2022-09-04T00:00:00","2022-09-05T00:00:00","2022-09-06T00:00:00","2022-09-07T00:00:00","2022-09-08T00:00:00"],"y":[361.77,406.86,369.57,381.62,378.04,391.76,379.52,384.96,381.26,381.35,387.28,381.7,381.75,385.67,378.44,383.54],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"legend":{"orientation":"h","yanchor":"bottom","y":1.02,"xanchor":"right","x":1}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('e0ba429c-534e-4bec-85b7-ccabc7117225');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+<figcaption class="figure-caption">Рисунок&nbsp;10.2: Динаміка ARPU, ARPPU та AOV</figcaption>
+</figure>
+</div>
+</div>
+<p>Проаналізуйте побудований графік та спробуйте відповісти на такі питання:</p>
+<ol type="1">
+<li>Які метрики мають більший розкид значень протягом періоду, що розглядається?</li>
+<li>Чи можна сказати, що окремі метрики мають аномально високі чи аномально низькі значення окремими днями?</li>
+<li>Який висновок можна зробити про співвідношення числа користувачів, що платять, і всіх користувачів сервісу в розглянуті дні?</li>
+</ol>
+</section>
+<section id="задача-3" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="задача-3"><span class="header-section-number">10.3</span> Задача 3</h2>
+<p>Доповнимо наш аналіз ще більш цікавими розрахунками — обчислимо ті самі метрики, але для кожного дня враховуватимемо накопичену виручку і всі наявні на даний момент дані про кількість користувачів і замовлень. Таким чином, отримаємо <strong>динамічний ARPU, ARPPU і AOV</strong> і зможемо простежити, як він змінювався протягом часу з урахуванням даних, що надходять нам.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-metrics-03" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 10.3 </strong></span><br> За таблицями <code>orders</code> та <code>user_actions</code> для кожного дня розрахуйте такі показники:</p>
+<ol type="1">
+<li>Накопичений виторг на користувача (<strong>Running ARPU</strong>).</li>
+<li>Нагромаджений виторг на платить користувача (<strong>Running ARPPU</strong>).</li>
+<li>Накопичений виторг із замовлення, або середній чек (<strong>Running AOV</strong>).</li>
+</ol>
+<p>Колонки з показниками назвіть <code>running_arpu</code>, <code>running_arppu</code>, <code>running_aov</code>. Колонку з датами назвіть <code>date</code>.</p>
+<p>Під час розрахунку всіх показників округляйте значення <strong>до двох знаків після коми</strong>.</p>
+<p>Результат має бути відсортований за зростанням дати.</p>
+<p>Поля в результуючій таблиці: <code>date</code>, <code>running_arpu</code>, <code>running_arppu</code>, <code>running_aov</code></p>
+<p><strong>Пояснення:</strong></p>
+<p>При розрахунку числа користувачів та користувачів, що оплатили замовлення на поточну дату, враховуйте відповідних користувачів за всі попередні дні, включаючи поточний.</p>
+<p>Користувачами, що оплатили замовлення вважатимемо тих, які на поточний день оформили хоча б одне замовлення, яке надалі не було скасовано.</p>
+<p>Вважатимемо, що оплата за замовлення надходить відразу після його оформлення, тобто. Випадки, коли замовлення було оформлено в один день, а оплата отримана наступного, виникнути не можуть.</p>
+<p>При розрахунку виручки пам’ятайте, що не всі замовлення були сплачені, деякі були скасовані користувачами.</p>
+<p>Не забувайте при діленні заздалегідь приводити значення до потрібного типу даних.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Підказка на випадок, якщо зовсім не виходить
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Для вирішення цього завдання необхідно доповнити запит з попереднього завдання та для кожного дня додатково розрахувати накопичений виторг, а також накопичену кількість усіх користувачів та оркмо користувачів, які оплатили замовлення. Для розрахунку кількості користувачів з накопиченням буде потрібна інформація про нових користувачів і нових користувачів, які оплатили замовлення у кожен із розглянутих днів.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="op">%%</span>sql</span>
+<span id="cb7-2"><a href="#cb7-2"></a>SELECT date, </span>
+<span id="cb7-3"><a href="#cb7-3"></a>        ROUND(SUM(revenue) OVER (ORDER BY date)::decimal <span class="op">/</span> SUM(new_users) OVER (ORDER BY date), <span class="dv">2</span>) AS running_arpu, </span>
+<span id="cb7-4"><a href="#cb7-4"></a>        ROUND(SUM(revenue) OVER (ORDER BY date)::decimal <span class="op">/</span> SUM(new_paying_users) OVER (ORDER BY date), <span class="dv">2</span>) AS running_arppu, </span>
+<span id="cb7-5"><a href="#cb7-5"></a>        ROUND(SUM(revenue) OVER (ORDER BY date)::decimal <span class="op">/</span> SUM(orders) OVER (ORDER BY date), <span class="dv">2</span>) AS running_aov </span>
+<span id="cb7-6"><a href="#cb7-6"></a>    FROM ( </span>
+<span id="cb7-7"><a href="#cb7-7"></a>        SELECT creation_time::date AS date,  </span>
+<span id="cb7-8"><a href="#cb7-8"></a>                COUNT(DISTINCT order_id) AS orders,  </span>
+<span id="cb7-9"><a href="#cb7-9"></a>                SUM(price) AS revenue </span>
+<span id="cb7-10"><a href="#cb7-10"></a>        FROM ( </span>
+<span id="cb7-11"><a href="#cb7-11"></a>            SELECT order_id, </span>
+<span id="cb7-12"><a href="#cb7-12"></a>                creation_time, </span>
+<span id="cb7-13"><a href="#cb7-13"></a>                UNNEST(product_ids) AS product_id </span>
+<span id="cb7-14"><a href="#cb7-14"></a>            FROM orders </span>
+<span id="cb7-15"><a href="#cb7-15"></a>            WHERE order_id NOT IN (SELECT order_id FROM user_actions WHERE action<span class="op">=</span><span class="st">'cancel_order'</span>) </span>
+<span id="cb7-16"><a href="#cb7-16"></a>            ) t1 </span>
+<span id="cb7-17"><a href="#cb7-17"></a>        LEFT JOIN products  </span>
+<span id="cb7-18"><a href="#cb7-18"></a>        USING(product_id) </span>
+<span id="cb7-19"><a href="#cb7-19"></a>        GROUP BY date </span>
+<span id="cb7-20"><a href="#cb7-20"></a>    ) t2 </span>
+<span id="cb7-21"><a href="#cb7-21"></a>    LEFT JOIN ( </span>
+<span id="cb7-22"><a href="#cb7-22"></a>        SELECT time::date AS date, COUNT(DISTINCT user_id) AS users </span>
+<span id="cb7-23"><a href="#cb7-23"></a>        FROM user_actions </span>
+<span id="cb7-24"><a href="#cb7-24"></a>        GROUP BY date </span>
+<span id="cb7-25"><a href="#cb7-25"></a>    ) t3 </span>
+<span id="cb7-26"><a href="#cb7-26"></a>    USING (date) </span>
+<span id="cb7-27"><a href="#cb7-27"></a>    LEFT JOIN ( </span>
+<span id="cb7-28"><a href="#cb7-28"></a>        SELECT time::date AS date, COUNT(DISTINCT user_id) AS paying_users </span>
+<span id="cb7-29"><a href="#cb7-29"></a>        FROM user_actions </span>
+<span id="cb7-30"><a href="#cb7-30"></a>        WHERE order_id NOT IN (SELECT order_id FROM user_actions WHERE action<span class="op">=</span><span class="st">'cancel_order'</span>) </span>
+<span id="cb7-31"><a href="#cb7-31"></a>        GROUP BY date </span>
+<span id="cb7-32"><a href="#cb7-32"></a>    ) t4 </span>
+<span id="cb7-33"><a href="#cb7-33"></a>    USING (date) </span>
+<span id="cb7-34"><a href="#cb7-34"></a>    LEFT JOIN ( </span>
+<span id="cb7-35"><a href="#cb7-35"></a>        SELECT date, COUNT(user_id) AS new_users </span>
+<span id="cb7-36"><a href="#cb7-36"></a>        FROM ( </span>
+<span id="cb7-37"><a href="#cb7-37"></a>            SELECT user_id, MIN(time::date) AS date </span>
+<span id="cb7-38"><a href="#cb7-38"></a>            FROM user_actions </span>
+<span id="cb7-39"><a href="#cb7-39"></a>            GROUP BY user_id </span>
+<span id="cb7-40"><a href="#cb7-40"></a>        ) t5 </span>
+<span id="cb7-41"><a href="#cb7-41"></a>        GROUP BY date </span>
+<span id="cb7-42"><a href="#cb7-42"></a>    ) t6 </span>
+<span id="cb7-43"><a href="#cb7-43"></a>    USING (date) </span>
+<span id="cb7-44"><a href="#cb7-44"></a>    LEFT JOIN ( </span>
+<span id="cb7-45"><a href="#cb7-45"></a>        SELECT date, COUNT(user_id) AS new_paying_users </span>
+<span id="cb7-46"><a href="#cb7-46"></a>        FROM ( </span>
+<span id="cb7-47"><a href="#cb7-47"></a>            SELECT user_id, MIN(time::date) AS date </span>
+<span id="cb7-48"><a href="#cb7-48"></a>            FROM user_actions </span>
+<span id="cb7-49"><a href="#cb7-49"></a>            WHERE order_id NOT IN (SELECT order_id FROM user_actions WHERE action<span class="op">=</span><span class="st">'cancel_order'</span>) </span>
+<span id="cb7-50"><a href="#cb7-50"></a>            GROUP BY user_id </span>
+<span id="cb7-51"><a href="#cb7-51"></a>        ) t7 </span>
+<span id="cb7-52"><a href="#cb7-52"></a>        GROUP BY date </span>
+<span id="cb7-53"><a href="#cb7-53"></a>    ) t8 </span>
+<span id="cb7-54"><a href="#cb7-54"></a>    USING (date)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="57">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th">running_arpu</th>
+<th data-quarto-table-cell-role="th">running_arppu</th>
+<th data-quarto-table-cell-role="th">running_aov</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2022-08-24</td>
+<td>372.57</td>
+<td>393.10</td>
+<td>361.77</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2022-08-25</td>
+<td>499.26</td>
+<td>517.53</td>
+<td>401.66</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2022-08-26</td>
+<td>512.90</td>
+<td>530.87</td>
+<td>384.10</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2022-08-27</td>
+<td>571.80</td>
+<td>590.21</td>
+<td>382.99</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2022-08-28</td>
+<td>632.13</td>
+<td>649.72</td>
+<td>381.08</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>2022-08-29</td>
+<td>707.53</td>
+<td>726.29</td>
+<td>384.24</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>2022-08-30</td>
+<td>766.86</td>
+<td>786.40</td>
+<td>383.14</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>2022-08-31</td>
+<td>792.81</td>
+<td>813.46</td>
+<td>383.49</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>2022-09-01</td>
+<td>813.18</td>
+<td>832.90</td>
+<td>383.11</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>2022-09-02</td>
+<td>844.17</td>
+<td>863.05</td>
+<td>382.77</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>2022-09-03</td>
+<td>886.24</td>
+<td>904.39</td>
+<td>383.57</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>2022-09-04</td>
+<td>921.71</td>
+<td>938.78</td>
+<td>383.28</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>2022-09-05</td>
+<td>950.45</td>
+<td>967.17</td>
+<td>383.11</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>2022-09-06</td>
+<td>970.18</td>
+<td>986.72</td>
+<td>383.30</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>2022-09-07</td>
+<td>992.38</td>
+<td>1007.85</td>
+<td>382.85</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>2022-09-08</td>
+<td>1012.99</td>
+<td>1028.03</td>
+<td>382.91</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Збережемо результат запиту у змінну <code>results_3</code>:</p>
+<div class="cell" data-execution_count="9">
+<details>
+<summary>Код</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="op">%%</span>sql</span>
+<span id="cb8-2"><a href="#cb8-2"></a>results_3 <span class="op">&lt;&lt;</span> SELECT date, </span>
+<span id="cb8-3"><a href="#cb8-3"></a>        ROUND(SUM(revenue) OVER (ORDER BY date)::decimal <span class="op">/</span> SUM(new_users) OVER (ORDER BY date), <span class="dv">2</span>) AS running_arpu, </span>
+<span id="cb8-4"><a href="#cb8-4"></a>        ROUND(SUM(revenue) OVER (ORDER BY date)::decimal <span class="op">/</span> SUM(new_paying_users) OVER (ORDER BY date), <span class="dv">2</span>) AS running_arppu, </span>
+<span id="cb8-5"><a href="#cb8-5"></a>        ROUND(SUM(revenue) OVER (ORDER BY date)::decimal <span class="op">/</span> SUM(orders) OVER (ORDER BY date), <span class="dv">2</span>) AS running_aov </span>
+<span id="cb8-6"><a href="#cb8-6"></a>    FROM ( </span>
+<span id="cb8-7"><a href="#cb8-7"></a>        SELECT creation_time::date AS date,  </span>
+<span id="cb8-8"><a href="#cb8-8"></a>                COUNT(DISTINCT order_id) AS orders,  </span>
+<span id="cb8-9"><a href="#cb8-9"></a>                SUM(price) AS revenue </span>
+<span id="cb8-10"><a href="#cb8-10"></a>        FROM ( </span>
+<span id="cb8-11"><a href="#cb8-11"></a>            SELECT order_id, </span>
+<span id="cb8-12"><a href="#cb8-12"></a>                creation_time, </span>
+<span id="cb8-13"><a href="#cb8-13"></a>                UNNEST(product_ids) AS product_id </span>
+<span id="cb8-14"><a href="#cb8-14"></a>            FROM orders </span>
+<span id="cb8-15"><a href="#cb8-15"></a>            WHERE order_id NOT IN (SELECT order_id FROM user_actions WHERE action<span class="op">=</span><span class="st">'cancel_order'</span>) </span>
+<span id="cb8-16"><a href="#cb8-16"></a>            ) t1 </span>
+<span id="cb8-17"><a href="#cb8-17"></a>        LEFT JOIN products  </span>
+<span id="cb8-18"><a href="#cb8-18"></a>        USING(product_id) </span>
+<span id="cb8-19"><a href="#cb8-19"></a>        GROUP BY date </span>
+<span id="cb8-20"><a href="#cb8-20"></a>    ) t2 </span>
+<span id="cb8-21"><a href="#cb8-21"></a>    LEFT JOIN ( </span>
+<span id="cb8-22"><a href="#cb8-22"></a>        SELECT time::date AS date, COUNT(DISTINCT user_id) AS users </span>
+<span id="cb8-23"><a href="#cb8-23"></a>        FROM user_actions </span>
+<span id="cb8-24"><a href="#cb8-24"></a>        GROUP BY date </span>
+<span id="cb8-25"><a href="#cb8-25"></a>    ) t3 </span>
+<span id="cb8-26"><a href="#cb8-26"></a>    USING (date) </span>
+<span id="cb8-27"><a href="#cb8-27"></a>    LEFT JOIN ( </span>
+<span id="cb8-28"><a href="#cb8-28"></a>        SELECT time::date AS date, COUNT(DISTINCT user_id) AS paying_users </span>
+<span id="cb8-29"><a href="#cb8-29"></a>        FROM user_actions </span>
+<span id="cb8-30"><a href="#cb8-30"></a>        WHERE order_id NOT IN (SELECT order_id FROM user_actions WHERE action<span class="op">=</span><span class="st">'cancel_order'</span>) </span>
+<span id="cb8-31"><a href="#cb8-31"></a>        GROUP BY date </span>
+<span id="cb8-32"><a href="#cb8-32"></a>    ) t4 </span>
+<span id="cb8-33"><a href="#cb8-33"></a>    USING (date) </span>
+<span id="cb8-34"><a href="#cb8-34"></a>    LEFT JOIN ( </span>
+<span id="cb8-35"><a href="#cb8-35"></a>        SELECT date, COUNT(user_id) AS new_users </span>
+<span id="cb8-36"><a href="#cb8-36"></a>        FROM ( </span>
+<span id="cb8-37"><a href="#cb8-37"></a>            SELECT user_id, MIN(time::date) AS date </span>
+<span id="cb8-38"><a href="#cb8-38"></a>            FROM user_actions </span>
+<span id="cb8-39"><a href="#cb8-39"></a>            GROUP BY user_id </span>
+<span id="cb8-40"><a href="#cb8-40"></a>        ) t5 </span>
+<span id="cb8-41"><a href="#cb8-41"></a>        GROUP BY date </span>
+<span id="cb8-42"><a href="#cb8-42"></a>    ) t6 </span>
+<span id="cb8-43"><a href="#cb8-43"></a>    USING (date) </span>
+<span id="cb8-44"><a href="#cb8-44"></a>    LEFT JOIN ( </span>
+<span id="cb8-45"><a href="#cb8-45"></a>        SELECT date, COUNT(user_id) AS new_paying_users </span>
+<span id="cb8-46"><a href="#cb8-46"></a>        FROM ( </span>
+<span id="cb8-47"><a href="#cb8-47"></a>            SELECT user_id, MIN(time::date) AS date </span>
+<span id="cb8-48"><a href="#cb8-48"></a>            FROM user_actions </span>
+<span id="cb8-49"><a href="#cb8-49"></a>            WHERE order_id NOT IN (SELECT order_id FROM user_actions WHERE action<span class="op">=</span><span class="st">'cancel_order'</span>) </span>
+<span id="cb8-50"><a href="#cb8-50"></a>            GROUP BY user_id </span>
+<span id="cb8-51"><a href="#cb8-51"></a>        ) t7 </span>
+<span id="cb8-52"><a href="#cb8-52"></a>        GROUP BY date </span>
+<span id="cb8-53"><a href="#cb8-53"></a>    ) t8 </span>
+<span id="cb8-54"><a href="#cb8-54"></a>    USING (date)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Візуалізуємо отримані дані:</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>fig <span class="op">=</span> go.Figure()</span>
+<span id="cb9-2"><a href="#cb9-2"></a>fig.add_trace(</span>
+<span id="cb9-3"><a href="#cb9-3"></a>    go.Scatter(</span>
+<span id="cb9-4"><a href="#cb9-4"></a>        x<span class="op">=</span>results_3.date,</span>
+<span id="cb9-5"><a href="#cb9-5"></a>        y<span class="op">=</span>results_3.running_arpu,</span>
+<span id="cb9-6"><a href="#cb9-6"></a>        mode<span class="op">=</span><span class="st">"lines+markers"</span>,</span>
+<span id="cb9-7"><a href="#cb9-7"></a>        name<span class="op">=</span><span class="st">"running_arpu"</span>,</span>
+<span id="cb9-8"><a href="#cb9-8"></a>    )</span>
+<span id="cb9-9"><a href="#cb9-9"></a>)</span>
+<span id="cb9-10"><a href="#cb9-10"></a>fig.add_trace(</span>
+<span id="cb9-11"><a href="#cb9-11"></a>    go.Scatter(</span>
+<span id="cb9-12"><a href="#cb9-12"></a>        x<span class="op">=</span>results_3.date,</span>
+<span id="cb9-13"><a href="#cb9-13"></a>        y<span class="op">=</span>results_3.running_arppu,</span>
+<span id="cb9-14"><a href="#cb9-14"></a>        mode<span class="op">=</span><span class="st">"lines+markers"</span>,</span>
+<span id="cb9-15"><a href="#cb9-15"></a>        name<span class="op">=</span><span class="st">"running_arppu"</span>,</span>
+<span id="cb9-16"><a href="#cb9-16"></a>    )</span>
+<span id="cb9-17"><a href="#cb9-17"></a>)</span>
+<span id="cb9-18"><a href="#cb9-18"></a>fig.add_trace(</span>
+<span id="cb9-19"><a href="#cb9-19"></a>    go.Scatter(</span>
+<span id="cb9-20"><a href="#cb9-20"></a>        x<span class="op">=</span>results_3.date,</span>
+<span id="cb9-21"><a href="#cb9-21"></a>        y<span class="op">=</span>results_3.running_aov,</span>
+<span id="cb9-22"><a href="#cb9-22"></a>        mode<span class="op">=</span><span class="st">"lines+markers"</span>,</span>
+<span id="cb9-23"><a href="#cb9-23"></a>        name<span class="op">=</span><span class="st">"running_aov"</span>,</span>
+<span id="cb9-24"><a href="#cb9-24"></a>    )</span>
+<span id="cb9-25"><a href="#cb9-25"></a>)</span>
+<span id="cb9-26"><a href="#cb9-26"></a>fig.update_layout(</span>
+<span id="cb9-27"><a href="#cb9-27"></a>    legend<span class="op">=</span><span class="bu">dict</span>(orientation<span class="op">=</span><span class="st">"h"</span>, yanchor<span class="op">=</span><span class="st">"bottom"</span>, y<span class="op">=</span><span class="fl">1.02</span>, xanchor<span class="op">=</span><span class="st">"right"</span>, x<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-28"><a href="#cb9-28"></a>)</span>
+<span id="cb9-29"><a href="#cb9-29"></a>fig.show()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-sql-analytic-03" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+
+<div>                            <div id="561a6daf-5144-4419-9d19-43d9e90ea5ca" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("561a6daf-5144-4419-9d19-43d9e90ea5ca")) {                    Plotly.newPlot(                        "561a6daf-5144-4419-9d19-43d9e90ea5ca",                        [{"mode":"lines+markers","name":"running_arpu","x":["2022-08-24T00:00:00","2022-08-25T00:00:00","2022-08-26T00:00:00","2022-08-27T00:00:00","2022-08-28T00:00:00","2022-08-29T00:00:00","2022-08-30T00:00:00","2022-08-31T00:00:00","2022-09-01T00:00:00","2022-09-02T00:00:00","2022-09-03T00:00:00","2022-09-04T00:00:00","2022-09-05T00:00:00","2022-09-06T00:00:00","2022-09-07T00:00:00","2022-09-08T00:00:00"],"y":[372.57,499.26,512.9,571.8,632.13,707.53,766.86,792.81,813.18,844.17,886.24,921.71,950.45,970.18,992.38,1012.99],"type":"scatter"},{"mode":"lines+markers","name":"running_arppu","x":["2022-08-24T00:00:00","2022-08-25T00:00:00","2022-08-26T00:00:00","2022-08-27T00:00:00","2022-08-28T00:00:00","2022-08-29T00:00:00","2022-08-30T00:00:00","2022-08-31T00:00:00","2022-09-01T00:00:00","2022-09-02T00:00:00","2022-09-03T00:00:00","2022-09-04T00:00:00","2022-09-05T00:00:00","2022-09-06T00:00:00","2022-09-07T00:00:00","2022-09-08T00:00:00"],"y":[393.1,517.53,530.87,590.21,649.72,726.29,786.4,813.46,832.9,863.05,904.39,938.78,967.17,986.72,1007.85,1028.03],"type":"scatter"},{"mode":"lines+markers","name":"running_aov","x":["2022-08-24T00:00:00","2022-08-25T00:00:00","2022-08-26T00:00:00","2022-08-27T00:00:00","2022-08-28T00:00:00","2022-08-29T00:00:00","2022-08-30T00:00:00","2022-08-31T00:00:00","2022-09-01T00:00:00","2022-09-02T00:00:00","2022-09-03T00:00:00","2022-09-04T00:00:00","2022-09-05T00:00:00","2022-09-06T00:00:00","2022-09-07T00:00:00","2022-09-08T00:00:00"],"y":[361.77,401.66,384.1,382.99,381.08,384.24,383.14,383.49,383.11,382.77,383.57,383.28,383.11,383.3,382.85,382.91],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"legend":{"orientation":"h","yanchor":"bottom","y":1.02,"xanchor":"right","x":1}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('561a6daf-5144-4419-9d19-43d9e90ea5ca');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+<figcaption class="figure-caption">Рисунок&nbsp;10.3: Динаміка Running ARPU, Running ARPPU, Running AOV</figcaption>
+</figure>
+</div>
+</div>
+<p>Проаналізуйте побудований графік та спробуйте відповісти на такі питання:</p>
+<ol type="1">
+<li>Яка загалом динаміка у розрахованих метрик? Вони ростуть, падають чи мають приблизно однакове значення у кожен із днів?</li>
+<li>Чи можна з огляду на динаміку розрахованих метрик припустити, що з часом зростає кількість замовлень на одного користувача?</li>
+</ol>
+</section>
+<section id="задача-4" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="задача-4"><span class="header-section-number">10.4</span> Задача 4</h2>
+<p>Давайте порахуємо ті ж показники, але в іншому розрізі — не просто щодня, а щодня тижня.</p>
+<p>Для виділення порядкового номера тижня можна використовувати функцію <code>DATE_PART</code> з параметром <code>'isodow'</code>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-sql-metrics-04" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 10.4 </strong></span><br> Для кожного дня тижня в таблицях <code>orders</code> та <code>user_actions</code> розрахуйте такі показники:</p>
+<ol type="1">
+<li>Виручку користувача (ARPU).</li>
+<li>Виручку на користувача, що платить (ARPPU).</li>
+<li>Виторг на замовлення (AOV).</li>
+</ol>
+<p>При розрахунках враховуйте дані лише за період <strong>з 26 серпня 2022 року до 8 вересня 2022 року включно</strong> — так, щоб до аналізу потрапила однакова кількість усіх днів тижня (рівно по два дні).</p>
+<p>У результуючу таблицю включіть як найменування днів тижня (наприклад, Monday), так і порядковий номер дня тижня (від 1 до 7, де 1 Monday, 7 Sunday).</p>
+<p>Колонки з показниками назвіть відповідно <code>arpu</code>, <code>arppu</code>, <code>aov</code>. Назвіть колонку з найменуванням дня тижня <code>weekday</code>, а колонку з порядковим номером дня тижня <code>weekday_number</code>.</p>
+<p>Під час розрахунку всіх показників округляйте значення до двох знаків після коми.</p>
+<p>Результат має бути відсортований за зростанням порядкового номера дня тижня.</p>
+<p>Поля в результуючій таблиці: <code>weekday</code>, <code>weekday_number</code>, <code>arpu</code>, <code>arppu</code>, <code>aov</code></p>
+<p><strong>Пояснення:</strong></p>
+<p>У цій задачі порядковий номер дня тижня необхідний для того, щоб дні тижня були розташовані на графіці зліва направо в правильному порядку — не за найменуванням, а за зростанням порядкового номера.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Підказка на випадок, якщо зовсім не виходить
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Для розв’язання задачі необхідно виконати ті самі операції, що й у попередньому завданні, тільки цього разу для днів тижня. Додатково необхідно правильно задати фільтрацію за датою, щоб у аналіз потрапило рівно два однакові дні тижня.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="op">%%</span>sql</span>
+<span id="cb10-2"><a href="#cb10-2"></a>SELECT weekday, t1.weekday_number AS weekday_number, </span>
+<span id="cb10-3"><a href="#cb10-3"></a>        ROUND(revenue::decimal <span class="op">/</span> users, <span class="dv">2</span>) AS arpu, </span>
+<span id="cb10-4"><a href="#cb10-4"></a>        ROUND(revenue::decimal <span class="op">/</span> paying_users, <span class="dv">2</span>) AS arppu, </span>
+<span id="cb10-5"><a href="#cb10-5"></a>        ROUND(revenue::decimal <span class="op">/</span> orders, <span class="dv">2</span>) AS aov </span>
+<span id="cb10-6"><a href="#cb10-6"></a>    FROM ( </span>
+<span id="cb10-7"><a href="#cb10-7"></a>        SELECT DATE_PART(<span class="st">'isodow'</span>, creation_time) AS weekday, </span>
+<span id="cb10-8"><a href="#cb10-8"></a>                MAX(DATE_PART(<span class="st">'isodow'</span>, creation_time)) AS weekday_number, </span>
+<span id="cb10-9"><a href="#cb10-9"></a>                COUNT(DISTINCT order_id) AS orders,  </span>
+<span id="cb10-10"><a href="#cb10-10"></a>                SUM(price) AS revenue </span>
+<span id="cb10-11"><a href="#cb10-11"></a>        FROM ( </span>
+<span id="cb10-12"><a href="#cb10-12"></a>            SELECT order_id, </span>
+<span id="cb10-13"><a href="#cb10-13"></a>                creation_time, </span>
+<span id="cb10-14"><a href="#cb10-14"></a>                UNNEST(product_ids) AS product_id </span>
+<span id="cb10-15"><a href="#cb10-15"></a>            FROM orders </span>
+<span id="cb10-16"><a href="#cb10-16"></a>            WHERE order_id NOT IN (SELECT order_id FROM user_actions WHERE action<span class="op">=</span><span class="st">'cancel_order'</span>) </span>
+<span id="cb10-17"><a href="#cb10-17"></a>                AND creation_time <span class="op">&gt;=</span> <span class="st">'2022-08-26'</span> AND creation_time <span class="op">&lt;</span> <span class="st">'2022-09-09'</span> </span>
+<span id="cb10-18"><a href="#cb10-18"></a>            ) t4 </span>
+<span id="cb10-19"><a href="#cb10-19"></a>        LEFT JOIN products  </span>
+<span id="cb10-20"><a href="#cb10-20"></a>        USING(product_id) </span>
+<span id="cb10-21"><a href="#cb10-21"></a>        GROUP BY weekday </span>
+<span id="cb10-22"><a href="#cb10-22"></a>    ) t1 </span>
+<span id="cb10-23"><a href="#cb10-23"></a>    LEFT JOIN ( </span>
+<span id="cb10-24"><a href="#cb10-24"></a>        SELECT DATE_PART(<span class="st">'isodow'</span>, time) AS weekday, </span>
+<span id="cb10-25"><a href="#cb10-25"></a>            MAX(DATE_PART(<span class="st">'isodow'</span>, time)) AS weekday_number, </span>
+<span id="cb10-26"><a href="#cb10-26"></a>            COUNT(DISTINCT user_id) AS users </span>
+<span id="cb10-27"><a href="#cb10-27"></a>        FROM user_actions </span>
+<span id="cb10-28"><a href="#cb10-28"></a>        WHERE time <span class="op">&gt;=</span> <span class="st">'2022-08-26'</span> AND time <span class="op">&lt;</span> <span class="st">'2022-09-09'</span> </span>
+<span id="cb10-29"><a href="#cb10-29"></a>        GROUP BY weekday </span>
+<span id="cb10-30"><a href="#cb10-30"></a>    ) t2 </span>
+<span id="cb10-31"><a href="#cb10-31"></a>    USING (weekday) </span>
+<span id="cb10-32"><a href="#cb10-32"></a>    LEFT JOIN ( </span>
+<span id="cb10-33"><a href="#cb10-33"></a>        SELECT DATE_PART(<span class="st">'isodow'</span>, time) AS weekday,  </span>
+<span id="cb10-34"><a href="#cb10-34"></a>            MAX(DATE_PART(<span class="st">'isodow'</span>, time)) AS weekday_number, </span>
+<span id="cb10-35"><a href="#cb10-35"></a>            COUNT(DISTINCT user_id) AS paying_users </span>
+<span id="cb10-36"><a href="#cb10-36"></a>        FROM user_actions </span>
+<span id="cb10-37"><a href="#cb10-37"></a>        WHERE order_id NOT IN (SELECT order_id FROM user_actions WHERE action<span class="op">=</span><span class="st">'cancel_order'</span>) </span>
+<span id="cb10-38"><a href="#cb10-38"></a>            AND time <span class="op">&gt;=</span> <span class="st">'2022-08-26'</span> AND time <span class="op">&lt;</span> <span class="st">'2022-09-09'</span> </span>
+<span id="cb10-39"><a href="#cb10-39"></a>        GROUP BY weekday </span>
+<span id="cb10-40"><a href="#cb10-40"></a>    ) t3 </span>
+<span id="cb10-41"><a href="#cb10-41"></a>    USING (weekday) </span>
+<span id="cb10-42"><a href="#cb10-42"></a>    ORDER BY weekday_number</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="60">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">weekday</th>
+<th data-quarto-table-cell-role="th">weekday_number</th>
+<th data-quarto-table-cell-role="th">arpu</th>
+<th data-quarto-table-cell-role="th">arppu</th>
+<th data-quarto-table-cell-role="th">aov</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>1</td>
+<td>555.98</td>
+<td>575.18</td>
+<td>385.87</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>2</td>
+<td>528.94</td>
+<td>548.04</td>
+<td>382.63</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>3</td>
+<td>528.90</td>
+<td>548.33</td>
+<td>381.16</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>4</td>
+<td>533.98</td>
+<td>551.37</td>
+<td>382.62</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>5</td>
+<td>534.79</td>
+<td>553.21</td>
+<td>378.70</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>6</td>
+<td>6</td>
+<td>578.53</td>
+<td>595.48</td>
+<td>385.74</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>7</td>
+<td>7</td>
+<td>566.23</td>
+<td>583.38</td>
+<td>380.48</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Збережемо результат запиту у змінну <code>results_4</code>:</p>
+<div class="cell" data-execution_count="12">
+<details>
+<summary>Код</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="op">%%</span>sql</span>
+<span id="cb11-2"><a href="#cb11-2"></a>results_4 <span class="op">&lt;&lt;</span> SELECT weekday, t1.weekday_number AS weekday_number, </span>
+<span id="cb11-3"><a href="#cb11-3"></a>        ROUND(revenue::decimal <span class="op">/</span> users, <span class="dv">2</span>) AS arpu, </span>
+<span id="cb11-4"><a href="#cb11-4"></a>        ROUND(revenue::decimal <span class="op">/</span> paying_users, <span class="dv">2</span>) AS arppu, </span>
+<span id="cb11-5"><a href="#cb11-5"></a>        ROUND(revenue::decimal <span class="op">/</span> orders, <span class="dv">2</span>) AS aov </span>
+<span id="cb11-6"><a href="#cb11-6"></a>    FROM ( </span>
+<span id="cb11-7"><a href="#cb11-7"></a>        SELECT DATE_PART(<span class="st">'isodow'</span>, creation_time) AS weekday, </span>
+<span id="cb11-8"><a href="#cb11-8"></a>                MAX(DATE_PART(<span class="st">'isodow'</span>, creation_time)) AS weekday_number, </span>
+<span id="cb11-9"><a href="#cb11-9"></a>                COUNT(DISTINCT order_id) AS orders,  </span>
+<span id="cb11-10"><a href="#cb11-10"></a>                SUM(price) AS revenue </span>
+<span id="cb11-11"><a href="#cb11-11"></a>        FROM ( </span>
+<span id="cb11-12"><a href="#cb11-12"></a>            SELECT order_id, </span>
+<span id="cb11-13"><a href="#cb11-13"></a>                creation_time, </span>
+<span id="cb11-14"><a href="#cb11-14"></a>                UNNEST(product_ids) AS product_id </span>
+<span id="cb11-15"><a href="#cb11-15"></a>            FROM orders </span>
+<span id="cb11-16"><a href="#cb11-16"></a>            WHERE order_id NOT IN (SELECT order_id FROM user_actions WHERE action<span class="op">=</span><span class="st">'cancel_order'</span>) </span>
+<span id="cb11-17"><a href="#cb11-17"></a>                AND creation_time <span class="op">&gt;=</span> <span class="st">'2022-08-26'</span> AND creation_time <span class="op">&lt;</span> <span class="st">'2022-09-09'</span> </span>
+<span id="cb11-18"><a href="#cb11-18"></a>            ) t4 </span>
+<span id="cb11-19"><a href="#cb11-19"></a>        LEFT JOIN products  </span>
+<span id="cb11-20"><a href="#cb11-20"></a>        USING(product_id) </span>
+<span id="cb11-21"><a href="#cb11-21"></a>        GROUP BY weekday </span>
+<span id="cb11-22"><a href="#cb11-22"></a>    ) t1 </span>
+<span id="cb11-23"><a href="#cb11-23"></a>    LEFT JOIN ( </span>
+<span id="cb11-24"><a href="#cb11-24"></a>        SELECT DATE_PART(<span class="st">'isodow'</span>, time) AS weekday, </span>
+<span id="cb11-25"><a href="#cb11-25"></a>            MAX(DATE_PART(<span class="st">'isodow'</span>, time)) AS weekday_number, </span>
+<span id="cb11-26"><a href="#cb11-26"></a>            COUNT(DISTINCT user_id) AS users </span>
+<span id="cb11-27"><a href="#cb11-27"></a>        FROM user_actions </span>
+<span id="cb11-28"><a href="#cb11-28"></a>        WHERE time <span class="op">&gt;=</span> <span class="st">'2022-08-26'</span> AND time <span class="op">&lt;</span> <span class="st">'2022-09-09'</span> </span>
+<span id="cb11-29"><a href="#cb11-29"></a>        GROUP BY weekday </span>
+<span id="cb11-30"><a href="#cb11-30"></a>    ) t2 </span>
+<span id="cb11-31"><a href="#cb11-31"></a>    USING (weekday) </span>
+<span id="cb11-32"><a href="#cb11-32"></a>    LEFT JOIN ( </span>
+<span id="cb11-33"><a href="#cb11-33"></a>        SELECT DATE_PART(<span class="st">'isodow'</span>, time) AS weekday,  </span>
+<span id="cb11-34"><a href="#cb11-34"></a>            MAX(DATE_PART(<span class="st">'isodow'</span>, time)) AS weekday_number, </span>
+<span id="cb11-35"><a href="#cb11-35"></a>            COUNT(DISTINCT user_id) AS paying_users </span>
+<span id="cb11-36"><a href="#cb11-36"></a>        FROM user_actions </span>
+<span id="cb11-37"><a href="#cb11-37"></a>        WHERE order_id NOT IN (SELECT order_id FROM user_actions WHERE action<span class="op">=</span><span class="st">'cancel_order'</span>) </span>
+<span id="cb11-38"><a href="#cb11-38"></a>            AND time <span class="op">&gt;=</span> <span class="st">'2022-08-26'</span> AND time <span class="op">&lt;</span> <span class="st">'2022-09-09'</span> </span>
+<span id="cb11-39"><a href="#cb11-39"></a>        GROUP BY weekday </span>
+<span id="cb11-40"><a href="#cb11-40"></a>    ) t3 </span>
+<span id="cb11-41"><a href="#cb11-41"></a>    USING (weekday) </span>
+<span id="cb11-42"><a href="#cb11-42"></a>    ORDER BY weekday_number</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Візуалізуємо отримані дані:</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>fig <span class="op">=</span> go.Figure()</span>
+<span id="cb12-2"><a href="#cb12-2"></a>fig.add_trace(</span>
+<span id="cb12-3"><a href="#cb12-3"></a>    go.Scatter(</span>
+<span id="cb12-4"><a href="#cb12-4"></a>        x<span class="op">=</span>[</span>
+<span id="cb12-5"><a href="#cb12-5"></a>            <span class="st">"Monday"</span>,</span>
+<span id="cb12-6"><a href="#cb12-6"></a>            <span class="st">"Tuesday"</span>,</span>
+<span id="cb12-7"><a href="#cb12-7"></a>            <span class="st">"Wednesday"</span>,</span>
+<span id="cb12-8"><a href="#cb12-8"></a>            <span class="st">"Thursday"</span>,</span>
+<span id="cb12-9"><a href="#cb12-9"></a>            <span class="st">"Friday"</span>,</span>
+<span id="cb12-10"><a href="#cb12-10"></a>            <span class="st">"Saturday"</span>,</span>
+<span id="cb12-11"><a href="#cb12-11"></a>            <span class="st">"Sunday"</span>,</span>
+<span id="cb12-12"><a href="#cb12-12"></a>        ],</span>
+<span id="cb12-13"><a href="#cb12-13"></a>        y<span class="op">=</span>results_4.arpu,</span>
+<span id="cb12-14"><a href="#cb12-14"></a>        mode<span class="op">=</span><span class="st">"lines+markers"</span>,</span>
+<span id="cb12-15"><a href="#cb12-15"></a>        name<span class="op">=</span><span class="st">"arpu"</span>,</span>
+<span id="cb12-16"><a href="#cb12-16"></a>    )</span>
+<span id="cb12-17"><a href="#cb12-17"></a>)</span>
+<span id="cb12-18"><a href="#cb12-18"></a>fig.add_trace(</span>
+<span id="cb12-19"><a href="#cb12-19"></a>    go.Scatter(</span>
+<span id="cb12-20"><a href="#cb12-20"></a>        x<span class="op">=</span>[</span>
+<span id="cb12-21"><a href="#cb12-21"></a>            <span class="st">"Monday"</span>,</span>
+<span id="cb12-22"><a href="#cb12-22"></a>            <span class="st">"Tuesday"</span>,</span>
+<span id="cb12-23"><a href="#cb12-23"></a>            <span class="st">"Wednesday"</span>,</span>
+<span id="cb12-24"><a href="#cb12-24"></a>            <span class="st">"Thursday"</span>,</span>
+<span id="cb12-25"><a href="#cb12-25"></a>            <span class="st">"Friday"</span>,</span>
+<span id="cb12-26"><a href="#cb12-26"></a>            <span class="st">"Saturday"</span>,</span>
+<span id="cb12-27"><a href="#cb12-27"></a>            <span class="st">"Sunday"</span>,</span>
+<span id="cb12-28"><a href="#cb12-28"></a>        ],</span>
+<span id="cb12-29"><a href="#cb12-29"></a>        y<span class="op">=</span>results_4.arppu,</span>
+<span id="cb12-30"><a href="#cb12-30"></a>        mode<span class="op">=</span><span class="st">"lines+markers"</span>,</span>
+<span id="cb12-31"><a href="#cb12-31"></a>        name<span class="op">=</span><span class="st">"arppu"</span>,</span>
+<span id="cb12-32"><a href="#cb12-32"></a>    )</span>
+<span id="cb12-33"><a href="#cb12-33"></a>)</span>
+<span id="cb12-34"><a href="#cb12-34"></a>fig.add_trace(</span>
+<span id="cb12-35"><a href="#cb12-35"></a>    go.Scatter(</span>
+<span id="cb12-36"><a href="#cb12-36"></a>        x<span class="op">=</span>[</span>
+<span id="cb12-37"><a href="#cb12-37"></a>            <span class="st">"Monday"</span>,</span>
+<span id="cb12-38"><a href="#cb12-38"></a>            <span class="st">"Tuesday"</span>,</span>
+<span id="cb12-39"><a href="#cb12-39"></a>            <span class="st">"Wednesday"</span>,</span>
+<span id="cb12-40"><a href="#cb12-40"></a>            <span class="st">"Thursday"</span>,</span>
+<span id="cb12-41"><a href="#cb12-41"></a>            <span class="st">"Friday"</span>,</span>
+<span id="cb12-42"><a href="#cb12-42"></a>            <span class="st">"Saturday"</span>,</span>
+<span id="cb12-43"><a href="#cb12-43"></a>            <span class="st">"Sunday"</span>,</span>
+<span id="cb12-44"><a href="#cb12-44"></a>        ],</span>
+<span id="cb12-45"><a href="#cb12-45"></a>        y<span class="op">=</span>results_4.aov,</span>
+<span id="cb12-46"><a href="#cb12-46"></a>        mode<span class="op">=</span><span class="st">"lines+markers"</span>,</span>
+<span id="cb12-47"><a href="#cb12-47"></a>        name<span class="op">=</span><span class="st">"aov"</span>,</span>
+<span id="cb12-48"><a href="#cb12-48"></a>    )</span>
+<span id="cb12-49"><a href="#cb12-49"></a>)</span>
+<span id="cb12-50"><a href="#cb12-50"></a>fig.update_layout(</span>
+<span id="cb12-51"><a href="#cb12-51"></a>    legend<span class="op">=</span><span class="bu">dict</span>(orientation<span class="op">=</span><span class="st">"h"</span>, yanchor<span class="op">=</span><span class="st">"bottom"</span>, y<span class="op">=</span><span class="fl">1.02</span>, xanchor<span class="op">=</span><span class="st">"right"</span>, x<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb12-52"><a href="#cb12-52"></a>)</span>
+<span id="cb12-53"><a href="#cb12-53"></a>fig.show()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-sql-analytic-04" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+
+<div>                            <div id="075aa4f5-4dc6-47f3-89c0-206f5214a753" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("075aa4f5-4dc6-47f3-89c0-206f5214a753")) {                    Plotly.newPlot(                        "075aa4f5-4dc6-47f3-89c0-206f5214a753",                        [{"mode":"lines+markers","name":"arpu","x":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"y":[555.98,528.94,528.9,533.98,534.79,578.53,566.23],"type":"scatter"},{"mode":"lines+markers","name":"arppu","x":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"y":[575.18,548.04,548.33,551.37,553.21,595.48,583.38],"type":"scatter"},{"mode":"lines+markers","name":"aov","x":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"y":[385.87,382.63,381.16,382.62,378.7,385.74,380.48],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"legend":{"orientation":"h","yanchor":"bottom","y":1.02,"xanchor":"right","x":1}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('075aa4f5-4dc6-47f3-89c0-206f5214a753');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+<figcaption class="figure-caption">Рисунок&nbsp;10.4: Динаміка ARPU, ARPPU, AOV по дням тижня</figcaption>
+</figure>
+</div>
+</div>
+<p>Проаналізуйте побудований графік та спробуйте відповісти на такі питання:</p>
+<ol type="1">
+<li>У які дні тижня метрики ARPU та ARPPU набували найбільших значень? Як ви вважаєте, чи це узгоджується в цілому зі стандартною поведінкою користувачів сервісу доставки їжі?</li>
+<li>Як ви вважаєте, чому в ті дні, коли метрики ARPU та ARPPU набували найбільших значень, метрика AOV залишалася приблизно на тому ж рівні? За якого сценарію таке можливе?</li>
+</ol>
 
 
 </section>
