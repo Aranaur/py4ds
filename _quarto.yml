@@ -22,6 +22,10 @@ book:
   chapters:
     - index.ipynb
     - text: "---"
+    - part: python.qmd
+      chapters: 
+      - python_basics.qmd
+    - text: "---"
     - part: sql.ipynb
       chapters: 
       - sql_basics.ipynb
