@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Книга-конспект матеріалів.">
+<meta name="description" content="Книга-конспект матеріалів">
 
-<title>Python та його друзі в науці про дані - 3&nbsp; Фільтрація даних</title>
+<title>Від нуля до Python Data Scientist - 3&nbsp; Фільтрація даних</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -95,7 +95,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "Додаткові результати у цьому документі",
     "search-clear-button-title": "Очистити",
     "search-detached-cancel-button-title": "Скасувати",
-    "search-submit-button-title": "Надіслати"
+    "search-submit-button-title": "Надіслати",
+    "search-label": "Пошук"
   }
 }</script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-0C9TJBF3C5"></script>
@@ -126,7 +127,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql.html">SQL</a></li><li class="breadcrumb-item"><a href="./sql_filter.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -141,9 +142,9 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Python та його друзі в науці про дані</a> 
+      <a href="./">Від нуля до Python Data Scientist</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/Aranaur/py4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/Aranaur/py4ds" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -173,7 +174,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Пошук"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -181,19 +182,37 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Вступне слово</span></span></a>
+ <span class="menu-text">Вступне слово</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./sql.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SQL</span></a>
+            <a href="./python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Переключити розділ">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Змінні та типи даних</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./sql.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Переключити розділ">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_basics.html" class="sidebar-item-text sidebar-link">
@@ -275,7 +294,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <li><a href="#фільтрація-по-даті-та-часу" id="toc-фільтрація-по-даті-та-часу" class="nav-link" data-scroll-target="#фільтрація-по-даті-та-часу"><span class="header-section-number">3.6</span> Фільтрація по даті та часу</a></li>
   <li><a href="#фільтрація-з-case-when" id="toc-фільтрація-з-case-when" class="nav-link" data-scroll-target="#фільтрація-з-case-when"><span class="header-section-number">3.7</span> Фільтрація з <code>CASE WHEN</code></a></li>
   </ul>
-</nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/Aranaur/py4ds/blob/main/sql_filter.ipynb" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/sql_filter.ipynb" class="toc-action">Переглянути код</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -613,6 +632,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb9-6"><a href="#cb9-6"></a>WHERE  action <span class="op">=</span> <span class="st">'create_order'</span> <span class="kw">and</span> time <span class="op">&gt;</span> <span class="st">'2022-09-06'</span></span>
 <span id="cb9-7"><a href="#cb9-7"></a>ORDER BY order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
@@ -701,37 +726,37 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>В операторі <code>WHERE</code> можна використовувати не тільки колонки, які вже є в таблиці, але й розрахункові колонки. При цьому вказувати їх у <code>SELECT</code> знову ж таки не обов’язково:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">SELECT</span> column_1, column_2, (column_1 <span class="op">+</span> column_2) <span class="op">*</span> <span class="fl">0.5</span> <span class="kw">AS</span> average</span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="kw">WHERE</span> (column_1 <span class="op">+</span> column_2) <span class="op">*</span> <span class="fl">0.5</span> <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a></span>
-<span id="cb10-5"><a href="#cb10-5"></a></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb10-7"><a href="#cb10-7"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb10-8"><a href="#cb10-8"></a><span class="kw">WHERE</span> (column_1 <span class="op">+</span> column_2) <span class="op">*</span> <span class="fl">0.5</span> <span class="op">=</span> <span class="dv">10</span> </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">SELECT</span> column_1, column_2, (column_1 <span class="op">+</span> column_2) <span class="op">*</span> <span class="fl">0.5</span> <span class="kw">AS</span> average</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="kw">WHERE</span> (column_1 <span class="op">+</span> column_2) <span class="op">*</span> <span class="fl">0.5</span> <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a></span>
+<span id="cb11-5"><a href="#cb11-5"></a></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="kw">WHERE</span> (column_1 <span class="op">+</span> column_2) <span class="op">*</span> <span class="fl">0.5</span> <span class="op">=</span> <span class="dv">10</span> </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У прикладі вище ми відфільтруємо тільки ті записи, для яких середнє арифметичне двох чисел, що містяться в колонках <code>column_1</code> і <code>column_2</code>, дорівнюватиме <code>10</code>.</p>
 <p>Також важливо враховувати, що використовувати в блоці <code>WHERE</code> аліаси, які присвоєно новим розрахунковим колонкам, не можна. Зверніть увагу на приклади наступних запитів, які вважають частку значень колонки <code>column_1</code> у відповідних їм значеннях колонки <code>column_2</code>. Перший запит спрацює, а другий поверне помилку:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">-- Цей запит спрацює:</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="kw">SELECT</span> column_1, column_2, </span>
-<span id="cb11-4"><a href="#cb11-4"></a>       column_1 <span class="op">/</span> column_2 <span class="kw">AS</span> <span class="kw">share</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb11-6"><a href="#cb11-6"></a><span class="kw">WHERE</span> column_1 <span class="op">/</span> column_2 <span class="op">&gt;</span> <span class="dv">50</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a></span>
-<span id="cb11-8"><a href="#cb11-8"></a></span>
-<span id="cb11-9"><a href="#cb11-9"></a><span class="co">-- Цей запит поверне помилку:</span></span>
-<span id="cb11-10"><a href="#cb11-10"></a></span>
-<span id="cb11-11"><a href="#cb11-11"></a><span class="kw">SELECT</span> column_1, column_2, </span>
-<span id="cb11-12"><a href="#cb11-12"></a>       column_1 <span class="op">/</span> column_2 <span class="kw">AS</span> <span class="kw">share</span></span>
-<span id="cb11-13"><a href="#cb11-13"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb11-14"><a href="#cb11-14"></a><span class="kw">WHERE</span> <span class="kw">share</span> <span class="op">&gt;</span> <span class="dv">50</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">-- Цей запит спрацює:</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="kw">SELECT</span> column_1, column_2, </span>
+<span id="cb12-4"><a href="#cb12-4"></a>       column_1 <span class="op">/</span> column_2 <span class="kw">AS</span> <span class="kw">share</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="kw">WHERE</span> column_1 <span class="op">/</span> column_2 <span class="op">&gt;</span> <span class="dv">50</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a></span>
+<span id="cb12-8"><a href="#cb12-8"></a></span>
+<span id="cb12-9"><a href="#cb12-9"></a><span class="co">-- Цей запит поверне помилку:</span></span>
+<span id="cb12-10"><a href="#cb12-10"></a></span>
+<span id="cb12-11"><a href="#cb12-11"></a><span class="kw">SELECT</span> column_1, column_2, </span>
+<span id="cb12-12"><a href="#cb12-12"></a>       column_1 <span class="op">/</span> column_2 <span class="kw">AS</span> <span class="kw">share</span></span>
+<span id="cb12-13"><a href="#cb12-13"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb12-14"><a href="#cb12-14"></a><span class="kw">WHERE</span> <span class="kw">share</span> <span class="op">&gt;</span> <span class="dv">50</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Це пов’язано всі з тією ж послідовністю виконання операторів у запиті: на момент виконання оператора <code>WHERE</code> аліас колонці ще не присвоєно, і тому база даних поки не знає про існування колонки з новим ім’ям.</p>
 <p>Можна розглянути ще більш тривіальний приклад: навіть якщо ми просто зробимо дублікат колонки з іншим ім’ям і спробуємо використати це ім’я в <code>WHERE</code>, все одно отримаємо помилку:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">-- Цей запит поверне помилку:</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="kw">SELECT</span> <span class="kw">column</span>, <span class="kw">column</span> <span class="kw">AS</span> same_column</span>
-<span id="cb12-4"><a href="#cb12-4"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a><span class="kw">WHERE</span> same_column <span class="op">&gt;</span> <span class="dv">0</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">-- Цей запит поверне помилку:</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="kw">SELECT</span> <span class="kw">column</span>, <span class="kw">column</span> <span class="kw">AS</span> same_column</span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="kw">WHERE</span> same_column <span class="op">&gt;</span> <span class="dv">0</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>При вказівці фільтрів у блоці <code>WHERE</code> важливо враховувати розглянуті особливості. Можете керуватися наступним правилом: якщо збираєтеся фільтрувати дані по розрахунковій колонці, то дублюйте розрахунки <code>WHERE</code> і не використовуйте аліаси, присвоєні новим колонкам.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -754,15 +779,15 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="5">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="op">%%</span>sql</span>
-<span id="cb13-2"><a href="#cb13-2"></a>SELECT product_id,</span>
-<span id="cb13-3"><a href="#cb13-3"></a>       name,</span>
-<span id="cb13-4"><a href="#cb13-4"></a>       price <span class="im">as</span> old_price,</span>
-<span id="cb13-5"><a href="#cb13-5"></a>       price <span class="op">*</span> <span class="fl">0.8</span> <span class="im">as</span> new_price</span>
-<span id="cb13-6"><a href="#cb13-6"></a>FROM   products</span>
-<span id="cb13-7"><a href="#cb13-7"></a>WHERE  price <span class="op">*</span> <span class="fl">0.8</span> <span class="op">&gt;</span> <span class="dv">100</span></span>
-<span id="cb13-8"><a href="#cb13-8"></a>ORDER BY product_id</span>
-<span id="cb13-9"><a href="#cb13-9"></a>LIMIT <span class="dv">10</span> <span class="op">--</span> для скорочення виводу</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="op">%%</span>sql</span>
+<span id="cb14-2"><a href="#cb14-2"></a>SELECT product_id,</span>
+<span id="cb14-3"><a href="#cb14-3"></a>       name,</span>
+<span id="cb14-4"><a href="#cb14-4"></a>       price <span class="im">as</span> old_price,</span>
+<span id="cb14-5"><a href="#cb14-5"></a>       price <span class="op">*</span> <span class="fl">0.8</span> <span class="im">as</span> new_price</span>
+<span id="cb14-6"><a href="#cb14-6"></a>FROM   products</span>
+<span id="cb14-7"><a href="#cb14-7"></a>WHERE  price <span class="op">*</span> <span class="fl">0.8</span> <span class="op">&gt;</span> <span class="dv">100</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a>ORDER BY product_id</span>
+<span id="cb14-9"><a href="#cb14-9"></a>LIMIT <span class="dv">10</span> <span class="op">--</span> для скорочення виводу</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
@@ -856,16 +881,16 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>Після оператора <code>WHERE</code> до колонок можна також застосовувати різні функції:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="kw">FROM</span> <span class="kw">table</span> </span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="kw">WHERE</span> <span class="fu">LOWER</span>(column_1) <span class="op">=</span> <span class="st">'i.love.python'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="kw">FROM</span> <span class="kw">table</span> </span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="kw">WHERE</span> <span class="fu">LOWER</span>(column_1) <span class="op">=</span> <span class="st">'i.love.python'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У прикладі вище кожне значення колонки <code>column_1</code> спочатку буде приведено до нижнього регістру, а потім зіставлено зі значенням ‘i.love.python’. При цьому результат буде включено вихідні значення в колонці <code>column_1</code>. Таким чином, функція послужить тільки для фільтрації записів, але самі значення в колонках ніяк не вплине.</p>
 <p>Зверніть увагу, що використовувати аліаси, присвоєні колонкам в операторі <code>SELECT</code>, так само не можна. Наступний запит поверне помилку:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">-- Цей запит поверне помилку:</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a></span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="kw">SELECT</span> column_1 <span class="kw">AS</span> new_column_1, column_2</span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="kw">FROM</span> <span class="kw">table</span> </span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="kw">WHERE</span> <span class="fu">LOWER</span>(new_column_1) <span class="op">=</span> <span class="st">'i.love.python'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1"></a><span class="co">-- Цей запит поверне помилку:</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="kw">SELECT</span> column_1 <span class="kw">AS</span> new_column_1, column_2</span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="kw">FROM</span> <span class="kw">table</span> </span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="kw">WHERE</span> <span class="fu">LOWER</span>(new_column_1) <span class="op">=</span> <span class="st">'i.love.python'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -903,13 +928,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="6">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="op">%%</span>sql</span>
-<span id="cb16-2"><a href="#cb16-2"></a>SELECT product_id,</span>
-<span id="cb16-3"><a href="#cb16-3"></a>       name</span>
-<span id="cb16-4"><a href="#cb16-4"></a>FROM   products</span>
-<span id="cb16-5"><a href="#cb16-5"></a>WHERE  split_part(name, <span class="st">' '</span>, <span class="dv">1</span>) <span class="op">=</span> <span class="st">'tea'</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a>    <span class="kw">or</span> length(name) <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb16-7"><a href="#cb16-7"></a>ORDER BY product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="op">%%</span>sql</span>
+<span id="cb17-2"><a href="#cb17-2"></a>SELECT product_id,</span>
+<span id="cb17-3"><a href="#cb17-3"></a>       name</span>
+<span id="cb17-4"><a href="#cb17-4"></a>FROM   products</span>
+<span id="cb17-5"><a href="#cb17-5"></a>WHERE  split_part(name, <span class="st">' '</span>, <span class="dv">1</span>) <span class="op">=</span> <span class="st">'tea'</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a>    <span class="kw">or</span> length(name) <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a>ORDER BY product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
@@ -999,51 +1024,51 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Зрозуміло, що ні. Для фільтрації по колонках з текстовими значеннями в <code>SQL</code> передбачений оператор <code>LIKE</code>.</p>
 <p>Оператор <code>LIKE</code> не просто порівнює рядки на повний збіг (або розбіжність), а перевіряє їх на відповідність заданому шаблону: якщо рядок йому відповідає, то повертається <code>TRUE</code>, інакше — <code>FALSE</code>. Як можна здогадатися, конструкція <code>NOT LIKE</code> працює з точністю навпаки.</p>
 <p>Шаблони можуть містити як звичайні символи, так і символи-шаблони: знак відсотка (<code>%</code>) та підкреслення (<code>_</code>). Підкреслення підміняє будь-який одиночний символ, а знак відсотка - будь-яку (у тому числі порожню) послідовність символів:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'love%'</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a></span>
-<span id="cb17-3"><a href="#cb17-3"></a>Результат:</span>
-<span id="cb17-4"><a href="#cb17-4"></a><span class="kw">true</span></span>
-<span id="cb17-5"><a href="#cb17-5"></a></span>
-<span id="cb17-6"><a href="#cb17-6"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'love_'</span></span>
-<span id="cb17-7"><a href="#cb17-7"></a></span>
-<span id="cb17-8"><a href="#cb17-8"></a>Результат:</span>
-<span id="cb17-9"><a href="#cb17-9"></a><span class="kw">false</span></span>
-<span id="cb17-10"><a href="#cb17-10"></a></span>
-<span id="cb17-11"><a href="#cb17-11"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'%love%'</span></span>
-<span id="cb17-12"><a href="#cb17-12"></a></span>
-<span id="cb17-13"><a href="#cb17-13"></a>Результат:</span>
-<span id="cb17-14"><a href="#cb17-14"></a><span class="kw">true</span></span>
-<span id="cb17-15"><a href="#cb17-15"></a></span>
-<span id="cb17-16"><a href="#cb17-16"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'_love%'</span></span>
-<span id="cb17-17"><a href="#cb17-17"></a></span>
-<span id="cb17-18"><a href="#cb17-18"></a>Результат:</span>
-<span id="cb17-19"><a href="#cb17-19"></a><span class="kw">false</span></span>
-<span id="cb17-20"><a href="#cb17-20"></a></span>
-<span id="cb17-21"><a href="#cb17-21"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'%.%'</span></span>
-<span id="cb17-22"><a href="#cb17-22"></a></span>
-<span id="cb17-23"><a href="#cb17-23"></a>Результат:</span>
-<span id="cb17-24"><a href="#cb17-24"></a><span class="kw">true</span></span>
-<span id="cb17-25"><a href="#cb17-25"></a></span>
-<span id="cb17-26"><a href="#cb17-26"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'_._'</span></span>
-<span id="cb17-27"><a href="#cb17-27"></a></span>
-<span id="cb17-28"><a href="#cb17-28"></a>Результат:</span>
-<span id="cb17-29"><a href="#cb17-29"></a><span class="kw">false</span></span>
-<span id="cb17-30"><a href="#cb17-30"></a></span>
-<span id="cb17-31"><a href="#cb17-31"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'Love%'</span></span>
-<span id="cb17-32"><a href="#cb17-32"></a></span>
-<span id="cb17-33"><a href="#cb17-33"></a>Результат:</span>
-<span id="cb17-34"><a href="#cb17-34"></a><span class="kw">false</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Зверніть увагу на останній приклад: оператор <code>LIKE</code> чутливий до регістру.</p>
-<p>Якщо шаблон не містить знаків відсотка та підкреслень, тоді шаблон є рядком і <code>LIKE</code> працює як оператор порівняння, перевіряючи рядки на точний збіг.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'love.python'</span></span>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'love%'</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a></span>
 <span id="cb18-3"><a href="#cb18-3"></a>Результат:</span>
 <span id="cb18-4"><a href="#cb18-4"></a><span class="kw">true</span></span>
 <span id="cb18-5"><a href="#cb18-5"></a></span>
-<span id="cb18-6"><a href="#cb18-6"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'love'</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'love_'</span></span>
 <span id="cb18-7"><a href="#cb18-7"></a></span>
 <span id="cb18-8"><a href="#cb18-8"></a>Результат:</span>
-<span id="cb18-9"><a href="#cb18-9"></a><span class="kw">false</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-9"><a href="#cb18-9"></a><span class="kw">false</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a></span>
+<span id="cb18-11"><a href="#cb18-11"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'%love%'</span></span>
+<span id="cb18-12"><a href="#cb18-12"></a></span>
+<span id="cb18-13"><a href="#cb18-13"></a>Результат:</span>
+<span id="cb18-14"><a href="#cb18-14"></a><span class="kw">true</span></span>
+<span id="cb18-15"><a href="#cb18-15"></a></span>
+<span id="cb18-16"><a href="#cb18-16"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'_love%'</span></span>
+<span id="cb18-17"><a href="#cb18-17"></a></span>
+<span id="cb18-18"><a href="#cb18-18"></a>Результат:</span>
+<span id="cb18-19"><a href="#cb18-19"></a><span class="kw">false</span></span>
+<span id="cb18-20"><a href="#cb18-20"></a></span>
+<span id="cb18-21"><a href="#cb18-21"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'%.%'</span></span>
+<span id="cb18-22"><a href="#cb18-22"></a></span>
+<span id="cb18-23"><a href="#cb18-23"></a>Результат:</span>
+<span id="cb18-24"><a href="#cb18-24"></a><span class="kw">true</span></span>
+<span id="cb18-25"><a href="#cb18-25"></a></span>
+<span id="cb18-26"><a href="#cb18-26"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'_._'</span></span>
+<span id="cb18-27"><a href="#cb18-27"></a></span>
+<span id="cb18-28"><a href="#cb18-28"></a>Результат:</span>
+<span id="cb18-29"><a href="#cb18-29"></a><span class="kw">false</span></span>
+<span id="cb18-30"><a href="#cb18-30"></a></span>
+<span id="cb18-31"><a href="#cb18-31"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'Love%'</span></span>
+<span id="cb18-32"><a href="#cb18-32"></a></span>
+<span id="cb18-33"><a href="#cb18-33"></a>Результат:</span>
+<span id="cb18-34"><a href="#cb18-34"></a><span class="kw">false</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Зверніть увагу на останній приклад: оператор <code>LIKE</code> чутливий до регістру.</p>
+<p>Якщо шаблон не містить знаків відсотка та підкреслень, тоді шаблон є рядком і <code>LIKE</code> працює як оператор порівняння, перевіряючи рядки на точний збіг.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'love.python'</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a></span>
+<span id="cb19-3"><a href="#cb19-3"></a>Результат:</span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="kw">true</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a></span>
+<span id="cb19-6"><a href="#cb19-6"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'love'</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a></span>
+<span id="cb19-8"><a href="#cb19-8"></a>Результат:</span>
+<span id="cb19-9"><a href="#cb19-9"></a><span class="kw">false</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1077,12 +1102,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="7">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="op">%%</span>sql</span>
-<span id="cb19-2"><a href="#cb19-2"></a>SELECT  product_id,</span>
-<span id="cb19-3"><a href="#cb19-3"></a>        name</span>
-<span id="cb19-4"><a href="#cb19-4"></a>FROM    products</span>
-<span id="cb19-5"><a href="#cb19-5"></a>WHERE   name LIKE <span class="st">'%tea%'</span></span>
-<span id="cb19-6"><a href="#cb19-6"></a>ORDER BY product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="op">%%</span>sql</span>
+<span id="cb20-2"><a href="#cb20-2"></a>SELECT  product_id,</span>
+<span id="cb20-3"><a href="#cb20-3"></a>        name</span>
+<span id="cb20-4"><a href="#cb20-4"></a>FROM    products</span>
+<span id="cb20-5"><a href="#cb20-5"></a>WHERE   name LIKE <span class="st">'%tea%'</span></span>
+<span id="cb20-6"><a href="#cb20-6"></a>ORDER BY product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
@@ -1186,13 +1211,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="8">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="op">%%</span>sql</span>
-<span id="cb20-2"><a href="#cb20-2"></a>SELECT product_id,</span>
-<span id="cb20-3"><a href="#cb20-3"></a>       name</span>
-<span id="cb20-4"><a href="#cb20-4"></a>FROM   products</span>
-<span id="cb20-5"><a href="#cb20-5"></a>WHERE  name like <span class="st">'c%'</span></span>
-<span id="cb20-6"><a href="#cb20-6"></a>   <span class="kw">and</span> name <span class="kw">not</span> like <span class="st">'</span><span class="sc">% %</span><span class="st">'</span></span>
-<span id="cb20-7"><a href="#cb20-7"></a>ORDER BY product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="op">%%</span>sql</span>
+<span id="cb21-2"><a href="#cb21-2"></a>SELECT product_id,</span>
+<span id="cb21-3"><a href="#cb21-3"></a>       name</span>
+<span id="cb21-4"><a href="#cb21-4"></a>FROM   products</span>
+<span id="cb21-5"><a href="#cb21-5"></a>WHERE  name like <span class="st">'c%'</span></span>
+<span id="cb21-6"><a href="#cb21-6"></a>   <span class="kw">and</span> name <span class="kw">not</span> like <span class="st">'</span><span class="sc">% %</span><span class="st">'</span></span>
+<span id="cb21-7"><a href="#cb21-7"></a>ORDER BY product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
@@ -1273,25 +1298,25 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code>, <code>discount</code>, <code>new_price</code></p>
 <p><strong>Пояснення:</strong></p>
 <p>Щоб вказати стовпець з одним значенням для всіх записів (у нашому випадку це стовпець зі знижкою), достатньо просто ввести потрібне значення і дати стовпцю якусь назву - вказане значення автоматично проставиться у всіх рядках результуючої таблиці:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">SELECT</span> column_1, <span class="st">'text'</span> <span class="kw">AS</span> column_2</span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">SELECT</span> column_1, <span class="st">'text'</span> <span class="kw">AS</span> column_2</span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 <div class="cell" data-execution_count="9">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="op">%%</span>sql</span>
-<span id="cb22-2"><a href="#cb22-2"></a>SELECT product_id,</span>
-<span id="cb22-3"><a href="#cb22-3"></a>       name,</span>
-<span id="cb22-4"><a href="#cb22-4"></a>       price,</span>
-<span id="cb22-5"><a href="#cb22-5"></a>       <span class="co">'25%'</span> <span class="im">as</span> discount,</span>
-<span id="cb22-6"><a href="#cb22-6"></a>       price <span class="op">*</span> <span class="fl">0.75</span> <span class="im">as</span> new_price</span>
-<span id="cb22-7"><a href="#cb22-7"></a>FROM   products</span>
-<span id="cb22-8"><a href="#cb22-8"></a>WHERE  price <span class="op">&gt;</span> <span class="dv">60</span></span>
-<span id="cb22-9"><a href="#cb22-9"></a>   <span class="kw">and</span> name <span class="op">!=</span> <span class="st">'tea mushroom'</span></span>
-<span id="cb22-10"><a href="#cb22-10"></a>   <span class="kw">and</span> name like <span class="st">'%tea%'</span></span>
-<span id="cb22-11"><a href="#cb22-11"></a>ORDER BY product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="op">%%</span>sql</span>
+<span id="cb23-2"><a href="#cb23-2"></a>SELECT product_id,</span>
+<span id="cb23-3"><a href="#cb23-3"></a>       name,</span>
+<span id="cb23-4"><a href="#cb23-4"></a>       price,</span>
+<span id="cb23-5"><a href="#cb23-5"></a>       <span class="co">'25%'</span> <span class="im">as</span> discount,</span>
+<span id="cb23-6"><a href="#cb23-6"></a>       price <span class="op">*</span> <span class="fl">0.75</span> <span class="im">as</span> new_price</span>
+<span id="cb23-7"><a href="#cb23-7"></a>FROM   products</span>
+<span id="cb23-8"><a href="#cb23-8"></a>WHERE  price <span class="op">&gt;</span> <span class="dv">60</span></span>
+<span id="cb23-9"><a href="#cb23-9"></a>   <span class="kw">and</span> name <span class="op">!=</span> <span class="st">'tea mushroom'</span></span>
+<span id="cb23-10"><a href="#cb23-10"></a>   <span class="kw">and</span> name like <span class="st">'%tea%'</span></span>
+<span id="cb23-11"><a href="#cb23-11"></a>ORDER BY product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <div>
@@ -1352,35 +1377,35 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <h2 data-number="3.3" class="anchored" data-anchor-id="in-та-between-для-фільтрації"><span class="header-section-number">3.3</span> <code>IN</code> та <code>BETWEEN</code> для фільтрації</h2>
 <p>Але якщо ми все-таки не хочемо перевіряти наші дані на відповідність якомусь шаблону, а просто хочемо відібрати значення з деякого списку або навіть діапазону? У цьому випадку у логічному виразі після ключового слова WHERE можна використовувати оператори <code>IN</code> та <code>BETWEEN</code>.</p>
 <p>Оператор <code>IN</code> перевіряє, чи відповідає значення в колонці одному із значень із заданого списку. Іншими словами, він перевіряє, чи входить значення до цього списку:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb23-2"><a href="#cb23-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb23-3"><a href="#cb23-3"></a><span class="kw">WHERE</span> column_1 <span class="kw">IN</span> (<span class="st">'product_1'</span>, <span class="st">'product_2'</span>, <span class="st">'product_3'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>У свою чергу, оператор <code>BETWEEN</code> дозволяє відібрати дані, що відносяться до деякого інтервалу. При цьому межі інтервалу включаються:</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb24-2"><a href="#cb24-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb24-3"><a href="#cb24-3"></a><span class="kw">WHERE</span> column_2 <span class="kw">BETWEEN</span> <span class="dv">5</span> <span class="kw">AND</span> <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Запит вище відповідає наступному запиту:</p>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="kw">WHERE</span> column_1 <span class="kw">IN</span> (<span class="st">'product_1'</span>, <span class="st">'product_2'</span>, <span class="st">'product_3'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>У свою чергу, оператор <code>BETWEEN</code> дозволяє відібрати дані, що відносяться до деякого інтервалу. При цьому межі інтервалу включаються:</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb25-2"><a href="#cb25-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb25-3"><a href="#cb25-3"></a><span class="kw">WHERE</span> column_2 <span class="op">&gt;=</span> <span class="dv">5</span> <span class="kw">AND</span> column_2 <span class="op">&lt;=</span> <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Оператор <code>BETWEEN</code> можна використовувати і для фільтрації по колонках з датами та часом:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">SELECT</span> column_1, column_2, column_3</span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="kw">WHERE</span> column_2 <span class="kw">BETWEEN</span> <span class="dv">5</span> <span class="kw">AND</span> <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Запит вище відповідає наступному запиту:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb26-2"><a href="#cb26-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb26-3"><a href="#cb26-3"></a><span class="kw">WHERE</span> column_3 <span class="kw">BETWEEN</span> <span class="st">'2022-11-20'</span> <span class="kw">AND</span> <span class="st">'2022-12-31'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Однак, в такому випадку, треба враховувати, що дата завжди інтерпретується опівночі (початок дня), тобто. <strong>‘2022-12-31’</strong> насправді означає <strong>‘2022-12-31 00:00:00’</strong>. Тож заданий вище інтервал не потраплять записи пізніше опівночі <strong>‘2022-12-31’</strong>, тобто цей день практично не буде враховано в інтервалі.</p>
-<p>При цьому, запит вище буде рівносильний наступному запиту:</p>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="kw">WHERE</span> column_2 <span class="op">&gt;=</span> <span class="dv">5</span> <span class="kw">AND</span> column_2 <span class="op">&lt;=</span> <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Оператор <code>BETWEEN</code> можна використовувати і для фільтрації по колонках з датами та часом:</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">SELECT</span> column_1, column_2, column_3</span>
 <span id="cb27-2"><a href="#cb27-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb27-3"><a href="#cb27-3"></a><span class="kw">WHERE</span> column_3 <span class="op">&gt;=</span> <span class="st">'2022-11-20'</span> <span class="kw">AND</span> column_3 <span class="op">&lt;=</span> <span class="st">'2022-12-31'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Для отримання зворотного результату у поєднанні з операторами <code>IN</code> та <code>BETWEEN</code> можна використовувати оператор <code>NOT</code>:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="kw">WHERE</span> column_3 <span class="kw">BETWEEN</span> <span class="st">'2022-11-20'</span> <span class="kw">AND</span> <span class="st">'2022-12-31'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Однак, в такому випадку, треба враховувати, що дата завжди інтерпретується опівночі (початок дня), тобто. <strong>‘2022-12-31’</strong> насправді означає <strong>‘2022-12-31 00:00:00’</strong>. Тож заданий вище інтервал не потраплять записи пізніше опівночі <strong>‘2022-12-31’</strong>, тобто цей день практично не буде враховано в інтервалі.</p>
+<p>При цьому, запит вище буде рівносильний наступному запиту:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">SELECT</span> column_1, column_2, column_3</span>
 <span id="cb28-2"><a href="#cb28-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb28-3"><a href="#cb28-3"></a><span class="kw">WHERE</span> column_1 <span class="kw">NOT</span> <span class="kw">IN</span> (<span class="st">'product_1'</span>, <span class="st">'product_2'</span>, <span class="st">'product_3'</span>)</span>
-<span id="cb28-4"><a href="#cb28-4"></a></span>
-<span id="cb28-5"><a href="#cb28-5"></a></span>
-<span id="cb28-6"><a href="#cb28-6"></a><span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb28-7"><a href="#cb28-7"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb28-8"><a href="#cb28-8"></a><span class="kw">WHERE</span> column_2 <span class="kw">NOT</span> <span class="kw">BETWEEN</span> <span class="dv">5</span> <span class="kw">AND</span> <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-3"><a href="#cb28-3"></a><span class="kw">WHERE</span> column_3 <span class="op">&gt;=</span> <span class="st">'2022-11-20'</span> <span class="kw">AND</span> column_3 <span class="op">&lt;=</span> <span class="st">'2022-12-31'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Для отримання зворотного результату у поєднанні з операторами <code>IN</code> та <code>BETWEEN</code> можна використовувати оператор <code>NOT</code>:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb29-1"><a href="#cb29-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="kw">WHERE</span> column_1 <span class="kw">NOT</span> <span class="kw">IN</span> (<span class="st">'product_1'</span>, <span class="st">'product_2'</span>, <span class="st">'product_3'</span>)</span>
+<span id="cb29-4"><a href="#cb29-4"></a></span>
+<span id="cb29-5"><a href="#cb29-5"></a></span>
+<span id="cb29-6"><a href="#cb29-6"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb29-7"><a href="#cb29-7"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb29-8"><a href="#cb29-8"></a><span class="kw">WHERE</span> column_2 <span class="kw">NOT</span> <span class="kw">BETWEEN</span> <span class="dv">5</span> <span class="kw">AND</span> <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1413,16 +1438,16 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="10">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="op">%%</span>sql</span>
-<span id="cb29-2"><a href="#cb29-2"></a>SELECT user_id,</span>
-<span id="cb29-3"><a href="#cb29-3"></a>       order_id,</span>
-<span id="cb29-4"><a href="#cb29-4"></a>       action,</span>
-<span id="cb29-5"><a href="#cb29-5"></a>       time</span>
-<span id="cb29-6"><a href="#cb29-6"></a>FROM   user_actions</span>
-<span id="cb29-7"><a href="#cb29-7"></a>WHERE  user_id <span class="kw">in</span> (<span class="dv">170</span>, <span class="dv">200</span>, <span class="dv">230</span>)</span>
-<span id="cb29-8"><a href="#cb29-8"></a>   <span class="kw">and</span> time <span class="op">&gt;=</span> <span class="st">'2022-08-25'</span></span>
-<span id="cb29-9"><a href="#cb29-9"></a>   <span class="kw">and</span> time <span class="op">&lt;</span> <span class="st">'2022-09-05'</span> <span class="op">--</span> уважно з датами<span class="op">!</span></span>
-<span id="cb29-10"><a href="#cb29-10"></a>ORDER BY order_id desc</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="op">%%</span>sql</span>
+<span id="cb30-2"><a href="#cb30-2"></a>SELECT user_id,</span>
+<span id="cb30-3"><a href="#cb30-3"></a>       order_id,</span>
+<span id="cb30-4"><a href="#cb30-4"></a>       action,</span>
+<span id="cb30-5"><a href="#cb30-5"></a>       time</span>
+<span id="cb30-6"><a href="#cb30-6"></a>FROM   user_actions</span>
+<span id="cb30-7"><a href="#cb30-7"></a>WHERE  user_id <span class="kw">in</span> (<span class="dv">170</span>, <span class="dv">200</span>, <span class="dv">230</span>)</span>
+<span id="cb30-8"><a href="#cb30-8"></a>   <span class="kw">and</span> time <span class="op">&gt;=</span> <span class="st">'2022-08-25'</span></span>
+<span id="cb30-9"><a href="#cb30-9"></a>   <span class="kw">and</span> time <span class="op">&lt;</span> <span class="st">'2022-09-05'</span> <span class="op">--</span> уважно з датами<span class="op">!</span></span>
+<span id="cb30-10"><a href="#cb30-10"></a>ORDER BY order_id desc</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div>
@@ -1576,34 +1601,34 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <h2 data-number="3.4" class="anchored" data-anchor-id="фільтрація-з-null"><span class="header-section-number">3.4</span> Фільтрація з <code>NULL</code></h2>
 <p>Раніше <a href="sql_basics.html#exr-sql11">Завдання&nbsp;<span>2.11</span></a> ми зіткнулися з пропущеними значеннями в таблиці <code>couriers</code> — у деяких кур’єрів не було зазначено їхні дні народження.</p>
 <p>Для перевірки на <code>NULL</code> значення <strong>SQL</strong> є оператор <code>IS NULL</code>. У поєднанні з <code>WHERE</code> записується він так:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a href="#cb30-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb30-2"><a href="#cb30-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb30-3"><a href="#cb30-3"></a><span class="kw">WHERE</span> column_1 <span class="kw">IS</span> <span class="kw">NULL</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Якщо ж, навпаки, необхідно відібрати значення <code>не NULL</code>, то додатково використовується оператор <code>NOT</code>:</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb31-2"><a href="#cb31-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb31-3"><a href="#cb31-3"></a><span class="kw">WHERE</span> column_1 <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-3"><a href="#cb31-3"></a><span class="kw">WHERE</span> column_1 <span class="kw">IS</span> <span class="kw">NULL</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Якщо ж, навпаки, необхідно відібрати значення <code>не NULL</code>, то додатково використовується оператор <code>NOT</code>:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="kw">WHERE</span> column_1 <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Як ми знаємо, у світі даних <code>NULL</code> означає відсутність інформації. <code>NULL</code> - це не якась величина і тому її не можна порівняти з чимось ще. Результатом порівняння <code>NULL</code> з будь-яким іншим значенням буде той самий <code>NULL</code>. Більше того, <code>NULL</code> не вдасться порівняти і з іншим <code>NULL</code>, тому що в такому випадку порівнюватимуться дві невизначеності і не можна напевно сказати, рівні вони чи ні.</p>
 <p>Спробуйте виконати наступні запити:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">SELECT</span> <span class="kw">NULL</span> <span class="op">=</span> <span class="kw">NULL</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a></span>
-<span id="cb32-3"><a href="#cb32-3"></a>Результат:</span>
-<span id="cb32-4"><a href="#cb32-4"></a><span class="kw">NULL</span></span>
-<span id="cb32-5"><a href="#cb32-5"></a></span>
-<span id="cb32-6"><a href="#cb32-6"></a><span class="kw">SELECT</span> <span class="kw">NULL</span> <span class="kw">IS</span> <span class="kw">NULL</span></span>
-<span id="cb32-7"><a href="#cb32-7"></a></span>
-<span id="cb32-8"><a href="#cb32-8"></a>Результат:</span>
-<span id="cb32-9"><a href="#cb32-9"></a><span class="kw">true</span></span>
-<span id="cb32-10"><a href="#cb32-10"></a></span>
-<span id="cb32-11"><a href="#cb32-11"></a><span class="kw">SELECT</span> <span class="dv">100</span> <span class="op">=</span> <span class="kw">NULL</span></span>
-<span id="cb32-12"><a href="#cb32-12"></a></span>
-<span id="cb32-13"><a href="#cb32-13"></a>Результат:</span>
-<span id="cb32-14"><a href="#cb32-14"></a><span class="kw">NULL</span></span>
-<span id="cb32-15"><a href="#cb32-15"></a></span>
-<span id="cb32-16"><a href="#cb32-16"></a><span class="kw">SELECT</span> <span class="dv">100</span> <span class="kw">IS</span> <span class="kw">NULL</span></span>
-<span id="cb32-17"><a href="#cb32-17"></a></span>
-<span id="cb32-18"><a href="#cb32-18"></a>Результат:</span>
-<span id="cb32-19"><a href="#cb32-19"></a><span class="kw">false</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1"></a><span class="kw">SELECT</span> <span class="kw">NULL</span> <span class="op">=</span> <span class="kw">NULL</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a></span>
+<span id="cb33-3"><a href="#cb33-3"></a>Результат:</span>
+<span id="cb33-4"><a href="#cb33-4"></a><span class="kw">NULL</span></span>
+<span id="cb33-5"><a href="#cb33-5"></a></span>
+<span id="cb33-6"><a href="#cb33-6"></a><span class="kw">SELECT</span> <span class="kw">NULL</span> <span class="kw">IS</span> <span class="kw">NULL</span></span>
+<span id="cb33-7"><a href="#cb33-7"></a></span>
+<span id="cb33-8"><a href="#cb33-8"></a>Результат:</span>
+<span id="cb33-9"><a href="#cb33-9"></a><span class="kw">true</span></span>
+<span id="cb33-10"><a href="#cb33-10"></a></span>
+<span id="cb33-11"><a href="#cb33-11"></a><span class="kw">SELECT</span> <span class="dv">100</span> <span class="op">=</span> <span class="kw">NULL</span></span>
+<span id="cb33-12"><a href="#cb33-12"></a></span>
+<span id="cb33-13"><a href="#cb33-13"></a>Результат:</span>
+<span id="cb33-14"><a href="#cb33-14"></a><span class="kw">NULL</span></span>
+<span id="cb33-15"><a href="#cb33-15"></a></span>
+<span id="cb33-16"><a href="#cb33-16"></a><span class="kw">SELECT</span> <span class="dv">100</span> <span class="kw">IS</span> <span class="kw">NULL</span></span>
+<span id="cb33-17"><a href="#cb33-17"></a></span>
+<span id="cb33-18"><a href="#cb33-18"></a>Результат:</span>
+<span id="cb33-19"><a href="#cb33-19"></a><span class="kw">false</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1637,14 +1662,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="11">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="op">%%</span>sql</span>
-<span id="cb33-2"><a href="#cb33-2"></a>SELECT birth_date,</span>
-<span id="cb33-3"><a href="#cb33-3"></a>       courier_id,</span>
-<span id="cb33-4"><a href="#cb33-4"></a>       sex</span>
-<span id="cb33-5"><a href="#cb33-5"></a>FROM   couriers</span>
-<span id="cb33-6"><a href="#cb33-6"></a>WHERE  birth_date <span class="kw">is</span> null</span>
-<span id="cb33-7"><a href="#cb33-7"></a>ORDER BY courier_id</span>
-<span id="cb33-8"><a href="#cb33-8"></a>LIMIT <span class="dv">10</span> <span class="op">--</span> для скорочення виводу</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="op">%%</span>sql</span>
+<span id="cb34-2"><a href="#cb34-2"></a>SELECT birth_date,</span>
+<span id="cb34-3"><a href="#cb34-3"></a>       courier_id,</span>
+<span id="cb34-4"><a href="#cb34-4"></a>       sex</span>
+<span id="cb34-5"><a href="#cb34-5"></a>FROM   couriers</span>
+<span id="cb34-6"><a href="#cb34-6"></a>WHERE  birth_date <span class="kw">is</span> null</span>
+<span id="cb34-7"><a href="#cb34-7"></a>ORDER BY courier_id</span>
+<span id="cb34-8"><a href="#cb34-8"></a>LIMIT <span class="dv">10</span> <span class="op">--</span> для скорочення виводу</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <div>
@@ -1662,61 +1687,61 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>NaT</td>
+<td>None</td>
 <td>83</td>
 <td>male</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>NaT</td>
+<td>None</td>
 <td>187</td>
 <td>male</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>NaT</td>
+<td>None</td>
 <td>200</td>
 <td>male</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>NaT</td>
+<td>None</td>
 <td>232</td>
 <td>male</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>NaT</td>
+<td>None</td>
 <td>411</td>
 <td>male</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
-<td>NaT</td>
+<td>None</td>
 <td>450</td>
 <td>male</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
-<td>NaT</td>
+<td>None</td>
 <td>467</td>
 <td>male</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
-<td>NaT</td>
+<td>None</td>
 <td>481</td>
 <td>male</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">8</td>
-<td>NaT</td>
+<td>None</td>
 <td>726</td>
 <td>male</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">9</td>
-<td>NaT</td>
+<td>None</td>
 <td>790</td>
 <td>male</td>
 </tr>
@@ -1750,14 +1775,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="12">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="op">%%</span>sql</span>
-<span id="cb34-2"><a href="#cb34-2"></a>SELECT user_id,</span>
-<span id="cb34-3"><a href="#cb34-3"></a>       birth_date</span>
-<span id="cb34-4"><a href="#cb34-4"></a>FROM   users</span>
-<span id="cb34-5"><a href="#cb34-5"></a>WHERE  birth_date IS NOT NULL</span>
-<span id="cb34-6"><a href="#cb34-6"></a>   AND sex <span class="op">=</span> <span class="st">'male'</span></span>
-<span id="cb34-7"><a href="#cb34-7"></a>ORDER BY birth_date DESC</span>
-<span id="cb34-8"><a href="#cb34-8"></a>LIMIT <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="op">%%</span>sql</span>
+<span id="cb35-2"><a href="#cb35-2"></a>SELECT user_id,</span>
+<span id="cb35-3"><a href="#cb35-3"></a>       birth_date</span>
+<span id="cb35-4"><a href="#cb35-4"></a>FROM   users</span>
+<span id="cb35-5"><a href="#cb35-5"></a>WHERE  birth_date IS NOT NULL</span>
+<span id="cb35-6"><a href="#cb35-6"></a>   AND sex <span class="op">=</span> <span class="st">'male'</span></span>
+<span id="cb35-7"><a href="#cb35-7"></a>ORDER BY birth_date DESC</span>
+<span id="cb35-8"><a href="#cb35-8"></a>LIMIT <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <div>
@@ -1848,13 +1873,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="13">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="op">%%</span>sql</span>
-<span id="cb35-2"><a href="#cb35-2"></a>SELECT order_id,</span>
-<span id="cb35-3"><a href="#cb35-3"></a>       time</span>
-<span id="cb35-4"><a href="#cb35-4"></a>FROM   courier_actions</span>
-<span id="cb35-5"><a href="#cb35-5"></a>WHERE  courier_id <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb35-6"><a href="#cb35-6"></a>   AND action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
-<span id="cb35-7"><a href="#cb35-7"></a>ORDER BY order_id desc limit <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="op">%%</span>sql</span>
+<span id="cb36-2"><a href="#cb36-2"></a>SELECT order_id,</span>
+<span id="cb36-3"><a href="#cb36-3"></a>       time</span>
+<span id="cb36-4"><a href="#cb36-4"></a>FROM   courier_actions</span>
+<span id="cb36-5"><a href="#cb36-5"></a>WHERE  courier_id <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb36-6"><a href="#cb36-6"></a>   AND action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb36-7"><a href="#cb36-7"></a>ORDER BY order_id desc limit <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <div>
@@ -1950,14 +1975,20 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="14">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="op">%%</span>sql</span>
-<span id="cb36-2"><a href="#cb36-2"></a>SELECT order_id</span>
-<span id="cb36-3"><a href="#cb36-3"></a>FROM   user_actions</span>
-<span id="cb36-4"><a href="#cb36-4"></a>WHERE  action <span class="op">=</span> <span class="st">'create_order'</span></span>
-<span id="cb36-5"><a href="#cb36-5"></a>   AND DATE_PART(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">8</span></span>
-<span id="cb36-6"><a href="#cb36-6"></a>   AND DATE_PART(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span></span>
-<span id="cb36-7"><a href="#cb36-7"></a>ORDER BY order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="op">%%</span>sql</span>
+<span id="cb37-2"><a href="#cb37-2"></a>SELECT order_id</span>
+<span id="cb37-3"><a href="#cb37-3"></a>FROM   user_actions</span>
+<span id="cb37-4"><a href="#cb37-4"></a>WHERE  action <span class="op">=</span> <span class="st">'create_order'</span></span>
+<span id="cb37-5"><a href="#cb37-5"></a>   AND DATE_PART(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">8</span></span>
+<span id="cb37-6"><a href="#cb37-6"></a>   AND DATE_PART(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span></span>
+<span id="cb37-7"><a href="#cb37-7"></a>ORDER BY order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
@@ -2042,13 +2073,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="15">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="op">%%</span>sql</span>
-<span id="cb37-2"><a href="#cb37-2"></a>SELECT courier_id</span>
-<span id="cb37-3"><a href="#cb37-3"></a>FROM   couriers</span>
-<span id="cb37-4"><a href="#cb37-4"></a>WHERE  date_part(<span class="st">'year'</span>, birth_date) BETWEEN <span class="dv">1990</span></span>
-<span id="cb37-5"><a href="#cb37-5"></a>   AND <span class="dv">1995</span></span>
-<span id="cb37-6"><a href="#cb37-6"></a>ORDER BY courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="op">%%</span>sql</span>
+<span id="cb39-2"><a href="#cb39-2"></a>SELECT courier_id</span>
+<span id="cb39-3"><a href="#cb39-3"></a>FROM   couriers</span>
+<span id="cb39-4"><a href="#cb39-4"></a>WHERE  date_part(<span class="st">'year'</span>, birth_date) BETWEEN <span class="dv">1990</span></span>
+<span id="cb39-5"><a href="#cb39-5"></a>   AND <span class="dv">1995</span></span>
+<span id="cb39-6"><a href="#cb39-6"></a>ORDER BY courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 
@@ -2127,10 +2164,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Результат відсортуйте за зменшенням id скасованих замовлень.</p>
 <p>Поля у результуючій таблиці: <code>user_id</code>, <code>order_id</code>, <code>action</code>, <code>time</code></p>
 <p>Пояснення: будьте уважні при роботі з датами та часом. Для вирішення задачі вам знадобиться функція <code>DATE_PART</code>. Для отримання дня тижня можна вказати аргумент <code>'dow'</code> (“day of week”):</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb38-1"><a href="#cb38-1"></a><span class="kw">SELECT</span> DATE_PART(<span class="st">'dow'</span>, <span class="dt">DATE</span> <span class="st">'2022-12-31'</span>)</span>
-<span id="cb38-2"><a href="#cb38-2"></a></span>
-<span id="cb38-3"><a href="#cb38-3"></a>Результат:</span>
-<span id="cb38-4"><a href="#cb38-4"></a><span class="fl">6.00</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb41-1"><a href="#cb41-1"></a><span class="kw">SELECT</span> DATE_PART(<span class="st">'dow'</span>, <span class="dt">DATE</span> <span class="st">'2022-12-31'</span>)</span>
+<span id="cb41-2"><a href="#cb41-2"></a></span>
+<span id="cb41-3"><a href="#cb41-3"></a>Результат:</span>
+<span id="cb41-4"><a href="#cb41-4"></a><span class="fl">6.00</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>В <strong>DuckDB</strong> дні тижня рахуються з неділі (0) до суботи (6).</p>
 </div>
 </div>
@@ -2138,20 +2175,20 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="16">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="op">%%</span>sql</span>
-<span id="cb39-2"><a href="#cb39-2"></a>SELECT  user_id,</span>
-<span id="cb39-3"><a href="#cb39-3"></a>        order_id,</span>
-<span id="cb39-4"><a href="#cb39-4"></a>        action,</span>
-<span id="cb39-5"><a href="#cb39-5"></a>        time</span>
-<span id="cb39-6"><a href="#cb39-6"></a>FROM   user_actions</span>
-<span id="cb39-7"><a href="#cb39-7"></a>WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span></span>
-<span id="cb39-8"><a href="#cb39-8"></a>    AND DATE_PART(<span class="st">'dow'</span>, time) <span class="op">=</span> <span class="dv">0</span><span class="er">3</span></span>
-<span id="cb39-9"><a href="#cb39-9"></a>    AND DATE_PART(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">0</span><span class="er">8</span></span>
-<span id="cb39-10"><a href="#cb39-10"></a>    AND DATE_PART(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span></span>
-<span id="cb39-11"><a href="#cb39-11"></a>    AND DATE_PART(<span class="st">'h'</span>, time) BETWEEN <span class="dv">12</span></span>
-<span id="cb39-12"><a href="#cb39-12"></a>    AND <span class="dv">15</span></span>
-<span id="cb39-13"><a href="#cb39-13"></a>ORDER BY order_id DESC</span>
-<span id="cb39-14"><a href="#cb39-14"></a>LIMIT <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="op">%%</span>sql</span>
+<span id="cb42-2"><a href="#cb42-2"></a>SELECT  user_id,</span>
+<span id="cb42-3"><a href="#cb42-3"></a>        order_id,</span>
+<span id="cb42-4"><a href="#cb42-4"></a>        action,</span>
+<span id="cb42-5"><a href="#cb42-5"></a>        time</span>
+<span id="cb42-6"><a href="#cb42-6"></a>FROM   user_actions</span>
+<span id="cb42-7"><a href="#cb42-7"></a>WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span></span>
+<span id="cb42-8"><a href="#cb42-8"></a>    AND DATE_PART(<span class="st">'dow'</span>, time) <span class="op">=</span> <span class="dv">0</span><span class="er">3</span></span>
+<span id="cb42-9"><a href="#cb42-9"></a>    AND DATE_PART(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">0</span><span class="er">8</span></span>
+<span id="cb42-10"><a href="#cb42-10"></a>    AND DATE_PART(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span></span>
+<span id="cb42-11"><a href="#cb42-11"></a>    AND DATE_PART(<span class="st">'h'</span>, time) BETWEEN <span class="dv">12</span></span>
+<span id="cb42-12"><a href="#cb42-12"></a>    AND <span class="dv">15</span></span>
+<span id="cb42-13"><a href="#cb42-13"></a>ORDER BY order_id DESC</span>
+<span id="cb42-14"><a href="#cb42-14"></a>LIMIT <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <div>
@@ -2251,15 +2288,15 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Минулого разу ми вирішили завдання для одного з менеджерів та порахували ПДВ кожного товару. Ви довго дивилися на розрахунки, що вийшли, і вас все-таки замучила совість: адже ви точно знаєте, що на окремі групи товарів ПДВ становить не 20%, а 10%.</p>
 <p>Оскільки менеджер раптово перестав відповідати на ваші повідомлення, ви вирішили написати безпосередньо бухгалтеру та запросили список товарів, на які поширюється ПДВ 10%.</p>
 <p>Ось який список ви отримали:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href="#cb40-1"></a>'sugar', 'crackers', 'drying', 'seeds',</span>
-<span id="cb40-2"><a href="#cb40-2"></a>'linseed oil', 'grapes', 'olive oil',</span>
-<span id="cb40-3"><a href="#cb40-3"></a>'watermelon', 'baton', 'yogurt', 'cream', 'buckwheat',</span>
-<span id="cb40-4"><a href="#cb40-4"></a>'oatmeal', 'pasta', 'mutton', 'oranges',</span>
-<span id="cb40-5"><a href="#cb40-5"></a>'bagels', 'bread', 'peas', 'sour cream', 'smoked fish',</span>
-<span id="cb40-6"><a href="#cb40-6"></a>'flour', 'sprats', 'sausages', 'pork', 'rice',</span>
-<span id="cb40-7"><a href="#cb40-7"></a>'sesame oil', 'condensed milk', 'pineapple', 'beef',</span>
-<span id="cb40-8"><a href="#cb40-8"></a>'salt', 'dried fish', 'sunflower oil', 'apples',</span>
-<span id="cb40-9"><a href="#cb40-9"></a>'pears', 'flatbread', 'milk', 'chicken', 'lavash', 'waffles', 'tangerines'</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb43-1"><a href="#cb43-1"></a>'sugar', 'crackers', 'drying', 'seeds',</span>
+<span id="cb43-2"><a href="#cb43-2"></a>'linseed oil', 'grapes', 'olive oil',</span>
+<span id="cb43-3"><a href="#cb43-3"></a>'watermelon', 'baton', 'yogurt', 'cream', 'buckwheat',</span>
+<span id="cb43-4"><a href="#cb43-4"></a>'oatmeal', 'pasta', 'mutton', 'oranges',</span>
+<span id="cb43-5"><a href="#cb43-5"></a>'bagels', 'bread', 'peas', 'sour cream', 'smoked fish',</span>
+<span id="cb43-6"><a href="#cb43-6"></a>'flour', 'sprats', 'sausages', 'pork', 'rice',</span>
+<span id="cb43-7"><a href="#cb43-7"></a>'sesame oil', 'condensed milk', 'pineapple', 'beef',</span>
+<span id="cb43-8"><a href="#cb43-8"></a>'salt', 'dried fish', 'sunflower oil', 'apples',</span>
+<span id="cb43-9"><a href="#cb43-9"></a>'pears', 'flatbread', 'milk', 'chicken', 'lavash', 'waffles', 'tangerines'</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2282,38 +2319,38 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="17">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="op">%%</span>sql</span>
-<span id="cb41-2"><a href="#cb41-2"></a>SELECT product_id,</span>
-<span id="cb41-3"><a href="#cb41-3"></a>       name,</span>
-<span id="cb41-4"><a href="#cb41-4"></a>       price,</span>
-<span id="cb41-5"><a href="#cb41-5"></a>       ROUND(price <span class="op">*</span> (CASE WHEN name IN (<span class="st">'sugar'</span>, <span class="st">'crackers'</span>, <span class="st">'drying'</span>, <span class="st">'seeds'</span>,</span>
-<span id="cb41-6"><a href="#cb41-6"></a>                                         <span class="st">'linseed oil'</span>, <span class="st">'grapes'</span>, <span class="st">'olive oil'</span>,</span>
-<span id="cb41-7"><a href="#cb41-7"></a>                                         <span class="st">'watermelon'</span>, <span class="st">'baton'</span>, <span class="st">'yogurt'</span>, <span class="st">'cream'</span>,</span>
-<span id="cb41-8"><a href="#cb41-8"></a>                                         <span class="st">'buckwheat'</span>, <span class="st">'oatmeal'</span>, <span class="st">'pasta'</span>, <span class="st">'mutton'</span>,</span>
-<span id="cb41-9"><a href="#cb41-9"></a>                                         <span class="st">'oranges'</span>, <span class="st">'bagels'</span>, <span class="st">'bread'</span>, <span class="st">'peas'</span>,</span>
-<span id="cb41-10"><a href="#cb41-10"></a>                                         <span class="st">'sour cream'</span>, <span class="st">'smoked fish'</span>, <span class="st">'flour'</span>, <span class="st">'sprats'</span>,</span>
-<span id="cb41-11"><a href="#cb41-11"></a>                                         <span class="st">'sausages'</span>, <span class="st">'pork'</span>, <span class="st">'rice'</span>, <span class="st">'sesame oil'</span>,</span>
-<span id="cb41-12"><a href="#cb41-12"></a>                                         <span class="st">'condensed milk'</span>, <span class="st">'pineapple'</span>, <span class="st">'beef'</span>, <span class="st">'salt'</span>,</span>
-<span id="cb41-13"><a href="#cb41-13"></a>                                         <span class="st">'dried fish'</span>, <span class="st">'sunflower oil'</span>, <span class="st">'apples'</span>,</span>
-<span id="cb41-14"><a href="#cb41-14"></a>                                         <span class="st">'pears'</span>, <span class="st">'flatbread'</span>, <span class="st">'milk'</span>, <span class="st">'chicken'</span>,</span>
-<span id="cb41-15"><a href="#cb41-15"></a>                                         <span class="st">'lavash'</span>, <span class="st">'waffles'</span>, <span class="st">'tangerines'</span>)</span>
-<span id="cb41-16"><a href="#cb41-16"></a>                      THEN <span class="fl">0.1</span> <span class="op">/</span> <span class="fl">1.1</span></span>
-<span id="cb41-17"><a href="#cb41-17"></a>                      ELSE <span class="fl">0.2</span> <span class="op">/</span> <span class="fl">1.2</span> end), <span class="dv">2</span>) AS tax,</span>
-<span id="cb41-18"><a href="#cb41-18"></a>       ROUND(price <span class="op">/</span> (CASE WHEN name IN (<span class="st">'sugar'</span>, <span class="st">'crackers'</span>, <span class="st">'drying'</span>, <span class="st">'seeds'</span>,</span>
-<span id="cb41-19"><a href="#cb41-19"></a>                                         <span class="st">'linseed oil'</span>, <span class="st">'grapes'</span>, <span class="st">'olive oil'</span>,</span>
-<span id="cb41-20"><a href="#cb41-20"></a>                                         <span class="st">'watermelon'</span>, <span class="st">'baton'</span>, <span class="st">'yogurt'</span>, <span class="st">'cream'</span>,</span>
-<span id="cb41-21"><a href="#cb41-21"></a>                                         <span class="st">'buckwheat'</span>, <span class="st">'oatmeal'</span>, <span class="st">'pasta'</span>, <span class="st">'mutton'</span>,</span>
-<span id="cb41-22"><a href="#cb41-22"></a>                                         <span class="st">'oranges'</span>, <span class="st">'bagels'</span>, <span class="st">'bread'</span>, <span class="st">'peas'</span>,</span>
-<span id="cb41-23"><a href="#cb41-23"></a>                                         <span class="st">'sour cream'</span>, <span class="st">'smoked fish'</span>, <span class="st">'flour'</span>, <span class="st">'sprats'</span>,</span>
-<span id="cb41-24"><a href="#cb41-24"></a>                                         <span class="st">'sausages'</span>, <span class="st">'pork'</span>, <span class="st">'rice'</span>, <span class="st">'sesame oil'</span>,</span>
-<span id="cb41-25"><a href="#cb41-25"></a>                                         <span class="st">'condensed milk'</span>, <span class="st">'pineapple'</span>, <span class="st">'beef'</span>, <span class="st">'salt'</span>,</span>
-<span id="cb41-26"><a href="#cb41-26"></a>                                         <span class="st">'dried fish'</span>, <span class="st">'sunflower oil'</span>, <span class="st">'apples'</span>,</span>
-<span id="cb41-27"><a href="#cb41-27"></a>                                         <span class="st">'pears'</span>, <span class="st">'flatbread'</span>, <span class="st">'milk'</span>, <span class="st">'chicken'</span>,</span>
-<span id="cb41-28"><a href="#cb41-28"></a>                                         <span class="st">'lavash'</span>, <span class="st">'waffles'</span>, <span class="st">'tangerines'</span>)</span>
-<span id="cb41-29"><a href="#cb41-29"></a>                      THEN <span class="fl">1.1</span></span>
-<span id="cb41-30"><a href="#cb41-30"></a>                      ELSE <span class="fl">1.2</span> END), <span class="dv">2</span>) AS price_before_tax</span>
-<span id="cb41-31"><a href="#cb41-31"></a>FROM   products</span>
-<span id="cb41-32"><a href="#cb41-32"></a>ORDER BY price_before_tax DESC, product_id asc<span class="op">;</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="op">%%</span>sql</span>
+<span id="cb44-2"><a href="#cb44-2"></a>SELECT product_id,</span>
+<span id="cb44-3"><a href="#cb44-3"></a>       name,</span>
+<span id="cb44-4"><a href="#cb44-4"></a>       price,</span>
+<span id="cb44-5"><a href="#cb44-5"></a>       ROUND(price <span class="op">*</span> (CASE WHEN name IN (<span class="st">'sugar'</span>, <span class="st">'crackers'</span>, <span class="st">'drying'</span>, <span class="st">'seeds'</span>,</span>
+<span id="cb44-6"><a href="#cb44-6"></a>                                         <span class="st">'linseed oil'</span>, <span class="st">'grapes'</span>, <span class="st">'olive oil'</span>,</span>
+<span id="cb44-7"><a href="#cb44-7"></a>                                         <span class="st">'watermelon'</span>, <span class="st">'baton'</span>, <span class="st">'yogurt'</span>, <span class="st">'cream'</span>,</span>
+<span id="cb44-8"><a href="#cb44-8"></a>                                         <span class="st">'buckwheat'</span>, <span class="st">'oatmeal'</span>, <span class="st">'pasta'</span>, <span class="st">'mutton'</span>,</span>
+<span id="cb44-9"><a href="#cb44-9"></a>                                         <span class="st">'oranges'</span>, <span class="st">'bagels'</span>, <span class="st">'bread'</span>, <span class="st">'peas'</span>,</span>
+<span id="cb44-10"><a href="#cb44-10"></a>                                         <span class="st">'sour cream'</span>, <span class="st">'smoked fish'</span>, <span class="st">'flour'</span>, <span class="st">'sprats'</span>,</span>
+<span id="cb44-11"><a href="#cb44-11"></a>                                         <span class="st">'sausages'</span>, <span class="st">'pork'</span>, <span class="st">'rice'</span>, <span class="st">'sesame oil'</span>,</span>
+<span id="cb44-12"><a href="#cb44-12"></a>                                         <span class="st">'condensed milk'</span>, <span class="st">'pineapple'</span>, <span class="st">'beef'</span>, <span class="st">'salt'</span>,</span>
+<span id="cb44-13"><a href="#cb44-13"></a>                                         <span class="st">'dried fish'</span>, <span class="st">'sunflower oil'</span>, <span class="st">'apples'</span>,</span>
+<span id="cb44-14"><a href="#cb44-14"></a>                                         <span class="st">'pears'</span>, <span class="st">'flatbread'</span>, <span class="st">'milk'</span>, <span class="st">'chicken'</span>,</span>
+<span id="cb44-15"><a href="#cb44-15"></a>                                         <span class="st">'lavash'</span>, <span class="st">'waffles'</span>, <span class="st">'tangerines'</span>)</span>
+<span id="cb44-16"><a href="#cb44-16"></a>                      THEN <span class="fl">0.1</span> <span class="op">/</span> <span class="fl">1.1</span></span>
+<span id="cb44-17"><a href="#cb44-17"></a>                      ELSE <span class="fl">0.2</span> <span class="op">/</span> <span class="fl">1.2</span> end), <span class="dv">2</span>) AS tax,</span>
+<span id="cb44-18"><a href="#cb44-18"></a>       ROUND(price <span class="op">/</span> (CASE WHEN name IN (<span class="st">'sugar'</span>, <span class="st">'crackers'</span>, <span class="st">'drying'</span>, <span class="st">'seeds'</span>,</span>
+<span id="cb44-19"><a href="#cb44-19"></a>                                         <span class="st">'linseed oil'</span>, <span class="st">'grapes'</span>, <span class="st">'olive oil'</span>,</span>
+<span id="cb44-20"><a href="#cb44-20"></a>                                         <span class="st">'watermelon'</span>, <span class="st">'baton'</span>, <span class="st">'yogurt'</span>, <span class="st">'cream'</span>,</span>
+<span id="cb44-21"><a href="#cb44-21"></a>                                         <span class="st">'buckwheat'</span>, <span class="st">'oatmeal'</span>, <span class="st">'pasta'</span>, <span class="st">'mutton'</span>,</span>
+<span id="cb44-22"><a href="#cb44-22"></a>                                         <span class="st">'oranges'</span>, <span class="st">'bagels'</span>, <span class="st">'bread'</span>, <span class="st">'peas'</span>,</span>
+<span id="cb44-23"><a href="#cb44-23"></a>                                         <span class="st">'sour cream'</span>, <span class="st">'smoked fish'</span>, <span class="st">'flour'</span>, <span class="st">'sprats'</span>,</span>
+<span id="cb44-24"><a href="#cb44-24"></a>                                         <span class="st">'sausages'</span>, <span class="st">'pork'</span>, <span class="st">'rice'</span>, <span class="st">'sesame oil'</span>,</span>
+<span id="cb44-25"><a href="#cb44-25"></a>                                         <span class="st">'condensed milk'</span>, <span class="st">'pineapple'</span>, <span class="st">'beef'</span>, <span class="st">'salt'</span>,</span>
+<span id="cb44-26"><a href="#cb44-26"></a>                                         <span class="st">'dried fish'</span>, <span class="st">'sunflower oil'</span>, <span class="st">'apples'</span>,</span>
+<span id="cb44-27"><a href="#cb44-27"></a>                                         <span class="st">'pears'</span>, <span class="st">'flatbread'</span>, <span class="st">'milk'</span>, <span class="st">'chicken'</span>,</span>
+<span id="cb44-28"><a href="#cb44-28"></a>                                         <span class="st">'lavash'</span>, <span class="st">'waffles'</span>, <span class="st">'tangerines'</span>)</span>
+<span id="cb44-29"><a href="#cb44-29"></a>                      THEN <span class="fl">1.1</span></span>
+<span id="cb44-30"><a href="#cb44-30"></a>                      ELSE <span class="fl">1.2</span> END), <span class="dv">2</span>) AS price_before_tax</span>
+<span id="cb44-31"><a href="#cb44-31"></a>FROM   products</span>
+<span id="cb44-32"><a href="#cb44-32"></a>ORDER BY price_before_tax DESC, product_id asc<span class="op">;</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <div>

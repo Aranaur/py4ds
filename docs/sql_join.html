@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Книга-конспект матеріалів.">
+<meta name="description" content="Книга-конспект матеріалів">
 
-<title>Python та його друзі в науці про дані - 7&nbsp; Об’єднання таблиць</title>
+<title>Від нуля до Python Data Scientist - 7&nbsp; Об’єднання таблиць</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -95,7 +95,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "Додаткові результати у цьому документі",
     "search-clear-button-title": "Очистити",
     "search-detached-cancel-button-title": "Скасувати",
-    "search-submit-button-title": "Надіслати"
+    "search-submit-button-title": "Надіслати",
+    "search-label": "Пошук"
   }
 }</script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-0C9TJBF3C5"></script>
@@ -110,7 +111,6 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-<script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
 
 
 </head>
@@ -127,7 +127,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql.html">SQL</a></li><li class="breadcrumb-item"><a href="./sql_join.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Об'єднання таблиць</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -142,9 +142,9 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Python та його друзі в науці про дані</a> 
+      <a href="./">Від нуля до Python Data Scientist</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/Aranaur/py4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/Aranaur/py4ds" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -174,7 +174,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Пошук"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -182,19 +182,37 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Вступне слово</span></span></a>
+ <span class="menu-text">Вступне слово</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./sql.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SQL</span></a>
+            <a href="./python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Переключити розділ">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Змінні та типи даних</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./sql.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Переключити розділ">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_basics.html" class="sidebar-item-text sidebar-link">
@@ -278,7 +296,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <li><a href="#збираємо-списки-array_agg" id="toc-збираємо-списки-array_agg" class="nav-link" data-scroll-target="#збираємо-списки-array_agg"><span class="header-section-number">7.8</span> Збираємо списки: <code>array_agg()</code></a></li>
   <li><a href="#self-join" id="toc-self-join" class="nav-link" data-scroll-target="#self-join"><span class="header-section-number">7.9</span> SELF JOIN</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/Aranaur/py4ds/blob/main/sql_join.ipynb" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/sql_join.ipynb" class="toc-action">Переглянути код</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
@@ -615,6 +633,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb12-9"><a href="#cb12-9"></a>FROM   user_actions a join users b using (user_id)</span>
 <span id="cb12-10"><a href="#cb12-10"></a>ORDER BY user_id_left</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display column-body-outset" data-execution_count="5">
 <div>
 
@@ -771,10 +795,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="6">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="op">%%</span>sql</span>
-<span id="cb13-2"><a href="#cb13-2"></a>SELECT count(distinct a.user_id) <span class="im">as</span> users_count</span>
-<span id="cb13-3"><a href="#cb13-3"></a>FROM   user_actions a </span>
-<span id="cb13-4"><a href="#cb13-4"></a>    JOIN users b using (user_id)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="op">%%</span>sql</span>
+<span id="cb14-2"><a href="#cb14-2"></a>SELECT count(distinct a.user_id) <span class="im">as</span> users_count</span>
+<span id="cb14-3"><a href="#cb14-3"></a>FROM   user_actions a </span>
+<span id="cb14-4"><a href="#cb14-4"></a>    JOIN users b using (user_id)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
@@ -805,16 +829,16 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Наступний тип об’єднання, який ми розглянемо, це <code>LEFT OUTER JOIN</code> (або просто <code>LEFT JOIN</code>).</p>
 <p><code>LEFT JOIN</code>— це оператор зовнішнього об’єднання, котрій важливий порядок таблиць у запиті, тобто на відміну від <code>INNER JOIN</code>, він не є симетричним.</p>
 <p>Тому наступні два записи вже не є еквівалентними:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="kw">FROM</span> table_1 <span class="kw">LEFT</span> <span class="kw">JOIN</span> table_2</span>
-<span id="cb14-3"><a href="#cb14-3"></a>     <span class="kw">ON</span> [condition]</span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="op">..</span>.</span>
-<span id="cb14-5"><a href="#cb14-5"></a></span>
-<span id="cb14-6"><a href="#cb14-6"></a></span>
-<span id="cb14-7"><a href="#cb14-7"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
-<span id="cb14-8"><a href="#cb14-8"></a><span class="kw">FROM</span> table_2 <span class="kw">LEFT</span> <span class="kw">JOIN</span> table_1 </span>
-<span id="cb14-9"><a href="#cb14-9"></a>     <span class="kw">ON</span> [condition]</span>
-<span id="cb14-10"><a href="#cb14-10"></a><span class="op">..</span>.</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="kw">FROM</span> table_1 <span class="kw">LEFT</span> <span class="kw">JOIN</span> table_2</span>
+<span id="cb15-3"><a href="#cb15-3"></a>     <span class="kw">ON</span> [condition]</span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="op">..</span>.</span>
+<span id="cb15-5"><a href="#cb15-5"></a></span>
+<span id="cb15-6"><a href="#cb15-6"></a></span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
+<span id="cb15-8"><a href="#cb15-8"></a><span class="kw">FROM</span> table_2 <span class="kw">LEFT</span> <span class="kw">JOIN</span> table_1 </span>
+<span id="cb15-9"><a href="#cb15-9"></a>     <span class="kw">ON</span> [condition]</span>
+<span id="cb15-10"><a href="#cb15-10"></a><span class="op">..</span>.</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Результат об’єднання <code>LEFT JOIN</code> формується так:</p>
 <ol type="1">
 <li>Спочатку кожен рядок лівої таблиці зіставляється з кожним рядком правої таблиці (відбувається декартів добуток).</li>
@@ -831,12 +855,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Об’єднання <code>RIGHT JOIN</code> працює аналогічним чином, тільки на другому етапі результат <code>INNER JOIN</code> додаються записи не з лівої, а <strong>з правої таблиці</strong>.</p>
 <p>Давайте знову розглянемо кілька простих прикладів.</p>
 <p>Так буде виглядати запит та його результат із <code>LEFT JOIN</code>:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">SELECT</span> A.<span class="kw">id</span> <span class="kw">as</span> <span class="kw">id</span>,</span>
-<span id="cb15-2"><a href="#cb15-2"></a>       A.city <span class="kw">as</span> city,</span>
-<span id="cb15-3"><a href="#cb15-3"></a>       B.country <span class="kw">as</span> country</span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="kw">FROM</span> table_A <span class="kw">as</span> A</span>
-<span id="cb15-5"><a href="#cb15-5"></a>     <span class="kw">LEFT</span> <span class="kw">JOIN</span> table_B <span class="kw">as</span> B</span>
-<span id="cb15-6"><a href="#cb15-6"></a>     <span class="kw">ON</span> A.<span class="kw">id</span> <span class="op">=</span> B.<span class="kw">id</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">SELECT</span> A.<span class="kw">id</span> <span class="kw">as</span> <span class="kw">id</span>,</span>
+<span id="cb16-2"><a href="#cb16-2"></a>       A.city <span class="kw">as</span> city,</span>
+<span id="cb16-3"><a href="#cb16-3"></a>       B.country <span class="kw">as</span> country</span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="kw">FROM</span> table_A <span class="kw">as</span> A</span>
+<span id="cb16-5"><a href="#cb16-5"></a>     <span class="kw">LEFT</span> <span class="kw">JOIN</span> table_B <span class="kw">as</span> B</span>
+<span id="cb16-6"><a href="#cb16-6"></a>     <span class="kw">ON</span> A.<span class="kw">id</span> <span class="op">=</span> B.<span class="kw">id</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="tbl-panel" class="tbl-parent quarto-layout-panel anchored">
 <div class="panel-caption table-caption">
 <p>Таблиця&nbsp;7.2: Приклад роботи <code>LEFT JOIN</code></p>
@@ -925,12 +949,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>А ось таким вийде результат запиту з <code>RIGHT JOIN</code>:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">SELECT</span> B.<span class="kw">id</span> <span class="kw">as</span> <span class="kw">id</span>,</span>
-<span id="cb16-2"><a href="#cb16-2"></a>       A.city <span class="kw">as</span> city,</span>
-<span id="cb16-3"><a href="#cb16-3"></a>       B.country <span class="kw">as</span> country</span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="kw">FROM</span> table_A <span class="kw">as</span> A</span>
-<span id="cb16-5"><a href="#cb16-5"></a>     <span class="kw">RIGHT</span> <span class="kw">JOIN</span> table_B <span class="kw">as</span> B</span>
-<span id="cb16-6"><a href="#cb16-6"></a>     <span class="kw">ON</span> A.<span class="kw">id</span> <span class="op">=</span> B.<span class="kw">id</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">SELECT</span> B.<span class="kw">id</span> <span class="kw">as</span> <span class="kw">id</span>,</span>
+<span id="cb17-2"><a href="#cb17-2"></a>       A.city <span class="kw">as</span> city,</span>
+<span id="cb17-3"><a href="#cb17-3"></a>       B.country <span class="kw">as</span> country</span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="kw">FROM</span> table_A <span class="kw">as</span> A</span>
+<span id="cb17-5"><a href="#cb17-5"></a>     <span class="kw">RIGHT</span> <span class="kw">JOIN</span> table_B <span class="kw">as</span> B</span>
+<span id="cb17-6"><a href="#cb17-6"></a>     <span class="kw">ON</span> A.<span class="kw">id</span> <span class="op">=</span> B.<span class="kw">id</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="tbl-panel" class="tbl-parent quarto-layout-panel anchored">
 <div class="panel-caption table-caption">
 <p>Таблиця&nbsp;7.3: Приклад роботи <code>RIGHT JOIN</code></p>
@@ -1040,18 +1064,24 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="9">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="op">%%</span>sql</span>
-<span id="cb17-2"><a href="#cb17-2"></a>SELECT a.user_id <span class="im">as</span> user_id_left,</span>
-<span id="cb17-3"><a href="#cb17-3"></a>       b.user_id <span class="im">as</span> user_id_right,</span>
-<span id="cb17-4"><a href="#cb17-4"></a>       order_id,</span>
-<span id="cb17-5"><a href="#cb17-5"></a>       time,</span>
-<span id="cb17-6"><a href="#cb17-6"></a>       action,</span>
-<span id="cb17-7"><a href="#cb17-7"></a>       sex,</span>
-<span id="cb17-8"><a href="#cb17-8"></a>       birth_date</span>
-<span id="cb17-9"><a href="#cb17-9"></a>FROM   user_actions a</span>
-<span id="cb17-10"><a href="#cb17-10"></a>    LEFT JOIN users b using (user_id)</span>
-<span id="cb17-11"><a href="#cb17-11"></a>ORDER BY user_id_left</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="op">%%</span>sql</span>
+<span id="cb18-2"><a href="#cb18-2"></a>SELECT a.user_id <span class="im">as</span> user_id_left,</span>
+<span id="cb18-3"><a href="#cb18-3"></a>       b.user_id <span class="im">as</span> user_id_right,</span>
+<span id="cb18-4"><a href="#cb18-4"></a>       order_id,</span>
+<span id="cb18-5"><a href="#cb18-5"></a>       time,</span>
+<span id="cb18-6"><a href="#cb18-6"></a>       action,</span>
+<span id="cb18-7"><a href="#cb18-7"></a>       sex,</span>
+<span id="cb18-8"><a href="#cb18-8"></a>       birth_date</span>
+<span id="cb18-9"><a href="#cb18-9"></a>FROM   user_actions a</span>
+<span id="cb18-10"><a href="#cb18-10"></a>    LEFT JOIN users b using (user_id)</span>
+<span id="cb18-11"><a href="#cb18-11"></a>ORDER BY user_id_left</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
@@ -1208,10 +1238,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="10">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="op">%%</span>sql</span>
-<span id="cb18-2"><a href="#cb18-2"></a>SELECT count(distinct a.user_id) <span class="im">as</span> users_count</span>
-<span id="cb18-3"><a href="#cb18-3"></a>FROM   user_actions a</span>
-<span id="cb18-4"><a href="#cb18-4"></a>    LEFT JOIN users b using (user_id)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="op">%%</span>sql</span>
+<span id="cb20-2"><a href="#cb20-2"></a>SELECT count(distinct a.user_id) <span class="im">as</span> users_count</span>
+<span id="cb20-3"><a href="#cb20-3"></a>FROM   user_actions a</span>
+<span id="cb20-4"><a href="#cb20-4"></a>    LEFT JOIN users b using (user_id)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div>
@@ -1260,19 +1290,25 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="11">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="op">%%</span>sql</span>
-<span id="cb19-2"><a href="#cb19-2"></a>SELECT a.user_id <span class="im">as</span> user_id_left,</span>
-<span id="cb19-3"><a href="#cb19-3"></a>       b.user_id <span class="im">as</span> user_id_right,</span>
-<span id="cb19-4"><a href="#cb19-4"></a>       order_id,</span>
-<span id="cb19-5"><a href="#cb19-5"></a>       time,</span>
-<span id="cb19-6"><a href="#cb19-6"></a>       action,</span>
-<span id="cb19-7"><a href="#cb19-7"></a>       sex,</span>
-<span id="cb19-8"><a href="#cb19-8"></a>       birth_date</span>
-<span id="cb19-9"><a href="#cb19-9"></a>FROM   user_actions a</span>
-<span id="cb19-10"><a href="#cb19-10"></a>    LEFT JOIN users b using (user_id)</span>
-<span id="cb19-11"><a href="#cb19-11"></a>WHERE  b.user_id IS NOT NULL</span>
-<span id="cb19-12"><a href="#cb19-12"></a>ORDER BY user_id_left</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="op">%%</span>sql</span>
+<span id="cb21-2"><a href="#cb21-2"></a>SELECT a.user_id <span class="im">as</span> user_id_left,</span>
+<span id="cb21-3"><a href="#cb21-3"></a>       b.user_id <span class="im">as</span> user_id_right,</span>
+<span id="cb21-4"><a href="#cb21-4"></a>       order_id,</span>
+<span id="cb21-5"><a href="#cb21-5"></a>       time,</span>
+<span id="cb21-6"><a href="#cb21-6"></a>       action,</span>
+<span id="cb21-7"><a href="#cb21-7"></a>       sex,</span>
+<span id="cb21-8"><a href="#cb21-8"></a>       birth_date</span>
+<span id="cb21-9"><a href="#cb21-9"></a>FROM   user_actions a</span>
+<span id="cb21-10"><a href="#cb21-10"></a>    LEFT JOIN users b using (user_id)</span>
+<span id="cb21-11"><a href="#cb21-11"></a>WHERE  b.user_id IS NOT NULL</span>
+<span id="cb21-12"><a href="#cb21-12"></a>ORDER BY user_id_left</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 
@@ -1414,16 +1450,16 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <h2 data-number="7.5" class="anchored" data-anchor-id="full-join"><span class="header-section-number">7.5</span> FULL JOIN</h2>
 <p>Щоб краще розібратися з джойнами, розглянемо ще один тип об’єднання таблиць — <code>FULL OUTER JOIN</code> або просто <code>FULL JOIN</code>. Це оператор повного зовнішнього об’єднання, для якого, як і <code>INNER JOIN</code>, неважливий порядок вказівки таблиць. Проте працює він зовсім інакше.</p>
 <p>Запит із <code>FULL OUTER JOIN</code> виглядає приблизно так:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="kw">FROM</span> table_1 <span class="kw">FULL</span> <span class="kw">JOIN</span> table_2</span>
-<span id="cb20-3"><a href="#cb20-3"></a>     <span class="kw">ON</span> [condition]</span>
-<span id="cb20-4"><a href="#cb20-4"></a><span class="op">..</span>.</span>
-<span id="cb20-5"><a href="#cb20-5"></a></span>
-<span id="cb20-6"><a href="#cb20-6"></a></span>
-<span id="cb20-7"><a href="#cb20-7"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
-<span id="cb20-8"><a href="#cb20-8"></a><span class="kw">FROM</span> table_2 <span class="kw">FULL</span> <span class="kw">JOIN</span> table_1 </span>
-<span id="cb20-9"><a href="#cb20-9"></a>     <span class="kw">ON</span> [condition]</span>
-<span id="cb20-10"><a href="#cb20-10"></a><span class="op">..</span>.</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="kw">FROM</span> table_1 <span class="kw">FULL</span> <span class="kw">JOIN</span> table_2</span>
+<span id="cb23-3"><a href="#cb23-3"></a>     <span class="kw">ON</span> [condition]</span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="op">..</span>.</span>
+<span id="cb23-5"><a href="#cb23-5"></a></span>
+<span id="cb23-6"><a href="#cb23-6"></a></span>
+<span id="cb23-7"><a href="#cb23-7"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
+<span id="cb23-8"><a href="#cb23-8"></a><span class="kw">FROM</span> table_2 <span class="kw">FULL</span> <span class="kw">JOIN</span> table_1 </span>
+<span id="cb23-9"><a href="#cb23-9"></a>     <span class="kw">ON</span> [condition]</span>
+<span id="cb23-10"><a href="#cb23-10"></a><span class="op">..</span>.</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Результат об’єднання <code>FULL JOIN</code> формується так:</p>
 <ol type="1">
 <li>Спочатку кожен рядок лівої таблиці зіставляється з кожним рядком правої таблиці (відбувається декартів добуток).</li>
@@ -1438,12 +1474,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </ul>
 <p>Розглянемо найпростіший приклад.</p>
 <p>Так буде виглядати запит та його результат з FULL JOIN:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">SELECT</span> A.<span class="kw">id</span> <span class="kw">as</span> <span class="kw">id</span>,</span>
-<span id="cb21-2"><a href="#cb21-2"></a>       A.city <span class="kw">as</span> city,</span>
-<span id="cb21-3"><a href="#cb21-3"></a>       B.country <span class="kw">as</span> country</span>
-<span id="cb21-4"><a href="#cb21-4"></a><span class="kw">FROM</span> table_A <span class="kw">as</span> A</span>
-<span id="cb21-5"><a href="#cb21-5"></a>     <span class="kw">FULL</span> <span class="kw">JOIN</span> table_B <span class="kw">as</span> B</span>
-<span id="cb21-6"><a href="#cb21-6"></a>     <span class="kw">ON</span> A.<span class="kw">id</span> <span class="op">=</span> B.<span class="kw">id</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">SELECT</span> A.<span class="kw">id</span> <span class="kw">as</span> <span class="kw">id</span>,</span>
+<span id="cb24-2"><a href="#cb24-2"></a>       A.city <span class="kw">as</span> city,</span>
+<span id="cb24-3"><a href="#cb24-3"></a>       B.country <span class="kw">as</span> country</span>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="kw">FROM</span> table_A <span class="kw">as</span> A</span>
+<span id="cb24-5"><a href="#cb24-5"></a>     <span class="kw">FULL</span> <span class="kw">JOIN</span> table_B <span class="kw">as</span> B</span>
+<span id="cb24-6"><a href="#cb24-6"></a>     <span class="kw">ON</span> A.<span class="kw">id</span> <span class="op">=</span> B.<span class="kw">id</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="tbl-panel" class="tbl-parent quarto-layout-panel anchored">
 <div class="panel-caption table-caption">
 <p>Таблиця&nbsp;7.4: Приклад роботи <code>FULL JOIN</code></p>
@@ -1540,11 +1576,17 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>У нас є дві таблиці з датами народження користувачів та кур’єрів – <code>users</code> та <code>couriers</code>. Можна припустити, що в кожній таблиці у колонці <code>birth_date</code> є якісь дати, яких немає в іншій таблиці. Тобто такі дати, в які народився хтось із кур’єрів, але не народився жоден користувач, і навпаки. Ну що ж, спробуємо перевірити цю гіпотезу.</p>
 <p>Для початку згрупуємо дві таблиці по колонці <code>birth_date</code> і порахуємо скільки користувачів/кур’єрів народилися в кожен з днів. Для цього можете виконати такий запит:</p>
 <div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="op">%%</span>sql</span>
-<span id="cb22-2"><a href="#cb22-2"></a>SELECT birth_date, COUNT(user_id) AS users_count</span>
-<span id="cb22-3"><a href="#cb22-3"></a>FROM users</span>
-<span id="cb22-4"><a href="#cb22-4"></a>WHERE birth_date IS NOT NULL</span>
-<span id="cb22-5"><a href="#cb22-5"></a>GROUP BY birth_date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="op">%%</span>sql</span>
+<span id="cb25-2"><a href="#cb25-2"></a>SELECT birth_date, COUNT(user_id) AS users_count</span>
+<span id="cb25-3"><a href="#cb25-3"></a>FROM users</span>
+<span id="cb25-4"><a href="#cb25-4"></a>WHERE birth_date IS NOT NULL</span>
+<span id="cb25-5"><a href="#cb25-5"></a>GROUP BY birth_date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
@@ -1621,11 +1663,17 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="op">%%</span>sql</span>
-<span id="cb23-2"><a href="#cb23-2"></a>SELECT birth_date, COUNT(courier_id) AS couriers_count</span>
-<span id="cb23-3"><a href="#cb23-3"></a>FROM couriers</span>
-<span id="cb23-4"><a href="#cb23-4"></a>WHERE birth_date IS NOT NULL</span>
-<span id="cb23-5"><a href="#cb23-5"></a>GROUP BY birth_date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="op">%%</span>sql</span>
+<span id="cb27-2"><a href="#cb27-2"></a>SELECT birth_date, COUNT(courier_id) AS couriers_count</span>
+<span id="cb27-3"><a href="#cb27-3"></a>FROM couriers</span>
+<span id="cb27-4"><a href="#cb27-4"></a>WHERE birth_date IS NOT NULL</span>
+<span id="cb27-5"><a href="#cb27-5"></a>GROUP BY birth_date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
@@ -1725,29 +1773,35 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="15">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="op">%%</span>sql</span>
-<span id="cb24-2"><a href="#cb24-2"></a>WITH a AS (</span>
-<span id="cb24-3"><a href="#cb24-3"></a>    SELECT birth_date, COUNT(user_id) AS users_count</span>
-<span id="cb24-4"><a href="#cb24-4"></a>    FROM users</span>
-<span id="cb24-5"><a href="#cb24-5"></a>    WHERE birth_date IS NOT NULL</span>
-<span id="cb24-6"><a href="#cb24-6"></a>    GROUP BY birth_date</span>
-<span id="cb24-7"><a href="#cb24-7"></a>    ),</span>
-<span id="cb24-8"><a href="#cb24-8"></a>    b AS (</span>
-<span id="cb24-9"><a href="#cb24-9"></a>    SELECT birth_date, COUNT(courier_id) AS couriers_count</span>
-<span id="cb24-10"><a href="#cb24-10"></a>    FROM couriers</span>
-<span id="cb24-11"><a href="#cb24-11"></a>    WHERE birth_date IS NOT NULL</span>
-<span id="cb24-12"><a href="#cb24-12"></a>    GROUP BY birth_date</span>
-<span id="cb24-13"><a href="#cb24-13"></a>    )</span>
-<span id="cb24-14"><a href="#cb24-14"></a>    </span>
-<span id="cb24-15"><a href="#cb24-15"></a>SELECT </span>
-<span id="cb24-16"><a href="#cb24-16"></a>    a.birth_date AS users_birth_date,</span>
-<span id="cb24-17"><a href="#cb24-17"></a>    a.users_count,</span>
-<span id="cb24-18"><a href="#cb24-18"></a>    b.birth_date AS couriers_birth_date,</span>
-<span id="cb24-19"><a href="#cb24-19"></a>    b.couriers_count</span>
-<span id="cb24-20"><a href="#cb24-20"></a>FROM a</span>
-<span id="cb24-21"><a href="#cb24-21"></a>FULL JOIN b on a.birth_date <span class="op">=</span> b.birth_date</span>
-<span id="cb24-22"><a href="#cb24-22"></a>ORDER BY users_birth_date, couriers_birth_date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="op">%%</span>sql</span>
+<span id="cb29-2"><a href="#cb29-2"></a>WITH a AS (</span>
+<span id="cb29-3"><a href="#cb29-3"></a>    SELECT birth_date, COUNT(user_id) AS users_count</span>
+<span id="cb29-4"><a href="#cb29-4"></a>    FROM users</span>
+<span id="cb29-5"><a href="#cb29-5"></a>    WHERE birth_date IS NOT NULL</span>
+<span id="cb29-6"><a href="#cb29-6"></a>    GROUP BY birth_date</span>
+<span id="cb29-7"><a href="#cb29-7"></a>    ),</span>
+<span id="cb29-8"><a href="#cb29-8"></a>    b AS (</span>
+<span id="cb29-9"><a href="#cb29-9"></a>    SELECT birth_date, COUNT(courier_id) AS couriers_count</span>
+<span id="cb29-10"><a href="#cb29-10"></a>    FROM couriers</span>
+<span id="cb29-11"><a href="#cb29-11"></a>    WHERE birth_date IS NOT NULL</span>
+<span id="cb29-12"><a href="#cb29-12"></a>    GROUP BY birth_date</span>
+<span id="cb29-13"><a href="#cb29-13"></a>    )</span>
+<span id="cb29-14"><a href="#cb29-14"></a>    </span>
+<span id="cb29-15"><a href="#cb29-15"></a>SELECT </span>
+<span id="cb29-16"><a href="#cb29-16"></a>    a.birth_date AS users_birth_date,</span>
+<span id="cb29-17"><a href="#cb29-17"></a>    a.users_count,</span>
+<span id="cb29-18"><a href="#cb29-18"></a>    b.birth_date AS couriers_birth_date,</span>
+<span id="cb29-19"><a href="#cb29-19"></a>    b.couriers_count</span>
+<span id="cb29-20"><a href="#cb29-20"></a>FROM a</span>
+<span id="cb29-21"><a href="#cb29-21"></a>FULL JOIN b on a.birth_date <span class="op">=</span> b.birth_date</span>
+<span id="cb29-22"><a href="#cb29-22"></a>ORDER BY users_birth_date, couriers_birth_date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 
@@ -1765,38 +1819,38 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>NaT</td>
-<td>NaN</td>
-<td>1973-07-05</td>
+<td>1981-11-05</td>
 <td>1.0</td>
+<td>None</td>
+<td>NaN</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>NaT</td>
-<td>NaN</td>
-<td>1978-01-04</td>
+<td>1982-04-05</td>
 <td>1.0</td>
+<td>None</td>
+<td>NaN</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>NaT</td>
-<td>NaN</td>
-<td>1978-07-18</td>
+<td>1982-09-12</td>
 <td>1.0</td>
+<td>None</td>
+<td>NaN</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>NaT</td>
-<td>NaN</td>
-<td>1979-12-14</td>
+<td>1983-01-06</td>
 <td>1.0</td>
+<td>None</td>
+<td>NaN</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>NaT</td>
-<td>NaN</td>
-<td>1981-01-05</td>
+<td>1983-01-23</td>
 <td>1.0</td>
+<td>None</td>
+<td>NaN</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">...</td>
@@ -1807,38 +1861,38 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4841</td>
-<td>2002-05-11</td>
-<td>1.0</td>
-<td>NaT</td>
+<td>None</td>
 <td>NaN</td>
+<td>2005-09-13</td>
+<td>1.0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">4842</td>
-<td>2002-06-15</td>
-<td>1.0</td>
-<td>NaT</td>
+<td>None</td>
 <td>NaN</td>
+<td>2005-10-28</td>
+<td>1.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4843</td>
-<td>2002-07-11</td>
-<td>1.0</td>
-<td>NaT</td>
+<td>None</td>
 <td>NaN</td>
+<td>2006-08-01</td>
+<td>1.0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">4844</td>
-<td>2002-11-05</td>
-<td>1.0</td>
-<td>NaT</td>
+<td>None</td>
 <td>NaN</td>
+<td>2007-08-09</td>
+<td>1.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4845</td>
-<td>2003-09-02</td>
-<td>1.0</td>
-<td>NaT</td>
+<td>None</td>
 <td>NaN</td>
+<td>2007-12-10</td>
+<td>1.0</td>
 </tr>
 </tbody>
 </table>
@@ -1861,36 +1915,36 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Вони дозволяють комбінувати результати кількох запитів один з одним та отримувати один загальний результат. Причому саме комбінувати, а не об’єднувати, як це роблять джойни.</p>
 <p>Цю різницю важливо розуміти: в операціях з множинами не відбувається суміщення стовпців з двох таблиць - база даних просто відбирає рядки з таблиць, що задовольняють типу операції, і додає їх до загального результату.</p>
 <p>Операції над множинами мають наступний синтаксис:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb25-2"><a href="#cb25-2"></a><span class="kw">FROM</span> table_1</span>
-<span id="cb25-3"><a href="#cb25-3"></a><span class="kw">UNION</span></span>
-<span id="cb25-4"><a href="#cb25-4"></a><span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb25-5"><a href="#cb25-5"></a><span class="kw">FROM</span> table_2</span>
-<span id="cb25-6"><a href="#cb25-6"></a></span>
-<span id="cb25-7"><a href="#cb25-7"></a></span>
-<span id="cb25-8"><a href="#cb25-8"></a><span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb25-9"><a href="#cb25-9"></a><span class="kw">FROM</span> table_1</span>
-<span id="cb25-10"><a href="#cb25-10"></a><span class="kw">EXCEPT</span></span>
-<span id="cb25-11"><a href="#cb25-11"></a><span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb25-12"><a href="#cb25-12"></a><span class="kw">FROM</span> table_2</span>
-<span id="cb25-13"><a href="#cb25-13"></a></span>
-<span id="cb25-14"><a href="#cb25-14"></a></span>
-<span id="cb25-15"><a href="#cb25-15"></a><span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb25-16"><a href="#cb25-16"></a><span class="kw">FROM</span> table_1</span>
-<span id="cb25-17"><a href="#cb25-17"></a><span class="kw">INTERSECT</span></span>
-<span id="cb25-18"><a href="#cb25-18"></a><span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb25-19"><a href="#cb25-19"></a><span class="kw">FROM</span> table_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="kw">FROM</span> table_1</span>
+<span id="cb31-3"><a href="#cb31-3"></a><span class="kw">UNION</span></span>
+<span id="cb31-4"><a href="#cb31-4"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb31-5"><a href="#cb31-5"></a><span class="kw">FROM</span> table_2</span>
+<span id="cb31-6"><a href="#cb31-6"></a></span>
+<span id="cb31-7"><a href="#cb31-7"></a></span>
+<span id="cb31-8"><a href="#cb31-8"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb31-9"><a href="#cb31-9"></a><span class="kw">FROM</span> table_1</span>
+<span id="cb31-10"><a href="#cb31-10"></a><span class="kw">EXCEPT</span></span>
+<span id="cb31-11"><a href="#cb31-11"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb31-12"><a href="#cb31-12"></a><span class="kw">FROM</span> table_2</span>
+<span id="cb31-13"><a href="#cb31-13"></a></span>
+<span id="cb31-14"><a href="#cb31-14"></a></span>
+<span id="cb31-15"><a href="#cb31-15"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb31-16"><a href="#cb31-16"></a><span class="kw">FROM</span> table_1</span>
+<span id="cb31-17"><a href="#cb31-17"></a><span class="kw">INTERSECT</span></span>
+<span id="cb31-18"><a href="#cb31-18"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb31-19"><a href="#cb31-19"></a><span class="kw">FROM</span> table_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Операція <code>EXCEPT</code> повертає всі записи, які є у першому запиті, але відсутні у другому (різниця множин).</li>
 <li>Операція <code>INTERSECT</code> повертає всі записи, які є і в першому, і в другому запиті (перетин множин).</li>
 <li>Операція <code>UNION</code> поєднує записи із двох запитів в один загальний результат (об’єднання множин).</li>
 </ul>
 <p>При цьому за замовчанням ці операції виключають із результату рядки-дублікати. Щоб дублікати не виключалися із результату, необхідно після імені операції вказати ключове слово <code>ALL</code>. Наприклад, так:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="kw">FROM</span> table_1</span>
-<span id="cb26-3"><a href="#cb26-3"></a><span class="kw">UNION</span> <span class="kw">ALL</span></span>
-<span id="cb26-4"><a href="#cb26-4"></a><span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb26-5"><a href="#cb26-5"></a><span class="kw">FROM</span> table_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="kw">FROM</span> table_1</span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="kw">UNION</span> <span class="kw">ALL</span></span>
+<span id="cb32-4"><a href="#cb32-4"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb32-5"><a href="#cb32-5"></a><span class="kw">FROM</span> table_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Діаграми Венна для операцій над множинами виглядають зображено на <a href="#fig-sql-join-venn">рисунку&nbsp;<span>7.6</span></a>.</p>
 <div id="fig-sql-join-venn" class="cell column-page-inset quarto-layout-panel" data-execution_count="16">
 <figure class="figure">
@@ -1931,12 +1985,18 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>При цьому кількість стовпців в операторі <code>SELECT</code> може бути будь-якою — головне, щоб вона була однаковою.</p>
 <p>Наприклад, наступний запит поверне унікальні ID користувачів, які щось замовляли в нашому сервісі, але яких з якоїсь причини немає в таблиці <code>users</code>:</p>
 <div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="op">%%</span>sql</span>
-<span id="cb27-2"><a href="#cb27-2"></a>SELECT user_id</span>
-<span id="cb27-3"><a href="#cb27-3"></a>FROM user_actions</span>
-<span id="cb27-4"><a href="#cb27-4"></a>EXCEPT</span>
-<span id="cb27-5"><a href="#cb27-5"></a>SELECT user_id</span>
-<span id="cb27-6"><a href="#cb27-6"></a>FROM users</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="op">%%</span>sql</span>
+<span id="cb33-2"><a href="#cb33-2"></a>SELECT user_id</span>
+<span id="cb33-3"><a href="#cb33-3"></a>FROM user_actions</span>
+<span id="cb33-4"><a href="#cb33-4"></a>EXCEPT</span>
+<span id="cb33-5"><a href="#cb33-5"></a>SELECT user_id</span>
+<span id="cb33-6"><a href="#cb33-6"></a>FROM users</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <div>
 
@@ -2027,12 +2087,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="callout-body-container callout-body">
 <div id="exr-sql-join-07" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 7.7 </strong></span><br> Поєднайте два наступні запити один з одним так, щоб на виході вийшов набір унікальних дат із таблиць <code>users</code> та <code>couriers</code>:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">SELECT</span> birth_date</span>
-<span id="cb28-2"><a href="#cb28-2"></a><span class="kw">FROM</span> users</span>
-<span id="cb28-3"><a href="#cb28-3"></a><span class="kw">WHERE</span> birth_date <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb29-1"><a href="#cb29-1"></a><span class="kw">SELECT</span> birth_date</span>
-<span id="cb29-2"><a href="#cb29-2"></a><span class="kw">FROM</span> couriers</span>
-<span id="cb29-3"><a href="#cb29-3"></a><span class="kw">WHERE</span> birth_date <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb35-1"><a href="#cb35-1"></a><span class="kw">SELECT</span> birth_date</span>
+<span id="cb35-2"><a href="#cb35-2"></a><span class="kw">FROM</span> users</span>
+<span id="cb35-3"><a href="#cb35-3"></a><span class="kw">WHERE</span> birth_date <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb36-1"><a href="#cb36-1"></a><span class="kw">SELECT</span> birth_date</span>
+<span id="cb36-2"><a href="#cb36-2"></a><span class="kw">FROM</span> couriers</span>
+<span id="cb36-3"><a href="#cb36-3"></a><span class="kw">WHERE</span> birth_date <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Помістіть у підзапит набраний після об’єднання набір дат і порахуйте їх кількість. Назвіть колонку з числом дат <code>dates_count</code>.</p>
 <p>Поле у результуючій таблиці: <code>dates_count</code></p>
 <p>Після того, як вирішите задачу, порівняйте отримане число дат з кількістю рядків у таблиці, яку ми отримали в минулому завданні. Чи збіглися ці значення?</p>
@@ -2042,19 +2102,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="18">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="op">%%</span>sql</span>
-<span id="cb30-2"><a href="#cb30-2"></a>WITH sub_union <span class="im">as</span> (</span>
-<span id="cb30-3"><a href="#cb30-3"></a>    SELECT birth_date</span>
-<span id="cb30-4"><a href="#cb30-4"></a>    FROM users</span>
-<span id="cb30-5"><a href="#cb30-5"></a>    WHERE birth_date IS NOT NULL</span>
-<span id="cb30-6"><a href="#cb30-6"></a>    UNION</span>
-<span id="cb30-7"><a href="#cb30-7"></a>    SELECT birth_date</span>
-<span id="cb30-8"><a href="#cb30-8"></a>    FROM couriers</span>
-<span id="cb30-9"><a href="#cb30-9"></a>    WHERE birth_date IS NOT NULL</span>
-<span id="cb30-10"><a href="#cb30-10"></a>    )</span>
-<span id="cb30-11"><a href="#cb30-11"></a>    </span>
-<span id="cb30-12"><a href="#cb30-12"></a>SELECT COUNT(DISTINCT birth_date) <span class="im">as</span> dates_count</span>
-<span id="cb30-13"><a href="#cb30-13"></a>FROM sub_union</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="op">%%</span>sql</span>
+<span id="cb37-2"><a href="#cb37-2"></a>WITH sub_union <span class="im">as</span> (</span>
+<span id="cb37-3"><a href="#cb37-3"></a>    SELECT birth_date</span>
+<span id="cb37-4"><a href="#cb37-4"></a>    FROM users</span>
+<span id="cb37-5"><a href="#cb37-5"></a>    WHERE birth_date IS NOT NULL</span>
+<span id="cb37-6"><a href="#cb37-6"></a>    UNION</span>
+<span id="cb37-7"><a href="#cb37-7"></a>    SELECT birth_date</span>
+<span id="cb37-8"><a href="#cb37-8"></a>    FROM couriers</span>
+<span id="cb37-9"><a href="#cb37-9"></a>    WHERE birth_date IS NOT NULL</span>
+<span id="cb37-10"><a href="#cb37-10"></a>    )</span>
+<span id="cb37-11"><a href="#cb37-11"></a>    </span>
+<span id="cb37-12"><a href="#cb37-12"></a>SELECT COUNT(DISTINCT birth_date) <span class="im">as</span> dates_count</span>
+<span id="cb37-13"><a href="#cb37-13"></a>FROM sub_union</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <div>
@@ -2083,18 +2143,18 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <section id="cross-join" class="level2" data-number="7.7">
 <h2 data-number="7.7" class="anchored" data-anchor-id="cross-join"><span class="header-section-number">7.7</span> CROSS JOIN</h2>
 <p>Насправді <code>CROSS JOIN</code> - це просто декартів добуток двох таблиць, тобто саме те, що відбувається на першому етапі решти джойнів. Важлива відмінність у синтаксисі <code>CROSS JOIN</code> полягає в тому, що для нього не потрібно вказувати умову для об’єднання:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">SELECT</span> column_1, column_2, <span class="op">..</span>.</span>
-<span id="cb31-2"><a href="#cb31-2"></a><span class="kw">FROM</span> table_1</span>
-<span id="cb31-3"><a href="#cb31-3"></a>     <span class="kw">CROSS</span> <span class="kw">JOIN</span> table_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb38-1"><a href="#cb38-1"></a><span class="kw">SELECT</span> column_1, column_2, <span class="op">..</span>.</span>
+<span id="cb38-2"><a href="#cb38-2"></a><span class="kw">FROM</span> table_1</span>
+<span id="cb38-3"><a href="#cb38-3"></a>     <span class="kw">CROSS</span> <span class="kw">JOIN</span> table_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Той самий результат можна отримати за допомогою наступного запису:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">SELECT</span> column_1, column_2, <span class="op">..</span>.</span>
-<span id="cb32-2"><a href="#cb32-2"></a><span class="kw">FROM</span> table_1, table_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb39-1"><a href="#cb39-1"></a><span class="kw">SELECT</span> column_1, column_2, <span class="op">..</span>.</span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="kw">FROM</span> table_1, table_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Розглянемо простий приклад:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1"></a><span class="kw">SELECT</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a>    A.city <span class="kw">as</span> city,</span>
-<span id="cb33-3"><a href="#cb33-3"></a>    B.country <span class="kw">as</span> country</span>
-<span id="cb33-4"><a href="#cb33-4"></a><span class="kw">FROM</span> table_A <span class="kw">as</span> A</span>
-<span id="cb33-5"><a href="#cb33-5"></a>     <span class="kw">CROSS</span> <span class="kw">JOIN</span> table_B <span class="kw">as</span> B</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb40-1"><a href="#cb40-1"></a><span class="kw">SELECT</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a>    A.city <span class="kw">as</span> city,</span>
+<span id="cb40-3"><a href="#cb40-3"></a>    B.country <span class="kw">as</span> country</span>
+<span id="cb40-4"><a href="#cb40-4"></a><span class="kw">FROM</span> table_A <span class="kw">as</span> A</span>
+<span id="cb40-5"><a href="#cb40-5"></a>     <span class="kw">CROSS</span> <span class="kw">JOIN</span> table_B <span class="kw">as</span> B</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>За допомогою <code>CROSS JOIN</code> ми отримуємо всі можливі комбінації значень із першої та другої таблиці:</p>
 <div id="tbl-panel" class="tbl-parent quarto-layout-panel anchored">
 <div class="panel-caption table-caption">
@@ -2203,19 +2263,25 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="19">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="op">%%</span>sql</span>
-<span id="cb34-2"><a href="#cb34-2"></a><span class="cf">with</span> user_100 <span class="im">as</span> (</span>
-<span id="cb34-3"><a href="#cb34-3"></a>    SELECT user_id</span>
-<span id="cb34-4"><a href="#cb34-4"></a>    <span class="im">from</span> users</span>
-<span id="cb34-5"><a href="#cb34-5"></a>    LIMIT <span class="dv">100</span></span>
-<span id="cb34-6"><a href="#cb34-6"></a>    )</span>
-<span id="cb34-7"><a href="#cb34-7"></a></span>
-<span id="cb34-8"><a href="#cb34-8"></a>SELECT  user_100.user_id,</span>
-<span id="cb34-9"><a href="#cb34-9"></a>        products.name</span>
-<span id="cb34-10"><a href="#cb34-10"></a>FROM user_100</span>
-<span id="cb34-11"><a href="#cb34-11"></a>CROSS JOIN products</span>
-<span id="cb34-12"><a href="#cb34-12"></a>ORDER BY user_id, name</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="op">%%</span>sql</span>
+<span id="cb41-2"><a href="#cb41-2"></a><span class="cf">with</span> user_100 <span class="im">as</span> (</span>
+<span id="cb41-3"><a href="#cb41-3"></a>    SELECT user_id</span>
+<span id="cb41-4"><a href="#cb41-4"></a>    <span class="im">from</span> users</span>
+<span id="cb41-5"><a href="#cb41-5"></a>    LIMIT <span class="dv">100</span></span>
+<span id="cb41-6"><a href="#cb41-6"></a>    )</span>
+<span id="cb41-7"><a href="#cb41-7"></a></span>
+<span id="cb41-8"><a href="#cb41-8"></a>SELECT  user_100.user_id,</span>
+<span id="cb41-9"><a href="#cb41-9"></a>        products.name</span>
+<span id="cb41-10"><a href="#cb41-10"></a>FROM user_100</span>
+<span id="cb41-11"><a href="#cb41-11"></a>CROSS JOIN products</span>
+<span id="cb41-12"><a href="#cb41-12"></a>ORDER BY user_id, name</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 
@@ -2317,15 +2383,21 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="20">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="op">%%</span>sql</span>
-<span id="cb35-2"><a href="#cb35-2"></a>SELECT  user_id,</span>
-<span id="cb35-3"><a href="#cb35-3"></a>        order_id,</span>
-<span id="cb35-4"><a href="#cb35-4"></a>        product_ids</span>
-<span id="cb35-5"><a href="#cb35-5"></a>FROM user_actions</span>
-<span id="cb35-6"><a href="#cb35-6"></a>LEFT JOIN orders using (order_id)</span>
-<span id="cb35-7"><a href="#cb35-7"></a>ORDER BY user_id, order_id</span>
-<span id="cb35-8"><a href="#cb35-8"></a>LIMIT <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="op">%%</span>sql</span>
+<span id="cb43-2"><a href="#cb43-2"></a>SELECT  user_id,</span>
+<span id="cb43-3"><a href="#cb43-3"></a>        order_id,</span>
+<span id="cb43-4"><a href="#cb43-4"></a>        product_ids</span>
+<span id="cb43-5"><a href="#cb43-5"></a>FROM user_actions</span>
+<span id="cb43-6"><a href="#cb43-6"></a>LEFT JOIN orders using (order_id)</span>
+<span id="cb43-7"><a href="#cb43-7"></a>ORDER BY user_id, order_id</span>
+<span id="cb43-8"><a href="#cb43-8"></a>LIMIT <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <div>
 
@@ -2436,18 +2508,24 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="21">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="op">%%</span>sql</span>
-<span id="cb36-2"><a href="#cb36-2"></a>SELECT  user_id,</span>
-<span id="cb36-3"><a href="#cb36-3"></a>        order_id,</span>
-<span id="cb36-4"><a href="#cb36-4"></a>        product_ids</span>
-<span id="cb36-5"><a href="#cb36-5"></a>FROM user_actions</span>
-<span id="cb36-6"><a href="#cb36-6"></a>LEFT JOIN orders using (order_id)</span>
-<span id="cb36-7"><a href="#cb36-7"></a>WHERE  order_id <span class="kw">in</span> (SELECT order_id</span>
-<span id="cb36-8"><a href="#cb36-8"></a>                    FROM   courier_actions</span>
-<span id="cb36-9"><a href="#cb36-9"></a>                    WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span>)</span>
-<span id="cb36-10"><a href="#cb36-10"></a>ORDER BY user_id, order_id</span>
-<span id="cb36-11"><a href="#cb36-11"></a>LIMIT <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="op">%%</span>sql</span>
+<span id="cb45-2"><a href="#cb45-2"></a>SELECT  user_id,</span>
+<span id="cb45-3"><a href="#cb45-3"></a>        order_id,</span>
+<span id="cb45-4"><a href="#cb45-4"></a>        product_ids</span>
+<span id="cb45-5"><a href="#cb45-5"></a>FROM user_actions</span>
+<span id="cb45-6"><a href="#cb45-6"></a>LEFT JOIN orders using (order_id)</span>
+<span id="cb45-7"><a href="#cb45-7"></a>WHERE  order_id <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb45-8"><a href="#cb45-8"></a>                    FROM   courier_actions</span>
+<span id="cb45-9"><a href="#cb45-9"></a>                    WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span>)</span>
+<span id="cb45-10"><a href="#cb45-10"></a>ORDER BY user_id, order_id</span>
+<span id="cb45-11"><a href="#cb45-11"></a>LIMIT <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <div>
 
@@ -2575,38 +2653,44 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="22">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="op">%%</span>sql</span>
-<span id="cb37-2"><a href="#cb37-2"></a><span class="cf">with</span> user_order_prod <span class="im">as</span> (</span>
-<span id="cb37-3"><a href="#cb37-3"></a>    SELECT  user_id,</span>
-<span id="cb37-4"><a href="#cb37-4"></a>            order_id,</span>
-<span id="cb37-5"><a href="#cb37-5"></a>            product_ids</span>
-<span id="cb37-6"><a href="#cb37-6"></a>    FROM user_actions</span>
-<span id="cb37-7"><a href="#cb37-7"></a>    LEFT JOIN orders using (order_id)</span>
-<span id="cb37-8"><a href="#cb37-8"></a>    WHERE  order_id <span class="kw">in</span> (SELECT order_id</span>
-<span id="cb37-9"><a href="#cb37-9"></a>                    FROM   courier_actions</span>
-<span id="cb37-10"><a href="#cb37-10"></a>                    WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span>)</span>
-<span id="cb37-11"><a href="#cb37-11"></a>    )</span>
-<span id="cb37-12"><a href="#cb37-12"></a>    </span>
-<span id="cb37-13"><a href="#cb37-13"></a>SELECT  user_id,</span>
-<span id="cb37-14"><a href="#cb37-14"></a>        ROUND(AVG(array_length(product_ids, <span class="dv">1</span>)), <span class="dv">2</span>) <span class="im">as</span> avg_order_size</span>
-<span id="cb37-15"><a href="#cb37-15"></a>FROM user_order_prod</span>
-<span id="cb37-16"><a href="#cb37-16"></a>GROUP BY user_id</span>
-<span id="cb37-17"><a href="#cb37-17"></a>ORDER BY user_id</span>
-<span id="cb37-18"><a href="#cb37-18"></a>LIMIT <span class="dv">1000</span></span>
-<span id="cb37-19"><a href="#cb37-19"></a></span>
-<span id="cb37-20"><a href="#cb37-20"></a><span class="op">--</span> або</span>
-<span id="cb37-21"><a href="#cb37-21"></a><span class="op">--</span> SELECT user_id,</span>
-<span id="cb37-22"><a href="#cb37-22"></a><span class="op">--</span>        <span class="bu">round</span>(avg(array_length(product_ids, <span class="dv">1</span>)), <span class="dv">2</span>) <span class="im">as</span> avg_order_size</span>
-<span id="cb37-23"><a href="#cb37-23"></a><span class="op">--</span> FROM   (SELECT user_id,</span>
-<span id="cb37-24"><a href="#cb37-24"></a><span class="op">--</span>                order_id</span>
-<span id="cb37-25"><a href="#cb37-25"></a><span class="op">--</span>         FROM   user_actions</span>
-<span id="cb37-26"><a href="#cb37-26"></a><span class="op">--</span>         WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
-<span id="cb37-27"><a href="#cb37-27"></a><span class="op">--</span>                                 FROM   user_actions</span>
-<span id="cb37-28"><a href="#cb37-28"></a><span class="op">--</span>                                 WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)) t1</span>
-<span id="cb37-29"><a href="#cb37-29"></a><span class="op">--</span>     LEFT JOIN orders using(order_id)</span>
-<span id="cb37-30"><a href="#cb37-30"></a><span class="op">--</span> GROUP BY user_id</span>
-<span id="cb37-31"><a href="#cb37-31"></a><span class="op">--</span> ORDER BY user_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="op">%%</span>sql</span>
+<span id="cb47-2"><a href="#cb47-2"></a><span class="cf">with</span> user_order_prod <span class="im">as</span> (</span>
+<span id="cb47-3"><a href="#cb47-3"></a>    SELECT  user_id,</span>
+<span id="cb47-4"><a href="#cb47-4"></a>            order_id,</span>
+<span id="cb47-5"><a href="#cb47-5"></a>            product_ids</span>
+<span id="cb47-6"><a href="#cb47-6"></a>    FROM user_actions</span>
+<span id="cb47-7"><a href="#cb47-7"></a>    LEFT JOIN orders using (order_id)</span>
+<span id="cb47-8"><a href="#cb47-8"></a>    WHERE  order_id <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb47-9"><a href="#cb47-9"></a>                    FROM   courier_actions</span>
+<span id="cb47-10"><a href="#cb47-10"></a>                    WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span>)</span>
+<span id="cb47-11"><a href="#cb47-11"></a>    )</span>
+<span id="cb47-12"><a href="#cb47-12"></a>    </span>
+<span id="cb47-13"><a href="#cb47-13"></a>SELECT  user_id,</span>
+<span id="cb47-14"><a href="#cb47-14"></a>        ROUND(AVG(array_length(product_ids, <span class="dv">1</span>)), <span class="dv">2</span>) <span class="im">as</span> avg_order_size</span>
+<span id="cb47-15"><a href="#cb47-15"></a>FROM user_order_prod</span>
+<span id="cb47-16"><a href="#cb47-16"></a>GROUP BY user_id</span>
+<span id="cb47-17"><a href="#cb47-17"></a>ORDER BY user_id</span>
+<span id="cb47-18"><a href="#cb47-18"></a>LIMIT <span class="dv">1000</span></span>
+<span id="cb47-19"><a href="#cb47-19"></a></span>
+<span id="cb47-20"><a href="#cb47-20"></a><span class="op">--</span> або</span>
+<span id="cb47-21"><a href="#cb47-21"></a><span class="op">--</span> SELECT user_id,</span>
+<span id="cb47-22"><a href="#cb47-22"></a><span class="op">--</span>        <span class="bu">round</span>(avg(array_length(product_ids, <span class="dv">1</span>)), <span class="dv">2</span>) <span class="im">as</span> avg_order_size</span>
+<span id="cb47-23"><a href="#cb47-23"></a><span class="op">--</span> FROM   (SELECT user_id,</span>
+<span id="cb47-24"><a href="#cb47-24"></a><span class="op">--</span>                order_id</span>
+<span id="cb47-25"><a href="#cb47-25"></a><span class="op">--</span>         FROM   user_actions</span>
+<span id="cb47-26"><a href="#cb47-26"></a><span class="op">--</span>         WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb47-27"><a href="#cb47-27"></a><span class="op">--</span>                                 FROM   user_actions</span>
+<span id="cb47-28"><a href="#cb47-28"></a><span class="op">--</span>                                 WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)) t1</span>
+<span id="cb47-29"><a href="#cb47-29"></a><span class="op">--</span>     LEFT JOIN orders using(order_id)</span>
+<span id="cb47-30"><a href="#cb47-30"></a><span class="op">--</span> GROUP BY user_id</span>
+<span id="cb47-31"><a href="#cb47-31"></a><span class="op">--</span> ORDER BY user_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <div>
 
@@ -2705,17 +2789,23 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="23">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="op">%%</span>sql</span>
-<span id="cb38-2"><a href="#cb38-2"></a><span class="cf">with</span> unnest_id <span class="im">as</span> (SELECT order_id,</span>
-<span id="cb38-3"><a href="#cb38-3"></a>                          unnest(orders.product_ids) <span class="im">as</span> product_id</span>
-<span id="cb38-4"><a href="#cb38-4"></a>                   FROM   orders)</span>
-<span id="cb38-5"><a href="#cb38-5"></a>SELECT order_id,</span>
-<span id="cb38-6"><a href="#cb38-6"></a>       product_id,</span>
-<span id="cb38-7"><a href="#cb38-7"></a>       products.price</span>
-<span id="cb38-8"><a href="#cb38-8"></a>FROM   unnest_id</span>
-<span id="cb38-9"><a href="#cb38-9"></a>    LEFT JOIN products using (product_id)</span>
-<span id="cb38-10"><a href="#cb38-10"></a>ORDER BY order_id, product_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a><span class="op">%%</span>sql</span>
+<span id="cb49-2"><a href="#cb49-2"></a><span class="cf">with</span> unnest_id <span class="im">as</span> (SELECT order_id,</span>
+<span id="cb49-3"><a href="#cb49-3"></a>                          unnest(orders.product_ids) <span class="im">as</span> product_id</span>
+<span id="cb49-4"><a href="#cb49-4"></a>                   FROM   orders)</span>
+<span id="cb49-5"><a href="#cb49-5"></a>SELECT order_id,</span>
+<span id="cb49-6"><a href="#cb49-6"></a>       product_id,</span>
+<span id="cb49-7"><a href="#cb49-7"></a>       products.price</span>
+<span id="cb49-8"><a href="#cb49-8"></a>FROM   unnest_id</span>
+<span id="cb49-9"><a href="#cb49-9"></a>    LEFT JOIN products using (product_id)</span>
+<span id="cb49-10"><a href="#cb49-10"></a>ORDER BY order_id, product_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <div>
 
@@ -2826,38 +2916,44 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="24">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="op">%%</span>sql</span>
-<span id="cb39-2"><a href="#cb39-2"></a>SELECT order_id,</span>
-<span id="cb39-3"><a href="#cb39-3"></a>       <span class="bu">sum</span>(price) <span class="im">as</span> order_price</span>
-<span id="cb39-4"><a href="#cb39-4"></a>FROM   (SELECT order_id,</span>
-<span id="cb39-5"><a href="#cb39-5"></a>               product_ids,</span>
-<span id="cb39-6"><a href="#cb39-6"></a>               unnest(product_ids) <span class="im">as</span> product_id</span>
-<span id="cb39-7"><a href="#cb39-7"></a>        FROM   orders) t1</span>
-<span id="cb39-8"><a href="#cb39-8"></a>    LEFT JOIN products using(product_id)</span>
-<span id="cb39-9"><a href="#cb39-9"></a>GROUP BY order_id</span>
-<span id="cb39-10"><a href="#cb39-10"></a>ORDER BY order_id limit <span class="dv">1000</span></span>
-<span id="cb39-11"><a href="#cb39-11"></a></span>
-<span id="cb39-12"><a href="#cb39-12"></a><span class="op">--</span> або</span>
-<span id="cb39-13"><a href="#cb39-13"></a><span class="op">--</span> <span class="cf">with</span>    unnest_id <span class="im">as</span> (</span>
-<span id="cb39-14"><a href="#cb39-14"></a><span class="op">--</span>             SELECT  order_id,</span>
-<span id="cb39-15"><a href="#cb39-15"></a><span class="op">--</span>                     unnest(orders.product_ids) <span class="im">as</span> product_id</span>
-<span id="cb39-16"><a href="#cb39-16"></a><span class="op">--</span>             FROM   orders</span>
-<span id="cb39-17"><a href="#cb39-17"></a><span class="op">--</span>         ),</span>
-<span id="cb39-18"><a href="#cb39-18"></a><span class="op">--</span>         price_tbl <span class="im">as</span> (</span>
-<span id="cb39-19"><a href="#cb39-19"></a><span class="op">--</span>             SELECT  order_id,</span>
-<span id="cb39-20"><a href="#cb39-20"></a><span class="op">--</span>                     product_id,</span>
-<span id="cb39-21"><a href="#cb39-21"></a><span class="op">--</span>                     products.price</span>
-<span id="cb39-22"><a href="#cb39-22"></a><span class="op">--</span>             FROM   unnest_id</span>
-<span id="cb39-23"><a href="#cb39-23"></a><span class="op">--</span>             LEFT JOIN products using (product_id)</span>
-<span id="cb39-24"><a href="#cb39-24"></a><span class="op">--</span>                       )</span>
-<span id="cb39-25"><a href="#cb39-25"></a>        </span>
-<span id="cb39-26"><a href="#cb39-26"></a><span class="op">--</span> SELECT  order_id,</span>
-<span id="cb39-27"><a href="#cb39-27"></a><span class="op">--</span>         <span class="bu">sum</span>(price) <span class="im">as</span> order_price</span>
-<span id="cb39-28"><a href="#cb39-28"></a><span class="op">--</span> FROM price_tbl</span>
-<span id="cb39-29"><a href="#cb39-29"></a><span class="op">--</span> GROUP BY order_id</span>
-<span id="cb39-30"><a href="#cb39-30"></a><span class="op">--</span> ORDER BY order_id</span>
-<span id="cb39-31"><a href="#cb39-31"></a><span class="op">--</span> LIMIT <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="op">%%</span>sql</span>
+<span id="cb51-2"><a href="#cb51-2"></a>SELECT order_id,</span>
+<span id="cb51-3"><a href="#cb51-3"></a>       <span class="bu">sum</span>(price) <span class="im">as</span> order_price</span>
+<span id="cb51-4"><a href="#cb51-4"></a>FROM   (SELECT order_id,</span>
+<span id="cb51-5"><a href="#cb51-5"></a>               product_ids,</span>
+<span id="cb51-6"><a href="#cb51-6"></a>               unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb51-7"><a href="#cb51-7"></a>        FROM   orders) t1</span>
+<span id="cb51-8"><a href="#cb51-8"></a>    LEFT JOIN products using(product_id)</span>
+<span id="cb51-9"><a href="#cb51-9"></a>GROUP BY order_id</span>
+<span id="cb51-10"><a href="#cb51-10"></a>ORDER BY order_id limit <span class="dv">1000</span></span>
+<span id="cb51-11"><a href="#cb51-11"></a></span>
+<span id="cb51-12"><a href="#cb51-12"></a><span class="op">--</span> або</span>
+<span id="cb51-13"><a href="#cb51-13"></a><span class="op">--</span> <span class="cf">with</span>    unnest_id <span class="im">as</span> (</span>
+<span id="cb51-14"><a href="#cb51-14"></a><span class="op">--</span>             SELECT  order_id,</span>
+<span id="cb51-15"><a href="#cb51-15"></a><span class="op">--</span>                     unnest(orders.product_ids) <span class="im">as</span> product_id</span>
+<span id="cb51-16"><a href="#cb51-16"></a><span class="op">--</span>             FROM   orders</span>
+<span id="cb51-17"><a href="#cb51-17"></a><span class="op">--</span>         ),</span>
+<span id="cb51-18"><a href="#cb51-18"></a><span class="op">--</span>         price_tbl <span class="im">as</span> (</span>
+<span id="cb51-19"><a href="#cb51-19"></a><span class="op">--</span>             SELECT  order_id,</span>
+<span id="cb51-20"><a href="#cb51-20"></a><span class="op">--</span>                     product_id,</span>
+<span id="cb51-21"><a href="#cb51-21"></a><span class="op">--</span>                     products.price</span>
+<span id="cb51-22"><a href="#cb51-22"></a><span class="op">--</span>             FROM   unnest_id</span>
+<span id="cb51-23"><a href="#cb51-23"></a><span class="op">--</span>             LEFT JOIN products using (product_id)</span>
+<span id="cb51-24"><a href="#cb51-24"></a><span class="op">--</span>                       )</span>
+<span id="cb51-25"><a href="#cb51-25"></a>        </span>
+<span id="cb51-26"><a href="#cb51-26"></a><span class="op">--</span> SELECT  order_id,</span>
+<span id="cb51-27"><a href="#cb51-27"></a><span class="op">--</span>         <span class="bu">sum</span>(price) <span class="im">as</span> order_price</span>
+<span id="cb51-28"><a href="#cb51-28"></a><span class="op">--</span> FROM price_tbl</span>
+<span id="cb51-29"><a href="#cb51-29"></a><span class="op">--</span> GROUP BY order_id</span>
+<span id="cb51-30"><a href="#cb51-30"></a><span class="op">--</span> ORDER BY order_id</span>
+<span id="cb51-31"><a href="#cb51-31"></a><span class="op">--</span> LIMIT <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <div>
 
@@ -2967,57 +3063,63 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="25">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="op">%%</span>sql</span>
-<span id="cb40-2"><a href="#cb40-2"></a><span class="cf">with</span>    unnest_id <span class="im">as</span> (</span>
-<span id="cb40-3"><a href="#cb40-3"></a>            SELECT  order_id,</span>
-<span id="cb40-4"><a href="#cb40-4"></a>                    unnest(orders.product_ids) <span class="im">as</span> product_id</span>
-<span id="cb40-5"><a href="#cb40-5"></a>            FROM   orders</span>
-<span id="cb40-6"><a href="#cb40-6"></a>            ),</span>
-<span id="cb40-7"><a href="#cb40-7"></a>        price_tbl <span class="im">as</span> (</span>
-<span id="cb40-8"><a href="#cb40-8"></a>            SELECT  order_id,</span>
-<span id="cb40-9"><a href="#cb40-9"></a>                    product_id,</span>
-<span id="cb40-10"><a href="#cb40-10"></a>                    products.price</span>
-<span id="cb40-11"><a href="#cb40-11"></a>            FROM   unnest_id</span>
-<span id="cb40-12"><a href="#cb40-12"></a>            LEFT JOIN products using (product_id)</span>
-<span id="cb40-13"><a href="#cb40-13"></a>            ),</span>
-<span id="cb40-14"><a href="#cb40-14"></a>        user_order_prod <span class="im">as</span> (</span>
-<span id="cb40-15"><a href="#cb40-15"></a>            SELECT  user_id,</span>
-<span id="cb40-16"><a href="#cb40-16"></a>                    order_id,</span>
-<span id="cb40-17"><a href="#cb40-17"></a>                    product_ids</span>
-<span id="cb40-18"><a href="#cb40-18"></a>            FROM   user_actions</span>
-<span id="cb40-19"><a href="#cb40-19"></a>            LEFT JOIN orders using (order_id)</span>
-<span id="cb40-20"><a href="#cb40-20"></a>            WHERE  order_id <span class="kw">in</span> (</span>
-<span id="cb40-21"><a href="#cb40-21"></a>                SELECT order_id</span>
-<span id="cb40-22"><a href="#cb40-22"></a>                FROM   courier_actions</span>
-<span id="cb40-23"><a href="#cb40-23"></a>                WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span>)</span>
-<span id="cb40-24"><a href="#cb40-24"></a>            ),</span>
-<span id="cb40-25"><a href="#cb40-25"></a>        order_size <span class="im">as</span> (</span>
-<span id="cb40-26"><a href="#cb40-26"></a>            SELECT user_id,</span>
-<span id="cb40-27"><a href="#cb40-27"></a>                    order_id,</span>
-<span id="cb40-28"><a href="#cb40-28"></a>                    <span class="bu">round</span>(avg(array_length(product_ids, <span class="dv">1</span>)), <span class="dv">2</span>) <span class="im">as</span> avg_order_size</span>
-<span id="cb40-29"><a href="#cb40-29"></a>            FROM   user_order_prod</span>
-<span id="cb40-30"><a href="#cb40-30"></a>            GROUP BY user_id, order_id</span>
-<span id="cb40-31"><a href="#cb40-31"></a>            ),</span>
-<span id="cb40-32"><a href="#cb40-32"></a>        order_price <span class="im">as</span> (</span>
-<span id="cb40-33"><a href="#cb40-33"></a>            SELECT  order_id,</span>
-<span id="cb40-34"><a href="#cb40-34"></a>                    <span class="bu">sum</span>(price) <span class="im">as</span> order_price</span>
-<span id="cb40-35"><a href="#cb40-35"></a>            FROM   price_tbl</span>
-<span id="cb40-36"><a href="#cb40-36"></a>            GROUP BY order_id</span>
-<span id="cb40-37"><a href="#cb40-37"></a>            )</span>
-<span id="cb40-38"><a href="#cb40-38"></a>            </span>
-<span id="cb40-39"><a href="#cb40-39"></a>SELECT  user_id,</span>
-<span id="cb40-40"><a href="#cb40-40"></a>        COUNT(user_id) <span class="im">as</span> orders_count,</span>
-<span id="cb40-41"><a href="#cb40-41"></a>        ROUND(AVG(avg_order_size), <span class="dv">2</span>) <span class="im">as</span> avg_order_size,</span>
-<span id="cb40-42"><a href="#cb40-42"></a>        SUM(order_price) <span class="im">as</span> sum_order_value,</span>
-<span id="cb40-43"><a href="#cb40-43"></a>        ROUND(AVG(order_price), <span class="dv">2</span>) <span class="im">as</span> avg_order_value,</span>
-<span id="cb40-44"><a href="#cb40-44"></a>        MIN(order_price) <span class="im">as</span> min_order_value,</span>
-<span id="cb40-45"><a href="#cb40-45"></a>        MAX(order_price) <span class="im">as</span> max_order_value</span>
-<span id="cb40-46"><a href="#cb40-46"></a>FROM order_size</span>
-<span id="cb40-47"><a href="#cb40-47"></a>LEFT JOIN order_price using (order_id)</span>
-<span id="cb40-48"><a href="#cb40-48"></a>GROUP BY user_id</span>
-<span id="cb40-49"><a href="#cb40-49"></a>ORDER BY user_id</span>
-<span id="cb40-50"><a href="#cb40-50"></a>LIMIT <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a><span class="op">%%</span>sql</span>
+<span id="cb53-2"><a href="#cb53-2"></a><span class="cf">with</span>    unnest_id <span class="im">as</span> (</span>
+<span id="cb53-3"><a href="#cb53-3"></a>            SELECT  order_id,</span>
+<span id="cb53-4"><a href="#cb53-4"></a>                    unnest(orders.product_ids) <span class="im">as</span> product_id</span>
+<span id="cb53-5"><a href="#cb53-5"></a>            FROM   orders</span>
+<span id="cb53-6"><a href="#cb53-6"></a>            ),</span>
+<span id="cb53-7"><a href="#cb53-7"></a>        price_tbl <span class="im">as</span> (</span>
+<span id="cb53-8"><a href="#cb53-8"></a>            SELECT  order_id,</span>
+<span id="cb53-9"><a href="#cb53-9"></a>                    product_id,</span>
+<span id="cb53-10"><a href="#cb53-10"></a>                    products.price</span>
+<span id="cb53-11"><a href="#cb53-11"></a>            FROM   unnest_id</span>
+<span id="cb53-12"><a href="#cb53-12"></a>            LEFT JOIN products using (product_id)</span>
+<span id="cb53-13"><a href="#cb53-13"></a>            ),</span>
+<span id="cb53-14"><a href="#cb53-14"></a>        user_order_prod <span class="im">as</span> (</span>
+<span id="cb53-15"><a href="#cb53-15"></a>            SELECT  user_id,</span>
+<span id="cb53-16"><a href="#cb53-16"></a>                    order_id,</span>
+<span id="cb53-17"><a href="#cb53-17"></a>                    product_ids</span>
+<span id="cb53-18"><a href="#cb53-18"></a>            FROM   user_actions</span>
+<span id="cb53-19"><a href="#cb53-19"></a>            LEFT JOIN orders using (order_id)</span>
+<span id="cb53-20"><a href="#cb53-20"></a>            WHERE  order_id <span class="kw">in</span> (</span>
+<span id="cb53-21"><a href="#cb53-21"></a>                SELECT order_id</span>
+<span id="cb53-22"><a href="#cb53-22"></a>                FROM   courier_actions</span>
+<span id="cb53-23"><a href="#cb53-23"></a>                WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span>)</span>
+<span id="cb53-24"><a href="#cb53-24"></a>            ),</span>
+<span id="cb53-25"><a href="#cb53-25"></a>        order_size <span class="im">as</span> (</span>
+<span id="cb53-26"><a href="#cb53-26"></a>            SELECT user_id,</span>
+<span id="cb53-27"><a href="#cb53-27"></a>                    order_id,</span>
+<span id="cb53-28"><a href="#cb53-28"></a>                    <span class="bu">round</span>(avg(array_length(product_ids, <span class="dv">1</span>)), <span class="dv">2</span>) <span class="im">as</span> avg_order_size</span>
+<span id="cb53-29"><a href="#cb53-29"></a>            FROM   user_order_prod</span>
+<span id="cb53-30"><a href="#cb53-30"></a>            GROUP BY user_id, order_id</span>
+<span id="cb53-31"><a href="#cb53-31"></a>            ),</span>
+<span id="cb53-32"><a href="#cb53-32"></a>        order_price <span class="im">as</span> (</span>
+<span id="cb53-33"><a href="#cb53-33"></a>            SELECT  order_id,</span>
+<span id="cb53-34"><a href="#cb53-34"></a>                    <span class="bu">sum</span>(price) <span class="im">as</span> order_price</span>
+<span id="cb53-35"><a href="#cb53-35"></a>            FROM   price_tbl</span>
+<span id="cb53-36"><a href="#cb53-36"></a>            GROUP BY order_id</span>
+<span id="cb53-37"><a href="#cb53-37"></a>            )</span>
+<span id="cb53-38"><a href="#cb53-38"></a>            </span>
+<span id="cb53-39"><a href="#cb53-39"></a>SELECT  user_id,</span>
+<span id="cb53-40"><a href="#cb53-40"></a>        COUNT(user_id) <span class="im">as</span> orders_count,</span>
+<span id="cb53-41"><a href="#cb53-41"></a>        ROUND(AVG(avg_order_size), <span class="dv">2</span>) <span class="im">as</span> avg_order_size,</span>
+<span id="cb53-42"><a href="#cb53-42"></a>        SUM(order_price) <span class="im">as</span> sum_order_value,</span>
+<span id="cb53-43"><a href="#cb53-43"></a>        ROUND(AVG(order_price), <span class="dv">2</span>) <span class="im">as</span> avg_order_value,</span>
+<span id="cb53-44"><a href="#cb53-44"></a>        MIN(order_price) <span class="im">as</span> min_order_value,</span>
+<span id="cb53-45"><a href="#cb53-45"></a>        MAX(order_price) <span class="im">as</span> max_order_value</span>
+<span id="cb53-46"><a href="#cb53-46"></a>FROM order_size</span>
+<span id="cb53-47"><a href="#cb53-47"></a>LEFT JOIN order_price using (order_id)</span>
+<span id="cb53-48"><a href="#cb53-48"></a>GROUP BY user_id</span>
+<span id="cb53-49"><a href="#cb53-49"></a>ORDER BY user_id</span>
+<span id="cb53-50"><a href="#cb53-50"></a>LIMIT <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <div>
 
@@ -3175,22 +3277,22 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="26">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="op">%%</span>sql</span>
-<span id="cb41-2"><a href="#cb41-2"></a>SELECT name,</span>
-<span id="cb41-3"><a href="#cb41-3"></a>       count(product_id) <span class="im">as</span> times_purchased</span>
-<span id="cb41-4"><a href="#cb41-4"></a>FROM   (SELECT order_id,</span>
-<span id="cb41-5"><a href="#cb41-5"></a>               product_id,</span>
-<span id="cb41-6"><a href="#cb41-6"></a>               name</span>
-<span id="cb41-7"><a href="#cb41-7"></a>        FROM   (SELECT DISTINCT order_id,</span>
-<span id="cb41-8"><a href="#cb41-8"></a>                                unnest(product_ids) <span class="im">as</span> product_id</span>
-<span id="cb41-9"><a href="#cb41-9"></a>                FROM   orders</span>
-<span id="cb41-10"><a href="#cb41-10"></a>                    LEFT JOIN courier_actions using (order_id)</span>
-<span id="cb41-11"><a href="#cb41-11"></a>                WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
-<span id="cb41-12"><a href="#cb41-12"></a>                   <span class="kw">and</span> date_part(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">9</span></span>
-<span id="cb41-13"><a href="#cb41-13"></a>                   <span class="kw">and</span> date_part(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span>) t1</span>
-<span id="cb41-14"><a href="#cb41-14"></a>            LEFT JOIN products using (product_id)) t2</span>
-<span id="cb41-15"><a href="#cb41-15"></a>GROUP BY name</span>
-<span id="cb41-16"><a href="#cb41-16"></a>ORDER BY times_purchased desc limit <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a><span class="op">%%</span>sql</span>
+<span id="cb55-2"><a href="#cb55-2"></a>SELECT name,</span>
+<span id="cb55-3"><a href="#cb55-3"></a>       count(product_id) <span class="im">as</span> times_purchased</span>
+<span id="cb55-4"><a href="#cb55-4"></a>FROM   (SELECT order_id,</span>
+<span id="cb55-5"><a href="#cb55-5"></a>               product_id,</span>
+<span id="cb55-6"><a href="#cb55-6"></a>               name</span>
+<span id="cb55-7"><a href="#cb55-7"></a>        FROM   (SELECT DISTINCT order_id,</span>
+<span id="cb55-8"><a href="#cb55-8"></a>                                unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb55-9"><a href="#cb55-9"></a>                FROM   orders</span>
+<span id="cb55-10"><a href="#cb55-10"></a>                    LEFT JOIN courier_actions using (order_id)</span>
+<span id="cb55-11"><a href="#cb55-11"></a>                WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb55-12"><a href="#cb55-12"></a>                   <span class="kw">and</span> date_part(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">9</span></span>
+<span id="cb55-13"><a href="#cb55-13"></a>                   <span class="kw">and</span> date_part(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span>) t1</span>
+<span id="cb55-14"><a href="#cb55-14"></a>            LEFT JOIN products using (product_id)) t2</span>
+<span id="cb55-15"><a href="#cb55-15"></a>GROUP BY name</span>
+<span id="cb55-16"><a href="#cb55-16"></a>ORDER BY times_purchased desc limit <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <div>
@@ -3306,18 +3408,18 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="27">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="op">%%</span>sql</span>
-<span id="cb42-2"><a href="#cb42-2"></a>SELECT coalesce(sex, <span class="st">'unknown'</span>) <span class="im">as</span> sex,</span>
-<span id="cb42-3"><a href="#cb42-3"></a>       <span class="bu">round</span>(avg(cancel_rate), <span class="dv">3</span>) <span class="im">as</span> avg_cancel_rate</span>
-<span id="cb42-4"><a href="#cb42-4"></a>FROM   (SELECT user_id,</span>
-<span id="cb42-5"><a href="#cb42-5"></a>               sex,</span>
-<span id="cb42-6"><a href="#cb42-6"></a>               count(distinct order_id) <span class="bu">filter</span> (WHERE action <span class="op">=</span> <span class="st">'cancel_order'</span>)::decimal <span class="op">/</span> count(distinct order_id) <span class="im">as</span> cancel_rate</span>
-<span id="cb42-7"><a href="#cb42-7"></a>        FROM   user_actions</span>
-<span id="cb42-8"><a href="#cb42-8"></a>            LEFT JOIN users using(user_id)</span>
-<span id="cb42-9"><a href="#cb42-9"></a>        GROUP BY user_id, sex</span>
-<span id="cb42-10"><a href="#cb42-10"></a>        ORDER BY cancel_rate desc) t</span>
-<span id="cb42-11"><a href="#cb42-11"></a>GROUP BY sex</span>
-<span id="cb42-12"><a href="#cb42-12"></a>ORDER BY sex</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a><span class="op">%%</span>sql</span>
+<span id="cb56-2"><a href="#cb56-2"></a>SELECT coalesce(sex, <span class="st">'unknown'</span>) <span class="im">as</span> sex,</span>
+<span id="cb56-3"><a href="#cb56-3"></a>       <span class="bu">round</span>(avg(cancel_rate), <span class="dv">3</span>) <span class="im">as</span> avg_cancel_rate</span>
+<span id="cb56-4"><a href="#cb56-4"></a>FROM   (SELECT user_id,</span>
+<span id="cb56-5"><a href="#cb56-5"></a>               sex,</span>
+<span id="cb56-6"><a href="#cb56-6"></a>               count(distinct order_id) <span class="bu">filter</span> (WHERE action <span class="op">=</span> <span class="st">'cancel_order'</span>)::decimal <span class="op">/</span> count(distinct order_id) <span class="im">as</span> cancel_rate</span>
+<span id="cb56-7"><a href="#cb56-7"></a>        FROM   user_actions</span>
+<span id="cb56-8"><a href="#cb56-8"></a>            LEFT JOIN users using(user_id)</span>
+<span id="cb56-9"><a href="#cb56-9"></a>        GROUP BY user_id, sex</span>
+<span id="cb56-10"><a href="#cb56-10"></a>        ORDER BY cancel_rate desc) t</span>
+<span id="cb56-11"><a href="#cb56-11"></a>GROUP BY sex</span>
+<span id="cb56-12"><a href="#cb56-12"></a>ORDER BY sex</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <div>
@@ -3389,23 +3491,23 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="28">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="op">%%</span>sql</span>
-<span id="cb43-2"><a href="#cb43-2"></a>SELECT order_id</span>
-<span id="cb43-3"><a href="#cb43-3"></a>FROM   (SELECT order_id,</span>
-<span id="cb43-4"><a href="#cb43-4"></a>               time <span class="op">-</span> creation_time <span class="im">as</span> time_to_deliv</span>
-<span id="cb43-5"><a href="#cb43-5"></a>        FROM   orders</span>
-<span id="cb43-6"><a href="#cb43-6"></a>            LEFT JOIN courier_actions using (order_id)</span>
-<span id="cb43-7"><a href="#cb43-7"></a>        WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
-<span id="cb43-8"><a href="#cb43-8"></a>        ORDER BY time_to_deliv desc) <span class="im">as</span> t1 limit <span class="dv">10</span></span>
-<span id="cb43-9"><a href="#cb43-9"></a></span>
-<span id="cb43-10"><a href="#cb43-10"></a><span class="op">--</span> або</span>
-<span id="cb43-11"><a href="#cb43-11"></a><span class="op">--</span> SELECT order_id</span>
-<span id="cb43-12"><a href="#cb43-12"></a><span class="op">--</span> FROM   (SELECT order_id,</span>
-<span id="cb43-13"><a href="#cb43-13"></a><span class="op">--</span>                time <span class="op">-</span> creation_time <span class="im">as</span> time_to_deliv</span>
-<span id="cb43-14"><a href="#cb43-14"></a><span class="op">--</span>         FROM   orders</span>
-<span id="cb43-15"><a href="#cb43-15"></a><span class="op">--</span>             LEFT JOIN courier_actions using (order_id)</span>
-<span id="cb43-16"><a href="#cb43-16"></a><span class="op">--</span>         WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
-<span id="cb43-17"><a href="#cb43-17"></a><span class="op">--</span>         ORDER BY time_to_deliv desc) <span class="im">as</span> t1 limit <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a><span class="op">%%</span>sql</span>
+<span id="cb57-2"><a href="#cb57-2"></a>SELECT order_id</span>
+<span id="cb57-3"><a href="#cb57-3"></a>FROM   (SELECT order_id,</span>
+<span id="cb57-4"><a href="#cb57-4"></a>               time <span class="op">-</span> creation_time <span class="im">as</span> time_to_deliv</span>
+<span id="cb57-5"><a href="#cb57-5"></a>        FROM   orders</span>
+<span id="cb57-6"><a href="#cb57-6"></a>            LEFT JOIN courier_actions using (order_id)</span>
+<span id="cb57-7"><a href="#cb57-7"></a>        WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb57-8"><a href="#cb57-8"></a>        ORDER BY time_to_deliv desc) <span class="im">as</span> t1 limit <span class="dv">10</span></span>
+<span id="cb57-9"><a href="#cb57-9"></a></span>
+<span id="cb57-10"><a href="#cb57-10"></a><span class="op">--</span> або</span>
+<span id="cb57-11"><a href="#cb57-11"></a><span class="op">--</span> SELECT order_id</span>
+<span id="cb57-12"><a href="#cb57-12"></a><span class="op">--</span> FROM   (SELECT order_id,</span>
+<span id="cb57-13"><a href="#cb57-13"></a><span class="op">--</span>                time <span class="op">-</span> creation_time <span class="im">as</span> time_to_deliv</span>
+<span id="cb57-14"><a href="#cb57-14"></a><span class="op">--</span>         FROM   orders</span>
+<span id="cb57-15"><a href="#cb57-15"></a><span class="op">--</span>             LEFT JOIN courier_actions using (order_id)</span>
+<span id="cb57-16"><a href="#cb57-16"></a><span class="op">--</span>         WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb57-17"><a href="#cb57-17"></a><span class="op">--</span>         ORDER BY time_to_deliv desc) <span class="im">as</span> t1 limit <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <div>
@@ -3471,9 +3573,9 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <h2 data-number="7.8" class="anchored" data-anchor-id="збираємо-списки-array_agg"><span class="header-section-number">7.8</span> Збираємо списки: <code>array_agg()</code></h2>
 <p>Днями менеджер знову звернувся до вас із завданням: попросив зробити вивантаження з таблиці <code>orders</code> з усіма замовленнями та їх вмістом. З листування ви так і не зрозуміли, навіщо всі ці дані, але завдання зробили: натиснули <code>SELECT *</code> і відправили йому excel-файл із замовленнями. Наступного ранку з’ясувалося, що такі дані його не влаштовують, оскільки він не розуміє, що це за списки з наборами чисел. Справді, цей момент ви не врахували. Давайте виправлятися!</p>
 <p><code>array_agg</code> — це просунута агрегатна функція, яка збирає всі значення в зазначеному стовпці в єдиний список (<code>ARRAY</code>). По суті <code>array_agg</code> - це операція, зворотна <code>unnest</code>, її синтаксис нічим не відрізняється від синтаксису інших агрегатних функцій:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb44-1"><a href="#cb44-1"></a><span class="kw">SELECT</span> column_1, array_agg(column_2) <span class="kw">AS</span> new_array</span>
-<span id="cb44-2"><a href="#cb44-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb44-3"><a href="#cb44-3"></a><span class="kw">GROUP</span> <span class="kw">BY</span> column_1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb58-1"><a href="#cb58-1"></a><span class="kw">SELECT</span> column_1, array_agg(column_2) <span class="kw">AS</span> new_array</span>
+<span id="cb58-2"><a href="#cb58-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb58-3"><a href="#cb58-3"></a><span class="kw">GROUP</span> <span class="kw">BY</span> column_1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Перед тим, як вирішувати завдання, спробуйте спочатку виконати просту вправу: розгорніть списки з id товарів, помістіть результат у підзапит, а потім відразу ж поверніть все назад у списки за допомогою <code>array_agg</code>. Алгоритм вирішення цього завдання приблизно такий самий.</p>
 <hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -3513,14 +3615,20 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="29">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="op">%%</span>sql</span>
-<span id="cb45-2"><a href="#cb45-2"></a>SELECT order_id,</span>
-<span id="cb45-3"><a href="#cb45-3"></a>       array_agg(name) <span class="im">as</span> product_names</span>
-<span id="cb45-4"><a href="#cb45-4"></a>FROM   (SELECT order_id,</span>
-<span id="cb45-5"><a href="#cb45-5"></a>               unnest(product_ids) <span class="im">as</span> product_id</span>
-<span id="cb45-6"><a href="#cb45-6"></a>        FROM   orders) t join products using(product_id)</span>
-<span id="cb45-7"><a href="#cb45-7"></a>GROUP BY order_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a><span class="op">%%</span>sql</span>
+<span id="cb59-2"><a href="#cb59-2"></a>SELECT order_id,</span>
+<span id="cb59-3"><a href="#cb59-3"></a>       array_agg(name) <span class="im">as</span> product_names</span>
+<span id="cb59-4"><a href="#cb59-4"></a>FROM   (SELECT order_id,</span>
+<span id="cb59-5"><a href="#cb59-5"></a>               unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb59-6"><a href="#cb59-6"></a>        FROM   orders) t join products using(product_id)</span>
+<span id="cb59-7"><a href="#cb59-7"></a>GROUP BY order_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="29">
 <div>
 
@@ -3536,28 +3644,28 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>1</td>
-<td>[bananas, cream]</td>
+<td>11</td>
+<td>[tangerines, mayonnaise, pork]</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>3</td>
-<td>[orange juice, sunflower oil, chicken]</td>
+<td>16</td>
+<td>[apples, waffles, cookie]</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>19</td>
-<td>[bread, buckwheat, oranges, cream]</td>
+<td>26</td>
+<td>[salted fish, mutton, pears, black leaf tea]</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>53</td>
-<td>[sunflower oil, peas, apple juice, cranberry j...</td>
+<td>55</td>
+<td>[bread, sour cream, kvass]</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>54</td>
-<td>[black tea bags]</td>
+<td>67</td>
+<td>[milk, black leaf tea, lollipops]</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">...</td>
@@ -3566,28 +3674,28 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">995</td>
-<td>9783</td>
-<td>[pork, milk, chips]</td>
+<td>18270</td>
+<td>[bread, cookie, chicken]</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">996</td>
-<td>9789</td>
-<td>[bananas, energy drink, grain coffee, dried fi...</td>
+<td>18311</td>
+<td>[multifruit juice, salt, lemonade]</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">997</td>
-<td>9880</td>
-<td>[lemonade, cookie]</td>
+<td>18324</td>
+<td>[black leaf tea, peas]</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">998</td>
-<td>9895</td>
-<td>[сowberry juice]</td>
+<td>18335</td>
+<td>[ivan-tea in bags, waffles, salt]</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">999</td>
-<td>9910</td>
-<td>[green tea bags, pork, apple juice, mutton, bl...</td>
+<td>18340</td>
+<td>[instant coffee, still water]</td>
 </tr>
 </tbody>
 </table>
@@ -3617,29 +3725,29 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="30">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="op">%%</span>sql</span>
-<span id="cb46-2"><a href="#cb46-2"></a><span class="cf">with</span> order_id_large_size <span class="im">as</span> (SELECT order_id</span>
-<span id="cb46-3"><a href="#cb46-3"></a>                             FROM   orders</span>
-<span id="cb46-4"><a href="#cb46-4"></a>                             WHERE  array_length(product_ids, <span class="dv">1</span>) <span class="op">=</span> (SELECT <span class="bu">max</span>(array_length(product_ids, <span class="dv">1</span>))</span>
-<span id="cb46-5"><a href="#cb46-5"></a>                                                                    FROM   orders))</span>
-<span id="cb46-6"><a href="#cb46-6"></a>SELECT DISTINCT order_id,</span>
-<span id="cb46-7"><a href="#cb46-7"></a>                user_id,</span>
-<span id="cb46-8"><a href="#cb46-8"></a>                date_part(<span class="st">'year'</span>, age((SELECT <span class="bu">max</span>(time)</span>
-<span id="cb46-9"><a href="#cb46-9"></a>                       FROM   user_actions), users.birth_date))::integer <span class="im">as</span> user_age, courier_id, date_part(<span class="st">'year'</span>, age((SELECT <span class="bu">max</span>(time)</span>
-<span id="cb46-10"><a href="#cb46-10"></a>                                                                                                  FROM   user_actions), couriers.birth_date))::integer <span class="im">as</span> courier_age</span>
-<span id="cb46-11"><a href="#cb46-11"></a>FROM   (SELECT order_id,</span>
-<span id="cb46-12"><a href="#cb46-12"></a>               user_id</span>
-<span id="cb46-13"><a href="#cb46-13"></a>        FROM   user_actions</span>
-<span id="cb46-14"><a href="#cb46-14"></a>        WHERE  order_id <span class="kw">in</span> (SELECT <span class="op">*</span></span>
-<span id="cb46-15"><a href="#cb46-15"></a>                            FROM   order_id_large_size)) t1</span>
-<span id="cb46-16"><a href="#cb46-16"></a>    LEFT JOIN (SELECT order_id,</span>
-<span id="cb46-17"><a href="#cb46-17"></a>                      courier_id</span>
-<span id="cb46-18"><a href="#cb46-18"></a>               FROM   courier_actions</span>
-<span id="cb46-19"><a href="#cb46-19"></a>               WHERE  order_id <span class="kw">in</span> (SELECT <span class="op">*</span></span>
-<span id="cb46-20"><a href="#cb46-20"></a>                                   FROM   order_id_large_size)) t2 using(order_id)</span>
-<span id="cb46-21"><a href="#cb46-21"></a>    LEFT JOIN users using(user_id)</span>
-<span id="cb46-22"><a href="#cb46-22"></a>    LEFT JOIN couriers using(courier_id)</span>
-<span id="cb46-23"><a href="#cb46-23"></a>ORDER BY order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a><span class="op">%%</span>sql</span>
+<span id="cb61-2"><a href="#cb61-2"></a><span class="cf">with</span> order_id_large_size <span class="im">as</span> (SELECT order_id</span>
+<span id="cb61-3"><a href="#cb61-3"></a>                             FROM   orders</span>
+<span id="cb61-4"><a href="#cb61-4"></a>                             WHERE  array_length(product_ids, <span class="dv">1</span>) <span class="op">=</span> (SELECT <span class="bu">max</span>(array_length(product_ids, <span class="dv">1</span>))</span>
+<span id="cb61-5"><a href="#cb61-5"></a>                                                                    FROM   orders))</span>
+<span id="cb61-6"><a href="#cb61-6"></a>SELECT DISTINCT order_id,</span>
+<span id="cb61-7"><a href="#cb61-7"></a>                user_id,</span>
+<span id="cb61-8"><a href="#cb61-8"></a>                date_part(<span class="st">'year'</span>, age((SELECT <span class="bu">max</span>(time)</span>
+<span id="cb61-9"><a href="#cb61-9"></a>                       FROM   user_actions), users.birth_date))::integer <span class="im">as</span> user_age, courier_id, date_part(<span class="st">'year'</span>, age((SELECT <span class="bu">max</span>(time)</span>
+<span id="cb61-10"><a href="#cb61-10"></a>                                                                                                  FROM   user_actions), couriers.birth_date))::integer <span class="im">as</span> courier_age</span>
+<span id="cb61-11"><a href="#cb61-11"></a>FROM   (SELECT order_id,</span>
+<span id="cb61-12"><a href="#cb61-12"></a>               user_id</span>
+<span id="cb61-13"><a href="#cb61-13"></a>        FROM   user_actions</span>
+<span id="cb61-14"><a href="#cb61-14"></a>        WHERE  order_id <span class="kw">in</span> (SELECT <span class="op">*</span></span>
+<span id="cb61-15"><a href="#cb61-15"></a>                            FROM   order_id_large_size)) t1</span>
+<span id="cb61-16"><a href="#cb61-16"></a>    LEFT JOIN (SELECT order_id,</span>
+<span id="cb61-17"><a href="#cb61-17"></a>                      courier_id</span>
+<span id="cb61-18"><a href="#cb61-18"></a>               FROM   courier_actions</span>
+<span id="cb61-19"><a href="#cb61-19"></a>               WHERE  order_id <span class="kw">in</span> (SELECT <span class="op">*</span></span>
+<span id="cb61-20"><a href="#cb61-20"></a>                                   FROM   order_id_large_size)) t2 using(order_id)</span>
+<span id="cb61-21"><a href="#cb61-21"></a>    LEFT JOIN users using(user_id)</span>
+<span id="cb61-22"><a href="#cb61-22"></a>    LEFT JOIN couriers using(courier_id)</span>
+<span id="cb61-23"><a href="#cb61-23"></a>ORDER BY order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="30">
 <div>
@@ -3710,23 +3818,23 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>І насамкінець розглянемо ще один тип об’єднання таблиць, який теж потрібно знати. Це так званий <code>SELF JOIN</code>.</p>
 <p><code>SELF JOIN</code> - не що інше, як об’єднання таблиці із самою собою. Так, така операція також можлива і, більше того, часто буває корисною.</p>
 <p>Приєднати таблицю до себе можна з допомогою будь-якого розглянутого раніше типу джойна:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb47-1"><a href="#cb47-1"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
-<span id="cb47-2"><a href="#cb47-2"></a><span class="kw">FROM</span> <span class="kw">table</span> <span class="kw">JOIN</span> <span class="kw">table</span></span>
-<span id="cb47-3"><a href="#cb47-3"></a>     <span class="kw">ON</span> [condition]</span>
-<span id="cb47-4"><a href="#cb47-4"></a></span>
-<span id="cb47-5"><a href="#cb47-5"></a></span>
-<span id="cb47-6"><a href="#cb47-6"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
-<span id="cb47-7"><a href="#cb47-7"></a><span class="kw">FROM</span> <span class="kw">table</span> <span class="kw">LEFT</span> <span class="kw">JOIN</span> <span class="kw">table</span></span>
-<span id="cb47-8"><a href="#cb47-8"></a>     <span class="kw">ON</span> [condition]</span>
-<span id="cb47-9"><a href="#cb47-9"></a></span>
-<span id="cb47-10"><a href="#cb47-10"></a></span>
-<span id="cb47-11"><a href="#cb47-11"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
-<span id="cb47-12"><a href="#cb47-12"></a><span class="kw">FROM</span> <span class="kw">table</span> <span class="kw">FULL</span> <span class="kw">JOIN</span> <span class="kw">table</span></span>
-<span id="cb47-13"><a href="#cb47-13"></a>     <span class="kw">ON</span> [condition]</span>
-<span id="cb47-14"><a href="#cb47-14"></a></span>
-<span id="cb47-15"><a href="#cb47-15"></a></span>
-<span id="cb47-16"><a href="#cb47-16"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
-<span id="cb47-17"><a href="#cb47-17"></a><span class="kw">FROM</span> <span class="kw">table</span> <span class="kw">CROSS</span> <span class="kw">JOIN</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb62-1"><a href="#cb62-1"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
+<span id="cb62-2"><a href="#cb62-2"></a><span class="kw">FROM</span> <span class="kw">table</span> <span class="kw">JOIN</span> <span class="kw">table</span></span>
+<span id="cb62-3"><a href="#cb62-3"></a>     <span class="kw">ON</span> [condition]</span>
+<span id="cb62-4"><a href="#cb62-4"></a></span>
+<span id="cb62-5"><a href="#cb62-5"></a></span>
+<span id="cb62-6"><a href="#cb62-6"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
+<span id="cb62-7"><a href="#cb62-7"></a><span class="kw">FROM</span> <span class="kw">table</span> <span class="kw">LEFT</span> <span class="kw">JOIN</span> <span class="kw">table</span></span>
+<span id="cb62-8"><a href="#cb62-8"></a>     <span class="kw">ON</span> [condition]</span>
+<span id="cb62-9"><a href="#cb62-9"></a></span>
+<span id="cb62-10"><a href="#cb62-10"></a></span>
+<span id="cb62-11"><a href="#cb62-11"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
+<span id="cb62-12"><a href="#cb62-12"></a><span class="kw">FROM</span> <span class="kw">table</span> <span class="kw">FULL</span> <span class="kw">JOIN</span> <span class="kw">table</span></span>
+<span id="cb62-13"><a href="#cb62-13"></a>     <span class="kw">ON</span> [condition]</span>
+<span id="cb62-14"><a href="#cb62-14"></a></span>
+<span id="cb62-15"><a href="#cb62-15"></a></span>
+<span id="cb62-16"><a href="#cb62-16"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
+<span id="cb62-17"><a href="#cb62-17"></a><span class="kw">FROM</span> <span class="kw">table</span> <span class="kw">CROSS</span> <span class="kw">JOIN</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -3767,65 +3875,66 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="31">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python code-overflow-scroll number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="op">%%</span>sql</span>
-<span id="cb48-2"><a href="#cb48-2"></a><span class="cf">with</span> main_table <span class="im">as</span> (SELECT DISTINCT order_id,</span>
-<span id="cb48-3"><a href="#cb48-3"></a>                                    product_id,</span>
-<span id="cb48-4"><a href="#cb48-4"></a>                                    name</span>
-<span id="cb48-5"><a href="#cb48-5"></a>                    FROM   (SELECT order_id,</span>
-<span id="cb48-6"><a href="#cb48-6"></a>                                   unnest(product_ids) <span class="im">as</span> product_id</span>
-<span id="cb48-7"><a href="#cb48-7"></a>                            FROM   orders</span>
-<span id="cb48-8"><a href="#cb48-8"></a>                            WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
-<span id="cb48-9"><a href="#cb48-9"></a>                                                    FROM   user_actions</span>
-<span id="cb48-10"><a href="#cb48-10"></a>                                                    WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
-<span id="cb48-11"><a href="#cb48-11"></a>                               <span class="kw">and</span> order_id <span class="kw">in</span> (SELECT order_id</span>
-<span id="cb48-12"><a href="#cb48-12"></a>                                             FROM   user_actions</span>
-<span id="cb48-13"><a href="#cb48-13"></a>                                             WHERE  action <span class="op">=</span> <span class="st">'create_order'</span>)) t join products using(product_id)</span>
-<span id="cb48-14"><a href="#cb48-14"></a>                    ORDER BY order_id, name)</span>
-<span id="cb48-15"><a href="#cb48-15"></a>SELECT pair,</span>
-<span id="cb48-16"><a href="#cb48-16"></a>       count(order_id) <span class="im">as</span> count_pair</span>
-<span id="cb48-17"><a href="#cb48-17"></a>FROM   (SELECT DISTINCT a.order_id,</span>
-<span id="cb48-18"><a href="#cb48-18"></a>                        <span class="cf">case</span> when a.name <span class="op">&gt;</span> b.name then string_to_array(concat(b.name, <span class="st">'+'</span>, a.name), <span class="st">'+'</span>)</span>
-<span id="cb48-19"><a href="#cb48-19"></a>                             <span class="cf">else</span> string_to_array(concat(a.name, <span class="st">'+'</span>, b.name), <span class="st">'+'</span>) end <span class="im">as</span> pair</span>
-<span id="cb48-20"><a href="#cb48-20"></a>        FROM   main_table a join main_table b</span>
-<span id="cb48-21"><a href="#cb48-21"></a>                ON a.order_id <span class="op">=</span> b.order_id <span class="kw">and</span></span>
-<span id="cb48-22"><a href="#cb48-22"></a>                   a.name <span class="op">!=</span> b.name) t</span>
-<span id="cb48-23"><a href="#cb48-23"></a>GROUP BY pair</span>
-<span id="cb48-24"><a href="#cb48-24"></a>ORDER BY count_pair desc, pair</span>
-<span id="cb48-25"><a href="#cb48-25"></a></span>
-<span id="cb48-26"><a href="#cb48-26"></a><span class="op">--</span> або</span>
-<span id="cb48-27"><a href="#cb48-27"></a><span class="op">--</span> <span class="cf">with</span> </span>
-<span id="cb48-28"><a href="#cb48-28"></a><span class="op">--</span>     t <span class="im">as</span> (select order_id, </span>
-<span id="cb48-29"><a href="#cb48-29"></a><span class="op">--</span>             unnest(product_ids) <span class="im">as</span> product_id <span class="im">from</span> orders</span>
-<span id="cb48-30"><a href="#cb48-30"></a><span class="op">--</span>             left join user_actions using(order_id)</span>
-<span id="cb48-31"><a href="#cb48-31"></a><span class="op">--</span>             where order_id NOT IN (SELECT order_id FROM user_actions WHERE action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
-<span id="cb48-32"><a href="#cb48-32"></a><span class="op">--</span>             ),</span>
-<span id="cb48-33"><a href="#cb48-33"></a></span>
-<span id="cb48-34"><a href="#cb48-34"></a><span class="op">--</span>     k <span class="im">as</span> (select order_id, t.product_id <span class="im">as</span> pr, t1.product_id <span class="im">as</span> pr1</span>
-<span id="cb48-35"><a href="#cb48-35"></a><span class="op">--</span>             <span class="im">from</span> t</span>
-<span id="cb48-36"><a href="#cb48-36"></a><span class="op">--</span>             join t <span class="im">as</span> t1 using(order_id)</span>
-<span id="cb48-37"><a href="#cb48-37"></a><span class="op">--</span>             where t.product_id <span class="op">!=</span> t1.product_id),</span>
-<span id="cb48-38"><a href="#cb48-38"></a><span class="op">--</span> </span>
-<span id="cb48-39"><a href="#cb48-39"></a><span class="op">--</span>     p <span class="im">as</span> (select order_id, pr, pr1, name </span>
-<span id="cb48-40"><a href="#cb48-40"></a><span class="op">--</span>             <span class="im">from</span> k</span>
-<span id="cb48-41"><a href="#cb48-41"></a><span class="op">--</span>             left join products on pr <span class="op">=</span> products.product_id),</span>
-<span id="cb48-42"><a href="#cb48-42"></a><span class="op">--</span> </span>
-<span id="cb48-43"><a href="#cb48-43"></a><span class="op">--</span>     s <span class="im">as</span> (select order_id, p.name <span class="im">as</span> name, products.name <span class="im">as</span> name1</span>
-<span id="cb48-44"><a href="#cb48-44"></a><span class="op">--</span>             <span class="im">from</span> p</span>
-<span id="cb48-45"><a href="#cb48-45"></a><span class="op">--</span>             left join products on pr1 <span class="op">=</span> products.product_id),</span>
-<span id="cb48-46"><a href="#cb48-46"></a><span class="op">--</span> </span>
-<span id="cb48-47"><a href="#cb48-47"></a><span class="op">--</span>    l <span class="im">as</span> (select  distinct</span>
-<span id="cb48-48"><a href="#cb48-48"></a><span class="op">--</span>                 order_id, </span>
-<span id="cb48-49"><a href="#cb48-49"></a><span class="op">--</span>                 array_sort(array_cat(array[name], array[name1])) <span class="im">as</span> pair </span>
-<span id="cb48-50"><a href="#cb48-50"></a><span class="op">--</span>             <span class="im">from</span> s)</span>
-<span id="cb48-51"><a href="#cb48-51"></a></span>
-<span id="cb48-52"><a href="#cb48-52"></a><span class="op">--</span> select pair, count(<span class="op">*</span>) <span class="im">as</span> count_pair <span class="im">from</span> l</span>
-<span id="cb48-53"><a href="#cb48-53"></a><span class="op">--</span> group by  pair</span>
-<span id="cb48-54"><a href="#cb48-54"></a><span class="op">--</span> order by count_pair desc, pair </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python code-overflow-scroll number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a><span class="op">%%</span>sql</span>
+<span id="cb63-2"><a href="#cb63-2"></a><span class="cf">with</span> main_table <span class="im">as</span> (SELECT DISTINCT order_id,</span>
+<span id="cb63-3"><a href="#cb63-3"></a>                                    product_id,</span>
+<span id="cb63-4"><a href="#cb63-4"></a>                                    name</span>
+<span id="cb63-5"><a href="#cb63-5"></a>                    FROM   (SELECT order_id,</span>
+<span id="cb63-6"><a href="#cb63-6"></a>                                   unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb63-7"><a href="#cb63-7"></a>                            FROM   orders</span>
+<span id="cb63-8"><a href="#cb63-8"></a>                            WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb63-9"><a href="#cb63-9"></a>                                                    FROM   user_actions</span>
+<span id="cb63-10"><a href="#cb63-10"></a>                                                    WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
+<span id="cb63-11"><a href="#cb63-11"></a>                               <span class="kw">and</span> order_id <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb63-12"><a href="#cb63-12"></a>                                             FROM   user_actions</span>
+<span id="cb63-13"><a href="#cb63-13"></a>                                             WHERE  action <span class="op">=</span> <span class="st">'create_order'</span>)) t join products using(product_id)</span>
+<span id="cb63-14"><a href="#cb63-14"></a>                    ORDER BY order_id, name)</span>
+<span id="cb63-15"><a href="#cb63-15"></a>SELECT pair,</span>
+<span id="cb63-16"><a href="#cb63-16"></a>       count(order_id) <span class="im">as</span> count_pair</span>
+<span id="cb63-17"><a href="#cb63-17"></a>FROM   (SELECT DISTINCT a.order_id,</span>
+<span id="cb63-18"><a href="#cb63-18"></a>                        <span class="cf">case</span> when a.name <span class="op">&gt;</span> b.name then string_to_array(concat(b.name, <span class="st">'+'</span>, a.name), <span class="st">'+'</span>)</span>
+<span id="cb63-19"><a href="#cb63-19"></a>                             <span class="cf">else</span> string_to_array(concat(a.name, <span class="st">'+'</span>, b.name), <span class="st">'+'</span>) end <span class="im">as</span> pair</span>
+<span id="cb63-20"><a href="#cb63-20"></a>        FROM   main_table a join main_table b</span>
+<span id="cb63-21"><a href="#cb63-21"></a>                ON a.order_id <span class="op">=</span> b.order_id <span class="kw">and</span></span>
+<span id="cb63-22"><a href="#cb63-22"></a>                   a.name <span class="op">!=</span> b.name) t</span>
+<span id="cb63-23"><a href="#cb63-23"></a>GROUP BY pair</span>
+<span id="cb63-24"><a href="#cb63-24"></a>ORDER BY count_pair desc, pair</span>
+<span id="cb63-25"><a href="#cb63-25"></a></span>
+<span id="cb63-26"><a href="#cb63-26"></a><span class="op">--</span> або</span>
+<span id="cb63-27"><a href="#cb63-27"></a><span class="op">--</span> <span class="cf">with</span> </span>
+<span id="cb63-28"><a href="#cb63-28"></a><span class="op">--</span>     t <span class="im">as</span> (select order_id, </span>
+<span id="cb63-29"><a href="#cb63-29"></a><span class="op">--</span>             unnest(product_ids) <span class="im">as</span> product_id <span class="im">from</span> orders</span>
+<span id="cb63-30"><a href="#cb63-30"></a><span class="op">--</span>             left join user_actions using(order_id)</span>
+<span id="cb63-31"><a href="#cb63-31"></a><span class="op">--</span>             where order_id NOT IN (SELECT order_id FROM user_actions WHERE action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
+<span id="cb63-32"><a href="#cb63-32"></a><span class="op">--</span>             ),</span>
+<span id="cb63-33"><a href="#cb63-33"></a></span>
+<span id="cb63-34"><a href="#cb63-34"></a><span class="op">--</span>     k <span class="im">as</span> (select order_id, t.product_id <span class="im">as</span> pr, t1.product_id <span class="im">as</span> pr1</span>
+<span id="cb63-35"><a href="#cb63-35"></a><span class="op">--</span>             <span class="im">from</span> t</span>
+<span id="cb63-36"><a href="#cb63-36"></a><span class="op">--</span>             join t <span class="im">as</span> t1 using(order_id)</span>
+<span id="cb63-37"><a href="#cb63-37"></a><span class="op">--</span>             where t.product_id <span class="op">!=</span> t1.product_id),</span>
+<span id="cb63-38"><a href="#cb63-38"></a><span class="op">--</span> </span>
+<span id="cb63-39"><a href="#cb63-39"></a><span class="op">--</span>     p <span class="im">as</span> (select order_id, pr, pr1, name </span>
+<span id="cb63-40"><a href="#cb63-40"></a><span class="op">--</span>             <span class="im">from</span> k</span>
+<span id="cb63-41"><a href="#cb63-41"></a><span class="op">--</span>             left join products on pr <span class="op">=</span> products.product_id),</span>
+<span id="cb63-42"><a href="#cb63-42"></a><span class="op">--</span> </span>
+<span id="cb63-43"><a href="#cb63-43"></a><span class="op">--</span>     s <span class="im">as</span> (select order_id, p.name <span class="im">as</span> name, products.name <span class="im">as</span> name1</span>
+<span id="cb63-44"><a href="#cb63-44"></a><span class="op">--</span>             <span class="im">from</span> p</span>
+<span id="cb63-45"><a href="#cb63-45"></a><span class="op">--</span>             left join products on pr1 <span class="op">=</span> products.product_id),</span>
+<span id="cb63-46"><a href="#cb63-46"></a><span class="op">--</span> </span>
+<span id="cb63-47"><a href="#cb63-47"></a><span class="op">--</span>    l <span class="im">as</span> (select  distinct</span>
+<span id="cb63-48"><a href="#cb63-48"></a><span class="op">--</span>                 order_id, </span>
+<span id="cb63-49"><a href="#cb63-49"></a><span class="op">--</span>                 array_sort(array_cat(array[name], array[name1])) <span class="im">as</span> pair </span>
+<span id="cb63-50"><a href="#cb63-50"></a><span class="op">--</span>             <span class="im">from</span> s)</span>
+<span id="cb63-51"><a href="#cb63-51"></a></span>
+<span id="cb63-52"><a href="#cb63-52"></a><span class="op">--</span> select pair, count(<span class="op">*</span>) <span class="im">as</span> count_pair <span class="im">from</span> l</span>
+<span id="cb63-53"><a href="#cb63-53"></a><span class="op">--</span> group by  pair</span>
+<span id="cb63-54"><a href="#cb63-54"></a><span class="op">--</span> order by count_pair desc, pair </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"bb3646f9bb7a47e5816782ea1f8e9196","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="31">
 <div>
@@ -3907,9 +4016,6 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </section>
 
 </main> <!-- /main -->
-<script type="application/vnd.jupyter.widget-state+json">
-{"state":{"5dc07ab489624bc5850ad59cdba2049b":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"6573f0cbe1f84ba3bdd33ef69c9171b0":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"100%"}},"bb3646f9bb7a47e5816782ea1f8e9196":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_6573f0cbe1f84ba3bdd33ef69c9171b0","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_5dc07ab489624bc5850ad59cdba2049b","tabbable":null,"tooltip":null,"value":100}}},"version_major":2,"version_minor":0}
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -3,9 +3,9 @@ project:
   output-dir: docs
 
 book:
-  title: "Python та його друзі в науці про дані"
+  title: "Від нуля до Python Data Scientist"
   author: "Ігор Мірошниченко"
-  description: Книга-конспект матеріалів.
+  description: Книга-конспект матеріалів
   keyword: polars, pandas, python, dataframe, performance, data science, data engineering
   date: today
   date-format: iso
@@ -13,6 +13,8 @@ book:
   favicon: cover.png
   repo-url: https://github.com/Aranaur/py4ds
   url: https://aranaur.github.io/py4ds/
+  repo-branch: main
+  repo-actions: [edit, issue, source]
   sidebar: 
     # background: "#F5F5F5"
     logo: cover.png
@@ -20,7 +22,7 @@ book:
   sharing: [twitter, facebook, linkedin]
   google-analytics: 'G-0C9TJBF3C5'
   chapters:
-    - index.ipynb
+    - index.qmd
     - text: "---"
     - part: python.qmd
       chapters: 

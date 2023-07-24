@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Книга-конспект матеріалів.">
+<meta name="description" content="Книга-конспект матеріалів">
 
-<title>Python та його друзі в науці про дані - 6&nbsp; Підзапити</title>
+<title>Від нуля до Python Data Scientist - 6&nbsp; Підзапити</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -95,7 +95,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "Додаткові результати у цьому документі",
     "search-clear-button-title": "Очистити",
     "search-detached-cancel-button-title": "Скасувати",
-    "search-submit-button-title": "Надіслати"
+    "search-submit-button-title": "Надіслати",
+    "search-label": "Пошук"
   }
 }</script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-0C9TJBF3C5"></script>
@@ -126,7 +127,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql.html">SQL</a></li><li class="breadcrumb-item"><a href="./sql_subquery.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Підзапити</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -141,9 +142,9 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Python та його друзі в науці про дані</a> 
+      <a href="./">Від нуля до Python Data Scientist</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/Aranaur/py4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/Aranaur/py4ds" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -173,7 +174,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Пошук"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -181,19 +182,37 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Вступне слово</span></span></a>
+ <span class="menu-text">Вступне слово</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./sql.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SQL</span></a>
+            <a href="./python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Переключити розділ">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Змінні та типи даних</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./sql.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Переключити розділ">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_basics.html" class="sidebar-item-text sidebar-link">
@@ -274,7 +293,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <li><a href="#підзапити-в-блоці-select" id="toc-підзапити-в-блоці-select" class="nav-link" data-scroll-target="#підзапити-в-блоці-select"><span class="header-section-number">6.5</span> Підзапити в блоці SELECT</a></li>
   <li><a href="#розгортання-списків-unnest" id="toc-розгортання-списків-unnest" class="nav-link" data-scroll-target="#розгортання-списків-unnest"><span class="header-section-number">6.6</span> Розгортання списків: UNNEST()</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/Aranaur/py4ds/blob/main/sql_subquery.ipynb" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/sql_subquery.ipynb" class="toc-action">Переглянути код</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -1096,6 +1115,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb28-11"><a href="#cb28-11"></a>FROM   t1</span>
 <span id="cb28-12"><a href="#cb28-12"></a>ORDER BY user_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
@@ -1228,15 +1253,15 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="10">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="op">%%</span>sql</span>
-<span id="cb29-2"><a href="#cb29-2"></a>SELECT order_id,</span>
-<span id="cb29-3"><a href="#cb29-3"></a>       product_ids</span>
-<span id="cb29-4"><a href="#cb29-4"></a>FROM   orders</span>
-<span id="cb29-5"><a href="#cb29-5"></a>WHERE  order_id <span class="kw">in</span> (SELECT order_id</span>
-<span id="cb29-6"><a href="#cb29-6"></a>                    FROM   courier_actions</span>
-<span id="cb29-7"><a href="#cb29-7"></a>                    WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
-<span id="cb29-8"><a href="#cb29-8"></a>                    ORDER BY time desc limit <span class="dv">100</span>)</span>
-<span id="cb29-9"><a href="#cb29-9"></a>ORDER BY order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="op">%%</span>sql</span>
+<span id="cb30-2"><a href="#cb30-2"></a>SELECT order_id,</span>
+<span id="cb30-3"><a href="#cb30-3"></a>       product_ids</span>
+<span id="cb30-4"><a href="#cb30-4"></a>FROM   orders</span>
+<span id="cb30-5"><a href="#cb30-5"></a>WHERE  order_id <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb30-6"><a href="#cb30-6"></a>                    FROM   courier_actions</span>
+<span id="cb30-7"><a href="#cb30-7"></a>                    WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb30-8"><a href="#cb30-8"></a>                    ORDER BY time desc limit <span class="dv">100</span>)</span>
+<span id="cb30-9"><a href="#cb30-9"></a>ORDER BY order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div>
@@ -1345,18 +1370,18 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="11">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="op">%%</span>sql</span>
-<span id="cb30-2"><a href="#cb30-2"></a>SELECT courier_id,</span>
-<span id="cb30-3"><a href="#cb30-3"></a>       birth_date,</span>
-<span id="cb30-4"><a href="#cb30-4"></a>       sex</span>
-<span id="cb30-5"><a href="#cb30-5"></a>FROM   couriers</span>
-<span id="cb30-6"><a href="#cb30-6"></a>WHERE  courier_id <span class="kw">in</span> (SELECT courier_id</span>
-<span id="cb30-7"><a href="#cb30-7"></a>                      FROM   courier_actions</span>
-<span id="cb30-8"><a href="#cb30-8"></a>                      WHERE  date_part(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">9</span></span>
-<span id="cb30-9"><a href="#cb30-9"></a>                         <span class="kw">and</span> date_part(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span></span>
-<span id="cb30-10"><a href="#cb30-10"></a>                         <span class="kw">and</span> action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
-<span id="cb30-11"><a href="#cb30-11"></a>                      GROUP BY courier_id having count(distinct order_id) <span class="op">&gt;=</span> <span class="dv">30</span>)</span>
-<span id="cb30-12"><a href="#cb30-12"></a>ORDER BY courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="op">%%</span>sql</span>
+<span id="cb31-2"><a href="#cb31-2"></a>SELECT courier_id,</span>
+<span id="cb31-3"><a href="#cb31-3"></a>       birth_date,</span>
+<span id="cb31-4"><a href="#cb31-4"></a>       sex</span>
+<span id="cb31-5"><a href="#cb31-5"></a>FROM   couriers</span>
+<span id="cb31-6"><a href="#cb31-6"></a>WHERE  courier_id <span class="kw">in</span> (SELECT courier_id</span>
+<span id="cb31-7"><a href="#cb31-7"></a>                      FROM   courier_actions</span>
+<span id="cb31-8"><a href="#cb31-8"></a>                      WHERE  date_part(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">9</span></span>
+<span id="cb31-9"><a href="#cb31-9"></a>                         <span class="kw">and</span> date_part(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span></span>
+<span id="cb31-10"><a href="#cb31-10"></a>                         <span class="kw">and</span> action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb31-11"><a href="#cb31-11"></a>                      GROUP BY courier_id having count(distinct order_id) <span class="op">&gt;=</span> <span class="dv">30</span>)</span>
+<span id="cb31-12"><a href="#cb31-12"></a>ORDER BY courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <div>
@@ -1423,18 +1448,18 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="12">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="op">%%</span>sql</span>
-<span id="cb31-2"><a href="#cb31-2"></a>SELECT </span>
-<span id="cb31-3"><a href="#cb31-3"></a>  product_id,</span>
-<span id="cb31-4"><a href="#cb31-4"></a>  name,</span>
-<span id="cb31-5"><a href="#cb31-5"></a>  price,</span>
-<span id="cb31-6"><a href="#cb31-6"></a>  CASE</span>
-<span id="cb31-7"><a href="#cb31-7"></a>    WHEN price <span class="op">&gt;</span> (SELECT ROUND(AVG(price), <span class="dv">2</span>) <span class="op">+</span> <span class="dv">50</span> FROM products) THEN ROUND(price <span class="op">*</span> <span class="fl">0.85</span>, <span class="dv">2</span>)</span>
-<span id="cb31-8"><a href="#cb31-8"></a>    WHEN price <span class="op">&lt;</span> (SELECT ROUND(AVG(price), <span class="dv">2</span>) <span class="op">-</span> <span class="dv">50</span> FROM products) THEN ROUND(price <span class="op">*</span> <span class="fl">0.9</span>, <span class="dv">2</span>)</span>
-<span id="cb31-9"><a href="#cb31-9"></a>    ELSE price</span>
-<span id="cb31-10"><a href="#cb31-10"></a>  END AS new_price</span>
-<span id="cb31-11"><a href="#cb31-11"></a>FROM products</span>
-<span id="cb31-12"><a href="#cb31-12"></a>ORDER BY price DESC, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="op">%%</span>sql</span>
+<span id="cb32-2"><a href="#cb32-2"></a>SELECT </span>
+<span id="cb32-3"><a href="#cb32-3"></a>  product_id,</span>
+<span id="cb32-4"><a href="#cb32-4"></a>  name,</span>
+<span id="cb32-5"><a href="#cb32-5"></a>  price,</span>
+<span id="cb32-6"><a href="#cb32-6"></a>  CASE</span>
+<span id="cb32-7"><a href="#cb32-7"></a>    WHEN price <span class="op">&gt;</span> (SELECT ROUND(AVG(price), <span class="dv">2</span>) <span class="op">+</span> <span class="dv">50</span> FROM products) THEN ROUND(price <span class="op">*</span> <span class="fl">0.85</span>, <span class="dv">2</span>)</span>
+<span id="cb32-8"><a href="#cb32-8"></a>    WHEN price <span class="op">&lt;</span> (SELECT ROUND(AVG(price), <span class="dv">2</span>) <span class="op">-</span> <span class="dv">50</span> FROM products) THEN ROUND(price <span class="op">*</span> <span class="fl">0.9</span>, <span class="dv">2</span>)</span>
+<span id="cb32-9"><a href="#cb32-9"></a>    ELSE price</span>
+<span id="cb32-10"><a href="#cb32-10"></a>  END AS new_price</span>
+<span id="cb32-11"><a href="#cb32-11"></a>FROM products</span>
+<span id="cb32-12"><a href="#cb32-12"></a>ORDER BY price DESC, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <div>
@@ -1539,20 +1564,20 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <section id="розгортання-списків-unnest" class="level2" data-number="6.6">
 <h2 data-number="6.6" class="anchored" data-anchor-id="розгортання-списків-unnest"><span class="header-section-number">6.6</span> Розгортання списків: UNNEST()</h2>
 <p>Давайте знову попрацюємо з масивами і освоїмо нову функцію <code>unnest</code>, яка стане нам у нагоді в подальших завданнях. Функція <code>unnest</code> призначена для розгортання масивів та перетворення їх на набір рядків:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">SELECT</span> unnest(<span class="dt">ARRAY</span>[<span class="st">'one'</span>,<span class="st">'two'</span>,<span class="st">'three'</span>])</span>
-<span id="cb32-2"><a href="#cb32-2"></a></span>
-<span id="cb32-3"><a href="#cb32-3"></a>Результат:</span>
-<span id="cb32-4"><a href="#cb32-4"></a>one</span>
-<span id="cb32-5"><a href="#cb32-5"></a>two</span>
-<span id="cb32-6"><a href="#cb32-6"></a>three</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>У прикладі вище функція <code>unnest</code> перетворила вихідний список із трьох елементів на набір із трьох рядків.</p>
-<p>Якби у вихідній таблиці крім списку був стовпець з будь-яким значенням, то це значення автоматично проставилося б навпроти значень у кожному рядку, що утворився:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1"></a><span class="kw">SELECT</span> <span class="st">'row'</span>, unnest(<span class="dt">ARRAY</span>[<span class="st">'one'</span>,<span class="st">'two'</span>,<span class="st">'three'</span>])</span>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1"></a><span class="kw">SELECT</span> unnest(<span class="dt">ARRAY</span>[<span class="st">'one'</span>,<span class="st">'two'</span>,<span class="st">'three'</span>])</span>
 <span id="cb33-2"><a href="#cb33-2"></a></span>
 <span id="cb33-3"><a href="#cb33-3"></a>Результат:</span>
-<span id="cb33-4"><a href="#cb33-4"></a><span class="kw">row</span>    one</span>
-<span id="cb33-5"><a href="#cb33-5"></a><span class="kw">row</span>    two</span>
-<span id="cb33-6"><a href="#cb33-6"></a><span class="kw">row</span>    three</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-4"><a href="#cb33-4"></a>one</span>
+<span id="cb33-5"><a href="#cb33-5"></a>two</span>
+<span id="cb33-6"><a href="#cb33-6"></a>three</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>У прикладі вище функція <code>unnest</code> перетворила вихідний список із трьох елементів на набір із трьох рядків.</p>
+<p>Якби у вихідній таблиці крім списку був стовпець з будь-яким значенням, то це значення автоматично проставилося б навпроти значень у кожному рядку, що утворився:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb34-1"><a href="#cb34-1"></a><span class="kw">SELECT</span> <span class="st">'row'</span>, unnest(<span class="dt">ARRAY</span>[<span class="st">'one'</span>,<span class="st">'two'</span>,<span class="st">'three'</span>])</span>
+<span id="cb34-2"><a href="#cb34-2"></a></span>
+<span id="cb34-3"><a href="#cb34-3"></a>Результат:</span>
+<span id="cb34-4"><a href="#cb34-4"></a><span class="kw">row</span>    one</span>
+<span id="cb34-5"><a href="#cb34-5"></a><span class="kw">row</span>    two</span>
+<span id="cb34-6"><a href="#cb34-6"></a><span class="kw">row</span>    three</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1572,13 +1597,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="13">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="op">%%</span>sql</span>
-<span id="cb34-2"><a href="#cb34-2"></a>SELECT creation_time,</span>
-<span id="cb34-3"><a href="#cb34-3"></a>       order_id,</span>
-<span id="cb34-4"><a href="#cb34-4"></a>       product_ids,</span>
-<span id="cb34-5"><a href="#cb34-5"></a>       unnest(product_ids) <span class="im">as</span> product_id</span>
-<span id="cb34-6"><a href="#cb34-6"></a>FROM   orders</span>
-<span id="cb34-7"><a href="#cb34-7"></a>LIMIT <span class="dv">100</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="op">%%</span>sql</span>
+<span id="cb35-2"><a href="#cb35-2"></a>SELECT creation_time,</span>
+<span id="cb35-3"><a href="#cb35-3"></a>       order_id,</span>
+<span id="cb35-4"><a href="#cb35-4"></a>       product_ids,</span>
+<span id="cb35-5"><a href="#cb35-5"></a>       unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb35-6"><a href="#cb35-6"></a>FROM   orders</span>
+<span id="cb35-7"><a href="#cb35-7"></a>LIMIT <span class="dv">100</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <div>
@@ -1713,13 +1738,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="14">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="op">%%</span>sql</span>
-<span id="cb35-2"><a href="#cb35-2"></a>SELECT unnest(product_ids) <span class="im">as</span> product_id,</span>
-<span id="cb35-3"><a href="#cb35-3"></a>       count(<span class="op">*</span>) <span class="im">as</span> times_purchased</span>
-<span id="cb35-4"><a href="#cb35-4"></a>FROM   orders</span>
-<span id="cb35-5"><a href="#cb35-5"></a>GROUP BY product_id</span>
-<span id="cb35-6"><a href="#cb35-6"></a>ORDER BY times_purchased desc</span>
-<span id="cb35-7"><a href="#cb35-7"></a>LIMIT <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="op">%%</span>sql</span>
+<span id="cb36-2"><a href="#cb36-2"></a>SELECT unnest(product_ids) <span class="im">as</span> product_id,</span>
+<span id="cb36-3"><a href="#cb36-3"></a>       count(<span class="op">*</span>) <span class="im">as</span> times_purchased</span>
+<span id="cb36-4"><a href="#cb36-4"></a>FROM   orders</span>
+<span id="cb36-5"><a href="#cb36-5"></a>GROUP BY product_id</span>
+<span id="cb36-6"><a href="#cb36-6"></a>ORDER BY times_purchased desc</span>
+<span id="cb36-7"><a href="#cb36-7"></a>LIMIT <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>І насамкінець ще пара завдань зі зірочкою, щоб точно переконатися, що ми розібралися з підзапитами.</p>
@@ -1742,37 +1767,43 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="15">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="op">%%</span>sql</span>
-<span id="cb36-2"><a href="#cb36-2"></a><span class="cf">with</span>    top_products <span class="im">as</span> (SELECT product_id</span>
-<span id="cb36-3"><a href="#cb36-3"></a>                      FROM   products</span>
-<span id="cb36-4"><a href="#cb36-4"></a>                      ORDER BY price desc limit <span class="dv">5</span>),</span>
-<span id="cb36-5"><a href="#cb36-5"></a>        unnest <span class="im">as</span> (SELECT order_id,</span>
-<span id="cb36-6"><a href="#cb36-6"></a>                   product_ids,</span>
-<span id="cb36-7"><a href="#cb36-7"></a>                   unnest(product_ids) <span class="im">as</span> product_id</span>
-<span id="cb36-8"><a href="#cb36-8"></a>                   FROM   orders)</span>
-<span id="cb36-9"><a href="#cb36-9"></a>SELECT DISTINCT order_id,</span>
-<span id="cb36-10"><a href="#cb36-10"></a>                product_ids</span>
-<span id="cb36-11"><a href="#cb36-11"></a>FROM   unnest</span>
-<span id="cb36-12"><a href="#cb36-12"></a>WHERE  product_id <span class="kw">in</span> (SELECT <span class="op">*</span></span>
-<span id="cb36-13"><a href="#cb36-13"></a>                      FROM   top_products)</span>
-<span id="cb36-14"><a href="#cb36-14"></a>ORDER BY order_id</span>
-<span id="cb36-15"><a href="#cb36-15"></a></span>
-<span id="cb36-16"><a href="#cb36-16"></a><span class="op">--</span> або з `exists`</span>
-<span id="cb36-17"><a href="#cb36-17"></a><span class="op">--</span> SELECT order_id,</span>
-<span id="cb36-18"><a href="#cb36-18"></a><span class="op">--</span>        product_ids</span>
-<span id="cb36-19"><a href="#cb36-19"></a><span class="op">--</span> FROM   orders</span>
-<span id="cb36-20"><a href="#cb36-20"></a><span class="op">--</span> WHERE  exists (</span>
-<span id="cb36-21"><a href="#cb36-21"></a><span class="op">--</span>  SELECT <span class="dv">1</span></span>
-<span id="cb36-22"><a href="#cb36-22"></a><span class="op">--</span>  FROM   unnest(product_ids) <span class="im">as</span> product_id</span>
-<span id="cb36-23"><a href="#cb36-23"></a><span class="op">--</span>  WHERE  product_id <span class="kw">in</span> (</span>
-<span id="cb36-24"><a href="#cb36-24"></a><span class="op">--</span>      SELECT product_id</span>
-<span id="cb36-25"><a href="#cb36-25"></a><span class="op">--</span>      FROM   products</span>
-<span id="cb36-26"><a href="#cb36-26"></a><span class="op">--</span>      ORDER BY price desc</span>
-<span id="cb36-27"><a href="#cb36-27"></a><span class="op">--</span>      LIMIT <span class="dv">5</span></span>
-<span id="cb36-28"><a href="#cb36-28"></a><span class="op">--</span>      )</span>
-<span id="cb36-29"><a href="#cb36-29"></a><span class="op">--</span> )</span>
-<span id="cb36-30"><a href="#cb36-30"></a><span class="op">--</span> ORDER BY order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="op">%%</span>sql</span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="cf">with</span>    top_products <span class="im">as</span> (SELECT product_id</span>
+<span id="cb37-3"><a href="#cb37-3"></a>                      FROM   products</span>
+<span id="cb37-4"><a href="#cb37-4"></a>                      ORDER BY price desc limit <span class="dv">5</span>),</span>
+<span id="cb37-5"><a href="#cb37-5"></a>        unnest <span class="im">as</span> (SELECT order_id,</span>
+<span id="cb37-6"><a href="#cb37-6"></a>                   product_ids,</span>
+<span id="cb37-7"><a href="#cb37-7"></a>                   unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb37-8"><a href="#cb37-8"></a>                   FROM   orders)</span>
+<span id="cb37-9"><a href="#cb37-9"></a>SELECT DISTINCT order_id,</span>
+<span id="cb37-10"><a href="#cb37-10"></a>                product_ids</span>
+<span id="cb37-11"><a href="#cb37-11"></a>FROM   unnest</span>
+<span id="cb37-12"><a href="#cb37-12"></a>WHERE  product_id <span class="kw">in</span> (SELECT <span class="op">*</span></span>
+<span id="cb37-13"><a href="#cb37-13"></a>                      FROM   top_products)</span>
+<span id="cb37-14"><a href="#cb37-14"></a>ORDER BY order_id</span>
+<span id="cb37-15"><a href="#cb37-15"></a></span>
+<span id="cb37-16"><a href="#cb37-16"></a><span class="op">--</span> або з `exists`</span>
+<span id="cb37-17"><a href="#cb37-17"></a><span class="op">--</span> SELECT order_id,</span>
+<span id="cb37-18"><a href="#cb37-18"></a><span class="op">--</span>        product_ids</span>
+<span id="cb37-19"><a href="#cb37-19"></a><span class="op">--</span> FROM   orders</span>
+<span id="cb37-20"><a href="#cb37-20"></a><span class="op">--</span> WHERE  exists (</span>
+<span id="cb37-21"><a href="#cb37-21"></a><span class="op">--</span>  SELECT <span class="dv">1</span></span>
+<span id="cb37-22"><a href="#cb37-22"></a><span class="op">--</span>  FROM   unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb37-23"><a href="#cb37-23"></a><span class="op">--</span>  WHERE  product_id <span class="kw">in</span> (</span>
+<span id="cb37-24"><a href="#cb37-24"></a><span class="op">--</span>      SELECT product_id</span>
+<span id="cb37-25"><a href="#cb37-25"></a><span class="op">--</span>      FROM   products</span>
+<span id="cb37-26"><a href="#cb37-26"></a><span class="op">--</span>      ORDER BY price desc</span>
+<span id="cb37-27"><a href="#cb37-27"></a><span class="op">--</span>      LIMIT <span class="dv">5</span></span>
+<span id="cb37-28"><a href="#cb37-28"></a><span class="op">--</span>      )</span>
+<span id="cb37-29"><a href="#cb37-29"></a><span class="op">--</span> )</span>
+<span id="cb37-30"><a href="#cb37-30"></a><span class="op">--</span> ORDER BY order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
@@ -1880,41 +1911,47 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="16">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="op">%%</span>sql</span>
-<span id="cb37-2"><a href="#cb37-2"></a></span>
-<span id="cb37-3"><a href="#cb37-3"></a><span class="cf">with</span> users_age <span class="im">as</span> (</span>
-<span id="cb37-4"><a href="#cb37-4"></a>    SELECT  user_id,</span>
-<span id="cb37-5"><a href="#cb37-5"></a>            date_part(<span class="st">'year'</span>, age((SELECT <span class="bu">max</span>(time) FROM   user_actions), birth_date)) <span class="im">as</span> age</span>
-<span id="cb37-6"><a href="#cb37-6"></a>    FROM   users)</span>
-<span id="cb37-7"><a href="#cb37-7"></a></span>
-<span id="cb37-8"><a href="#cb37-8"></a>SELECT user_id,</span>
-<span id="cb37-9"><a href="#cb37-9"></a>       coalesce(age, (SELECT <span class="bu">round</span>(avg(age))</span>
-<span id="cb37-10"><a href="#cb37-10"></a>               FROM   users_age)) <span class="im">as</span> age</span>
-<span id="cb37-11"><a href="#cb37-11"></a>FROM   users_age</span>
-<span id="cb37-12"><a href="#cb37-12"></a>ORDER BY user_id</span>
-<span id="cb37-13"><a href="#cb37-13"></a></span>
-<span id="cb37-14"><a href="#cb37-14"></a><span class="op">--</span> або без `coalesce`</span>
-<span id="cb37-15"><a href="#cb37-15"></a><span class="op">--</span> <span class="cf">with</span> max_time <span class="im">as</span> (</span>
-<span id="cb37-16"><a href="#cb37-16"></a><span class="op">--</span>     SELECT <span class="bu">max</span>(time) <span class="im">as</span> <span class="bu">max</span></span>
-<span id="cb37-17"><a href="#cb37-17"></a><span class="op">--</span>     FROM user_actions </span>
-<span id="cb37-18"><a href="#cb37-18"></a><span class="op">--</span>     ),</span>
-<span id="cb37-19"><a href="#cb37-19"></a><span class="op">--</span>     user_age <span class="im">as</span> (</span>
-<span id="cb37-20"><a href="#cb37-20"></a><span class="op">--</span>     SELECT  user_id,</span>
-<span id="cb37-21"><a href="#cb37-21"></a><span class="op">--</span>             DATE_PART(<span class="st">'year'</span>, age((SELECT <span class="bu">max</span> FROM max_time), birth_date)) <span class="im">as</span> age</span>
-<span id="cb37-22"><a href="#cb37-22"></a><span class="op">--</span>     FROM users</span>
-<span id="cb37-23"><a href="#cb37-23"></a><span class="op">--</span>     ),</span>
-<span id="cb37-24"><a href="#cb37-24"></a><span class="op">--</span>     user_avg_age <span class="im">as</span> (</span>
-<span id="cb37-25"><a href="#cb37-25"></a><span class="op">--</span>     SELECT AVG(age)::integer <span class="im">as</span> avg_age</span>
-<span id="cb37-26"><a href="#cb37-26"></a><span class="op">--</span>     FROM user_age</span>
-<span id="cb37-27"><a href="#cb37-27"></a><span class="op">--</span>     )</span>
-<span id="cb37-28"><a href="#cb37-28"></a><span class="op">--</span>     </span>
-<span id="cb37-29"><a href="#cb37-29"></a><span class="op">--</span> SELECT  user_id,</span>
-<span id="cb37-30"><a href="#cb37-30"></a><span class="op">--</span>         case when age IS NULL THEN (SELECT avg_age FROM user_avg_age)</span>
-<span id="cb37-31"><a href="#cb37-31"></a><span class="op">--</span>     ELSE age</span>
-<span id="cb37-32"><a href="#cb37-32"></a><span class="op">--</span>     end</span>
-<span id="cb37-33"><a href="#cb37-33"></a><span class="op">--</span> FROM user_age</span>
-<span id="cb37-34"><a href="#cb37-34"></a><span class="op">--</span> ORDER BY user_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="op">%%</span>sql</span>
+<span id="cb39-2"><a href="#cb39-2"></a></span>
+<span id="cb39-3"><a href="#cb39-3"></a><span class="cf">with</span> users_age <span class="im">as</span> (</span>
+<span id="cb39-4"><a href="#cb39-4"></a>    SELECT  user_id,</span>
+<span id="cb39-5"><a href="#cb39-5"></a>            date_part(<span class="st">'year'</span>, age((SELECT <span class="bu">max</span>(time) FROM   user_actions), birth_date)) <span class="im">as</span> age</span>
+<span id="cb39-6"><a href="#cb39-6"></a>    FROM   users)</span>
+<span id="cb39-7"><a href="#cb39-7"></a></span>
+<span id="cb39-8"><a href="#cb39-8"></a>SELECT user_id,</span>
+<span id="cb39-9"><a href="#cb39-9"></a>       coalesce(age, (SELECT <span class="bu">round</span>(avg(age))</span>
+<span id="cb39-10"><a href="#cb39-10"></a>               FROM   users_age)) <span class="im">as</span> age</span>
+<span id="cb39-11"><a href="#cb39-11"></a>FROM   users_age</span>
+<span id="cb39-12"><a href="#cb39-12"></a>ORDER BY user_id</span>
+<span id="cb39-13"><a href="#cb39-13"></a></span>
+<span id="cb39-14"><a href="#cb39-14"></a><span class="op">--</span> або без `coalesce`</span>
+<span id="cb39-15"><a href="#cb39-15"></a><span class="op">--</span> <span class="cf">with</span> max_time <span class="im">as</span> (</span>
+<span id="cb39-16"><a href="#cb39-16"></a><span class="op">--</span>     SELECT <span class="bu">max</span>(time) <span class="im">as</span> <span class="bu">max</span></span>
+<span id="cb39-17"><a href="#cb39-17"></a><span class="op">--</span>     FROM user_actions </span>
+<span id="cb39-18"><a href="#cb39-18"></a><span class="op">--</span>     ),</span>
+<span id="cb39-19"><a href="#cb39-19"></a><span class="op">--</span>     user_age <span class="im">as</span> (</span>
+<span id="cb39-20"><a href="#cb39-20"></a><span class="op">--</span>     SELECT  user_id,</span>
+<span id="cb39-21"><a href="#cb39-21"></a><span class="op">--</span>             DATE_PART(<span class="st">'year'</span>, age((SELECT <span class="bu">max</span> FROM max_time), birth_date)) <span class="im">as</span> age</span>
+<span id="cb39-22"><a href="#cb39-22"></a><span class="op">--</span>     FROM users</span>
+<span id="cb39-23"><a href="#cb39-23"></a><span class="op">--</span>     ),</span>
+<span id="cb39-24"><a href="#cb39-24"></a><span class="op">--</span>     user_avg_age <span class="im">as</span> (</span>
+<span id="cb39-25"><a href="#cb39-25"></a><span class="op">--</span>     SELECT AVG(age)::integer <span class="im">as</span> avg_age</span>
+<span id="cb39-26"><a href="#cb39-26"></a><span class="op">--</span>     FROM user_age</span>
+<span id="cb39-27"><a href="#cb39-27"></a><span class="op">--</span>     )</span>
+<span id="cb39-28"><a href="#cb39-28"></a><span class="op">--</span>     </span>
+<span id="cb39-29"><a href="#cb39-29"></a><span class="op">--</span> SELECT  user_id,</span>
+<span id="cb39-30"><a href="#cb39-30"></a><span class="op">--</span>         case when age IS NULL THEN (SELECT avg_age FROM user_avg_age)</span>
+<span id="cb39-31"><a href="#cb39-31"></a><span class="op">--</span>     ELSE age</span>
+<span id="cb39-32"><a href="#cb39-32"></a><span class="op">--</span>     end</span>
+<span id="cb39-33"><a href="#cb39-33"></a><span class="op">--</span> FROM user_age</span>
+<span id="cb39-34"><a href="#cb39-34"></a><span class="op">--</span> ORDER BY user_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
+
+It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
+</code></pre>
+</div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 
