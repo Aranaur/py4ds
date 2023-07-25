@@ -1,0 +1,366 @@
+# Списки та множини
+
+## Списки
+
+**Списки** - це один з найбільш використовуваних типів даних в Python. Вони дозволяють зберігати набір значень у впорядкованому вигляді. Списки можуть містити елементи різних типів, але зазвичай вони містять елементи одного типу. Списки створюються за допомогою квадратних дужок `[]` і можуть бути порожніми або містити довільну кількість елементів. Наприклад:
+
+```{python}
+fruits = ['apple', 'banana', 'orange']
+print(fruits)
+```
+
+### Індексація списків
+
+Потренуємося працювати з індексами списків. До будь-якого елемента списку можна звернутися за його індексом. Запам'ятайте, що індексація починається з нуля.
+
+```{python}
+fruits = ['apple', 'banana', 'orange']
+print(fruits[0])
+```
+
+Також ми можемо робити зрізи:
+
+```{python}
+fruits = ['apple', 'banana', 'orange']
+print(fruits[0:2])
+```
+
+:::: {.callout-note icon=false}
+## Завдання
+::: {#exr-py-list-set-01}
+<br>
+`my_list` зберігає список як мінімум з двома елементами.
+
+Створіть змінні:
+
+- `first_item` з першим елементом списку.
+- `last_item` з останнім елементом списку.
+- `reversed_list` з елементами списку `my_list` у зворотному порядку.
+- `even_items` з елементами списку `my_list` із парними індексами.
+
+**Приклади:**
+
+```{.powershell}
+my_list = ['apple', 123, True, 3.14, 'cherry', 45, 22]
+
+first_item = 'apple'
+last_item = 22
+reversed_list = [22, 45, 'cherry', 3.14, True, 123, 'apple']
+even_items = ['apple', True, 'cherry', 22]
+```
+
+```{python}
+#| code-fold: true
+#| code-summary: "Рішення"
+
+my_list = ['apple', 123, True, 3.14, 'cherry', 45, 22]
+
+first_item = my_list[0]
+last_item = my_list[-1]
+reversed_list = my_list[::-1]
+even_items = my_list[::2]
+```
+
+:::
+::::
+
+
+
+### Методи списків
+
+Погляньмо на всі методи списку. Не треба заучувати їх напам'ять. Але якщо ви зіткнетеся із завданням, в якому треба буде щось зробити зі списком, то перед тим, як намагатися самому придумати рішення, подивіться, може бути потрібний метод.
+
+- `append()` - додає елемент у кінець списку. Наприклад:
+
+```{python}
+fruits = ['apple', 'banana', 'orange']
+fruits.append('melon')
+print(fruits)
+```
+
+- `clear()` - видаляє всі елементи списку. Наприклад:
+
+```{python}
+fruits = ['apple', 'banana', 'orange']
+fruits.clear()
+print(fruits)
+```
+
+- `copy()` - повертає копію списку. Наприклад:
+
+```{python}
+fruits = ['apple', 'banana', 'orange']
+fruits_copy = fruits.copy()
+print(fruits_copy)
+```
+
+- `count(item)` - повертає кількість елементів із заданим значенням. Наприклад:
+
+```{python}
+fruits = ['apple', 'banana', 'orange', 'banana']
+print(fruits.count('banana'))
+```
+
+- `extend(iterable)` - додає елементи іншого списку до поточного. Наприклад:
+
+```{python}
+fruits = ['apple', 'banana', 'orange']
+fruits.extend(['melon', 'watermelon'])
+print(fruits)
+```
+
+- `index(item, start, end)` - повертає індекс першого елемента, який збігається із заданим значенням (`item`) у діапазоні індексів від `start` до `end`. Наприклад:
+
+```{python}
+fruits = ['apple', 'banana', 'orange', 'banana']
+print(fruits.index('banana'))
+```
+
+- `insert(index, item)` - додає елемент `item` на позицію `index`. Наприклад:
+
+```{python}
+fruits = ['apple', 'banana', 'orange']
+fruits.insert(1, 'melon')
+print(fruits)
+```
+
+- `pop(index)` - видаляє та повертає елемент із заданим індексом. Якщо індекс не вказано, видаляє та повертає останній елемент списку. Наприклад:
+
+```{python}
+fruits = ['apple', 'banana', 'orange']
+removed_fruit = fruits.pop(1)
+print(removed_fruit)
+```
+
+- `remove(item)` - видаляє перший елемент із заданим значенням. Наприклад:
+
+```{python}
+fruits = ['apple', 'banana', 'orange']
+fruits.remove('banana')
+print(fruits)
+```
+
+- `reverse()` - змінює порядок елементів у списку на зворотній. Наприклад:
+
+```{python}
+fruits = ['apple', 'banana', 'orange']
+fruits.reverse()
+print(fruits)
+```
+
+- `sort(key, reverse)` - сортує елементи списку. Наприклад:
+
+```{python}
+fruits = ['banana', 'orange', 'apple']
+fruits.sort()
+print(fruits)
+```
+
+### `pop()` vs. `remove()`
+
+Давайте знову зупинимося на різниці цих методів. Методи `pop()` і `remove()` застосовуються для видалення елементів зі списків Python. 
+
+- Метод `pop()` видаляє та повертає останній елемент зі списку. Якщо в дужках вказати індекс елемента, буде видалено елемент із зазначеним індексом. Наприклад:
+
+```{python}
+fruits = ['apple', 'banana', 'orange']
+removed_fruit = fruits.pop()
+print(fruits)
+```
+
+```{python}
+print(removed_fruit)
+```
+
+А якщо ми хочемо видалити елемент за індексом, то потрібно вказати індекс у дужках методу:
+
+```{python}
+fruits = ['apple', 'banana', 'orange']
+removed_fruit = fruits.pop(1)
+print(fruits)
+```
+
+```{python}
+print(removed_fruit)
+```
+
+- Метод `remove()` видаляє перший елемент зі списку, який збігається з переданим значенням. Наприклад:
+
+```{python}
+fruits = ['apple', 'banana', 'orange']
+fruits.remove('banana')
+print(fruits)
+```
+
+Важливо, що якщо у списку не буде елемента із зазначеним індексом або значенням, методи `pop()` та `remove()` повернуть помилки. Таким чином, основна відмінність між методами `pop()` і `remove()` полягає в тому, що `pop()` видаляє елемент за індексом, повертаючи його значення, а `remove()` видаляє перший знайдений елемент із заданим значенням.
+
+## Множини
+
+**Множини** - це набір унікальних елементів. Множини створюються за допомогою фігурних дужок `{}`. Наприклад:
+
+```{python}
+fruits = {'apple', 'apple', 'banana', 'orange'}
+print(fruits)
+```
+
+### Методи множин
+
+- `add(element)` - додає елемент до множини. Наприклад:
+
+```{python}
+fruits = {'apple', 'banana', 'orange'}
+fruits.add('melon')
+print(fruits)
+```
+
+- `union(set)` - повертає об'єднання двох множин. Наприклад:
+
+```{python}
+fruits = {'apple', 'banana', 'orange'}
+fruits2 = {'melon', 'watermelon'}
+fruits3 = fruits.union(fruits2)
+print(fruits3)
+```
+
+- `clear()` - видаляє всі елементи множини. Наприклад:
+
+```{python}
+fruits = {'apple', 'banana', 'orange'}
+fruits.clear()
+print(fruits)
+```
+
+- `copy()` - повертає копію множини. Наприклад:
+
+```{python}
+fruits = {'apple', 'banana', 'orange'}
+fruits_copy = fruits.copy()
+print(fruits_copy)
+```
+
+- `difference(set)` - повертає різницю двох множин. Наприклад:
+
+```{python}
+fruits = {'apple', 'banana', 'orange'}
+fruits2 = {'apple', 'melon', 'watermelon'}
+fruits3 = fruits.difference(fruits2)
+print(fruits3)
+```
+
+- `discard(element)` - видаляє елемент із множини, якщо він там є. Якщо елементу немає у множині, то нічого не відбувається. Наприклад:
+
+```{python}
+fruits = {'apple', 'banana', 'orange'}
+fruits.discard('apple')
+print(fruits)
+```
+
+```{python}
+fruits = {'apple', 'banana', 'orange'}
+fruits.discard('watermelon')
+print(fruits)
+```
+
+- `remove(element)` - видаляє елемент із множини, якщо він там є. Якщо елементу немає у множині, то видає помилку `KeyError`. Наприклад:
+
+```{python}
+fruits = {'apple', 'banana', 'orange'}
+fruits.remove('apple')
+print(fruits)
+```
+
+```{python}
+#| error: true
+fruits = {'apple', 'banana', 'orange'}
+fruits.remove('watermelon')
+print(fruits)
+```
+
+- `intersection(set)` - повертає перетин двох множин. Наприклад:
+
+```{python}
+fruits = {'apple', 'banana', 'orange'}
+fruits2 = {'apple', 'melon', 'watermelon'}
+fruits3 = fruits.intersection(fruits2)
+print(fruits3)
+```
+
+- `isdisjoint(set)` - повертає `True`, якщо дві множини не мають спільних елементів. Наприклад:
+
+```{python}
+fruits = {'apple', 'banana', 'orange'}
+fruits2 = {'melon', 'watermelon'}
+print(fruits.isdisjoint(fruits2))
+```
+
+- `issubset(set)` - повертає `True`, якщо множина є підмножиною іншої множини. Наприклад:
+
+```{python}
+fruits = {'apple', 'banana', 'orange', 'watermelon'}
+fruits2 = {'banana', 'orange'}
+print(fruits2.issubset(fruits))
+```
+
+## Корисні функції
+
+Також давайте подивимося на різні функції, які допомагають нам працювати зі списками та множинами:
+
+- `len()` - повертає кількість елементів у списку або множині. Наприклад:
+
+```{python}
+fruits = ['apple', 'banana', 'orange']
+print(len(fruits))
+```
+
+```{python}
+fruits = {'apple', 'banana', 'banana', 'apple'}
+print(len(fruits))
+```
+
+- `max()` - повертає найбільший елемент у списку або множині. Наприклад:
+
+```{python}
+fruits = ['apple', 'banana', 'orange']
+print(max(fruits))
+```
+
+```{python}
+numbers = [5, 2, 8, 1, 9]
+print(max(numbers))
+```
+
+```{python}
+my_set = {5, 2, 8, 1, 8}
+print(max(my_set))
+```
+
+- `min()` - повертає найменший елемент у списку або множині. Наприклад:
+
+```{python}
+fruits = ['apple', 'banana', 'orange']
+print(min(fruits))
+```
+
+```{python}
+numbers = [5, 2, 8, 1, 9]
+print(min(numbers))
+```
+
+- `sorted()` - повертає відсортований список або множину. Вона може приймати параметр `reverse=True`, щоб відсортувати послідовність у зворотному порядку (за спаданням). Наприклад:
+
+```{python}
+fruits = ['banana', 'orange', 'apple']
+print(sorted(fruits))
+```
+
+```{python}
+numbers = [5, 2, 8, 1, 9]
+print(sorted(numbers, reverse=True))
+```
+
+А от якщо відсортувати множину, то вийде список!
+
+```{python}
+my_set = {1, 1, 2, 2}
+print(sorted(my_set))
+```

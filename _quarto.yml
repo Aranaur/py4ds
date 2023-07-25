@@ -27,6 +27,7 @@ book:
     - part: python.qmd
       chapters: 
       - python_basics.qmd
+      - python_list_set.qmd
     - text: "---"
     - part: sql.ipynb
       chapters: 
@@ -52,6 +53,7 @@ format:
     code-overflow: scroll
     code-link: true
     code-line-numbers: true
+    code-fold: false
     theme:
       light: cosmo
       dark: superhero
