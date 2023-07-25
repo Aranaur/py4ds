@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -74,6 +108,8 @@ gtag('js', new Date());
 gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -86,7 +122,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python.html">Python</a></li><li class="breadcrumb-item"><a href="./python_basics.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Змінні та типи даних</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python.html">Встановлення Python</a></li><li class="breadcrumb-item"><a href="./python_basics.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Змінні та типи даних</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -151,7 +187,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Python</span></a>
+ <span class="menu-text">Встановлення Python</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Переключити розділ">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -244,7 +280,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Зміст</h2>
+   
+  <ul>
+  <li><a href="#змінні" id="toc-змінні" class="nav-link active" data-scroll-target="#змінні"><span class="header-section-number">1.1</span> Змінні</a></li>
+  <li><a href="#арифметичні-операції" id="toc-арифметичні-операції" class="nav-link" data-scroll-target="#арифметичні-операції"><span class="header-section-number">1.2</span> Арифметичні операції</a></li>
+  <li><a href="#функції-round-та-abs" id="toc-функції-round-та-abs" class="nav-link" data-scroll-target="#функції-round-та-abs"><span class="header-section-number">1.3</span> Функції <code>round</code> та <code>abs</code></a></li>
+  <li><a href="#типи-даних" id="toc-типи-даних" class="nav-link" data-scroll-target="#типи-даних"><span class="header-section-number">1.4</span> Типи даних</a></li>
+  <li><a href="#оператори-порівняння" id="toc-оператори-порівняння" class="nav-link" data-scroll-target="#оператори-порівняння"><span class="header-section-number">1.5</span> Оператори порівняння</a></li>
+  <li><a href="#логічні-операції-and-or-та-not" id="toc-логічні-операції-and-or-та-not" class="nav-link" data-scroll-target="#логічні-операції-and-or-та-not"><span class="header-section-number">1.6</span> Логічні операції <code>AND</code>, <code>OR</code> та <code>NOT</code></a></li>
+  <li><a href="#спеціальні-символи-в-рядках" id="toc-спеціальні-символи-в-рядках" class="nav-link" data-scroll-target="#спеціальні-символи-в-рядках"><span class="header-section-number">1.7</span> Спеціальні символи в рядках</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_basics.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_basics.qmd" class="toc-action">Переглянути код</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -266,8 +314,793 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 
 </header>
 
+<section id="змінні" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="змінні"><span class="header-section-number">1.1</span> Змінні</h2>
+<p>Почнемо зі створення змінних. <strong>Змінна</strong> - це ім’я, яке використовується для зберігання даних в пам’яті комп’ютера. Для створення змінних ми пишемо назву змінної, ставимо знак рівності (<code>=</code>) та пишемо значення, яке ми хочемо зберегти у змінну, наприклад:</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>my_name <span class="op">=</span> <span class="st">'Ihor'</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>prog_language <span class="op">=</span> <span class="st">'Python'</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>has_guitar <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>n_guitar <span class="op">=</span> <span class="dv">2</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>При виборі імені змінної давайте дотримуватись певних правил, щоб наш код виконувався без помилок та його було зручно читати:</p>
+<ul>
+<li>Ім’я змінної починається з літери;</li>
+<li>Для імен змінних використовуватимемо маленькі літери з підкресленням замість пробілу;</li>
+<li>Ім’я змінної не повинно співпадати з назвою ключових слів Python. Наприклад, назвати змінну <code>if</code> або <code>True</code> – погана ідея. Ключових слів не так багато, з частиною ми скоро познайомимося.</li>
+</ul>
+<pre><code>False      await      else       import     pass
+None       break      except     in         raise
+True       class      finally    is         return
+and        continue   for        lambda     try
+as         def        from       nonlocal   while
+assert     del        global     not        with
+async      elif       if         or         yield</code></pre>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-basic-01" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 1.1 </strong></span><br> Давайте запрограмуємо кота! Створіть три змінні:</p>
+<ol type="1">
+<li><code>cat_name</code> з рядком як мінімум із двох символів</li>
+<li><code>cat_age</code> з невід’ємним числом</li>
+<li><code>is_fluffy</code> з Tr<code>ue або</code>False`</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="3">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>cat_name <span class="op">=</span> <span class="st">'Azmodan'</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>cat_age <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>is_fluffy <span class="op">=</span> <span class="va">True</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="арифметичні-операції" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="арифметичні-операції"><span class="header-section-number">1.2</span> Арифметичні операції</h2>
+<p>Давайте спробуємо виконати арифметичні операції над змінними. Для цього використовуємо знаки арифметичних операцій:</p>
+<ul>
+<li><code>+</code>: додавання</li>
+<li><code>-</code>: віднімання</li>
+<li><code>*</code>: множення</li>
+<li><code>**</code>: зведення в ступінь</li>
+<li><code>/</code>: розподіл</li>
+<li><code>//</code>: цілочислове ділення, арифметична операція, результатом якої є ціла частина частки, отриманого поділом одного цілого числа на інше ціле число</li>
+<li><code>%</code>: залишок від ділення</li>
+</ul>
+<p>Для визначення порядку операцій будемо використовувати круглі дужки, як і у звичайній арифметиці.</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Квадрат суми a та b розділимо на різницю a та b</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>a <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>b <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>d <span class="op">=</span> (a <span class="op">+</span> b) <span class="op">**</span> <span class="dv">2</span> <span class="op">/</span> (a <span class="op">-</span> b)</span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="bu">print</span>(d)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>-49.0</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-basic-02" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 1.2 </strong></span><br> Давайте напишемо програму для пошуку довжини гіпотенузи. Створіть змінні <code>a</code> та <code>b</code>, в яких будуть записані довжини катетів прямокутного трикутника. Після чого розрахуйте <code>c</code> і збережіть у ній довжину гіпотенузи цього трикутника.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Підказка
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Для розрахунку довжини гіпотенузи використовуйте <a href="https://uk.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BE%D1%80%D0%B5%D0%BC%D0%B0_%D0%9F%D1%96%D1%84%D0%B0%D0%B3%D0%BE%D1%80%D0%B0">теорему Піфагора</a>. А операція квадратного кореня аналогічна зведенню в ступінь 0.5.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>c <span class="op">=</span> (a<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> b<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span><span class="fl">0.5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-basic-03" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 1.3 </strong></span><br> У змінній <code>father_age</code> зберігається вік батька, а змінної <code>son_age</code> — вік сина. Порахуйте, через скільки років батько буде вдвічі старшим за сина. Результат збережіть змінну <code>result</code>.</p>
+<p><strong>Приклад:</strong></p>
+<pre><code>father_age = 20
+son_age = 3
+result = 14
+
+father_age = 30.5
+son_age = 5.1
+result = 20.3</code></pre>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>father_age <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>son_age <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>result <span class="op">=</span> father_age <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> son_age</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-basic-04" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 1.4 </strong></span><br> Задані дійсні числа <code>a</code>, <code>b</code> та <code>с</code> – сторони трикутника. Обчисліть периметр та площу трикутника. Результат збережіть у змінні <code>perimeter</code> та <code>area</code> відповідно.</p>
+<p><strong>Приклад:</strong></p>
+<pre><code>a = 3
+b = 4
+c = 5
+
+perimeter = 12
+area = 6</code></pre>
+<p><span class="math display">\[ S = \sqrt{p(p-a)(p-b)(p-c)} \]</span> <span class="math display">\[ p = \frac{a+b+c}{2} \]</span></p>
+<div class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<p><img src="python_basics_files/figure-html/cell-8-output-1.png" width="540" height="389"></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Підказка
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Периметр – це сума довжин усіх сторін. Площу трикутника по трьох сторонах можна обчислити за допомогою <a href="https://ru.wikipedia.org/wiki/%D0%A4%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D0%B0_%D0%93%D0%B5%D1%80%D0%BE%D0%BD%D0%B0">формули Герона</a>. Квадратний корінь - це зведення у ступінь 0.5.</p>
+<p>А ви знали, що Формула Герона міститься в «Метриці» Герона Олександрійського (I століття н. е.) і названа на його честь (хоча вона була відома ще Архімеду). Герон цікавився трикутниками з цілими сторонами, площі яких теж є цілими, такі трикутники звуться героновими, найпростішим героновим трикутником є єгипетський трикутник.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>a <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>b <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>c <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a></span>
+<span id="cb10-5"><a href="#cb10-5"></a>perimeter <span class="op">=</span> a <span class="op">+</span> b <span class="op">+</span> c</span>
+<span id="cb10-6"><a href="#cb10-6"></a>p <span class="op">=</span> perimeter <span class="op">*</span> <span class="fl">0.5</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a>area <span class="op">=</span> (p <span class="op">*</span> (p<span class="op">-</span>a) <span class="op">*</span> (p <span class="op">-</span> b) <span class="op">*</span> (p <span class="op">-</span> c)) <span class="op">**</span> <span class="fl">0.5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-basic-05" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 1.5 </strong></span><br> У змінну <code>n</code> збережено ціле число – кількість секунд. Напишіть програму, яка конвертує задану кількість секунд <code>n</code> на години, хвилини та секунди. Результат збережіть у змінні <code>hours</code>, <code>minutes</code>, <code>seconds</code>.</p>
+<p>Тобто спочатку потрібно порахувати, скільки в число n помістилося цілих годин, цілих хвилин і скільки після цього залишилося секунд. Розглянемо приклад:</p>
+<pre><code>n = 125
+
+hours = 0
+minutes = 2
+seconds  = 5</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Підказка
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Вам може допомогти цілочислове ділення <code>//</code> залишок від ділення <code>%</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>n <span class="op">=</span> <span class="dv">125</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>hours <span class="op">=</span> n <span class="op">//</span> <span class="dv">3600</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>minutes <span class="op">=</span> (n <span class="op">%</span> <span class="dv">3600</span>) <span class="op">//</span> <span class="dv">60</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>seconds <span class="op">=</span> n <span class="op">%</span> <span class="dv">60</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="функції-round-та-abs" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="функції-round-та-abs"><span class="header-section-number">1.3</span> Функції <code>round</code> та <code>abs</code></h2>
+<p>Познайомимося з двома корисними функціями: <code>round</code> та <code>abs</code>.</p>
+<p><code>round()</code> — функція округлення числа до вказаної кількості знаків після коми.</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Округлення до 2 знаків після коми</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>number <span class="op">=</span> <span class="fl">3.14159</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>result <span class="op">=</span> <span class="bu">round</span>(number, <span class="dv">2</span>)</span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="bu">print</span>(result)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>3.14</code></pre>
+</div>
+</div>
+<p><code>abs()</code> – функція, яка повертає абсолютне значення числа.</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>number <span class="op">=</span> <span class="op">-</span><span class="dv">10</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>result <span class="op">=</span> <span class="bu">abs</span>(number)</span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="bu">print</span>(result)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>10</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-basic-06" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 1.6 </strong></span><br> У змінній <code>price_new</code> зберігається ціна кілограма бананів у числовому форматі, а змінної <code>price_old</code> — ціна кілограма бананів рік тому. Обчисліть, скільки відсотків за модулем змінилася ціна протягом року. Результат збережіть у змінну <code>result</code>. Результат округліть до двох знаків після коми.</p>
+<p><strong>Приклад:</strong></p>
+<pre><code>price_new = 89.99 
+price_old = 75.50
+result = 19.19
 
 
+price_new = 24
+price_old = 72
+result = 66.67</code></pre>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>price_new <span class="op">=</span> <span class="fl">89.99</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>price_old <span class="op">=</span> <span class="fl">75.50</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>result <span class="op">=</span> <span class="bu">round</span>(<span class="bu">abs</span>(price_new <span class="op">-</span> price_old) <span class="op">/</span> price_old <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="типи-даних" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="типи-даних"><span class="header-section-number">1.4</span> Типи даних</h2>
+<p>У Python ми можемо змінювати тип даних, які зберігаються в нашій змінній. Така операція називається перетворенням типів. Для перетворення типів Python надає ряд вбудованих функцій:</p>
+<ul>
+<li><code>int()</code>: перетворює значення на ціле число</li>
+<li><code>float()</code>: перетворює значення на число з плаваючою точкою</li>
+<li><code>str()</code>: перетворює значення в рядок</li>
+<li><code>bool()</code>: перетворює на логічний тип</li>
+</ul>
+<p>Розглянемо кілька прикладів:</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># з цілого числа в рядок</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>a <span class="op">=</span> <span class="dv">42</span> <span class="co"># ціле число 42</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="bu">str</span>(a) <span class="co"># отримуємо рядок '42'</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="co"># з цілого числа в рядок</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a>a <span class="op">=</span> <span class="dv">42</span> <span class="co"># ціле число 42</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a><span class="bu">str</span>(a) <span class="co"># отримуємо рядок '42'</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a></span>
+<span id="cb19-9"><a href="#cb19-9"></a><span class="co"># з рядка в ціле число</span></span>
+<span id="cb19-10"><a href="#cb19-10"></a>a <span class="op">=</span> <span class="st">'42'</span></span>
+<span id="cb19-11"><a href="#cb19-11"></a>b <span class="op">=</span> <span class="bu">int</span>(a) <span class="co"># отримуємо 42</span></span>
+<span id="cb19-12"><a href="#cb19-12"></a></span>
+<span id="cb19-13"><a href="#cb19-13"></a><span class="co"># з логічного типу до числа</span></span>
+<span id="cb19-14"><a href="#cb19-14"></a>a <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb19-15"><a href="#cb19-15"></a>b <span class="op">=</span> <span class="bu">int</span>(a) <span class="co"># отримуємо 1</span></span>
+<span id="cb19-16"><a href="#cb19-16"></a></span>
+<span id="cb19-17"><a href="#cb19-17"></a><span class="co"># і навпаки</span></span>
+<span id="cb19-18"><a href="#cb19-18"></a>a <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb19-19"><a href="#cb19-19"></a>b <span class="op">=</span> <span class="bu">bool</span>(a) <span class="co"># отримуємо True</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Однак далеко не завжди перетворення типів проходить без помилок, наприклад, ми не зможемо зробити таке перетворення:</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>a <span class="op">=</span> <span class="st">'my number is 42'</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>b <span class="op">=</span> <span class="bu">int</span>(a) <span class="co"># отримаємо помилку</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>ValueError: invalid literal for int() with base 10: 'my number is 42'</code></pre>
+</div>
+</div>
+<p>Це означає, що рядок <code>'my number is 42'</code> не може бути відразу представлена як ціле число. Ми могли б взяти з цього рядка лише число <code>42</code> і перевести його до цілого числа. Скоро ми навчимося так робити.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-basic-07" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 1.7 </strong></span><br> Створіть змінні:</p>
+<ul>
+<li><code>a</code> зі значенням <code>5</code> типу <code>int</code></li>
+<li><code>b</code> зі значенням <code>'10'</code> типу <code>str</code></li>
+<li><code>c</code> із значенням <code>True</code> типу <code>bool</code>.</li>
+</ul>
+<p>У змінну <code>my_sum</code> збережіть суму трьох змінних, які ви створили, перетворивши <code>b</code> і з типу <code>int</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>b <span class="op">=</span> <span class="st">'10'</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a>c <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a>my_sum <span class="op">=</span> a <span class="op">+</span> <span class="bu">int</span>(b) <span class="op">+</span> <span class="bu">int</span>(c)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-basic-08" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 1.8 </strong></span><br> У змінній <code>a</code> збережено число з десятковою частиною у форматі рядка, наприклад <code>'3.14'</code>. У змінну збережіть цілу частину з числа змінної <code>a</code>.</p>
+<p><strong>Приклади:</strong></p>
+<pre><code>a = '3.14'
+c = 3
+
+a = '99.9'
+c = 99
+
+a = '0.33'
+c = 0</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Підказка
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Все, що нам потрібно зробити, це перекласти змінну <code>a</code> в <code>int</code>. Відразу рядок <code>'3.14'</code> в <code>int</code> перекласти не вийде, подумайте, який тип потрібно перевести змінну на першому етапі?</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="16">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>a <span class="op">=</span> <span class="st">'3.14'</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>c <span class="op">=</span> <span class="bu">int</span>(<span class="bu">float</span>(a))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-basic-09" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 1.9 </strong></span><br> У змінній <code>x</code> збережено ціле позитивне число. Обчисліть <code>x + x0x0x</code>. Результат збережіть змінну <code>result</code>.</p>
+<p>Тобто якщо <code>x = 2</code>, то потрібно обчислити <code>2 + 20202</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Підказка
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Спробуйте скласти два рядки за допомогою знака <code>+</code></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="17">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>x <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>result <span class="op">=</span> x <span class="op">+</span> <span class="bu">int</span>(<span class="bu">str</span>(x) <span class="op">+</span> <span class="st">'0'</span> <span class="op">+</span> <span class="bu">str</span>(x) <span class="op">+</span> <span class="st">'0'</span> <span class="op">+</span> <span class="bu">str</span>(x))</span>
+<span id="cb25-3"><a href="#cb25-3"></a></span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="co"># або</span></span>
+<span id="cb25-5"><a href="#cb25-5"></a>result <span class="op">=</span> x <span class="op">+</span> <span class="bu">int</span>(<span class="ss">f'</span><span class="sc">{</span>x<span class="sc">}</span><span class="ss">0</span><span class="sc">{</span>x<span class="sc">}</span><span class="ss">0</span><span class="sc">{</span>x<span class="sc">}</span><span class="ss">'</span>) <span class="co"># але про це пізніше</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="оператори-порівняння" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="оператори-порівняння"><span class="header-section-number">1.5</span> Оператори порівняння</h2>
+<p>Змінні та значення можна порівнювати між собою за допомогою операцій порівняння:</p>
+<ul>
+<li><code>x &lt; y</code>: <code>x</code> строго менше <code>y</code>,</li>
+<li><code>x &lt;= y</code>: <code>x</code> менше або дорівнює <code>y</code>,</li>
+<li><code>x &gt; y</code>: <code>x</code> строго більше <code>y</code>,</li>
+<li><code>x &gt;= y</code>: <code>x</code> більше або дорівнює <code>y</code>,</li>
+<li><code>x == y</code>: <code>x</code> дорівнює <code>y</code>,</li>
+<li><code>x != y</code>: <code>x</code> не дорівнює <code>y</code>.</li>
+</ul>
+<p>Порівнювати можна і числа, і рядки. Результат порівняння - це <code>True</code> або <code>False</code>, залежно від того, чи вірний або невірний вираз написано. З порівнянням чисел усе зрозуміло:</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="bu">print</span>(<span class="dv">3</span> <span class="op">&gt;</span> <span class="dv">2</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="bu">print</span>(<span class="dv">3</span> <span class="op">&lt;</span> <span class="op">-</span><span class="dv">5</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="bu">print</span>(<span class="dv">5</span> <span class="op">!=</span> <span class="dv">6</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="bu">print</span>(<span class="dv">10</span> <span class="op">==</span> <span class="dv">10</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<p>Порівняння рядків влаштовано трохи хитріше. Почнемо з простого та розглянемо порівняння двох однакових рядків:</p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="bu">print</span>(<span class="st">'abc'</span> <span class="op">==</span> <span class="st">'abc'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<p>А якщо записати так:</p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="bu">print</span>(<span class="st">'abc'</span> <span class="op">&gt;</span> <span class="st">'abc'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False</code></pre>
+</div>
+</div>
+<p>Давайте розберемося, чому <code>'abc' &gt; 'aba'</code> поверне нам <code>True</code>. Порівняння рядків у Python відбувається лексикографічно, тобто посимвольно зліва направо. Якщо символи збігаються, Python переходить до наступного символу в рядку і продовжує порівняти доти, доки не знайде різниця між символами в рядку. Якщо символи в рядках різняться, то Python визначає, який рядок “більше” (за алфавітом, у прямому значенні за номером в алфавіті). Якщо символи до цієї позиції збігаються, то рядок, у якого наступний символ більший, вважається “більшим”. При цьому, якщо літери збігаються, то також враховується розмір, маленька літера більша за великий <code>'a' &gt; 'A'</code> . Розглянемо приклади:</p>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>str1 <span class="op">=</span> <span class="st">'hello'</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a>str2 <span class="op">=</span> <span class="st">'world'</span></span>
+<span id="cb38-3"><a href="#cb38-3"></a><span class="bu">print</span>(str1 <span class="op">&lt;</span> str2 ) </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>str1 <span class="op">=</span> <span class="st">'apple'</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a>str2 <span class="op">=</span> <span class="st">'banana'</span></span>
+<span id="cb40-3"><a href="#cb40-3"></a><span class="bu">print</span>(str1 <span class="op">&gt;</span> str2) </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>str1 <span class="op">=</span> <span class="st">'abc'</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a>str2 <span class="op">=</span> <span class="st">'aba'</span></span>
+<span id="cb42-3"><a href="#cb42-3"></a><span class="bu">print</span>(str1 <span class="op">&gt;</span> str2 ) </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-basic-10" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 1.10 </strong></span><br> Вкажіть усі порівняння, внаслідок яких ми отримаємо <code>True</code>.</p>
+<ul class="task-list">
+<li><input type="checkbox"><code>'ІВАН' &lt; 'іван'</code></li>
+<li><input type="checkbox"><code>'Python' &lt; 'R'</code></li>
+<li><input type="checkbox"><code>'big number' != 'bug number'</code></li>
+<li><input type="checkbox"><code>'ЯЯЯ' == 'Я Я'</code></li>
+<li><input type="checkbox"><code>'гірка' &gt;= 'зірка'</code></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Підказка
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Якщо ви сумніваєтеся, виконайте ці порівняння в Python і подивіться на результат.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Правильні відповіді
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul class="task-list">
+<li><input type="checkbox" checked=""><code>'ІВАН' &lt; 'іван'</code>: розмір букв відіграє роль при порівнянні, хоч це й однакове слово, але маленький “іван” більше.</li>
+<li><input type="checkbox" checked=""><code>'Python' &lt; 'R'</code>: порівняння відбувається за першим символом, <code>'R'</code> стоїть в алфавіті правіше, значить <code>'R' &gt; 'P'</code>, отримуємо <code>True</code></li>
+<li><input type="checkbox" checked=""><code>'big number' != 'bug number'</code>: рядки різняться в одному символі, отримуємо <code>True</code></li>
+<li><input type="checkbox"><code>'ЯЯЯ' == 'Я Я'</code>: пробіли грають роль при порівнянні, пробіл буде менше будь-якого символу. Отримуємо <code>False</code>.</li>
+<li><input type="checkbox"><code>'гірка' &gt;= 'зірка'</code>: порівняння відбувається за першим символом, <code>'з'</code> більше ніж <code>'г'</code>, отримуємо <code>False</code></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="логічні-операції-and-or-та-not" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="логічні-операції-and-or-та-not"><span class="header-section-number">1.6</span> Логічні операції <code>AND</code>, <code>OR</code> та <code>NOT</code></h2>
+<p>Працюючи з логічними умовами можемо використовувати логічні операції <code>AND</code>, <code>OR</code> і <code>NOT</code>.</p>
+<ol type="1">
+<li>Оператор <code>AND</code> — повертає <code>True</code>, якщо обидва вирази вірні, і <code>False</code> в протилежному випадку.</li>
+</ol>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a>b <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb44-3"><a href="#cb44-3"></a>c <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb44-4"><a href="#cb44-4"></a><span class="bu">print</span>(a <span class="op">&lt;</span> b <span class="kw">and</span> b <span class="op">&lt;</span> c)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="bu">print</span>(a <span class="op">&lt;</span> b <span class="kw">and</span> b <span class="op">&gt;</span> c)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Оператор <code>OR</code> — повертає <code>True</code>, якщо хоча б один з виразів вірний, і <code>False</code> в протилежному випадку.</li>
+</ol>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>age <span class="op">=</span> <span class="dv">17</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a><span class="bu">print</span>(age <span class="op">&lt;</span> <span class="dv">18</span> <span class="kw">or</span> age <span class="op">&gt;</span> <span class="dv">60</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="bu">print</span>(age <span class="op">&lt;</span> <span class="dv">16</span> <span class="kw">or</span> age <span class="op">&gt;</span> <span class="dv">60</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False</code></pre>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Оператор <code>NOT</code> — інвертує логічний вираз. Якщо вираз істинний, то результат буде <code>False</code>, і навпаки.</li>
+</ol>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>is_admin <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a><span class="bu">print</span>(<span class="kw">not</span> is_admin)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-basic-11" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 1.11 </strong></span><br> У змінній <code>m</code> зберігається ціле позитивне число – тривалість сну в хвилинах. Якщо тривалість сну становитиме <strong>від 7 до 9 години включно</strong>, то в змінну <code>optimal_sleep_duration</code> збережіть значення <code>True</code>. В іншому випадку призначте це змінною значення <code>False</code>.</p>
+<p>Приклад:</p>
+<pre><code>m = 410  
+optimal_sleep_duration = False
+
+m = 500
+optimal_sleep_duration = True</code></pre>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="32">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>m <span class="op">=</span> <span class="dv">410</span></span>
+<span id="cb55-2"><a href="#cb55-2"></a>optimal_sleep_duration <span class="op">=</span> m <span class="op">/</span> <span class="dv">60</span> <span class="op">&gt;=</span> <span class="dv">7</span> <span class="kw">and</span> m <span class="op">/</span> <span class="dv">60</span> <span class="op">&lt;=</span> <span class="dv">9</span></span>
+<span id="cb55-3"><a href="#cb55-3"></a></span>
+<span id="cb55-4"><a href="#cb55-4"></a><span class="co"># або</span></span>
+<span id="cb55-5"><a href="#cb55-5"></a>optimal_sleep_duration <span class="op">=</span> <span class="dv">7</span> <span class="op">*</span> <span class="dv">60</span> <span class="op">&lt;=</span> m <span class="op">&lt;=</span> <span class="dv">9</span> <span class="op">*</span> <span class="dv">60</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-basic-12" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 1.12 </strong></span><br> У змінній <code>x</code> зберігається ціле число. Перевірте, чи це число <strong>ділиться без залишку</strong> на <code>3</code> і на <code>7</code>. Результат збережіть в змінну <code>result</code>. Змінна результат повинен мати <strong>логічний тип даних</strong>.</p>
+<p>Приклад: - якщо <code>x = 7</code>, то <code>result = False</code>. - якщо <code>x = 21</code>, то <code>result = True</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="33">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>x <span class="op">=</span> <span class="dv">21</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>result <span class="op">=</span> x <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> x <span class="op">%</span> <span class="dv">7</span> <span class="op">==</span> <span class="dv">0</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="спеціальні-символи-в-рядках" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="спеціальні-символи-в-рядках"><span class="header-section-number">1.7</span> Спеціальні символи в рядках</h2>
+<p>Ми вже знаємо, що для створення рядка достатньо використовувати подвійні чи одинарні лапки. Все, що знаходиться всередині лапок, сприйматиметься як рядок.</p>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>string1 <span class="op">=</span> <span class="st">'Hello, world!'</span></span>
+<span id="cb57-2"><a href="#cb57-2"></a>string2 <span class="op">=</span> <span class="st">"I'm a Python Data Scientist"</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Якщо ми виведемо <code>string1</code> і <code>string2</code> на друк за допомогою функції <code>print()</code>, то побачимо на екрані всі символи, які ми помістили всередині лапок. Але це завжди так. У Python, як і в більшості мов програмування, у рядках можуть бути використані <strong>спеціальні символи</strong>. Вони називаються екранованими послідовностями.</p>
+<p>Ось деякі з найбільш часто використовуваних екранованих послідовностей у Python:</p>
+<ul>
+<li><code>\n</code> — перенесення рядка</li>
+<li><code>\t</code> - табуляція</li>
+<li><code>\'</code> - одинарна лапка</li>
+<li><code>\"</code> - подвійна лапка</li>
+<li><code>\\</code> — зворотний слеш</li>
+</ul>
+<p>Розберемо їх використання відразу на прикладі:</p>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>string1 <span class="op">=</span> <span class="st">'</span><span class="ch">\'</span><span class="st">Manchester City</span><span class="ch">\'</span><span class="st"> - чемпіон Англії!</span><span class="ch">\n</span><span class="st">2023'</span></span>
+<span id="cb58-2"><a href="#cb58-2"></a><span class="bu">print</span>(string1)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'Manchester City' - чемпіон Англії!
+2023</code></pre>
+</div>
+</div>
+<p>Таким чином, коли у рядку з’являється зворотний слеш <code>\</code>, програма чекає після нього спеціальний символ. Сам зворотний слеш не виводиться на друк. А символ після слеша вже інтерпретується, наприклад, як перенесення рядка чи відступ.</p>
+<p>Подивіться ще приклади:</p>
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a><span class="bu">print</span>(<span class="st">"Hello</span><span class="ch">\n</span><span class="st">world!"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello
+world!</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a><span class="bu">print</span>(<span class="st">"C:</span><span class="ch">\\</span><span class="st">Users</span><span class="ch">\\</span><span class="st">user</span><span class="ch">\\</span><span class="st">Desktop</span><span class="ch">\\</span><span class="st">file.txt"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>C:\Users\user\Desktop\file.txt</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a><span class="bu">print</span>(<span class="st">"Name:</span><span class="ch">\t</span><span class="st">John"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Name:   John</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a><span class="bu">print</span>(<span class="st">'It</span><span class="ch">\'</span><span class="st">s a beautiful day!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>It's a beautiful day!</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a><span class="bu">print</span>(<span class="st">"It's a beautiful day!"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>It's a beautiful day!</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-basic-13" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 1.13 </strong></span><br> Збережіть у змінний <code>square</code> рядок, який виводить на екран <strong>прямокутник 4 х 4</strong>, сформований із зірочок, розділених пробілом.</p>
+<pre><code>print(square)
+
+* * * *
+* * * *
+* * * *
+* * * *</code></pre>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="41">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a>square <span class="op">=</span> <span class="st">'* * * *</span><span class="ch">\n</span><span class="st">'</span> <span class="op">*</span> <span class="dv">4</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -621,7 +1454,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./python.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Python</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Встановлення Python</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -631,4 +1464,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_basics.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_basics.qmd" class="toc-action">Переглянути код</a></p></div></div></div></div></footer></body></html>
+</body></html>

@@ -1,5 +1,48 @@
----
-title: "Python"
-format: html
----
+# Встановлення Python
 
+## Windows
+
+1. Завантажити та запустити [Python](https://www.python.org/downloads/) актуальної версії, наприклад Python 3.9.
+2. Відкрити командний рядок: `cmd`
+3. Виконати у командному рядку: `pip install numpy`
+4. Виконати у командному рядку: `pip install pandas`
+5. Виконати у командному рядку: `pip install jupyter`
+6. Запустити **jupyter**: виконати у командному рядку: `jupyter-notebook`
+
+## Linux (Ubuntu LTS)
+
+1. Відкрити термінал
+2. Виконати у терміналі: `sudo apt update`, що оновить всі пакети.
+3. Виконати у терміналі: `sudo apt install software-properties-common`, що дозволить керувати дистрибутивами.
+4. Виконати у терміналі: `sudo add-apt-repository ppa:deadsnakes/ppa`, що додасть deadsnakes-репозиторій з пакетами Python різних версій.
+5. Виконати у терміналі: `sudo apt install python3.9-dev`, що встановить розширений Python 3.9.
+6. Виконати у терміналі: `sudo apt install curl` - консольна утиліта для роботи з URL-адресами.
+7. Виконати у терміналі: `curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py` - завантажити і встановити pip.
+8. Виконати у терміналі: `sudo apt install python3.9-venv` - встановити віртуальне середовище Python 3.9.
+9. Виконати у терміналі: `sudo python3.9 get-pip.py` - встановити pip.
+10. Виконати у терміналі: `pip install numpy` - встановити `numpy` для роботи з матрицями
+11. Виконати у терміналі: `pip install pandas` - встановити `pandas` для роботи з даними у вигляді таблиць `DataFrame`.
+12. Виконати у терміналі: `pip install jupyter` - встановити `jupyter` для роботи з ноутбуками.
+13. Запустити Jupyter: `python3.9 -m notebook`
+
+## MacOS
+
+1. Відкрити термінал
+2. Встановити **Homebrew**: виконати у терміналі команду із сайту https://brew.sh
+3. Встановити Python: `brew install python@3.9`
+4. Виконати у терміналі: `python3.9 -m pip install numpy`
+5. Виконати у терміналі: `python3.9 -m pip install pandas`
+6. Виконати у терміналі: `python3.9 -m pip install jupyter`
+7. Запустити Jupyter: виконати у терміналі: `jupyter-notebook`
+
+## Хмарні сервіси
+
+1. [Google Colab](https://colab.research.google.com/)
+2. [Jupyter Notebook](https://jupyter.org/try)
+3. [Posit.cloud](https://posit.cloud/)
+
+## Integrated development environment (IDE)
+
+1. [Visual Studio Code](https://code.visualstudio.com/)
+2. [PyCharm](https://www.jetbrains.com/pycharm/)
+3. [RStudio](https://rstudio.com/)

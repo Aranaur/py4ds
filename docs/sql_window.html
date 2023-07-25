@@ -191,7 +191,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Python</span></a>
+ <span class="menu-text">Встановлення Python</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Переключити розділ">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -1112,121 +1112,6 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb21-10"><a href="#cb21-10"></a>    SUM(orders_count) OVER (ORDER BY date)::integer <span class="im">as</span> orders_cum_count</span>
 <span id="cb21-11"><a href="#cb21-11"></a>FROM t1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">date</th>
-<th data-quarto-table-cell-role="th">orders_count</th>
-<th data-quarto-table-cell-role="th">orders_cum_count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>2022-08-24</td>
-<td>138</td>
-<td>138</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2022-08-25</td>
-<td>1059</td>
-<td>1197</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>2022-08-26</td>
-<td>1447</td>
-<td>2644</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>2022-08-27</td>
-<td>2141</td>
-<td>4785</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>2022-08-28</td>
-<td>2998</td>
-<td>7783</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>2022-08-29</td>
-<td>3267</td>
-<td>11050</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>2022-08-30</td>
-<td>3371</td>
-<td>14421</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>2022-08-31</td>
-<td>3410</td>
-<td>17831</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>2022-09-01</td>
-<td>3688</td>
-<td>21519</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>2022-09-02</td>
-<td>5001</td>
-<td>26520</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">10</td>
-<td>2022-09-03</td>
-<td>5709</td>
-<td>32229</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">11</td>
-<td>2022-09-04</td>
-<td>6010</td>
-<td>38239</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">12</td>
-<td>2022-09-05</td>
-<td>4675</td>
-<td>42914</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">13</td>
-<td>2022-09-06</td>
-<td>3451</td>
-<td>46365</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">14</td>
-<td>2022-09-07</td>
-<td>4777</td>
-<td>51142</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">15</td>
-<td>2022-09-08</td>
-<td>5474</td>
-<td>56616</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
 </div>
 </section>
 <section id="віконні-функції-та-partition-by" class="level2" data-number="8.10">
@@ -1249,16 +1134,129 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p>%%sql SELECT user_id, order_id, time, row_number() OVER (PARTITION BY user_id ORDER BY time) as order_number FROM user_actions WHERE order_id not in (SELECT order_id FROM user_actions WHERE action = ‘cancel_order’) ORDER BY user_id, order_number limit 1000</p>
+<div class="cell" data-execution_count="6">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="op">%%</span>sql</span>
+<span id="cb22-2"><a href="#cb22-2"></a>SELECT user_id,</span>
+<span id="cb22-3"><a href="#cb22-3"></a>       order_id,</span>
+<span id="cb22-4"><a href="#cb22-4"></a>       time,</span>
+<span id="cb22-5"><a href="#cb22-5"></a>       row_number() OVER (PARTITION BY user_id</span>
+<span id="cb22-6"><a href="#cb22-6"></a>                          ORDER BY time) <span class="im">as</span> order_number</span>
+<span id="cb22-7"><a href="#cb22-7"></a>FROM   user_actions</span>
+<span id="cb22-8"><a href="#cb22-8"></a>WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb22-9"><a href="#cb22-9"></a>                        FROM   user_actions</span>
+<span id="cb22-10"><a href="#cb22-10"></a>                        WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
+<span id="cb22-11"><a href="#cb22-11"></a>ORDER BY user_id, order_number limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">user_id</th>
+<th data-quarto-table-cell-role="th">order_id</th>
+<th data-quarto-table-cell-role="th">time</th>
+<th data-quarto-table-cell-role="th">order_number</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>1</td>
+<td>2022-08-24 01:52:00</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>4683</td>
+<td>2022-08-27 20:56:00</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1</td>
+<td>22901</td>
+<td>2022-09-02 00:58:00</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1</td>
+<td>23149</td>
+<td>2022-09-02 02:36:00</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2</td>
+<td>2</td>
+<td>2022-08-24 06:37:00</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">995</td>
+<td>248</td>
+<td>13935</td>
+<td>2022-08-30 17:13:00</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">996</td>
+<td>248</td>
+<td>15518</td>
+<td>2022-08-31 02:25:00</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">997</td>
+<td>249</td>
+<td>287</td>
+<td>2022-08-25 03:54:00</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">998</td>
+<td>249</td>
+<td>758</td>
+<td>2022-08-25 15:19:00</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">999</td>
+<td>249</td>
+<td>7347</td>
+<td>2022-08-28 19:27:00</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+
+<p>1000 rows × 4 columns</p>
+</div>
+</div>
+</div>
 </section>
 <section id="віконні-функції-та-зміщення" class="level2" data-number="8.11">
 <h2 data-number="8.11" class="anchored" data-anchor-id="віконні-функції-та-зміщення"><span class="header-section-number">8.11</span> Віконні функції та зміщення</h2>
 <p>Тепер давайте попрацюємо з функціями зміщення – у цьому теж немає нічого складного:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">SELECT</span> <span class="fu">LAG</span>(<span class="kw">column</span>, <span class="dv">1</span>) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ROWS</span><span class="op">/</span><span class="kw">RANGE</span> <span class="kw">BETWEEN</span> <span class="op">..</span>.) <span class="kw">AS</span> lag_value</span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb22-3"><a href="#cb22-3"></a></span>
-<span id="cb22-4"><a href="#cb22-4"></a><span class="kw">SELECT</span> <span class="fu">LEAD</span>(<span class="kw">column</span>, <span class="dv">1</span>) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ROWS</span><span class="op">/</span><span class="kw">RANGE</span> <span class="kw">BETWEEN</span> <span class="op">..</span>.) <span class="kw">AS</span> lead_value</span>
-<span id="cb22-5"><a href="#cb22-5"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">SELECT</span> <span class="fu">LAG</span>(<span class="kw">column</span>, <span class="dv">1</span>) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ROWS</span><span class="op">/</span><span class="kw">RANGE</span> <span class="kw">BETWEEN</span> <span class="op">..</span>.) <span class="kw">AS</span> lag_value</span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a></span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="kw">SELECT</span> <span class="fu">LEAD</span>(<span class="kw">column</span>, <span class="dv">1</span>) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ROWS</span><span class="op">/</span><span class="kw">RANGE</span> <span class="kw">BETWEEN</span> <span class="op">..</span>.) <span class="kw">AS</span> lead_value</span>
+<span id="cb23-5"><a href="#cb23-5"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>В якості першого аргументу функцій <code>LAG</code> і <code>LEAD</code> вказується колонка зі значеннями, в якості другого — те, скільки рядків проводити зміщення (назад і вперед відповідно). Другий аргумент можна не вказувати, за умовчанням його значення дорівнює 1.</p>
 <hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -1284,32 +1282,26 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="7">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="op">%%</span>sql</span>
-<span id="cb24-2"><a href="#cb24-2"></a>SELECT user_id,</span>
-<span id="cb24-3"><a href="#cb24-3"></a>       order_id,</span>
-<span id="cb24-4"><a href="#cb24-4"></a>       time,</span>
-<span id="cb24-5"><a href="#cb24-5"></a>       row_number() OVER (PARTITION BY user_id</span>
-<span id="cb24-6"><a href="#cb24-6"></a>                          ORDER BY time) <span class="im">as</span> order_number,</span>
-<span id="cb24-7"><a href="#cb24-7"></a>       lag(time, <span class="dv">1</span>) OVER (PARTITION BY user_id</span>
-<span id="cb24-8"><a href="#cb24-8"></a>                          ORDER BY time) <span class="im">as</span> time_lag,</span>
-<span id="cb24-9"><a href="#cb24-9"></a>       time <span class="op">-</span> lag(time, <span class="dv">1</span>) OVER (PARTITION BY user_id</span>
-<span id="cb24-10"><a href="#cb24-10"></a>                                 ORDER BY time) <span class="im">as</span> time_diff</span>
-<span id="cb24-11"><a href="#cb24-11"></a>FROM   user_actions</span>
-<span id="cb24-12"><a href="#cb24-12"></a>WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
-<span id="cb24-13"><a href="#cb24-13"></a>                        FROM   user_actions</span>
-<span id="cb24-14"><a href="#cb24-14"></a>                        WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
-<span id="cb24-15"><a href="#cb24-15"></a>ORDER BY user_id, order_number limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="op">%%</span>sql</span>
+<span id="cb25-2"><a href="#cb25-2"></a>SELECT user_id,</span>
+<span id="cb25-3"><a href="#cb25-3"></a>       order_id,</span>
+<span id="cb25-4"><a href="#cb25-4"></a>       time,</span>
+<span id="cb25-5"><a href="#cb25-5"></a>       row_number() OVER (PARTITION BY user_id</span>
+<span id="cb25-6"><a href="#cb25-6"></a>                          ORDER BY time) <span class="im">as</span> order_number,</span>
+<span id="cb25-7"><a href="#cb25-7"></a>       lag(time, <span class="dv">1</span>) OVER (PARTITION BY user_id</span>
+<span id="cb25-8"><a href="#cb25-8"></a>                          ORDER BY time) <span class="im">as</span> time_lag,</span>
+<span id="cb25-9"><a href="#cb25-9"></a>       time <span class="op">-</span> lag(time, <span class="dv">1</span>) OVER (PARTITION BY user_id</span>
+<span id="cb25-10"><a href="#cb25-10"></a>                                 ORDER BY time) <span class="im">as</span> time_diff</span>
+<span id="cb25-11"><a href="#cb25-11"></a>FROM   user_actions</span>
+<span id="cb25-12"><a href="#cb25-12"></a>WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb25-13"><a href="#cb25-13"></a>                        FROM   user_actions</span>
+<span id="cb25-14"><a href="#cb25-14"></a>                        WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
+<span id="cb25-15"><a href="#cb25-15"></a>ORDER BY user_id, order_number limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stderr">
-<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
-
-It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
-</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
 
@@ -1462,7 +1454,7 @@ It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="8">
 <details>
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="op">%%</span>sql</span>
@@ -1484,13 +1476,7 @@ It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  
 <span id="cb27-17"><a href="#cb27-17"></a>GROUP BY user_id</span>
 <span id="cb27-18"><a href="#cb27-18"></a>ORDER BY user_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stderr">
-<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
-
-It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
-</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
 
@@ -1569,16 +1555,16 @@ It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  
 <section id="задачі-з-rows-between" class="level2" data-number="8.12">
 <h2 data-number="8.12" class="anchored" data-anchor-id="задачі-з-rows-between"><span class="header-section-number">8.12</span> Задачі з <code>ROWS BETWEEN</code></h2>
 <p>Настав час трохи попрацювати з інструкцією <code>ROWS BETWEEN</code>, яку докладно розглядали раніше. Нагадаємо, що початок і кінець рамки задаються такими способами:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb29-1"><a href="#cb29-1"></a><span class="kw">UNBOUNDED</span> <span class="kw">PRECEDING</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a>значення <span class="kw">PRECEDING</span></span>
-<span id="cb29-3"><a href="#cb29-3"></a><span class="kw">CURRENT</span> <span class="kw">ROW</span></span>
-<span id="cb29-4"><a href="#cb29-4"></a>значення <span class="kw">FOLLOWING</span></span>
-<span id="cb29-5"><a href="#cb29-5"></a><span class="kw">UNBOUNDED</span> <span class="kw">FOLLOWING</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">UNBOUNDED</span> <span class="kw">PRECEDING</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a>значення <span class="kw">PRECEDING</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a><span class="kw">CURRENT</span> <span class="kw">ROW</span></span>
+<span id="cb28-4"><a href="#cb28-4"></a>значення <span class="kw">FOLLOWING</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a><span class="kw">UNBOUNDED</span> <span class="kw">FOLLOWING</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ось ще один приклад вказівки меж рамки:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a href="#cb30-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(column_3) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> column_1 </span>
-<span id="cb30-2"><a href="#cb30-2"></a>                           <span class="kw">ORDER</span> <span class="kw">BY</span> column_2 </span>
-<span id="cb30-3"><a href="#cb30-3"></a>                           <span class="kw">ROWS</span> <span class="kw">BETWEEN</span> <span class="kw">UNBOUNDED</span> <span class="kw">PRECEDING</span> <span class="kw">AND</span> <span class="dv">3</span> <span class="kw">FOLLOWING</span>) <span class="kw">AS</span> <span class="fu">sum</span></span>
-<span id="cb30-4"><a href="#cb30-4"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb29-1"><a href="#cb29-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(column_3) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> column_1 </span>
+<span id="cb29-2"><a href="#cb29-2"></a>                           <span class="kw">ORDER</span> <span class="kw">BY</span> column_2 </span>
+<span id="cb29-3"><a href="#cb29-3"></a>                           <span class="kw">ROWS</span> <span class="kw">BETWEEN</span> <span class="kw">UNBOUNDED</span> <span class="kw">PRECEDING</span> <span class="kw">AND</span> <span class="dv">3</span> <span class="kw">FOLLOWING</span>) <span class="kw">AS</span> <span class="fu">sum</span></span>
+<span id="cb29-4"><a href="#cb29-4"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Але в яких завданнях корисно вказувати рамку для розрахунків? Перше, що спадає на думку будь-якому аналітику, — ковзна середня.</p>
 <p><strong>Ковзне середнє</strong> - це показник, який обчислюється в кожній точці часового ряду як середнє значення за N попередніх періодів (днів, тижнів, місяців тощо в залежності від рівня агрегації даних). Ковзне середнє переміщається по часовому ряду і щоразу враховує фіксовану кількість значень - для проведення таких розрахунків якраз і потрібна рамка вікна, яка задається інструкцією <code>ROWS BETWEEN</code>.</p>
 <p>Спробуймо провести такі розрахунки на наших даних.</p>
@@ -1604,24 +1590,24 @@ It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="9">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="op">%%</span>sql</span>
-<span id="cb31-2"><a href="#cb31-2"></a>SELECT date,</span>
-<span id="cb31-3"><a href="#cb31-3"></a>       orders_count,</span>
-<span id="cb31-4"><a href="#cb31-4"></a>       <span class="bu">round</span>(avg(orders_count) OVER (ORDER BY date rows between <span class="dv">3</span> preceding <span class="kw">and</span> <span class="dv">1</span> preceding),</span>
-<span id="cb31-5"><a href="#cb31-5"></a>             <span class="dv">2</span>) <span class="im">as</span> moving_avg</span>
-<span id="cb31-6"><a href="#cb31-6"></a>FROM   (SELECT creation_time :: date <span class="im">as</span> date,</span>
-<span id="cb31-7"><a href="#cb31-7"></a>               count(order_id) <span class="im">as</span> orders_count,</span>
-<span id="cb31-8"><a href="#cb31-8"></a>               <span class="bu">sum</span>(count(order_id)) OVER (ORDER BY creation_time :: date) <span class="im">as</span> orders_cum_count</span>
-<span id="cb31-9"><a href="#cb31-9"></a>        FROM   orders</span>
-<span id="cb31-10"><a href="#cb31-10"></a>        WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
-<span id="cb31-11"><a href="#cb31-11"></a>                                FROM   user_actions</span>
-<span id="cb31-12"><a href="#cb31-12"></a>                                WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
-<span id="cb31-13"><a href="#cb31-13"></a>        GROUP BY date) <span class="im">as</span> t1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="op">%%</span>sql</span>
+<span id="cb30-2"><a href="#cb30-2"></a>SELECT date,</span>
+<span id="cb30-3"><a href="#cb30-3"></a>       orders_count,</span>
+<span id="cb30-4"><a href="#cb30-4"></a>       <span class="bu">round</span>(avg(orders_count) OVER (ORDER BY date rows between <span class="dv">3</span> preceding <span class="kw">and</span> <span class="dv">1</span> preceding),</span>
+<span id="cb30-5"><a href="#cb30-5"></a>             <span class="dv">2</span>) <span class="im">as</span> moving_avg</span>
+<span id="cb30-6"><a href="#cb30-6"></a>FROM   (SELECT creation_time :: date <span class="im">as</span> date,</span>
+<span id="cb30-7"><a href="#cb30-7"></a>               count(order_id) <span class="im">as</span> orders_count,</span>
+<span id="cb30-8"><a href="#cb30-8"></a>               <span class="bu">sum</span>(count(order_id)) OVER (ORDER BY creation_time :: date) <span class="im">as</span> orders_cum_count</span>
+<span id="cb30-9"><a href="#cb30-9"></a>        FROM   orders</span>
+<span id="cb30-10"><a href="#cb30-10"></a>        WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb30-11"><a href="#cb30-11"></a>                                FROM   user_actions</span>
+<span id="cb30-12"><a href="#cb30-12"></a>                                WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
+<span id="cb30-13"><a href="#cb30-13"></a>        GROUP BY date) <span class="im">as</span> t1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
 
@@ -1741,13 +1727,13 @@ It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  
 <section id="задача-з-case" class="level2" data-number="8.13">
 <h2 data-number="8.13" class="anchored" data-anchor-id="задача-з-case"><span class="header-section-number">8.13</span> Задача з <code>CASE</code></h2>
 <p>Тепер навчимося разом із віконними функціями застосовувати конструкцію <code>CASE</code>. Приклад такого запису:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">SELECT</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a>    <span class="cf">CASE</span></span>
-<span id="cb32-3"><a href="#cb32-3"></a>    <span class="cf">WHEN</span> <span class="fu">SUM</span>(<span class="kw">column</span>) <span class="kw">OVER</span> (<span class="op">..</span>.) <span class="op">&gt;</span> <span class="dv">100</span> <span class="cf">THEN</span> <span class="st">'above 100'</span></span>
-<span id="cb32-4"><a href="#cb32-4"></a>    <span class="cf">WHEN</span> <span class="fu">SUM</span>(<span class="kw">column</span>) <span class="kw">OVER</span> (<span class="op">..</span>.) <span class="op">&lt;</span> <span class="dv">100</span> <span class="cf">THEN</span> <span class="st">'below 100'</span></span>
-<span id="cb32-5"><a href="#cb32-5"></a>    <span class="cf">ELSE</span> <span class="st">'equal 100'</span></span>
-<span id="cb32-6"><a href="#cb32-6"></a>    <span class="cf">END</span> <span class="kw">AS</span> sum_case</span>
-<span id="cb32-7"><a href="#cb32-7"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">SELECT</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a>    <span class="cf">CASE</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a>    <span class="cf">WHEN</span> <span class="fu">SUM</span>(<span class="kw">column</span>) <span class="kw">OVER</span> (<span class="op">..</span>.) <span class="op">&gt;</span> <span class="dv">100</span> <span class="cf">THEN</span> <span class="st">'above 100'</span></span>
+<span id="cb31-4"><a href="#cb31-4"></a>    <span class="cf">WHEN</span> <span class="fu">SUM</span>(<span class="kw">column</span>) <span class="kw">OVER</span> (<span class="op">..</span>.) <span class="op">&lt;</span> <span class="dv">100</span> <span class="cf">THEN</span> <span class="st">'below 100'</span></span>
+<span id="cb31-5"><a href="#cb31-5"></a>    <span class="cf">ELSE</span> <span class="st">'equal 100'</span></span>
+<span id="cb31-6"><a href="#cb31-6"></a>    <span class="cf">END</span> <span class="kw">AS</span> sum_case</span>
+<span id="cb31-7"><a href="#cb31-7"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1770,43 +1756,37 @@ It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="10">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="op">%%</span>sql</span>
-<span id="cb33-2"><a href="#cb33-2"></a>SELECT courier_id,</span>
-<span id="cb33-3"><a href="#cb33-3"></a>       delivered_orders,</span>
-<span id="cb33-4"><a href="#cb33-4"></a>       <span class="bu">round</span>(avg(delivered_orders) OVER (), <span class="dv">2</span>) <span class="im">as</span> avg_delivered_orders,</span>
-<span id="cb33-5"><a href="#cb33-5"></a>       <span class="cf">case</span> when delivered_orders <span class="op">&gt;</span> <span class="bu">round</span>(avg(delivered_orders) OVER (), <span class="dv">2</span>) then <span class="dv">1</span></span>
-<span id="cb33-6"><a href="#cb33-6"></a>            <span class="cf">else</span> <span class="dv">0</span> end <span class="im">as</span> is_above_avg</span>
-<span id="cb33-7"><a href="#cb33-7"></a>FROM   (SELECT courier_id,</span>
-<span id="cb33-8"><a href="#cb33-8"></a>               count(order_id) <span class="im">as</span> delivered_orders</span>
-<span id="cb33-9"><a href="#cb33-9"></a>        FROM   courier_actions</span>
-<span id="cb33-10"><a href="#cb33-10"></a>        WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
-<span id="cb33-11"><a href="#cb33-11"></a>           <span class="kw">and</span> date_part(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">9</span></span>
-<span id="cb33-12"><a href="#cb33-12"></a>           <span class="kw">and</span> date_part(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span></span>
-<span id="cb33-13"><a href="#cb33-13"></a>        GROUP BY courier_id) t</span>
-<span id="cb33-14"><a href="#cb33-14"></a>ORDER BY courier_id</span>
-<span id="cb33-15"><a href="#cb33-15"></a></span>
-<span id="cb33-16"><a href="#cb33-16"></a><span class="op">--</span> або</span>
-<span id="cb33-17"><a href="#cb33-17"></a><span class="op">--</span> SELECT <span class="op">*</span>,</span>
-<span id="cb33-18"><a href="#cb33-18"></a><span class="op">--</span>        <span class="bu">round</span>(avg(delivered_orders) OVER (), <span class="dv">2</span>) <span class="im">as</span> avg_delivered_orders,</span>
-<span id="cb33-19"><a href="#cb33-19"></a><span class="op">--</span>        (delivered_orders <span class="op">&gt;</span> avg(delivered_orders) OVER ())::integer <span class="im">as</span> is_above_avg</span>
-<span id="cb33-20"><a href="#cb33-20"></a><span class="op">--</span> FROM   (SELECT courier_id,</span>
-<span id="cb33-21"><a href="#cb33-21"></a><span class="op">--</span>                count(<span class="op">*</span>) <span class="im">as</span> delivered_orders</span>
-<span id="cb33-22"><a href="#cb33-22"></a><span class="op">--</span>         FROM   courier_actions</span>
-<span id="cb33-23"><a href="#cb33-23"></a><span class="op">--</span>         WHERE  date_part(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">0</span><span class="er">9</span></span>
-<span id="cb33-24"><a href="#cb33-24"></a><span class="op">--</span>            <span class="kw">and</span> date_part(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span></span>
-<span id="cb33-25"><a href="#cb33-25"></a><span class="op">--</span>            <span class="kw">and</span> action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
-<span id="cb33-26"><a href="#cb33-26"></a><span class="op">--</span>         GROUP BY courier_id) t1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="op">%%</span>sql</span>
+<span id="cb32-2"><a href="#cb32-2"></a>SELECT courier_id,</span>
+<span id="cb32-3"><a href="#cb32-3"></a>       delivered_orders,</span>
+<span id="cb32-4"><a href="#cb32-4"></a>       <span class="bu">round</span>(avg(delivered_orders) OVER (), <span class="dv">2</span>) <span class="im">as</span> avg_delivered_orders,</span>
+<span id="cb32-5"><a href="#cb32-5"></a>       <span class="cf">case</span> when delivered_orders <span class="op">&gt;</span> <span class="bu">round</span>(avg(delivered_orders) OVER (), <span class="dv">2</span>) then <span class="dv">1</span></span>
+<span id="cb32-6"><a href="#cb32-6"></a>            <span class="cf">else</span> <span class="dv">0</span> end <span class="im">as</span> is_above_avg</span>
+<span id="cb32-7"><a href="#cb32-7"></a>FROM   (SELECT courier_id,</span>
+<span id="cb32-8"><a href="#cb32-8"></a>               count(order_id) <span class="im">as</span> delivered_orders</span>
+<span id="cb32-9"><a href="#cb32-9"></a>        FROM   courier_actions</span>
+<span id="cb32-10"><a href="#cb32-10"></a>        WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb32-11"><a href="#cb32-11"></a>           <span class="kw">and</span> date_part(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">9</span></span>
+<span id="cb32-12"><a href="#cb32-12"></a>           <span class="kw">and</span> date_part(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span></span>
+<span id="cb32-13"><a href="#cb32-13"></a>        GROUP BY courier_id) t</span>
+<span id="cb32-14"><a href="#cb32-14"></a>ORDER BY courier_id</span>
+<span id="cb32-15"><a href="#cb32-15"></a></span>
+<span id="cb32-16"><a href="#cb32-16"></a><span class="op">--</span> або</span>
+<span id="cb32-17"><a href="#cb32-17"></a><span class="op">--</span> SELECT <span class="op">*</span>,</span>
+<span id="cb32-18"><a href="#cb32-18"></a><span class="op">--</span>        <span class="bu">round</span>(avg(delivered_orders) OVER (), <span class="dv">2</span>) <span class="im">as</span> avg_delivered_orders,</span>
+<span id="cb32-19"><a href="#cb32-19"></a><span class="op">--</span>        (delivered_orders <span class="op">&gt;</span> avg(delivered_orders) OVER ())::integer <span class="im">as</span> is_above_avg</span>
+<span id="cb32-20"><a href="#cb32-20"></a><span class="op">--</span> FROM   (SELECT courier_id,</span>
+<span id="cb32-21"><a href="#cb32-21"></a><span class="op">--</span>                count(<span class="op">*</span>) <span class="im">as</span> delivered_orders</span>
+<span id="cb32-22"><a href="#cb32-22"></a><span class="op">--</span>         FROM   courier_actions</span>
+<span id="cb32-23"><a href="#cb32-23"></a><span class="op">--</span>         WHERE  date_part(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">0</span><span class="er">9</span></span>
+<span id="cb32-24"><a href="#cb32-24"></a><span class="op">--</span>            <span class="kw">and</span> date_part(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span></span>
+<span id="cb32-25"><a href="#cb32-25"></a><span class="op">--</span>            <span class="kw">and</span> action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb32-26"><a href="#cb32-26"></a><span class="op">--</span>         GROUP BY courier_id) t1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stderr">
-<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
-
-It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
-</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
 
@@ -1912,11 +1892,11 @@ It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  
 <p>Якщо до визначення віконної функції додати пропозицію <code>FILTER</code>, то у вікно потраплять лише ті вхідні рядки, для яких умова фільтра буде обчислена як дійсна.</p>
 <p>При цьому пропозиція <code>FILTER</code> допускається тільки для агрегатних віконних функцій.</p>
 <p>У загальному вигляді вся конструкція виглядає так:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb35-1"><a href="#cb35-1"></a><span class="kw">SELECT</span> agg_function(<span class="kw">column</span>) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> [condition]) <span class="kw">OVER</span> (<span class="op">..</span>.)</span>
-<span id="cb35-2"><a href="#cb35-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1"></a><span class="kw">SELECT</span> agg_function(<span class="kw">column</span>) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> [condition]) <span class="kw">OVER</span> (<span class="op">..</span>.)</span>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Приклад:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb36-1"><a href="#cb36-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(column_1) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> column_2 <span class="op">&gt;</span> <span class="dv">100</span>) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> column_3 <span class="kw">ORDER</span> <span class="kw">BY</span> column_4) <span class="kw">AS</span> <span class="fu">sum</span></span>
-<span id="cb36-2"><a href="#cb36-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb34-1"><a href="#cb34-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(column_1) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> column_2 <span class="op">&gt;</span> <span class="dv">100</span>) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> column_3 <span class="kw">ORDER</span> <span class="kw">BY</span> column_4) <span class="kw">AS</span> <span class="fu">sum</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1937,21 +1917,21 @@ It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="11">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="op">%%</span>sql</span>
-<span id="cb37-2"><a href="#cb37-2"></a>SELECT product_id,</span>
-<span id="cb37-3"><a href="#cb37-3"></a>       name,</span>
-<span id="cb37-4"><a href="#cb37-4"></a>       price,</span>
-<span id="cb37-5"><a href="#cb37-5"></a>       <span class="bu">round</span>(avg(price) OVER (), <span class="dv">2</span>) <span class="im">as</span> avg_price,</span>
-<span id="cb37-6"><a href="#cb37-6"></a>       <span class="bu">round</span>(avg(price) <span class="bu">filter</span> (WHERE price <span class="op">!=</span> (SELECT <span class="bu">max</span>(price)</span>
-<span id="cb37-7"><a href="#cb37-7"></a>                                         FROM   products))</span>
-<span id="cb37-8"><a href="#cb37-8"></a>OVER (), <span class="dv">2</span>) <span class="im">as</span> avg_price_filtered</span>
-<span id="cb37-9"><a href="#cb37-9"></a>FROM   products</span>
-<span id="cb37-10"><a href="#cb37-10"></a>ORDER BY price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="op">%%</span>sql</span>
+<span id="cb35-2"><a href="#cb35-2"></a>SELECT product_id,</span>
+<span id="cb35-3"><a href="#cb35-3"></a>       name,</span>
+<span id="cb35-4"><a href="#cb35-4"></a>       price,</span>
+<span id="cb35-5"><a href="#cb35-5"></a>       <span class="bu">round</span>(avg(price) OVER (), <span class="dv">2</span>) <span class="im">as</span> avg_price,</span>
+<span id="cb35-6"><a href="#cb35-6"></a>       <span class="bu">round</span>(avg(price) <span class="bu">filter</span> (WHERE price <span class="op">!=</span> (SELECT <span class="bu">max</span>(price)</span>
+<span id="cb35-7"><a href="#cb35-7"></a>                                         FROM   products))</span>
+<span id="cb35-8"><a href="#cb35-8"></a>OVER (), <span class="dv">2</span>) <span class="im">as</span> avg_price_filtered</span>
+<span id="cb35-9"><a href="#cb35-9"></a>FROM   products</span>
+<span id="cb35-10"><a href="#cb35-10"></a>ORDER BY price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 
 
@@ -2088,35 +2068,29 @@ It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="12">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="op">%%</span>sql</span>
-<span id="cb38-2"><a href="#cb38-2"></a>SELECT user_id,</span>
-<span id="cb38-3"><a href="#cb38-3"></a>       order_id,</span>
-<span id="cb38-4"><a href="#cb38-4"></a>       action,</span>
-<span id="cb38-5"><a href="#cb38-5"></a>       time,</span>
-<span id="cb38-6"><a href="#cb38-6"></a>       created_orders,</span>
-<span id="cb38-7"><a href="#cb38-7"></a>       canceled_orders,</span>
-<span id="cb38-8"><a href="#cb38-8"></a>       <span class="bu">round</span>(canceled_orders::decimal <span class="op">/</span> created_orders, <span class="dv">2</span>) <span class="im">as</span> cancel_rate</span>
-<span id="cb38-9"><a href="#cb38-9"></a>FROM   (SELECT user_id,</span>
-<span id="cb38-10"><a href="#cb38-10"></a>               order_id,</span>
-<span id="cb38-11"><a href="#cb38-11"></a>               action,</span>
-<span id="cb38-12"><a href="#cb38-12"></a>               time,</span>
-<span id="cb38-13"><a href="#cb38-13"></a>               count(order_id) <span class="bu">filter</span> (WHERE action <span class="op">!=</span> <span class="st">'cancel_order'</span>) OVER (PARTITION BY user_id</span>
-<span id="cb38-14"><a href="#cb38-14"></a>                                                                             ORDER BY time) <span class="im">as</span> created_orders,</span>
-<span id="cb38-15"><a href="#cb38-15"></a>               count(order_id) <span class="bu">filter</span> (WHERE action <span class="op">=</span> <span class="st">'cancel_order'</span>) OVER (PARTITION BY user_id</span>
-<span id="cb38-16"><a href="#cb38-16"></a>                                                                            ORDER BY time) <span class="im">as</span> canceled_orders</span>
-<span id="cb38-17"><a href="#cb38-17"></a>        FROM   user_actions) t</span>
-<span id="cb38-18"><a href="#cb38-18"></a>ORDER BY user_id, order_id, time limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="op">%%</span>sql</span>
+<span id="cb36-2"><a href="#cb36-2"></a>SELECT user_id,</span>
+<span id="cb36-3"><a href="#cb36-3"></a>       order_id,</span>
+<span id="cb36-4"><a href="#cb36-4"></a>       action,</span>
+<span id="cb36-5"><a href="#cb36-5"></a>       time,</span>
+<span id="cb36-6"><a href="#cb36-6"></a>       created_orders,</span>
+<span id="cb36-7"><a href="#cb36-7"></a>       canceled_orders,</span>
+<span id="cb36-8"><a href="#cb36-8"></a>       <span class="bu">round</span>(canceled_orders::decimal <span class="op">/</span> created_orders, <span class="dv">2</span>) <span class="im">as</span> cancel_rate</span>
+<span id="cb36-9"><a href="#cb36-9"></a>FROM   (SELECT user_id,</span>
+<span id="cb36-10"><a href="#cb36-10"></a>               order_id,</span>
+<span id="cb36-11"><a href="#cb36-11"></a>               action,</span>
+<span id="cb36-12"><a href="#cb36-12"></a>               time,</span>
+<span id="cb36-13"><a href="#cb36-13"></a>               count(order_id) <span class="bu">filter</span> (WHERE action <span class="op">!=</span> <span class="st">'cancel_order'</span>) OVER (PARTITION BY user_id</span>
+<span id="cb36-14"><a href="#cb36-14"></a>                                                                             ORDER BY time) <span class="im">as</span> created_orders,</span>
+<span id="cb36-15"><a href="#cb36-15"></a>               count(order_id) <span class="bu">filter</span> (WHERE action <span class="op">=</span> <span class="st">'cancel_order'</span>) OVER (PARTITION BY user_id</span>
+<span id="cb36-16"><a href="#cb36-16"></a>                                                                            ORDER BY time) <span class="im">as</span> canceled_orders</span>
+<span id="cb36-17"><a href="#cb36-17"></a>        FROM   user_actions) t</span>
+<span id="cb36-18"><a href="#cb36-18"></a>ORDER BY user_id, order_id, time limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stderr">
-<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
-
-It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
-</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 
 
@@ -2273,111 +2247,25 @@ It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="12">
+<div class="cell" data-execution_count="13">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="op">%%</span>sql</span>
-<span id="cb40-2"><a href="#cb40-2"></a><span class="cf">with</span> courier_count <span class="im">as</span> (SELECT count(distinct courier_id)</span>
-<span id="cb40-3"><a href="#cb40-3"></a>                       FROM   courier_actions)</span>
-<span id="cb40-4"><a href="#cb40-4"></a>SELECT courier_id,</span>
-<span id="cb40-5"><a href="#cb40-5"></a>       orders_count,</span>
-<span id="cb40-6"><a href="#cb40-6"></a>       courier_rank</span>
-<span id="cb40-7"><a href="#cb40-7"></a>FROM   (SELECT courier_id,</span>
-<span id="cb40-8"><a href="#cb40-8"></a>               count(distinct order_id) <span class="im">as</span> orders_count,</span>
-<span id="cb40-9"><a href="#cb40-9"></a>               row_number() OVER (ORDER BY count(distinct order_id) desc, courier_id) <span class="im">as</span> courier_rank</span>
-<span id="cb40-10"><a href="#cb40-10"></a>        FROM   courier_actions</span>
-<span id="cb40-11"><a href="#cb40-11"></a>        WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
-<span id="cb40-12"><a href="#cb40-12"></a>        GROUP BY courier_id</span>
-<span id="cb40-13"><a href="#cb40-13"></a>        ORDER BY orders_count desc, courier_id) <span class="im">as</span> t1</span>
-<span id="cb40-14"><a href="#cb40-14"></a>WHERE  courier_rank <span class="op">&lt;=</span> <span class="bu">round</span>((SELECT <span class="op">*</span></span>
-<span id="cb40-15"><a href="#cb40-15"></a>                              FROM   courier_count)<span class="op">*</span><span class="fl">0.1</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="op">%%</span>sql</span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="cf">with</span> courier_count <span class="im">as</span> (SELECT count(distinct courier_id)</span>
+<span id="cb37-3"><a href="#cb37-3"></a>                       FROM   courier_actions)</span>
+<span id="cb37-4"><a href="#cb37-4"></a>SELECT courier_id,</span>
+<span id="cb37-5"><a href="#cb37-5"></a>       orders_count,</span>
+<span id="cb37-6"><a href="#cb37-6"></a>       courier_rank</span>
+<span id="cb37-7"><a href="#cb37-7"></a>FROM   (SELECT courier_id,</span>
+<span id="cb37-8"><a href="#cb37-8"></a>               count(distinct order_id) <span class="im">as</span> orders_count,</span>
+<span id="cb37-9"><a href="#cb37-9"></a>               row_number() OVER (ORDER BY count(distinct order_id) desc, courier_id) <span class="im">as</span> courier_rank</span>
+<span id="cb37-10"><a href="#cb37-10"></a>        FROM   courier_actions</span>
+<span id="cb37-11"><a href="#cb37-11"></a>        WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb37-12"><a href="#cb37-12"></a>        GROUP BY courier_id</span>
+<span id="cb37-13"><a href="#cb37-13"></a>        ORDER BY orders_count desc, courier_id) <span class="im">as</span> t1</span>
+<span id="cb37-14"><a href="#cb37-14"></a>WHERE  courier_rank <span class="op">&lt;=</span> <span class="bu">round</span>((SELECT <span class="op">*</span></span>
+<span id="cb37-15"><a href="#cb37-15"></a>                              FROM   courier_count)<span class="op">*</span><span class="fl">0.1</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="12">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">courier_id</th>
-<th data-quarto-table-cell-role="th">orders_count</th>
-<th data-quarto-table-cell-role="th">courier_rank</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>492</td>
-<td>54</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>708</td>
-<td>53</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>23</td>
-<td>52</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>252</td>
-<td>52</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>291</td>
-<td>52</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">278</td>
-<td>540</td>
-<td>38</td>
-<td>279</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">279</td>
-<td>589</td>
-<td>38</td>
-<td>280</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">280</td>
-<td>622</td>
-<td>38</td>
-<td>281</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">281</td>
-<td>693</td>
-<td>38</td>
-<td>282</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">282</td>
-<td>753</td>
-<td>38</td>
-<td>283</td>
-</tr>
-</tbody>
-</table>
-
-<p>283 rows × 3 columns</p>
-</div>
-</div>
 </div>
 <hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -2402,32 +2290,26 @@ It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="13">
+<div class="cell" data-execution_count="14">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="op">%%</span>sql</span>
-<span id="cb41-2"><a href="#cb41-2"></a>SELECT courier_id,</span>
-<span id="cb41-3"><a href="#cb41-3"></a>       days_employed,</span>
-<span id="cb41-4"><a href="#cb41-4"></a>       delivered_orders</span>
-<span id="cb41-5"><a href="#cb41-5"></a>FROM   (SELECT courier_id,</span>
-<span id="cb41-6"><a href="#cb41-6"></a>               delivered_orders,</span>
-<span id="cb41-7"><a href="#cb41-7"></a>               date_part(<span class="st">'days'</span>, <span class="bu">max</span>(max_time) OVER() <span class="op">-</span> min_time)::integer <span class="im">as</span> days_employed</span>
-<span id="cb41-8"><a href="#cb41-8"></a>        FROM   (SELECT courier_id,</span>
-<span id="cb41-9"><a href="#cb41-9"></a>                       count(distinct order_id) <span class="bu">filter</span> (WHERE action <span class="op">=</span> <span class="st">'deliver_order'</span>) <span class="im">as</span> delivered_orders,</span>
-<span id="cb41-10"><a href="#cb41-10"></a>                       <span class="bu">min</span>(time) <span class="im">as</span> min_time,</span>
-<span id="cb41-11"><a href="#cb41-11"></a>                       <span class="bu">max</span>(time) <span class="im">as</span> max_time</span>
-<span id="cb41-12"><a href="#cb41-12"></a>                FROM   courier_actions</span>
-<span id="cb41-13"><a href="#cb41-13"></a>                GROUP BY courier_id) t1) t2</span>
-<span id="cb41-14"><a href="#cb41-14"></a>WHERE  days_employed <span class="op">&gt;=</span> <span class="dv">10</span></span>
-<span id="cb41-15"><a href="#cb41-15"></a>ORDER BY days_employed desc, courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="op">%%</span>sql</span>
+<span id="cb38-2"><a href="#cb38-2"></a>SELECT courier_id,</span>
+<span id="cb38-3"><a href="#cb38-3"></a>       days_employed,</span>
+<span id="cb38-4"><a href="#cb38-4"></a>       delivered_orders</span>
+<span id="cb38-5"><a href="#cb38-5"></a>FROM   (SELECT courier_id,</span>
+<span id="cb38-6"><a href="#cb38-6"></a>               delivered_orders,</span>
+<span id="cb38-7"><a href="#cb38-7"></a>               date_part(<span class="st">'days'</span>, <span class="bu">max</span>(max_time) OVER() <span class="op">-</span> min_time)::integer <span class="im">as</span> days_employed</span>
+<span id="cb38-8"><a href="#cb38-8"></a>        FROM   (SELECT courier_id,</span>
+<span id="cb38-9"><a href="#cb38-9"></a>                       count(distinct order_id) <span class="bu">filter</span> (WHERE action <span class="op">=</span> <span class="st">'deliver_order'</span>) <span class="im">as</span> delivered_orders,</span>
+<span id="cb38-10"><a href="#cb38-10"></a>                       <span class="bu">min</span>(time) <span class="im">as</span> min_time,</span>
+<span id="cb38-11"><a href="#cb38-11"></a>                       <span class="bu">max</span>(time) <span class="im">as</span> max_time</span>
+<span id="cb38-12"><a href="#cb38-12"></a>                FROM   courier_actions</span>
+<span id="cb38-13"><a href="#cb38-13"></a>                GROUP BY courier_id) t1) t2</span>
+<span id="cb38-14"><a href="#cb38-14"></a>WHERE  days_employed <span class="op">&gt;=</span> <span class="dv">10</span></span>
+<span id="cb38-15"><a href="#cb38-15"></a>ORDER BY days_employed desc, courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stderr">
-<pre><code>C:\Python\Python311\Lib\site-packages\sql\run.py:736: JupySQLDataFramePerformanceWarning:
-
-It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  a DuckDB native connection. Docs: https://jupysql.ploomber.io/en/latest/integrations/duckdb.html. to suppress this warning, see: https://jupysql.ploomber.io/en/latest/tutorials/duckdb-native-sqlalchemy.html#supress-warnings
-</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
 
@@ -2534,53 +2416,53 @@ It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="15">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="op">%%</span>sql</span>
-<span id="cb43-2"><a href="#cb43-2"></a>SELECT</span>
-<span id="cb43-3"><a href="#cb43-3"></a>  order_id,</span>
-<span id="cb43-4"><a href="#cb43-4"></a>  creation_time,</span>
-<span id="cb43-5"><a href="#cb43-5"></a>  order_price,</span>
-<span id="cb43-6"><a href="#cb43-6"></a>  <span class="bu">sum</span>(order_price) OVER(PARTITION BY creation_time::date) <span class="im">as</span> daily_revenue,</span>
-<span id="cb43-7"><a href="#cb43-7"></a>  <span class="bu">round</span>(</span>
-<span id="cb43-8"><a href="#cb43-8"></a>    <span class="dv">100</span> <span class="op">*</span> order_price :: decimal <span class="op">/</span> <span class="bu">sum</span>(order_price) OVER(PARTITION BY creation_time::date),</span>
-<span id="cb43-9"><a href="#cb43-9"></a>    <span class="dv">3</span></span>
-<span id="cb43-10"><a href="#cb43-10"></a>  ) <span class="im">as</span> percentage_of_daily_revenue</span>
-<span id="cb43-11"><a href="#cb43-11"></a>FROM</span>
-<span id="cb43-12"><a href="#cb43-12"></a>  (</span>
-<span id="cb43-13"><a href="#cb43-13"></a>    SELECT</span>
-<span id="cb43-14"><a href="#cb43-14"></a>      order_id,</span>
-<span id="cb43-15"><a href="#cb43-15"></a>      creation_time,</span>
-<span id="cb43-16"><a href="#cb43-16"></a>      <span class="bu">sum</span>(price) <span class="im">as</span> order_price</span>
-<span id="cb43-17"><a href="#cb43-17"></a>    FROM</span>
-<span id="cb43-18"><a href="#cb43-18"></a>      (</span>
-<span id="cb43-19"><a href="#cb43-19"></a>        SELECT</span>
-<span id="cb43-20"><a href="#cb43-20"></a>          order_id,</span>
-<span id="cb43-21"><a href="#cb43-21"></a>          creation_time,</span>
-<span id="cb43-22"><a href="#cb43-22"></a>          product_ids,</span>
-<span id="cb43-23"><a href="#cb43-23"></a>          unnest(product_ids) <span class="im">as</span> product_id</span>
-<span id="cb43-24"><a href="#cb43-24"></a>        FROM</span>
-<span id="cb43-25"><a href="#cb43-25"></a>          orders</span>
-<span id="cb43-26"><a href="#cb43-26"></a>        WHERE</span>
-<span id="cb43-27"><a href="#cb43-27"></a>          order_id <span class="kw">not</span> <span class="kw">in</span> (</span>
-<span id="cb43-28"><a href="#cb43-28"></a>            SELECT</span>
-<span id="cb43-29"><a href="#cb43-29"></a>              order_id</span>
-<span id="cb43-30"><a href="#cb43-30"></a>            FROM</span>
-<span id="cb43-31"><a href="#cb43-31"></a>              user_actions</span>
-<span id="cb43-32"><a href="#cb43-32"></a>            WHERE</span>
-<span id="cb43-33"><a href="#cb43-33"></a>              action <span class="op">=</span> <span class="st">'cancel_order'</span></span>
-<span id="cb43-34"><a href="#cb43-34"></a>          )</span>
-<span id="cb43-35"><a href="#cb43-35"></a>      ) t3</span>
-<span id="cb43-36"><a href="#cb43-36"></a>      LEFT JOIN products using(product_id)</span>
-<span id="cb43-37"><a href="#cb43-37"></a>    GROUP BY</span>
-<span id="cb43-38"><a href="#cb43-38"></a>      order_id,</span>
-<span id="cb43-39"><a href="#cb43-39"></a>      creation_time</span>
-<span id="cb43-40"><a href="#cb43-40"></a>  ) t</span>
-<span id="cb43-41"><a href="#cb43-41"></a>ORDER BY</span>
-<span id="cb43-42"><a href="#cb43-42"></a>  creation_time::date desc,</span>
-<span id="cb43-43"><a href="#cb43-43"></a>  percentage_of_daily_revenue desc,</span>
-<span id="cb43-44"><a href="#cb43-44"></a>  order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="op">%%</span>sql</span>
+<span id="cb39-2"><a href="#cb39-2"></a>SELECT</span>
+<span id="cb39-3"><a href="#cb39-3"></a>  order_id,</span>
+<span id="cb39-4"><a href="#cb39-4"></a>  creation_time,</span>
+<span id="cb39-5"><a href="#cb39-5"></a>  order_price,</span>
+<span id="cb39-6"><a href="#cb39-6"></a>  <span class="bu">sum</span>(order_price) OVER(PARTITION BY creation_time::date) <span class="im">as</span> daily_revenue,</span>
+<span id="cb39-7"><a href="#cb39-7"></a>  <span class="bu">round</span>(</span>
+<span id="cb39-8"><a href="#cb39-8"></a>    <span class="dv">100</span> <span class="op">*</span> order_price :: decimal <span class="op">/</span> <span class="bu">sum</span>(order_price) OVER(PARTITION BY creation_time::date),</span>
+<span id="cb39-9"><a href="#cb39-9"></a>    <span class="dv">3</span></span>
+<span id="cb39-10"><a href="#cb39-10"></a>  ) <span class="im">as</span> percentage_of_daily_revenue</span>
+<span id="cb39-11"><a href="#cb39-11"></a>FROM</span>
+<span id="cb39-12"><a href="#cb39-12"></a>  (</span>
+<span id="cb39-13"><a href="#cb39-13"></a>    SELECT</span>
+<span id="cb39-14"><a href="#cb39-14"></a>      order_id,</span>
+<span id="cb39-15"><a href="#cb39-15"></a>      creation_time,</span>
+<span id="cb39-16"><a href="#cb39-16"></a>      <span class="bu">sum</span>(price) <span class="im">as</span> order_price</span>
+<span id="cb39-17"><a href="#cb39-17"></a>    FROM</span>
+<span id="cb39-18"><a href="#cb39-18"></a>      (</span>
+<span id="cb39-19"><a href="#cb39-19"></a>        SELECT</span>
+<span id="cb39-20"><a href="#cb39-20"></a>          order_id,</span>
+<span id="cb39-21"><a href="#cb39-21"></a>          creation_time,</span>
+<span id="cb39-22"><a href="#cb39-22"></a>          product_ids,</span>
+<span id="cb39-23"><a href="#cb39-23"></a>          unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb39-24"><a href="#cb39-24"></a>        FROM</span>
+<span id="cb39-25"><a href="#cb39-25"></a>          orders</span>
+<span id="cb39-26"><a href="#cb39-26"></a>        WHERE</span>
+<span id="cb39-27"><a href="#cb39-27"></a>          order_id <span class="kw">not</span> <span class="kw">in</span> (</span>
+<span id="cb39-28"><a href="#cb39-28"></a>            SELECT</span>
+<span id="cb39-29"><a href="#cb39-29"></a>              order_id</span>
+<span id="cb39-30"><a href="#cb39-30"></a>            FROM</span>
+<span id="cb39-31"><a href="#cb39-31"></a>              user_actions</span>
+<span id="cb39-32"><a href="#cb39-32"></a>            WHERE</span>
+<span id="cb39-33"><a href="#cb39-33"></a>              action <span class="op">=</span> <span class="st">'cancel_order'</span></span>
+<span id="cb39-34"><a href="#cb39-34"></a>          )</span>
+<span id="cb39-35"><a href="#cb39-35"></a>      ) t3</span>
+<span id="cb39-36"><a href="#cb39-36"></a>      LEFT JOIN products using(product_id)</span>
+<span id="cb39-37"><a href="#cb39-37"></a>    GROUP BY</span>
+<span id="cb39-38"><a href="#cb39-38"></a>      order_id,</span>
+<span id="cb39-39"><a href="#cb39-39"></a>      creation_time</span>
+<span id="cb39-40"><a href="#cb39-40"></a>  ) t</span>
+<span id="cb39-41"><a href="#cb39-41"></a>ORDER BY</span>
+<span id="cb39-42"><a href="#cb39-42"></a>  creation_time::date desc,</span>
+<span id="cb39-43"><a href="#cb39-43"></a>  percentage_of_daily_revenue desc,</span>
+<span id="cb39-44"><a href="#cb39-44"></a>  order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <hr>
@@ -2602,167 +2484,35 @@ It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="16">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="op">%%</span>sql</span>
-<span id="cb44-2"><a href="#cb44-2"></a><span class="cf">with</span> t1 <span class="im">as</span> (</span>
-<span id="cb44-3"><a href="#cb44-3"></a>    SELECT order_id,</span>
-<span id="cb44-4"><a href="#cb44-4"></a>                       creation_time,</span>
-<span id="cb44-5"><a href="#cb44-5"></a>                       product_ids,</span>
-<span id="cb44-6"><a href="#cb44-6"></a>                       unnest(product_ids) <span class="im">as</span> product_id</span>
-<span id="cb44-7"><a href="#cb44-7"></a>                FROM   orders</span>
-<span id="cb44-8"><a href="#cb44-8"></a>                WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
-<span id="cb44-9"><a href="#cb44-9"></a>                                        FROM   user_actions</span>
-<span id="cb44-10"><a href="#cb44-10"></a>                                        WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
-<span id="cb44-11"><a href="#cb44-11"></a>    ),</span>
-<span id="cb44-12"><a href="#cb44-12"></a>    t2 <span class="im">as</span> (</span>
-<span id="cb44-13"><a href="#cb44-13"></a>    SELECT creation_time::date <span class="im">as</span> date,</span>
-<span id="cb44-14"><a href="#cb44-14"></a>               <span class="bu">sum</span>(price) <span class="im">as</span> daily_revenue</span>
-<span id="cb44-15"><a href="#cb44-15"></a>        FROM t1</span>
-<span id="cb44-16"><a href="#cb44-16"></a>        LEFT JOIN products using(product_id)</span>
-<span id="cb44-17"><a href="#cb44-17"></a>        GROUP BY date</span>
-<span id="cb44-18"><a href="#cb44-18"></a>    )</span>
-<span id="cb44-19"><a href="#cb44-19"></a>    </span>
-<span id="cb44-20"><a href="#cb44-20"></a>SELECT date,</span>
-<span id="cb44-21"><a href="#cb44-21"></a>       <span class="bu">round</span>(daily_revenue, <span class="dv">1</span>) <span class="im">as</span> daily_revenue,</span>
-<span id="cb44-22"><a href="#cb44-22"></a>       <span class="bu">round</span>(coalesce(daily_revenue <span class="op">-</span> lag(daily_revenue, <span class="dv">1</span>) OVER (ORDER BY date), <span class="dv">0</span>), <span class="dv">1</span>) <span class="im">as</span> revenue_growth_abs,</span>
-<span id="cb44-23"><a href="#cb44-23"></a>       <span class="bu">round</span>(coalesce(<span class="bu">round</span>((daily_revenue <span class="op">-</span> lag(daily_revenue, <span class="dv">1</span>) OVER (ORDER BY date))::decimal <span class="op">/</span> lag(daily_revenue, <span class="dv">1</span>) OVER (ORDER BY date) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>), <span class="dv">0</span>), <span class="dv">1</span>) <span class="im">as</span> revenue_growth_percentage</span>
-<span id="cb44-24"><a href="#cb44-24"></a>FROM t2</span>
-<span id="cb44-25"><a href="#cb44-25"></a>ORDER BY date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="op">%%</span>sql</span>
+<span id="cb40-2"><a href="#cb40-2"></a><span class="cf">with</span> t1 <span class="im">as</span> (</span>
+<span id="cb40-3"><a href="#cb40-3"></a>    SELECT order_id,</span>
+<span id="cb40-4"><a href="#cb40-4"></a>                       creation_time,</span>
+<span id="cb40-5"><a href="#cb40-5"></a>                       product_ids,</span>
+<span id="cb40-6"><a href="#cb40-6"></a>                       unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb40-7"><a href="#cb40-7"></a>                FROM   orders</span>
+<span id="cb40-8"><a href="#cb40-8"></a>                WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb40-9"><a href="#cb40-9"></a>                                        FROM   user_actions</span>
+<span id="cb40-10"><a href="#cb40-10"></a>                                        WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
+<span id="cb40-11"><a href="#cb40-11"></a>    ),</span>
+<span id="cb40-12"><a href="#cb40-12"></a>    t2 <span class="im">as</span> (</span>
+<span id="cb40-13"><a href="#cb40-13"></a>    SELECT creation_time::date <span class="im">as</span> date,</span>
+<span id="cb40-14"><a href="#cb40-14"></a>               <span class="bu">sum</span>(price) <span class="im">as</span> daily_revenue</span>
+<span id="cb40-15"><a href="#cb40-15"></a>        FROM t1</span>
+<span id="cb40-16"><a href="#cb40-16"></a>        LEFT JOIN products using(product_id)</span>
+<span id="cb40-17"><a href="#cb40-17"></a>        GROUP BY date</span>
+<span id="cb40-18"><a href="#cb40-18"></a>    )</span>
+<span id="cb40-19"><a href="#cb40-19"></a>    </span>
+<span id="cb40-20"><a href="#cb40-20"></a>SELECT date,</span>
+<span id="cb40-21"><a href="#cb40-21"></a>       <span class="bu">round</span>(daily_revenue, <span class="dv">1</span>) <span class="im">as</span> daily_revenue,</span>
+<span id="cb40-22"><a href="#cb40-22"></a>       <span class="bu">round</span>(coalesce(daily_revenue <span class="op">-</span> lag(daily_revenue, <span class="dv">1</span>) OVER (ORDER BY date), <span class="dv">0</span>), <span class="dv">1</span>) <span class="im">as</span> revenue_growth_abs,</span>
+<span id="cb40-23"><a href="#cb40-23"></a>       <span class="bu">round</span>(coalesce(<span class="bu">round</span>((daily_revenue <span class="op">-</span> lag(daily_revenue, <span class="dv">1</span>) OVER (ORDER BY date))::decimal <span class="op">/</span> lag(daily_revenue, <span class="dv">1</span>) OVER (ORDER BY date) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>), <span class="dv">0</span>), <span class="dv">1</span>) <span class="im">as</span> revenue_growth_percentage</span>
+<span id="cb40-24"><a href="#cb40-24"></a>FROM t2</span>
+<span id="cb40-25"><a href="#cb40-25"></a>ORDER BY date</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="14">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">date</th>
-<th data-quarto-table-cell-role="th">daily_revenue</th>
-<th data-quarto-table-cell-role="th">revenue_growth_abs</th>
-<th data-quarto-table-cell-role="th">revenue_growth_percentage</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>2022-08-24</td>
-<td>49924.0</td>
-<td>0.0</td>
-<td>0.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2022-08-25</td>
-<td>430860.0</td>
-<td>380936.0</td>
-<td>763.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>2022-08-26</td>
-<td>534766.0</td>
-<td>103906.0</td>
-<td>24.1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>2022-08-27</td>
-<td>817053.0</td>
-<td>282287.0</td>
-<td>52.8</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>2022-08-28</td>
-<td>1133370.0</td>
-<td>316317.0</td>
-<td>38.7</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>2022-08-29</td>
-<td>1279891.0</td>
-<td>146521.0</td>
-<td>12.9</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>2022-08-30</td>
-<td>1279377.0</td>
-<td>-514.0</td>
-<td>-0.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>2022-08-31</td>
-<td>1312720.0</td>
-<td>33343.0</td>
-<td>2.6</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>2022-09-01</td>
-<td>1406101.0</td>
-<td>93381.0</td>
-<td>7.1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>2022-09-02</td>
-<td>1907107.0</td>
-<td>501006.0</td>
-<td>35.6</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">10</td>
-<td>2022-09-03</td>
-<td>2210988.0</td>
-<td>303881.0</td>
-<td>15.9</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">11</td>
-<td>2022-09-04</td>
-<td>2294009.0</td>
-<td>83021.0</td>
-<td>3.8</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">12</td>
-<td>2022-09-05</td>
-<td>1784690.0</td>
-<td>-509319.0</td>
-<td>-22.2</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">13</td>
-<td>2022-09-06</td>
-<td>1330931.0</td>
-<td>-453759.0</td>
-<td>-25.4</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">14</td>
-<td>2022-09-07</td>
-<td>1807800.0</td>
-<td>476869.0</td>
-<td>35.8</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">15</td>
-<td>2022-09-08</td>
-<td>2099508.0</td>
-<td>291708.0</td>
-<td>16.1</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
 </div>
 <hr>
 <p>І наприкінці давайте спробуємо застосувати віконні функції на вирішення нетривіальної задачі.</p>
@@ -2831,94 +2581,94 @@ It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="16">
+<div class="cell" data-execution_count="17">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="op">%%</span>sql</span>
-<span id="cb50-2"><a href="#cb50-2"></a>WITH orders_prods AS (SELECT <span class="op">*</span>,</span>
-<span id="cb50-3"><a href="#cb50-3"></a>                             unnest(product_ids) AS product_id</span>
-<span id="cb50-4"><a href="#cb50-4"></a>                      FROM orders),</span>
-<span id="cb50-5"><a href="#cb50-5"></a>                      </span>
-<span id="cb50-6"><a href="#cb50-6"></a>total AS (SELECT order_id,</span>
-<span id="cb50-7"><a href="#cb50-7"></a>                SUM(p.price) AS order_price,</span>
-<span id="cb50-8"><a href="#cb50-8"></a>                ROW_NUMBER() OVER(ORDER BY SUM(p.price)) AS number</span>
-<span id="cb50-9"><a href="#cb50-9"></a>          FROM orders_prods AS o</span>
-<span id="cb50-10"><a href="#cb50-10"></a>          JOIN products AS p ON o.product_id <span class="op">=</span> p.product_id</span>
-<span id="cb50-11"><a href="#cb50-11"></a>          </span>
-<span id="cb50-12"><a href="#cb50-12"></a>          WHERE order_id NOT IN (SELECT order_id</span>
-<span id="cb50-13"><a href="#cb50-13"></a>                             FROM user_actions</span>
-<span id="cb50-14"><a href="#cb50-14"></a>                             WHERE action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
-<span id="cb50-15"><a href="#cb50-15"></a>          GROUP BY order_id),</span>
-<span id="cb50-16"><a href="#cb50-16"></a>          </span>
-<span id="cb50-17"><a href="#cb50-17"></a>median_numbers AS (SELECT CASE MAX(number) <span class="op">%</span> <span class="dv">2</span> WHEN <span class="dv">0</span></span>
-<span id="cb50-18"><a href="#cb50-18"></a>                                               THEN MAX(number) <span class="op">/</span> <span class="dv">2</span></span>
-<span id="cb50-19"><a href="#cb50-19"></a>                                               ELSE (MAX(number) <span class="op">+</span><span class="dv">1</span>) <span class="op">/</span> <span class="dv">2</span> END AS number_1,</span>
-<span id="cb50-20"><a href="#cb50-20"></a>                       </span>
-<span id="cb50-21"><a href="#cb50-21"></a>                          CASE MAX(number) <span class="op">%</span> <span class="dv">2</span> WHEN <span class="dv">0</span></span>
-<span id="cb50-22"><a href="#cb50-22"></a>                                                THEN MAX(number) <span class="op">/</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span>    </span>
-<span id="cb50-23"><a href="#cb50-23"></a>                                                END AS number_2</span>
-<span id="cb50-24"><a href="#cb50-24"></a>                    FROM total),</span>
-<span id="cb50-25"><a href="#cb50-25"></a>                    </span>
-<span id="cb50-26"><a href="#cb50-26"></a>number_one AS (SELECT number_1</span>
-<span id="cb50-27"><a href="#cb50-27"></a>                FROM median_numbers),</span>
-<span id="cb50-28"><a href="#cb50-28"></a>                </span>
-<span id="cb50-29"><a href="#cb50-29"></a></span>
-<span id="cb50-30"><a href="#cb50-30"></a>number_two AS (SELECT number_2</span>
-<span id="cb50-31"><a href="#cb50-31"></a>                FROM median_numbers)</span>
-<span id="cb50-32"><a href="#cb50-32"></a>                </span>
-<span id="cb50-33"><a href="#cb50-33"></a>SELECT AVG(order_price) AS median_price</span>
-<span id="cb50-34"><a href="#cb50-34"></a>FROM total</span>
-<span id="cb50-35"><a href="#cb50-35"></a></span>
-<span id="cb50-36"><a href="#cb50-36"></a>WHERE number IN (SELECT <span class="op">*</span></span>
-<span id="cb50-37"><a href="#cb50-37"></a>                FROM number_one</span>
-<span id="cb50-38"><a href="#cb50-38"></a>                UNION SELECT <span class="op">*</span></span>
-<span id="cb50-39"><a href="#cb50-39"></a>                FROM number_two)</span>
-<span id="cb50-40"><a href="#cb50-40"></a></span>
-<span id="cb50-41"><a href="#cb50-41"></a><span class="op">---</span> або</span>
-<span id="cb50-42"><a href="#cb50-42"></a><span class="op">--</span> WITH main_table AS (</span>
-<span id="cb50-43"><a href="#cb50-43"></a><span class="op">--</span>   SELECT</span>
-<span id="cb50-44"><a href="#cb50-44"></a><span class="op">--</span>     order_price,</span>
-<span id="cb50-45"><a href="#cb50-45"></a><span class="op">--</span>     ROW_NUMBER() OVER (</span>
-<span id="cb50-46"><a href="#cb50-46"></a><span class="op">--</span>       ORDER BY</span>
-<span id="cb50-47"><a href="#cb50-47"></a><span class="op">--</span>         order_price</span>
-<span id="cb50-48"><a href="#cb50-48"></a><span class="op">--</span>     ) AS row_number,</span>
-<span id="cb50-49"><a href="#cb50-49"></a><span class="op">--</span>     COUNT(<span class="op">*</span>) OVER() AS total_rows</span>
-<span id="cb50-50"><a href="#cb50-50"></a><span class="op">--</span>   FROM</span>
-<span id="cb50-51"><a href="#cb50-51"></a><span class="op">--</span>     (</span>
-<span id="cb50-52"><a href="#cb50-52"></a><span class="op">--</span>       SELECT</span>
-<span id="cb50-53"><a href="#cb50-53"></a><span class="op">--</span>         SUM(price) AS order_price</span>
-<span id="cb50-54"><a href="#cb50-54"></a><span class="op">--</span>       FROM</span>
-<span id="cb50-55"><a href="#cb50-55"></a><span class="op">--</span>         (</span>
-<span id="cb50-56"><a href="#cb50-56"></a><span class="op">--</span>           SELECT</span>
-<span id="cb50-57"><a href="#cb50-57"></a><span class="op">--</span>             order_id,</span>
-<span id="cb50-58"><a href="#cb50-58"></a><span class="op">--</span>             product_ids,</span>
-<span id="cb50-59"><a href="#cb50-59"></a><span class="op">--</span>             UNNEST(product_ids) AS product_id</span>
-<span id="cb50-60"><a href="#cb50-60"></a><span class="op">--</span>           FROM</span>
-<span id="cb50-61"><a href="#cb50-61"></a><span class="op">--</span>             orders</span>
-<span id="cb50-62"><a href="#cb50-62"></a><span class="op">--</span>           WHERE</span>
-<span id="cb50-63"><a href="#cb50-63"></a><span class="op">--</span>             order_id NOT IN (</span>
-<span id="cb50-64"><a href="#cb50-64"></a><span class="op">--</span>               SELECT</span>
-<span id="cb50-65"><a href="#cb50-65"></a><span class="op">--</span>                 order_id</span>
-<span id="cb50-66"><a href="#cb50-66"></a><span class="op">--</span>               FROM</span>
-<span id="cb50-67"><a href="#cb50-67"></a><span class="op">--</span>                 user_actions</span>
-<span id="cb50-68"><a href="#cb50-68"></a><span class="op">--</span>               WHERE</span>
-<span id="cb50-69"><a href="#cb50-69"></a><span class="op">--</span>                 action <span class="op">=</span> <span class="st">'cancel_order'</span></span>
-<span id="cb50-70"><a href="#cb50-70"></a><span class="op">--</span>             )</span>
-<span id="cb50-71"><a href="#cb50-71"></a><span class="op">--</span>         ) t3</span>
-<span id="cb50-72"><a href="#cb50-72"></a><span class="op">--</span>         LEFT JOIN products USING(product_id)</span>
-<span id="cb50-73"><a href="#cb50-73"></a><span class="op">--</span>       GROUP BY</span>
-<span id="cb50-74"><a href="#cb50-74"></a><span class="op">--</span>         order_id</span>
-<span id="cb50-75"><a href="#cb50-75"></a><span class="op">--</span>     ) t1</span>
-<span id="cb50-76"><a href="#cb50-76"></a><span class="op">--</span> )</span>
-<span id="cb50-77"><a href="#cb50-77"></a><span class="op">--</span> SELECT</span>
-<span id="cb50-78"><a href="#cb50-78"></a><span class="op">--</span>   AVG(order_price) AS median_price</span>
-<span id="cb50-79"><a href="#cb50-79"></a><span class="op">--</span> FROM</span>
-<span id="cb50-80"><a href="#cb50-80"></a><span class="op">--</span>   main_table</span>
-<span id="cb50-81"><a href="#cb50-81"></a><span class="op">--</span> WHERE</span>
-<span id="cb50-82"><a href="#cb50-82"></a><span class="op">--</span>   row_number BETWEEN total_rows <span class="op">/</span> <span class="fl">2.0</span></span>
-<span id="cb50-83"><a href="#cb50-83"></a><span class="op">--</span>   AND total_rows <span class="op">/</span> <span class="fl">2.0</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="op">%%</span>sql</span>
+<span id="cb46-2"><a href="#cb46-2"></a>WITH orders_prods AS (SELECT <span class="op">*</span>,</span>
+<span id="cb46-3"><a href="#cb46-3"></a>                             unnest(product_ids) AS product_id</span>
+<span id="cb46-4"><a href="#cb46-4"></a>                      FROM orders),</span>
+<span id="cb46-5"><a href="#cb46-5"></a>                      </span>
+<span id="cb46-6"><a href="#cb46-6"></a>total AS (SELECT order_id,</span>
+<span id="cb46-7"><a href="#cb46-7"></a>                SUM(p.price) AS order_price,</span>
+<span id="cb46-8"><a href="#cb46-8"></a>                ROW_NUMBER() OVER(ORDER BY SUM(p.price)) AS number</span>
+<span id="cb46-9"><a href="#cb46-9"></a>          FROM orders_prods AS o</span>
+<span id="cb46-10"><a href="#cb46-10"></a>          JOIN products AS p ON o.product_id <span class="op">=</span> p.product_id</span>
+<span id="cb46-11"><a href="#cb46-11"></a>          </span>
+<span id="cb46-12"><a href="#cb46-12"></a>          WHERE order_id NOT IN (SELECT order_id</span>
+<span id="cb46-13"><a href="#cb46-13"></a>                             FROM user_actions</span>
+<span id="cb46-14"><a href="#cb46-14"></a>                             WHERE action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
+<span id="cb46-15"><a href="#cb46-15"></a>          GROUP BY order_id),</span>
+<span id="cb46-16"><a href="#cb46-16"></a>          </span>
+<span id="cb46-17"><a href="#cb46-17"></a>median_numbers AS (SELECT CASE MAX(number) <span class="op">%</span> <span class="dv">2</span> WHEN <span class="dv">0</span></span>
+<span id="cb46-18"><a href="#cb46-18"></a>                                               THEN MAX(number) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb46-19"><a href="#cb46-19"></a>                                               ELSE (MAX(number) <span class="op">+</span><span class="dv">1</span>) <span class="op">/</span> <span class="dv">2</span> END AS number_1,</span>
+<span id="cb46-20"><a href="#cb46-20"></a>                       </span>
+<span id="cb46-21"><a href="#cb46-21"></a>                          CASE MAX(number) <span class="op">%</span> <span class="dv">2</span> WHEN <span class="dv">0</span></span>
+<span id="cb46-22"><a href="#cb46-22"></a>                                                THEN MAX(number) <span class="op">/</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span>    </span>
+<span id="cb46-23"><a href="#cb46-23"></a>                                                END AS number_2</span>
+<span id="cb46-24"><a href="#cb46-24"></a>                    FROM total),</span>
+<span id="cb46-25"><a href="#cb46-25"></a>                    </span>
+<span id="cb46-26"><a href="#cb46-26"></a>number_one AS (SELECT number_1</span>
+<span id="cb46-27"><a href="#cb46-27"></a>                FROM median_numbers),</span>
+<span id="cb46-28"><a href="#cb46-28"></a>                </span>
+<span id="cb46-29"><a href="#cb46-29"></a></span>
+<span id="cb46-30"><a href="#cb46-30"></a>number_two AS (SELECT number_2</span>
+<span id="cb46-31"><a href="#cb46-31"></a>                FROM median_numbers)</span>
+<span id="cb46-32"><a href="#cb46-32"></a>                </span>
+<span id="cb46-33"><a href="#cb46-33"></a>SELECT AVG(order_price) AS median_price</span>
+<span id="cb46-34"><a href="#cb46-34"></a>FROM total</span>
+<span id="cb46-35"><a href="#cb46-35"></a></span>
+<span id="cb46-36"><a href="#cb46-36"></a>WHERE number IN (SELECT <span class="op">*</span></span>
+<span id="cb46-37"><a href="#cb46-37"></a>                FROM number_one</span>
+<span id="cb46-38"><a href="#cb46-38"></a>                UNION SELECT <span class="op">*</span></span>
+<span id="cb46-39"><a href="#cb46-39"></a>                FROM number_two)</span>
+<span id="cb46-40"><a href="#cb46-40"></a></span>
+<span id="cb46-41"><a href="#cb46-41"></a><span class="op">---</span> або</span>
+<span id="cb46-42"><a href="#cb46-42"></a><span class="op">--</span> WITH main_table AS (</span>
+<span id="cb46-43"><a href="#cb46-43"></a><span class="op">--</span>   SELECT</span>
+<span id="cb46-44"><a href="#cb46-44"></a><span class="op">--</span>     order_price,</span>
+<span id="cb46-45"><a href="#cb46-45"></a><span class="op">--</span>     ROW_NUMBER() OVER (</span>
+<span id="cb46-46"><a href="#cb46-46"></a><span class="op">--</span>       ORDER BY</span>
+<span id="cb46-47"><a href="#cb46-47"></a><span class="op">--</span>         order_price</span>
+<span id="cb46-48"><a href="#cb46-48"></a><span class="op">--</span>     ) AS row_number,</span>
+<span id="cb46-49"><a href="#cb46-49"></a><span class="op">--</span>     COUNT(<span class="op">*</span>) OVER() AS total_rows</span>
+<span id="cb46-50"><a href="#cb46-50"></a><span class="op">--</span>   FROM</span>
+<span id="cb46-51"><a href="#cb46-51"></a><span class="op">--</span>     (</span>
+<span id="cb46-52"><a href="#cb46-52"></a><span class="op">--</span>       SELECT</span>
+<span id="cb46-53"><a href="#cb46-53"></a><span class="op">--</span>         SUM(price) AS order_price</span>
+<span id="cb46-54"><a href="#cb46-54"></a><span class="op">--</span>       FROM</span>
+<span id="cb46-55"><a href="#cb46-55"></a><span class="op">--</span>         (</span>
+<span id="cb46-56"><a href="#cb46-56"></a><span class="op">--</span>           SELECT</span>
+<span id="cb46-57"><a href="#cb46-57"></a><span class="op">--</span>             order_id,</span>
+<span id="cb46-58"><a href="#cb46-58"></a><span class="op">--</span>             product_ids,</span>
+<span id="cb46-59"><a href="#cb46-59"></a><span class="op">--</span>             UNNEST(product_ids) AS product_id</span>
+<span id="cb46-60"><a href="#cb46-60"></a><span class="op">--</span>           FROM</span>
+<span id="cb46-61"><a href="#cb46-61"></a><span class="op">--</span>             orders</span>
+<span id="cb46-62"><a href="#cb46-62"></a><span class="op">--</span>           WHERE</span>
+<span id="cb46-63"><a href="#cb46-63"></a><span class="op">--</span>             order_id NOT IN (</span>
+<span id="cb46-64"><a href="#cb46-64"></a><span class="op">--</span>               SELECT</span>
+<span id="cb46-65"><a href="#cb46-65"></a><span class="op">--</span>                 order_id</span>
+<span id="cb46-66"><a href="#cb46-66"></a><span class="op">--</span>               FROM</span>
+<span id="cb46-67"><a href="#cb46-67"></a><span class="op">--</span>                 user_actions</span>
+<span id="cb46-68"><a href="#cb46-68"></a><span class="op">--</span>               WHERE</span>
+<span id="cb46-69"><a href="#cb46-69"></a><span class="op">--</span>                 action <span class="op">=</span> <span class="st">'cancel_order'</span></span>
+<span id="cb46-70"><a href="#cb46-70"></a><span class="op">--</span>             )</span>
+<span id="cb46-71"><a href="#cb46-71"></a><span class="op">--</span>         ) t3</span>
+<span id="cb46-72"><a href="#cb46-72"></a><span class="op">--</span>         LEFT JOIN products USING(product_id)</span>
+<span id="cb46-73"><a href="#cb46-73"></a><span class="op">--</span>       GROUP BY</span>
+<span id="cb46-74"><a href="#cb46-74"></a><span class="op">--</span>         order_id</span>
+<span id="cb46-75"><a href="#cb46-75"></a><span class="op">--</span>     ) t1</span>
+<span id="cb46-76"><a href="#cb46-76"></a><span class="op">--</span> )</span>
+<span id="cb46-77"><a href="#cb46-77"></a><span class="op">--</span> SELECT</span>
+<span id="cb46-78"><a href="#cb46-78"></a><span class="op">--</span>   AVG(order_price) AS median_price</span>
+<span id="cb46-79"><a href="#cb46-79"></a><span class="op">--</span> FROM</span>
+<span id="cb46-80"><a href="#cb46-80"></a><span class="op">--</span>   main_table</span>
+<span id="cb46-81"><a href="#cb46-81"></a><span class="op">--</span> WHERE</span>
+<span id="cb46-82"><a href="#cb46-82"></a><span class="op">--</span>   row_number BETWEEN total_rows <span class="op">/</span> <span class="fl">2.0</span></span>
+<span id="cb46-83"><a href="#cb46-83"></a><span class="op">--</span>   AND total_rows <span class="op">/</span> <span class="fl">2.0</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <div>
 
 
@@ -2930,10 +2680,6 @@ It looks like you're using DuckDB with SQLAlchemy. For faster conversions, use  
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>321.0</td>
-</tr>
 </tbody>
 </table>
 

@@ -191,7 +191,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Python</span></a>
+ <span class="menu-text">Встановлення Python</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Переключити розділ">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -320,7 +320,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="схема-бази-даних">Схема бази даних</h2>
 <p>У цьому розділі ми будемо використовувати набори даних, які представляють сервіс з доставки продуктів. Тут зберігається документація, котра допоможе розібратися з ними.</p>
 <p>Для запуску бази даних, я використовую <a href="https://duckdb.org/">DuckDB</a>. Самі файли з даними можна знайти в <a href="https://github.com/Aranaur/py4ds/tree/main/00_data/sql">репозиторії</a>. Для локального запуску бази даних необхідно виконати наступний код:</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="2">
 <details>
 <summary>Код</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Встановлення та імпорт необхідних пакетів</span></span>
@@ -431,8 +431,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <section id="типи-даних" class="level2">
 <h2 class="anchored" data-anchor-id="типи-даних">Типи даних</h2>
 <p>В таблицях можуть зберігатися різні типи даних: цілі і дробові числа, текст, дати, масиви чисел. У цих даних ви зустрінетесь з наступними типами:</p>
-<div class="cell" data-execution_count="6">
-<div id="sql-data-types" class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell" data-execution_count="4">
+<div id="sql-data-types" class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -493,8 +493,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <section id="структура-та-наповнення-таблиць" class="level2">
 <h2 class="anchored" data-anchor-id="структура-та-наповнення-таблиць">Структура та наповнення таблиць</h2>
 <p><code>user_actions</code> – дії користувачів із замовленнями.</p>
-<div class="cell" data-execution_count="7">
-<div id="sql-user-actions" class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell" data-execution_count="5">
+<div id="sql-user-actions" class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
@@ -539,8 +539,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p><code>courier_actions</code> – дії кур’єрів із замовленнями.</p>
-<div class="cell" data-execution_count="8">
-<div id="sql-courier-actions" class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell" data-execution_count="6">
+<div id="sql-courier-actions" class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
 
@@ -585,8 +585,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p><code>orders</code> - інформація про замовлення.</p>
-<div class="cell" data-execution_count="9">
-<div id="sql-orders" class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell" data-execution_count="7">
+<div id="sql-orders" class="cell-output cell-output-display" data-execution_count="6">
 <div>
 
 
@@ -625,8 +625,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p><code>users</code> - інформація про користувачів.</p>
-<div class="cell" data-execution_count="10">
-<div id="sql-users" class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell" data-execution_count="8">
+<div id="sql-users" class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
 
@@ -665,8 +665,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p><code>couriers</code> - інформація про кур’єрів.</p>
-<div class="cell" data-execution_count="11">
-<div id="sql-couriers" class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell" data-execution_count="9">
+<div id="sql-couriers" class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
 
@@ -705,8 +705,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p><code>products</code> - інформація про товари, які доставляє сервіс.</p>
-<div class="cell" data-execution_count="12">
-<div id="sql-products" class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell" data-execution_count="10">
+<div id="sql-products" class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
 
