@@ -1,6 +1,8 @@
-# Встановлення Python
+# Python
 
-## Windows
+## Встановлення Python
+
+### Windows
 
 1. Завантажити та запустити [Python](https://www.python.org/downloads/) актуальної версії, наприклад Python 3.9.
 2. Відкрити командний рядок: `cmd`
@@ -9,7 +11,7 @@
 5. Виконати у командному рядку: `pip install jupyter`
 6. Запустити **jupyter**: виконати у командному рядку: `jupyter-notebook`
 
-## Linux (Ubuntu LTS)
+### Linux (Ubuntu LTS)
 
 1. Відкрити термінал
 2. Виконати у терміналі: `sudo apt update`, що оновить всі пакети.
@@ -25,7 +27,7 @@
 12. Виконати у терміналі: `pip install jupyter` - встановити `jupyter` для роботи з ноутбуками.
 13. Запустити Jupyter: `python3.9 -m notebook`
 
-## MacOS
+### MacOS
 
 1. Відкрити термінал
 2. Встановити **Homebrew**: виконати у терміналі команду із сайту https://brew.sh
@@ -35,13 +37,13 @@
 6. Виконати у терміналі: `python3.9 -m pip install jupyter`
 7. Запустити Jupyter: виконати у терміналі: `jupyter-notebook`
 
-## Хмарні сервіси
+### Хмарні сервіси
 
 1. [Google Colab](https://colab.research.google.com/)
 2. [Jupyter Notebook](https://jupyter.org/try)
 3. [Posit.cloud](https://posit.cloud/)
 
-## Integrated development environment (IDE)
+### Integrated development environment (IDE)
 
 1. [Visual Studio Code](https://code.visualstudio.com/)
 2. [PyCharm](https://www.jetbrains.com/pycharm/)
