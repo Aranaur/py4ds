@@ -655,7 +655,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>Якщо цієї змінної не має в глобальному просторі імен, то інтерпретатор буде шукати її в просторі імен вбудованих функцій:</p>
-<div class="cell" data-execution_count="25">
+<div class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="kw">def</span> outer():</span>
 <span id="cb47-2"><a href="#cb47-2"></a>    <span class="kw">def</span> inner():</span>
 <span id="cb47-3"><a href="#cb47-3"></a>        <span class="bu">print</span>(<span class="bu">str</span>)</span>
@@ -664,11 +664,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb47-6"><a href="#cb47-6"></a></span>
 <span id="cb47-7"><a href="#cb47-7"></a>outer()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>global</code></pre>
+<pre><code>&lt;class 'str'&gt;</code></pre>
 </div>
 </div>
 <p>Якщо ми спробуємо звернутися до змінної, якої немає ні в одному з просторів імен, то інтерпретатор викине помилку:</p>
-<div class="cell" data-execution_count="26">
+<div class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a><span class="kw">def</span> outer():</span>
 <span id="cb49-2"><a href="#cb49-2"></a>    <span class="kw">def</span> inner():</span>
 <span id="cb49-3"><a href="#cb49-3"></a>        <span class="bu">print</span>(variable) <span class="co"># змінна, якої немає ні в одному з просторів імен</span></span>
