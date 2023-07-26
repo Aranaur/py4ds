@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Книга-конспект матеріалів">
+
+<title>Від нуля до Python Data Scientist - 3&nbsp; Популярні питання</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./python_list_set.html" rel="prev">
+<link href="./cover.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Пошук не дав результату",
+    "search-matching-documents-text": "Результати пошуку",
+    "search-copy-link-title": "Скопіюйте посилання для пошуку",
+    "search-hide-matches-text": "Приховати додаткові результати",
+    "search-more-match-text": "Додатковий результат у цьому документі",
+    "search-more-matches-text": "Додаткові результати у цьому документі",
+    "search-clear-button-title": "Очистити",
+    "search-detached-cancel-button-title": "Скасувати",
+    "search-submit-button-title": "Надіслати",
+    "search-label": "Пошук"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-0C9TJBF3C5"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
+</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python.html">Python</a></li><li class="breadcrumb-item"><a href="./python_questions.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Популярні питання</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Від нуля до Python Data Scientist</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/Aranaur/py4ds" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Переключити темний режим"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Пошук"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Вступне слово</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Переключити розділ">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Змінні та типи даних</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_list_set.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Списки та множини</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_questions.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Популярні питання</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./sql.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Переключити розділ">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Базові запити</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_filter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_agg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Агрегація даних</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_groupby.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Групування даних</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_subquery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Підзапити</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_join.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Об’єднання таблиць</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_window.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Віконні функції</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_analytic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Практичні задачі</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_metrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Аналіз продуктових метрик</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Зміст</h2>
+   
+  <ul>
+  <li><a href="#основи" id="toc-основи" class="nav-link active" data-scroll-target="#основи"><span class="header-section-number">3.1</span> Основи</a>
+  <ul class="collapse">
+  <li><a href="#що-таке-pep-8" id="toc-що-таке-pep-8" class="nav-link" data-scroll-target="#що-таке-pep-8"><span class="header-section-number">3.1.1</span> Що таке PEP-8?</a></li>
+  <li><a href="#які-типи-даних-є-в-python-або-які-типи-даних-є-змінними-а-які-є-незмінними" id="toc-які-типи-даних-є-в-python-або-які-типи-даних-є-змінними-а-які-є-незмінними" class="nav-link" data-scroll-target="#які-типи-даних-є-в-python-або-які-типи-даних-є-змінними-а-які-є-незмінними"><span class="header-section-number">3.1.2</span> Які типи даних є в Python? Або які типи даних є змінними, а які є незмінними?</a></li>
+  <li><a href="#що-таке-віртуальне-оточення-навіщо-воно-потрібне" id="toc-що-таке-віртуальне-оточення-навіщо-воно-потрібне" class="nav-link" data-scroll-target="#що-таке-віртуальне-оточення-навіщо-воно-потрібне"><span class="header-section-number">3.1.3</span> Що таке віртуальне оточення? Навіщо воно потрібне?</a></li>
+  <li><a href="#чи-можна-змінити-елемент-у-кортежі-якщо-кортеж-незмінний-тип-даних" id="toc-чи-можна-змінити-елемент-у-кортежі-якщо-кортеж-незмінний-тип-даних" class="nav-link" data-scroll-target="#чи-можна-змінити-елемент-у-кортежі-якщо-кортеж-незмінний-тип-даних"><span class="header-section-number">3.1.4</span> Чи можна змінити елемент у кортежі, якщо кортеж незмінний тип даних?</a></li>
+  <li><a href="#що-таке-list-set-та-dict-comprehensions-наведи-приклад-їхнього-використання." id="toc-що-таке-list-set-та-dict-comprehensions-наведи-приклад-їхнього-використання." class="nav-link" data-scroll-target="#що-таке-list-set-та-dict-comprehensions-наведи-приклад-їхнього-використання."><span class="header-section-number">3.1.5</span> Що таке List, Set та Dict comprehensions? Наведи приклад їхнього використання.</a></li>
+  <li><a href="#яка-різниця-між-операторами-та-is" id="toc-яка-різниця-між-операторами-та-is" class="nav-link" data-scroll-target="#яка-різниця-між-операторами-та-is"><span class="header-section-number">3.1.6</span> Яка різниця між операторами <code>==</code> та <code>is</code>?</a></li>
+  <li><a href="#що-таке-глибока-deep-та-поверхнева-shallow-копія-навіщо-вони-потрібні-та-як-їх-зробити" id="toc-що-таке-глибока-deep-та-поверхнева-shallow-копія-навіщо-вони-потрібні-та-як-їх-зробити" class="nav-link" data-scroll-target="#що-таке-глибока-deep-та-поверхнева-shallow-копія-навіщо-вони-потрібні-та-як-їх-зробити"><span class="header-section-number">3.1.7</span> Що таке глибока (<code>deep</code>) та поверхнева (<code>shallow</code>) копія? Навіщо вони потрібні та як їх зробити?</a></li>
+  <li><a href="#як-працюють-оператори-and-or-та-not-що-вони-повертають" id="toc-як-працюють-оператори-and-or-та-not-що-вони-повертають" class="nav-link" data-scroll-target="#як-працюють-оператори-and-or-та-not-що-вони-повертають"><span class="header-section-number">3.1.8</span> Як працюють оператори <code>and</code>, <code>or</code> та <code>not</code>? Що вони повертають?</a></li>
+  <li><a href="#як-працює-простір-імен-у-python-або-як-працює-правило-legb-local-enclosing-global-built-in" id="toc-як-працює-простір-імен-у-python-або-як-працює-правило-legb-local-enclosing-global-built-in" class="nav-link" data-scroll-target="#як-працює-простір-імен-у-python-або-як-працює-правило-legb-local-enclosing-global-built-in"><span class="header-section-number">3.1.9</span> Як працює простір імен у Python? Або як працює правило LEGB (Local, Enclosing, Global, Built-in)?</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_questions.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_questions.qmd" class="toc-action">Переглянути код</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Популярні питання</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="основи" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="основи"><span class="header-section-number">3.1</span> Основи</h2>
+<section id="що-таке-pep-8" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="що-таке-pep-8"><span class="header-section-number">3.1.1</span> Що таке PEP-8?</h3>
+<p><strong>PEP</strong> або <strong>Python Enhancement Proposal</strong> – це пропозиція щодо розвитку мови Python. Ці документи є механізмом для пропонування нових можливостей або для документування вже готових рішень, які увійшли до мови Python.</p>
+<p><strong>PEP-8</strong> — це style guide того, як повинен бути оформлений код, написаний мовою Python, і яку повинні слідувати всі розробники, які пишуть цією мовою.</p>
+</section>
+<section id="які-типи-даних-є-в-python-або-які-типи-даних-є-змінними-а-які-є-незмінними" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="які-типи-даних-є-в-python-або-які-типи-даних-є-змінними-а-які-є-незмінними"><span class="header-section-number">3.1.2</span> Які типи даних є в Python? Або які типи даних є змінними, а які є незмінними?</h3>
+<p>Типи даних у Python можна розділити на змінні та незмінні.</p>
+<p>До незмінних можна віднести: рядки, байти, цілі числа, числа з плаваючою точкою, комплексні числа, булеві значення, none, картежі та frozenset.</p>
+<p>До змінюваних типів даних можна віднести списки, сети, словники, байт-масиви та memoryview.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th><strong>Змінні</strong></th>
+<th><strong>Незмінні</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>str</code></td>
+<td><code>list</code></td>
+</tr>
+<tr class="even">
+<td><code>bytes</code></td>
+<td><code>set</code></td>
+</tr>
+<tr class="odd">
+<td><code>int</code></td>
+<td><code>dict</code></td>
+</tr>
+<tr class="even">
+<td><code>float</code></td>
+<td><code>bytearray</code></td>
+</tr>
+<tr class="odd">
+<td><code>complex</code></td>
+<td><code>memoryview</code></td>
+</tr>
+<tr class="even">
+<td><code>bool</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>None</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>tuple</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>frozenset</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="що-таке-віртуальне-оточення-навіщо-воно-потрібне" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="що-таке-віртуальне-оточення-навіщо-воно-потрібне"><span class="header-section-number">3.1.3</span> Що таке віртуальне оточення? Навіщо воно потрібне?</h3>
+<p>Уявімо ситуацію, що на одному комп’ютері нам потрібно запустити два Python-проекти, які використовують одну бібліотеку, тільки різних версій. Саме такі віртуальні оточення допомагають нам вирішити цей конфлікт. Коли ми використовуємо віртуальне оточення, ми створюємо щось на кшталт пісочниці, де ми ізолюємо локальний Python від глобального Python. Це дозволяє нам ставити різні бібліотеки локально, не впливаючи на Python, який встановлений глобально у нас на комп’ютері.</p>
+</section>
+<section id="чи-можна-змінити-елемент-у-кортежі-якщо-кортеж-незмінний-тип-даних" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="чи-можна-змінити-елемент-у-кортежі-якщо-кортеж-незмінний-тип-даних"><span class="header-section-number">3.1.4</span> Чи можна змінити елемент у кортежі, якщо кортеж незмінний тип даних?</h3>
+<p>Хоча по собі картеж — це незмінний тип даних, але може містити змінюване значення. Припустимо, у нас є картеж <code>a</code>, який містить список і одиницю.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>a <span class="op">=</span> ([], <span class="dv">1</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Хоча картеж і незмінний - це означає, що ми не можемо змінювати його структуру, але якщо він містить елементи, що змінюються, то ми можемо їх змінювати. Наприклад, якщо ми спробуємо додати до картежу третім елементом двійку, то ми отримаємо помилку, тому що картеж - це незмінний тип даних.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>a[<span class="dv">3</span>] <span class="op">=</span> <span class="dv">2</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>TypeError: 'tuple' object does not support item assignment</code></pre>
+</div>
+</div>
+<p>Але якщо ми візьмемо нульовий елемент, це список, і спробуємо додати до нього двійку в кінець, знову виведемо на екран наш картеж, то побачимо, що нам вдалося змінити нульовий елемент.</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>a[<span class="dv">0</span>].append(<span class="dv">2</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">print</span>(a)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>([2], 1)</code></pre>
+</div>
+</div>
+<p>Тобто картеж незмінний тип даних, змінювати структуру його не можна, але якщо є елементи, що змінюються всередині, то їх можна змінювати.</p>
+</section>
+<section id="що-таке-list-set-та-dict-comprehensions-наведи-приклад-їхнього-використання." class="level3" data-number="3.1.5">
+<h3 data-number="3.1.5" class="anchored" data-anchor-id="що-таке-list-set-та-dict-comprehensions-наведи-приклад-їхнього-використання."><span class="header-section-number">3.1.5</span> Що таке List, Set та Dict comprehensions? Наведи приклад їхнього використання.</h3>
+<p>List, Set та Dict comprehensions – це скорочення для наступного запису:</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>a <span class="op">=</span> []</span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb6-4"><a href="#cb6-4"></a>    a.append(i)</span>
+<span id="cb6-5"><a href="#cb6-5"></a></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="bu">print</span>(a)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0, 1, 2, 3, 4]</code></pre>
+</div>
+</div>
+<p>Щоб отримати той самий результат, ми можемо скористатися List Comprehensions:</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>l <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>)]</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="bu">print</span>(l)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0, 1, 2, 3, 4]</code></pre>
+</div>
+</div>
+<p>Також у List, Set та Dict Comprehensions можна використовувати умови. Для цього потрібно після колекції або після генератора вказати ключове слово <code>if</code> і вказати умови, за якими ми вибиратимемо елементи, які вставлятимемо в цей список:</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># виведемо парні числа</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a>l <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>) <span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>]</span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="bu">print</span>(l)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0, 2, 4]</code></pre>
+</div>
+</div>
+<p>Різниця між List і Set Comprehension у тому, що в List Comprehension використовуються квадратні дужки, Set Comprehension використовуються круглі дужки:</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>s <span class="op">=</span> {i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>) <span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>}</span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="bu">print</span>(s)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{0, 2, 4}</code></pre>
+</div>
+</div>
+<p>Щоб отримати Dict Comprehension, у нас повинен бути тут не один елемент, а має бути два елементи. Тобто один для ключа, другий для значення. Ми також використовуємо фігурні дужки:</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>d <span class="op">=</span> {i: i <span class="op">**</span> <span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>) <span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>}</span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="bu">print</span>(d)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{0: 0, 2: 4, 4: 16}</code></pre>
+</div>
+</div>
+<p>В якості прикладів використання List Set та Dict Comprehension можна навести розпакування якихось колекцій, або якихось генераторів, або просто заміна якогось дуже простого циклу, коли це не заважає читабельності коду.</p>
+</section>
+<section id="яка-різниця-між-операторами-та-is" class="level3" data-number="3.1.6">
+<h3 data-number="3.1.6" class="anchored" data-anchor-id="яка-різниця-між-операторами-та-is"><span class="header-section-number">3.1.6</span> Яка різниця між операторами <code>==</code> та <code>is</code>?</h3>
+<p>Оператор <code>==</code> порівнює два операнди за їх значеннями:</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb16-2"><a href="#cb16-2"></a>b <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb16-3"><a href="#cb16-3"></a></span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="bu">print</span>(a <span class="op">==</span> b)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<p>Оператор <code>is</code> перевіряє, що дві змінні, тобто <code>a</code> і <code>b</code> посилаються на один об’єкт. В даному випадку у нас <code>a</code> посилається на один список, <code>b</code> посилається на інший список, відповідно ми повинні отримати <code>false</code>:</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb18-2"><a href="#cb18-2"></a>b <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb18-3"><a href="#cb18-3"></a></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="bu">print</span>(a <span class="kw">is</span> b)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False</code></pre>
+</div>
+</div>
+<p>Що буде, якщо <code>b</code> надамо не новий список, а передамо <code>a</code>? Ми отримаємо <code>true</code>, тому що і <code>a</code>, і <code>b</code> посилаються на той самий об’єкт:</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb20-2"><a href="#cb20-2"></a>b <span class="op">=</span> a</span>
+<span id="cb20-3"><a href="#cb20-3"></a></span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="bu">print</span>(a <span class="kw">is</span> b)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+</section>
+<section id="що-таке-глибока-deep-та-поверхнева-shallow-копія-навіщо-вони-потрібні-та-як-їх-зробити" class="level3" data-number="3.1.7">
+<h3 data-number="3.1.7" class="anchored" data-anchor-id="що-таке-глибока-deep-та-поверхнева-shallow-копія-навіщо-вони-потрібні-та-як-їх-зробити"><span class="header-section-number">3.1.7</span> Що таке глибока (<code>deep</code>) та поверхнева (<code>shallow</code>) копія? Навіщо вони потрібні та як їх зробити?</h3>
+<p>Поверхнева копія копіює сам об’єкт. Всі внутрішні об’єкти вона не копіює, вони доступні за тими самими посиланнями. Глибока копія, мало того, що копіює зовнішній об’єкт, вона рекурсивно копіює всі внутрішні об’єкти в нову пам’ять. Якщо ми змінюємо новий об’єкт, то попередній стає незмінним.</p>
+<p>Розглянемо приклад:</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>a <span class="op">=</span> [<span class="dv">1</span>, [<span class="dv">2</span>]]</span>
+<span id="cb22-2"><a href="#cb22-2"></a>b <span class="op">=</span> a</span>
+<span id="cb22-3"><a href="#cb22-3"></a>b.append(<span class="dv">3</span>) <span class="co"># додаємо 3 до b</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a>b[<span class="dv">1</span>].append(<span class="dv">4</span>) <span class="co"># додаємо 4 до списку, який знаходиться всередині b</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a></span>
+<span id="cb22-6"><a href="#cb22-6"></a><span class="bu">print</span>(a)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1, [2, 4], 3]</code></pre>
+</div>
+</div>
+<p>Оскільки змінні <code>a</code> і <code>b</code> посилаються на один і той самий об’єкт, то і <code>a</code> зміниться. Не завжди це та поведінка, яку ми очікуємо. Для цього у нас є два види копії, відповідно, глибока та поверхнева.</p>
+<p>Найпростіший спосіб це імпортувати модуль <code>copy</code> і скористатися методом <code>copy()</code>. В такому випадку ми отримаємо поверхневу копію. Поверхнева копія створює копію самого об’єкта, але посилання на всі внутрішні об’єкти будуть збережені, вони не будуть скопійовані.</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="im">import</span> copy</span>
+<span id="cb24-2"><a href="#cb24-2"></a></span>
+<span id="cb24-3"><a href="#cb24-3"></a>a <span class="op">=</span> [<span class="dv">1</span>, [<span class="dv">2</span>]]</span>
+<span id="cb24-4"><a href="#cb24-4"></a>b <span class="op">=</span> copy.copy(a)</span>
+<span id="cb24-5"><a href="#cb24-5"></a>b.append(<span class="dv">3</span>)</span>
+<span id="cb24-6"><a href="#cb24-6"></a>b[<span class="dv">1</span>].append(<span class="dv">4</span>)</span>
+<span id="cb24-7"><a href="#cb24-7"></a></span>
+<span id="cb24-8"><a href="#cb24-8"></a><span class="bu">print</span>(a)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1, [2, 4]]</code></pre>
+</div>
+</div>
+<p>Для створення глибокої копії ми можемо скористатися методом <code>deepcopy()</code>:</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="im">import</span> copy</span>
+<span id="cb26-2"><a href="#cb26-2"></a></span>
+<span id="cb26-3"><a href="#cb26-3"></a>a <span class="op">=</span> [<span class="dv">1</span>, [<span class="dv">2</span>]]</span>
+<span id="cb26-4"><a href="#cb26-4"></a>b <span class="op">=</span> copy.deepcopy(a)</span>
+<span id="cb26-5"><a href="#cb26-5"></a>b.append(<span class="dv">3</span>)</span>
+<span id="cb26-6"><a href="#cb26-6"></a>b[<span class="dv">1</span>].append(<span class="dv">4</span>)</span>
+<span id="cb26-7"><a href="#cb26-7"></a></span>
+<span id="cb26-8"><a href="#cb26-8"></a><span class="bu">print</span>(a)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1, [2]]</code></pre>
+</div>
+</div>
+<p>Якщо ж ми розглядаємо список, то існує багато способів, як ще можна створити поверхневу копію:</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>a <span class="op">=</span> [<span class="dv">1</span>, [<span class="dv">2</span>]]</span>
+<span id="cb28-2"><a href="#cb28-2"></a></span>
+<span id="cb28-3"><a href="#cb28-3"></a>b <span class="op">=</span> <span class="bu">list</span>(a) <span class="co"># поверхнева копія через list()</span></span>
+<span id="cb28-4"><a href="#cb28-4"></a>b <span class="op">=</span> a[:] <span class="co"># поверхнева копія через зріз</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a>b <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> a] <span class="co"># поверхнева копія через List Comprehension</span></span>
+<span id="cb28-6"><a href="#cb28-6"></a>b <span class="op">=</span> a.copy() <span class="co"># поверхнева копія через вбудовану функцію copy()</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="як-працюють-оператори-and-or-та-not-що-вони-повертають" class="level3" data-number="3.1.8">
+<h3 data-number="3.1.8" class="anchored" data-anchor-id="як-працюють-оператори-and-or-та-not-що-вони-повертають"><span class="header-section-number">3.1.8</span> Як працюють оператори <code>and</code>, <code>or</code> та <code>not</code>? Що вони повертають?</h3>
+<p>Оператор <code>not</code> приводить свій операнд до типу <code>bool</code> і повертає його інверсію:</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># not</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a></span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="bu">print</span>(<span class="kw">not</span> [])</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># not</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a></span>
+<span id="cb31-3"><a href="#cb31-3"></a><span class="bu">print</span>(<span class="kw">not</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>})</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False</code></pre>
+</div>
+</div>
+<p>Оператори <code>and</code> та <code>or</code> не приводять об’єкти до булевих значень, вони повертають самі об’єкти.</p>
+<p>Якщо перший операнд повертає <code>False</code>, то <code>and</code> поверне його:</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="bu">print</span>([] <span class="kw">and</span> <span class="dv">123</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[]</code></pre>
+</div>
+</div>
+<p>Якщо перший операнд повертає <code>True</code>, то <code>and</code> поверне другий операнд:</p>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="bu">print</span>([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>] <span class="kw">and</span> <span class="dv">123</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>123</code></pre>
+</div>
+</div>
+<p>Якщо перший операнд повертає <code>True</code>, то <code>or</code> поверне його:</p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="bu">print</span>([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>] <span class="kw">or</span> <span class="dv">123</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1, 2, 3]</code></pre>
+</div>
+</div>
+<p>Якщо перший операнд повертає <code>False</code>, то <code>or</code> поверне другий операнд:</p>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="bu">print</span>([] <span class="kw">or</span> <span class="dv">123</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>123</code></pre>
+</div>
+</div>
+</section>
+<section id="як-працює-простір-імен-у-python-або-як-працює-правило-legb-local-enclosing-global-built-in" class="level3" data-number="3.1.9">
+<h3 data-number="3.1.9" class="anchored" data-anchor-id="як-працює-простір-імен-у-python-або-як-працює-правило-legb-local-enclosing-global-built-in"><span class="header-section-number">3.1.9</span> Як працює простір імен у Python? Або як працює правило LEGB (Local, Enclosing, Global, Built-in)?</h3>
+<p>Простір імен у Python працює за правилом LEGB. Це означає, що спочатку інтерпретатор шукає змінну в локальному просторі імен, потім в необов’язковому просторі імен зовнішньої функції, потім в глобальному просторі імен і, нарешті, в просторі імен вбудованих функцій.</p>
+<p>Розглянемо приклад, в якому повертається локальна змінна <code>str</code>:</p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="bu">str</span> <span class="op">=</span> <span class="st">'global'</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a></span>
+<span id="cb41-3"><a href="#cb41-3"></a><span class="kw">def</span> outer():</span>
+<span id="cb41-4"><a href="#cb41-4"></a>    <span class="bu">str</span> <span class="op">=</span> <span class="st">'enclosing'</span></span>
+<span id="cb41-5"><a href="#cb41-5"></a>    </span>
+<span id="cb41-6"><a href="#cb41-6"></a>    <span class="kw">def</span> inner():</span>
+<span id="cb41-7"><a href="#cb41-7"></a>        <span class="bu">str</span> <span class="op">=</span> <span class="st">'local'</span> <span class="co"># локальна змінна</span></span>
+<span id="cb41-8"><a href="#cb41-8"></a>        <span class="bu">print</span>(<span class="bu">str</span>)</span>
+<span id="cb41-9"><a href="#cb41-9"></a>    </span>
+<span id="cb41-10"><a href="#cb41-10"></a>    inner()</span>
+<span id="cb41-11"><a href="#cb41-11"></a></span>
+<span id="cb41-12"><a href="#cb41-12"></a>outer()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>local</code></pre>
+</div>
+</div>
+<p>Якщо цієї змінної не має в локальному просторі імен, то інтерпретатор буде шукати її в зовнішньому просторі імен:</p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="bu">str</span> <span class="op">=</span> <span class="st">'global'</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a></span>
+<span id="cb43-3"><a href="#cb43-3"></a><span class="kw">def</span> outer():</span>
+<span id="cb43-4"><a href="#cb43-4"></a>    <span class="bu">str</span> <span class="op">=</span> <span class="st">'enclosing'</span> <span class="co"># зовнішній простір імен</span></span>
+<span id="cb43-5"><a href="#cb43-5"></a>    </span>
+<span id="cb43-6"><a href="#cb43-6"></a>    <span class="kw">def</span> inner():</span>
+<span id="cb43-7"><a href="#cb43-7"></a>        <span class="bu">print</span>(<span class="bu">str</span>)</span>
+<span id="cb43-8"><a href="#cb43-8"></a>    </span>
+<span id="cb43-9"><a href="#cb43-9"></a>    inner()</span>
+<span id="cb43-10"><a href="#cb43-10"></a></span>
+<span id="cb43-11"><a href="#cb43-11"></a>outer()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>enclosing</code></pre>
+</div>
+</div>
+<p>Якщо цієї змінної не має в зовнішньому просторі імен, то інтерпретатор буде шукати її в глобальному просторі імен:</p>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="bu">str</span> <span class="op">=</span> <span class="st">'global'</span> <span class="co"># глобальний простір імен</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a></span>
+<span id="cb45-3"><a href="#cb45-3"></a><span class="kw">def</span> outer():</span>
+<span id="cb45-4"><a href="#cb45-4"></a>    <span class="kw">def</span> inner():</span>
+<span id="cb45-5"><a href="#cb45-5"></a>        <span class="bu">print</span>(<span class="bu">str</span>)</span>
+<span id="cb45-6"><a href="#cb45-6"></a>    </span>
+<span id="cb45-7"><a href="#cb45-7"></a>    inner()</span>
+<span id="cb45-8"><a href="#cb45-8"></a></span>
+<span id="cb45-9"><a href="#cb45-9"></a>outer()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>global</code></pre>
+</div>
+</div>
+<p>Якщо цієї змінної не має в глобальному просторі імен, то інтерпретатор буде шукати її в просторі імен вбудованих функцій:</p>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="kw">def</span> outer():</span>
+<span id="cb47-2"><a href="#cb47-2"></a>    <span class="kw">def</span> inner():</span>
+<span id="cb47-3"><a href="#cb47-3"></a>        <span class="bu">print</span>(<span class="bu">str</span>)</span>
+<span id="cb47-4"><a href="#cb47-4"></a>    </span>
+<span id="cb47-5"><a href="#cb47-5"></a>    inner()</span>
+<span id="cb47-6"><a href="#cb47-6"></a></span>
+<span id="cb47-7"><a href="#cb47-7"></a>outer()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>global</code></pre>
+</div>
+</div>
+<p>Якщо ми спробуємо звернутися до змінної, якої немає ні в одному з просторів імен, то інтерпретатор викине помилку:</p>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a><span class="kw">def</span> outer():</span>
+<span id="cb49-2"><a href="#cb49-2"></a>    <span class="kw">def</span> inner():</span>
+<span id="cb49-3"><a href="#cb49-3"></a>        <span class="bu">print</span>(variable) <span class="co"># змінна, якої немає ні в одному з просторів імен</span></span>
+<span id="cb49-4"><a href="#cb49-4"></a>    </span>
+<span id="cb49-5"><a href="#cb49-5"></a>    inner()</span>
+<span id="cb49-6"><a href="#cb49-6"></a></span>
+<span id="cb49-7"><a href="#cb49-7"></a>outer()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>NameError: name 'variable' is not defined</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Скопійовано!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Скопійовано!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./python_list_set.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Списки та множини</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
