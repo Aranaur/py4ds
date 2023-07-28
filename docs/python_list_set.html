@@ -675,7 +675,7 @@ lessons = ['Analytics', 'Python']</code></pre>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>fruits <span class="op">=</span> {<span class="st">'apple'</span>, <span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>}</span>
 <span id="cb45-2"><a href="#cb45-2"></a><span class="bu">print</span>(fruits)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'orange', 'apple', 'banana'}</code></pre>
+<pre><code>{'banana', 'apple', 'orange'}</code></pre>
 </div>
 </div>
 <section id="методи-множин" class="level3" data-number="2.2.1">
@@ -688,7 +688,7 @@ lessons = ['Analytics', 'Python']</code></pre>
 <span id="cb47-2"><a href="#cb47-2"></a>fruits.add(<span class="st">'melon'</span>)</span>
 <span id="cb47-3"><a href="#cb47-3"></a><span class="bu">print</span>(fruits)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'orange', 'apple', 'melon', 'banana'}</code></pre>
+<pre><code>{'banana', 'apple', 'orange', 'melon'}</code></pre>
 </div>
 </div>
 <ul>
@@ -700,7 +700,7 @@ lessons = ['Analytics', 'Python']</code></pre>
 <span id="cb49-3"><a href="#cb49-3"></a>fruits3 <span class="op">=</span> fruits.union(fruits2)</span>
 <span id="cb49-4"><a href="#cb49-4"></a><span class="bu">print</span>(fruits3)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'orange', 'apple', 'banana', 'melon', 'watermelon'}</code></pre>
+<pre><code>{'watermelon', 'banana', 'orange', 'apple', 'melon'}</code></pre>
 </div>
 </div>
 <ul>
@@ -722,7 +722,7 @@ lessons = ['Analytics', 'Python']</code></pre>
 <span id="cb53-2"><a href="#cb53-2"></a>fruits_copy <span class="op">=</span> fruits.copy()</span>
 <span id="cb53-3"><a href="#cb53-3"></a><span class="bu">print</span>(fruits_copy)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'orange', 'apple', 'banana'}</code></pre>
+<pre><code>{'banana', 'apple', 'orange'}</code></pre>
 </div>
 </div>
 <ul>
@@ -734,7 +734,7 @@ lessons = ['Analytics', 'Python']</code></pre>
 <span id="cb55-3"><a href="#cb55-3"></a>fruits3 <span class="op">=</span> fruits.difference(fruits2)</span>
 <span id="cb55-4"><a href="#cb55-4"></a><span class="bu">print</span>(fruits3)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'orange', 'banana'}</code></pre>
+<pre><code>{'banana', 'orange'}</code></pre>
 </div>
 </div>
 <ul>
@@ -745,7 +745,7 @@ lessons = ['Analytics', 'Python']</code></pre>
 <span id="cb57-2"><a href="#cb57-2"></a>fruits.discard(<span class="st">'apple'</span>)</span>
 <span id="cb57-3"><a href="#cb57-3"></a><span class="bu">print</span>(fruits)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'orange', 'banana'}</code></pre>
+<pre><code>{'banana', 'orange'}</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="30">
@@ -753,7 +753,7 @@ lessons = ['Analytics', 'Python']</code></pre>
 <span id="cb59-2"><a href="#cb59-2"></a>fruits.discard(<span class="st">'watermelon'</span>)</span>
 <span id="cb59-3"><a href="#cb59-3"></a><span class="bu">print</span>(fruits)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'orange', 'apple', 'banana'}</code></pre>
+<pre><code>{'banana', 'apple', 'orange'}</code></pre>
 </div>
 </div>
 <ul>
@@ -764,7 +764,7 @@ lessons = ['Analytics', 'Python']</code></pre>
 <span id="cb61-2"><a href="#cb61-2"></a>fruits.remove(<span class="st">'apple'</span>)</span>
 <span id="cb61-3"><a href="#cb61-3"></a><span class="bu">print</span>(fruits)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'orange', 'banana'}</code></pre>
+<pre><code>{'banana', 'orange'}</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="32">
@@ -908,21 +908,21 @@ lessons = ['Analytics', 'Python']</code></pre>
 <div class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1"></a><span class="co"># від 0 до 4 з кроком 1</span></span>
 <span id="cb92-2"><a href="#cb92-2"></a><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">5</span>))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="214">
+<div class="cell-output cell-output-display" data-execution_count="46">
 <pre><code>[0, 1, 2, 3, 4]</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1"></a><span class="co"># від 2 до 9 з кроком 2</span></span>
 <span id="cb94-2"><a href="#cb94-2"></a><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">2</span>))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="215">
+<div class="cell-output cell-output-display" data-execution_count="47">
 <pre><code>[2, 4, 6, 8]</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1"></a><span class="co"># від 10 до 2 з кроком 1</span></span>
 <span id="cb96-2"><a href="#cb96-2"></a><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">10</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="216">
+<div class="cell-output cell-output-display" data-execution_count="48">
 <pre><code>[10, 9, 8, 7, 6, 5, 4, 3, 2]</code></pre>
 </div>
 </div>
@@ -1077,6 +1077,28 @@ result = 6</code></pre>
 <span id="cb111-3"><a href="#cb111-3"></a><span class="bu">print</span>(month_name)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>January</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Завдання
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-list-set-06" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 2.6 </strong></span><br> Створіть кортеж із назвами днів тижня та збережіть його у змінну <code>days_of_the_week</code>.</p>
+<pre><code>'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'</code></pre>
+<div class="cell" data-execution_count="58">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1"></a>days_of_the_week <span class="op">=</span> (<span class="st">'Monday'</span>, <span class="st">'Tuesday'</span>, <span class="st">'Wednesday'</span>, <span class="st">'Thursday'</span>, <span class="st">'Friday'</span>, <span class="st">'Saturday'</span>, <span class="st">'Sunday'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
 </div>
 </div>
 
