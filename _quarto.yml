@@ -6,7 +6,7 @@ book:
   title: "Від нуля до Python Data Scientist"
   author: "Ігор Мірошниченко"
   description: Книга-конспект матеріалів
-  keyword: polars, pandas, python, dataframe, performance, data science, data engineering
+  keyword: python, data science, machine learning, data analysis, data visualization, statistics, sql, pandas, numpy, matplotlib, seaborn, scikit-learn, plotly, pyspark
   date: today
   date-format: iso
   # cover-image: cover.png
