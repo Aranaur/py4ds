@@ -1,3 +1,0 @@
-# Вступне слово {.unnumbered}
-
-Книга-конспект матеріалів з курсу "Python for Data Science".
