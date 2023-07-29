@@ -9,7 +9,7 @@ book:
   keyword: python, data science, machine learning, data analysis, data visualization, statistics, sql, pandas, numpy, matplotlib, seaborn, scikit-learn, plotly, pyspark
   date: today
   date-format: iso
-  # cover-image: cover.png
+  # cover-image: monobanka.jpg
   favicon: cover.png
   repo-url: https://github.com/Aranaur/py4ds
   url: https://aranaur.github.io/py4ds/
