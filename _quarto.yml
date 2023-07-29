@@ -4,7 +4,10 @@ project:
 
 book:
   title: "Від нуля до Python Data Scientist"
-  author: "Ігор Мірошниченко"
+  author:
+    - name: Ігор Мірошниченко
+      orcid: 0000-0002-1307-7889
+      email: ihor.miroshnychenko@kneu.ua
   description: Книга-конспект матеріалів
   keyword: python, data science, machine learning, data analysis, data visualization, statistics, sql, pandas, numpy, matplotlib, seaborn, scikit-learn, plotly, pyspark
   date: today
