@@ -6,4 +6,4 @@
 
 Книга створена за допомогою [Quarto](https://quarto.org/).
 
-![](https://raw.githubusercontent.com/Aranaur/py4ds/main/cover_transparent.png)
+<img src="https://raw.githubusercontent.com/Aranaur/py4ds/main/cover_transparent.png" width=50% height=50%>
