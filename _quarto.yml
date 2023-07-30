@@ -46,6 +46,10 @@ book:
       - sql_metrics.ipynb
     - text: "---"
     - quarto.qmd
+
+comments:
+    giscus:
+      repo: aranaur/py4ds
     
 language: _language-ukr.yml
 
