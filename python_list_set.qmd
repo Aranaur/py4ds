@@ -241,6 +241,41 @@ lessons.sort()
 ::::
 :::::
 
+:::: {.callout-note icon=false}
+## Завдання
+::: {#exr-py-list-set-09}
+<br>
+Дано два списки `list_1` і `list_2`. Відсортуйте `list_1` за зростанням, а `list_2` за спаданням.
+Поєднайте `list_1` та `list_2` в один відсортований за зростанням список `list_3`.
+У змінну `list_3_len` збережіть довжину `list_3`.
+
+**Приклад:**
+
+```
+list_1 = [1, 5, 3]
+list_2 = [2, 8]
+# -> 
+list_1 = [1, 3, 5]
+list_2 = [8, 2]
+list_3 = [1, 2, 3, 5, 8]
+list_3_len = 5
+```
+
+```{python}
+#| code-fold: true
+#| code-summary: "Рішення"
+
+list_1 = [1, 5, 3]
+list_2 = [2, 8]
+list_1.sort()
+list_2.sort(reverse=True)
+list_3 = sorted(list_1 + list_2)
+list_3_len = len(list_3)
+```
+
+:::
+::::
+
 
 
 ### `pop()` vs. `remove()`
@@ -387,6 +422,133 @@ fruits = {'apple', 'banana', 'orange', 'watermelon'}
 fruits2 = {'banana', 'orange'}
 print(fruits2.issubset(fruits))
 ```
+
+:::: {.callout-note icon=false}
+## Завдання
+::: {#exr-py-list-set-08}
+<br>
+Дано два списки `list_1` і `list_2`. Відсортуйте `list_1` за зростанням, а `list_2` за спаданням.
+Поєднайте `list_1` та `list_2` в один відсортований за зростанням список `list_3`.
+У змінну `list_3_len` збережіть довжину `list_3`.
+
+**Приклад:**
+
+```
+list_1 = [1, 5, 3]
+list_2 = [2, 8]
+# -> 
+list_1 = [1, 3, 5]
+list_2 = [8, 2]
+list_3 = [1, 2, 3, 5, 8]
+list_3_len = 5
+```
+
+```{python}
+#| code-fold: true
+#| code-summary: "Рішення"
+
+list_1 = [1, 5, 3]
+list_2 = [2, 8]
+
+```
+
+:::
+::::
+
+:::: {.callout-note icon=false}
+## Завдання
+::: {#exr-py-list-set-10}
+<br>
+У змінній `menu` зберігається множина усіх позицій меню кав'ярні, а в змінній `stop` - множина позицій меню кав'ярні, недоступних для замовлення сьогодні. Збережіть у змінну `menu_today` позиції меню, доступні для замовлення сьогодні.
+
+**Приклад:**
+
+```
+menu = {'White Chocolate Mocha', 'Americano', 'Flat White', 'Latte', 
+        'Blueberry Muffin', 'Chocolate Chip Cookie'}
+stop = {'White Chocolate Mocha', 'Blueberry Muffin'}
+
+menu_today = {'Americano', 'Flat White', 'Latte', 'Chocolate Chip Cookie'}
+```
+
+```{python}
+#| code-fold: true
+#| code-summary: "Рішення"
+
+menu = {'White Chocolate Mocha', 'Americano', 'Flat White', 'Latte', 
+        'Blueberry Muffin', 'Chocolate Chip Cookie'}
+stop = {'White Chocolate Mocha', 'Blueberry Muffin'}
+
+menu_today = menu - stop
+# або
+menu_today = menu.difference(stop)
+```
+
+:::
+::::
+
+### Frozenset
+
+У множини теж є незмінний аналог. **Frozenset** - це незмінний набір об'єктів, він має ту ж функціональність, що і `set`, але його елементи не можуть бути змінені після створення.
+
+```{python}
+my_frozenset = frozenset([1, 2, 3])
+print(my_frozenset)
+```
+
+На старті ви не так часто зіштовхуватиметеся з `frozenset`, але чим глибше ви занурюватиметеся в розробку, тим вище ймовірність, що ви зустрінетеся з `frozenset` при роботі з множинами.
+
+Зараз нам просто корисно знати, що існує незмінний аналог множин, надалі ми ще повернемося до `frozenset` і продемонструємо кілька прикладів його використання.
+
+:::: {.callout-note icon=false}
+## Завдання
+::: {#exr-py-list-set-07}
+<br>
+- У змінній `numbers_list` збережено список із цілими числами. У списку щонайменше два різних цілих числа.
+- У змінну `numbers_list_ordered` збережіть усі числа зі списку `numbers_list`, відсортовані за спаданням. При цьому список `numbers_list` не повинен змінюватися.
+- У змінну `numbers_set` збережіть множину унікальних чисел зі списку `numbers_list`. Доповніть цю множину наступним цілим числом після максимального числа з `numbers_list`.
+- У змінну `numbers_frozenset` збережіть незмінну множину з усіх унікальних чисел зі списку `numbers_list`, крім мінімального числа.
+
+**Приклад:**
+
+```
+# Приклад 1
+numbers_list = [1, 5, 3, 3, 5]
+
+numbers_list_ordered = [5, 5, 3, 3, 1]
+numbers_set = set([1, 3, 5, 6])
+numbers_frozenset = frozenset([3, 5])
+
+
+# Приклад 2
+numbers_list = [-1, 0, 1]
+
+numbers_list_ordered = [1, 0, -1]
+numbers_set = set([-1, 0, 1, 2])
+numbers_frozenset = frozenset([0, 1])
+
+
+# Приклад 3
+numbers_list [-1, -5, -1]
+
+numbers_list_ordered = [-1, -1, -5]
+numbers_set = set([-5, -1, 0])
+numbers_frozenset = frozenset([-1])
+```
+
+```{python}
+#| code-fold: true
+#| code-summary: "Рішення"
+
+numbers_list = [1, 1, 5, 3, 3, 5]
+numbers_list_ordered = sorted(numbers_list, reverse=True)
+numbers_set = set(numbers_list)
+numbers_set.add(max(numbers_list) + 1)
+numbers_frozenset = frozenset(sorted(set(numbers_list))[1:]) 
+```
+
+:::
+::::
 
 ## Корисні функції
 
