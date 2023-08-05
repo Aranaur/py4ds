@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./python_questions.html" rel="next">
+<link href="./python_dict.html" rel="next">
 <link href="./python_basics.html" rel="prev">
 <link href="./cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -206,14 +206,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./python_questions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Популярні питання</span></span></a>
+  <a href="./python_dict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Словники</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./python_dict.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Словники</span></span></a>
+  <a href="./python_questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Популярні питання</span></span></a>
   </div>
 </li>
       </ul>
@@ -782,7 +782,7 @@ b = 2
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>fruits <span class="op">=</span> {<span class="st">'apple'</span>, <span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>}</span>
 <span id="cb51-2"><a href="#cb51-2"></a><span class="bu">print</span>(fruits)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'orange', 'apple', 'banana'}</code></pre>
+<pre><code>{'banana', 'apple', 'orange'}</code></pre>
 </div>
 </div>
 <section id="методи-множин" class="level3" data-number="2.2.1">
@@ -795,7 +795,7 @@ b = 2
 <span id="cb53-2"><a href="#cb53-2"></a>fruits.add(<span class="st">'melon'</span>)</span>
 <span id="cb53-3"><a href="#cb53-3"></a><span class="bu">print</span>(fruits)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'melon', 'orange', 'apple', 'banana'}</code></pre>
+<pre><code>{'banana', 'apple', 'melon', 'orange'}</code></pre>
 </div>
 </div>
 <ul>
@@ -807,7 +807,7 @@ b = 2
 <span id="cb55-3"><a href="#cb55-3"></a>fruits3 <span class="op">=</span> fruits.union(fruits2)</span>
 <span id="cb55-4"><a href="#cb55-4"></a><span class="bu">print</span>(fruits3)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'melon', 'orange', 'watermelon', 'banana', 'apple'}</code></pre>
+<pre><code>{'banana', 'apple', 'orange', 'melon', 'watermelon'}</code></pre>
 </div>
 </div>
 <ul>
@@ -829,7 +829,7 @@ b = 2
 <span id="cb59-2"><a href="#cb59-2"></a>fruits_copy <span class="op">=</span> fruits.copy()</span>
 <span id="cb59-3"><a href="#cb59-3"></a><span class="bu">print</span>(fruits_copy)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'orange', 'apple', 'banana'}</code></pre>
+<pre><code>{'banana', 'apple', 'orange'}</code></pre>
 </div>
 </div>
 <ul>
@@ -841,7 +841,7 @@ b = 2
 <span id="cb61-3"><a href="#cb61-3"></a>fruits3 <span class="op">=</span> fruits.difference(fruits2)</span>
 <span id="cb61-4"><a href="#cb61-4"></a><span class="bu">print</span>(fruits3)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'orange', 'banana'}</code></pre>
+<pre><code>{'banana', 'orange'}</code></pre>
 </div>
 </div>
 <ul>
@@ -852,7 +852,7 @@ b = 2
 <span id="cb63-2"><a href="#cb63-2"></a>fruits.discard(<span class="st">'apple'</span>)</span>
 <span id="cb63-3"><a href="#cb63-3"></a><span class="bu">print</span>(fruits)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'orange', 'banana'}</code></pre>
+<pre><code>{'banana', 'orange'}</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="33">
@@ -860,7 +860,7 @@ b = 2
 <span id="cb65-2"><a href="#cb65-2"></a>fruits.discard(<span class="st">'watermelon'</span>)</span>
 <span id="cb65-3"><a href="#cb65-3"></a><span class="bu">print</span>(fruits)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'orange', 'apple', 'banana'}</code></pre>
+<pre><code>{'banana', 'apple', 'orange'}</code></pre>
 </div>
 </div>
 <ul>
@@ -871,7 +871,7 @@ b = 2
 <span id="cb67-2"><a href="#cb67-2"></a>fruits.remove(<span class="st">'apple'</span>)</span>
 <span id="cb67-3"><a href="#cb67-3"></a><span class="bu">print</span>(fruits)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'orange', 'banana'}</code></pre>
+<pre><code>{'banana', 'orange'}</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="35">
@@ -1819,8 +1819,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./python_questions.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Популярні питання</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./python_dict.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Словники</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

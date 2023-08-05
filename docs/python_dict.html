@@ -8,7 +8,7 @@
 
 <meta name="description" content="Книга-конспект матеріалів">
 
-<title>Від нуля до Python Data Scientist - 4&nbsp; Словники</title>
+<title>Від нуля до Python Data Scientist - 3&nbsp; Словники</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./python_questions.html" rel="prev">
+<link href="./python_questions.html" rel="next">
+<link href="./python_list_set.html" rel="prev">
 <link href="./cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -120,7 +121,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python.html">Python</a></li><li class="breadcrumb-item"><a href="./python_dict.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Словники</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python.html">Python</a></li><li class="breadcrumb-item"><a href="./python_dict.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Словники</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -205,14 +206,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./python_questions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Популярні питання</span></span></a>
+  <a href="./python_dict.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Словники</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./python_dict.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Словники</span></span></a>
+  <a href="./python_questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Популярні питання</span></span></a>
   </div>
 </li>
       </ul>
@@ -300,9 +301,9 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
     <h2 id="toc-title">Зміст</h2>
    
   <ul>
-  <li><a href="#створення-словника" id="toc-створення-словника" class="nav-link active" data-scroll-target="#створення-словника"><span class="header-section-number">4.1</span> Створення словника</a></li>
-  <li><a href="#основні-методи-словників" id="toc-основні-методи-словників" class="nav-link" data-scroll-target="#основні-методи-словників"><span class="header-section-number">4.2</span> Основні методи словників</a></li>
-  <li><a href="#завдання-для-самостійної-роботи" id="toc-завдання-для-самостійної-роботи" class="nav-link" data-scroll-target="#завдання-для-самостійної-роботи"><span class="header-section-number">4.3</span> Завдання для самостійної роботи</a></li>
+  <li><a href="#створення-словника" id="toc-створення-словника" class="nav-link active" data-scroll-target="#створення-словника"><span class="header-section-number">3.1</span> Створення словника</a></li>
+  <li><a href="#основні-методи-словників" id="toc-основні-методи-словників" class="nav-link" data-scroll-target="#основні-методи-словників"><span class="header-section-number">3.2</span> Основні методи словників</a></li>
+  <li><a href="#завдання-для-самостійної-роботи" id="toc-завдання-для-самостійної-роботи" class="nav-link" data-scroll-target="#завдання-для-самостійної-роботи"><span class="header-section-number">3.3</span> Завдання для самостійної роботи</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_dict.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_dict.qmd" class="toc-action">Переглянути код</a></p></div></div></nav>
     </div>
@@ -311,7 +312,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Словники</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Словники</span></h1>
 </div>
 
 
@@ -344,8 +345,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 20</code></pre>
 </div>
 </div>
-<section id="створення-словника" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="створення-словника"><span class="header-section-number">4.1</span> Створення словника</h2>
+<section id="створення-словника" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="створення-словника"><span class="header-section-number">3.1</span> Створення словника</h2>
 <p>У Python є кілька способів створення словників. Ось деякі з них:</p>
 <ol type="1">
 <li><strong>Літерали словника</strong></li>
@@ -402,8 +403,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <p>Це лише деякі зі способів створення словників у Python. Кожен із них має свої особливості та може використовуватися залежно від конкретного завдання.</p>
 </section>
-<section id="основні-методи-словників" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="основні-методи-словників"><span class="header-section-number">4.2</span> Основні методи словників</h2>
+<section id="основні-методи-словників" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="основні-методи-словників"><span class="header-section-number">3.2</span> Основні методи словників</h2>
 <ol type="1">
 <li><strong><code>get()</code></strong> - дає змогу отримати значення за ключем, але на відміну від звернення через <code>[]</code>, не викликає виняток <code>KeyError</code>, якщо ключ відсутній у словнику. Приклад:</li>
 </ol>
@@ -507,8 +508,8 @@ None
 </div>
 </div>
 </section>
-<section id="завдання-для-самостійної-роботи" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="завдання-для-самостійної-роботи"><span class="header-section-number">4.3</span> Завдання для самостійної роботи</h2>
+<section id="завдання-для-самостійної-роботи" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="завдання-для-самостійної-роботи"><span class="header-section-number">3.3</span> Завдання для самостійної роботи</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -520,7 +521,7 @@ None
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-py-dict-01" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 4.1 </strong></span><br> У змінну <code>cities_population</code> збережіть словник із трьома ключами: <code>'Київ'</code>, <code>'Париж'</code>, <code>'Токіо'</code>. Як значення збережіть населення цих міст у млн. осіб: <code>2.88</code>, <code>2.16</code>, <code>13.96</code>. Ключами нашого словника будуть рядки, значеннями - числа у форматі <code>float</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 3.1 </strong></span><br> У змінну <code>cities_population</code> збережіть словник із трьома ключами: <code>'Київ'</code>, <code>'Париж'</code>, <code>'Токіо'</code>. Як значення збережіть населення цих міст у млн. осіб: <code>2.88</code>, <code>2.16</code>, <code>13.96</code>. Ключами нашого словника будуть рядки, значеннями - числа у форматі <code>float</code>.</p>
 <div class="cell" data-execution_count="16">
 <details>
 <summary>Рішення</summary>
@@ -545,7 +546,7 @@ None
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-py-dict-02" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 4.2 </strong></span><br> Дано словник <code>dict_input</code>. Поміняйте ключі та значення місцями. Результат збережіть у <code>result</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 3.2 </strong></span><br> Дано словник <code>dict_input</code>. Поміняйте ключі та значення місцями. Результат збережіть у <code>result</code>.</p>
 <p><strong>Приклад:</strong></p>
 <pre><code>dict_input = {"1": 11, "2": 22, "3": 33}
 result = {11: "1", 22:"2", 33:"3"}</code></pre>
@@ -587,7 +588,7 @@ result = {11: "1", 22:"2", 33:"3"}</code></pre>
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-py-dict-02" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 4.3 </strong></span><br> Катя - власник невеликого кондитерського виробництва, на якому виготовляють еклери. У нас є словник <code>data</code>, у якому міститься інформація про собівартість одиниці товару <code>cost_price</code>, ціну продажу <code>sell_price</code> та кількість товару <code>eclairs</code>. Потрібно порахувати, який прибуток Катя отримує після продажу своєї продукції. Результат збережіть у змінну <code>result</code>, округливши суму до цілого числа.</p>
+<p><span class="theorem-title"><strong>Завдання 3.3 </strong></span><br> Катя - власник невеликого кондитерського виробництва, на якому виготовляють еклери. У нас є словник <code>data</code>, у якому міститься інформація про собівартість одиниці товару <code>cost_price</code>, ціну продажу <code>sell_price</code> та кількість товару <code>eclairs</code>. Потрібно порахувати, який прибуток Катя отримує після продажу своєї продукції. Результат збережіть у змінну <code>result</code>, округливши суму до цілого числа.</p>
 <p><strong>Приклад:</strong></p>
 <pre><code>data = {
   "cost_price": 225.89,
@@ -983,11 +984,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./python_questions.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Популярні питання</span></span>
+      <a href="./python_list_set.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Списки та множини</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./python_questions.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Популярні питання</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
