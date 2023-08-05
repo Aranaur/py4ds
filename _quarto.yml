@@ -32,6 +32,7 @@ book:
       - python_basics.qmd
       - python_list_set.qmd
       - python_questions.qmd
+      - python_dict.qmd
     - text: "---"
     - part: sql.ipynb
       chapters: 
