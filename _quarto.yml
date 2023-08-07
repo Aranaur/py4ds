@@ -33,6 +33,7 @@ book:
       - python_list_set.qmd
       - python_dict.qmd
       - python_strings.qmd
+      - python_if.qmd
       - python_questions.qmd
     - text: "---"
     - part: sql.ipynb

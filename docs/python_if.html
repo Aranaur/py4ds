@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Книга-конспект матеріалів">
+
+<title>Від нуля до Python Data Scientist - 5&nbsp; Умовні конструкції</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./python_questions.html" rel="next">
+<link href="./python_strings.html" rel="prev">
+<link href="./cover.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Пошук не дав результату",
+    "search-matching-documents-text": "Результати пошуку",
+    "search-copy-link-title": "Скопіюйте посилання для пошуку",
+    "search-hide-matches-text": "Приховати додаткові результати",
+    "search-more-match-text": "Додатковий результат у цьому документі",
+    "search-more-matches-text": "Додаткові результати у цьому документі",
+    "search-clear-button-title": "Очистити",
+    "search-detached-cancel-button-title": "Скасувати",
+    "search-submit-button-title": "Надіслати",
+    "search-label": "Пошук"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-0C9TJBF3C5"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
+</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python.html">Python</a></li><li class="breadcrumb-item"><a href="./python_if.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Умовні конструкції</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Від нуля до Python Data Scientist</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/Aranaur/py4ds" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Переключити темний режим"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Пошук"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Вступне слово</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Переключити розділ">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Змінні та типи даних</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_list_set.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Списки та множини</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_dict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Словники</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Рядки</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_if.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Умовні конструкції</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Популярні питання</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./sql.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Переключити розділ">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Базові запити</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_filter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_agg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Агрегація даних</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_groupby.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Групування даних</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_subquery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Підзапити</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_join.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Об’єднання таблиць</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_window.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Віконні функції</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_analytic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Практичні задачі</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_metrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Аналіз продуктових метрик</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Зміст</h2>
+   
+  <ul>
+  <li><a href="#вкладені-оператори-if" id="toc-вкладені-оператори-if" class="nav-link active" data-scroll-target="#вкладені-оператори-if"><span class="header-section-number">5.1</span> Вкладені оператори <code>if</code></a></li>
+  <li><a href="#як-працює-if" id="toc-як-працює-if" class="nav-link" data-scroll-target="#як-працює-if"><span class="header-section-number">5.2</span> Як працює <code>if</code></a></li>
+  <li><a href="#конструкція-if-else" id="toc-конструкція-if-else" class="nav-link" data-scroll-target="#конструкція-if-else"><span class="header-section-number">5.3</span> Конструкція <code>if-else</code></a></li>
+  <li><a href="#тернарний-оператор" id="toc-тернарний-оператор" class="nav-link" data-scroll-target="#тернарний-оператор"><span class="header-section-number">5.4</span> Тернарний оператор</a></li>
+  <li><a href="#задачі-для-розвязання" id="toc-задачі-для-розвязання" class="nav-link" data-scroll-target="#задачі-для-розвязання"><span class="header-section-number">5.5</span> Задачі для розв’язання</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_if.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_if.qmd" class="toc-action">Переглянути код</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Умовні конструкції</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="вкладені-оператори-if" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="вкладені-оператори-if"><span class="header-section-number">5.1</span> Вкладені оператори <code>if</code></h2>
+<p>Ми можемо використовувати <code>if</code> всередині <code>if</code>. Зверніть увагу, що в такому разі ми додаємо ще один рівень відступів.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Приклад 1: Перевірка, що число є додатним і парним:</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>number <span class="op">=</span> <span class="dv">8</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="cf">if</span> number <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="cf">if</span> number <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb1-5"><a href="#cb1-5"></a>        <span class="bu">print</span>(<span class="st">"The number is positive and even"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The number is positive and even</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Приклад 2: Перевірка довжини рядка та його першого символу:</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>string <span class="op">=</span> <span class="st">"Hello, world!"</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="cf">if</span> <span class="bu">len</span>(string) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="cf">if</span> string[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"H"</span>:</span>
+<span id="cb3-5"><a href="#cb3-5"></a>        <span class="bu">print</span>(<span class="st">"The string starts with 'H'"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The string starts with 'H'</code></pre>
+</div>
+</div>
+<p>В обох прикладах ми могли б скористатися одним <code>if</code> і помістити в нього обидві умови через <code>and</code>. Наприклад, ось так:</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="cf">if</span> number <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> number <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="bu">print</span>(<span class="st">"The number is positive and even"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The number is positive and even</code></pre>
+</div>
+</div>
+<p>Але іноді нам зручніше не об’єднувати умови, а робити вкладені <code>if</code>. Це допомагає нам одразу припинити виконання програми, якщо перша умова не була виконана, і не витрачати час на перевірку інших вкладених умов.</p>
+</section>
+<section id="як-працює-if" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="як-працює-if"><span class="header-section-number">5.2</span> Як працює <code>if</code></h2>
+<p>Ви вже знаєте, що після <code>if</code> очікується вираз, який повертає <code>True</code> або <code>False</code>. Aле на практиці все трохи складніше. Давайте розглянемо такий приклад: ми будемо перевіряти довжину списку, якщо він не порожній, друкувати елементи списку:</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>available_products <span class="op">=</span> [<span class="st">'чай'</span>, <span class="st">'кава'</span>, <span class="st">'сік'</span>]</span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="cf">if</span> <span class="bu">len</span>(available_products) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb7-4"><a href="#cb7-4"></a>    <span class="bu">print</span>(available_products)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['чай', 'кава', 'сік']</code></pre>
+</div>
+</div>
+<p>Такий код виведе нам список на друк, оскільки <code>len(available_products) &gt; 0</code> дійсно поверне нам <code>True</code>. Ми могли б записати ту саму перевірку таким чином:</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>available_products <span class="op">=</span> [<span class="st">'чай'</span>, <span class="st">'кава'</span>, <span class="st">'сік'</span>]</span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="cf">if</span> available_products:</span>
+<span id="cb9-4"><a href="#cb9-4"></a>    <span class="bu">print</span>(available_products)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['чай', 'кава', 'сік']</code></pre>
+</div>
+</div>
+<p>І такий код теж виведе нам список на друк, хоча після <code>if</code> знаходиться не <code>True</code> або <code>False</code>, а просто наш список! Вся справа в тому, що непорожній список інтерпретується як <code>TRUE</code>. Пам’ятаєте, ми вже говорили про приведення типів? Таким чином, якщо після <code>if</code> написано щось, що не є <code>True</code> або <code>False</code>, програма спробує перевести це в логічний тип і результат приведення використати для виконання умови.</p>
+<p>Розглянемо ще кілька прикладів, виконайте ці умови, щоб побачити, де ми отримаємо <code>True</code>, а де <code>False</code>:</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>n <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="cf">if</span> n:</span>
+<span id="cb11-3"><a href="#cb11-3"></a>   <span class="bu">print</span>(<span class="st">'Умова виконана'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>n <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="cf">if</span> n:</span>
+<span id="cb12-3"><a href="#cb12-3"></a>   <span class="bu">print</span>(<span class="st">'Умова виконана'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Умова виконана</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>n <span class="op">=</span> <span class="op">-</span><span class="dv">5</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="cf">if</span> n:</span>
+<span id="cb14-3"><a href="#cb14-3"></a>   <span class="bu">print</span>(<span class="st">'Умова виконана'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Умова виконана</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>s <span class="op">=</span> <span class="st">'Oksana'</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="cf">if</span> s:</span>
+<span id="cb16-3"><a href="#cb16-3"></a>   <span class="bu">print</span>(<span class="st">'Умова виконана'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Умова виконана</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>s <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="cf">if</span> s:</span>
+<span id="cb18-3"><a href="#cb18-3"></a>   <span class="bu">print</span>(<span class="st">'Умова виконана'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>d <span class="op">=</span> {}</span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="cf">if</span> d:</span>
+<span id="cb19-3"><a href="#cb19-3"></a>   <span class="bu">print</span>(<span class="st">'Умова виконана'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Таким чином, <strong>нуль</strong>, <strong>порожній рядок</strong>, <strong>порожній масив</strong> інтерпретуються як <code>False</code>. І якщо ми хочемо вивести на друк список, але тільки за умови, що він не порожній, ми дійсно можемо написати умову таким чином - <code>if available_products:</code>.</p>
+<p>Для досвідченого програміста це буде досить природний запис. Але на старті ми рекомендуємо прописувати умови максимально явно, чим зрозуміліше, що саме ми перевіряємо, тим простіше читати код як вам самим, так і вашим колегам - <code>if len(available_products) &gt; 0:</code>.</p>
+<p>Так відразу зрозуміло, що <code>available_products</code> - це якийсь масив, ми перевіряємо, що він не порожній. У першому ж варіанті доведеться уточнити тип змінної <code>available_products</code>, щоб зрозуміти логіку коду.</p>
+</section>
+<section id="конструкція-if-else" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="конструкція-if-else"><span class="header-section-number">5.3</span> Конструкція <code>if-else</code></h2>
+<p>У Python <code>if-else</code> використовується для виконання різних блоків коду залежно від умови. Якщо умова істинна, виконується блок коду, наступний за оператором <code>if</code>. В іншому випадку, якщо умова хибна, виконується блок коду, наступний за оператором <code>else</code>.</p>
+<p>Ось приклад:</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">10</span>:</span>
+<span id="cb20-3"><a href="#cb20-3"></a>    <span class="bu">print</span>(<span class="st">"x більше 10"</span>)</span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="cf">else</span>:</span>
+<span id="cb20-5"><a href="#cb20-5"></a>    <span class="bu">print</span>(<span class="st">"x менше або дорівнює 10"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x менше або дорівнює 10</code></pre>
+</div>
+</div>
+<p>У цьому прикладі змінна <code>x</code> порівнюється зі значенням 10. Якщо <code>x</code> більше 10, виводиться повідомлення <strong>“x більше 10”</strong>. Якщо <code>x</code> менше або дорівнює 10, виводиться повідомлення <strong>“x менше або дорівнює 10”</strong>.</p>
+<p>Іноді може виникнути необхідність перевірити кілька умов, використовуючи додаткові оператори умов, такі як <code>and</code> і <code>or</code>:</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>y <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">10</span> <span class="kw">and</span> y <span class="op">&gt;</span> <span class="dv">10</span>:</span>
+<span id="cb22-4"><a href="#cb22-4"></a>    <span class="bu">print</span>(<span class="st">"x і y більше 10"</span>)</span>
+<span id="cb22-5"><a href="#cb22-5"></a><span class="cf">elif</span> x <span class="op">&gt;</span> <span class="dv">10</span> <span class="kw">or</span> y <span class="op">&gt;</span> <span class="dv">10</span>:</span>
+<span id="cb22-6"><a href="#cb22-6"></a>    <span class="bu">print</span>(<span class="st">"x або y більше 10"</span>)</span>
+<span id="cb22-7"><a href="#cb22-7"></a><span class="cf">else</span>:</span>
+<span id="cb22-8"><a href="#cb22-8"></a>    <span class="bu">print</span>(<span class="st">"x і y менше або дорівнюють 10"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x або y більше 10</code></pre>
+</div>
+</div>
+<p>У цьому прикладі перевіряється, чи є <code>x</code> і <code>y</code> більшими за 10. Якщо обидві умови істинні, виводиться повідомлення <code>"x і y більше 10"</code>. Якщо хоча б одна з умов істинна, виводиться повідомлення <code>"x або y більше 10"</code>. Якщо обидві умови хибні, виводиться повідомлення <code>"x і y менше або дорівнюють 10"</code>.</p>
+<p>Якщо потрібно перевірити, що змінна перебуває в діапазоні значень, можна використовувати ланцюжок операторів порівняння:</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>num <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="cf">if</span> <span class="dv">0</span> <span class="op">&lt;=</span> num <span class="op">&lt;=</span> <span class="dv">10</span>:</span>
+<span id="cb24-3"><a href="#cb24-3"></a>    <span class="bu">print</span>(<span class="st">"Число знаходиться в діапазоні від 0 до 10"</span>)</span>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="cf">else</span>:</span>
+<span id="cb24-5"><a href="#cb24-5"></a>    <span class="bu">print</span>(<span class="st">"Число знаходиться поза діапазоном від 0 до 10"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Число знаходиться в діапазоні від 0 до 10</code></pre>
+</div>
+</div>
+</section>
+<section id="тернарний-оператор" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="тернарний-оператор"><span class="header-section-number">5.4</span> Тернарний оператор</h2>
+<p>Тернарний оператор у Python - це спрощена форма умовного виразу “if-else”. Він дозволяє нам записати просту умову в одному рядку коду. Синтаксис тернарного оператора виглядає наступним чином:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb26-1"><a href="#cb26-1"></a>значення_1 if умова else значення_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Якщо умова істинна, змінній буде присвоєно значення 1, інакше - значення 2. Ось приклади використання тернарного оператора:</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>result <span class="op">=</span> <span class="st">"x більше 5"</span> <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">5</span> <span class="cf">else</span> <span class="st">"x менше або дорівнює 5"</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="bu">print</span>(result)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x більше 5</code></pre>
+</div>
+</div>
+<p>У цьому прикладі змінна <code>x</code> порівнюється зі значенням 5. Якщо <code>x</code> більше за 5, змінній <code>result</code> буде присвоєно значення <code>"x більше за 5"</code>, в іншому випадку - <code>"x менше або дорівнює 5"</code>. Потім значення змінної <code>result</code> виводиться на екран за допомогою функції <code>print()</code>. Тернарний оператор також може бути використаний всередині інших виразів:</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>x <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a>result <span class="op">=</span> <span class="st">"парне"</span> <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">"непарне"</span></span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="bu">print</span>(<span class="ss">f"x - </span><span class="sc">{</span>result<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x - парне</code></pre>
+</div>
+</div>
+<p>У цьому прикладі ми перевіряємо, чи є значення змінної <code>x</code> парним. Якщо <code>x</code> ділиться без залишку на 2, змінній <code>result</code> буде присвоєно значення <code>"парне"</code>, в протилежному випадку - <code>"непарне"</code>. Потім ми виводимо на екран повідомлення у форматованому рядку. Тернарний оператор особливо корисний, коли потрібно присвоїти змінній значення залежно від деякої умови в одному рядку коду. Він дає змогу зробити код компактнішим і зрозумілішим.</p>
+</section>
+<section id="задачі-для-розвязання" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="задачі-для-розвязання"><span class="header-section-number">5.5</span> Задачі для розв’язання</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-if-01" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 5.1 </strong></span><br> У змінних <code>a</code> та <code>b</code> задано значення довжини та ширини прямокутника відповідно. Перевірте, чи є цей прямокутник квадратом.</p>
+<p>Збережіть у змінну <code>result</code> значення <code>True</code>, якщо це квадрат, інакше <code>False</code>.</p>
+<p><strong>Приклад:</strong></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb31-1"><a href="#cb31-1"></a># Приклад 1</span>
+<span id="cb31-2"><a href="#cb31-2"></a>a = 121 </span>
+<span id="cb31-3"><a href="#cb31-3"></a>b = 100 </span>
+<span id="cb31-4"><a href="#cb31-4"></a>result = False</span>
+<span id="cb31-5"><a href="#cb31-5"></a></span>
+<span id="cb31-6"><a href="#cb31-6"></a># Приклад 2</span>
+<span id="cb31-7"><a href="#cb31-7"></a>a = 10 </span>
+<span id="cb31-8"><a href="#cb31-8"></a>b = 10 </span>
+<span id="cb31-9"><a href="#cb31-9"></a>result = True</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="17">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>a <span class="op">=</span> <span class="dv">121</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>b <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a>result <span class="op">=</span> a <span class="op">==</span> b</span>
+<span id="cb32-4"><a href="#cb32-4"></a></span>
+<span id="cb32-5"><a href="#cb32-5"></a><span class="co"># або</span></span>
+<span id="cb32-6"><a href="#cb32-6"></a>result <span class="op">=</span> <span class="va">True</span> <span class="cf">if</span> a <span class="op">==</span> b <span class="cf">else</span> <span class="va">False</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-if-02" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 5.2 </strong></span><br> У змінних <code>a</code> і <code>b</code> задано два числа. Квадрат якого числа більший? Збережіть це число в <code>result</code>.</p>
+<p><strong>Приклад:</strong></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb33-1"><a href="#cb33-1"></a># Приклад 1</span>
+<span id="cb33-2"><a href="#cb33-2"></a>a = 1 </span>
+<span id="cb33-3"><a href="#cb33-3"></a>b = 2 </span>
+<span id="cb33-4"><a href="#cb33-4"></a>result = 2</span>
+<span id="cb33-5"><a href="#cb33-5"></a></span>
+<span id="cb33-6"><a href="#cb33-6"></a># Приклад 2</span>
+<span id="cb33-7"><a href="#cb33-7"></a>a = 2 </span>
+<span id="cb33-8"><a href="#cb33-8"></a>b = -3 </span>
+<span id="cb33-9"><a href="#cb33-9"></a>result = -3</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="18">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a>b <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb34-3"><a href="#cb34-3"></a>result <span class="op">=</span> a <span class="cf">if</span> a <span class="op">**</span> <span class="dv">2</span> <span class="op">&gt;</span> b <span class="op">**</span> <span class="dv">2</span> <span class="cf">else</span> b</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-if-03" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 5.3 </strong></span><br> Катя і Діма вирішили купити квартиру в Києві. Сімейний бюджет обмежений, тому їм підходять такі варіанти:</p>
+<ol type="1">
+<li>Вартість не більше 1.5 млн, площа не менше 50 квадратних метрів, віддаленість від метро не більше 25 хвилин пішки.</li>
+<li>Вартість не більше 1.3 млн, площа не менше 35 квадратних метрів, віддаленість від метро не більше 5 хвилин пішки.</li>
+</ol>
+<p>Напишіть програму, яка отримує на вхід вартість квартири <code>p</code>, площу <code>s</code> і віддаленість від метро <code>d</code>, і зберігає у змінну <code>result</code> повідомлення про те, підходить квартира чи ні у форматі <code>True</code> або <code>False</code>.</p>
+<p><strong>Приклад:</strong></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb35-1"><a href="#cb35-1"></a>#Приклад 1</span>
+<span id="cb35-2"><a href="#cb35-2"></a>p = 1295000 #вартість</span>
+<span id="cb35-3"><a href="#cb35-3"></a>s = 32 #площа</span>
+<span id="cb35-4"><a href="#cb35-4"></a>d = 13 #віддаленість від метро</span>
+<span id="cb35-5"><a href="#cb35-5"></a></span>
+<span id="cb35-6"><a href="#cb35-6"></a>result = False</span>
+<span id="cb35-7"><a href="#cb35-7"></a></span>
+<span id="cb35-8"><a href="#cb35-8"></a>#Приклад 2</span>
+<span id="cb35-9"><a href="#cb35-9"></a>p = 1498000 #вартість</span>
+<span id="cb35-10"><a href="#cb35-10"></a>s = 51.9 #площа</span>
+<span id="cb35-11"><a href="#cb35-11"></a>d = 23 #віддаленість від метро</span>
+<span id="cb35-12"><a href="#cb35-12"></a></span>
+<span id="cb35-13"><a href="#cb35-13"></a>result = True</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="19">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>p <span class="op">=</span> <span class="dv">1295000</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a>s <span class="op">=</span> <span class="dv">32</span></span>
+<span id="cb36-3"><a href="#cb36-3"></a>d <span class="op">=</span> <span class="dv">13</span></span>
+<span id="cb36-4"><a href="#cb36-4"></a></span>
+<span id="cb36-5"><a href="#cb36-5"></a>result <span class="op">=</span> (p <span class="op">&lt;=</span> <span class="dv">1500000</span> <span class="kw">and</span> s <span class="op">&gt;=</span> <span class="dv">50</span> <span class="kw">and</span> d <span class="op">&lt;=</span> <span class="dv">25</span>) <span class="kw">or</span> (p <span class="op">&lt;=</span> <span class="dv">1300000</span> <span class="kw">and</span> s <span class="op">&gt;=</span> <span class="dv">35</span> <span class="kw">and</span> d <span class="op">&lt;=</span> <span class="dv">5</span>)</span>
+<span id="cb36-6"><a href="#cb36-6"></a></span>
+<span id="cb36-7"><a href="#cb36-7"></a><span class="co"># або</span></span>
+<span id="cb36-8"><a href="#cb36-8"></a></span>
+<span id="cb36-9"><a href="#cb36-9"></a><span class="cf">if</span> p <span class="op">&lt;=</span> <span class="dv">1500000</span> <span class="kw">and</span> s <span class="op">&gt;=</span> <span class="dv">50</span> <span class="kw">and</span> d <span class="op">&lt;=</span> <span class="dv">25</span>:</span>
+<span id="cb36-10"><a href="#cb36-10"></a>    result <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb36-11"><a href="#cb36-11"></a><span class="cf">elif</span> p <span class="op">&lt;=</span> <span class="dv">1300000</span> <span class="kw">and</span> s <span class="op">&gt;=</span> <span class="dv">35</span> <span class="kw">and</span> d <span class="op">&lt;=</span> <span class="dv">5</span>:</span>
+<span id="cb36-12"><a href="#cb36-12"></a>    result <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb36-13"><a href="#cb36-13"></a><span class="cf">else</span>: </span>
+<span id="cb36-14"><a href="#cb36-14"></a>    result <span class="op">=</span> <span class="va">False</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-if-03" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 5.4 </strong></span><br> Катя завершила навчання на курсі Machine Learning і набрала <code>K</code> балів за розв’язання задач. Щоб отримати сертифікат про проходження курсу, необхідно набрати щонайменше <code>M</code> балів. Якщо Катя набрала від <code>L</code> балів, то отримає сертифікат з відзнакою.</p>
+<p>Змінні <code>K</code>, <code>M</code> і <code>L</code> уже визначені.</p>
+<p>Напишіть програму, яка збереже у змінну <code>result</code> інформацію про результати проходження курсу в такому форматі: - <code>"Недостатньо балів"</code>, якщо Каті не вистачило балів для отримання сертифіката, - <code>"Сертифікат видано"</code>, якщо Катя набрала кількість балів, необхідну для отримання сертифіката, - <code>"Видано сертифікат з відзнакою"</code>, якщо Катя набрала <code>≥ L</code> балів.</p>
+<p><strong>Приклад:</strong></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb37-1"><a href="#cb37-1"></a># Приклад 1</span>
+<span id="cb37-2"><a href="#cb37-2"></a>K = 121 #кількість балів, отриманих Катею</span>
+<span id="cb37-3"><a href="#cb37-3"></a>M = 100 #кількість балів, необхідна для отримання сертифіката</span>
+<span id="cb37-4"><a href="#cb37-4"></a>L = 150 #кількість балів, необхідна для отримання сертифіката з відзнакою</span>
+<span id="cb37-5"><a href="#cb37-5"></a></span>
+<span id="cb37-6"><a href="#cb37-6"></a>result = "Сертифікат видано"</span>
+<span id="cb37-7"><a href="#cb37-7"></a></span>
+<span id="cb37-8"><a href="#cb37-8"></a># Приклад 2</span>
+<span id="cb37-9"><a href="#cb37-9"></a>K = 148 </span>
+<span id="cb37-10"><a href="#cb37-10"></a>M = 110 </span>
+<span id="cb37-11"><a href="#cb37-11"></a>L = 145 </span>
+<span id="cb37-12"><a href="#cb37-12"></a></span>
+<span id="cb37-13"><a href="#cb37-13"></a>result = "Видано сертифікат з відзнакою"</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="20">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>K <span class="op">=</span> <span class="dv">121</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a>M <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb38-3"><a href="#cb38-3"></a>L <span class="op">=</span> <span class="dv">150</span></span>
+<span id="cb38-4"><a href="#cb38-4"></a></span>
+<span id="cb38-5"><a href="#cb38-5"></a><span class="cf">if</span> K <span class="op">&lt;</span> M:</span>
+<span id="cb38-6"><a href="#cb38-6"></a>    result <span class="op">=</span> <span class="st">"Недостатньо балів"</span></span>
+<span id="cb38-7"><a href="#cb38-7"></a><span class="cf">elif</span> K <span class="op">&gt;=</span> L:</span>
+<span id="cb38-8"><a href="#cb38-8"></a>    result <span class="op">=</span> <span class="st">"Видано сертифікат з відзнакою"</span></span>
+<span id="cb38-9"><a href="#cb38-9"></a><span class="cf">else</span>:</span>
+<span id="cb38-10"><a href="#cb38-10"></a>    result <span class="op">=</span> <span class="st">"Сертифікат видано"</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-if-04" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 5.5 </strong></span><br> Компанія вирішила виплатити співробітникам премію в розмірі:</p>
+<ul>
+<li>2 оклади, якщо його стаж роботи ≥ 2 роки</li>
+<li>5 окладів, якщо стаж роботи ≥ 5 років</li>
+<li>10 окладів, якщо стаж роботи ≥ 15 років</li>
+</ul>
+<p>У змінній <code>x</code> - зарплата співробітника, у змінній <code>y</code> - стаж. Обчисліть розмір премії, результат збережіть у змінну <code>result</code>.</p>
+<p><strong>Приклад:</strong></p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb39-1"><a href="#cb39-1"></a># Приклад 1</span>
+<span id="cb39-2"><a href="#cb39-2"></a>x = 150000</span>
+<span id="cb39-3"><a href="#cb39-3"></a>y = 3</span>
+<span id="cb39-4"><a href="#cb39-4"></a>result = 300000</span>
+<span id="cb39-5"><a href="#cb39-5"></a></span>
+<span id="cb39-6"><a href="#cb39-6"></a># Приклад 2</span>
+<span id="cb39-7"><a href="#cb39-7"></a>x = 100000</span>
+<span id="cb39-8"><a href="#cb39-8"></a>y = 1</span>
+<span id="cb39-9"><a href="#cb39-9"></a>result = 0</span>
+<span id="cb39-10"><a href="#cb39-10"></a></span>
+<span id="cb39-11"><a href="#cb39-11"></a># Приклад 3</span>
+<span id="cb39-12"><a href="#cb39-12"></a>x = 200000</span>
+<span id="cb39-13"><a href="#cb39-13"></a>y = 16</span>
+<span id="cb39-14"><a href="#cb39-14"></a>result = 2000000</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="21">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>x <span class="op">=</span> <span class="dv">150000</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a>y <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb40-3"><a href="#cb40-3"></a></span>
+<span id="cb40-4"><a href="#cb40-4"></a><span class="cf">if</span> y <span class="op">&gt;=</span> <span class="dv">15</span>:</span>
+<span id="cb40-5"><a href="#cb40-5"></a>    result <span class="op">=</span> <span class="dv">10</span> <span class="op">*</span> x</span>
+<span id="cb40-6"><a href="#cb40-6"></a><span class="cf">elif</span> y <span class="op">&gt;=</span> <span class="dv">5</span>:</span>
+<span id="cb40-7"><a href="#cb40-7"></a>    result <span class="op">=</span> <span class="dv">5</span> <span class="op">*</span> x</span>
+<span id="cb40-8"><a href="#cb40-8"></a><span class="cf">elif</span> y <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb40-9"><a href="#cb40-9"></a>    result <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> x</span>
+<span id="cb40-10"><a href="#cb40-10"></a><span class="cf">else</span>:</span>
+<span id="cb40-11"><a href="#cb40-11"></a>    result <span class="op">=</span> <span class="dv">0</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-if-05" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 5.6 </strong></span><br> Дано словник <code>dict_age</code>, у якому зберігається інформація про вік трьох братів у форматі:</p>
+<ul>
+<li>ключ - це ім’я</li>
+<li>значення - це вік, число цілих років.</li>
+</ul>
+<p>Якщо вік у братів різний і виходить однозначно визначити середнього брата, збережіть ім’я середнього брата у змінну <code>result</code>.</p>
+<p>Якщо хоча б у двох братів вік однаковий, то збережіть у змінну <code>result</code> порожній рядок.</p>
+<p><strong>Приклад:</strong></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb41-1"><a href="#cb41-1"></a>dict_age = {'Антон': 5, </span>
+<span id="cb41-2"><a href="#cb41-2"></a>            'Денис': 14, </span>
+<span id="cb41-3"><a href="#cb41-3"></a>            'Борис': 9}</span>
+<span id="cb41-4"><a href="#cb41-4"></a>result = 'Борис'</span>
+<span id="cb41-5"><a href="#cb41-5"></a></span>
+<span id="cb41-6"><a href="#cb41-6"></a>dict_age = {'Марк': 5, </span>
+<span id="cb41-7"><a href="#cb41-7"></a>            'Авель': 5, </span>
+<span id="cb41-8"><a href="#cb41-8"></a>            'Карп': 9}</span>
+<span id="cb41-9"><a href="#cb41-9"></a>result = ''</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="22">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>dict_age <span class="op">=</span> {<span class="st">'Антон'</span>: <span class="dv">5</span>, </span>
+<span id="cb42-2"><a href="#cb42-2"></a>            <span class="st">'Денис'</span>: <span class="dv">14</span>, </span>
+<span id="cb42-3"><a href="#cb42-3"></a>            <span class="st">'Борис'</span>: <span class="dv">9</span>}</span>
+<span id="cb42-4"><a href="#cb42-4"></a></span>
+<span id="cb42-5"><a href="#cb42-5"></a>ages <span class="op">=</span> <span class="bu">list</span>(dict_age.values())</span>
+<span id="cb42-6"><a href="#cb42-6"></a><span class="cf">if</span> <span class="bu">len</span>(<span class="bu">set</span>(ages)) <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb42-7"><a href="#cb42-7"></a>    middle_index <span class="op">=</span> ages.index(<span class="bu">sorted</span>(ages)[<span class="dv">1</span>])</span>
+<span id="cb42-8"><a href="#cb42-8"></a>    result <span class="op">=</span> <span class="bu">list</span>(dict_age.keys())[middle_index]    </span>
+<span id="cb42-9"><a href="#cb42-9"></a><span class="cf">else</span>:</span>
+<span id="cb42-10"><a href="#cb42-10"></a>    result <span class="op">=</span> <span class="st">''</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-if-06" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 5.7 </strong></span><br> Напишіть програму, яка прийматиме довжини сторін трикутника <code>a</code>, <code>b</code> і <code>c</code>, визначатиме, чи є він прямокутним, і зберігатиме результат перевірки в <code>result</code> у форматі <code>True</code> або <code>False</code>.</p>
+<ul>
+<li>Прямокутний трикутник - це трикутник, у якому один кут прямий (тобто 90 градусів).</li>
+<li>Найдовша сторона (гіпотенуза) не обов’язково буде останнім аргументом.</li>
+<li>Усі аргументи будуть цілими числами.</li>
+</ul>
+<p><strong>Приклад:</strong></p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb43-1"><a href="#cb43-1"></a>a = 3</span>
+<span id="cb43-2"><a href="#cb43-2"></a>b = 5</span>
+<span id="cb43-3"><a href="#cb43-3"></a>c = 4</span>
+<span id="cb43-4"><a href="#cb43-4"></a>result = True</span>
+<span id="cb43-5"><a href="#cb43-5"></a></span>
+<span id="cb43-6"><a href="#cb43-6"></a>a = 70</span>
+<span id="cb43-7"><a href="#cb43-7"></a>b = 130</span>
+<span id="cb43-8"><a href="#cb43-8"></a>c = 110</span>
+<span id="cb43-9"><a href="#cb43-9"></a>result = False</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Підказка
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Пам’ятаєте теорему Піфагора? Квадрат гіпотенузи дорівнює сумі квадратів катетів (двох інших сторін)</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="23">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>a <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a>b <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb44-3"><a href="#cb44-3"></a>c <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb44-4"><a href="#cb44-4"></a></span>
+<span id="cb44-5"><a href="#cb44-5"></a><span class="cf">if</span> a <span class="op">&gt;</span> b <span class="kw">and</span> a <span class="op">&gt;</span> c:</span>
+<span id="cb44-6"><a href="#cb44-6"></a>    <span class="cf">if</span> a <span class="op">**</span> <span class="dv">2</span> <span class="op">==</span> b <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> c <span class="op">**</span> <span class="dv">2</span>:</span>
+<span id="cb44-7"><a href="#cb44-7"></a>        result <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb44-8"><a href="#cb44-8"></a>    <span class="cf">else</span>:</span>
+<span id="cb44-9"><a href="#cb44-9"></a>        result <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb44-10"><a href="#cb44-10"></a><span class="cf">elif</span> b <span class="op">&gt;</span> a <span class="kw">and</span> b <span class="op">&gt;</span> c:</span>
+<span id="cb44-11"><a href="#cb44-11"></a>    <span class="cf">if</span> b <span class="op">**</span> <span class="dv">2</span> <span class="op">==</span> a <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> c <span class="op">**</span> <span class="dv">2</span>:</span>
+<span id="cb44-12"><a href="#cb44-12"></a>        result <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb44-13"><a href="#cb44-13"></a>    <span class="cf">else</span>:</span>
+<span id="cb44-14"><a href="#cb44-14"></a>        result <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb44-15"><a href="#cb44-15"></a><span class="cf">else</span>:</span>
+<span id="cb44-16"><a href="#cb44-16"></a>    <span class="cf">if</span> c <span class="op">**</span> <span class="dv">2</span> <span class="op">==</span> a <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> b <span class="op">**</span> <span class="dv">2</span>:</span>
+<span id="cb44-17"><a href="#cb44-17"></a>        result <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb44-18"><a href="#cb44-18"></a>    <span class="cf">else</span>:</span>
+<span id="cb44-19"><a href="#cb44-19"></a>        result <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb44-20"><a href="#cb44-20"></a></span>
+<span id="cb44-21"><a href="#cb44-21"></a><span class="co"># або</span></span>
+<span id="cb44-22"><a href="#cb44-22"></a></span>
+<span id="cb44-23"><a href="#cb44-23"></a>values_list <span class="op">=</span> <span class="bu">sorted</span>([a, b, c])</span>
+<span id="cb44-24"><a href="#cb44-24"></a><span class="cf">if</span> values_list[<span class="op">-</span><span class="dv">1</span>]<span class="op">**</span><span class="dv">2</span> <span class="op">==</span> values_list[<span class="dv">0</span>]<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> values_list[<span class="dv">1</span>]<span class="op">**</span><span class="dv">2</span>:</span>
+<span id="cb44-25"><a href="#cb44-25"></a>    result <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb44-26"><a href="#cb44-26"></a><span class="cf">else</span>:</span>
+<span id="cb44-27"><a href="#cb44-27"></a>    result <span class="op">=</span> <span class="va">False</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-if-06" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 5.8 </strong></span><br> Напишіть програму, яка буде вираховувати або довжину кола, або периметр квадрата, виходячи з переданих аргументів.</p>
+<p>На вхід подаються буква у змінній <code>f</code> і число у змінній <code>v</code>.</p>
+<p>Буква визначатиме геометричну фігуру:</p>
+<p><code>'S'</code> - квадрат <code>'С'</code> - коло</p>
+<p>Якщо буквою задано квадрат, то другий аргумент, число <code>v</code>, вважається довжиною сторони квадрата. В іншому випадку число вважається радіусом кола.</p>
+<p>Результат збережіть у <code>result</code></p>
+<p>Число <code>pi</code> візьміть рівним <code>3.14</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Підказка
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Пам’ятаєте теорему Піфагора? Квадрат гіпотенузи дорівнює сумі квадратів катетів (двох інших сторін)</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="24">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>f <span class="op">=</span> <span class="st">'S'</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a>v <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb45-3"><a href="#cb45-3"></a></span>
+<span id="cb45-4"><a href="#cb45-4"></a><span class="cf">if</span> f <span class="op">==</span> <span class="st">'S'</span>:</span>
+<span id="cb45-5"><a href="#cb45-5"></a>    result <span class="op">=</span> v <span class="op">*</span> <span class="dv">4</span></span>
+<span id="cb45-6"><a href="#cb45-6"></a><span class="cf">else</span>:</span>
+<span id="cb45-7"><a href="#cb45-7"></a>    result <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> <span class="fl">3.14</span> <span class="op">*</span> v</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Скопійовано!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Скопійовано!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="aranaur/py4ds" data-repo-id="R_kgDOIR_TDw" data-category="General" data-category-id="DIC_kwDOIR_TD84CYOoA" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./python_strings.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Рядки</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./python_questions.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Популярні питання</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
