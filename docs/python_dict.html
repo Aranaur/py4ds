@@ -8,7 +8,7 @@
 
 <meta name="description" content="Книга-конспект матеріалів">
 
-<title>Від нуля до Python Data Scientist - 3&nbsp; Словники</title>
+<title>Від нуля до Python Data Scientist - 3&nbsp; Словники: dict</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./python_questions.html" rel="next">
+<link href="./python_strings.html" rel="next">
 <link href="./python_list_set.html" rel="prev">
 <link href="./cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -121,7 +121,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python.html">Python</a></li><li class="breadcrumb-item"><a href="./python_dict.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Словники</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python.html">Python</a></li><li class="breadcrumb-item"><a href="./python_dict.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Словники: `dict`</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -201,19 +201,25 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_list_set.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Списки та множини</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Списки та множини: <code>list</code>, <code>set</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_dict.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Словники</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Словники: <code>dict</code></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Рядки: <code>str</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_questions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Популярні питання</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Популярні питання</span></span></a>
   </div>
 </li>
       </ul>
@@ -231,55 +237,55 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Базові запити</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Базові запити</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_filter.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_agg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Агрегація даних</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Агрегація даних</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_groupby.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Групування даних</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Групування даних</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_subquery.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Підзапити</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Підзапити</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_join.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Об’єднання таблиць</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Об’єднання таблиць</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_window.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Віконні функції</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Віконні функції</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_analytic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Практичні задачі</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Практичні задачі</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_metrics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Аналіз продуктових метрик</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Аналіз продуктових метрик</span></span></a>
   </div>
 </li>
       </ul>
@@ -288,7 +294,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
   </div>
 </li>
     </ul>
@@ -312,7 +318,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Словники</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Словники: <code>dict</code></span></h1>
 </div>
 
 
@@ -559,8 +565,8 @@ None
 <div id="exr-py-dict-02" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.2 </strong></span><br> Дано словник <code>dict_input</code>. Поміняйте ключі та значення місцями. Результат збережіть у <code>result</code>.</p>
 <p><strong>Приклад:</strong></p>
-<pre><code>dict_input = {"1": 11, "2": 22, "3": 33}
-result = {11: "1", 22:"2", 33:"3"}</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb34-1"><a href="#cb34-1"></a>dict_input = {"1": 11, "2": 22, "3": 33}</span>
+<span id="cb34-2"><a href="#cb34-2"></a>result = {11: "1", 22:"2", 33:"3"}</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -601,12 +607,12 @@ result = {11: "1", 22:"2", 33:"3"}</code></pre>
 <div id="exr-py-dict-02" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.3 </strong></span><br> Катя - власник невеликого кондитерського виробництва, на якому виготовляють еклери. У нас є словник <code>data</code>, у якому міститься інформація про собівартість одиниці товару <code>cost_price</code>, ціну продажу <code>sell_price</code> та кількість товару <code>eclairs</code>. Потрібно порахувати, який прибуток Катя отримує після продажу своєї продукції. Результат збережіть у змінну <code>result</code>, округливши суму до цілого числа.</p>
 <p><strong>Приклад:</strong></p>
-<pre><code>data = {
-  "cost_price": 225.89,
-  "sell_price": 550.00,
-  "eclairs": 100
-}
-result = 32411</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb36-1"><a href="#cb36-1"></a>data = {</span>
+<span id="cb36-2"><a href="#cb36-2"></a>  "cost_price": 225.89,</span>
+<span id="cb36-3"><a href="#cb36-3"></a>  "sell_price": 550.00,</span>
+<span id="cb36-4"><a href="#cb36-4"></a>  "eclairs": 100</span>
+<span id="cb36-5"><a href="#cb36-5"></a>}</span>
+<span id="cb36-6"><a href="#cb36-6"></a>result = 32411</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -651,8 +657,8 @@ result = 32411</code></pre>
 <div id="exr-py-dict-03" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.4 </strong></span><br> Є словник <code>student</code>, у якому зберігаються ім’я студента і список його оцінок. У <code>result</code> збережіть словник з ім’ям студента та найвищою його оцінкою.</p>
 <p><strong>Приклад:</strong></p>
-<pre><code>student = {"name": "Ihor", "notes": [4, 5, 4]}
-result = {"name": "Ihor", "max_note": 5}</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb38-1"><a href="#cb38-1"></a>student = {"name": "Ihor", "notes": [4, 5, 4]}</span>
+<span id="cb38-2"><a href="#cb38-2"></a>result = {"name": "Ihor", "max_note": 5}</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-execution_count="20">
 <details>
 <summary>Рішення</summary>
@@ -676,16 +682,16 @@ result = {"name": "Ihor", "max_note": 5}</code></pre>
 <div id="exr-py-dict-04" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.5 </strong></span><br> Антон навчається на Data Scientist. У словнику <code>anton_courses</code> зберігається інформація про завершені ним курси та кількість набраних балів. Дані в словнику зберігаються у форматі <strong>ключ - назва курсу, значення - кількість балів</strong> у числовому форматі. Антон завершив навчання на курсі <strong>Machine Learning</strong> і набрав <strong>120 балів</strong>. Додайте до словника <code>anton_courses</code> цю інформацію. У змінну <code>courses</code> збережіть список пройдених курсів. У змінну <code>DataAnalyst</code> збережіть кількість балів, набрану Антоном на однойменному курсі, ця інформація є в словнику.</p>
 <p><strong>Приклад:</strong></p>
-<pre><code>anton_courses = {'Python for Data Science': 56, 
-                 'Statistics': 87, 
-                 'Data Analyst': 140}
-# -&gt; 
-anton_courses = {'Python for Data Science': 56, 
-                 'Statistics': 87, 
-                 'Data Analyst': 140, 
-                 'Machine Learning': 120}
-courses = ['Python for Data Science', 'Statistics', 'Data Analyst', 'Machine Learning']
-DataAnalyst = 87</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb40-1"><a href="#cb40-1"></a>anton_courses = {'Python for Data Science': 56, </span>
+<span id="cb40-2"><a href="#cb40-2"></a>                 'Statistics': 87, </span>
+<span id="cb40-3"><a href="#cb40-3"></a>                 'Data Analyst': 140}</span>
+<span id="cb40-4"><a href="#cb40-4"></a># -&gt; </span>
+<span id="cb40-5"><a href="#cb40-5"></a>anton_courses = {'Python for Data Science': 56, </span>
+<span id="cb40-6"><a href="#cb40-6"></a>                 'Statistics': 87, </span>
+<span id="cb40-7"><a href="#cb40-7"></a>                 'Data Analyst': 140, </span>
+<span id="cb40-8"><a href="#cb40-8"></a>                 'Machine Learning': 120}</span>
+<span id="cb40-9"><a href="#cb40-9"></a>courses = ['Python for Data Science', 'Statistics', 'Data Analyst', 'Machine Learning']</span>
+<span id="cb40-10"><a href="#cb40-10"></a>DataAnalyst = 87</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-execution_count="21">
 <details>
 <summary>Рішення</summary>
@@ -714,10 +720,10 @@ DataAnalyst = 87</code></pre>
 <div id="exr-py-dict-05" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.6 </strong></span><br> У нас є магазин одягу LARA. У словнику <code>shop_stock</code> зберігається інформація про товари, наявні на складі магазину. Інформація вказана у форматі ключ - артикул товару, значення - кількість одиниць. У магазин поставили нову партію товарів, у словнику <code>shop_new_goods</code> записано інформацію про поставлені товари та їхню кількість. Створіть словник <code>result</code>, який міститиме інформацію і про товари на складі, і про товари з нової поставки. Відомо, що якщо на складі залишалася хоча б одна одиниця якогось типу товару, то товару цього типу не було в поставці.</p>
 <p><strong>Приклад:</strong></p>
-<pre><code>shop_stock = {"2358241350-50": 1, "2358000350-30": 24, "2358241350-00": 3}
-shop_new_goods = {"2358241350-60": 10}
-# -&gt; 
-result = {"2358241350-50": 1, "2358000350-30": 24, "2358241350-00": 3, "2358241350-60": 10}</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb42-1"><a href="#cb42-1"></a>shop_stock = {"2358241350-50": 1, "2358000350-30": 24, "2358241350-00": 3}</span>
+<span id="cb42-2"><a href="#cb42-2"></a>shop_new_goods = {"2358241350-60": 10}</span>
+<span id="cb42-3"><a href="#cb42-3"></a># -&gt; </span>
+<span id="cb42-4"><a href="#cb42-4"></a>result = {"2358241350-50": 1, "2358000350-30": 24, "2358241350-00": 3, "2358241350-60": 10}</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-execution_count="22">
 <details>
 <summary>Рішення</summary>
@@ -744,9 +750,9 @@ result = {"2358241350-50": 1, "2358000350-30": 24, "2358241350-00": 3, "23582413
 <div id="exr-py-dict-06" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 3.7 </strong></span><br> Магазин Avocado зберігає інформацію про наявні фрукти та овочі у словнику <code>input_dict</code> у форматі ключ - назва фрукта або овоча, значення - кількість кілограмів у наявності. Порахуйте, скільки всього кілограмів фруктів і овочів є в магазині. Результат збережіть у змінну <code>result</code>.</p>
 <p><strong>Приклад:</strong></p>
-<pre><code>input_dict = {"морква": 10.44, "капуста": 5.06, "полуниця": 3}
-# -&gt; 
-result = 18.5</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb44-1"><a href="#cb44-1"></a>input_dict = {"морква": 10.44, "капуста": 5.06, "полуниця": 3}</span>
+<span id="cb44-2"><a href="#cb44-2"></a># -&gt; </span>
+<span id="cb44-3"><a href="#cb44-3"></a>result = 18.5</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-execution_count="23">
 <details>
 <summary>Рішення</summary>
@@ -771,9 +777,9 @@ result = 18.5</code></pre>
 <p><span class="theorem-title"><strong>Завдання 3.8 </strong></span><br> Є словник <code>courses</code>, що містить інформацію про вартість навчання в різних курсах. Інформація вказана у форматі: ключ - назва курсу, значення - вартість навчання.</p>
 <p>Знайдіть ціну найдорожчого курсу. Результат збережіть у result.</p>
 <p><strong>Приклад:</strong></p>
-<pre><code>courses = {"Python": 80000, "SQL": 300000}
-# -&gt; 
-result = 300000</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb46-1"><a href="#cb46-1"></a>courses = {"Python": 80000, "SQL": 300000}</span>
+<span id="cb46-2"><a href="#cb46-2"></a># -&gt; </span>
+<span id="cb46-3"><a href="#cb46-3"></a>result = 300000</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-execution_count="24">
 <details>
 <summary>Рішення</summary>
@@ -799,10 +805,10 @@ result = 300000</code></pre>
 <p>Після другого курсу за підсумками останніх двох сесій було складено рейтинг студентів, на основі якого стався перерозподіл студентів за кафедрами. Частина студентів продовжила навчання на своїй кафедрі, а деякі студенти перейшли з однієї кафедри на іншу. Інформація про студентів, які перейшли на нову кафедру, зберігається в словнику <code>new_kaf_students</code>.</p>
 <p>Оновіть інформацію в словнику <code>kaf_sudents</code>, додавши в словник дані з <code>new_kaf_students</code>.</p>
 <p><strong>Приклад:</strong></p>
-<pre><code>kaf_sudents = {'Дробина Юлія': 100}
-new_kaf_students = {'Нечаєнко Георгій': 200}
-
-kaf_sudents = {'Дробина Юлія': 100, 'Нечаєнко Георгій': 200}</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb48-1"><a href="#cb48-1"></a>kaf_sudents = {'Дробина Юлія': 100}</span>
+<span id="cb48-2"><a href="#cb48-2"></a>new_kaf_students = {'Нечаєнко Георгій': 200}</span>
+<span id="cb48-3"><a href="#cb48-3"></a></span>
+<span id="cb48-4"><a href="#cb48-4"></a>kaf_sudents = {'Дробина Юлія': 100, 'Нечаєнко Георгій': 200}</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-execution_count="25">
 <details>
 <summary>Рішення</summary>
@@ -1173,12 +1179,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./python_list_set.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Списки та множини</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Списки та множини: <code>list</code>, <code>set</code></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./python_questions.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Популярні питання</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./python_strings.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Рядки: <code>str</code></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,4 +1,4 @@
-# Словники
+# Словники: `dict`
 
 Словник у Python - це структура даних, яка зберігає об'єкти у вигляді ключів і значень. Ключі можуть бути будь-якого незмінного типу даних - числа, рядки, кортежі, а значення можуть бути будь-якого типу даних - числа, рядки, списки, словники тощо. Словник у Python є дуже ефективним способом зберігання даних, тому що він дає змогу швидко знаходити значення за ключем. Розглянемо невеликий приклад:
 
@@ -179,7 +179,7 @@ cities_population = {
 
 **Приклад:**
 
-```
+```{{python}}
 dict_input = {"1": 11, "2": 22, "3": 33}
 result = {11: "1", 22:"2", 33:"3"}
 ```
@@ -212,7 +212,7 @@ result = {value: key for key, value in dict_input.items()}
 
 **Приклад:**
 
-```
+```{{python}}
 data = {
   "cost_price": 225.89,
   "sell_price": 550.00,
@@ -251,7 +251,7 @@ result = round((data["sell_price"] - data["cost_price"]) * data["eclairs"])
 
 **Приклад:**
 
-```
+```{{python}}
 student = {"name": "Ihor", "notes": [4, 5, 4]}
 result = {"name": "Ihor", "max_note": 5}
 ```
@@ -278,7 +278,7 @@ result = {"name": student["name"], "max_note": max(student["notes"])}
 
 **Приклад:**
 
-```
+```{{python}}
 anton_courses = {'Python for Data Science': 56, 
                  'Statistics': 87, 
                  'Data Analyst': 140}
@@ -317,7 +317,7 @@ DataAnalyst = anton_courses['Data Analyst']
 
 **Приклад:**
 
-```
+```{{python}}
 shop_stock = {"2358241350-50": 1, "2358000350-30": 24, "2358241350-00": 3}
 shop_new_goods = {"2358241350-60": 10}
 # -> 
@@ -346,7 +346,7 @@ result.update(shop_new_goods)
 
 **Приклад:**
 
-```
+```{{python}}
 input_dict = {"морква": 10.44, "капуста": 5.06, "полуниця": 3}
 # -> 
 result = 18.5
@@ -373,7 +373,7 @@ result = sum(input_dict.values())
 
 **Приклад:**
 
-```
+```{{python}}
 courses = {"Python": 80000, "SQL": 300000}
 # -> 
 result = 300000
@@ -402,7 +402,7 @@ result = max(courses.values())
 
 **Приклад:**
 
-```
+```{{python}}
 kaf_sudents = {'Дробина Юлія': 100}
 new_kaf_students = {'Нечаєнко Георгій': 200}
 
