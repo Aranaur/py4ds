@@ -165,7 +165,7 @@ str_2 = 'AaB'
 is_the_same_letters = False
 ```
 
-::: {.callout-note collapse="true"}
+::: {.callout-tip collapse="true"}
 ## Підказка
 
 Подивіться, що вийде, якщо застосувати `set` до рядка: `set(str_1)`, як нам може це допомогти з рішенням?
@@ -200,7 +200,7 @@ x = 2.02
 y = 2
 ```
 
-::: {.callout-note collapse="true"}
+::: {.callout-tip collapse="true"}
 ## Підказка
 
 Подумайте, які методи рядків допоможуть нам у цьому завданні.
@@ -238,7 +238,7 @@ str_2 = "Тіло"
 result = True
 ```
 
-::: {.callout-note collapse="true"}
+::: {.callout-tip collapse="true"}
 ## Підказка
 
 Спробуйте застосувати функцію `sorted()` до рядка.
