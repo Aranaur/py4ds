@@ -24,11 +24,11 @@ title-block-published: "Дата публікації"
 title-block-modified: "Змінено"
 
 
-callout-tip-title: "Порада"
+callout-tip-title: "Підказка"
 callout-note-title: "Примітка"
-callout-warning-title: "Попередження"
+callout-warning-title: "Увага"
 callout-important-title: "Важливо"
-callout-caution-title: "Обережно"
+callout-caution-title: "Застереження"
 
 code-summary: "Код"
 

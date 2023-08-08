@@ -34,6 +34,7 @@ book:
       - python_dict.qmd
       - python_strings.qmd
       - python_if.qmd
+      - python_loops.qmd
       - python_questions.qmd
     - text: "---"
     - part: sql.ipynb
