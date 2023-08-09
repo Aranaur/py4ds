@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Книга-конспект матеріалів">
+
+<title>Від нуля до Python Data Scientist - 7&nbsp; Функції</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./python_questions.html" rel="next">
+<link href="./python_loops.html" rel="prev">
+<link href="./cover.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Пошук не дав результату",
+    "search-matching-documents-text": "Результати пошуку",
+    "search-copy-link-title": "Скопіюйте посилання для пошуку",
+    "search-hide-matches-text": "Приховати додаткові результати",
+    "search-more-match-text": "Додатковий результат у цьому документі",
+    "search-more-matches-text": "Додаткові результати у цьому документі",
+    "search-clear-button-title": "Очистити",
+    "search-detached-cancel-button-title": "Скасувати",
+    "search-submit-button-title": "Надіслати",
+    "search-label": "Пошук"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-0C9TJBF3C5"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
+</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python.html">Python</a></li><li class="breadcrumb-item"><a href="./python_functions.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Функції</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Від нуля до Python Data Scientist</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/Aranaur/py4ds" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Переключити темний режим"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Пошук"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Вступне слово</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Переключити розділ">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Змінні та типи даних</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_list_set.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Списки та множини</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_dict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Словники</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Рядки</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_if.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Умовні конструкції</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_loops.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Цикли</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_functions.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Функції</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Популярні питання</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./sql.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Переключити розділ">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Базові запити</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_filter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_agg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Агрегація даних</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_groupby.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Групування даних</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_subquery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Підзапити</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_join.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Об’єднання таблиць</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_window.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Віконні функції</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_analytic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Практичні задачі</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql_metrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Аналіз продуктових метрик</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Зміст</h2>
+   
+  <ul>
+  <li><a href="#синтаксис" id="toc-синтаксис" class="nav-link active" data-scroll-target="#синтаксис"><span class="header-section-number">7.1</span> Синтаксис</a></li>
+  <li><a href="#глобальні-змінні" id="toc-глобальні-змінні" class="nav-link" data-scroll-target="#глобальні-змінні"><span class="header-section-number">7.2</span> Глобальні змінні</a></li>
+  <li><a href="#лямбда-функції" id="toc-лямбда-функції" class="nav-link" data-scroll-target="#лямбда-функції"><span class="header-section-number">7.3</span> Лямбда-функції</a></li>
+  <li><a href="#змінна-кількість-аргументів" id="toc-змінна-кількість-аргументів" class="nav-link" data-scroll-target="#змінна-кількість-аргументів"><span class="header-section-number">7.4</span> Змінна кількість аргументів</a></li>
+  <li><a href="#завдання" id="toc-завдання" class="nav-link" data-scroll-target="#завдання"><span class="header-section-number">7.5</span> Завдання</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_functions.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_functions.qmd" class="toc-action">Переглянути код</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Функції</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>У Python функції являють собою блоки коду, які виконуються під час виклику. Вони дають змогу спростити і структурувати код, а також повторно використовувати його.</p>
+<section id="синтаксис" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="синтаксис"><span class="header-section-number">7.1</span> Синтаксис</h2>
+<p><strong>Створення функцій:</strong> для створення функції використовується ключове слово <code>def</code>, після якого вказується ім’я функції, а потім у круглих дужках вказуються параметри функції. Тіло функції починається з відступу і може містити необхідний код.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> add_numbers(a, b):</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="bu">sum</span> <span class="op">=</span> a <span class="op">+</span> b</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="cf">return</span> <span class="bu">sum</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Повернення значення:</strong> використовуйте ключове слово <code>return</code> для повернення значення з функції. Якщо у функції немає оператора <code>return</code>, вона все одно завершить своє виконання, але поверне значення <code>None</code> за замовчуванням.</p>
+<p>Ось приклади використання функцій:</p>
+<div id="exm-python-functions-01" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 7.1 (Проста функція, що обчислює суму двох чисел) </strong></span>&nbsp;</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> add_numbers(a, b):</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="bu">sum</span> <span class="op">=</span> a <span class="op">+</span> b</span>
+<span id="cb2-3"><a href="#cb2-3"></a>    <span class="cf">return</span> <span class="bu">sum</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>result <span class="op">=</span> add_numbers(<span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="bu">print</span>(result)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5</code></pre>
+</div>
+</div>
+</div>
+<div id="exm-python-functions-02" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 7.2 (Функція з вкладеними умовами для визначення часу доби) </strong></span>&nbsp;</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> get_time_of_day(hour):</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    <span class="cf">if</span> hour <span class="op">&lt;</span> <span class="dv">12</span>:</span>
+<span id="cb4-3"><a href="#cb4-3"></a>        <span class="cf">return</span> <span class="st">"Ранок"</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="cf">elif</span> hour <span class="op">&lt;</span> <span class="dv">18</span>:</span>
+<span id="cb4-5"><a href="#cb4-5"></a>        <span class="cf">return</span> <span class="st">"День"</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>    <span class="cf">else</span>:</span>
+<span id="cb4-7"><a href="#cb4-7"></a>        <span class="cf">return</span> <span class="st">"Вечір"</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>time <span class="op">=</span> get_time_of_day(<span class="dv">15</span>)</span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="bu">print</span>(time)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>День</code></pre>
+</div>
+</div>
+</div>
+<div id="exm-python-functions-03" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 7.3 (Функція з параметром за замовчуванням) </strong></span>&nbsp;</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> greet_person(name<span class="op">=</span><span class="st">"гість"</span>):</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="bu">print</span>(<span class="st">"Привіт,"</span>, name)</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a>greet_person()</span>
+<span id="cb6-5"><a href="#cb6-5"></a>greet_person(<span class="st">"Аліса"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Привіт, гість
+Привіт, Аліса</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="глобальні-змінні" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="глобальні-змінні"><span class="header-section-number">7.2</span> Глобальні змінні</h2>
+<p>Можна змінювати змінну всередині функції так, що і за межами функції ця змінна теж зміниться. Це вже досить просунута тема, яка навряд чи знадобиться вам на старті, але корисно знати про такий спосіб роботи зі змінними.</p>
+<p>У Python глобальні змінні оголошуються поза всіма функціями, вони доступні з будь-якого місця в програмі. Глобальні змінні можуть бути ініціалізовані та змінені всередині функцій за допомогою ключового слова <code>global</code>.</p>
+<div id="exm-python-functions-04" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 7.4 (Використання глобальних змінних у Python) </strong></span>&nbsp;</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>x <span class="op">=</span> <span class="dv">10</span> <span class="co"># глобальна змінна</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="kw">def</span> some_function():</span>
+<span id="cb8-3"><a href="#cb8-3"></a>    <span class="kw">global</span> x</span>
+<span id="cb8-4"><a href="#cb8-4"></a>    x <span class="op">+=</span> <span class="dv">5</span> <span class="co"># зміна глобальної змінної</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>    <span class="bu">print</span>(x)</span>
+<span id="cb8-6"><a href="#cb8-6"></a>some_function()</span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="bu">print</span>(x)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>15
+15</code></pre>
+</div>
+</div>
+</div>
+<p>У цьому випадку змінна <code>x</code> оголошена в глобальній області видимості, за межами функції <code>some_function()</code>. За допомогою ключового слова <code>global</code> всередині функції ми можемо змінювати значення глобальної змінної <code>x</code>.</p>
+<p>Ось приклад реальної задачі, де буде потрібно використовувати глобальну змінну.</p>
+<p>Припустимо, що ми створюємо програму для відстеження замовлень в інтернет-магазині. У нас є функція <code>make_order()</code>, яка приймає на вхід кількість товарів і обробляє замовлення. Нам потрібно відстежувати загальну кількість замовлень, зроблених у магазині.</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>total_orders <span class="op">=</span> <span class="dv">0</span> <span class="co"># глобальна змінна для зберігання загальної кількості замовлень</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="kw">def</span> make_order(num_items):</span>
+<span id="cb10-4"><a href="#cb10-4"></a>    <span class="kw">global</span> total_orders</span>
+<span id="cb10-5"><a href="#cb10-5"></a>    total_orders <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>    <span class="bu">print</span>(<span class="ss">f"Замовлення зроблено! Усього замовлень: </span><span class="sc">{</span>total_orders<span class="sc">}</span><span class="ss">. Товарів у замовленні: </span><span class="sc">{</span>num_items<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-7"><a href="#cb10-7"></a></span>
+<span id="cb10-8"><a href="#cb10-8"></a>make_order(<span class="dv">5</span>) <span class="co"># Замовлення зроблено! Усього замовлень: 1. Товарів у замовленні: 5</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a>make_order(<span class="dv">3</span>) <span class="co"># Замовлення зроблено! Усього замовлень: 2. Товарів у замовленні: 3</span></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="bu">print</span>(<span class="ss">f"Усього замовлень: </span><span class="sc">{</span>total_orders<span class="sc">}</span><span class="ss">"</span>) <span class="co"># Висновок: Усього замовлень: 2</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Замовлення зроблено! Усього замовлень: 1. Товарів у замовленні: 5
+Замовлення зроблено! Усього замовлень: 2. Товарів у замовленні: 3
+Усього замовлень: 2</code></pre>
+</div>
+</div>
+<p>У цьому прикладі у нас є глобальна змінна <code>total_orders</code>, яка зберігає загальну кількість замовлень. Функція <code>make_order()</code> використовує ключове слово <code>global</code>, щоб оголосити, що ми хочемо змінити значення глобальної змінної <code>total_orders</code>. При кожному виклику функції <code>make_order()</code> ми збільшуємо значення <code>total_orders</code> на 1 і виводимо повідомлення про замовлення, зокрема поточну кількість товарів і загальну кількість замовлень. Наприкінці програми ми виводимо загальну кількість замовлень.</p>
+<p>Глобальна змінна <code>total_orders</code> допомагає нам відстежувати загальну кількість замовлень у нашому інтернет-магазині.</p>
+<p>Варто бути обережним під час використання глобальних змінних, оскільки вони можуть ускладнити розуміння і підтримку коду. Якщо можливо, слід надавати перевагу передачі значень через аргументи функцій або використанню локальних змінних.</p>
+</section>
+<section id="лямбда-функції" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="лямбда-функції"><span class="header-section-number">7.3</span> Лямбда-функції</h2>
+<p>Давайте ще познайомимося з більш компактною формою створення та використання функцій. <strong>Лямбда-функція</strong> - це анонімна функція, яка може бути визначена без використання стандартного оператора <code>def</code>. Вона зазвичай використовується в тих випадках, коли необхідно визначити просту функцію, яка буде використовуватися тільки в одному місці програми. Ось приклади, які ілюструють використання лямбда-функцій:</p>
+<div id="exm-python-functions-05" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 7.5 (Найпростіший приклад лямбда-функції) </strong></span>&nbsp;</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>add <span class="op">=</span> <span class="kw">lambda</span> x, y: x <span class="op">+</span> y</span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="bu">print</span>(add(<span class="dv">5</span>, <span class="dv">3</span>))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>8</code></pre>
+</div>
+</div>
+</div>
+<p>У цьому прикладі створюється лямбда-функція <code>add</code>, яка приймає два аргументи x і y і повертає їхню суму. Потім ми викликаємо функцію, передаючи їй аргументи 5 і 3.</p>
+<div id="exm-python-functions-06" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 7.6 (Сортування списку) </strong></span>&nbsp;</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>numbers <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">7</span>]</span>
+<span id="cb14-2"><a href="#cb14-2"></a>sorted_numbers <span class="op">=</span> <span class="bu">sorted</span>(numbers, key<span class="op">=</span><span class="kw">lambda</span> x: x <span class="op">%</span> <span class="dv">3</span>)</span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="bu">print</span>(sorted_numbers)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[9, 3, 1, 7, 2, 5]</code></pre>
+</div>
+</div>
+</div>
+<p>У цьому прикладі ми використовували лямбда-функцію як ключ для сортування списку чисел. Лямбда-функція повертає залишок від ділення числа на 3, за цим значенням відбувається сортування списку.</p>
+<div id="exm-python-functions-07" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 7.7 (Фільтрація списку) </strong></span>Функція <code>filter()</code> - це вбудована функція в Python, яка використовується для фільтрації елементів ітерованого об’єкту на основі заданої умови.</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
+<span id="cb16-2"><a href="#cb16-2"></a>even_numbers <span class="op">=</span> <span class="bu">filter</span>(<span class="kw">lambda</span> x: x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>, numbers)</span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="bu">print</span>(<span class="bu">list</span>(even_numbers))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[2, 4, 6, 8, 10]</code></pre>
+</div>
+</div>
+</div>
+<p>У цьому прикладі ми використовуємо лямбда-функцію разом із функцією <code>filter()</code> для фільтрації списку чисел. Лямбда-функція перевіряє, чи є число парним, і функція <code>filter()</code> залишає тільки числа, що задовольняють цій умові.</p>
+<p>Лямбда-функції мають кілька <strong>переваг</strong> порівняно зі звичайними функціями. Ось деякі з них:</p>
+<ol type="1">
+<li><p><strong>Стислість і компактність</strong>: лямбда-функції дозволяють визначити функцію в одному рядку коду без використання оператора <code>def</code>. Вони корисні, коли вам потрібна проста функція, яка буде використовуватися тільки в одному місці програми. Використання лямбда-функцій робить код більш компактним і зосередженим на самій функції.</p></li>
+<li><p><strong>Анонімність</strong>: лямбда-функції - це анонімні функції, тобто вони не мають імені. Це корисно, коли вам потрібно передати функцію як аргумент в іншу функцію або використовувати її разом з іншими конструкціями, такими як <code>filter()</code> або <code>map()</code>. Ви можете визначити функцію прямо всередині виклику іншої функції, без необхідності створювати окреме ім’я для функції.</p></li>
+<li><p><strong>Зручність у використанні</strong>: лямбда-функції зручно використовувати для виконання простих операцій, таких як математичні обчислення, фільтрація або перетворення елементів у списку тощо. Вони надають спосіб визначення функцій більш лаконічним чином і дають змогу скоротити кількість коду.</p></li>
+</ol>
+<p>Варто зазначити, що лямбда-функції також мають свої <strong>обмеження</strong>. Вони не можуть містити багаторядкові вирази або мати складні логічні конструкції. Якщо вам потрібно визначити більш складну функцію з безліччю операцій, умов і циклів, звичайна функція може бути кращою.</p>
+<p>Використання лямбда-функцій або звичайних функцій залежить від контексту і вимог вашого завдання. Вам варто обирати найзручніше і найзручніше для читання рішення в кожній конкретній ситуації.</p>
+</section>
+<section id="змінна-кількість-аргументів" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="змінна-кількість-аргументів"><span class="header-section-number">7.4</span> Змінна кількість аргументів</h2>
+<p>Розглянемо ще одну більш просунуту тему - як створювати функції із заздалегідь невизначеним набором аргументів. Це може бути корисно, коли ви не знаєте заздалегідь, скільки аргументів буде передано у функцію, або коли вам необхідно обробляти різну кількість аргументів у різних ситуаціях. Для створення функції зі змінною кількістю аргументів використовується оператор <code>*</code> (зірочка) перед іменем аргументу. Давайте розглянемо приклади:</p>
+<div id="exm-python-functions-08" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 7.8 (Функція з довільною кількістю позиційних аргументів) </strong></span><code>args (Positional Arguments)</code> - це спеціальний параметр у функціях Python, який дозволяє передавати аргументи у вигляді <strong>кортежу</strong>.</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">def</span> sum_numbers(<span class="op">*</span>args):</span>
+<span id="cb18-2"><a href="#cb18-2"></a>    total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>    <span class="cf">for</span> num <span class="kw">in</span> args:</span>
+<span id="cb18-4"><a href="#cb18-4"></a>        total <span class="op">+=</span> num</span>
+<span id="cb18-5"><a href="#cb18-5"></a>    <span class="cf">return</span> total</span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="bu">print</span>(sum_numbers(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb18-7"><a href="#cb18-7"></a><span class="bu">print</span>(sum_numbers(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>6
+22</code></pre>
+</div>
+</div>
+<p>У цьому прикладі функція <code>sum_numbers</code> приймає довільну кількість позиційних аргументів, які передаються у вигляді кортежу <code>args</code>. Функція додає всі числа і повертає їхню суму.</p>
+</div>
+<div id="exm-python-functions-09" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 7.9 (Функція з довільною кількістю іменованих аргументів) </strong></span><code>kwargs (Keyword Arguments)</code>- це спеціальний параметр у функціях Python, який дозволяє передавати аргументи у вигляді <strong>словника</strong>.</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">def</span> print_info(<span class="op">**</span>kwargs):</span>
+<span id="cb20-2"><a href="#cb20-2"></a>    <span class="cf">for</span> key, value <span class="kw">in</span> kwargs.items():</span>
+<span id="cb20-3"><a href="#cb20-3"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>key<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb20-4"><a href="#cb20-4"></a></span>
+<span id="cb20-5"><a href="#cb20-5"></a>print_info(name<span class="op">=</span><span class="st">'John'</span>, age<span class="op">=</span><span class="dv">25</span>)</span>
+<span id="cb20-6"><a href="#cb20-6"></a>print_info(country<span class="op">=</span><span class="st">'USA'</span>, occupation<span class="op">=</span><span class="st">'Engineer'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>name: John
+age: 25
+country: USA
+occupation: Engineer</code></pre>
+</div>
+</div>
+<p>Тут функція <code>print_info</code> приймає довільну кількість іменованих аргументів, які передаються у вигляді словника <code>kwargs</code>. Функція виводить на екран ключі та значення переданих аргументів.</p>
+</div>
+<div id="exm-python-functions-10" class="theorem example">
+<p><span class="theorem-title"><strong>Приклад 7.10 (Функція з комбінованим використанням позиційних та іменованих аргументів) </strong></span>&nbsp;</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">def</span> process_data(<span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
+<span id="cb22-2"><a href="#cb22-2"></a>    <span class="cf">for</span> num <span class="kw">in</span> args:</span>
+<span id="cb22-3"><a href="#cb22-3"></a>        <span class="bu">print</span>(<span class="ss">f"Number: </span><span class="sc">{</span>num<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb22-4"><a href="#cb22-4"></a>    <span class="cf">for</span> key, value <span class="kw">in</span> kwargs.items():</span>
+<span id="cb22-5"><a href="#cb22-5"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>key<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb22-6"><a href="#cb22-6"></a>process_data(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, name<span class="op">=</span><span class="st">'John'</span>, age<span class="op">=</span><span class="dv">25</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number: 1
+Number: 2
+Number: 3
+name: John
+age: 25</code></pre>
+</div>
+</div>
+<p>У цьому прикладі функція <code>process_data</code> приймає довільну кількість позиційних аргументів і довільну кількість іменованих аргументів. Функція виводить на екран значення позиційних аргументів, а потім ключі та значення іменованих аргументів.</p>
+</div>
+<p>Давайте розглянемо приклад із реальним завданням:</p>
+<p>Уявіть, що ви розробляєте систему керування базами даних, де користувачі можуть створювати таблиці з різним набором стовпців. Вам необхідно реалізувати функцію, яка зберігатиме дані в таблицю.</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">def</span> save_data(table_name, <span class="op">**</span>columns):</span>
+<span id="cb24-2"><a href="#cb24-2"></a>    <span class="co"># Тут може бути ваш код для збереження даних у таблицю</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a>    <span class="bu">print</span>(<span class="ss">f"Data saved to table '</span><span class="sc">{</span>table_name<span class="sc">}</span><span class="ss">':"</span>)</span>
+<span id="cb24-4"><a href="#cb24-4"></a>    <span class="cf">for</span> column, value <span class="kw">in</span> columns.items():</span>
+<span id="cb24-5"><a href="#cb24-5"></a>        <span class="bu">print</span>(<span class="ss">f"- </span><span class="sc">{</span>column<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb24-6"><a href="#cb24-6"></a><span class="co"># Приклад використання функції save_data</span></span>
+<span id="cb24-7"><a href="#cb24-7"></a>save_data(<span class="st">'students'</span>, name<span class="op">=</span><span class="st">'John'</span>, age<span class="op">=</span><span class="dv">25</span>, grade<span class="op">=</span><span class="st">'A'</span>)</span>
+<span id="cb24-8"><a href="#cb24-8"></a>save_data(<span class="st">'products'</span>, name<span class="op">=</span><span class="st">'Apple'</span>, price<span class="op">=</span><span class="fl">1.99</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Data saved to table 'students':
+- name: John
+- age: 25
+- grade: A
+Data saved to table 'products':
+- name: Apple
+- price: 1.99</code></pre>
+</div>
+</div>
+<p>Тут функція <code>save_data</code> приймає першим аргументом назву таблиці, а потім довільну кількість іменованих аргументів, які являють собою назви стовпців і значення, які потрібно зберегти в таблицю. Функція може бути використана для збереження даних у різні таблиці з різним набором стовпців.</p>
+<p>Це всього лише приклад. У реальному завданні, звісно, може знадобитися складніша і специфічніша реалізація функції зі змінною кількістю аргументів залежно від вимог проєкту.</p>
+</section>
+<section id="завдання" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="завдання"><span class="header-section-number">7.5</span> Завдання</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-func-01" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.1 </strong></span><br> Ми розробляємо софт для магазину програмістів. Покупці вводять назви товарів у термінал і таким чином здійснюють покупки.</p>
+<p>У словнику <code>products</code> зберігаються назви та вартість товарів.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb26-1"><a href="#cb26-1"></a>products = {</span>
+<span id="cb26-2"><a href="#cb26-2"></a>    "ноутбук": 5000,</span>
+<span id="cb26-3"><a href="#cb26-3"></a>    "смартфон": 20000,</span>
+<span id="cb26-4"><a href="#cb26-4"></a>    "навушники": 1000,</span>
+<span id="cb26-5"><a href="#cb26-5"></a>    "монітор": 10000,</span>
+<span id="cb26-6"><a href="#cb26-6"></a>    "клавіатура": 500,</span>
+<span id="cb26-7"><a href="#cb26-7"></a>    "миша": 200,</span>
+<span id="cb26-8"><a href="#cb26-8"></a>    "роутер": 1500,</span>
+<span id="cb26-9"><a href="#cb26-9"></a>    "принтер": 5000,</span>
+<span id="cb26-10"><a href="#cb26-10"></a>    "флешка": 1000,</span>
+<span id="cb26-11"><a href="#cb26-11"></a>    "жорсткий диск": 3000</span>
+<span id="cb26-12"><a href="#cb26-12"></a>}</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Напишіть функцію <code>calculate_order_cost</code>, яка отримує на вхід словник із товарами, а далі необмежену кількість аргументів: назва товарів, які вибрав покупець. Якщо товару немає в <code>products</code>, просто не враховуємо цей товар. Функція повертає два значення: сумарну вартість замовлення, словник куплених товарів, де ключ - назва товару, значення - число одиниць товару.</p>
+<p><strong>Приклад:</strong></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb27-1"><a href="#cb27-1"></a>total_cost, orders_info = calculate_order_cost(products, 'ноутбук', 'роутер') </span>
+<span id="cb27-2"><a href="#cb27-2"></a>print(total_cost) # 6500</span>
+<span id="cb27-3"><a href="#cb27-3"></a>print(orders_info) # {'ноутбук': 1, 'роутер': 1}</span>
+<span id="cb27-4"><a href="#cb27-4"></a></span>
+<span id="cb27-5"><a href="#cb27-5"></a>total_cost, orders_info = calculate_order_cost(products , 'миша', 'флешка', 'монітор', 'кабель', 'миша') </span>
+<span id="cb27-6"><a href="#cb27-6"></a>print(total_cost) # 11400</span>
+<span id="cb27-7"><a href="#cb27-7"></a>print(orders_info) # {'миша': 2, 'флешка': 1, 'монітор': 1}</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="14">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">def</span> calculate_order_cost(products, <span class="op">*</span>args):</span>
+<span id="cb28-2"><a href="#cb28-2"></a>    total_cost <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a>    orders_info <span class="op">=</span> {}</span>
+<span id="cb28-4"><a href="#cb28-4"></a>    <span class="cf">for</span> product <span class="kw">in</span> args:</span>
+<span id="cb28-5"><a href="#cb28-5"></a>        <span class="cf">if</span> product <span class="kw">in</span> products:</span>
+<span id="cb28-6"><a href="#cb28-6"></a>            total_cost <span class="op">+=</span> products[product]</span>
+<span id="cb28-7"><a href="#cb28-7"></a>            <span class="cf">if</span> product <span class="kw">in</span> orders_info:</span>
+<span id="cb28-8"><a href="#cb28-8"></a>                orders_info[product] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb28-9"><a href="#cb28-9"></a>            <span class="cf">else</span>:</span>
+<span id="cb28-10"><a href="#cb28-10"></a>                orders_info[product] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb28-11"><a href="#cb28-11"></a>    <span class="cf">return</span> total_cost, orders_info</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-func-02" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.2 </strong></span><br> Напишіть функцію <code>calculator</code>, що приймає три аргументи: перший - операція, другі два - числа, над якими має бути здійснено операцію.</p>
+<p>Наприклад: якщо перший аргумент <code>+</code>, то потрібно скласти числа <code>a</code> і <code>b</code>; якщо <code>-</code>, то відняти.</p>
+<p>Функція повинна повернути одне число - результат виконання операції. Якщо операцію виконати не вдалося - повернути рядок <code>"Error"</code>.</p>
+<p><strong>Приклад:</strong></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb29-1"><a href="#cb29-1"></a>calculator('+', 2, 4) # -&gt; 6</span>
+<span id="cb29-2"><a href="#cb29-2"></a>calculator('^', 2, 4) # -&gt; 16</span>
+<span id="cb29-3"><a href="#cb29-3"></a>calculator('', 2, 4) # -&gt; 'Error'</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="15">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="kw">def</span> calculator(op, a, b):</span>
+<span id="cb30-2"><a href="#cb30-2"></a>    <span class="cf">if</span> op <span class="kw">in</span> [<span class="st">'+'</span>, <span class="st">'-'</span>, <span class="st">'*'</span>, <span class="st">'/'</span>, <span class="st">'%'</span>, <span class="st">'//'</span>, <span class="st">'**'</span>] <span class="kw">and</span> b <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb30-3"><a href="#cb30-3"></a>        <span class="cf">return</span> <span class="bu">eval</span>(<span class="ss">f'</span><span class="sc">{</span>a<span class="sc">}{</span>op<span class="sc">}{</span>b<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb30-4"><a href="#cb30-4"></a>    <span class="cf">elif</span> op <span class="op">==</span> <span class="st">'^'</span>:</span>
+<span id="cb30-5"><a href="#cb30-5"></a>        <span class="cf">return</span> a <span class="op">**</span> b</span>
+<span id="cb30-6"><a href="#cb30-6"></a>    <span class="cf">elif</span> op <span class="kw">in</span> [<span class="st">'/'</span>, <span class="st">'//'</span>, <span class="st">'%'</span>] <span class="kw">and</span> b <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb30-7"><a href="#cb30-7"></a>        <span class="cf">return</span> <span class="st">'Error'</span></span>
+<span id="cb30-8"><a href="#cb30-8"></a>    <span class="cf">else</span>:</span>
+<span id="cb30-9"><a href="#cb30-9"></a>        <span class="cf">return</span> <span class="st">'Error'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-func-03" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.3 </strong></span><br> У Гоґвортсі починається новий навчальний рік, триває церемонія розподілу. На голову кожного нового учня надягають розподільчий капелюх. Залежно від якостей, які капелюх побачить у дитині, вона буде зарахована на відповідний факультет:</p>
+<ul>
+<li><strong>Гриффіндор</strong> - хоробрість, благородство, честь;</li>
+<li><strong>Рейвенклов</strong> - розум, допитливість, творчість;</li>
+<li><strong>Слізерин</strong> - хитрість, амбітність, винахідливість;</li>
+<li><strong>Гафелпаф</strong> - працьовитість, вірність, чесність.</li>
+</ul>
+<p>Напишіть функцію <code>sorting_hat()</code>, яка як аргумент прийматиме словник вигляду: <code>new_students = {'Сіріус Блек': 'хоробрість'}</code>, де ключ - ім’я учня, значення - якість, якою він володіє.</p>
+<p>Функція має повернути 2 змінні:</p>
+<ul>
+<li><code>sorted_students</code> - словник виду: ключ - ім’я учня, значення - факультет, на який його було зараховано. Дані в словнику мають бути відсортовані за назвою факультету та за ім’ям учня.</li>
+<li><code>department</code> - словник виду: ключ - факультет, значення - кількість зарахованих на нього учнів. Відсортуйте словник за ключем.</li>
+</ul>
+<p><strong>Приклад:</strong></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb31-1"><a href="#cb31-1"></a>def sorting_hat(new_students):</span>
+<span id="cb31-2"><a href="#cb31-2"></a>    ...</span>
+<span id="cb31-3"><a href="#cb31-3"></a>    return sorted_students, departments</span>
+<span id="cb31-4"><a href="#cb31-4"></a></span>
+<span id="cb31-5"><a href="#cb31-5"></a>new_students = {</span>
+<span id="cb31-6"><a href="#cb31-6"></a>    'Сіріус Блек': 'хоробрість',</span>
+<span id="cb31-7"><a href="#cb31-7"></a>    'Аманда Коршун': 'допитливість',</span>
+<span id="cb31-8"><a href="#cb31-8"></a>    'Пенелопа Вулпінголд': 'винахідливість',</span>
+<span id="cb31-9"><a href="#cb31-9"></a>    'Артур Поттер': 'хоробрість',</span>
+<span id="cb31-10"><a href="#cb31-10"></a>    'Тесая Блек': 'розум'</span>
+<span id="cb31-11"><a href="#cb31-11"></a>}</span>
+<span id="cb31-12"><a href="#cb31-12"></a></span>
+<span id="cb31-13"><a href="#cb31-13"></a>sorting_hat(new_students) # -&gt; -&gt;</span>
+<span id="cb31-14"><a href="#cb31-14"></a># sorted_students = {'Аманда Коршун': 'Рейвенклов', 'Артур Поттер': 'Гриффіндор', 'Пенелопа Вулпінголд': 'Слізерин', 'Сіріус Блек': 'Гриффіндор', 'Тесая Блек': 'Рейвенклов'}</span>
+<span id="cb31-15"><a href="#cb31-15"></a># departments = {'Гафелпаф': 0, 'Гриффіндор': 2, 'Рейвенклов': 2, 'Слізерин': 1}</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="16">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">def</span> sorting_hat(new_students):</span>
+<span id="cb32-2"><a href="#cb32-2"></a>    departments <span class="op">=</span> {<span class="st">'Гриффіндор'</span>: <span class="dv">0</span>, <span class="st">'Рейвенклов'</span>: <span class="dv">0</span>, <span class="st">'Гафелпаф'</span>: <span class="dv">0</span>, <span class="st">'Слізерин'</span>: <span class="dv">0</span>}</span>
+<span id="cb32-3"><a href="#cb32-3"></a>    sorted_students <span class="op">=</span> {}</span>
+<span id="cb32-4"><a href="#cb32-4"></a>    <span class="cf">for</span> student, quality <span class="kw">in</span> new_students.items():</span>
+<span id="cb32-5"><a href="#cb32-5"></a>        <span class="cf">if</span> quality <span class="kw">in</span> [<span class="st">'хоробрість'</span>, <span class="st">'благородство'</span>, <span class="st">'честь'</span>]:</span>
+<span id="cb32-6"><a href="#cb32-6"></a>            departments[<span class="st">'Гриффіндор'</span>] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb32-7"><a href="#cb32-7"></a>            sorted_students[student] <span class="op">=</span> <span class="st">'Гриффіндор'</span></span>
+<span id="cb32-8"><a href="#cb32-8"></a>        <span class="cf">elif</span> quality <span class="kw">in</span> [<span class="st">'розум'</span>, <span class="st">'допитливість'</span>, <span class="st">'творчість'</span>]:</span>
+<span id="cb32-9"><a href="#cb32-9"></a>            departments[<span class="st">'Рейвенклов'</span>] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb32-10"><a href="#cb32-10"></a>            sorted_students[student] <span class="op">=</span> <span class="st">'Рейвенклов'</span></span>
+<span id="cb32-11"><a href="#cb32-11"></a>        <span class="cf">elif</span> quality <span class="kw">in</span> [<span class="st">'хитрість'</span>, <span class="st">'амбітність'</span>, <span class="st">'винахідливість'</span>]:</span>
+<span id="cb32-12"><a href="#cb32-12"></a>            departments[<span class="st">'Слізерин'</span>] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb32-13"><a href="#cb32-13"></a>            sorted_students[student] <span class="op">=</span> <span class="st">'Слізерин'</span></span>
+<span id="cb32-14"><a href="#cb32-14"></a>        <span class="cf">elif</span> quality <span class="kw">in</span> [<span class="st">'працьовитість'</span>, <span class="st">'вірність'</span>, <span class="st">'чесність'</span>]:</span>
+<span id="cb32-15"><a href="#cb32-15"></a>            departments[<span class="st">'Гафелпаф'</span>] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb32-16"><a href="#cb32-16"></a>            sorted_students[student] <span class="op">=</span> <span class="st">'Гафелпаф'</span></span>
+<span id="cb32-17"><a href="#cb32-17"></a>    sorted_students <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">sorted</span>(sorted_students.items(), key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">0</span>]))</span>
+<span id="cb32-18"><a href="#cb32-18"></a>    departments <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">sorted</span>(departments.items(), key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">0</span>]))</span>
+<span id="cb32-19"><a href="#cb32-19"></a>    <span class="cf">return</span> sorted_students, departments</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-func-04" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.4 </strong></span><br> Дано список кортежів <code>input_list</code>. Відсортуйте <code>input_list</code> за 2 елементом кортежу в порядку убування. Відфільтруйте список так, щоб залишилися тільки ті елементи, друге значення в кортежі в яких кратне 5.</p>
+<p>Результат збережіть у <code>result</code>.</p>
+<p>Для розв’язання задачі використовуйте lambda-функцію.</p>
+<p><strong>Приклад:</strong></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb33-1"><a href="#cb33-1"></a>input_list = [('Anna', 13), ('Ivan', 20), ('Irina', 23), ('Olga', 25), </span>
+<span id="cb33-2"><a href="#cb33-2"></a>              ('Ivan', 30), ('Oleg', 24), ('Olga', 26)]</span>
+<span id="cb33-3"><a href="#cb33-3"></a>result = [('Ivan', 30), ('Olga', 25), ('Ivan', 20)]</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="17">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>input_list <span class="op">=</span> [(<span class="st">'Anna'</span>, <span class="dv">13</span>), (<span class="st">'Ivan'</span>, <span class="dv">20</span>), (<span class="st">'Irina'</span>, <span class="dv">23</span>), (<span class="st">'Olga'</span>, <span class="dv">25</span>), </span>
+<span id="cb34-2"><a href="#cb34-2"></a>              (<span class="st">'Ivan'</span>, <span class="dv">30</span>), (<span class="st">'Oleg'</span>, <span class="dv">24</span>), (<span class="st">'Olga'</span>, <span class="dv">26</span>)]</span>
+<span id="cb34-3"><a href="#cb34-3"></a></span>
+<span id="cb34-4"><a href="#cb34-4"></a>result <span class="op">=</span> <span class="bu">list</span>(<span class="bu">filter</span>(<span class="kw">lambda</span> x: x[<span class="dv">1</span>] <span class="op">%</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">0</span>, <span class="bu">sorted</span>(input_list, key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">1</span>], reverse<span class="op">=</span><span class="va">True</span>)))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-func-05" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.5 </strong></span><br> <a href="https://uk.wikipedia.org/wiki/%D0%93%D1%96%D0%BF%D0%BE%D1%82%D0%B5%D0%B7%D0%B0_%D0%9A%D0%BE%D0%BB%D0%BB%D0%B0%D1%82%D1%86%D0%B0">Гіпотеза Коллатца</a>: яке б початкове натуральне число n ми не взяли, рано чи пізно ми отримаємо одиницю, якщо виконуємо такі перетворення:</p>
+<ul>
+<li>якщо n парне, то ділимо його на 2;</li>
+<li>якщо n непарне, то множимо на 3 і додаємо 1 (отримуємо 3n + 1).</li>
+</ul>
+<p>Напишіть функцію <code>collatz_conjecture()</code>, яка прийматиме натуральне число n і повертатиме послідовність чисел, отриманих зазначеними вище перетвореннями.</p>
+<p><strong>Приклад:</strong></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb35-1"><a href="#cb35-1"></a>def collatz_conjecture(n):</span>
+<span id="cb35-2"><a href="#cb35-2"></a>    ...</span>
+<span id="cb35-3"><a href="#cb35-3"></a></span>
+<span id="cb35-4"><a href="#cb35-4"></a>collatz_conjecture(8) # -&gt; [8, 4, 2, 1]</span>
+<span id="cb35-5"><a href="#cb35-5"></a>collatz_conjecture(3) # -&gt; [3, 10, 5, 16, 8, 4, 2, 1]</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="18">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="kw">def</span> collatz_conjecture(n):</span>
+<span id="cb36-2"><a href="#cb36-2"></a>    result <span class="op">=</span> [n]</span>
+<span id="cb36-3"><a href="#cb36-3"></a>    <span class="cf">while</span> n <span class="op">!=</span> <span class="dv">1</span>:</span>
+<span id="cb36-4"><a href="#cb36-4"></a>        <span class="cf">if</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb36-5"><a href="#cb36-5"></a>            n <span class="op">//=</span> <span class="dv">2</span></span>
+<span id="cb36-6"><a href="#cb36-6"></a>        <span class="cf">else</span>:</span>
+<span id="cb36-7"><a href="#cb36-7"></a>            n <span class="op">=</span> <span class="dv">3</span> <span class="op">*</span> n <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb36-8"><a href="#cb36-8"></a>        result.append(n)</span>
+<span id="cb36-9"><a href="#cb36-9"></a>    <span class="cf">return</span> result</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-func-06" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.6 </strong></span><br> Напишіть функцію <code>reverse_tuple()</code>, яка прийматиме список цілих чисел. У результаті виконання цієї функції буде отримано кортеж унікальних елементів списку у зворотному порядку.</p>
+<p><strong>Приклад:</strong></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb37-1"><a href="#cb37-1"></a>def reverse_tuple(lst):</span>
+<span id="cb37-2"><a href="#cb37-2"></a>    ...</span>
+<span id="cb37-3"><a href="#cb37-3"></a></span>
+<span id="cb37-4"><a href="#cb37-4"></a>reverse_tuple([1, 3, 4]) # -&gt; (4, 3, 1)</span>
+<span id="cb37-5"><a href="#cb37-5"></a>reverse_tuple([1, 3, 4, 4, 5, 2]) # -&gt; (2, 5, 4, 3, 1)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="19">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="kw">def</span> reverse_tuple(lst: <span class="bu">list</span>):</span>
+<span id="cb38-2"><a href="#cb38-2"></a>    lst <span class="op">=</span> lst[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb38-3"><a href="#cb38-3"></a>    <span class="cf">return</span> <span class="bu">tuple</span>(<span class="bu">sorted</span>(<span class="bu">set</span>(lst), key<span class="op">=</span>lst.index))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-py-func-07" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 7.7 </strong></span><br> Напишіть функцію <code>update_tuple()</code>, яка прийматиме кортеж <code>input_tuple</code>, видалятиме <strong>першу</strong> появу певного елемента <code>el_del</code> із кортежу за значенням і повертатиме кортеж без нього.</p>
+<p>Видаляємого елементу в кортежі може не бути, в цьому випадку кортеж повернеться в початковому вигляді.</p>
+<p><strong>Приклад:</strong></p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource {{python}} number-lines code-with-copy"><code class="sourceCode"><span id="cb39-1"><a href="#cb39-1"></a>def update_tuple(input_tuple, el_del):</span>
+<span id="cb39-2"><a href="#cb39-2"></a>    ...</span>
+<span id="cb39-3"><a href="#cb39-3"></a></span>
+<span id="cb39-4"><a href="#cb39-4"></a>update_tuple((1, 2, 3), 1) #-&gt; (2, 3)</span>
+<span id="cb39-5"><a href="#cb39-5"></a>update_tuple((1, 2, 3, 3, 9, 5), 3) #-&gt; (1, 2, 3, 9, 5)</span>
+<span id="cb39-6"><a href="#cb39-6"></a>update_tuple((1, 2, 3), 9) #-&gt; (1, 2, 3)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="20">
+<details>
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="kw">def</span> update_tuple(input_tuple, el_del):</span>
+<span id="cb40-2"><a href="#cb40-2"></a>    <span class="cf">if</span> el_del <span class="kw">in</span> input_tuple:</span>
+<span id="cb40-3"><a href="#cb40-3"></a>        input_tuple <span class="op">=</span> <span class="bu">list</span>(input_tuple)</span>
+<span id="cb40-4"><a href="#cb40-4"></a>        input_tuple.remove(el_del)</span>
+<span id="cb40-5"><a href="#cb40-5"></a>        <span class="cf">return</span> <span class="bu">tuple</span>(input_tuple)</span>
+<span id="cb40-6"><a href="#cb40-6"></a>    <span class="cf">return</span> input_tuple</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Скопійовано!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Скопійовано!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="aranaur/py4ds" data-repo-id="R_kgDOIR_TDw" data-category="General" data-category-id="DIC_kwDOIR_TD84CYOoA" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./python_loops.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Цикли</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./python_questions.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Популярні питання</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
