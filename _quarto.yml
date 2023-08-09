@@ -9,6 +9,14 @@ book:
       orcid: 0000-0002-1307-7889
       email: ihor.miroshnychenko@kneu.ua
   description: Книга-конспект матеріалів
+  body-header: | 
+    [![Data Miorsh](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/araprof) [![Ihor Miroshnychenko](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ihormiroshnychenko/) [![Youtube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@datamirosh) [![Monobank](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#white)](https://send.monobank.ua/jar/3rgj2uzZTs) 
+  body-footer: | 
+    [![Data Miorsh](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/araprof) [![Ihor Miroshnychenko](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ihormiroshnychenko/) [![Youtube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@datamirosh) [![Monobank](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#white)](https://send.monobank.ua/jar/3rgj2uzZTs) 
+  # margin-header: |
+  #   ![](/cover.png)
+  # margin-footer: |
+  #   ![](/cover.png)
   keyword: python, data science, machine learning, data analysis, data visualization, statistics, sql, pandas, numpy, matplotlib, seaborn, scikit-learn, plotly, pyspark
   date: today
   date-format: iso
