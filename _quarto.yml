@@ -44,6 +44,7 @@ book:
       - python_if.qmd
       - python_loops.qmd
       - python_functions.qmd
+      - python_exercises.qmd
       - python_questions.qmd
     - text: "---"
     - part: sql.ipynb
