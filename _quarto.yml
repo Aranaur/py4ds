@@ -46,6 +46,15 @@ book:
       - python_functions.qmd
       - python_exercises.qmd
       - python_questions.qmd
+    # - text: "---"
+    # - part: math4ds.qmd
+    #   chapters: 
+    #   - math4ds_analysis_I.qmd
+      # - math4ds_linear_algebra.qmd
+      # - math4ds_statistics.qmd
+      # - math4ds_probability.qmd
+      # - math4ds_exercises.qmd
+      # - math4ds_questions.qmd
     - text: "---"
     - part: sql.ipynb
       chapters: 

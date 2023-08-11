@@ -195,7 +195,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Змінні та типи даних</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Функції та змінні</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -812,7 +812,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>fruits <span class="op">=</span> {<span class="st">'apple'</span>, <span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>}</span>
 <span id="cb51-2"><a href="#cb51-2"></a><span class="bu">print</span>(fruits)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'banana', 'orange', 'apple'}</code></pre>
+<pre><code>{'orange', 'banana', 'apple'}</code></pre>
 </div>
 </div>
 <section id="методи-множин" class="level3" data-number="2.2.1">
@@ -825,7 +825,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb53-2"><a href="#cb53-2"></a>fruits.add(<span class="st">'melon'</span>)</span>
 <span id="cb53-3"><a href="#cb53-3"></a><span class="bu">print</span>(fruits)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'banana', 'melon', 'orange', 'apple'}</code></pre>
+<pre><code>{'melon', 'orange', 'banana', 'apple'}</code></pre>
 </div>
 </div>
 <ul>
@@ -837,7 +837,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb55-3"><a href="#cb55-3"></a>fruits3 <span class="op">=</span> fruits.union(fruits2)</span>
 <span id="cb55-4"><a href="#cb55-4"></a><span class="bu">print</span>(fruits3)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'banana', 'apple', 'melon', 'orange', 'watermelon'}</code></pre>
+<pre><code>{'orange', 'melon', 'banana', 'watermelon', 'apple'}</code></pre>
 </div>
 </div>
 <ul>
@@ -859,7 +859,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb59-2"><a href="#cb59-2"></a>fruits_copy <span class="op">=</span> fruits.copy()</span>
 <span id="cb59-3"><a href="#cb59-3"></a><span class="bu">print</span>(fruits_copy)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'banana', 'orange', 'apple'}</code></pre>
+<pre><code>{'orange', 'banana', 'apple'}</code></pre>
 </div>
 </div>
 <ul>
@@ -871,7 +871,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb61-3"><a href="#cb61-3"></a>fruits3 <span class="op">=</span> fruits.difference(fruits2)</span>
 <span id="cb61-4"><a href="#cb61-4"></a><span class="bu">print</span>(fruits3)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'banana', 'orange'}</code></pre>
+<pre><code>{'orange', 'banana'}</code></pre>
 </div>
 </div>
 <ul>
@@ -882,7 +882,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb63-2"><a href="#cb63-2"></a>fruits.discard(<span class="st">'apple'</span>)</span>
 <span id="cb63-3"><a href="#cb63-3"></a><span class="bu">print</span>(fruits)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'banana', 'orange'}</code></pre>
+<pre><code>{'orange', 'banana'}</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="33">
@@ -890,7 +890,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb65-2"><a href="#cb65-2"></a>fruits.discard(<span class="st">'watermelon'</span>)</span>
 <span id="cb65-3"><a href="#cb65-3"></a><span class="bu">print</span>(fruits)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'banana', 'orange', 'apple'}</code></pre>
+<pre><code>{'orange', 'banana', 'apple'}</code></pre>
 </div>
 </div>
 <ul>
@@ -901,7 +901,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb67-2"><a href="#cb67-2"></a>fruits.remove(<span class="st">'apple'</span>)</span>
 <span id="cb67-3"><a href="#cb67-3"></a><span class="bu">print</span>(fruits)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'banana', 'orange'}</code></pre>
+<pre><code>{'orange', 'banana'}</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="35">
@@ -1840,7 +1840,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./python_basics.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Змінні та типи даних</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Функції та змінні</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
