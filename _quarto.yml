@@ -38,10 +38,9 @@ book:
     - part: python.qmd
       chapters: 
       - python_basics.qmd
+      - python_conditionals.qmd
       - python_list_set.qmd
       - python_dict.qmd
-      - python_strings.qmd
-      - python_if.qmd
       - python_loops.qmd
       - python_functions.qmd
       - python_exercises.qmd
@@ -81,14 +80,18 @@ bibliography: references.bib
 format:
   html:
     df-print: kable
+    fig-align: center
     code-overflow: scroll
     code-link: true
-    code-line-numbers: true
+    code-line-numbers: false
     code-fold: false
     theme:
       light: cosmo
       dark: superhero
     # backgroundcolor: "#F5F5F5"
+include-in-header:
+  text: |
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 launch_buttons:
   colab_url: "https://colab.research.google.com"

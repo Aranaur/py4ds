@@ -8,7 +8,7 @@
 
 <meta name="description" content="Книга-конспект матеріалів">
 
-<title>Від нуля до Python Data Scientist - 14&nbsp; Підзапити</title>
+<title>Від нуля до Python Data Scientist - 13&nbsp; Підзапити</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,6 +111,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
 </head>
@@ -124,7 +125,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql.html">SQL</a></li><li class="breadcrumb-item"><a href="./sql_subquery.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Підзапити</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql.html">SQL</a></li><li class="breadcrumb-item"><a href="./sql_subquery.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Підзапити</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -203,50 +204,44 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./python_conditionals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Умовні оператори</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./python_list_set.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Списки та множини</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Списки та множини</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_dict.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Словники</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./python_strings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Рядки</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./python_if.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Умовні конструкції</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Словники</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_loops.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Цикли</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Цикли</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Функції</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Функції</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Задачі</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Задачі</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_questions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Популярні питання</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Популярні питання</span></span></a>
   </div>
 </li>
       </ul>
@@ -264,55 +259,55 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Базові запити</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Базові запити</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_filter.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_agg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Агрегація даних</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Агрегація даних</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_groupby.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Групування даних</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Групування даних</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_subquery.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Підзапити</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Підзапити</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_join.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Об’єднання таблиць</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Об’єднання таблиць</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_window.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Віконні функції</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Віконні функції</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_analytic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Практичні задачі</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Практичні задачі</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_metrics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Аналіз продуктових метрик</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Аналіз продуктових метрик</span></span></a>
   </div>
 </li>
       </ul>
@@ -321,7 +316,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
   </div>
 </li>
     </ul>
@@ -334,12 +329,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
     <h2 id="toc-title">Зміст</h2>
    
   <ul>
-  <li><a href="#порядок-виконання-запитів" id="toc-порядок-виконання-запитів" class="nav-link active" data-scroll-target="#порядок-виконання-запитів"><span class="header-section-number">14.1</span> Порядок виконання запитів</a></li>
-  <li><a href="#підзапити" id="toc-підзапити" class="nav-link" data-scroll-target="#підзапити"><span class="header-section-number">14.2</span> Підзапити</a></li>
-  <li><a href="#табличні-вирази-with" id="toc-табличні-вирази-with" class="nav-link" data-scroll-target="#табличні-вирази-with"><span class="header-section-number">14.3</span> Табличні вирази: <code>WITH</code></a></li>
-  <li><a href="#підзапит-з-інтервалом-часу-interval" id="toc-підзапит-з-інтервалом-часу-interval" class="nav-link" data-scroll-target="#підзапит-з-інтервалом-часу-interval"><span class="header-section-number">14.4</span> Підзапит з інтервалом часу: <code>INTERVAL</code></a></li>
-  <li><a href="#підзапити-в-блоці-select" id="toc-підзапити-в-блоці-select" class="nav-link" data-scroll-target="#підзапити-в-блоці-select"><span class="header-section-number">14.5</span> Підзапити в блоці SELECT</a></li>
-  <li><a href="#розгортання-списків-unnest" id="toc-розгортання-списків-unnest" class="nav-link" data-scroll-target="#розгортання-списків-unnest"><span class="header-section-number">14.6</span> Розгортання списків: UNNEST()</a></li>
+  <li><a href="#порядок-виконання-запитів" id="toc-порядок-виконання-запитів" class="nav-link active" data-scroll-target="#порядок-виконання-запитів"><span class="header-section-number">13.1</span> Порядок виконання запитів</a></li>
+  <li><a href="#підзапити" id="toc-підзапити" class="nav-link" data-scroll-target="#підзапити"><span class="header-section-number">13.2</span> Підзапити</a></li>
+  <li><a href="#табличні-вирази-with" id="toc-табличні-вирази-with" class="nav-link" data-scroll-target="#табличні-вирази-with"><span class="header-section-number">13.3</span> Табличні вирази: <code>WITH</code></a></li>
+  <li><a href="#підзапит-з-інтервалом-часу-interval" id="toc-підзапит-з-інтервалом-часу-interval" class="nav-link" data-scroll-target="#підзапит-з-інтервалом-часу-interval"><span class="header-section-number">13.4</span> Підзапит з інтервалом часу: <code>INTERVAL</code></a></li>
+  <li><a href="#підзапити-в-блоці-select" id="toc-підзапити-в-блоці-select" class="nav-link" data-scroll-target="#підзапити-в-блоці-select"><span class="header-section-number">13.5</span> Підзапити в блоці SELECT</a></li>
+  <li><a href="#розгортання-списків-unnest" id="toc-розгортання-списків-unnest" class="nav-link" data-scroll-target="#розгортання-списків-unnest"><span class="header-section-number">13.6</span> Розгортання списків: UNNEST()</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/Aranaur/py4ds/blob/main/sql_subquery.ipynb" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/sql_subquery.ipynb" class="toc-action">Переглянути код</a></p></div></div></nav>
     </div>
@@ -348,7 +343,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Підзапити</span></h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Підзапити</span></h1>
 </div>
 
 
@@ -363,26 +358,26 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 
 </header>
 <p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p>
-<section id="порядок-виконання-запитів" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="порядок-виконання-запитів"><span class="header-section-number">14.1</span> Порядок виконання запитів</h2>
+<section id="порядок-виконання-запитів" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="порядок-виконання-запитів"><span class="header-section-number">13.1</span> Порядок виконання запитів</h2>
 <p>Перш ніж переходити до підзапитів, давайте трохи поговоримо про порядок виконання запитів у SQL.</p>
 <p>До цього моменту ми вже встигли познайомитися з основними операторами, які складають “скелет” стандартного SQL-запиту: <code>SELECT</code>, <code>FROM</code>, <code>WHERE</code>, <code>GROUP BY</code>, <code>HAVING</code>, <code>ORDER BY</code> та <code>LIMIT</code>.</p>
 <p>Ми вже знаємо, що порядок їх написання у запиті наступний:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">SELECT</span>      <span class="co">-- перелік полів результуючої таблиці</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">FROM</span>        <span class="co">-- вказівник джерела даних</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">WHERE</span>       <span class="co">-- фільтрація даних</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">GROUP</span> <span class="kw">BY</span>    <span class="co">-- групування даних</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">HAVING</span>      <span class="co">-- фільтрація даних після групування</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="kw">ORDER</span> <span class="kw">BY</span>    <span class="co">-- сортування результуючої таблиці</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="kw">LIMIT</span>       <span class="co">-- обмеження кількості записів у виводі</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>      <span class="co">-- перелік полів результуючої таблиці</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>        <span class="co">-- вказівник джерела даних</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>       <span class="co">-- фільтрація даних</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span>    <span class="co">-- групування даних</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span>      <span class="co">-- фільтрація даних після групування</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span>    <span class="co">-- сортування результуючої таблиці</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span>       <span class="co">-- обмеження кількості записів у виводі</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Проте важливо розуміти, що порядок виконання операторів у базах даних дещо відрізняється від порядку їх написання у запиті. У спрощеному вигляді порядок виконання запиту такий:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">FROM</span>       <span class="co">-- вказівник джерела даних</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">WHERE</span>      <span class="co">-- фільтрація даних</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">GROUP</span> <span class="kw">BY</span>   <span class="co">-- групування даних</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">HAVING</span>     <span class="co">-- фільтрація даних після групування</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="kw">SELECT</span>     <span class="co">-- перелік полів результуючої таблиці</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="kw">ORDER</span> <span class="kw">BY</span>   <span class="co">-- сортування результуючої таблиці</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="kw">LIMIT</span>      <span class="co">-- бмеження кількості записів у виводі</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>       <span class="co">-- вказівник джерела даних</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>      <span class="co">-- фільтрація даних</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span>   <span class="co">-- групування даних</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span>     <span class="co">-- фільтрація даних після групування</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>     <span class="co">-- перелік полів результуючої таблиці</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span>   <span class="co">-- сортування результуючої таблиці</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span>      <span class="co">-- бмеження кількості записів у виводі</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Таким чином:</p>
 <ol type="1">
 <li>Спочатку з допомогою <code>FROM</code> визначається таблиця.</li>
@@ -396,31 +391,31 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Насправді це дуже важлива інформація, яку слід пам’ятати при складанні будь-яких SQL-запитів.</p>
 <p>Можливо, ви вже зіткнулися з помилками, коли намагалися в блоці <code>WHERE</code> використовувати фільтрацію по нових полях, розрахованих у <code>SELECT</code>. Така операція не відповідає порядку виконання операторів і тому так робити не можна. Також ви могли потрапити в ситуацію, коли при фільтрації у <code>HAVING</code> у вас не приймався аліас колонки, розрахованої в <code>SELECT</code>. Це відбувалося з тієї ж причини – база даних просто ще не знала про те, що ви надали колонці нове ім’я.</p>
 <p>І ще одна важлива порада. Зверніть увагу, що фільтрацію даних за неагрегованими значеннями можна робити як у блоці <code>WHERE</code>, так і в блоці <code>HAVING</code>. Уважно подивіться на такі запити:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">SELECT</span> sex, <span class="fu">COUNT</span>(user_id)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">FROM</span> users</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">WHERE</span> sex <span class="op">!=</span> <span class="st">'male'</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="kw">GROUP</span> <span class="kw">BY</span> sex</span>
-<span id="cb3-5"><a href="#cb3-5"></a></span>
-<span id="cb3-6"><a href="#cb3-6"></a></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="kw">SELECT</span> sex, <span class="fu">COUNT</span>(user_id)</span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="kw">FROM</span> users</span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="kw">GROUP</span> <span class="kw">BY</span> sex</span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="kw">HAVING</span> sex <span class="op">!=</span> <span class="st">'male'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> sex, <span class="fu">COUNT</span>(user_id)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> users</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> sex <span class="op">!=</span> <span class="st">'male'</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> sex</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> sex, <span class="fu">COUNT</span>(user_id)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> users</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> sex</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span> sex <span class="op">!=</span> <span class="st">'male'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Їх результат буде однаковим (можете переконатися в цьому самі).</p>
 <p>Проте робити фільтрацію за неагрегованими даними рекомендується саме у блоці <code>WHERE</code>, тобто заздалегідь. У такому разі ви ще до угруповання прибираєте з розрахунків непотрібні вам дані і таким чином не витрачаєте обчислювальні ресурси на підрахунок значень, які будуть відфільтровані вами пізніше.</p>
 <p>Це важливий момент щодо оптимізації SQL-запитів, тому рекомендуємо вам взяти до уваги інформацію.</p>
 </section>
-<section id="підзапити" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="підзапити"><span class="header-section-number">14.2</span> Підзапити</h2>
+<section id="підзапити" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="підзапити"><span class="header-section-number">13.2</span> Підзапити</h2>
 <p>Підзапити це потужним інструментом в мові SQL, який дозволяє нам виконувати запити в середині інших запитів. Вони дають можливість створювати складніші і більш гнучкі запити, які вимагають доступу до даних з кількох таблиць або виконання додаткових обчислень.</p>
 <p>Один із сценаріїв використання підзапитів - це пошук даних в одній таблиці на основі значень з іншої таблиці. Наприклад, ми можемо створити запит, що повертає всіх клієнтів, які зробили замовлення на товари з певної категорії, використовуючи підзапит для вибірки ідентифікаторів цих товарів з таблиці товарів.</p>
 <p>Наприклад у нас є дві таблиці: <code>clients</code> і <code>orders</code>. Нам потрібно отримати список клієнтів, які зробили замовлення після певної дати. Для цього ми можемо скористатися підзапитом:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">FROM</span> clients</span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">WHERE</span> <span class="kw">ID</span> <span class="kw">IN</span> (<span class="kw">SELECT</span> client_id</span>
-<span id="cb4-4"><a href="#cb4-4"></a>             <span class="kw">FROM</span> orders</span>
-<span id="cb4-5"><a href="#cb4-5"></a>             <span class="kw">WHERE</span> <span class="kw">data</span> <span class="op">&gt;</span> <span class="st">'2023-01-01'</span>);</span>
-<span id="cb4-6"><a href="#cb4-6"></a>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> clients</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="kw">ID</span> <span class="kw">IN</span> (<span class="kw">SELECT</span> client_id</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>             <span class="kw">FROM</span> orders</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>             <span class="kw">WHERE</span> <span class="kw">data</span> <span class="op">&gt;</span> <span class="st">'2023-01-01'</span>);</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Іншими словами, підзапит — це лише запит усередині іншого запиту.</p>
 <p>Підзапити можуть застосовуватись у таких частинах основного запиту:</p>
 <ul>
@@ -430,22 +425,22 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </ul>
 <p>Але давайте про все по порядку.</p>
 <p>Насамперед важливо зрозуміти, що з результату виконання підзапиту можна звертатися також як і до таблиць у базі даних, тобто використовувати їх у блоці <code>FROM</code> замість наявних таблиць:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">SELECT</span> column_1</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">FROM</span> (</span>
-<span id="cb5-3"><a href="#cb5-3"></a>    <span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb5-4"><a href="#cb5-4"></a>    <span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a>) <span class="kw">AS</span> subquery_1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> (</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>) <span class="kw">AS</span> subquery_1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>В межах даного запиту спочатку буде виконано підзапит, який відбере колонки <code>column_1</code> і <code>column_2</code> з таблиці <code>table</code>, а потім вже з таблиці, що утворилася, основний запит вибере колонку <code>column_1</code>.</p>
 <p>Важливий момент: при використанні підзапиту в блоці <code>FROM</code> сформованій на основі підзапиту таблиці необхідно привласнити якийсь аліас, інакше основний запит не спрацює. У прикладі вище ми позначили результат підзапиту <code>subquery_1</code>.</p>
 <p>Крім того, рівнів вкладеності може бути декілька:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">SELECT</span> column_1</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">FROM</span> (</span>
-<span id="cb6-3"><a href="#cb6-3"></a>    <span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb6-4"><a href="#cb6-4"></a>    <span class="kw">FROM</span> (</span>
-<span id="cb6-5"><a href="#cb6-5"></a>        <span class="kw">SELECT</span> column_1, column_2, column_3</span>
-<span id="cb6-6"><a href="#cb6-6"></a>        <span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a>    ) <span class="kw">AS</span> subquery_1</span>
-<span id="cb6-8"><a href="#cb6-8"></a>) <span class="kw">AS</span> subquery_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> (</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> (</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">SELECT</span> column_1, column_2, column_3</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="kw">AS</span> subquery_1</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>) <span class="kw">AS</span> subquery_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>В даному випадку послідовність роботи запиту така: спочатку буде виконано підзапит, що повертає результат <code>subquery_1</code>, потім підзапит, що повертає результат <code>subquery_2</code>, і тільки потім в результаті основного підзапиту потрапить колонка <code>column_1</code>. В результаті виходить щось схоже на матрьошку, при цьому до основної таблиці <code>table</code> звертається тільки перший підзапит <code>subquery_1</code>.</p>
 <p>Наведений приклад досить умовний і на практиці колонки в такий спосіб відбирати не варто, але загальну ідею він має передавати.</p>
 <p>Розуміння того, як працюють підзапити в блоці <code>FROM</code>, нам особливо стане в нагоді, коли ми вчитимемося об’єднувати різні таблиці.</p>
@@ -461,7 +456,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-subquery-01" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 14.1 </strong></span><br> Використовуючи дані з таблиці <code>user_actions</code>, розрахуйте <strong>середню кількість замовлень для всіх користувачів</strong> нашого сервісу. Для цього спочатку в підзапиті порахуйте скільки замовлень зробив кожен користувач, а потім зверніться до результату підзапиту в блоці <code>FROM</code> і вже в основному запиті усередніть кількість замовлень по всіх користувачах. Отриману середню кількість замовлень всіх користувачів <strong>округліть до двох знаків після коми</strong>. Назвіть колонку з цим значенням <code>orders_avg</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 13.1 </strong></span><br> Використовуючи дані з таблиці <code>user_actions</code>, розрахуйте <strong>середню кількість замовлень для всіх користувачів</strong> нашого сервісу. Для цього спочатку в підзапиті порахуйте скільки замовлень зробив кожен користувач, а потім зверніться до результату підзапиту в блоці <code>FROM</code> і вже в основному запиті усередніть кількість замовлень по всіх користувачах. Отриману середню кількість замовлень всіх користувачів <strong>округліть до двох знаків після коми</strong>. Назвіть колонку з цим значенням <code>orders_avg</code>.</p>
 <p>Поле у результуючій таблиці: <code>orders_avg</code></p>
 <p><strong>Пояснення:</strong> до колонок з підзапиту можна застосовувати агрегатні функції — так само, як би ми зверталися до колонок вихідних таблиць.</p>
 </div>
@@ -470,12 +465,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="2">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="op">%%</span>sql</span>
-<span id="cb7-2"><a href="#cb7-2"></a>SELECT <span class="bu">round</span>(avg(orders_count), <span class="dv">2</span>) <span class="im">as</span> orders_avg</span>
-<span id="cb7-3"><a href="#cb7-3"></a>FROM   (SELECT count(order_id) <span class="im">as</span> orders_count</span>
-<span id="cb7-4"><a href="#cb7-4"></a>        FROM   user_actions</span>
-<span id="cb7-5"><a href="#cb7-5"></a>        WHERE  action <span class="op">=</span> <span class="st">'create_order'</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a>        GROUP BY user_id) <span class="im">as</span> t1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>SELECT <span class="bu">round</span>(avg(orders_count), <span class="dv">2</span>) <span class="im">as</span> orders_avg</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>FROM   (SELECT count(order_id) <span class="im">as</span> orders_count</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        FROM   user_actions</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        WHERE  action <span class="op">=</span> <span class="st">'create_order'</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        GROUP BY user_id) <span class="im">as</span> t1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
@@ -500,44 +495,44 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </section>
-<section id="табличні-вирази-with" class="level2" data-number="14.3">
-<h2 data-number="14.3" class="anchored" data-anchor-id="табличні-вирази-with"><span class="header-section-number">14.3</span> Табличні вирази: <code>WITH</code></h2>
+<section id="табличні-вирази-with" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="табличні-вирази-with"><span class="header-section-number">13.3</span> Табличні вирази: <code>WITH</code></h2>
 <p>Вирішуючи попереднє завдання, ви могли запитати себе: а що якщо один і той же підзапит буде використовуватися в декількох частинах основного запиту? Невже щоразу доведеться дублювати той самий підзапит? А якщо рівнів вкладеності буде кілька? Чи не вийде тоді надто складний та громіздкий запит, який буде складно читати?</p>
 <p>Для таких випадків SQL передбачений оператор <code>WITH</code>, який дозволяє створювати так звані <strong>табличні вирази</strong> (CTE, анг. <em>common table expressions</em>) - тимчасові таблиці, які існують тільки для одного запиту. Їхнє основне призначення полягає в розбиття складних запитів на кілька частин.</p>
 <p>Табличні вирази створюються так:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">WITH</span> subquery_1 <span class="kw">AS</span> (</span>
-<span id="cb8-2"><a href="#cb8-2"></a>    <span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb8-3"><a href="#cb8-3"></a>    <span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a>)</span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="kw">SELECT</span> column_1</span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="kw">FROM</span> subquery_1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> subquery_1 <span class="kw">AS</span> (</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> subquery_1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Порівняйте запит вище з результатом запиту, який ми використовували раніше:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">SELECT</span> column_1</span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="kw">FROM</span> (</span>
-<span id="cb9-3"><a href="#cb9-3"></a>    <span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb9-4"><a href="#cb9-4"></a>    <span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a>) <span class="kw">AS</span> subquery_1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> (</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>) <span class="kw">AS</span> subquery_1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Оператор <code>WITH</code> може містити кілька табличних виразів, причому до зазначених раніше виразів можна звертатися у подальших виразах:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">WITH</span> subquery_1 <span class="kw">AS</span> (</span>
-<span id="cb10-2"><a href="#cb10-2"></a>    <span class="kw">SELECT</span> column_1, column_2, column_3</span>
-<span id="cb10-3"><a href="#cb10-3"></a>    <span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a>    ),</span>
-<span id="cb10-5"><a href="#cb10-5"></a>     subquery_2 <span class="kw">AS</span> (</span>
-<span id="cb10-6"><a href="#cb10-6"></a>    <span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb10-7"><a href="#cb10-7"></a>    <span class="kw">FROM</span> subquery_1</span>
-<span id="cb10-8"><a href="#cb10-8"></a>    )</span>
-<span id="cb10-9"><a href="#cb10-9"></a></span>
-<span id="cb10-10"><a href="#cb10-10"></a><span class="kw">SELECT</span> column_1</span>
-<span id="cb10-11"><a href="#cb10-11"></a><span class="kw">FROM</span> subquery_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> subquery_1 <span class="kw">AS</span> (</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> column_1, column_2, column_3</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>     subquery_2 <span class="kw">AS</span> (</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> subquery_1</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> subquery_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Можете знову порівняти запит вище із запитом, який ми використовували раніше:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">SELECT</span> column_1</span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="kw">FROM</span> (</span>
-<span id="cb11-3"><a href="#cb11-3"></a>    <span class="kw">SELECT</span> column_1, column_2</span>
-<span id="cb11-4"><a href="#cb11-4"></a>    <span class="kw">FROM</span> (</span>
-<span id="cb11-5"><a href="#cb11-5"></a>        <span class="kw">SELECT</span> column_1, column_2, column_3</span>
-<span id="cb11-6"><a href="#cb11-6"></a>        <span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a>    ) <span class="kw">AS</span> subquery_1</span>
-<span id="cb11-8"><a href="#cb11-8"></a>) <span class="kw">AS</span> subquery_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> (</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> (</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">SELECT</span> column_1, column_2, column_3</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="kw">AS</span> subquery_1</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>) <span class="kw">AS</span> subquery_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Використовувати у своїх запитах оператор <code>WITH</code> чи ні вирішувати вам, але в деяких випадках він може спростити роботу з кодом запиту.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -563,7 +558,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-subquery-02" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 14.2 </strong></span><br> Повторіть запит із <a href="#exr-sql-subquery-01">завдання&nbsp;<span>14.1</span></a>, але тепер замість підзапиту використовуйте оператор <code>WITH</code> та табличний вираз. Умови завдання ті самі.</p>
+<p><span class="theorem-title"><strong>Завдання 13.2 </strong></span><br> Повторіть запит із <a href="#exr-sql-subquery-01">завдання&nbsp;<span>13.1</span></a>, але тепер замість підзапиту використовуйте оператор <code>WITH</code> та табличний вираз. Умови завдання ті самі.</p>
 <p>Поле у результуючій таблиці: <code>orders_avg</code></p>
 </div>
 </div>
@@ -571,14 +566,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="3">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="op">%%</span>sql</span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="cf">with</span> t1 <span class="im">as</span> (SELECT user_id,</span>
-<span id="cb12-3"><a href="#cb12-3"></a>                   count(order_id) <span class="im">as</span> orders_count</span>
-<span id="cb12-4"><a href="#cb12-4"></a>            FROM   user_actions</span>
-<span id="cb12-5"><a href="#cb12-5"></a>            WHERE  action <span class="op">=</span> <span class="st">'create_order'</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a>            GROUP BY user_id)</span>
-<span id="cb12-7"><a href="#cb12-7"></a>SELECT <span class="bu">round</span>(avg(orders_count), <span class="dv">2</span>) <span class="im">as</span> orders_avg</span>
-<span id="cb12-8"><a href="#cb12-8"></a>FROM   t1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> t1 <span class="im">as</span> (SELECT user_id,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                   count(order_id) <span class="im">as</span> orders_count</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>            FROM   user_actions</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>            WHERE  action <span class="op">=</span> <span class="st">'create_order'</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>            GROUP BY user_id)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>SELECT <span class="bu">round</span>(avg(orders_count), <span class="dv">2</span>) <span class="im">as</span> orders_avg</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>FROM   t1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
@@ -602,13 +597,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Насамперед важливо зрозуміти, що підзапит, який повертає одне значення, може використовуватися як звичайне значення спільно з операторами порівняння.</p>
 <p>Уявіть, що нам потрібно порівняти значення в якомусь стовпці з максимальним, мінімальним чи середнім значенням у цьому стовпці. Зробити це в рамках одного запиту не вийде, оскільки агрегатні функції не можна використовувати в блоці <code>WHERE</code>.</p>
 <p>Наприклад, наступний запит не працюватиме (база даних повідомить про помилку):</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">SELECT</span> <span class="kw">column</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="kw">WHERE</span> <span class="kw">column</span> <span class="op">=</span> <span class="fu">MAX</span>(<span class="kw">column</span>) </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">column</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="kw">column</span> <span class="op">=</span> <span class="fu">MAX</span>(<span class="kw">column</span>) </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У той же час такий запит спрацює, тому що підзапит виконається першим і поверне одне значення:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">SELECT</span> <span class="kw">column</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="kw">WHERE</span> <span class="kw">column</span> <span class="op">=</span> (<span class="kw">SELECT</span> <span class="fu">MAX</span>(<span class="kw">column</span>) <span class="kw">FROM</span> <span class="kw">table</span>) </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">column</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="kw">column</span> <span class="op">=</span> (<span class="kw">SELECT</span> <span class="fu">MAX</span>(<span class="kw">column</span>) <span class="kw">FROM</span> <span class="kw">table</span>) </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>В результаті виконання такого запиту ми отримаємо всі значення в колонці <code>column</code>, що дорівнює максимальному значенню в цій колонці.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -621,7 +616,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-subquery-03" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 14.3 </strong></span><br> Виведіть з таблиці <code>products</code> інформацію про всі товари крім найдешевшого. Результат відсортуйте за зменшенням id товару.</p>
+<p><span class="theorem-title"><strong>Завдання 13.3 </strong></span><br> Виведіть з таблиці <code>products</code> інформацію про всі товари крім найдешевшого. Результат відсортуйте за зменшенням id товару.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code></p>
 </div>
 </div>
@@ -629,14 +624,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="4">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="op">%%</span>sql</span>
-<span id="cb15-2"><a href="#cb15-2"></a>SELECT product_id,</span>
-<span id="cb15-3"><a href="#cb15-3"></a>       name,</span>
-<span id="cb15-4"><a href="#cb15-4"></a>       price</span>
-<span id="cb15-5"><a href="#cb15-5"></a>FROM   products</span>
-<span id="cb15-6"><a href="#cb15-6"></a>WHERE  price <span class="op">!=</span> (SELECT <span class="bu">min</span>(price)</span>
-<span id="cb15-7"><a href="#cb15-7"></a>                 FROM   products)</span>
-<span id="cb15-8"><a href="#cb15-8"></a>ORDER BY product_id desc</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>       price</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>WHERE  price <span class="op">!=</span> (SELECT <span class="bu">min</span>(price)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>                 FROM   products)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>ORDER BY product_id desc</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
@@ -726,9 +721,9 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>У блоці <code>WHERE</code> результати підзапитів, що повертають одне значення, також можна використовувати в арифметичних операціях:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">SELECT</span> <span class="kw">column</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="kw">WHERE</span> <span class="kw">column</span> <span class="op">=</span> (<span class="kw">SELECT</span> <span class="fu">MAX</span>(<span class="kw">column</span>) <span class="kw">FROM</span> <span class="kw">table</span>) <span class="op">-</span> <span class="dv">100</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">column</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="kw">column</span> <span class="op">=</span> (<span class="kw">SELECT</span> <span class="fu">MAX</span>(<span class="kw">column</span>) <span class="kw">FROM</span> <span class="kw">table</span>) <span class="op">-</span> <span class="dv">100</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -740,7 +735,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-subquery-04" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 14.4 </strong></span><br> Виведіть інформацію про товари в таблиці <code>products</code>, ціна на які перевищує середню ціну всіх товарів <strong>на 20 і більше одиниць</strong>. Результат відсортуйте за зменшенням id товару.</p>
+<p><span class="theorem-title"><strong>Завдання 13.4 </strong></span><br> Виведіть інформацію про товари в таблиці <code>products</code>, ціна на які перевищує середню ціну всіх товарів <strong>на 20 і більше одиниць</strong>. Результат відсортуйте за зменшенням id товару.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code></p>
 </div>
 </div>
@@ -748,15 +743,15 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="5">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="op">%%</span>sql</span>
-<span id="cb17-2"><a href="#cb17-2"></a>SELECT product_id,</span>
-<span id="cb17-3"><a href="#cb17-3"></a>       name,</span>
-<span id="cb17-4"><a href="#cb17-4"></a>       price</span>
-<span id="cb17-5"><a href="#cb17-5"></a>FROM   products</span>
-<span id="cb17-6"><a href="#cb17-6"></a>WHERE  price <span class="op">&gt;=</span> (SELECT avg(price)</span>
-<span id="cb17-7"><a href="#cb17-7"></a>                 FROM   products) <span class="op">+</span> <span class="dv">20</span></span>
-<span id="cb17-8"><a href="#cb17-8"></a>ORDER BY product_id desc</span>
-<span id="cb17-9"><a href="#cb17-9"></a>LIMIT <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>       price</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>WHERE  price <span class="op">&gt;=</span> (SELECT avg(price)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>                 FROM   products) <span class="op">+</span> <span class="dv">20</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>ORDER BY product_id desc</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>LIMIT <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
@@ -839,21 +834,21 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </section>
-<section id="підзапит-з-інтервалом-часу-interval" class="level2" data-number="14.4">
-<h2 data-number="14.4" class="anchored" data-anchor-id="підзапит-з-інтервалом-часу-interval"><span class="header-section-number">14.4</span> Підзапит з інтервалом часу: <code>INTERVAL</code></h2>
+<section id="підзапит-з-інтервалом-часу-interval" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="підзапит-з-інтервалом-часу-interval"><span class="header-section-number">13.4</span> Підзапит з інтервалом часу: <code>INTERVAL</code></h2>
 <p>У яких випадках нам може стати в нагоді підзапит в операторі <code>WHERE</code>?</p>
 <p>Уявімо, що нам потрібно провести якісь розрахунки за останні <strong>N</strong> днів — скажімо, за останній тиждень. Чи будемо ми вручну відраховувати 7 днів від останньої дати в нашій таблиці? Зрозуміло, що ні. Крім того, остання дата може згодом змінитись, коли до нас надійдуть нові дані. Щоразу писати новий запит і рахувати дату вручну — заняття не для нас.</p>
 <p>Для вирішення такого завдання ми можемо спочатку за допомогою підзапиту обчислити останню дату наших даних, а потім відкласти від неї тиждень.</p>
 <p>Щоб відкласти від дати або додати до неї певний проміжок часу, можна використовувати нескладні арифметичні операції з датами. Наприклад, від поточної дати можна відібрати якийсь проміжок <code>INTERVAL</code>:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">SELECT</span> NOW() <span class="op">-</span> <span class="dt">INTERVAL</span> <span class="st">'1 year 2 months 1 week'</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a></span>
-<span id="cb18-3"><a href="#cb18-3"></a>Результат:</span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="dv">2022</span><span class="op">-</span><span class="dv">04</span><span class="op">-</span><span class="dv">24</span> <span class="dv">13</span><span class="ch">:10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> NOW() <span class="op">-</span> <span class="dt">INTERVAL</span> <span class="st">'1 year 2 months 1 week'</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="dv">2022</span><span class="op">-</span><span class="dv">04</span><span class="op">-</span><span class="dv">24</span> <span class="dv">13</span><span class="ch">:10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>До речі, <code>NOW()</code> — корисна функція, яка дозволяє отримувати поточну дату та час (у вашому випадку вона буде іншою):</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">SELECT</span> NOW()</span>
-<span id="cb19-2"><a href="#cb19-2"></a></span>
-<span id="cb19-3"><a href="#cb19-3"></a>Результат:</span>
-<span id="cb19-4"><a href="#cb19-4"></a><span class="dv">2022</span><span class="op">-</span><span class="dv">07</span><span class="op">-</span><span class="dv">10</span> <span class="dv">16</span><span class="ch">:11</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> NOW()</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="dv">2022</span><span class="op">-</span><span class="dv">07</span><span class="op">-</span><span class="dv">10</span> <span class="dv">16</span><span class="ch">:11</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -879,7 +874,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-subquery-05" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 14.5 </strong></span><br> Порахуйте кількість унікальних клієнтів у таблиці <code>user_actions</code>, які зробили за останній тиждень хоча б одне замовлення. Отриману колонку зі значенням назвіть <code>users_count</code>. В якості поточної дати, від якої відкладати тиждень, використовуйте останню дату тієї ж таблиці <code>user_actions</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 13.5 </strong></span><br> Порахуйте кількість унікальних клієнтів у таблиці <code>user_actions</code>, які зробили за останній тиждень хоча б одне замовлення. Отриману колонку зі значенням назвіть <code>users_count</code>. В якості поточної дати, від якої відкладати тиждень, використовуйте останню дату тієї ж таблиці <code>user_actions</code>.</p>
 <p>Поле у результуючій таблиці: <code>users_count</code></p>
 </div>
 </div>
@@ -887,12 +882,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="6">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="op">%%</span>sql</span>
-<span id="cb20-2"><a href="#cb20-2"></a>SELECT count(distinct user_id) <span class="im">as</span> users_count</span>
-<span id="cb20-3"><a href="#cb20-3"></a>FROM   user_actions</span>
-<span id="cb20-4"><a href="#cb20-4"></a>WHERE  action <span class="op">=</span> <span class="st">'create_order'</span></span>
-<span id="cb20-5"><a href="#cb20-5"></a>   <span class="kw">and</span> time <span class="op">&gt;</span> (SELECT <span class="bu">max</span>(time)</span>
-<span id="cb20-6"><a href="#cb20-6"></a>            FROM   user_actions) <span class="op">-</span> interval <span class="st">'1 week'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>SELECT count(distinct user_id) <span class="im">as</span> users_count</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>FROM   user_actions</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>WHERE  action <span class="op">=</span> <span class="st">'create_order'</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>   <span class="kw">and</span> time <span class="op">&gt;</span> (SELECT <span class="bu">max</span>(time)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>            FROM   user_actions) <span class="op">-</span> interval <span class="st">'1 week'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
@@ -916,7 +911,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p>Виходить, що в одному з минулих завдань (<a href="sql_agg.html#exr-sql-agg-10"><span>12.10</span></a>) ми неправильно рахували вік кур’єрів. Дійсно, як перша дата у функції <code>AGE()</code> ми використовували поточну дату, а не останню дату в наших даних. Давайте виправимо це прикре непорозуміння, адже тепер у нас для цього є всі необхідні знання.</p>
+<p>Виходить, що в одному з минулих завдань (<a href="sql_agg.html#exr-sql-agg-10"><span>11.10</span></a>) ми неправильно рахували вік кур’єрів. Дійсно, як перша дата у функції <code>AGE()</code> ми використовували поточну дату, а не останню дату в наших даних. Давайте виправимо це прикре непорозуміння, адже тепер у нас для цього є всі необхідні знання.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -928,7 +923,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-subquery-06" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 14.6 </strong></span><br> За допомогою функції <code>AGE()</code> і агрегатної функції знову розрахуйте <strong>вік наймолодшого кур’єра чоловічої статі</strong> в таблиці <code>couriers</code>, але цього разу в якості першої дати використовуйте останню дату з таблиці <code>courier_actions</code>. Щоб вийшла саме дата, перед застосуванням функції <code>AGE()</code> переведіть пораховану останню дату у формат <code>DATE</code>, як ми робили у <a href="sql_basics.html#exr-sql09"><span>10.9</span></a>. Вік кур’єра виміряйте кількістю років, місяців і днів і переведіть його до типу <code>VARCHAR</code>. Отриману колонку зі значенням віку назвіть <code>min_age</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 13.6 </strong></span><br> За допомогою функції <code>AGE()</code> і агрегатної функції знову розрахуйте <strong>вік наймолодшого кур’єра чоловічої статі</strong> в таблиці <code>couriers</code>, але цього разу в якості першої дати використовуйте останню дату з таблиці <code>courier_actions</code>. Щоб вийшла саме дата, перед застосуванням функції <code>AGE()</code> переведіть пораховану останню дату у формат <code>DATE</code>, як ми робили у <a href="sql_basics.html#exr-sql09"><span>9.9</span></a>. Вік кур’єра виміряйте кількістю років, місяців і днів і переведіть його до типу <code>VARCHAR</code>. Отриману колонку зі значенням віку назвіть <code>min_age</code>.</p>
 <p>Поле у результуючій таблиці: <code>min_age</code></p>
 </div>
 </div>
@@ -950,18 +945,18 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="7">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="op">%%</span>sql</span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="op">--</span> варіант <span class="dv">1</span></span>
-<span id="cb21-3"><a href="#cb21-3"></a>SELECT age((SELECT <span class="bu">max</span>(time)::date</span>
-<span id="cb21-4"><a href="#cb21-4"></a>            FROM   courier_actions), <span class="bu">max</span>(birth_date))::varchar <span class="im">as</span> min_age</span>
-<span id="cb21-5"><a href="#cb21-5"></a>FROM   couriers</span>
-<span id="cb21-6"><a href="#cb21-6"></a>WHERE  sex <span class="op">=</span> <span class="st">'male'</span></span>
-<span id="cb21-7"><a href="#cb21-7"></a></span>
-<span id="cb21-8"><a href="#cb21-8"></a><span class="op">--</span> варіант <span class="dv">2</span></span>
-<span id="cb21-9"><a href="#cb21-9"></a><span class="op">--</span> SELECT <span class="bu">min</span>(age((SELECT <span class="bu">max</span>(time)::date</span>
-<span id="cb21-10"><a href="#cb21-10"></a><span class="op">--</span>                 FROM   courier_actions), birth_date))::varchar <span class="im">as</span> min_age</span>
-<span id="cb21-11"><a href="#cb21-11"></a><span class="op">--</span> FROM   couriers</span>
-<span id="cb21-12"><a href="#cb21-12"></a><span class="op">--</span> WHERE  sex <span class="op">=</span> <span class="st">'male'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> варіант <span class="dv">1</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>SELECT age((SELECT <span class="bu">max</span>(time)::date</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>            FROM   courier_actions), <span class="bu">max</span>(birth_date))::varchar <span class="im">as</span> min_age</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>FROM   couriers</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>WHERE  sex <span class="op">=</span> <span class="st">'male'</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> варіант <span class="dv">2</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> SELECT <span class="bu">min</span>(age((SELECT <span class="bu">max</span>(time)::date</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>                 FROM   courier_actions), birth_date))::varchar <span class="im">as</span> min_age</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> FROM   couriers</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> WHERE  sex <span class="op">=</span> <span class="st">'male'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
@@ -982,28 +977,28 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>Підзапит, який повертає кілька значень, може використовуватися в блоці <code>WHERE</code> спільно з оператором <code>IN</code> — наприклад, коли нам потрібно перевірити, чи збігається значення в стовпці з одним із значень із певної множини, отриманої в результаті виконання підзапиту:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">SELECT</span> column_1</span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="kw">FROM</span> table_1</span>
-<span id="cb22-3"><a href="#cb22-3"></a><span class="kw">WHERE</span> column_1 <span class="kw">IN</span> (<span class="kw">SELECT</span> column_2 <span class="kw">FROM</span> table_2) </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> table_1</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_1 <span class="kw">IN</span> (<span class="kw">SELECT</span> column_2 <span class="kw">FROM</span> table_2) </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>При цьому, запит вище буде рівносильний запиту з табличним виразом:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">WITH</span> subquery <span class="kw">AS</span> (</span>
-<span id="cb23-2"><a href="#cb23-2"></a>    <span class="kw">SELECT</span> column_2</span>
-<span id="cb23-3"><a href="#cb23-3"></a>    <span class="kw">FROM</span> table_2</span>
-<span id="cb23-4"><a href="#cb23-4"></a>    )</span>
-<span id="cb23-5"><a href="#cb23-5"></a></span>
-<span id="cb23-6"><a href="#cb23-6"></a><span class="kw">SELECT</span> column_1</span>
-<span id="cb23-7"><a href="#cb23-7"></a><span class="kw">FROM</span> table_1</span>
-<span id="cb23-8"><a href="#cb23-8"></a><span class="kw">WHERE</span> column_1 <span class="kw">IN</span> (<span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> subquery) </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> subquery <span class="kw">AS</span> (</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> column_2</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> table_2</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> table_1</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_1 <span class="kw">IN</span> (<span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> subquery) </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Зверніть увагу, що при використанні в операторі табличного виразу <code>WHERE</code> звернутися просто до його імені не можна - необхідно попередньо вибрати всі його записи, тобто написати підзапит. При цьому в табличному вираженні має бути лише один стовпець, інакше база даних поверне помилку.</p>
 <p>Крім того, в табличному вираженні можна зберігати лише одне значення (наприклад, результат агрегації) і аналогічним чином викликати його в операторі <code>WHERE</code> як змінну:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">WITH</span> subquery <span class="kw">AS</span> (</span>
-<span id="cb24-2"><a href="#cb24-2"></a>    <span class="kw">SELECT</span> <span class="fu">MAX</span>(column_2)</span>
-<span id="cb24-3"><a href="#cb24-3"></a>    <span class="kw">FROM</span> table_2</span>
-<span id="cb24-4"><a href="#cb24-4"></a>    )</span>
-<span id="cb24-5"><a href="#cb24-5"></a></span>
-<span id="cb24-6"><a href="#cb24-6"></a><span class="kw">SELECT</span> column_1</span>
-<span id="cb24-7"><a href="#cb24-7"></a><span class="kw">FROM</span> table_1</span>
-<span id="cb24-8"><a href="#cb24-8"></a><span class="kw">WHERE</span> column_1 <span class="op">=</span> (<span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> subquery) </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> subquery <span class="kw">AS</span> (</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="fu">MAX</span>(column_2)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> table_2</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> table_1</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_1 <span class="op">=</span> (<span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> subquery) </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Давайте розглянемо такий приклад.</p>
 <p>З наших даних досить легко відібрати скасовані замовлення - достатньо вказати у <code>WHERE</code> потрібний фільтр. Але як відібрати створені, але не скасовані замовлення? Це якраз можна зробити за допомогою підзапиту або табличного виразу.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -1017,7 +1012,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-subquery-07" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 14.7 </strong></span><br> З таблиці <code>user_actions</code> за допомогою підзапиту або табличного виразу відберіть усі замовлення, які не було скасовано користувачами. Виведіть стовпчик з id цих замовлень. Результат запиту відсортуйте за зростанням id замовлення. Додайте в запит оператор <code>LIMIT</code> та виведіть лише перші 10 рядків результуючої таблиці.</p>
+<p><span class="theorem-title"><strong>Завдання 13.7 </strong></span><br> З таблиці <code>user_actions</code> за допомогою підзапиту або табличного виразу відберіть усі замовлення, які не було скасовано користувачами. Виведіть стовпчик з id цих замовлень. Результат запиту відсортуйте за зростанням id замовлення. Додайте в запит оператор <code>LIMIT</code> та виведіть лише перші 10 рядків результуючої таблиці.</p>
 <p>Поле у результуючій таблиці: <code>order_id</code></p>
 </div>
 </div>
@@ -1025,34 +1020,34 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="8">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="op">%%</span>sql</span>
-<span id="cb25-2"><a href="#cb25-2"></a><span class="op">--</span> варіант <span class="dv">1</span></span>
-<span id="cb25-3"><a href="#cb25-3"></a>SELECT order_id</span>
-<span id="cb25-4"><a href="#cb25-4"></a>FROM   user_actions</span>
-<span id="cb25-5"><a href="#cb25-5"></a>WHERE  order_id <span class="kw">in</span> (SELECT order_id</span>
-<span id="cb25-6"><a href="#cb25-6"></a>                    FROM   courier_actions</span>
-<span id="cb25-7"><a href="#cb25-7"></a>                    WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span>)</span>
-<span id="cb25-8"><a href="#cb25-8"></a>ORDER BY order_id limit <span class="dv">10</span></span>
-<span id="cb25-9"><a href="#cb25-9"></a></span>
-<span id="cb25-10"><a href="#cb25-10"></a><span class="op">--</span> варіант <span class="dv">2</span></span>
-<span id="cb25-11"><a href="#cb25-11"></a><span class="op">--</span> SELECT order_id</span>
-<span id="cb25-12"><a href="#cb25-12"></a><span class="op">--</span> FROM   user_actions</span>
-<span id="cb25-13"><a href="#cb25-13"></a><span class="op">--</span> WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
-<span id="cb25-14"><a href="#cb25-14"></a><span class="op">--</span>                         FROM   user_actions</span>
-<span id="cb25-15"><a href="#cb25-15"></a><span class="op">--</span>                         WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
-<span id="cb25-16"><a href="#cb25-16"></a><span class="op">--</span> ORDER BY order_id limit <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> варіант <span class="dv">1</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>SELECT order_id</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>FROM   user_actions</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>WHERE  order_id <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>                    FROM   courier_actions</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>                    WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span>)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>ORDER BY order_id limit <span class="dv">10</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> варіант <span class="dv">2</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> SELECT order_id</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> FROM   user_actions</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> WHERE  order_id <span class="kw">not</span> <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>                         FROM   user_actions</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>                         WHERE  action <span class="op">=</span> <span class="st">'cancel_order'</span>)</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> ORDER BY order_id limit <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="підзапити-в-блоці-select" class="level2" data-number="14.5">
-<h2 data-number="14.5" class="anchored" data-anchor-id="підзапити-в-блоці-select"><span class="header-section-number">14.5</span> Підзапити в блоці SELECT</h2>
+<section id="підзапити-в-блоці-select" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="підзапити-в-блоці-select"><span class="header-section-number">13.5</span> Підзапити в блоці SELECT</h2>
 <p>Як було зазначено в першому кроці, вкладений запит може бути розміщений і після оператора <code>SELECT</code>. Однак результатом підзапиту в такому випадку може бути тільки одне значення — наприклад, результат застосування агрегатної функції до якоїсь колонки:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">SELECT</span> column_1, (<span class="kw">SELECT</span> <span class="fu">MAX</span>(column_1) <span class="kw">FROM</span> <span class="kw">table</span>) <span class="kw">AS</span> max_column_1</span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, (<span class="kw">SELECT</span> <span class="fu">MAX</span>(column_1) <span class="kw">FROM</span> <span class="kw">table</span>) <span class="kw">AS</span> max_column_1</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>В такому випадку з таблиці <code>table</code> буде обрано колонка <code>column_1</code>, і навпаки кожного значення у цій колонці буде виведено результат виконання вкладеного запиту, тобто максимальне значення у цій колонці. При цьому давати аліасу результату підзапиту не обов’язково.</p>
 <p>Також результати підзапитів у блоці <code>SELECT</code> можна використовувати у обчисленнях:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">SELECT</span> column_1, (<span class="kw">SELECT</span> <span class="fu">MAX</span>(column_1) <span class="kw">FROM</span> <span class="kw">table</span>) <span class="op">-</span> <span class="dv">100</span> <span class="kw">AS</span> column_2</span>
-<span id="cb27-2"><a href="#cb27-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, (<span class="kw">SELECT</span> <span class="fu">MAX</span>(column_1) <span class="kw">FROM</span> <span class="kw">table</span>) <span class="op">-</span> <span class="dv">100</span> <span class="kw">AS</span> column_2</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1064,7 +1059,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-subquery-08" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 14.8 </strong></span><br> Використовуючи дані з таблиці <code>user_actions</code>, розрахуйте скільки замовлень зробив кожен користувач і відобразіть це в стовпці <code>orders_count</code>. В окремому стовпці <code>orders_avg</code> навпроти кожного користувача вкажіть середню кількість замовлень всіх користувачів, <strong>округливши до двох знаків після коми</strong>. Також для кожного користувача порахуйте відхилення замовлень від середнього значення. Відхилення рахуйте так: число замовлень «мінус» заокруглене середнє значення. Назвіть колонку з відхиленням <code>orders_diff</code>. Результат відсортуйте за зростанням id користувача. Додайте в запит оператор LIMIT та виведіть лише перші 10 рядків результуючої таблиці.</p>
+<p><span class="theorem-title"><strong>Завдання 13.8 </strong></span><br> Використовуючи дані з таблиці <code>user_actions</code>, розрахуйте скільки замовлень зробив кожен користувач і відобразіть це в стовпці <code>orders_count</code>. В окремому стовпці <code>orders_avg</code> навпроти кожного користувача вкажіть середню кількість замовлень всіх користувачів, <strong>округливши до двох знаків після коми</strong>. Також для кожного користувача порахуйте відхилення замовлень від середнього значення. Відхилення рахуйте так: число замовлень «мінус» заокруглене середнє значення. Назвіть колонку з відхиленням <code>orders_diff</code>. Результат відсортуйте за зростанням id користувача. Додайте в запит оператор LIMIT та виведіть лише перші 10 рядків результуючої таблиці.</p>
 <p>Поля в результуючій таблиці: <code>user_id</code>, <code>orders_count</code>, <code>orders_avg</code>, <code>orders_diff</code></p>
 </div>
 </div>
@@ -1085,18 +1080,18 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="9">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="op">%%</span>sql</span>
-<span id="cb28-2"><a href="#cb28-2"></a><span class="cf">with</span> t1 <span class="im">as</span> (SELECT user_id,</span>
-<span id="cb28-3"><a href="#cb28-3"></a>                   count(order_id) <span class="im">as</span> orders_count</span>
-<span id="cb28-4"><a href="#cb28-4"></a>            FROM   user_actions</span>
-<span id="cb28-5"><a href="#cb28-5"></a>            WHERE  action <span class="op">=</span> <span class="st">'create_order'</span></span>
-<span id="cb28-6"><a href="#cb28-6"></a>            GROUP BY user_id)</span>
-<span id="cb28-7"><a href="#cb28-7"></a>SELECT user_id,</span>
-<span id="cb28-8"><a href="#cb28-8"></a>       orders_count,</span>
-<span id="cb28-9"><a href="#cb28-9"></a>       <span class="bu">round</span>((SELECT avg(orders_count) FROM   t1), <span class="dv">2</span>) <span class="im">as</span> orders_avg,</span>
-<span id="cb28-10"><a href="#cb28-10"></a>       orders_count <span class="op">-</span> <span class="bu">round</span>((SELECT avg(orders_count) FROM   t1), <span class="dv">2</span>) <span class="im">as</span> orders_diff</span>
-<span id="cb28-11"><a href="#cb28-11"></a>FROM   t1</span>
-<span id="cb28-12"><a href="#cb28-12"></a>ORDER BY user_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> t1 <span class="im">as</span> (SELECT user_id,</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>                   count(order_id) <span class="im">as</span> orders_count</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>            FROM   user_actions</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>            WHERE  action <span class="op">=</span> <span class="st">'create_order'</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>            GROUP BY user_id)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>SELECT user_id,</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>       orders_count,</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>       <span class="bu">round</span>((SELECT avg(orders_count) FROM   t1), <span class="dv">2</span>) <span class="im">as</span> orders_avg,</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>       orders_count <span class="op">-</span> <span class="bu">round</span>((SELECT avg(orders_count) FROM   t1), <span class="dv">2</span>) <span class="im">as</span> orders_diff</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>FROM   t1</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>ORDER BY user_id limit <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Перед тим, як піти далі, пропонуємо вам вирішити ще кілька завдань на підзапити.</p>
@@ -1111,7 +1106,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-subquery-09" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 14.9 </strong></span><br> Виведіть id та вміст 100 останніх доставлених замовлень із таблиці <code>orders</code>. Вмістом замовлень вважаються списки з id товарів, що входять у замовлення. Результат відсортуйте за зростанням id замовлення.</p>
+<p><span class="theorem-title"><strong>Завдання 13.9 </strong></span><br> Виведіть id та вміст 100 останніх доставлених замовлень із таблиці <code>orders</code>. Вмістом замовлень вважаються списки з id товарів, що входять у замовлення. Результат відсортуйте за зростанням id замовлення.</p>
 <p>Поля у результуючій таблиці: <code>order_id</code>, <code>product_ids</code></p>
 </div>
 </div>
@@ -1132,15 +1127,15 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="10">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="op">%%</span>sql</span>
-<span id="cb29-2"><a href="#cb29-2"></a>SELECT order_id,</span>
-<span id="cb29-3"><a href="#cb29-3"></a>       product_ids</span>
-<span id="cb29-4"><a href="#cb29-4"></a>FROM   orders</span>
-<span id="cb29-5"><a href="#cb29-5"></a>WHERE  order_id <span class="kw">in</span> (SELECT order_id</span>
-<span id="cb29-6"><a href="#cb29-6"></a>                    FROM   courier_actions</span>
-<span id="cb29-7"><a href="#cb29-7"></a>                    WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
-<span id="cb29-8"><a href="#cb29-8"></a>                    ORDER BY time desc limit <span class="dv">100</span>)</span>
-<span id="cb29-9"><a href="#cb29-9"></a>ORDER BY order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>SELECT order_id,</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>       product_ids</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>FROM   orders</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>WHERE  order_id <span class="kw">in</span> (SELECT order_id</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>                    FROM   courier_actions</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>                    WHERE  action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>                    ORDER BY time desc limit <span class="dv">100</span>)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>ORDER BY order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div>
@@ -1228,7 +1223,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-subquery-10" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 14.10 </strong></span><br> З таблиці <code>couriers</code> виведіть всю інформацію про кур’єрів, які <strong>у вересні 2022 року</strong> доставили <strong>30 і більше замовлень</strong>. Результат відсортуйте за зростанням id кур’єра.</p>
+<p><span class="theorem-title"><strong>Завдання 13.10 </strong></span><br> З таблиці <code>couriers</code> виведіть всю інформацію про кур’єрів, які <strong>у вересні 2022 року</strong> доставили <strong>30 і більше замовлень</strong>. Результат відсортуйте за зростанням id кур’єра.</p>
 <p>Поля в результуючій таблиці: <code>courier_id</code>, <code>birth_date</code>, <code>sex</code></p>
 </div>
 </div>
@@ -1249,18 +1244,18 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="11">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="op">%%</span>sql</span>
-<span id="cb30-2"><a href="#cb30-2"></a>SELECT courier_id,</span>
-<span id="cb30-3"><a href="#cb30-3"></a>       birth_date,</span>
-<span id="cb30-4"><a href="#cb30-4"></a>       sex</span>
-<span id="cb30-5"><a href="#cb30-5"></a>FROM   couriers</span>
-<span id="cb30-6"><a href="#cb30-6"></a>WHERE  courier_id <span class="kw">in</span> (SELECT courier_id</span>
-<span id="cb30-7"><a href="#cb30-7"></a>                      FROM   courier_actions</span>
-<span id="cb30-8"><a href="#cb30-8"></a>                      WHERE  date_part(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">9</span></span>
-<span id="cb30-9"><a href="#cb30-9"></a>                         <span class="kw">and</span> date_part(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span></span>
-<span id="cb30-10"><a href="#cb30-10"></a>                         <span class="kw">and</span> action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
-<span id="cb30-11"><a href="#cb30-11"></a>                      GROUP BY courier_id having count(distinct order_id) <span class="op">&gt;=</span> <span class="dv">30</span>)</span>
-<span id="cb30-12"><a href="#cb30-12"></a>ORDER BY courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>SELECT courier_id,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>       birth_date,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>       sex</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>FROM   couriers</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>WHERE  courier_id <span class="kw">in</span> (SELECT courier_id</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>                      FROM   courier_actions</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>                      WHERE  date_part(<span class="st">'month'</span>, time) <span class="op">=</span> <span class="dv">9</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>                         <span class="kw">and</span> date_part(<span class="st">'year'</span>, time) <span class="op">=</span> <span class="dv">2022</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>                         <span class="kw">and</span> action <span class="op">=</span> <span class="st">'deliver_order'</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>                      GROUP BY courier_id having count(distinct order_id) <span class="op">&gt;=</span> <span class="dv">30</span>)</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>ORDER BY courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <div>
@@ -1318,7 +1313,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-subquery-11" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 14.11 </strong></span><br> Призначте знижку <strong>15%</strong> на товари, ціна яких <strong>перевищує середню ціну на всі товари на 50 і більше одиниць</strong>, а також знижку <strong>10%</strong> на товари, ціна яких <strong>нижча за середню на 50 і більше одиниць</strong>. Ціну інших товарів усередині діапазону (середнє – 50; середнє + 50) залиште без змін. При розрахунку середньої ціни округліть її <strong>до двох знаків після коми</strong>.</p>
+<p><span class="theorem-title"><strong>Завдання 13.11 </strong></span><br> Призначте знижку <strong>15%</strong> на товари, ціна яких <strong>перевищує середню ціну на всі товари на 50 і більше одиниць</strong>, а також знижку <strong>10%</strong> на товари, ціна яких <strong>нижча за середню на 50 і більше одиниць</strong>. Ціну інших товарів усередині діапазону (середнє – 50; середнє + 50) залиште без змін. При розрахунку середньої ціни округліть її <strong>до двох знаків після коми</strong>.</p>
 <p>Виведіть інформацію про всі товари із зазначенням старої та нової ціни. Колонку із новою ціною назвіть <code>new_price</code>. Результат відсортуйте спочатку за спаданням колишньої ціни в колонці <code>price</code>, потім за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code>, <code>new_price</code></p>
 </div>
@@ -1327,18 +1322,18 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="12">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="op">%%</span>sql</span>
-<span id="cb31-2"><a href="#cb31-2"></a>SELECT </span>
-<span id="cb31-3"><a href="#cb31-3"></a>  product_id,</span>
-<span id="cb31-4"><a href="#cb31-4"></a>  name,</span>
-<span id="cb31-5"><a href="#cb31-5"></a>  price,</span>
-<span id="cb31-6"><a href="#cb31-6"></a>  CASE</span>
-<span id="cb31-7"><a href="#cb31-7"></a>    WHEN price <span class="op">&gt;</span> (SELECT ROUND(AVG(price), <span class="dv">2</span>) <span class="op">+</span> <span class="dv">50</span> FROM products) THEN ROUND(price <span class="op">*</span> <span class="fl">0.85</span>, <span class="dv">2</span>)</span>
-<span id="cb31-8"><a href="#cb31-8"></a>    WHEN price <span class="op">&lt;</span> (SELECT ROUND(AVG(price), <span class="dv">2</span>) <span class="op">-</span> <span class="dv">50</span> FROM products) THEN ROUND(price <span class="op">*</span> <span class="fl">0.9</span>, <span class="dv">2</span>)</span>
-<span id="cb31-9"><a href="#cb31-9"></a>    ELSE price</span>
-<span id="cb31-10"><a href="#cb31-10"></a>  END AS new_price</span>
-<span id="cb31-11"><a href="#cb31-11"></a>FROM products</span>
-<span id="cb31-12"><a href="#cb31-12"></a>ORDER BY price DESC, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>SELECT </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  product_id,</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  name,</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  price,</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  CASE</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    WHEN price <span class="op">&gt;</span> (SELECT ROUND(AVG(price), <span class="dv">2</span>) <span class="op">+</span> <span class="dv">50</span> FROM products) THEN ROUND(price <span class="op">*</span> <span class="fl">0.85</span>, <span class="dv">2</span>)</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    WHEN price <span class="op">&lt;</span> (SELECT ROUND(AVG(price), <span class="dv">2</span>) <span class="op">-</span> <span class="dv">50</span> FROM products) THEN ROUND(price <span class="op">*</span> <span class="fl">0.9</span>, <span class="dv">2</span>)</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    ELSE price</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  END AS new_price</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>FROM products</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>ORDER BY price DESC, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <div>
@@ -1440,23 +1435,23 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </section>
-<section id="розгортання-списків-unnest" class="level2" data-number="14.6">
-<h2 data-number="14.6" class="anchored" data-anchor-id="розгортання-списків-unnest"><span class="header-section-number">14.6</span> Розгортання списків: UNNEST()</h2>
+<section id="розгортання-списків-unnest" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="розгортання-списків-unnest"><span class="header-section-number">13.6</span> Розгортання списків: UNNEST()</h2>
 <p>Давайте знову попрацюємо з масивами і освоїмо нову функцію <code>unnest</code>, яка стане нам у нагоді в подальших завданнях. Функція <code>unnest</code> призначена для розгортання масивів та перетворення їх на набір рядків:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">SELECT</span> unnest(<span class="dt">ARRAY</span>[<span class="st">'one'</span>,<span class="st">'two'</span>,<span class="st">'three'</span>])</span>
-<span id="cb32-2"><a href="#cb32-2"></a></span>
-<span id="cb32-3"><a href="#cb32-3"></a>Результат:</span>
-<span id="cb32-4"><a href="#cb32-4"></a>one</span>
-<span id="cb32-5"><a href="#cb32-5"></a>two</span>
-<span id="cb32-6"><a href="#cb32-6"></a>three</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> unnest(<span class="dt">ARRAY</span>[<span class="st">'one'</span>,<span class="st">'two'</span>,<span class="st">'three'</span>])</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>one</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>two</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>three</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У прикладі вище функція <code>unnest</code> перетворила вихідний список із трьох елементів на набір із трьох рядків.</p>
 <p>Якби у вихідній таблиці крім списку був стовпець з будь-яким значенням, то це значення автоматично проставилося б навпроти значень у кожному рядку, що утворився:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1"></a><span class="kw">SELECT</span> <span class="st">'row'</span>, unnest(<span class="dt">ARRAY</span>[<span class="st">'one'</span>,<span class="st">'two'</span>,<span class="st">'three'</span>])</span>
-<span id="cb33-2"><a href="#cb33-2"></a></span>
-<span id="cb33-3"><a href="#cb33-3"></a>Результат:</span>
-<span id="cb33-4"><a href="#cb33-4"></a><span class="kw">row</span>    one</span>
-<span id="cb33-5"><a href="#cb33-5"></a><span class="kw">row</span>    two</span>
-<span id="cb33-6"><a href="#cb33-6"></a><span class="kw">row</span>    three</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="st">'row'</span>, unnest(<span class="dt">ARRAY</span>[<span class="st">'one'</span>,<span class="st">'two'</span>,<span class="st">'three'</span>])</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="kw">row</span>    one</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="kw">row</span>    two</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="kw">row</span>    three</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1468,7 +1463,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-subquery-12" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 14.12 </strong></span><br> Виберіть всі колонки з таблиці <code>orders</code>, але як останню колонку вкажіть функцію <code>unnest</code>, застосовану до колонки <code>product_ids</code>. Нову колонку назвіть <code>product_id</code>. Виведіть лише <strong>перші 100 записів</strong> результуючої таблиці. Подивіться результат роботи unnest і постарайтеся розібратися, що сталося з вихідною таблицею.</p>
+<p><span class="theorem-title"><strong>Завдання 13.12 </strong></span><br> Виберіть всі колонки з таблиці <code>orders</code>, але як останню колонку вкажіть функцію <code>unnest</code>, застосовану до колонки <code>product_ids</code>. Нову колонку назвіть <code>product_id</code>. Виведіть лише <strong>перші 100 записів</strong> результуючої таблиці. Подивіться результат роботи unnest і постарайтеся розібратися, що сталося з вихідною таблицею.</p>
 <p>Поля в результуючій таблиці: <code>creation_time</code>, <code>order_id</code>, <code>product_ids</code>, <code>product_id</code></p>
 </div>
 </div>
@@ -1476,13 +1471,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="13">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="op">%%</span>sql</span>
-<span id="cb34-2"><a href="#cb34-2"></a>SELECT creation_time,</span>
-<span id="cb34-3"><a href="#cb34-3"></a>       order_id,</span>
-<span id="cb34-4"><a href="#cb34-4"></a>       product_ids,</span>
-<span id="cb34-5"><a href="#cb34-5"></a>       unnest(product_ids) <span class="im">as</span> product_id</span>
-<span id="cb34-6"><a href="#cb34-6"></a>FROM   orders</span>
-<span id="cb34-7"><a href="#cb34-7"></a>LIMIT <span class="dv">100</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>SELECT creation_time,</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>       order_id,</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>       product_ids,</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>       unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>FROM   orders</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>LIMIT <span class="dv">100</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <div>
@@ -1595,7 +1590,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-subquery-13" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 14.13 </strong></span><br> Використовуючи функцію <code>unnest</code>, визначте <strong>10 найпопулярніших товарів</strong> у таблиці <code>orders</code>. Найпопулярнішими вважатимемо ті, які зустрічалися в замовленнях найчастіше. Якщо товар зустрічається в одному замовленні кілька разів (тобто було куплено кілька одиниць товару), це теж враховується при підрахунку.</p>
+<p><span class="theorem-title"><strong>Завдання 13.13 </strong></span><br> Використовуючи функцію <code>unnest</code>, визначте <strong>10 найпопулярніших товарів</strong> у таблиці <code>orders</code>. Найпопулярнішими вважатимемо ті, які зустрічалися в замовленнях найчастіше. Якщо товар зустрічається в одному замовленні кілька разів (тобто було куплено кілька одиниць товару), це теж враховується при підрахунку.</p>
 <p>Виведіть id товарів та скільки разів вони зустрічалися в замовленнях. Нову колонку з кількістю покупок товару назвіть <code>times_purchased</code>.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>times_purchased</code></p>
 </div>
@@ -1617,13 +1612,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="14">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="op">%%</span>sql</span>
-<span id="cb35-2"><a href="#cb35-2"></a>SELECT unnest(product_ids) <span class="im">as</span> product_id,</span>
-<span id="cb35-3"><a href="#cb35-3"></a>       count(<span class="op">*</span>) <span class="im">as</span> times_purchased</span>
-<span id="cb35-4"><a href="#cb35-4"></a>FROM   orders</span>
-<span id="cb35-5"><a href="#cb35-5"></a>GROUP BY product_id</span>
-<span id="cb35-6"><a href="#cb35-6"></a>ORDER BY times_purchased desc</span>
-<span id="cb35-7"><a href="#cb35-7"></a>LIMIT <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>SELECT unnest(product_ids) <span class="im">as</span> product_id,</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>       count(<span class="op">*</span>) <span class="im">as</span> times_purchased</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>FROM   orders</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>GROUP BY product_id</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>ORDER BY times_purchased desc</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>LIMIT <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>І насамкінець ще пара завдань зі зірочкою, щоб точно переконатися, що ми розібралися з підзапитами.</p>
@@ -1638,7 +1633,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-subquery-14" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 14.14 </strong></span><br> З таблиці <code>orders</code> виведіть id та вміст замовлень, які включають хоча б <strong>один із п’яти найдорожчих товарів</strong>, доступних у нашому сервісі. Результат відсортуйте за зростанням id замовлення.</p>
+<p><span class="theorem-title"><strong>Завдання 13.14 </strong></span><br> З таблиці <code>orders</code> виведіть id та вміст замовлень, які включають хоча б <strong>один із п’яти найдорожчих товарів</strong>, доступних у нашому сервісі. Результат відсортуйте за зростанням id замовлення.</p>
 <p>Поля у результуючій таблиці: <code>order_id</code>, <code>product_ids</code></p>
 </div>
 </div>
@@ -1646,36 +1641,36 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="15">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="op">%%</span>sql</span>
-<span id="cb36-2"><a href="#cb36-2"></a><span class="cf">with</span>    top_products <span class="im">as</span> (SELECT product_id</span>
-<span id="cb36-3"><a href="#cb36-3"></a>                      FROM   products</span>
-<span id="cb36-4"><a href="#cb36-4"></a>                      ORDER BY price desc limit <span class="dv">5</span>),</span>
-<span id="cb36-5"><a href="#cb36-5"></a>        unnest <span class="im">as</span> (SELECT order_id,</span>
-<span id="cb36-6"><a href="#cb36-6"></a>                   product_ids,</span>
-<span id="cb36-7"><a href="#cb36-7"></a>                   unnest(product_ids) <span class="im">as</span> product_id</span>
-<span id="cb36-8"><a href="#cb36-8"></a>                   FROM   orders)</span>
-<span id="cb36-9"><a href="#cb36-9"></a>SELECT DISTINCT order_id,</span>
-<span id="cb36-10"><a href="#cb36-10"></a>                product_ids</span>
-<span id="cb36-11"><a href="#cb36-11"></a>FROM   unnest</span>
-<span id="cb36-12"><a href="#cb36-12"></a>WHERE  product_id <span class="kw">in</span> (SELECT <span class="op">*</span></span>
-<span id="cb36-13"><a href="#cb36-13"></a>                      FROM   top_products)</span>
-<span id="cb36-14"><a href="#cb36-14"></a>ORDER BY order_id</span>
-<span id="cb36-15"><a href="#cb36-15"></a></span>
-<span id="cb36-16"><a href="#cb36-16"></a><span class="op">--</span> або з `exists`</span>
-<span id="cb36-17"><a href="#cb36-17"></a><span class="op">--</span> SELECT order_id,</span>
-<span id="cb36-18"><a href="#cb36-18"></a><span class="op">--</span>        product_ids</span>
-<span id="cb36-19"><a href="#cb36-19"></a><span class="op">--</span> FROM   orders</span>
-<span id="cb36-20"><a href="#cb36-20"></a><span class="op">--</span> WHERE  exists (</span>
-<span id="cb36-21"><a href="#cb36-21"></a><span class="op">--</span>  SELECT <span class="dv">1</span></span>
-<span id="cb36-22"><a href="#cb36-22"></a><span class="op">--</span>  FROM   unnest(product_ids) <span class="im">as</span> product_id</span>
-<span id="cb36-23"><a href="#cb36-23"></a><span class="op">--</span>  WHERE  product_id <span class="kw">in</span> (</span>
-<span id="cb36-24"><a href="#cb36-24"></a><span class="op">--</span>      SELECT product_id</span>
-<span id="cb36-25"><a href="#cb36-25"></a><span class="op">--</span>      FROM   products</span>
-<span id="cb36-26"><a href="#cb36-26"></a><span class="op">--</span>      ORDER BY price desc</span>
-<span id="cb36-27"><a href="#cb36-27"></a><span class="op">--</span>      LIMIT <span class="dv">5</span></span>
-<span id="cb36-28"><a href="#cb36-28"></a><span class="op">--</span>      )</span>
-<span id="cb36-29"><a href="#cb36-29"></a><span class="op">--</span> )</span>
-<span id="cb36-30"><a href="#cb36-30"></a><span class="op">--</span> ORDER BY order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span>    top_products <span class="im">as</span> (SELECT product_id</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>                      FROM   products</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>                      ORDER BY price desc limit <span class="dv">5</span>),</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>        unnest <span class="im">as</span> (SELECT order_id,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>                   product_ids,</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>                   unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>                   FROM   orders)</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>SELECT DISTINCT order_id,</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>                product_ids</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>FROM   unnest</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>WHERE  product_id <span class="kw">in</span> (SELECT <span class="op">*</span></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>                      FROM   top_products)</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>ORDER BY order_id</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> або з `exists`</span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> SELECT order_id,</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>        product_ids</span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> FROM   orders</span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> WHERE  exists (</span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>  SELECT <span class="dv">1</span></span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>  FROM   unnest(product_ids) <span class="im">as</span> product_id</span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>  WHERE  product_id <span class="kw">in</span> (</span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>      SELECT product_id</span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>      FROM   products</span>
+<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>      ORDER BY price desc</span>
+<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>      LIMIT <span class="dv">5</span></span>
+<span id="cb36-28"><a href="#cb36-28" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>      )</span>
+<span id="cb36-29"><a href="#cb36-29" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> )</span>
+<span id="cb36-30"><a href="#cb36-30" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> ORDER BY order_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -1689,7 +1684,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-subquery-15" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 14.15 </strong></span><br> Порахуйте <strong>вік кожного користувача</strong> у таблиці <code>users</code>. Вік виміряйте числом повних років, як ми робили на минулих уроках. Вік рахуйте щодо останньої дати в таблиці <code>user_actions</code>. У результаті включіть колонки з id користувача та віком. <strong>Для тих користувачів, у яких у таблиці <code>users</code> не вказано дату народження, вкажіть середнє значення віку решти користувачів, округлене до цілого числа</strong>. Колонку з віком назвіть <code>age</code>. Результат відсортуйте за зростанням id користувача.</p>
+<p><span class="theorem-title"><strong>Завдання 13.15 </strong></span><br> Порахуйте <strong>вік кожного користувача</strong> у таблиці <code>users</code>. Вік виміряйте числом повних років, як ми робили на минулих уроках. Вік рахуйте щодо останньої дати в таблиці <code>user_actions</code>. У результаті включіть колонки з id користувача та віком. <strong>Для тих користувачів, у яких у таблиці <code>users</code> не вказано дату народження, вкажіть середнє значення віку решти користувачів, округлене до цілого числа</strong>. Колонку з віком назвіть <code>age</code>. Результат відсортуйте за зростанням id користувача.</p>
 <p>Поля у результуючій таблиці: <code>user_id</code>, <code>age</code></p>
 </div>
 </div>
@@ -1710,40 +1705,40 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="cell" data-execution_count="16">
 <details>
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="op">%%</span>sql</span>
-<span id="cb37-2"><a href="#cb37-2"></a></span>
-<span id="cb37-3"><a href="#cb37-3"></a><span class="cf">with</span> users_age <span class="im">as</span> (</span>
-<span id="cb37-4"><a href="#cb37-4"></a>    SELECT  user_id,</span>
-<span id="cb37-5"><a href="#cb37-5"></a>            date_part(<span class="st">'year'</span>, age((SELECT <span class="bu">max</span>(time) FROM   user_actions), birth_date)) <span class="im">as</span> age</span>
-<span id="cb37-6"><a href="#cb37-6"></a>    FROM   users)</span>
-<span id="cb37-7"><a href="#cb37-7"></a></span>
-<span id="cb37-8"><a href="#cb37-8"></a>SELECT user_id,</span>
-<span id="cb37-9"><a href="#cb37-9"></a>       coalesce(age, (SELECT <span class="bu">round</span>(avg(age))</span>
-<span id="cb37-10"><a href="#cb37-10"></a>               FROM   users_age)) <span class="im">as</span> age</span>
-<span id="cb37-11"><a href="#cb37-11"></a>FROM   users_age</span>
-<span id="cb37-12"><a href="#cb37-12"></a>ORDER BY user_id</span>
-<span id="cb37-13"><a href="#cb37-13"></a></span>
-<span id="cb37-14"><a href="#cb37-14"></a><span class="op">--</span> або без `coalesce`</span>
-<span id="cb37-15"><a href="#cb37-15"></a><span class="op">--</span> <span class="cf">with</span> max_time <span class="im">as</span> (</span>
-<span id="cb37-16"><a href="#cb37-16"></a><span class="op">--</span>     SELECT <span class="bu">max</span>(time) <span class="im">as</span> <span class="bu">max</span></span>
-<span id="cb37-17"><a href="#cb37-17"></a><span class="op">--</span>     FROM user_actions </span>
-<span id="cb37-18"><a href="#cb37-18"></a><span class="op">--</span>     ),</span>
-<span id="cb37-19"><a href="#cb37-19"></a><span class="op">--</span>     user_age <span class="im">as</span> (</span>
-<span id="cb37-20"><a href="#cb37-20"></a><span class="op">--</span>     SELECT  user_id,</span>
-<span id="cb37-21"><a href="#cb37-21"></a><span class="op">--</span>             DATE_PART(<span class="st">'year'</span>, age((SELECT <span class="bu">max</span> FROM max_time), birth_date)) <span class="im">as</span> age</span>
-<span id="cb37-22"><a href="#cb37-22"></a><span class="op">--</span>     FROM users</span>
-<span id="cb37-23"><a href="#cb37-23"></a><span class="op">--</span>     ),</span>
-<span id="cb37-24"><a href="#cb37-24"></a><span class="op">--</span>     user_avg_age <span class="im">as</span> (</span>
-<span id="cb37-25"><a href="#cb37-25"></a><span class="op">--</span>     SELECT AVG(age)::integer <span class="im">as</span> avg_age</span>
-<span id="cb37-26"><a href="#cb37-26"></a><span class="op">--</span>     FROM user_age</span>
-<span id="cb37-27"><a href="#cb37-27"></a><span class="op">--</span>     )</span>
-<span id="cb37-28"><a href="#cb37-28"></a><span class="op">--</span>     </span>
-<span id="cb37-29"><a href="#cb37-29"></a><span class="op">--</span> SELECT  user_id,</span>
-<span id="cb37-30"><a href="#cb37-30"></a><span class="op">--</span>         case when age IS NULL THEN (SELECT avg_age FROM user_avg_age)</span>
-<span id="cb37-31"><a href="#cb37-31"></a><span class="op">--</span>     ELSE age</span>
-<span id="cb37-32"><a href="#cb37-32"></a><span class="op">--</span>     end</span>
-<span id="cb37-33"><a href="#cb37-33"></a><span class="op">--</span> FROM user_age</span>
-<span id="cb37-34"><a href="#cb37-34"></a><span class="op">--</span> ORDER BY user_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> users_age <span class="im">as</span> (</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    SELECT  user_id,</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>            date_part(<span class="st">'year'</span>, age((SELECT <span class="bu">max</span>(time) FROM   user_actions), birth_date)) <span class="im">as</span> age</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    FROM   users)</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>SELECT user_id,</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>       coalesce(age, (SELECT <span class="bu">round</span>(avg(age))</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>               FROM   users_age)) <span class="im">as</span> age</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>FROM   users_age</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>ORDER BY user_id</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> або без `coalesce`</span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> <span class="cf">with</span> max_time <span class="im">as</span> (</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>     SELECT <span class="bu">max</span>(time) <span class="im">as</span> <span class="bu">max</span></span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>     FROM user_actions </span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>     ),</span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>     user_age <span class="im">as</span> (</span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>     SELECT  user_id,</span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>             DATE_PART(<span class="st">'year'</span>, age((SELECT <span class="bu">max</span> FROM max_time), birth_date)) <span class="im">as</span> age</span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>     FROM users</span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>     ),</span>
+<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>     user_avg_age <span class="im">as</span> (</span>
+<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>     SELECT AVG(age)::integer <span class="im">as</span> avg_age</span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>     FROM user_age</span>
+<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>     )</span>
+<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>     </span>
+<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> SELECT  user_id,</span>
+<span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>         case when age IS NULL THEN (SELECT avg_age FROM user_avg_age)</span>
+<span id="cb37-31"><a href="#cb37-31" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>     ELSE age</span>
+<span id="cb37-32"><a href="#cb37-32" aria-hidden="true" tabindex="-1"></a><span class="op">--</span>     end</span>
+<span id="cb37-33"><a href="#cb37-33" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> FROM user_age</span>
+<span id="cb37-34"><a href="#cb37-34" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> ORDER BY user_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 
@@ -2104,12 +2099,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./sql_groupby.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Групування даних</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Групування даних</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./sql_join.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Об’єднання таблиць</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Об’єднання таблиць</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
