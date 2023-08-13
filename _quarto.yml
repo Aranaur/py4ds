@@ -39,9 +39,9 @@ book:
       chapters: 
       - python_basics.qmd
       - python_conditionals.qmd
-      - python_list_set.qmd
-      - python_dict.qmd
       - python_loops.qmd
+      - python_exceptions.qmd
+      - python_list_set.qmd
       - python_functions.qmd
       - python_exercises.qmd
       - python_questions.qmd
