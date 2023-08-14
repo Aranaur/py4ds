@@ -322,7 +322,17 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Зміст</h2>
+   
+  <ul>
+  <li><a href="#syntaxerror" id="toc-syntaxerror" class="nav-link active" data-scroll-target="#syntaxerror"><span class="header-section-number">4.1</span> SyntaxError</a></li>
+  <li><a href="#valueerror" id="toc-valueerror" class="nav-link" data-scroll-target="#valueerror"><span class="header-section-number">4.2</span> ValueError</a></li>
+  <li><a href="#ключові-слова-try-та-except" id="toc-ключові-слова-try-та-except" class="nav-link" data-scroll-target="#ключові-слова-try-та-except"><span class="header-section-number">4.3</span> Ключові слова <code>try</code> та <code>except</code></a></li>
+  <li><a href="#nameerror" id="toc-nameerror" class="nav-link" data-scroll-target="#nameerror"><span class="header-section-number">4.4</span> NameError</a></li>
+  <li><a href="#ключове-слово-else" id="toc-ключове-слово-else" class="nav-link" data-scroll-target="#ключове-слово-else"><span class="header-section-number">4.5</span> Ключове слово <code>else</code></a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_exceptions.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_exceptions.qmd" class="toc-action">Переглянути код</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -343,8 +353,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   
 
 </header>
-
-<p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p><p>Винятки в Python, як і в інших мовах програмування, відносяться до проблем у вашому коді.</p>
+<p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p>
+<section id="syntaxerror" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="syntaxerror"><span class="header-section-number">4.1</span> SyntaxError</h2>
+<p>Винятки в Python, як і в інших мовах програмування, відносяться до проблем у вашому коді.</p>
 <p>Почнемо з простого прикладу: створимо файл <code>hello.py</code>:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -353,15 +365,138 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> cat.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Напишемо простий код з помилкою:</p>
-<div id="hello.py" class="cell" data-execution_count="1">
+<div id="hello.py-1" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Привіт, світ!)</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>SyntaxError: unterminated string literal (detected at line 1) (4163655757.py, line 1)</code></pre>
 </div>
 </div>
-<p>Ми отримали помилку <code>SyntaxError</code>, яка означає, що Python не зміг зрозуміти наш код. Це найпростіший вид помилки, який можна виправити, виправивши помилку в коді.</p>
+<p>Ми отримали помилку <code>SyntaxError</code>, яка означає, що Python не зміг зрозуміти наш код. Це найпростіший вид помилки, який можна виправити, виправивши помилку в коді. Запис <code>unterminated</code>“, як правило, означає, що я щось почав, але не зупинив. Запис <code>string</code> - це послідовність символів, з якою ми вже знайомі. А <code>literal</code> зазвичай відноситься до того, що ви буквально набрали.</p>
+<p>Отже вирішення цієї помилки дуже просте: додайте закриваючу лапку:</p>
+<div id="hello.py-2" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Привіт, світ!"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Привіт, світ!</code></pre>
+</div>
+</div>
+<p>Отже, проблема з синтаксичними помилками полягає в тому, що їх вирішення повністю залежить від вас.</p>
+</section>
+<section id="valueerror" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="valueerror"><span class="header-section-number">4.2</span> ValueError</h2>
+<p>Але в Python є багато інших типів помилок, які можна назвати <code>RuntimeError</code>, які трапляються під час роботи вашого коду. І саме від вас залежить написання додаткового захисного коду для виявлення таких помилок.</p>
+<p>Наприклад, давайте створимо файл <code>number.py</code>, яка буде приймати число від користувача і виводити це число на екран:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> number.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="number-eval-int" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Введіть число: "</span>)) <span class="co"># 5</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Ваше число: </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="number-echo-int" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-stdout">
+<pre><code>Ваше число: 5</code></pre>
+</div>
+</div>
+<p>Але що станеться, якщо користувач введе не число, а текст? Наприклад, введе слово <code>п'ять</code>:</p>
+<div id="number-eval-str" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Введіть число: "</span>)) <span class="co"># п'ять</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Ваше число: </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="number-echo-str" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-error">
+<pre><code>ValueError: invalid literal for int() with base 10: "п'ять"</code></pre>
+</div>
+</div>
+<p>Ми отримали помилку <code>ValueError</code>, яка означає, що ми передали функції <code>int()</code> значення, яке вона не може перетворити на число. Це вже не синтаксична помилка, а помилка, яка виникає під час виконання програми. І вирішення цієї помилки вже не залежить від вас, а від користувача, який вводить дані. Тому вам потрібно написати додатковий код, який буде перевіряти введені дані на коректність. Як це зробити у Python? Виявляється у Python є ключові слова які можуть допомогти з цим.</p>
+</section>
+<section id="ключові-слова-try-та-except" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="ключові-слова-try-та-except"><span class="header-section-number">4.3</span> Ключові слова <code>try</code> та <code>except</code></h2>
+<p>Якщо ви хочете спробувати зробити щось у Python, ви можете використовувати це ключове слово <code>try</code>. це досить влучна назва. За рахунок нього ви можете перевірити, чи сталося щось виняткове, щось помилкове. Отже, використовуючи <code>try</code>, я можу спробувати щось зробити, але якщо щось піде не так, я можу замість використати ключове слово <code>except</code>.</p>
+<p>Подивимось, як це працює:</p>
+<div id="try-except-eval" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Введіть число: "</span>)) <span class="co"># п'ять</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Ваше число: </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Ви ввели не число'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="try-except-echo" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-stdout">
+<pre><code>Ви ввели не число</code></pre>
+</div>
+</div>
+</section>
+<section id="nameerror" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="nameerror"><span class="header-section-number">4.4</span> NameError</h2>
+<p>Якби я був впевнений, що функція <code>print()</code> не призведе до помилки, я міг би переписати код наступним чином і отримати нову помилку:</p>
+<div id="try-except-eval-2" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Введіть число: "</span>)) <span class="co"># п'ять</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Ви ввели не число'</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Ваше число: </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="try-except-echo-2" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-stdout">
+<pre><code>Ви ввели не число
+Ваше число: 5</code></pre>
+</div>
+</div>
+<p>Помилка NameError означає, що я використовую змінну, яка не існує. Ця помилка виникла в наслідок порядку виконання операцій. Помилка виникає в частині коду <code>int(input("Введіть число: "))</code>, яка знаходиться праворуч від оператора <code>=</code> і це приводить до того, що змінна <code>number</code> не створюється.</p>
+<p>То як вирішити цю проблему? Ви можете використовувати ключове слово <code>else</code>.</p>
+</section>
+<section id="ключове-слово-else" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="ключове-слово-else"><span class="header-section-number">4.5</span> Ключове слово <code>else</code></h2>
+<p>Інтуіція ключового слова <code>else</code> схожа на інтуїцію ключового слова <code>else</code> в умовних конструкціях. Якщо в блоці <code>try</code> не виникає помилок, то виконується блок <code>else</code>.</p>
+<div id="try-except-else-eval" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Введіть число: "</span>)) <span class="co"># п'ять</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Ви ввели не число'</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Ваше число: </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="try-except-else-echo" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-stdout">
+<pre><code>Ви ввели не число</code></pre>
+</div>
+</div>
+<p>З мого боку трохи неввічливо відкидати вхідні дані користувача після того, як він не зміг ввести ціле число, і просто виходити з програми. Було б зручніше, якби я просто підказував або перепитував користувача знову і знову. І для цього я можу використовувати цикл <code>while</code>:</p>
+<div id="try-except-else-while-eval" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Введіть число: "</span>)) <span class="co"># п'ять</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'Ви ввели не число'</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'Ваше число: </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Уявіть ситуацію, що я буду намагатися отримати від користувача досить багато цифр. Було б непогано створити власну функцію, наприклад <code>get_int()</code>, яка буде повторювати запит на введення цілого числа, поки користувач не введе ціле число:</p>
+<div id="try-except-else-while-func-eval" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    number <span class="op">=</span> get_int()</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Ваше число: </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_int():</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>            number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Введіть число: "</span>)) <span class="co"># п'ять</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">'Ви ввели не число'</span>)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> number</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>main()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Якщо я захочу скоротити цей код</p>
 
 
+</section>
 
 <p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -730,4 +865,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_exceptions.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_exceptions.qmd" class="toc-action">Переглянути код</a></p></div></div></div></div></footer></body></html>
+</body></html>
