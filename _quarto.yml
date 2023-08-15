@@ -41,6 +41,7 @@ book:
       - python_conditionals.qmd
       - python_loops.qmd
       - python_exceptions.qmd
+      - python_libraries.qmd
       - python_list_set.qmd
       - python_functions.qmd
       - python_exercises.qmd
