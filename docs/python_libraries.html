@@ -338,7 +338,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <li><a href="#статистика" id="toc-статистика" class="nav-link" data-scroll-target="#статистика"><span class="header-section-number">5.1.2</span> Статистика</a></li>
   </ul></li>
   <li><a href="#аргументи-командного-рядка" id="toc-аргументи-командного-рядка" class="nav-link" data-scroll-target="#аргументи-командного-рядка"><span class="header-section-number">5.2</span> Аргументи командного рядка</a></li>
-  <li><a href="#пакети" id="toc-пакети" class="nav-link" data-scroll-target="#пакети"><span class="header-section-number">5.3</span> Пакети</a></li>
+  <li><a href="#пакети" id="toc-пакети" class="nav-link" data-scroll-target="#пакети"><span class="header-section-number">5.3</span> Пакети</a>
+  <ul class="collapse">
+  <li><a href="#cowsay" id="toc-cowsay" class="nav-link" data-scroll-target="#cowsay"><span class="header-section-number">5.3.1</span> Cowsay</a></li>
+  <li><a href="#api" id="toc-api" class="nav-link" data-scroll-target="#api"><span class="header-section-number">5.3.2</span> API</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_libraries.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_libraries.qmd" class="toc-action">Переглянути код</a></p></div></div></nav>
     </div>
@@ -436,7 +440,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>d20 <span class="op">=</span> random.randint(<span class="dv">1</span>, <span class="dv">20</span>)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(d20)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>15</code></pre>
+<pre><code>12</code></pre>
 </div>
 </div>
 <p>Підемо далі, та розглянемо наступну функцію <code>random.shuffle(x)</code>, яка перемішує елементи списку <code>x</code> у випадковому порядку. Давайте використаємо цю функцію, щоб перемішати колоду карт:</p>
@@ -450,7 +454,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> card <span class="kw">in</span> cards:</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(card, end<span class="op">=</span><span class="st">' '</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Q 9 7 A 10 8 K 2 6 5 3 4 J </code></pre>
+<pre><code>9 7 Q 3 J 8 6 5 A 10 2 4 K </code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -684,6 +688,8 @@ IndexError: list index out of range</code></pre>
 <p>Однією з причин того, що Python є настільки популярним і потужним в наші дні, є те, що існує багато бібліотек сторонніх розробників, також відомих як пакети (англ. <em>packages</em>). Строго кажучи, у самій мові Python є термін “пакети”, який по суті є модулем, реалізованим у папці, не просто у файлі. Але в більш загальному сенсі, пакети - це бібліотека сторонніх розробників, яку ми з вами можемо встановити на наш власний комп’ютер Mac або PC, або на наш хмарний сервер і отримати доступ до ще більшої функціональності, яку інші люди реалізували для нас.</p>
 <p>Одне з місць, де ви можете отримати всі ці пакунки, називається <a href="https://pypi.org/">PyPI</a> (The Python Package Index). Це репозиторій, де розробники можуть розміщувати свої пакети, щоб інші люди могли їх встановити. Існує багато інших репозиторіїв, але PyPI є найбільш популярним.</p>
 <p>Для встановлення пакетів, Python використовує менеджер пакетів <code>pip</code> - це програма, яка поставляється з Python і дозволяє встановлювати пакети.</p>
+<section id="cowsay" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="cowsay"><span class="header-section-number">5.3.1</span> Cowsay</h3>
 <p>Цікавий факт: існує пакет <code>cowsay</code>, який дозволяє виводити повідомлення на екран у вигляді корови<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Давайте встановимо пакет <code>cowsay</code> за допомогою команди <code>pip install cowsay</code>:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -729,8 +735,166 @@ IndexError: list index out of range</code></pre>
                                  ||     ||</code></pre>
 </div>
 </div>
+</section>
+<section id="api" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="api"><span class="header-section-number">5.3.2</span> API</h3>
+<p>API (англ. <em>Application Programming Interface</em>) - це спосіб, за допомогою якого програми можуть взаємодіяти одна з одною. Існує багато різних API, які ви можете використовувати, наприклад, API для роботи з мережею, API для роботи з базами даних, API для роботи з файлами, API для роботи з графікою і багато іншого.</p>
+<p>Пакет, з яким ми будемо знайомитися, називається <code>requests</code>. Цей пакет дозволяє нам виконувати HTTP-запити до веб-сайтів. Для його встановлення виконаємо команду:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install requests</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Документація до пакету <code>requests</code> доступна за посиланням <a href="https://pypi.org/project/requests/">pypi.org/project/requests/</a>.</p>
+</div>
+</div>
+<p>Створимо новий файл <code>itunes.py</code>, який буде використовувати API iTunes. Apple має власний API для свого сервісу iTunes, яке надає вам можливість завантажувати і шукати музику і пісні, а також іншу інформацію.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> itunes.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Якщо переглянути документацію до API iTunes, то ми побачимо, що для пошуку пісень потрібно використовувати адресу <code>entity=song</code>. Для перегляну інформації про одну пісню необхідно до базової адреси додати <code>limit=1</code>. Для пошуку пісень гурту Korn необхідно до базової адреси додати <code>term=korn</code>. Таким чином, ми отримаємо наступну адресу:</p>
+<pre><code>https://itunes.apple.com/search?entity=song&amp;limit=1&amp;term=korn</code></pre>
+<p>Якщо перейти за цією адресою, ми отримаємо текстовий файл, зміст котрого буде виглядати приблизно наступним чином:</p>
+<pre><code>{
+ "resultCount":1,
+ "results": [
+{"wrapperType":"track", "kind":"song", "artistId":466532, "collectionId":423045626, "trackId":423045744, "artistName":"Korn", "collectionName":"Korn", "trackName":"Blind", "collectionCensoredName":"Korn", "trackCensoredName":"Blind", "artistViewUrl":"https://music.apple.com/us/artist/korn/466532?uo=4", "collectionViewUrl":"https://music.apple.com/us/album/blind/423045626?i=423045744&amp;uo=4", "trackViewUrl":"https://music.apple.com/us/album/blind/423045626?i=423045744&amp;uo=4", 
+"previewUrl":"https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ef/a4/dd/efa4dd64-e8e0-6c12-c88b-a3a996b24b12/mzaf_13798363446300996858.plus.aac.p.m4a", "artworkUrl30":"https://is2-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/30x30bb.jpg", "artworkUrl60":"https://is2-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/60x60bb.jpg", "artworkUrl100":"https://is2-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/100x100bb.jpg", "collectionPrice":9.99, "trackPrice":1.29, "releaseDate":"1994-08-01T07:00:00Z", "collectionExplicitness":"explicit", "trackExplicitness":"notExplicit", "discCount":1, "discNumber":1, "trackCount":12, "trackNumber":1, "trackTimeMillis":258267, "country":"USA", "currency":"USD", "primaryGenreName":"Metal", "isStreamable":true}]
+}</code></pre>
+<p>Наповнення виглядає дещо незрозуміло, воно має свою структуру: зверніть увагу на фігурні дужки, на квадратні дужки, на коми, на двокрапки, на лапки. Це називається форматом JSON (англ. <em>JavaScript Object Notation</em>). Це формат, який використовується для передачі даних між програмами. Існує багато інших форматів, таких як XML, CSV, YAML, але JSON є одним з найпопулярніших форматів.</p>
+<p>Цей текст містить інформацію з бази даних Apple про одну пісню Korn. Давайте використаємо пакет <code>requests</code>, щоб отримати цю інформацію і вивести її на екран:</p>
+<div id="itunes-eval" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">!=</span> <span class="dv">2</span>:</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>    sys.exit(<span class="st">'Введіть назву гурту як аргумент командного рядка!'</span>)</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://itunes.apple.com/search?entity=song&amp;limit=1&amp;term='</span> <span class="op">+</span> sys.argv[<span class="dv">1</span>]</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.json())</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="itunes-echo" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-stdout">
+<pre><code>{'resultCount': 1, 'results': [{'wrapperType': 'track', 'kind': 'song', 'artistId': 466532, 'collectionId': 423045626, 'trackId': 423045744, 'artistName': 'Korn', 'collectionName': 'Korn', 'trackName': 'Blind', 'collectionCensoredName': 'Korn', 'trackCensoredName': 'Blind', 'artistViewUrl': 'https://music.apple.com/us/artist/korn/466532?uo=4', 'collectionViewUrl': 'https://music.apple.com/us/album/blind/423045626?i=423045744&amp;uo=4', 'trackViewUrl': 'https://music.apple.com/us/album/blind/423045626?i=423045744&amp;uo=4', 'previewUrl': 'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ef/a4/dd/efa4dd64-e8e0-6c12-c88b-a3a996b24b12/mzaf_13798363446300996858.plus.aac.p.m4a', 'artworkUrl30': 'https://is2-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/30x30bb.jpg', 'artworkUrl60': 'https://is2-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/60x60bb.jpg', 'artworkUrl100': 'https://is2-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/100x100bb.jpg', 'collectionPrice': 9.99, 'trackPrice': 1.29, 'releaseDate': '1994-08-01T07:00:00Z', 'collectionExplicitness': 'explicit', 'trackExplicitness': 'notExplicit', 'discCount': 1, 'discNumber': 1, 'trackCount': 12, 'trackNumber': 1, 'trackTimeMillis': 258267, 'country': 'USA', 'currency': 'USD', 'primaryGenreName': 'Metal', 'isStreamable': True}]}</code></pre>
+</div>
+</div>
+<p>Ми отримали той самий відформатований текст, але він був стандартизований у вигляді словника Python: Apple API віддає нам JSON, а пакет <code>requests</code> перетворює його у словник Python.</p>
+<p>Давайте відформатуємо вивід, щоб він був більш читабельним. Для цього використаємо бібліотеку <code>json</code>, яка вбудована в Python:</p>
+<div id="itunes-pretty-eval" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">!=</span> <span class="dv">2</span>:</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>    sys.exit(<span class="st">'Введіть назву гурту як аргумент командного рядка!'</span>)</span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://itunes.apple.com/search?entity=song&amp;limit=1&amp;term='</span> <span class="op">+</span> sys.argv[<span class="dv">1</span>]</span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(json.dumps(response.json(), indent<span class="op">=</span><span class="dv">4</span>))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="itunes-pretty-echo" class="cell" data-execution_count="16">
+<div class="cell-output cell-output-stdout">
+<pre><code>{
+  "resultCount": 1,
+  "results": [
+    {
+      "wrapperType": "track",
+      "kind": "song",
+      "artistId": 466532,
+      "collectionId": 423045626,
+      "trackId": 423045744,
+      "artistName": "Korn",
+      "collectionName": "Korn",
+      "trackName": "Blind",
+      "collectionCensoredName": "Korn",
+      "trackCensoredName": "Blind",
+      "artistViewUrl": "https://music.apple.com/us/artist/korn/466532?uo=4",
+      "collectionViewUrl": "https://music.apple.com/us/album/blind/423045626?i=423045744&amp;uo=4",
+      "trackViewUrl": "https://music.apple.com/us/album/blind/423045626?i=423045744&amp;uo=4",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ef/a4/dd/efa4dd64-e8e0-6c12-c88b-a3a996b24b12/mzaf_13798363446300996858.plus.aac.p.m4a",
+      "artworkUrl30": "https://is2-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/30x30bb.jpg",
+      "artworkUrl60": "https://is2-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/60x60bb.jpg",
+      "artworkUrl100": "https://is2-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/100x100bb.jpg",
+      "collectionPrice": 9.99,
+      "trackPrice": 1.29,
+      "releaseDate": "1994-08-01T07:00:00Z",
+      "collectionExplicitness": "explicit",
+      "trackExplicitness": "notExplicit",
+      "discCount": 1,
+      "discNumber": 1,
+      "trackCount": 12,
+      "trackNumber": 1,
+      "trackTimeMillis": 258267,
+      "country": "USA",
+      "currency": "USD",
+      "primaryGenreName": "Metal",
+      "isStreamable": true
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+<p>Тепер ми отримали відформатований текст, який більш читабельний. Але що, якщо ми хочемо вивести лише назву пісні? Для цього нам потрібно звернутися до словника Python, який міститься у змінній <code>response.json()</code>. Цей словник містить ключ <code>results</code>, який містить список пісень. Цей список містить словник, який містить ключ <code>trackName</code>, який містить назву пісні. Пропоную модифікувати URL-адресу і вивести на 1, а 10 треків (<code>limit=10</code>) гурту Korn:</p>
+<div id="itunes-track-eval" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">!=</span> <span class="dv">2</span>:</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>    sys.exit(<span class="st">'Введіть назву гурту як аргумент командного рядка!'</span>)</span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://itunes.apple.com/search?entity=song&amp;limit=10&amp;term='</span> <span class="op">+</span> sys.argv[<span class="dv">1</span>]</span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> response.json()</span>
+<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> result <span class="kw">in</span> data[<span class="st">'results'</span>]:</span>
+<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(result[<span class="st">'trackName'</span>])</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="itunes-track-echo" class="cell" data-execution_count="18">
+<div class="cell-output cell-output-stdout">
+<pre><code>Blind
+Shoots and Ladders
+Faget
+Clown
+Divine
+Ball Tongue
+Fake
+Need To
+Lies
+Daddy</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Документація до пакету <code>json</code> доступна за посиланням <a href="https://docs.python.org/3/library/json.html">docs.python.org/3/library/json.html</a>.</p>
+</div>
+</div>
 
 
+</section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
