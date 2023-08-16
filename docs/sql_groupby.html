@@ -8,7 +8,7 @@
 
 <meta name="description" content="Книга-конспект матеріалів">
 
-<title>Від нуля до Python Data Scientist - 11&nbsp; Групування даних</title>
+<title>Від нуля до Python Data Scientist - 13&nbsp; Групування даних</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,7 +125,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql.html">SQL</a></li><li class="breadcrumb-item"><a href="./sql_groupby.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Групування даних</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql.html">SQL</a></li><li class="breadcrumb-item"><a href="./sql_groupby.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Групування даних</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -216,26 +216,38 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./python_exceptions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Помилки та винятки</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_libraries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Бібліотеки</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./python_list_set.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Множини</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Множини</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Функції</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Функції</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Задачі</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Задачі</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_questions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Популярні питання</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Популярні питання</span></span></a>
   </div>
 </li>
       </ul>
@@ -253,55 +265,55 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Базові запити</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Базові запити</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_filter.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_agg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Агрегація даних</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Агрегація даних</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_groupby.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Групування даних</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Групування даних</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_subquery.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Підзапити</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Підзапити</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_join.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Об’єднання таблиць</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Об’єднання таблиць</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_window.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Віконні функції</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Віконні функції</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_analytic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Практичні задачі</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Практичні задачі</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_metrics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Аналіз продуктових метрик</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Аналіз продуктових метрик</span></span></a>
   </div>
 </li>
       </ul>
@@ -310,7 +322,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
   </div>
 </li>
     </ul>
@@ -323,8 +335,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
     <h2 id="toc-title">Зміст</h2>
    
   <ul>
-  <li><a href="#оператор-group-by" id="toc-оператор-group-by" class="nav-link active" data-scroll-target="#оператор-group-by"><span class="header-section-number">11.1</span> Оператор <code>GROUP BY</code></a></li>
-  <li><a href="#фільтрація-після-групування-having" id="toc-фільтрація-після-групування-having" class="nav-link" data-scroll-target="#фільтрація-після-групування-having"><span class="header-section-number">11.2</span> Фільтрація після групування: <code>HAVING</code></a></li>
+  <li><a href="#оператор-group-by" id="toc-оператор-group-by" class="nav-link active" data-scroll-target="#оператор-group-by"><span class="header-section-number">13.1</span> Оператор <code>GROUP BY</code></a></li>
+  <li><a href="#фільтрація-після-групування-having" id="toc-фільтрація-після-групування-having" class="nav-link" data-scroll-target="#фільтрація-після-групування-having"><span class="header-section-number">13.2</span> Фільтрація після групування: <code>HAVING</code></a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/Aranaur/py4ds/blob/main/sql_groupby.ipynb" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/sql_groupby.ipynb" class="toc-action">Переглянути код</a></p></div></div></nav>
     </div>
@@ -333,7 +345,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Групування даних</span></h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Групування даних</span></h1>
 </div>
 
 
@@ -348,8 +360,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 
 </header>
 <p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p>
-<section id="оператор-group-by" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="оператор-group-by"><span class="header-section-number">11.1</span> Оператор <code>GROUP BY</code></h2>
+<section id="оператор-group-by" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="оператор-group-by"><span class="header-section-number">13.1</span> Оператор <code>GROUP BY</code></h2>
 <p>Для групування даних в SQL використовується оператор <code>GROUP BY</code>. Він дозволяє групувати дані по одному або декільком стовпцям таблиці. При цьому вибірка даних буде містити лише унікальні значення з вказаних стовпців:</p>
 <ol type="1">
 <li>Спочатку в таблиці визначаються рядки, в яких у вказаному в <code>GROUP BY</code> стовпці є однакові значення.</li>
@@ -418,7 +430,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-groupby-01" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 11.1 </strong></span><br> За допомогою групування порахуйте кількість кур’єрів чоловічої та жіночої статі у таблиці <code>couriers</code>. Нову колонку з числом кур’єром назвіть <code>couriers_count</code>. Результат відсортуйте по цій колонці за зростанням.</p>
+<p><span class="theorem-title"><strong>Завдання 13.1 </strong></span><br> За допомогою групування порахуйте кількість кур’єрів чоловічої та жіночої статі у таблиці <code>couriers</code>. Нову колонку з числом кур’єром назвіть <code>couriers_count</code>. Результат відсортуйте по цій колонці за зростанням.</p>
 <p>Поля у результуючій таблиці: <code>sex</code>, <code>couriers_count</code></p>
 </div>
 </div>
@@ -476,7 +488,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-groupby-002" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 11.2 </strong></span><br> Порахуйте кількість створених та скасованих замовлень у таблиці <code>user_actions</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 13.2 </strong></span><br> Порахуйте кількість створених та скасованих замовлень у таблиці <code>user_actions</code>.</p>
 <p>Нову колонку з кількістю замовлень назвіть <code>orders_count</code>.</p>
 <p>Результат відсортуйте за кількістю замовлень щодо зростання.</p>
 <p>Поля у результуючій таблиці: <code>action</code>, <code>orders_count</code></p>
@@ -566,7 +578,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-groupby-003" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 11.3 </strong></span><br> Використовуючи групування та функцію <code>DATE_TRUNC</code>, приведіть усі дати до початку місяця та порахуйте, скільки замовлень було зроблено у кожному з них.</p>
+<p><span class="theorem-title"><strong>Завдання 13.3 </strong></span><br> Використовуючи групування та функцію <code>DATE_TRUNC</code>, приведіть усі дати до початку місяця та порахуйте, скільки замовлень було зроблено у кожному з них.</p>
 <p>Розрахунки проведіть по таблиці <code>orders</code>. Колонку з усіченою датою назвіть <code>month</code>, колонку з кількістю замовлень - <code>orders_count</code>.</p>
 <p>Результат відсортуйте за місяцями – за зростанням.</p>
 <p>Поля у результуючій таблиці: <code>month</code>, <code>orders_count</code></p>
@@ -628,7 +640,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-groupby-02" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 11.4 </strong></span><br> Порахуйте <strong>максимальний вік користувачів чоловічої та жіночої статі</strong> у таблиці <code>users</code>. Вік виміряйте кількістю <strong>повних років</strong>. Нову колонку з віком назвіть <code>max_age</code>. Результат відсортуйте за новою колонкою за зростанням віку.</p>
+<p><span class="theorem-title"><strong>Завдання 13.4 </strong></span><br> Порахуйте <strong>максимальний вік користувачів чоловічої та жіночої статі</strong> у таблиці <code>users</code>. Вік виміряйте кількістю <strong>повних років</strong>. Нову колонку з віком назвіть <code>max_age</code>. Результат відсортуйте за новою колонкою за зростанням віку.</p>
 <p>Поля у результуючій таблиці: <code>sex</code>, <code>max_age</code></p>
 </div>
 </div>
@@ -709,7 +721,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-groupby-005" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 11.5 </strong></span><br> За даними таблиці <code>users</code> порахуйте максимальний порядковий номер місяця серед усіх порядкових номерів місяців народження користувачів сервісу. За допомогою групування проведіть розрахунки окремо у двох групах – для користувачів чоловічої та жіночої статі.</p>
+<p><span class="theorem-title"><strong>Завдання 13.5 </strong></span><br> За даними таблиці <code>users</code> порахуйте максимальний порядковий номер місяця серед усіх порядкових номерів місяців народження користувачів сервісу. За допомогою групування проведіть розрахунки окремо у двох групах – для користувачів чоловічої та жіночої статі.</p>
 <p>Нову колонку з максимальним номером місяця народження у групах назвіть <code>max_month</code>. Перетворіть значення у новій колонці у формат <code>INTEGER</code>, щоб порядковий номер був виражений цілим числом.</p>
 <p>Результат відсортуйте по колонці зі статтю користувачів.</p>
 <p>Поля у результуючій таблиці: <code>sex</code>, <code>max_month</code></p>
@@ -771,7 +783,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-groupby-006" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 11.6 </strong></span><br> За даними у таблиці <code>users</code> порахуйте порядковий номер місяця народження наймолодшого користувача сервісу. За допомогою групування проведіть розрахунки окремо у двох групах – для користувачів чоловічої та жіночої статі.</p>
+<p><span class="theorem-title"><strong>Завдання 13.6 </strong></span><br> За даними у таблиці <code>users</code> порахуйте порядковий номер місяця народження наймолодшого користувача сервісу. За допомогою групування проведіть розрахунки окремо у двох групах – для користувачів чоловічої та жіночої статі.</p>
 <p>Нову колонку з максимальним номером місяця народження у групах назвіть <code>max_month</code>. Перетворіть значення у новій колонці у формат <code>INTEGER</code>, щоб порядковий номер був виражений цілим числом.</p>
 <p>Результат відсортуйте по колонці зі статтю користувачів.</p>
 <p>Поля у результуючій таблиці: <code>sex</code>, <code>max_month</code></p>
@@ -832,7 +844,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-groupby-03" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 11.7 </strong></span><br> Розбийте користувачів з таблиці <code>users</code> на групи віком (вік вимірюємо кількістю повних років) і порахуйте кількість користувачів кожного віку. Колонку з віком назвіть <code>age</code>, а колонку з кількістю користувачів <code>users_count</code>. Відсортуйте отриманий результат за зростанням по віку. Не забудемо і про тих користувачів, у яких замість віку буде перепустки, для цієї групи також підрахуємо кількість користувачів.</p>
+<p><span class="theorem-title"><strong>Завдання 13.7 </strong></span><br> Розбийте користувачів з таблиці <code>users</code> на групи віком (вік вимірюємо кількістю повних років) і порахуйте кількість користувачів кожного віку. Колонку з віком назвіть <code>age</code>, а колонку з кількістю користувачів <code>users_count</code>. Відсортуйте отриманий результат за зростанням по віку. Не забудемо і про тих користувачів, у яких замість віку буде перепустки, для цієї групи також підрахуємо кількість користувачів.</p>
 <p>Поля у результуючій таблиці: <code>age</code>, <code>users_count</code></p>
 <p><strong>Пояснення:</strong> зверніть увагу, що у цій задачі вам необхідно провести групування за новим розрахунковим полем з віком. У цій ситуації важливо пам’ятати, що колонки, вказані в <code>SELECT</code>, повинні знаходитись і в <code>GROUP BY</code> (якщо вони не використовуються в агрегатних функціях). При цьому <code>GROUP BY</code> допускається використання аліасу колонки, зазначеного в блоці <code>SELECT</code>, тобто повторно проводити обчислення у <code>GROUP BY</code> не обов’язково.</p>
 </div>
@@ -930,7 +942,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-groupby-04" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 11.8 </strong></span><br> Знову розбийте користувачів із таблиці <code>users</code> на групи за віком (вік вимірюємо кількістю повних років), тільки тепер додайте до групування стать користувача. В результаті в кожній віковій групі має з’явитися ще по дві підгрупи зі статтю. У кожній такій підгрупі порахуйте кількість користувачів.</p>
+<p><span class="theorem-title"><strong>Завдання 13.8 </strong></span><br> Знову розбийте користувачів із таблиці <code>users</code> на групи за віком (вік вимірюємо кількістю повних років), тільки тепер додайте до групування стать користувача. В результаті в кожній віковій групі має з’явитися ще по дві підгрупи зі статтю. У кожній такій підгрупі порахуйте кількість користувачів.</p>
 <p>Усі значення <code>NULL</code> у колонці <code>birth_date</code> заздалегідь відфільтруйте за допомогою <code>WHERE</code>. Колонку з віком назвіть ag<code>e, а колонку з числом користувачів -</code>users_count`, ім’я колонки зі статтю залиште без змін. Відсортуйте отриману таблицю спочатку по колонці з віком по зростанню, потім по колонці з підлогою теж по зростанню.</p>
 <p>Поля у результуючій таблиці: <code>age</code>, <code>sex</code>, <code>users_count</code></p>
 </div>
@@ -1073,7 +1085,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-groupby-05" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 11.9 </strong></span><br> Використовуючи функцію <code>DATE_TRUNC</code>, порахуйте, скільки замовлень було зроблено та скільки було скасовано кожного місяця. Розрахунки проводьте за таблицею <code>user_actions</code>. Колонку з усіченою датою назвіть <code>month</code>, колонку з кількістю замовлень - <code>orders_count</code>. Результат відсортуйте спочатку за місяцями – за зростанням, потім за типом дії – також за зростанням.</p>
+<p><span class="theorem-title"><strong>Завдання 13.9 </strong></span><br> Використовуючи функцію <code>DATE_TRUNC</code>, порахуйте, скільки замовлень було зроблено та скільки було скасовано кожного місяця. Розрахунки проводьте за таблицею <code>user_actions</code>. Колонку з усіченою датою назвіть <code>month</code>, колонку з кількістю замовлень - <code>orders_count</code>. Результат відсортуйте спочатку за місяцями – за зростанням, потім за типом дії – також за зростанням.</p>
 <p>Поля в результуючій таблиці: <code>month</code>, <code>action</code>, <code>orders_count</code></p>
 </div>
 </div>
@@ -1133,7 +1145,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p>У <a href="sql_agg.html#exr-sql-agg-09">Завдання&nbsp;<span>10.9</span></a> ми навчилися працювати з функцією <code>array_length</code> і навіть порахували з її допомогою кількість товарів у кожному замовленні. Давайте для кожного розміру замовлення, яке зустрічається у даних, порахуємо загальну кількість замовлень такого розміру.</p>
+<p>У <a href="sql_agg.html#exr-sql-agg-09">Завдання&nbsp;<span>12.9</span></a> ми навчилися працювати з функцією <code>array_length</code> і навіть порахували з її допомогою кількість товарів у кожному замовленні. Давайте для кожного розміру замовлення, яке зустрічається у даних, порахуємо загальну кількість замовлень такого розміру.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1145,7 +1157,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-groupby-06" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 11.10 </strong></span><br> Порахуйте кількість товарів у кожному замовленні з таблиці <code>orders</code>, застосуйте до цих значень групування та порахуйте кількість замовлень у кожній групі. Виведіть дві колонки: кількість товарів у замовленні та кількість замовлень з такою кількістю. Колонки назвіть відповідно <code>order_size</code> та <code>orders_count</code>. Результат відсортуйте за зростанням кількості товарів у замовленні.</p>
+<p><span class="theorem-title"><strong>Завдання 13.10 </strong></span><br> Порахуйте кількість товарів у кожному замовленні з таблиці <code>orders</code>, застосуйте до цих значень групування та порахуйте кількість замовлень у кожній групі. Виведіть дві колонки: кількість товарів у замовленні та кількість замовлень з такою кількістю. Колонки назвіть відповідно <code>order_size</code> та <code>orders_count</code>. Результат відсортуйте за зростанням кількості товарів у замовленні.</p>
 <p>Поля у результуючій таблиці: <code>order_size</code>, <code>orders_count</code></p>
 </div>
 </div>
@@ -1225,8 +1237,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </section>
-<section id="фільтрація-після-групування-having" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="фільтрація-після-групування-having"><span class="header-section-number">11.2</span> Фільтрація після групування: <code>HAVING</code></h2>
+<section id="фільтрація-після-групування-having" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="фільтрація-після-групування-having"><span class="header-section-number">13.2</span> Фільтрація після групування: <code>HAVING</code></h2>
 <p><code>HAVING</code> використовується для фільтрації даних після групування. Він працює аналогічно <code>WHERE</code>, тільки використовується після <code>GROUP BY</code> і фільтрує вже групи, а не окремі записи.</p>
 <p>Але треба обговорити одну важливу особливість роботи з <code>HAVING</code>: у цьому блоці не можна вказувати аліаси розрахункових полів із блоку <code>SELECT</code>. Справа в тому, що відповідно до порядку виконання запиту оператор <code>SELECT</code> виконується після оператора <code>HAVING</code>. Тому агрегацію необхідно також вказувати і <code>HAVING</code>.</p>
 <p>Наприклад, такий запит не спрацює:</p>
@@ -1250,7 +1262,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-groupby-07" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 11.11 </strong></span><br> Доповніть попередній запит оператором <code>HAVING</code> та відберіть лише ті розміри замовлень, загальна кількість яких <strong>перевищує 5000</strong>. Знову виведіть дві колонки: кількість товарів у замовленні та кількість замовлень з такою кількістю. Колонки назвіть відповідно <code>order_size</code> та <code>orders_count</code>. Результат відсортуйте за зростанням кількості товарів у замовленні.</p>
+<p><span class="theorem-title"><strong>Завдання 13.11 </strong></span><br> Доповніть попередній запит оператором <code>HAVING</code> та відберіть лише ті розміри замовлень, загальна кількість яких <strong>перевищує 5000</strong>. Знову виведіть дві колонки: кількість товарів у замовленні та кількість замовлень з такою кількістю. Колонки назвіть відповідно <code>order_size</code> та <code>orders_count</code>. Результат відсортуйте за зростанням кількості товарів у замовленні.</p>
 <p>Поля у результуючій таблиці: <code>order_size</code>, <code>orders_count</code></p>
 </div>
 </div>
@@ -1317,7 +1329,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-groupby-08" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 11.12 </strong></span><br> З таблиці <code>courier_actions</code> відберіть id <strong>трьох кур’єрів</strong>, які доставили <strong>найбільшу кількість замовлень у серпні 2022 року</strong>. Виведіть дві колонки – id кур’єра та кількість доставлених замовлень. Назвіть колонку з кількістю доставлених замовлень <code>delivered_orders</code>. Відсортуйте результат за спаданням delivered_orders.</p>
+<p><span class="theorem-title"><strong>Завдання 13.12 </strong></span><br> З таблиці <code>courier_actions</code> відберіть id <strong>трьох кур’єрів</strong>, які доставили <strong>найбільшу кількість замовлень у серпні 2022 року</strong>. Виведіть дві колонки – id кур’єра та кількість доставлених замовлень. Назвіть колонку з кількістю доставлених замовлень <code>delivered_orders</code>. Відсортуйте результат за спаданням delivered_orders.</p>
 <p>Поля у результуючій таблиці: <code>courier_id</code>, <code>delivered_orders</code></p>
 <p>Пояснення: пам’ятайте, що у таблиці <code>courier_actions</code> є інформація як про прийняті, так і про доставлені замовлення.</p>
 </div>
@@ -1382,7 +1394,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-groupby-09" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 11.13 </strong></span><br> А тепер відберіть лише тих кур’єрів, які у <strong>вересні 2022 року</strong> встигли доставити тільки за одне замовлення. Таблиця та сама - <code>courier_actions</code>. Знову виведіть дві колонки – id кур’єра та кількість доставлених замовлень. Назвіть колонку з числом замовлень <code>delivered_orders</code>. Результат відсортуйте за зростанням id кур’єра.</p>
+<p><span class="theorem-title"><strong>Завдання 13.13 </strong></span><br> А тепер відберіть лише тих кур’єрів, які у <strong>вересні 2022 року</strong> встигли доставити тільки за одне замовлення. Таблиця та сама - <code>courier_actions</code>. Знову виведіть дві колонки – id кур’єра та кількість доставлених замовлень. Назвіть колонку з числом замовлень <code>delivered_orders</code>. Результат відсортуйте за зростанням id кур’єра.</p>
 <p>Поля у результуючій таблиці: <code>courier_id</code>, <code>delivered_orders</code></p>
 </div>
 </div>
@@ -1487,7 +1499,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-groupby-10" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 11.14 </strong></span><br> З таблиці <code>user_actions</code> відберіть користувачів, у яких останнє <strong>замовлення було створено до 8 вересня 2022 року</strong>. Виведіть тільки їх ID, дату створення замовлення виводити не потрібно. Результат відсортуйте за зростанням id користувача.</p>
+<p><span class="theorem-title"><strong>Завдання 13.14 </strong></span><br> З таблиці <code>user_actions</code> відберіть користувачів, у яких останнє <strong>замовлення було створено до 8 вересня 2022 року</strong>. Виведіть тільки їх ID, дату створення замовлення виводити не потрібно. Результат відсортуйте за зростанням id користувача.</p>
 <p>Поле у результуючій таблиці: <code>user_id</code></p>
 </div>
 </div>
@@ -1607,7 +1619,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-groupby-0015" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 11.15 </strong></span><br> За даними з таблиці <code>orders</code> розрахуйте середній розмір замовлення у вихідні та будні.</p>
+<p><span class="theorem-title"><strong>Завдання 13.15 </strong></span><br> За даними з таблиці <code>orders</code> розрахуйте середній розмір замовлення у вихідні та будні.</p>
 <p>Групу з вихідними днями (субота та неділя) назвіть <code>"weekend"</code>, а групу з будними днями (з понеділка по п’ятницю) - <code>"weekdays"</code> (без лапок).</p>
 <p>У результаті включіть дві колонки: колонку з групами назвіть <code>week_part</code>, а колонку із середнім розміром замовлення - <code>avg_order_size</code>.</p>
 <p>Середній розмір замовлення округліть до двох знаків після коми.</p>
@@ -1663,7 +1675,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p>А тепер спробуємо вирішити складніше завдання. Для нього нам знову знадобиться агрегатний вираз із фільтрацією, який ми розглядали у <a href="sql_agg.html#exr-sql-agg-16">Завдання&nbsp;<span>10.16</span></a>. Цю конструкцію можна застосовувати не лише до всієї таблиці, а й окремо до кожної групи, сформованої внаслідок застосування оператора <code>GROUP BY</code>. Загалом вона виглядатиме так:</p>
+<p>А тепер спробуємо вирішити складніше завдання. Для нього нам знову знадобиться агрегатний вираз із фільтрацією, який ми розглядали у <a href="sql_agg.html#exr-sql-agg-16">Завдання&nbsp;<span>12.16</span></a>. Цю конструкцію можна застосовувати не лише до всієї таблиці, а й окремо до кожної групи, сформованої внаслідок застосування оператора <code>GROUP BY</code>. Загалом вона виглядатиме так:</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, agg_function(column_2) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> [condition])</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> column_1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1682,7 +1694,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-groupby-11" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 11.16 </strong></span><br> Для кожного користувача в таблиці <code>user_actions</code> порахуйте <strong>частку скасованих замовлень</strong>. Виведіть дві колонки: ID користувача та розрахований показник. Нову колонку з показником округліть <strong>до двох знаків після коми</strong> та назвіть <code>cancel_rate</code>. Результат відсортуйте за зростанням id користувача.</p>
+<p><span class="theorem-title"><strong>Завдання 13.16 </strong></span><br> Для кожного користувача в таблиці <code>user_actions</code> порахуйте <strong>частку скасованих замовлень</strong>. Виведіть дві колонки: ID користувача та розрахований показник. Нову колонку з показником округліть <strong>до двох знаків після коми</strong> та назвіть <code>cancel_rate</code>. Результат відсортуйте за зростанням id користувача.</p>
 <p>Поля у результуючій таблиці: <code>user_id</code>, <code>cancel_rate</code></p>
 <p>Пояснення: щоб порахувати частку скасованих замовлень, необхідно поділити кількість скасованих замовлень на загальну кількість унікальних замовлень користувача. Пам’ятайте, що для отримання коректного результату поділу потрібно хоча б одне із значень привести до типу <code>DECIMAL</code>.</p>
 </div>
@@ -1774,7 +1786,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p>Повернімося до запиту з групуванням користувачів за віком, який робили у <a href="sql_agg.html#exr-sql-agg-03">завданні&nbsp;<span>10.3</span></a>.</p>
+<p>Повернімося до запиту з групуванням користувачів за віком, який робили у <a href="sql_agg.html#exr-sql-agg-03">завданні&nbsp;<span>12.3</span></a>.</p>
 <p>Ми порахували кількість користувачів кожного віку, але дивитися на дані саме в такому угрупованні не дуже цікаво. Давайте перейдемо від конкретних значень віку до вікових груп.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1787,7 +1799,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-groupby-12" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 11.17 </strong></span><br> Розбийте користувачів із таблиці <code>users</code> на 4 вікові групи:</p>
+<p><span class="theorem-title"><strong>Завдання 13.17 </strong></span><br> Розбийте користувачів із таблиці <code>users</code> на 4 вікові групи:</p>
 <ul>
 <li>від 19 до 24 років;</li>
 <li>від 25 до 29 років;</li>
@@ -1870,7 +1882,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-groupby-18" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 11.18 </strong></span><br> Для кожного дня тижня у таблиці <code>user_actions</code> порахуйте:</p>
+<p><span class="theorem-title"><strong>Завдання 13.18 </strong></span><br> Для кожного дня тижня у таблиці <code>user_actions</code> порахуйте:</p>
 <ol type="1">
 <li>Загальна кількість оформлених замовлень.</li>
 <li>Загальна кількість скасованих замовлень.</li>
@@ -2343,12 +2355,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./sql_agg.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Агрегація даних</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Агрегація даних</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./sql_subquery.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Підзапити</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Підзапити</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
