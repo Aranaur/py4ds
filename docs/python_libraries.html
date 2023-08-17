@@ -342,6 +342,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <ul class="collapse">
   <li><a href="#cowsay" id="toc-cowsay" class="nav-link" data-scroll-target="#cowsay"><span class="header-section-number">5.3.1</span> Cowsay</a></li>
   <li><a href="#api" id="toc-api" class="nav-link" data-scroll-target="#api"><span class="header-section-number">5.3.2</span> API</a></li>
+  <li><a href="#власні-пакети" id="toc-власні-пакети" class="nav-link" data-scroll-target="#власні-пакети"><span class="header-section-number">5.3.3</span> Власні пакети</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_libraries.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_libraries.qmd" class="toc-action">Переглянути код</a></p></div></div></nav>
@@ -405,7 +406,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>coin <span class="op">=</span> [<span class="st">'орел'</span>, <span class="st">'решка'</span>]</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(random.choice(coin))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>решка</code></pre>
+<pre><code>орел</code></pre>
 </div>
 </div>
 <p>Запис <code>random.choice(coin)</code> означає, що ми використовуємо функцію <code>choice()</code> з модуля <code>random</code> і передаємо їй список <code>coin</code> як аргумент. Ця функція повертає випадковий елемент зі списку <code>coin</code>, який ми виводимо на екран.</p>
@@ -440,7 +441,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>d20 <span class="op">=</span> random.randint(<span class="dv">1</span>, <span class="dv">20</span>)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(d20)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>12</code></pre>
+<pre><code>7</code></pre>
 </div>
 </div>
 <p>Підемо далі, та розглянемо наступну функцію <code>random.shuffle(x)</code>, яка перемішує елементи списку <code>x</code> у випадковому порядку. Давайте використаємо цю функцію, щоб перемішати колоду карт:</p>
@@ -454,7 +455,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> card <span class="kw">in</span> cards:</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(card, end<span class="op">=</span><span class="st">' '</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>9 7 Q 3 J 8 6 5 A 10 2 4 K </code></pre>
+<pre><code>Q 8 7 10 9 3 J A 6 4 K 5 2 </code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -892,6 +893,98 @@ Daddy</code></pre>
 <p>Документація до пакету <code>json</code> доступна за посиланням <a href="https://docs.python.org/3/library/json.html">docs.python.org/3/library/json.html</a>.</p>
 </div>
 </div>
+</section>
+<section id="власні-пакети" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="власні-пакети"><span class="header-section-number">5.3.3</span> Власні пакети</h3>
+<p>Ви самі можете створювати власні бібліотеки. Досі ми писали всі наші функції в одному файлі. Хорошою практикою було б якось об’єднати код, який ви повторно використовуєте, і створити власний модуль або пакет Python. Ви можете тримати його локально на власному комп’ютері або хмарному сервері, або ж ви можете пройти через певні кроки, щоб зробити його безкоштовним і з відкритим вихідним кодом і викласти його, наприклад на PyPI, щоб інші також могли ним користуватися.</p>
+<p>Створимо новий файл <code>saying.py</code>, який буде моїм власним модулем:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> saying.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>В цьому файлі я створю функцію <code>say_hello()</code>, яка буде виводити вітальне повідомлення на екран, функцію <code>say_goodbye()</code>, яка буде виводити прощальне повідомлення на екран. Щоб переконатися, що ці функції працюють належним чином, я поміщу їх у функцію <code>main()</code>:</p>
+<div id="saying" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>    say_hello(<span class="st">'Гаррі'</span>)</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>    say_goodbye(<span class="st">'Гаррі'</span>)</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> say_hello(name):</span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> say_goodbye(name):</span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'До побачення, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-11"><a href="#cb57-11" aria-hidden="true" tabindex="-1"></a>main()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Привіт, Гаррі
+До побачення, Гаррі</code></pre>
+</div>
+</div>
+<p>Тепер я хочу використовувати ці функції так, ніби я дійсно створив власну бібліотеку, який робить доступною весь його функціонал для будь кого. Для цього створимо новий файл <code>say.py</code>:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> say.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>В цьому файлі я імпортую функції з модуля <code>saying</code> і використовую їх:</p>
+<div id="say-eval" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> saying <span class="im">import</span> say_hello</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>    say_hello(sys.argv[<span class="dv">1</span>])</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Виконаємо код з аргументом командного рядка:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> say.py Гаррі</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>І отримаю наступний результат:</p>
+<pre class="output"><code>Привіт, Гаррі
+До побачення, Гаррі
+Привіт, Гаррі</code></pre>
+<p>Чому так відбувається? Xоч я все зробив згідно з нашою попередньою практикою, це не зовсім правильний спосіб виклику <code>main()</code>. Нюанс в тому, що у файлі <code>saying.py</code> я викликаю функцію <code>main()</code> у самому кінці. І навіть коли я імпортую цей модуль у новий файл <code>say.py</code>, то функція <code>main()</code> все одно буде викликана.</p>
+<p>Код <code>from saying import say_hello</code> просить Python знайти модуль <code>saying</code>, прочитати його, а потім імпортувати функцію <code>say_hello()</code>. На жаль, до того часу, як Python прочитає файл зверху вниз зліва направо, останній рядок коду викликає функцію <code>main()</code>, що призводить до обов’язкового виклику всього коду.</p>
+<p>Для виправлення ситуації необхідно замість виклику функції <code>main()</code> у кінці коду використовувати запис:</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>    main()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Запис <code>__name__</code> - це спеціальна змінна Python, яка містить ім’я поточного модуля. Якщо модуль виконується як програма, то ця змінна містить рядок <code>'__main__'</code>. Якщо ж модуль імпортується, то ця змінна містить ім’я модуля. Таким чином, ми можемо перевірити, чи виконується модуль як програма, і якщо так, то викликати функцію <code>main()</code>.</p>
+<p>Давайте подивимось. Спочатку виправимо нам модуль <code>saying.py</code>:</p>
+<div id="saying-main-eval-fix" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>    say_hello(<span class="st">'Гаррі'</span>)</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>    say_goodbye(<span class="st">'Гаррі'</span>)</span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> say_hello(name):</span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> say_goodbye(name):</span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'До побачення, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb64-12"><a href="#cb64-12" aria-hidden="true" tabindex="-1"></a>    main()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Імпортуємо модуль <code>saying</code>:</p>
+<div id="say-eval-fix" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> saying <span class="im">import</span> say_hello</span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>    say_hello(sys.argv[<span class="dv">1</span>])</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Виконаємо код з аргументом командного рядка:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> say.py Гаррі</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre class="output"><code>Привіт, Гаррі</code></pre>
 
 
 </section>
