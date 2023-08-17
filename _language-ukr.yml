@@ -69,7 +69,7 @@ toggle-navigation: "Переключити навігацію"
 
 crossref-fig-title: "Рисунок"
 crossref-tbl-title: "Таблиця"
-crossref-lst-title: "Список"
+crossref-lst-title: "Лістинг"
 crossref-thm-title: "Теорема"
 crossref-lem-title: "Лема"
 crossref-cor-title: "Наслідок"
