@@ -115,3 +115,143 @@ if __name__ == '__main__':
     main()
 ```
 
+`AssertionError` - це помилка, яка виникає, коли вираз є хибним. Тож ми можемо використати `try` і `except` для того, щоб перехопити цю помилку і вивести повідомлення про те, що тест не пройдено:
+
+```{python}
+#| label: calculator-test-square-assert-try-except
+#| eval: false
+
+from calculator import square
+
+def main():
+    test_square()
+
+def test_square():
+    try:
+        assert square(2) == 4
+    except AssertionError:
+        print('2 в квадраті не дорівнює 4')
+        assert square(3) == 9
+    except AssertionError:
+        print('3 в квадраті не дорівнює 9')
+
+if __name__ == '__main__':
+    main()
+```    
+
+Але якщо продовжувати такі тести, то коду стане значно більше ніж самої програми. І в Python є спеціальні бібліотеки, які допоможуть нам зробити тести більш читабельними. Одна з таких бібліотек - `pytest`. 
+
+## Тестування з використанням `pytest`
+
+`pytest` - це програма сторонніх розробників, яку ви можете завантажити і встановити, і яка автоматизує тестування вашого коду. І що приємно в цій бібліотеці і подібних до неї, так це те, що вона приймає деякі конвенції, так що вам не доведеться писати багато рядків коду вручну.
+
+Щоб встановити `pytest`, виконайте наступну команду в терміналі:
+
+```{.bash filename="Terminal"}
+pip install pytest
+```
+
+Тепер давайте перепишемо наш тест з використанням `pytest`:
+
+```{python}
+#| label: calculator-test-square-pytest
+#| eval: false
+
+from calculator import square
+
+def test_square():
+    assert square(2) == 4
+    assert square(3) == 9
+    assert square(-2) == 4
+    assert square(-3) == 9
+    assert square(0) == 0
+```
+
+Тепер запустимо тестування за допомогою `pytest`:
+
+```{.bash filename="Terminal"}
+pytest test_calculator.py
+```
+
+```{.output}
+.                                                                 [100%]
+1 passed in 0.00s
+```
+
+::: {.callout-note}
+Документація `pytest` доступна за посиланням: [docs.pytest.org](https://docs.pytest.org/)
+:::
+
+Ідеально було б запустити якомога більше тестів одночасно, щоб отримати якомога більше підказок для пошуку помилки. Тому дозвольте мені покращити дизайн мого тестового коду. Замість однієї великої функції під назвою `test_square()`, яка тестує всю функцію з великою кількістю різних вхідних даних, давайте розділимо тести на різні категорії: тести для додатніх чисел, тести для від'ємних чисел, тести для нуля:
+
+```{python}
+#| label: calculator-test-square-pytest-2
+#| eval: false
+
+from calculator import square
+
+def test_square_positive():
+    assert square(2) == 4
+    assert square(3) == 9
+
+def test_square_negative():
+    assert square(-2) == 4
+    assert square(-3) == 9
+
+def test_square_zero():
+    assert square(0) == 0
+```
+
+Що приємно в `pytest` та інших фреймворках для модульного тестування, так це те, що всі три ці тестові функції будуть запущені автоматично. Навіть якщо одна з них не спрацює, інші будуть запущені. 
+
+Тепер запустимо тести:
+
+```{.bash filename="Terminal"}
+pytest test_calculator.py
+```
+
+```{.output}
+.                                                                 [100%]
+3 passed in 0.00s
+```
+
+Давайте подивимось, що станеться, якщо функції `square` передати рядок замість числа? Для цього приберемо функцію `int()` з `calculator.py`:
+
+```{python}
+#| label: calculator-test-square-pytest-3
+#| eval: false
+
+def main():
+    x = input('Введіть число: ') # cat
+    print(f'Число {x} в квадраті дорівнює {square(x)}')
+
+def square(n):
+    return pow(n, 2)
+
+if __name__ == '__main__':
+    main()
+```
+
+Тепер додамо тест в `test_calculator.py`:
+
+```{python}
+#| label: calculator-test-square-pytest-4
+#| eval: false
+
+from calculator import square
+
+def test_square_positive():
+    assert square(2) == 4
+    assert square(3) == 9
+
+def test_square_negative():
+    assert square(-2) == 4
+    assert square(-3) == 9
+
+def test_square_zero():
+    assert square(0) == 0
+
+def test_square_string():
+    with pytest.raises(TypeError):
+        square('cat')
+```

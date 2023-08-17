@@ -334,7 +334,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Зміст</h2>
+   
+  <ul>
+  <li><a href="#тестування-з-використанням-assert" id="toc-тестування-з-використанням-assert" class="nav-link active" data-scroll-target="#тестування-з-використанням-assert"><span class="header-section-number">6.1</span> Тестування з використанням <code>assert</code></a></li>
+  <li><a href="#тестування-з-використанням-pytest" id="toc-тестування-з-використанням-pytest" class="nav-link" data-scroll-target="#тестування-з-використанням-pytest"><span class="header-section-number">6.2</span> Тестування з використанням <code>pytest</code></a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_unit_tests.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_unit_tests.qmd" class="toc-action">Переглянути код</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -355,9 +362,9 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   
 
 </header>
-
-<p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p><p>До цього моменту ми писали код, запускаючи програми, вводили вхідні дані, отримували результати і якщо щось йшло не по плану - виправляли це. Набагато краще виробити звичку тестувати власний код, використовуючи інший код. І саме на цьому ми зосередимось і цій частині.</p>
-<p>Повернемося до файлу <code>calculator.py</code> (<a href="python_basics.html#lst-calculator-eval">див.&nbsp;<span>1.1</span></a>), який ми використовували для обчислення математичних виразів:</p>
+<p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p>
+<p>До цього моменту ми писали код, запускаючи програми, вводили вхідні дані, отримували результати і якщо щось йшло не по плану - виправляли це. Набагато краще виробити звичку тестувати власний код, використовуючи інший код. І саме на цьому ми зосередимось і цій частині.</p>
+<p>Повернемося до файлу <code>calculator.py</code> (<span class="quarto-unresolved-ref">?lst-calculator-eval</span>), який ми використовували для обчислення математичних виразів:</p>
 <div id="calculator-test-eval" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'Введіть число: '</span>)) <span class="co"># '2'</span></span>
@@ -419,8 +426,146 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> test_calculator.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <pre class="output"><code>Все працює</code></pre>
+<p>Тут мені пощастило, і все працює. Але якщо екстраполювати цей простий приклад не на два тести, а на значно більше, код стане набагато складнішим, ніж сама функція.</p>
+<section id="тестування-з-використанням-assert" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="тестування-з-використанням-assert"><span class="header-section-number">6.1</span> Тестування з використанням <code>assert</code></h2>
+<p>Існують інші варіанти тестування, які допоможуть нам зробити код більш читабельним. Наприклад, використання функції <code>assert</code> - ключовим словом, яке перевіряє, чи є вираз істинним. Якщо вираз істинний, то нічого не відбувається. Але якщо вираз є хибним, то ви отримаєте помилку. Давайте перепишемо функцію <code>test_square</code> з використанням <code>assert</code>:</p>
+<div id="calculator-test-square-assert" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> calculator <span class="im">import</span> square</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    test_square()</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_square():</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="dv">2</span>) <span class="op">==</span> <span class="dv">4</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="dv">3</span>) <span class="op">==</span> <span class="dv">9</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    main()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>AssertionError</code> - це помилка, яка виникає, коли вираз є хибним. Тож ми можемо використати <code>try</code> і <code>except</code> для того, щоб перехопити цю помилку і вивести повідомлення про те, що тест не пройдено:</p>
+<div id="calculator-test-square-assert-try-except" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> calculator <span class="im">import</span> square</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    test_square()</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_square():</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> square(<span class="dv">2</span>) <span class="op">==</span> <span class="dv">4</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">AssertionError</span>:</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'2 в квадраті не дорівнює 4'</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> square(<span class="dv">3</span>) <span class="op">==</span> <span class="dv">9</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">AssertionError</span>:</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'3 в квадраті не дорівнює 9'</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    main()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Але якщо продовжувати такі тести, то коду стане значно більше ніж самої програми. І в Python є спеціальні бібліотеки, які допоможуть нам зробити тести більш читабельними. Одна з таких бібліотек - <code>pytest</code>.</p>
+</section>
+<section id="тестування-з-використанням-pytest" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="тестування-з-використанням-pytest"><span class="header-section-number">6.2</span> Тестування з використанням <code>pytest</code></h2>
+<p><code>pytest</code> - це програма сторонніх розробників, яку ви можете завантажити і встановити, і яка автоматизує тестування вашого коду. І що приємно в цій бібліотеці і подібних до неї, так це те, що вона приймає деякі конвенції, так що вам не доведеться писати багато рядків коду вручну.</p>
+<p>Щоб встановити <code>pytest</code>, виконайте наступну команду в терміналі:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pytest</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Тепер давайте перепишемо наш тест з використанням <code>pytest</code>:</p>
+<div id="calculator-test-square-pytest" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> calculator <span class="im">import</span> square</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_square():</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="dv">2</span>) <span class="op">==</span> <span class="dv">4</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="dv">3</span>) <span class="op">==</span> <span class="dv">9</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="op">-</span><span class="dv">2</span>) <span class="op">==</span> <span class="dv">4</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="op">-</span><span class="dv">3</span>) <span class="op">==</span> <span class="dv">9</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="dv">0</span>) <span class="op">==</span> <span class="dv">0</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Тепер запустимо тестування за допомогою <code>pytest</code>:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span> test_calculator.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre class="output"><code>.                                                                 [100%]
+1 passed in 0.00s</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Документація <code>pytest</code> доступна за посиланням: <a href="https://docs.pytest.org/">docs.pytest.org</a></p>
+</div>
+</div>
+<p>Ідеально було б запустити якомога більше тестів одночасно, щоб отримати якомога більше підказок для пошуку помилки. Тому дозвольте мені покращити дизайн мого тестового коду. Замість однієї великої функції під назвою <code>test_square()</code>, яка тестує всю функцію з великою кількістю різних вхідних даних, давайте розділимо тести на різні категорії: тести для додатніх чисел, тести для від’ємних чисел, тести для нуля:</p>
+<div id="calculator-test-square-pytest-2" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> calculator <span class="im">import</span> square</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_square_positive():</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="dv">2</span>) <span class="op">==</span> <span class="dv">4</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="dv">3</span>) <span class="op">==</span> <span class="dv">9</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_square_negative():</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="op">-</span><span class="dv">2</span>) <span class="op">==</span> <span class="dv">4</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="op">-</span><span class="dv">3</span>) <span class="op">==</span> <span class="dv">9</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_square_zero():</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="dv">0</span>) <span class="op">==</span> <span class="dv">0</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Що приємно в <code>pytest</code> та інших фреймворках для модульного тестування, так це те, що всі три ці тестові функції будуть запущені автоматично. Навіть якщо одна з них не спрацює, інші будуть запущені.</p>
+<p>Тепер запустимо тести:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span> test_calculator.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre class="output"><code>.                                                                 [100%]
+3 passed in 0.00s</code></pre>
+<p>Давайте подивимось, що станеться, якщо функції <code>square</code> передати рядок замість числа? Для цього приберемо функцію <code>int()</code> з <code>calculator.py</code>:</p>
+<div id="calculator-test-square-pytest-3" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="bu">input</span>(<span class="st">'Введіть число: '</span>) <span class="co"># cat</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Число </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> в квадраті дорівнює </span><span class="sc">{</span>square(x)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> square(n):</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">pow</span>(n, <span class="dv">2</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    main()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Тепер додамо тест в <code>test_calculator.py</code>:</p>
+<div id="calculator-test-square-pytest-4" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> calculator <span class="im">import</span> square</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_square_positive():</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="dv">2</span>) <span class="op">==</span> <span class="dv">4</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="dv">3</span>) <span class="op">==</span> <span class="dv">9</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_square_negative():</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="op">-</span><span class="dv">2</span>) <span class="op">==</span> <span class="dv">4</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="op">-</span><span class="dv">3</span>) <span class="op">==</span> <span class="dv">9</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_square_zero():</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="dv">0</span>) <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_square_string():</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> pytest.raises(<span class="pp">TypeError</span>):</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>        square(<span class="st">'cat'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 
 <p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -789,4 +934,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_unit_tests.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_unit_tests.qmd" class="toc-action">Переглянути код</a></p></div></div></div></div></footer></body></html>
+</body></html>
