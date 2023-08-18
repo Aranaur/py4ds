@@ -340,6 +340,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <ul>
   <li><a href="#тестування-з-використанням-assert" id="toc-тестування-з-використанням-assert" class="nav-link active" data-scroll-target="#тестування-з-використанням-assert"><span class="header-section-number">6.1</span> Тестування з використанням <code>assert</code></a></li>
   <li><a href="#тестування-з-використанням-pytest" id="toc-тестування-з-використанням-pytest" class="nav-link" data-scroll-target="#тестування-з-використанням-pytest"><span class="header-section-number">6.2</span> Тестування з використанням <code>pytest</code></a></li>
+  <li><a href="#тестування-декількох-файлів" id="toc-тестування-декількох-файлів" class="nav-link" data-scroll-target="#тестування-декількох-файлів"><span class="header-section-number">6.3</span> Тестування декількох файлів</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_unit_tests.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_unit_tests.qmd" class="toc-action">Переглянути код</a></p></div></div></nav>
     </div>
@@ -364,7 +365,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </header>
 <p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p>
 <p>До цього моменту ми писали код, запускаючи програми, вводили вхідні дані, отримували результати і якщо щось йшло не по плану - виправляли це. Набагато краще виробити звичку тестувати власний код, використовуючи інший код. І саме на цьому ми зосередимось і цій частині.</p>
-<p>Повернемося до файлу <code>calculator.py</code> (<span class="quarto-unresolved-ref">?lst-calculator-eval</span>), який ми використовували для обчислення математичних виразів:</p>
+<p>Повернемося до файлу <code>calculator.py</code>, який ми використовували для обчислення математичних виразів:</p>
 <div id="calculator-test-eval" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">'Введіть число: '</span>)) <span class="co"># '2'</span></span>
@@ -563,6 +564,61 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> pytest.raises(<span class="pp">TypeError</span>):</span>
 <span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>        square(<span class="st">'cat'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Тепер давайте розглянемо, як можна протестувати код, який очікує на вхід рядки. Для цього ми повернемося до файлу <code>hello.py</code>:</p>
+<div id="hello-test-eval" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> <span class="bu">input</span>(<span class="st">'Введіть ваше ім</span><span class="ch">\'</span><span class="st">я: '</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(hello(name))</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello(name<span class="op">=</span><span class="st">'світ'</span>):</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f'Привіт, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!'</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    main()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Увага
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Зверніть увагу, що ми дещо змінили базову версію програми <code>hello.py</code>. Тепер функція <code>hello()</code> <strong>повертає</strong> рядок замість того, щоб його <strong>виводити</strong>. Тому у функції <code>main()</code> ми викликаємо функцію <code>hello()</code> і виводимо результат на екран.</p>
+<p>В міру того, як ваші програми стають все більш складними, найкращою практикою є відсутність <em>побічних ефектів</em>. Бажано їх уникнути, особливо якщо ви хочете, щоб ваш код можна було протестувати.</p>
+</div>
+</div>
+<p>Тепер створимо тест в <code>test_hello.py</code>, але цього разу використаємо цикли:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> test_hello.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="hello-test-hello-pytest" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> hello <span class="im">import</span> hello</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_default():</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> hello() <span class="op">==</span> <span class="st">'Привіт, світ!'</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_name():</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> name <span class="kw">in</span> [<span class="st">'Гаррі'</span>, <span class="st">'Рон'</span>, <span class="st">'Герміона'</span>]:</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> hello(name) <span class="op">==</span> <span class="ss">f'Привіт, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Тепер запустимо тести:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span> test_hello.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre class="output"><code>.                                                                 [100%]
+2 passed in 0.00s</code></pre>
+</section>
+<section id="тестування-декількох-файлів" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="тестування-декількох-файлів"><span class="header-section-number">6.3</span> Тестування декількох файлів</h2>
 
 
 </section>
