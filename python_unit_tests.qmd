@@ -311,3 +311,35 @@ pytest test_hello.py
 ```
 
 ## Тестування декількох файлів
+
+Тепер давайте розглянемо, як можна тестувати декілька файлів. Для цього створимо нову директорію `test`:
+
+```{.bash filename="Terminal"}
+mkdir test
+```
+
+В середині цієї директорії створимо файл `test_hello.py`:
+
+```{.bash filename="Terminal"}
+code test/test_hello.py
+```
+
+```{python}
+#| label: hello-test-hello-pytest-2
+#| eval: false
+
+from hello import hello
+
+def test_default():
+    assert hello() == 'Привіт, світ!'
+
+def test_augment():
+    assert hello('Гаррі') == 'Привіт, Гаррі!'
+```
+
+Тепер в середині директорії необхідно створити файл `__init__.py`. Це дозволить Python розпізнати цю директорію як пакет:
+
+```{.bash filename="Terminal"}
+code test/__init__.py
+```
+
