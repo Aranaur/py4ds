@@ -1012,6 +1012,6 @@
     "href": "python_unit_tests.html#тестування-декількох-файлів",
     "title": "6  Модульне тестування",
     "section": "6.3 Тестування декількох файлів",
-    "text": "6.3 Тестування декількох файлів"
+    "text": "6.3 Тестування декількох файлів\nТепер давайте розглянемо, як можна тестувати декілька файлів. Для цього створимо нову директорію test:\n\n\nTerminal\n\nmkdir test\n\nВ середині цієї директорії створимо файл test_hello.py:\n\n\nTerminal\n\ncode test/test_hello.py\n\n\nfrom hello import hello\n\ndef test_default():\n    assert hello() == 'Привіт, світ!'\n\ndef test_augment():\n    assert hello('Гаррі') == 'Привіт, Гаррі!'\n\nТепер в середині директорії необхідно створити файл __init__.py. Це дозволить Python розпізнати цю директорію як пакет:\n\n\nTerminal\n\ncode test/__init__.py\n\nТепер можемо провести тестування всієї директорії test:\n\n\nTerminal\n\npytest test\n\n..\n2 passed in 0.01s"
   }
 ]

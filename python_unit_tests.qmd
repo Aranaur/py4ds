@@ -343,3 +343,14 @@ def test_augment():
 code test/__init__.py
 ```
 
+Тепер можемо провести тестування всієї директорії `test`:
+
+```{.bash filename="Terminal"}
+pytest test
+```
+
+```{.output}
+..
+2 passed in 0.01s
+```
+
