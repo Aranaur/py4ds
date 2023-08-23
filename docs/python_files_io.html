@@ -347,6 +347,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <li><a href="#запис-даних" id="toc-запис-даних" class="nav-link active" data-scroll-target="#запис-даних"><span class="header-section-number">7.1</span> Запис даних</a></li>
   <li><a href="#контекстний-менеджер" id="toc-контекстний-менеджер" class="nav-link" data-scroll-target="#контекстний-менеджер"><span class="header-section-number">7.2</span> Контекстний менеджер</a></li>
   <li><a href="#читання-даних" id="toc-читання-даних" class="nav-link" data-scroll-target="#читання-даних"><span class="header-section-number">7.3</span> Читання даних</a></li>
+  <li><a href="#файли-csv" id="toc-файли-csv" class="nav-link" data-scroll-target="#файли-csv"><span class="header-section-number">7.4</span> Файли csv</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_files_io.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_files_io.qmd" class="toc-action">Переглянути код</a></p></div></div></nav>
     </div>
@@ -403,7 +404,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 Привіт, Герміона!
 Привіт, Рон!</code></pre>
 <p>Звичайно, якщо я запущу цю програму ще раз, всі імена пропадуть. Було б непогано мати можливість якось зберігати цю інформацію. І саме тут з’являється ввід-вивід файлів, і саме тут з’являються файли.</p>
-<p>Давайте перепишемо нашу програму так, щоб вона зберігала імена у файлі <code>names.txt</code>. Для цього нам необхідно відкрити файл, використовуючи функцію <code>open</code> - ця функція приймає два аргументи: ім’я файлу і режим відкриття. Режим відкриття може бути <code>r</code> (англ. <em>read</em>, читання), <code>w</code> (англ. <em>write</em>, запис) або <code>a</code> (англ. <em>append</em>, дописування). Якщо файл не існує, то він буде створений. Якщо файл існує, то він буде перезаписаний. Якщо ви хочете дописати щось до файлу, то використовуйте режим <code>a</code>:</p>
+<p>Давайте перепишемо нашу програму так, щоб вона зберігала імена у файлі <code>names.txt</code>. Для цього нам необхідно відкрити файл, використовуючи функцію <code>open</code> - ця функція приймає два аргументи: ім’я файлу і режим відкриття.</p>
+<p>Режим відкриття може бути:</p>
+<ul>
+<li><code>r</code> (англ. <em>read</em>) - читання, це режим за замовчуванням.</li>
+<li><code>w</code> (англ. <em>write</em>) - запис, цей режим перезаписує файл.</li>
+<li><code>a</code> (англ. <em>append</em>) - дописування, цей режим додає дані до файлу.</li>
+</ul>
+<p>Якщо файл не існує, то він буде створений. Давайте перепишемо нашу програму з використанням функції <code>open</code>:</p>
 <div id="io-names-list-file-eval" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Як Вас звати? "</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -625,6 +633,147 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <p>Документація до функції <code>sorted</code>: <a href="https://docs.python.org/3/library/functions.html#sorted" class="uri">https://docs.python.org/3/library/functions.html#sorted</a></p>
+</div>
+</div>
+</section>
+<section id="файли-csv" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="файли-csv"><span class="header-section-number">7.4</span> Файли csv</h2>
+<p>Файли csv (англ. <em>comma-separated values</em>, значення, розділені комами) - це файли, які містять дані у вигляді таблиці, де значення розділені комами. Давайте створимо файл <code>students.csv</code>:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> students.csv</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Запишемо у нього імена і додамо гуртожиток:</p>
+<pre class="csv"><code>Гаррі,Гріфіндор
+Герміона,Гріфіндор
+Рон,Гріфіндор
+Драко,Слизерин</code></pre>
+<p>Тепер давайте створимо програму <code>students.py</code>, яка буде читати цей файл.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> students.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Отже, в нас є імені і гуртожитки, які розділені комами. Це означає, що ми можемо використати метод <code>split</code> для розділення рядка на частини. Давайте перепишемо нашу програму з використанням методу <code>split</code>:</p>
+<div id="io-csv-eval" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'students.csv'</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>        row <span class="op">=</span> line.rstrip().split(<span class="st">','</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>row[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> живе в гуртожитку </span><span class="sc">{</span>row[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre class="output"><code>Гаррі живе в гуртожитку Гріфіндор
+Герміона живе в гуртожитку Гріфіндор
+Рон живе в гуртожитку Гріфіндор
+Драко живе в гуртожитку Слизерин</code></pre>
+<p>Коли у вас є змінна, яка є списком, наприклад <code>row</code>, вам не обов’язково переносити всі ці змінні у окремий список. Ви можете розпакувати всю послідовність одразу. Іншими словами, якщо ви знаєте, що функція типу <code>split</code> повертає список, який містить два елементи, ви можете розпакувати цей список у дві змінні:</p>
+<div id="io-csv-unpack-eval" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'students.csv'</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>        name, house <span class="op">=</span> line.rstrip().split(<span class="st">','</span>)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> живе в гуртожитку </span><span class="sc">{</span>house<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre class="output"><code>Гаррі живе в гуртожитку Гріфіндор
+Герміона живе в гуртожитку Гріфіндор
+Рон живе в гуртожитку Гріфіндор
+Драко живе в гуртожитку Слизерин</code></pre>
+<p>Уявімо, що я хочу відсортувати цей список даних. Для цього я можу використати функцію <code>sorted</code> і вказати, що я хочу сортувати за другим елементом списку:</p>
+<div id="io-csv-sorted-eval" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'students.csv'</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>        name, house <span class="op">=</span> line.rstrip().split(<span class="st">','</span>)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>        students_lst.append(<span class="ss">f'</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> живе в гуртожитку </span><span class="sc">{</span>house<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> student <span class="kw">in</span> <span class="bu">sorted</span>(students_lst):</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(student)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre class="output"><code>Драко живе в гуртожитку Слизерин
+Гаррі живе в гуртожитку Гріфіндор
+Герміона живе в гуртожитку Гріфіндор
+Рон живе в гуртожитку Гріфіндор</code></pre>
+<p>З технічної точки зору, це працює, але це не є найкращим рішенням, оскільки дані сортуються по цілому реченню. Ми можемо вирішити таку задачу за допомогою словників. Для цього нам необхідно створити пустий словник <code>student_dict</code> і додавати до нього інформацію про студентів. Давайте перепишемо нашу програму з використанням словників:</p>
+<div id="io-csv-dict-eval" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'students.csv'</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>        name, house <span class="op">=</span> line.rstrip().split(<span class="st">','</span>)</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>        student_dict <span class="op">=</span> {}</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>        student_dict[<span class="st">'name'</span>] <span class="op">=</span> name</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>        student_dict[<span class="st">'house'</span>] <span class="op">=</span> house</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>        students_lst.append(student_dict)</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> student <span class="kw">in</span> students_lst:</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>student[<span class="st">"name"</span>]<span class="sc">}</span><span class="ss"> живе в гуртожитку </span><span class="sc">{</span>student[<span class="st">"house"</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ми можемо скоротити код шляхом присвоєння значень словнику одразу:</p>
+<div id="io-csv-dict-eval-2" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'students.csv'</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>        name, house <span class="op">=</span> line.rstrip().split(<span class="st">','</span>)</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>        student_dict <span class="op">=</span> {<span class="st">'name'</span>: name, <span class="st">'house'</span>: house}</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>        students_lst.append(student_dict)</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> student <span class="kw">in</span> students_lst:</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>student[<span class="st">"name"</span>]<span class="sc">}</span><span class="ss"> живе в гуртожитку </span><span class="sc">{</span>student[<span class="st">"house"</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Але результат все ще не відсортований. Функція <code>sorted</code> приймає параметр <code>key</code>, який вказує, за яким ключем сортувати. Для цього ми можемо використати функцію <code>get_name</code>, яка повертає ім’я студента і використаємо її як параметр <code>key</code>:</p>
+<div id="io-csv-dict-sorted-eval" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'students.csv'</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>        name, house <span class="op">=</span> line.rstrip().split(<span class="st">','</span>)</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>        student_dict <span class="op">=</span> {<span class="st">'name'</span>: name, <span class="st">'house'</span>: house}</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>        students_lst.append(student_dict)</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_name(student):</span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> student[<span class="st">'name'</span>]</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> student <span class="kw">in</span> <span class="bu">sorted</span>(students_lst, key<span class="op">=</span>get_name):</span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>student[<span class="st">"name"</span>]<span class="sc">}</span><span class="ss"> живе в гуртожитку </span><span class="sc">{</span>student[<span class="st">"house"</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre class="output"><code>Драко живе в гуртожитку Слизерин
+Гаррі живе в гуртожитку Гріфіндор
+Герміона живе в гуртожитку Гріфіндор
+Рон живе в гуртожитку Гріфіндор</code></pre>
+<p>Якщо ж я захочу відсортувати за гуртожитком у зворотному порядку, то я можу використати функцію <code>get_house</code> і додати параметр <code>reverse=True</code> у функцію <code>sorted</code>:</p>
+<div id="io-csv-dict-sorted-eval-2" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'students.csv'</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>        name, house <span class="op">=</span> line.rstrip().split(<span class="st">','</span>)</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>        student_dict <span class="op">=</span> {<span class="st">'name'</span>: name, <span class="st">'house'</span>: house}</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>        students_lst.append(student_dict)</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_house(student):</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> student[<span class="st">'house'</span>]</span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> student <span class="kw">in</span> <span class="bu">sorted</span>(students_lst, key<span class="op">=</span>get_house, reverse<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>student[<span class="st">"name"</span>]<span class="sc">}</span><span class="ss"> живе в гуртожитку </span><span class="sc">{</span>student[<span class="st">"house"</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre class="output"><code>Драко живе в гуртожитку Слизерин
+Гаррі живе в гуртожитку Гріфіндор
+Герміона живе в гуртожитку Гріфіндор
+Рон живе в гуртожитку Гріфіндор</code></pre>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Увага
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Зверніть увагу, що в якості аргументу <code>key</code> функції <code>sorted</code> ми передаємо не функцію <code>get_house</code>, <strong>без дужок</strong>. Це тому, що ми передаємо функцію, а не викликаємо її.</p>
 </div>
 </div>
 

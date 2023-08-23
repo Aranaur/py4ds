@@ -48,7 +48,15 @@ for name in sorted(names):
 
 Звичайно, якщо я запущу цю програму ще раз, всі імена пропадуть. Було б непогано мати можливість якось зберігати цю інформацію. І саме тут з'являється ввід-вивід файлів, і саме тут з'являються файли.
 
-Давайте перепишемо нашу програму так, щоб вона зберігала імена у файлі `names.txt`. Для цього нам необхідно відкрити файл, використовуючи функцію `open` - ця функція приймає два аргументи: ім'я файлу і режим відкриття. Режим відкриття може бути `r` (англ. *read*, читання), `w` (англ. *write*, запис) або `a` (англ. *append*, дописування). Якщо файл не існує, то він буде створений. Якщо файл існує, то він буде перезаписаний. Якщо ви хочете дописати щось до файлу, то використовуйте режим `a`:
+Давайте перепишемо нашу програму так, щоб вона зберігала імена у файлі `names.txt`. Для цього нам необхідно відкрити файл, використовуючи функцію `open` - ця функція приймає два аргументи: ім'я файлу і режим відкриття.
+
+Режим відкриття може бути:
+
+- `r` (англ. *read*) - читання, це режим за замовчуванням.
+- `w` (англ. *write*) - запис, цей режим перезаписує файл.
+- `a` (англ. *append*) - дописування, цей режим додає дані до файлу.
+
+ Якщо файл не існує, то він буде створений. Давайте перепишемо нашу програму з використанням функції `open`:
 
 ```{python}
 #| label: io-names-list-file-eval
@@ -297,6 +305,192 @@ with open('names.txt', 'r') as file:
 ::: {.callout-note}
 Документація до функції `sorted`: <https://docs.python.org/3/library/functions.html#sorted>
 :::
+
+## Файли csv
+
+Файли csv (англ. *comma-separated values*, значення, розділені комами) - це файли, які містять дані у вигляді таблиці, де значення розділені комами. Давайте створимо файл `students.csv`:
+
+```{.bash filename="Terminal"}
+code students.csv
+```
+
+Запишемо у нього імена і додамо гуртожиток:
+
+```{.csv}
+Гаррі,Гріфіндор
+Герміона,Гріфіндор
+Рон,Гріфіндор
+Драко,Слизерин
+```
+
+Тепер давайте створимо програму `students.py`, яка буде читати цей файл.
+
+```{.bash filename="Terminal"}
+code students.py
+```
+
+Отже, в нас є імені і гуртожитки, які розділені комами. Це означає, що ми можемо використати метод `split` для розділення рядка на частини. Давайте перепишемо нашу програму з використанням методу `split`:
+
+```{python}
+#| label: io-csv-eval
+#| eval: false
+
+with open('students.csv', 'r') as file:
+    for line in file:
+        row = line.rstrip().split(',')
+        print(f'{row[0]} живе в гуртожитку {row[1]}')
+```
+
+```{.output}
+Гаррі живе в гуртожитку Гріфіндор
+Герміона живе в гуртожитку Гріфіндор
+Рон живе в гуртожитку Гріфіндор
+Драко живе в гуртожитку Слизерин
+```
+
+Коли у вас є змінна, яка є списком, наприклад `row`, вам не обов'язково переносити всі ці змінні у окремий список. Ви можете розпакувати всю послідовність одразу. Іншими словами, якщо ви знаєте, що функція типу `split` повертає список, який містить два елементи, ви можете розпакувати цей список у дві змінні:
+
+```{python}
+#| label: io-csv-unpack-eval
+#| eval: false
+
+with open('students.csv', 'r') as file:
+    for line in file:
+        name, house = line.rstrip().split(',')
+        print(f'{name} живе в гуртожитку {house}')
+```
+
+```{.output}
+Гаррі живе в гуртожитку Гріфіндор
+Герміона живе в гуртожитку Гріфіндор
+Рон живе в гуртожитку Гріфіндор
+Драко живе в гуртожитку Слизерин
+```
+
+Уявімо, що я хочу відсортувати цей список даних. Для цього я можу використати функцію `sorted` і вказати, що я хочу сортувати за другим елементом списку:
+
+```{python}
+#| label: io-csv-sorted-eval
+#| eval: false
+
+students_lst = []
+
+with open('students.csv', 'r') as file:
+    for line in file:
+        name, house = line.rstrip().split(',')
+        students_lst.append(f'{name} живе в гуртожитку {house}')
+
+for student in sorted(students_lst):
+    print(student)
+```
+
+```{.output}
+Драко живе в гуртожитку Слизерин
+Гаррі живе в гуртожитку Гріфіндор
+Герміона живе в гуртожитку Гріфіндор
+Рон живе в гуртожитку Гріфіндор
+```
+
+З технічної точки зору, це працює, але це не є найкращим рішенням, оскільки дані сортуються по цілому реченню. Ми можемо вирішити таку задачу за допомогою словників. Для цього нам необхідно створити пустий словник `student_dict` і додавати до нього інформацію про студентів. Давайте перепишемо нашу програму з використанням словників:
+
+```{python}
+#| label: io-csv-dict-eval
+#| eval: false
+
+students_lst = []
+
+with open('students.csv', 'r') as file:
+    for line in file:
+        name, house = line.rstrip().split(',')
+        student_dict = {}
+        student_dict['name'] = name
+        student_dict['house'] = house
+        students_lst.append(student_dict)
+
+for student in students_lst:
+    print(f'{student["name"]} живе в гуртожитку {student["house"]}')
+```
+
+Ми можемо скоротити код шляхом присвоєння значень словнику одразу:
+
+```{python}
+#| label: io-csv-dict-eval-2
+#| eval: false
+
+students_lst = []
+
+with open('students.csv', 'r') as file:
+    for line in file:
+        name, house = line.rstrip().split(',')
+        student_dict = {'name': name, 'house': house}
+        students_lst.append(student_dict)
+
+for student in students_lst:
+    print(f'{student["name"]} живе в гуртожитку {student["house"]}')
+```
+
+Але результат все ще не відсортований. Функція `sorted` приймає параметр `key`, який вказує, за яким ключем сортувати. Для цього ми можемо використати функцію `get_name`, яка повертає ім'я студента і використаємо її як параметр `key`:
+
+```{python}
+#| label: io-csv-dict-sorted-eval
+#| eval: false
+
+students_lst = []
+
+with open('students.csv', 'r') as file:
+    for line in file:
+        name, house = line.rstrip().split(',')
+        student_dict = {'name': name, 'house': house}
+        students_lst.append(student_dict)
+
+def get_name(student):
+    return student['name']
+
+for student in sorted(students_lst, key=get_name):
+    print(f'{student["name"]} живе в гуртожитку {student["house"]}')
+```
+
+```{.output}
+Драко живе в гуртожитку Слизерин
+Гаррі живе в гуртожитку Гріфіндор
+Герміона живе в гуртожитку Гріфіндор
+Рон живе в гуртожитку Гріфіндор
+```
+
+Якщо ж я захочу відсортувати за гуртожитком у зворотному порядку, то я можу використати функцію `get_house` і додати параметр `reverse=True` у функцію `sorted`:
+
+```{python}
+#| label: io-csv-dict-sorted-eval-2
+#| eval: false
+
+students_lst = []
+
+with open('students.csv', 'r') as file:
+    for line in file:
+        name, house = line.rstrip().split(',')
+        student_dict = {'name': name, 'house': house}
+        students_lst.append(student_dict)
+
+def get_house(student):
+    return student['house']
+
+for student in sorted(students_lst, key=get_house, reverse=True):
+    print(f'{student["name"]} живе в гуртожитку {student["house"]}')
+```
+
+```{.output}
+Драко живе в гуртожитку Слизерин
+Гаррі живе в гуртожитку Гріфіндор
+Герміона живе в гуртожитку Гріфіндор
+Рон живе в гуртожитку Гріфіндор
+```
+
+::: {.callout-warning}
+Зверніть увагу, що в якості аргументу `key` функції `sorted` ми передаємо функцію `get_house`, **без дужок**. Ми хочемо передати функцію, а не викликати її.
+:::
+
+
+
 
 
 
