@@ -555,6 +555,78 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </section>
 <section id="читання-даних" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="читання-даних"><span class="header-section-number">7.3</span> Читання даних</h2>
+<p>Для читання у функції <code>open</code> використовується режим <code>r</code>. Давайте створимо програму <code>names_read.py</code>, яка буде читати імена з файлу <code>names.txt</code> і виводити їх на екран:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> names_read.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Для читання використаємо метод <code>readlines</code>, яка повертає список рядків, які містяться у файлі. Цей метод повертає список, тому ми можемо використати цикл <code>for</code> для виведення імен на екран. Також слід врахувати, що метод <code>readlines</code> повертає список, в якому кожен рядок містить символ переносу рядка (<code>\n</code>). Щоб цього уникнути, ми можемо використати метод <code>rstrip</code>, який видаляє символ переносу рядка з кінця рядка:</p>
+<div id="io-names-list-file-read-eval" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'names.txt'</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    lines <span class="op">=</span> <span class="bu">file</span>.readlines()</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> lines:</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>line<span class="sc">.</span>rstrip()<span class="sc">}</span><span class="ss">!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre class="output"><code>Привіт, Герміона!
+Привіт, Гаррі!
+Привіт, Рон!</code></pre>
+<p>Але у попередньому прикладі ми двічі проходимось по всьому файлу: спочатку ми читаємо його у список, а потім виводимо список на екран. Це не є найкращим рішенням, оскільки ми можемо витратити багато пам’яті, якщо файл дуже великий. Тому ми можемо використати цикл <code>for</code> безпосередньо для читання файлу:</p>
+<div id="io-names-list-file-read-eval-2" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'names.txt'</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>line<span class="sc">.</span>rstrip()<span class="sc">}</span><span class="ss">!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre class="output"><code>Привіт, Герміона!
+Привіт, Гаррі!
+Привіт, Рон!</code></pre>
+<p>Тепер трошки ускладнимо задачу. Припустимо, що ми хочемо виводити привітання у алфавітному порядку. Для цього нам необхідно відсортувати список імен. Для цього ми можемо використати функцію <code>sorted</code>, яка повертає відсортований список. Давайте перепишемо нашу програму з використанням функції:</p>
+<div id="io-names-list-file-read-sort-eval" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>names <span class="op">=</span> []</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'names.txt'</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>        names.append(line.rstrip())</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name <span class="kw">in</span> <span class="bu">sorted</span>(names):</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre class="output"><code>Привіт, Гаррі!
+Привіт, Герміона!
+Привіт, Рон!</code></pre>
+<p>Ми можемо зробити цю програму більш компактною. Для цього ми можемо відсортувати сам файл:</p>
+<div id="io-names-list-file-read-sort-eval-2" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'names.txt'</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">sorted</span>(<span class="bu">file</span>):</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>line<span class="sc">.</span>rstrip()<span class="sc">}</span><span class="ss">!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre class="output"><code>Привіт, Гаррі!
+Привіт, Герміона!
+Привіт, Рон!</code></pre>
+<p>Для зворотного сортування ми можемо використати параметр <code>reverse</code> функції <code>sorted</code>:</p>
+<div id="io-names-list-file-read-sort-reverse-eval" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'names.txt'</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">sorted</span>(<span class="bu">file</span>, reverse<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>line<span class="sc">.</span>rstrip()<span class="sc">}</span><span class="ss">!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre class="output"><code>Привіт, Рон!
+Привіт, Герміона!
+Привіт, Гаррі!</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Документація до функції <code>sorted</code>: <a href="https://docs.python.org/3/library/functions.html#sorted" class="uri">https://docs.python.org/3/library/functions.html#sorted</a></p>
+</div>
+</div>
 
 
 </section>
