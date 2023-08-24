@@ -348,6 +348,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <li><a href="#контекстний-менеджер" id="toc-контекстний-менеджер" class="nav-link" data-scroll-target="#контекстний-менеджер"><span class="header-section-number">7.2</span> Контекстний менеджер</a></li>
   <li><a href="#читання-даних" id="toc-читання-даних" class="nav-link" data-scroll-target="#читання-даних"><span class="header-section-number">7.3</span> Читання даних</a></li>
   <li><a href="#файли-csv" id="toc-файли-csv" class="nav-link" data-scroll-target="#файли-csv"><span class="header-section-number">7.4</span> Файли csv</a></li>
+  <li><a href="#анонімні-функції" id="toc-анонімні-функції" class="nav-link" data-scroll-target="#анонімні-функції"><span class="header-section-number">7.5</span> Анонімні функції</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_files_io.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_files_io.qmd" class="toc-action">Переглянути код</a></p></div></div></nav>
     </div>
@@ -773,9 +774,29 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Зверніть увагу, що в якості аргументу <code>key</code> функції <code>sorted</code> ми передаємо не функцію <code>get_house</code>, <strong>без дужок</strong>. Це тому, що ми передаємо функцію, а не викликаємо її.</p>
+<p>Зверніть увагу, що в якості аргументу <code>key</code> функції <code>sorted</code> ми передаємо функцію <code>get_house</code>, <strong>без дужок</strong>. Ми хочемо передати функцію, а не викликати її.</p>
 </div>
 </div>
+</section>
+<section id="анонімні-функції" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="анонімні-функції"><span class="header-section-number">7.5</span> Анонімні функції</h2>
+<p>У попередньому прикладі ми використовували функції <code>get_name</code> і <code>get_house</code>, які одразу використовуємо і більші ніколи до них не повертаємось. Ми можемо спростити цей код і використати <strong>анонімні функції</strong> (англ. <em>lambda functions</em>), які дозволяють нам визначити функцію в одному рядку. Давайте перепишемо нашу програму з використанням анонімних функцій:</p>
+<div id="io-csv-dict-sorted-eval-3" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'students.csv'</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>        name, house <span class="op">=</span> line.rstrip().split(<span class="st">','</span>)</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>        student_dict <span class="op">=</span> {<span class="st">'name'</span>: name, <span class="st">'house'</span>: house}</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>        students_lst.append(student_dict)</span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> student <span class="kw">in</span> <span class="bu">sorted</span>(students_lst, key<span class="op">=</span><span class="kw">lambda</span> student: student[<span class="st">'name'</span>]):</span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>student[<span class="st">"name"</span>]<span class="sc">}</span><span class="ss"> живе в гуртожитку </span><span class="sc">{</span>student[<span class="st">"house"</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre class="output"><code>Драко живе в гуртожитку Слизерин
+Гаррі живе в гуртожитку Гріфіндор
+Герміона живе в гуртожитку Гріфіндор
+Рон живе в гуртожитку Гріфіндор</code></pre>
 
 
 </section>

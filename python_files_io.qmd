@@ -489,6 +489,33 @@ for student in sorted(students_lst, key=get_house, reverse=True):
 Зверніть увагу, що в якості аргументу `key` функції `sorted` ми передаємо функцію `get_house`, **без дужок**. Ми хочемо передати функцію, а не викликати її.
 :::
 
+## Анонімні функції
+
+У попередньому прикладі ми використовували функції `get_name` і `get_house`, які одразу використовуємо і більші ніколи до них не повертаємось. Ми можемо спростити цей код і використати **анонімні функції** (англ. *lambda functions*), які дозволяють нам визначити функцію в одному рядку. Давайте перепишемо нашу програму з використанням анонімних функцій:
+
+```{python}
+#| label: io-csv-dict-sorted-eval-3
+#| eval: false
+
+students_lst = []
+
+with open('students.csv', 'r') as file:
+    for line in file:
+        name, house = line.rstrip().split(',')
+        student_dict = {'name': name, 'house': house}
+        students_lst.append(student_dict)
+
+for student in sorted(students_lst, key=lambda student: student['name']):
+    print(f'{student["name"]} живе в гуртожитку {student["house"]}')
+```
+
+```{.output}
+Драко живе в гуртожитку Слизерин
+Гаррі живе в гуртожитку Гріфіндор
+Герміона живе в гуртожитку Гріфіндор
+Рон живе в гуртожитку Гріфіндор
+```
+
 
 
 
