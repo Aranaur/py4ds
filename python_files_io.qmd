@@ -1,4 +1,4 @@
-# Введення/виведення файлів
+# Читання та запис файлів
 
 До цього часу більшість програм, які ми писали, просто зберігали всю інформацію в пам'яті, тобто в змінних або всередині самої програми. Недоліком цього є те, що як тільки програма завершує роботу, все, що ви ввели, все, що ви робили з цією програмою, втрачається.
 
@@ -745,10 +745,82 @@ name,home
 
 Давайте створимо анімоване GIF-зображення. Сьогодні такі файли зустрічаються скрізь у вигляді мемів, анімацій, наклейок тощо. Анімоване GIF-зображення -- це графічний файл, який містить кілька зображень всередині, а комп'ютер показує їх одне за одним, створюючи ефект анімації.
 
-Почнемо з одного статичного зображення:
+Почнемо з двох статичних зображень:
 
 ```{.bash filename="Terminal"}
 code costume1.gif
+code costume2.gif
 ```
 
-![](img/python/costume1.gif)
+::: {#fig-costume layout-ncol=2}
+
+![costume1.gif](img/python/costume1.gif){#fig-costume1}
+
+![costume2.gif](img/python/costume2.gif){#fig-costume2}
+
+Статичні зображення
+:::
+
+::: {.callout-note}
+Ці коти походять з мови програмування MIT під назвою Scratch.
+
+Посилання на зображення ви можете знайти у репозиторії: <https://github.com/Aranaur/py4ds/tree/main/img/python>
+:::
+
+Тепер створимо файл `costume.py`, який буде об'єднувати ці два зображення у анімацію:
+
+```{.bash filename="Terminal"}
+code costume.py
+```
+
+Для цього нам необхідно використати функцію `Image.open`, яка дозволяє відкрити зображення, а потім використати метод `save`, який дозволяє зберегти зображення у форматі GIF:
+
+```{python}
+#| label: io-gif-eval
+#| eval: false
+
+import sys
+from PIL import Image
+
+images_lst = []
+
+for arg in sys.argv[1:]:
+    image = Image.open(arg)
+    images_lst.append(image)
+
+images_lst[0].save(
+    'costume.gif',
+    save_all=True,
+    append_images=images_lst[1:],
+    duration=200,
+    loop=0)
+```
+
+```{python}
+#| label: io-gif-echo
+#| echo: false
+
+import glob
+from PIL import Image
+
+images_lst = []
+
+for filename in glob.glob('img/python/costume[1-2].gif'):
+    image = Image.open(filename)
+    images_lst.append(image)
+
+images_lst[0].save(
+    'img/python/costume.gif',
+    save_all=True,
+    append_images=images_lst[1:],
+    duration=200,
+    loop=0)
+```
+
+Відкриємо файл `costume.gif`:
+
+```{.bash filename="Terminal"}
+code costume.gif
+```
+
+![costume.gif](img/python/costume.gif){#fig-costume}
