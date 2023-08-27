@@ -8,7 +8,7 @@
 
 <meta name="description" content="Книга-конспект матеріалів">
 
-<title>Від нуля до Python Data Scientist - 8&nbsp; Множини</title>
+<title>Від нуля до Python Data Scientist - 9&nbsp; Множини</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./python_functions.html" rel="next">
-<link href="./python_files_io.html" rel="prev">
+<link href="./python_regex.html" rel="prev">
 <link href="./cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -122,7 +122,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python.html">Python</a></li><li class="breadcrumb-item"><a href="./python_list_set.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Множини</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python.html">Python</a></li><li class="breadcrumb-item"><a href="./python_list_set.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Множини</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -232,31 +232,37 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_files_io.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Файловий ввід/вивід</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Читання та запис файлів</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python_regex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Регулярні вирази</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_list_set.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Множини</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Множини</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Функції</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Функції</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Задачі</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Задачі</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_questions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Популярні питання</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Популярні питання</span></span></a>
   </div>
 </li>
       </ul>
@@ -274,55 +280,55 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Базові запити</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Базові запити</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_filter.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_agg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Агрегація даних</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Агрегація даних</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_groupby.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Групування даних</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Групування даних</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_subquery.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Підзапити</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Підзапити</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_join.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Об’єднання таблиць</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Об’єднання таблиць</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_window.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Віконні функції</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Віконні функції</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_analytic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Практичні задачі</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Практичні задачі</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_metrics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Аналіз продуктових метрик</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Аналіз продуктових метрик</span></span></a>
   </div>
 </li>
       </ul>
@@ -331,7 +337,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
   </div>
 </li>
     </ul>
@@ -344,15 +350,15 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
     <h2 id="toc-title">Зміст</h2>
    
   <ul>
-  <li><a href="#методи-множин" id="toc-методи-множин" class="nav-link active" data-scroll-target="#методи-множин"><span class="header-section-number">8.0.1</span> Методи множин</a></li>
-  <li><a href="#sec-frozenset" id="toc-sec-frozenset" class="nav-link" data-scroll-target="#sec-frozenset"><span class="header-section-number">8.0.2</span> Frozenset</a></li>
-  <li><a href="#корисні-функції" id="toc-корисні-функції" class="nav-link" data-scroll-target="#корисні-функції"><span class="header-section-number">8.1</span> Корисні функції</a>
+  <li><a href="#методи-множин" id="toc-методи-множин" class="nav-link active" data-scroll-target="#методи-множин"><span class="header-section-number">9.0.1</span> Методи множин</a></li>
+  <li><a href="#sec-frozenset" id="toc-sec-frozenset" class="nav-link" data-scroll-target="#sec-frozenset"><span class="header-section-number">9.0.2</span> Frozenset</a></li>
+  <li><a href="#корисні-функції" id="toc-корисні-функції" class="nav-link" data-scroll-target="#корисні-функції"><span class="header-section-number">9.1</span> Корисні функції</a>
   <ul class="collapse">
-  <li><a href="#range" id="toc-range" class="nav-link" data-scroll-target="#range"><span class="header-section-number">8.1.1</span> range()</a></li>
+  <li><a href="#range" id="toc-range" class="nav-link" data-scroll-target="#range"><span class="header-section-number">9.1.1</span> range()</a></li>
   </ul></li>
-  <li><a href="#sec-mutable-immutable" id="toc-sec-mutable-immutable" class="nav-link" data-scroll-target="#sec-mutable-immutable"><span class="header-section-number">8.2</span> Змінювані та незмінювані об’єкти</a></li>
-  <li><a href="#кортежі" id="toc-кортежі" class="nav-link" data-scroll-target="#кортежі"><span class="header-section-number">8.3</span> Кортежі</a></li>
-  <li><a href="#sec-list-zip" id="toc-sec-list-zip" class="nav-link" data-scroll-target="#sec-list-zip"><span class="header-section-number">8.4</span> Функція <code>zip()</code> для об’єднання послідовностей</a></li>
+  <li><a href="#sec-mutable-immutable" id="toc-sec-mutable-immutable" class="nav-link" data-scroll-target="#sec-mutable-immutable"><span class="header-section-number">9.2</span> Змінювані та незмінювані об’єкти</a></li>
+  <li><a href="#кортежі" id="toc-кортежі" class="nav-link" data-scroll-target="#кортежі"><span class="header-section-number">9.3</span> Кортежі</a></li>
+  <li><a href="#sec-list-zip" id="toc-sec-list-zip" class="nav-link" data-scroll-target="#sec-list-zip"><span class="header-section-number">9.4</span> Функція <code>zip()</code> для об’єднання послідовностей</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_list_set.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_list_set.qmd" class="toc-action">Переглянути код</a></p></div></div></nav>
     </div>
@@ -361,7 +367,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Множини</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Множини</span></h1>
 </div>
 
 
@@ -381,11 +387,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> {<span class="st">'apple'</span>, <span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>}</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruits)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'banana', 'apple', 'orange'}</code></pre>
+<pre><code>{'apple', 'banana', 'orange'}</code></pre>
 </div>
 </div>
-<section id="методи-множин" class="level3" data-number="8.0.1">
-<h3 data-number="8.0.1" class="anchored" data-anchor-id="методи-множин"><span class="header-section-number">8.0.1</span> Методи множин</h3>
+<section id="методи-множин" class="level3" data-number="9.0.1">
+<h3 data-number="9.0.1" class="anchored" data-anchor-id="методи-множин"><span class="header-section-number">9.0.1</span> Методи множин</h3>
 <ul>
 <li><code>add(element)</code> - додає елемент до множини. Наприклад:</li>
 </ul>
@@ -394,7 +400,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>fruits.add(<span class="st">'melon'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruits)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'melon', 'banana', 'apple', 'orange'}</code></pre>
+<pre><code>{'apple', 'banana', 'orange', 'melon'}</code></pre>
 </div>
 </div>
 <ul>
@@ -406,7 +412,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>fruits3 <span class="op">=</span> fruits.union(fruits2)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruits3)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'melon', 'banana', 'apple', 'orange', 'watermelon'}</code></pre>
+<pre><code>{'banana', 'orange', 'melon', 'apple', 'watermelon'}</code></pre>
 </div>
 </div>
 <ul>
@@ -428,7 +434,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>fruits_copy <span class="op">=</span> fruits.copy()</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruits_copy)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'banana', 'apple', 'orange'}</code></pre>
+<pre><code>{'apple', 'banana', 'orange'}</code></pre>
 </div>
 </div>
 <ul>
@@ -459,7 +465,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>fruits.discard(<span class="st">'watermelon'</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruits)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'banana', 'apple', 'orange'}</code></pre>
+<pre><code>{'apple', 'banana', 'orange'}</code></pre>
 </div>
 </div>
 <ul>
@@ -526,7 +532,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-py-list-set-08" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 8.1 </strong></span><br> Дано два списки <code>list_1</code> і <code>list_2</code>. Відсортуйте <code>list_1</code> за зростанням, а <code>list_2</code> за спаданням. Поєднайте <code>list_1</code> та <code>list_2</code> в один відсортований за зростанням список <code>list_3</code>. У змінну <code>list_3_len</code> збережіть довжину <code>list_3</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 9.1 </strong></span><br> Дано два списки <code>list_1</code> і <code>list_2</code>. Відсортуйте <code>list_1</code> за зростанням, а <code>list_2</code> за спаданням. Поєднайте <code>list_1</code> та <code>list_2</code> в один відсортований за зростанням список <code>list_3</code>. У змінну <code>list_3_len</code> збережіть довжину <code>list_3</code>.</p>
 <p><strong>Приклад:</strong></p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>list_1 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>]</span>
@@ -558,7 +564,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-py-list-set-10" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 8.2 </strong></span><br> У змінній <code>menu</code> зберігається множина усіх позицій меню кав’ярні, а в змінній <code>stop</code> - множина позицій меню кав’ярні, недоступних для замовлення сьогодні. Збережіть у змінну <code>menu_today</code> позиції меню, доступні для замовлення сьогодні.</p>
+<p><span class="theorem-title"><strong>Завдання 9.2 </strong></span><br> У змінній <code>menu</code> зберігається множина усіх позицій меню кав’ярні, а в змінній <code>stop</code> - множина позицій меню кав’ярні, недоступних для замовлення сьогодні. Збережіть у змінну <code>menu_today</code> позиції меню, доступні для замовлення сьогодні.</p>
 <p><strong>Приклад:</strong></p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>menu <span class="op">=</span> {<span class="st">'White Chocolate Mocha'</span>, <span class="st">'Americano'</span>, <span class="st">'Flat White'</span>, <span class="st">'Latte'</span>, </span>
@@ -593,7 +599,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-py-list-set-11" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 8.3 </strong></span><br> У змінній <code>my_set</code> множина (<code>set</code>) із чисел. У змінній <code>to_delete</code> число, яке потрібно видалити з <code>my_set</code>, якщо воно там є. Якщо такого числа немає в <code>my_set</code> нічого робити не треба.</p>
+<p><span class="theorem-title"><strong>Завдання 9.3 </strong></span><br> У змінній <code>my_set</code> множина (<code>set</code>) із чисел. У змінній <code>to_delete</code> число, яке потрібно видалити з <code>my_set</code>, якщо воно там є. Якщо такого числа немає в <code>my_set</code> нічого робити не треба.</p>
 <p><strong>Приклад:</strong></p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>my_set <span class="op">=</span> {<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">100</span>}</span>
@@ -629,7 +635,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-py-list-set-12" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 8.4 </strong></span><br> У <code>students</code> зберігається множина студентів. Студент, ім’я якого записано в <code>new_student</code>, з іншого інституту, його ім’я потрібно додати в <code>students</code>. У змінній <code>churn_student</code> - студент, який хоче перевестися до іншого інституту, його ім’я потрібно прибрати зі <code>students</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 9.4 </strong></span><br> У <code>students</code> зберігається множина студентів. Студент, ім’я якого записано в <code>new_student</code>, з іншого інституту, його ім’я потрібно додати в <code>students</code>. У змінній <code>churn_student</code> - студент, який хоче перевестися до іншого інституту, його ім’я потрібно прибрати зі <code>students</code>.</p>
 <p><strong>Приклад:</strong></p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> {<span class="st">'Крупін Владислав'</span>, <span class="st">'Крашеніннікова Олександра'</span>, <span class="st">"Михолап Мар'яна"</span>, <span class="st">'Дробина Юлія'</span>, <span class="st">'Алексєєва Віталіна'</span>}</span>
@@ -664,7 +670,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-py-list-set-13" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 8.5 </strong></span><br> У змінній <code>da_students</code> зберігаються імена студентів курсу “Аналітик даних”, а у змінній <code>dv_students</code> - імена студентів курсу “Візуалізація даних”. Збережіть у змінну <code>students</code> студентів, які навчаються на обох курсах.</p>
+<p><span class="theorem-title"><strong>Завдання 9.5 </strong></span><br> У змінній <code>da_students</code> зберігаються імена студентів курсу “Аналітик даних”, а у змінній <code>dv_students</code> - імена студентів курсу “Візуалізація даних”. Збережіть у змінну <code>students</code> студентів, які навчаються на обох курсах.</p>
 <p>Порядок елементів у <code>students</code> не має значення.</p>
 <p><strong>Приклад:</strong></p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
@@ -692,8 +698,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </section>
-<section id="sec-frozenset" class="level3" data-number="8.0.2">
-<h3 data-number="8.0.2" class="anchored" data-anchor-id="sec-frozenset"><span class="header-section-number">8.0.2</span> Frozenset</h3>
+<section id="sec-frozenset" class="level3" data-number="9.0.2">
+<h3 data-number="9.0.2" class="anchored" data-anchor-id="sec-frozenset"><span class="header-section-number">9.0.2</span> Frozenset</h3>
 <p>У множини теж є незмінний аналог. <strong>Frozenset</strong> - це незмінний набір об’єктів, він має ту ж функціональність, що і <code>set</code>, але його елементи не можуть бути змінені після створення.</p>
 <div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>my_frozenset <span class="op">=</span> <span class="bu">frozenset</span>([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
@@ -715,7 +721,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-py-list-set-07" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 8.6 </strong></span><br> - У змінній <code>numbers_list</code> збережено список із цілими числами. У списку щонайменше два різних цілих числа. - У змінну <code>numbers_list_ordered</code> збережіть усі числа зі списку <code>numbers_list</code>, відсортовані за спаданням. При цьому список <code>numbers_list</code> не повинен змінюватися. - У змінну <code>numbers_set</code> збережіть множину унікальних чисел зі списку <code>numbers_list</code>. Доповніть цю множину наступним цілим числом після максимального числа з <code>numbers_list</code>. - У змінну <code>numbers_frozenset</code> збережіть незмінну множину з усіх унікальних чисел зі списку <code>numbers_list</code>, крім мінімального числа.</p>
+<p><span class="theorem-title"><strong>Завдання 9.6 </strong></span><br> - У змінній <code>numbers_list</code> збережено список із цілими числами. У списку щонайменше два різних цілих числа. - У змінну <code>numbers_list_ordered</code> збережіть усі числа зі списку <code>numbers_list</code>, відсортовані за спаданням. При цьому список <code>numbers_list</code> не повинен змінюватися. - У змінну <code>numbers_set</code> збережіть множину унікальних чисел зі списку <code>numbers_list</code>. Доповніть цю множину наступним цілим числом після максимального числа з <code>numbers_list</code>. - У змінну <code>numbers_frozenset</code> збережіть незмінну множину з усіх унікальних чисел зі списку <code>numbers_list</code>, крім мінімального числа.</p>
 <p><strong>Приклад:</strong></p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Приклад 1</span></span>
@@ -755,8 +761,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </section>
-<section id="корисні-функції" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="корисні-функції"><span class="header-section-number">8.1</span> Корисні функції</h2>
+<section id="корисні-функції" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="корисні-функції"><span class="header-section-number">9.1</span> Корисні функції</h2>
 <p>Також давайте подивимося на різні функції, які допомагають нам працювати зі списками та множинами:</p>
 <ul>
 <li><code>len()</code> - повертає кількість елементів у списку або множині. Наприклад:</li>
@@ -841,8 +847,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <pre><code>[1, 2]</code></pre>
 </div>
 </div>
-<section id="range" class="level3" data-number="8.1.1">
-<h3 data-number="8.1.1" class="anchored" data-anchor-id="range"><span class="header-section-number">8.1.1</span> range()</h3>
+<section id="range" class="level3" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="range"><span class="header-section-number">9.1.1</span> range()</h3>
 <p>Функція <code>range()</code> дозволяє створити послідовність чисел.</p>
 <pre><code>range(start, stop, step)
 # start - з цього числа починаємо за замовчуванням 0
@@ -881,7 +887,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-py-list-set-02" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 8.7 </strong></span><br> У змінну <code>var_1</code> збережіть список з числами <strong>від -100 до 100 включно з кроком 1</strong>.</p>
+<p><span class="theorem-title"><strong>Завдання 9.7 </strong></span><br> У змінну <code>var_1</code> збережіть список з числами <strong>від -100 до 100 включно з кроком 1</strong>.</p>
 <p>У змінну var_2 збережіть список з числами <strong>від 250 до 0 включно з кроком 2</strong>.</p>
 <p>У змінну var_3 збережіть список з усіма <strong>непарними числами від 100 до 200</strong>.</p>
 <div class="cell" data-execution_count="34">
@@ -906,7 +912,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-py-list-set-03" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 8.8 </strong></span><br> У змінних <code>a</code> та <code>b</code> зберігаються числа - початок і кінець діапазону. Напишіть програму, яка поверне суму всіх чисел із цього діапазону. Збережіть значення змінної <code>result</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 9.8 </strong></span><br> У змінних <code>a</code> та <code>b</code> зберігаються числа - початок і кінець діапазону. Напишіть програму, яка поверне суму всіх чисел із цього діапазону. Збережіть значення змінної <code>result</code>.</p>
 <p><strong>Приклад:</strong></p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
@@ -927,8 +933,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </section>
 </section>
-<section id="sec-mutable-immutable" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="sec-mutable-immutable"><span class="header-section-number">8.2</span> Змінювані та незмінювані об’єкти</h2>
+<section id="sec-mutable-immutable" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="sec-mutable-immutable"><span class="header-section-number">9.2</span> Змінювані та незмінювані об’єкти</h2>
 <p>Настав час розібратися з досить складною для початківців концепцією змінних і незмінних об’єктів у Python. Ми вже знаємо, що можемо змінювати створені списки, наприклад, замінити або видалити один із елементів у списку. Однак ця особливість списку, його змінність призводить до несподіваних на перший погляд наслідків:</p>
 <div class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># збережемо список у змінну my_list_1</span></span>
@@ -997,8 +1003,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <p>А ось вже знайомі нам числа <code>int</code> і <code>float</code>, рядки та логічні значення - це незмінні об’єкти. Тобто після створення об’єкта не можна змінити його значення, лише створити новий об’єкт із зміненим значенням.</p>
 </section>
-<section id="кортежі" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="кортежі"><span class="header-section-number">8.3</span> Кортежі</h2>
+<section id="кортежі" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="кортежі"><span class="header-section-number">9.3</span> Кортежі</h2>
 <p>Незважаючи на деякі підводні камені, можливість змінювати списки та множини робить їх дуже зручними структурами для роботи. У процесі виконання програми ми можемо додавати, змінювати чи видаляти елементи.</p>
 <p>Іноді можуть виникнути ситуації, коли хочемо зберігати набір елементів без можливості змінювати його. Тому у списків існує їхній незмінний аналог - <strong>кортежі</strong> (<code>tuple</code>). Кортежі створюються за допомогою круглих дужок <code>()</code>, а елементи розділені комами. Кортежі не можна змінювати після створення, тобто не можна додавати, видаляти чи змінювати елементи в кортежі. Тому кортежі краще використовувати, коли треба зберігати значення, які не змінюватимуться. Наприклад, назви місяців:</p>
 <div class="cell" data-execution_count="41">
@@ -1036,7 +1042,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-py-list-set-06" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 8.9 </strong></span><br> Створіть кортеж із назвами днів тижня та збережіть його у змінну <code>days_of_the_week</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 9.9 </strong></span><br> Створіть кортеж із назвами днів тижня та збережіть його у змінну <code>days_of_the_week</code>.</p>
 <pre><code>'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'</code></pre>
 <div class="cell" data-execution_count="43">
 <details>
@@ -1048,8 +1054,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </section>
-<section id="sec-list-zip" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="sec-list-zip"><span class="header-section-number">8.4</span> Функція <code>zip()</code> для об’єднання послідовностей</h2>
+<section id="sec-list-zip" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="sec-list-zip"><span class="header-section-number">9.4</span> Функція <code>zip()</code> для об’єднання послідовностей</h2>
 <p>Дуже часто нам доводиться працювати одразу з двома наборами даних, наприклад, з двома списками або множинами. Функція <code>zip()</code> у Python об’єднує елементи з декількох послідовностей. Давайте розглянемо приклад:</p>
 <div class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
@@ -1426,13 +1432,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./python_files_io.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Файловий ввід/вивід</span></span>
+      <a href="./python_regex.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Регулярні вирази</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./python_functions.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Функції</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Функції</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

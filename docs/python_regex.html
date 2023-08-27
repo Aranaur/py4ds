@@ -8,7 +8,7 @@
 
 <meta name="description" content="Книга-конспект матеріалів">
 
-<title>Від нуля до Python Data Scientist - 11&nbsp; Задачі</title>
+<title>Від нуля до Python Data Scientist - 8&nbsp; Регулярні вирази</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./python_questions.html" rel="next">
-<link href="./python_functions.html" rel="prev">
+<link href="./python_list_set.html" rel="next">
+<link href="./python_files_io.html" rel="prev">
 <link href="./cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -122,7 +122,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python.html">Python</a></li><li class="breadcrumb-item"><a href="./python_exercises.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Задачі</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python.html">Python</a></li><li class="breadcrumb-item"><a href="./python_regex.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Регулярні вирази</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -237,7 +237,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./python_regex.html" class="sidebar-item-text sidebar-link">
+  <a href="./python_regex.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Регулярні вирази</span></span></a>
   </div>
 </li>
@@ -255,7 +255,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./python_exercises.html" class="sidebar-item-text sidebar-link active">
+  <a href="./python_exercises.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Задачі</span></span></a>
   </div>
 </li>
@@ -346,14 +346,20 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Зміст</h2>
+   
+  <ul>
+  <li><a href="#бібліотека-re" id="toc-бібліотека-re" class="nav-link active" data-scroll-target="#бібліотека-re"><span class="header-section-number">8.1</span> Бібліотека <code>re</code></a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_regex.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_regex.qmd" class="toc-action">Переглянути код</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Задачі</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Регулярні вирази</span></h1>
 </div>
 
 
@@ -367,178 +373,146 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   
 
 </header>
-
-<p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p><div class="callout callout-style-default callout-note no-icon callout-titled">
+<p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p>
+<p><strong>Регулярні вирази</strong> (англ. <em>regular expressions</em>, <em>regexes</em>) - це патерни, які використовуються для знаходження певних комбінацій символів у тексті. Наприклад, якщо користувач вводить адресу електронної пошти у вашій програмі, на веб-сайті або в додатку на телефоні, в ідеалі ви хочете мати можливість перевірити, що він дійсно ввів адресу електронної пошти, а не щось інше. Використовуючи регулярні вирази, ми можемо перевірити, чи відповідає введений текст певному формату. Це дуже корисно, оскільки ви можете використовувати регулярні вирази для перевірки введення користувача, або для пошуку певних комбінацій символів у тексті.</p>
+<p>Вони дуже потужні, але в той же час достатньо складні. Якщо ви вперше з ними зіткнулися, то вони здаються дуже незрозумілими. Але якщо ви вже з ними працювали, то ви не зможете без них.</p>
+<p>Для початку розглянемо декілька задач і спробуємо їх вирішити використовуючи більш простий синтаксис, і подивитися, з якими обмеженнями ми зіткнемося.</p>
+<p>Створимо файл <code>validate.py</code> метою якого є перевірка адреси електронної пошти користувача.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> validate.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Напишемо просту програму, яка буде приймати від користувача адресу електронної пошти і перевіряти, чи вона відповідає певному формату. Одразу використаємо метод <code>strip()</code> для видалення зайвих пробілів з початку і кінця рядка. Але як перевірити, що введене значення дійсно є валідним для електронної пошти? Перша ідея, яка з’являється - це перевірити, чи введений текст містить символ <code>@</code>. Якщо так, то ми можемо припустити, що це адреса електронної пошти. Давайте спробуємо це зробити:</p>
+<div id="validate-eval-at" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>email <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Введіть email: "</span>).strip()</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"@"</span> <span class="kw">in</span> email:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Валідна адреса електронної пошти"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Невалідна адреса електронної пошти"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: ihor.miroshnychenko@kneu.ua</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Валідна</span> адреса електронної пошти</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Зрозуміло, що така програма не є ідеальною, оскільки ми можемо ввести тільки один або декілька символів <code>@</code> і програма буде пропускати такі випадки.</p>
+<p>Наступна ідея - це додати додаткову перевірку, що введений текст містить символ <code>.</code>. Якщо так, то ми можемо припустити, що це адреса електронної пошти. Давайте спробуємо це зробити:</p>
+<div id="validate-eval-dot" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>email <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Введіть email: "</span>).strip()</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"@"</span> <span class="kw">in</span> email <span class="kw">and</span> <span class="st">"."</span> <span class="kw">in</span> email:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Валідна адреса електронної пошти"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Невалідна адреса електронної пошти"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: @.</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Валідна</span> адреса електронної пошти</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Програма все ще не ідеальна. Давайте припустимо, що крапка може бути тільки після символа <code>@</code>. Для цього ми можемо поділити введений рядок на дві частини, використовуючи метод <code>split()</code> і перевірити, що друга частина містить крапку. Давайте спробуємо це зробити:</p>
+<div id="validate-eval-split" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>email <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Введіть email: "</span>).strip()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>username, domain <span class="op">=</span> email.split(<span class="st">"@"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> username <span class="kw">and</span> <span class="st">"."</span> <span class="kw">in</span> domain:</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Валідна адреса електронної пошти"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Невалідна адреса електронної пошти"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: miroshnychenko@kneu</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Невалідна</span> адреса електронної пошти</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Тепер давайте звузимо сферу застосування цієї програми і будемо шукати валідні адреси українських навчальних закладів, які мають домен <code>.edu.ua</code>. Для цього ми можемо використати метод <code>endswith()</code>:</p>
+<div id="validate-eval-endswith" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>email <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Введіть email: "</span>).strip()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>username, domain <span class="op">=</span> email.split(<span class="st">"@"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> username <span class="kw">and</span> domain.endswith(<span class="st">".edu.ua"</span>):</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Валідна адреса електронної пошти"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Невалідна адреса електронної пошти"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: miroshnychenko.ihor@kneu.edu.ua</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Валідна</span> адреса електронної пошти</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: miroshnychenko.ihor@.edu.ua</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Валідна</span> адреса електронної пошти</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ми можемо продовжувати роботу над цією програмою. В кінцевому підсумку нам доведеться писати багато коду, просто щоб валідувати адресу електронної пошти.</p>
+<section id="бібліотека-re" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="бібліотека-re"><span class="header-section-number">8.1</span> Бібліотека <code>re</code></h2>
+<p>В Python є бібліотека для регулярних виразів, яка лаконічно називається <code>re</code>. В ній є багато можливостей для визначення, перевірки і заміни шаблонів.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div id="exr-py-exr-01" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 11.1 </strong></span><br> Давайте уявимо, що у нас є місто, 5 на 5 районів, кожен район - це квадрат зі стороною 1. Частина районів являє собою річку - 0, частина землю - 1. Тоді ми могли б зберегти карту такого міста, використовуючи список зі списків:</p>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>city_map_list <span class="op">=</span> [</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>], </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>],</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>],</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>],</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>І ось такий би вигляд мало наше місто:</p>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sns.heatmap(np.array(city_map_list), cmap<span class="op">=</span><span class="st">'YlGnBu_r'</span>, cbar<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="python_exercises_files/figure-html/cell-3-output-1.png" width="562" height="411"></p>
+<p>Документація до бібліотеки <code>re</code> доступна за посиланням <a href="https://docs.python.org/3/library/re.html" class="uri">https://docs.python.org/3/library/re.html</a>.</p>
 </div>
 </div>
-<p>Як на уроках геометрії, ми могли б розташувати наше місто на координатах <code>x</code> і <code>y</code>. Для запису координат будемо використовувати формат <code>(x, y)</code>. Район у верхньому лівому кутку має координати (0, 0) <code>city_map[0][0]</code>. А правий нижній район мав би координати (4, 4) <code>city_map[4][4]</code>. Таким чином кожен район закодований двома індексами, які відповідають його координатам. Наприклад, район (0, 2) це земля <code>city_map[2][0]</code>, а район (3, 4) вода <code>city_map[4][3]</code>.</p>
-<p>Таким чином, щоб отримати значення карти за індексами <code>x</code> і <code>y</code>, потрібно використовувати запис: <code>city_map[y][x]</code></p>
-<p>Сподіваюся, ми розібралися, як можна закодувати карту міста за допомогою списку зі списків, і тепер вирушаймо у справжній мегаполіс 100 на 100. У нашому місті є велика річка з 4-ма мостами. Карта міста також закодована за допомогою списку зі списків. Щоб завантажити карту на ваш комп’ютер, виконайте наступний код:</p>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>url<span class="op">=</span><span class="st">'https://raw.githubusercontent.com/Aranaur/py4ds/main/00_data/python/city_map.csv'</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url, names<span class="op">=</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">1</span>)))</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>city_map_list <span class="op">=</span> df.values.tolist()</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>sns.heatmap(np.array(city_map_list), cmap<span class="op">=</span><span class="st">'YlGnBu_r'</span>, cbar<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="python_exercises_files/figure-html/cell-4-output-1.png" width="570" height="420"></p>
-</div>
-</div>
-<p>Тепер у змінній <code>city_map_list</code> список зі списків 100 на 100 - карта міста. Нещодавно в місті запустилася служба доставки, але кур’єри скаржаться, що через складну географію мостів і вулиць важко знайти дорогу. Тому нам потрібно написати програму для навігатора.</p>
-<p><strong>Завдання:</strong></p>
-<p>У змінних <code>courier_location</code>, <code>orders_location</code>, <code>city_map_list</code> збережені позиції кур’єра, координати доставок і карта міста.</p>
+<p>Почнемо з однієї з найбільш універсальних функцій пошуку:</p>
+<p><code>re.search(pattern, string, flags=0)</code>:</p>
 <ul>
-<li><code>courier_location</code> - кортеж із двох цілих чисел. Координати стартового місця розташування кур’єра у форматі <code>(x, y)</code>. Де <code>x</code> і <code>y</code> - це цілі числа від 0 до 99.</li>
+<li><code>pattern</code> - регулярний вираз, який ми шукаємо</li>
+<li><code>string</code> - рядок, в якому ми шукаємо</li>
+<li><code>flags</code> - додаткові флаги, які визначають поведінку функції</li>
 </ul>
-<p>Приклад: <code>courier_location = (10, 10)</code></p>
-<ul>
-<li><code>orders_location</code> - список щонайменше з одного кортежу з координатами. Координати, за якими кур’єр має доставити замовлення. У списку зберігається довільне число кортежів з координатами точок призначення, які повинен відвідати кур’єр.</li>
-</ul>
-<p>Приклад: <code>orders_location = [(1, 1), (92, 13), (46, 33)]</code></p>
-<ul>
-<li><code>city_map_list</code> - список зі списків 100 на 100, карта міста, яку ми завантажили вище.</li>
-</ul>
-<p>Вам відомо місце розташування кур’єра, набір координат місць призначення і карта міста. Тепер потрібно написати скрипт, який створить змінну <code>route</code> і збереже в неї маршрут, за яким має пройти кур’єр, щоб рознести всі доставки. Під час формування маршруту необхідно виконати такі умови:</p>
-<ol type="1">
-<li>Маршрут має проходити тільки по землі, по воді ходити не можна.</li>
-<li>Кур’єри можуть переміщатися на один крок із поточного району вправо, вліво, вниз або вгору.</li>
-<li>Маршрут має бути збережений у список, де кожен елемент - це кортеж з координатами кожного кроку кур’єра.</li>
-<li>Кур’єр проходить один крок за 10 хвилин і може доставляти замовлення в будь-якому порядку.</li>
-</ol>
-<p><strong>Приклад роботи навігатора на нашому місті 5 на 5:</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>city_map_list <span class="op">=</span> [</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>], </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>],</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>],</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>],</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>]</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>courier_location <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">2</span>) <span class="co"># стартова позиція кур'єра</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>orders_location <span class="op">=</span> [(<span class="dv">4</span>, <span class="dv">0</span>), (<span class="dv">0</span>, <span class="dv">2</span>), (<span class="dv">4</span>, <span class="dv">3</span>)] <span class="co"># координати для доставки трьох товарів</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>route <span class="op">=</span> [</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span>, <span class="dv">2</span>),</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>(<span class="dv">4</span>, <span class="dv">2</span>),</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>(<span class="dv">4</span>, <span class="dv">1</span>),</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>(<span class="dv">4</span>, <span class="dv">0</span>), <span class="co"># адреса доставки</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>(<span class="dv">4</span>, <span class="dv">1</span>),</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>(<span class="dv">4</span>, <span class="dv">2</span>),</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span>, <span class="dv">2</span>),</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span>, <span class="dv">2</span>),</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>, <span class="dv">2</span>),</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>, <span class="dv">2</span>), <span class="co"># адреса доставки</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>, <span class="dv">2</span>),</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span>, <span class="dv">2</span>),</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span>, <span class="dv">2</span>),</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>(<span class="dv">4</span>, <span class="dv">2</span>),</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>(<span class="dv">4</span>, <span class="dv">3</span>) <span class="co"># адреса доставки</span></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-execution_count="4">
-<details>
-<summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Імпортуємо чергу</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> deque</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Функція для пошуку маршруту</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_path(city_map, start, end):</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Створюємо масив відвіданих позицій</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    visited <span class="op">=</span> [[<span class="va">False</span> <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(city_map[<span class="dv">0</span>]))] <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(city_map))]</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Створюємо чергу, яка містить поточну позицію та маршрут</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    queue <span class="op">=</span> deque([(start, [])])</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Поки черга не пуста - шукаємо маршрут</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> queue:</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Беремо перший елемент з черги</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        current, path <span class="op">=</span> queue.popleft()</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Розпаковуємо координати поточної позиції</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        x, y <span class="op">=</span> current</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Якщо поточна позиція - ціль, то повертаємо маршрут</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> current <span class="op">==</span> end:</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Додаємо останню позицію до маршруту</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> path <span class="op">+</span> [end]</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Якщо поточна позиція не належить межам міста, або її вже відвідали, то пропускаємо</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">0</span> <span class="kw">or</span> x <span class="op">&gt;=</span> <span class="bu">len</span>(city_map[<span class="dv">0</span>]) <span class="kw">or</span> y <span class="op">&lt;</span> <span class="dv">0</span> <span class="kw">or</span> y <span class="op">&gt;=</span> <span class="bu">len</span>(city_map) <span class="kw">or</span> city_map[y][x] <span class="op">==</span> <span class="dv">0</span> <span class="kw">or</span> visited[y][x]:</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Позначаємо поточну позицію як відвідану</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        visited[y][x] <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Додаємо можливі наступні позиції до черги</span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>        queue.append(((x <span class="op">+</span> <span class="dv">1</span>, y), path <span class="op">+</span> [current]))</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        queue.append(((x <span class="op">-</span> <span class="dv">1</span>, y), path <span class="op">+</span> [current]))</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>        queue.append(((x, y <span class="op">+</span> <span class="dv">1</span>), path <span class="op">+</span> [current]))</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>        queue.append(((x, y <span class="op">-</span> <span class="dv">1</span>), path <span class="op">+</span> [current]))</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Якщо маршрут не знайдено, повертаємо None</span></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Вхідні дані</span></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>route <span class="op">=</span> []</span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Початкова позиція кур'єра</span></span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>courier_location <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">87</span>) </span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Координати замовлень</span></span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>orders_location <span class="op">=</span> [(<span class="dv">83</span>, <span class="dv">38</span>), (<span class="dv">94</span>, <span class="dv">56</span>), (<span class="dv">72</span>, <span class="dv">75</span>), (<span class="dv">74</span>, <span class="dv">64</span>), (<span class="dv">62</span>, <span class="dv">15</span>), (<span class="dv">83</span>, <span class="dv">99</span>), (<span class="dv">84</span>, <span class="dv">25</span>), (<span class="dv">66</span>, <span class="dv">7</span>), (<span class="dv">71</span>, <span class="dv">41</span>), (<span class="dv">2</span>, <span class="dv">40</span>)]</span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Перебираємо всі замовлення та шукаємо маршрут до кожної з них</span></span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> order <span class="kw">in</span> orders_location:</span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Знаходимо маршрут до наступної доставки</span></span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>    path <span class="op">=</span> find_path(city_map_list, courier_location, order)</span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Якщо маршрут не знайдено, виводимо повідомлення та завершуємо роботу</span></span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> path <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Route not found"</span>)</span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Додаємо маршрут до списку маршрутів</span></span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>    route.extend(path)</span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Поточна позиція - остання позиція маршруту</span></span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>    current_position <span class="op">=</span> order</span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span></span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>    route.append(order)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<p>Ця функція повертає об’єкт, який містить інформацію про знайдений шаблон. Якщо шаблон не знайдено, то функція повертає <code>None</code>.</p>
+<p>Давайте спробуємо переписати нашу програму використовуючи функцію <code>re.search()</code>:</p>
+<div id="validate-re-search" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>email <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Введіть email: "</span>).strip()</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> re.search(<span class="st">"@"</span>, email):</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Валідна адреса електронної пошти"</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Невалідна адреса електронної пошти"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
 </div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: miroshnychenko.ihor@kneu.edu.ua</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Валідна</span> адреса електронної пошти</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: @</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Валідна</span> адреса електронної пошти</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
+<p>Цей варіант програми працює так само, як і наш перший варіант, але вже з використанням пакету <code>re</code>.</p>
 
 
+</section>
 
 <p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -893,13 +867,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./python_functions.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Функції</span></span>
+      <a href="./python_files_io.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Читання та запис файлів</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./python_questions.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Популярні питання</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./python_list_set.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Множини</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -907,4 +881,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_exercises.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_exercises.qmd" class="toc-action">Переглянути код</a></p></div></div></div></div></footer></body></html>
+</body></html>

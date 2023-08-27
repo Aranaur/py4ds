@@ -44,6 +44,7 @@ book:
       - python_libraries.qmd
       - python_unit_tests.qmd
       - python_files_io.qmd
+      - python_regex.qmd
       - python_list_set.qmd
       - python_functions.qmd
       - python_exercises.qmd
