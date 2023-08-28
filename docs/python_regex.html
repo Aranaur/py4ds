@@ -351,6 +351,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
    
   <ul>
   <li><a href="#бібліотека-re" id="toc-бібліотека-re" class="nav-link active" data-scroll-target="#бібліотека-re"><span class="header-section-number">8.1</span> Бібліотека <code>re</code></a></li>
+  <li><a href="#регулярні-вирази" id="toc-регулярні-вирази" class="nav-link" data-scroll-target="#регулярні-вирази"><span class="header-section-number">8.2</span> Регулярні вирази</a></li>
+  <li><a href="#початок-та-кінець-рядка" id="toc-початок-та-кінець-рядка" class="nav-link" data-scroll-target="#початок-та-кінець-рядка"><span class="header-section-number">8.3</span> Початок та кінець рядка</a></li>
+  <li><a href="#пошук-та-вилучення" id="toc-пошук-та-вилучення" class="nav-link" data-scroll-target="#пошук-та-вилучення"><span class="header-section-number">8.4</span> Пошук та вилучення</a></li>
+  <li><a href="#слова-та-цифри" id="toc-слова-та-цифри" class="nav-link" data-scroll-target="#слова-та-цифри"><span class="header-section-number">8.5</span> Слова та цифри</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_regex.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_regex.qmd" class="toc-action">Переглянути код</a></p></div></div></nav>
     </div>
@@ -398,7 +402,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <pre><strong>Terminal</strong></pre>
 </div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: ihor.miroshnychenko@kneu.ua</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: miroshnychenko@kneu.ua</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Валідна</span> адреса електронної пошти</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Зрозуміло, що така програма не є ідеальною, оскільки ми можемо ввести тільки один або декілька символів <code>@</code> і програма буде пропускати такі випадки.</p>
@@ -454,11 +458,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <pre><strong>Terminal</strong></pre>
 </div>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: miroshnychenko.ihor@kneu.edu.ua</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: miroshnychenko@kneu.edu.ua</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Валідна</span> адреса електронної пошти</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: miroshnychenko.ihor@.edu.ua</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: miroshnychenko@.edu.ua</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Валідна</span> адреса електронної пошти</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Ми можемо продовжувати роботу над цією програмою. В кінцевому підсумку нам доведеться писати багато коду, просто щоб валідувати адресу електронної пошти.</p>
@@ -502,7 +506,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <pre><strong>Terminal</strong></pre>
 </div>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: miroshnychenko.ihor@kneu.edu.ua</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: miroshnychenko@kneu.edu.ua</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Валідна</span> адреса електронної пошти</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
@@ -510,6 +514,399 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Валідна</span> адреса електронної пошти</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Цей варіант програми працює так само, як і наш перший варіант, але вже з використанням пакету <code>re</code>.</p>
+</section>
+<section id="регулярні-вирази" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="регулярні-вирази"><span class="header-section-number">8.2</span> Регулярні вирази</h2>
+<p>Повернемось до нашого прикладу з пошуком адреси електронної пошти українського навчального закладу. Нам треба уточнити потер пошуку: ліворуч від символа <code>@</code> може бути певний запис, праворуч від символа <code>@</code> має бути також якийсь запис, який закінчується на <code>.edu.ua</code>. Для цього існує ряд спеціальних символів, які дозволяють визначити певні шаблони:</p>
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 50%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Регулярний вираз</strong></th>
+<th style="text-align: left;"><strong>Опис</strong></th>
+<th><strong>Приклади</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>.</code></td>
+<td style="text-align: left;">Будь-який символ</td>
+<td><code>a.b</code> відповідає “acb”, “a1b”, “a#b”</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>*</code></td>
+<td style="text-align: left;">0 або більше повторень попереднього символу</td>
+<td><code>ab*c</code> відповідає “ac”, “abc”, “abbc”</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>+</code></td>
+<td style="text-align: left;">1 або більше повторень попереднього символу</td>
+<td><code>ab+c</code> відповідає “abc”, “abbc”, але не “ac”</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>?</code></td>
+<td style="text-align: left;">0 або 1 повторення попереднього символу</td>
+<td><code>colou?r</code> відповідає “color” і “colour”</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>{n}</code></td>
+<td style="text-align: left;">Рівно <code>n</code> повторень попереднього символу</td>
+<td><code>a{3}b</code> відповідає “aaab”</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>{n, m}</code></td>
+<td style="text-align: left;">Від <code>n</code> до <code>m</code> повторень попереднього символу</td>
+<td><code>a{2,4}b</code> відповідає “aab”, “aaab” і “aaaab”</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>{n,}</code></td>
+<td style="text-align: left;">Від <code>n</code> повторень попереднього символу</td>
+<td><code>a{2,}b</code> відповідає “aab”, “aaab”, “aaaab” і так далі</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>^</code></td>
+<td style="text-align: left;">Початок рядка</td>
+<td><code>^start</code> відповідає, якщо рядок починається з “start”</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>$</code></td>
+<td style="text-align: left;">Кінець рядка</td>
+<td><code>end$</code> відповідає, якщо рядок закінчується на “end”</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>[]</code></td>
+<td style="text-align: left;">Набір символів</td>
+<td><code>[aeiou]</code> відповідає будь-якому голосному символу</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>[^]</code></td>
+<td style="text-align: left;">Набір символів, які не повинні зустрічатися</td>
+<td><code>[^0-9]</code> відповідає будь-якому символу, крім цифр</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>\|</code></td>
+<td style="text-align: left;">Або</td>
+<td><code>cat|dog</code> відповідає “cat” або “dog”</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>()</code></td>
+<td style="text-align: left;">Група символів</td>
+<td><code>(ab)+</code> відповідає “ab”, “abab”, “ababab” і так далі</td>
+</tr>
+</tbody>
+</table>
+<p>Давайте спробуємо переписати нашу програму використовуючи функцію <code>re.search()</code> і регулярний вираз:</p>
+<div id="validate-re-search-edu-ua" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>email <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Введіть email: "</span>).strip()</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> re.search(<span class="st">".*@.*"</span>, email):</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Валідна адреса електронної пошти"</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Невалідна адреса електронної пошти"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Комп’ютер використовує свого роду машину, реалізовану в програмному забезпеченні, відомому як <strong>скінченний автомат</strong> (англ. <em>finite state machine</em>) або <strong>недетермінований скінченний автомат</strong>. Візуально це можна зобразити так:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 238.67 92.19" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(0.666667 0.666667) rotate(0) translate(4 88.19)">
+<title>
+finite_state_machine
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-88.19 234.67,-88.19 234.67,4 -4,4"></polygon> <!-- q2 --> <g id="node1" class="node">
+<title>
+q2
+</title>
+<ellipse fill="none" stroke="black" cx="205.97" cy="-24.69" rx="20.86" ry="20.86"></ellipse> <ellipse fill="none" stroke="black" cx="205.97" cy="-24.69" rx="24.89" ry="24.89"></ellipse> <text text-anchor="middle" x="205.97" y="-20.49" font-family="Times,serif" font-size="14.00">q2</text> </g> <!-- q2&#45;&gt;q2 --> <g id="edge4" class="edge">
+<title>
+q2-&gt;q2
+</title>
+<path fill="none" stroke="black" d="M197.11,-47.97C196.27,-58.38 199.22,-67.39 205.97,-67.39 210.3,-67.39 213.06,-63.69 214.27,-58.3"></path> <polygon fill="black" stroke="black" points="217.78,-58.14 214.83,-47.97 210.79,-57.76 217.78,-58.14"></polygon> <text text-anchor="middle" x="205.97" y="-71.59" font-family="Times,serif" font-size="14.00">.</text> </g> <!-- start --> <g id="node2" class="node">
+<title>
+start
+</title>
+<text text-anchor="middle" x="27" y="-20.49" font-family="Times,serif" font-size="14.00">start</text> </g> <!-- q1 --> <g id="node3" class="node">
+<title>
+q1
+</title>
+<ellipse fill="none" stroke="black" cx="111.69" cy="-24.69" rx="20.89" ry="20.89"></ellipse> <text text-anchor="middle" x="111.69" y="-20.49" font-family="Times,serif" font-size="14.00">q1</text> </g> <!-- start&#45;&gt;q1 --> <g id="edge1" class="edge">
+<title>
+start-&gt;q1
+</title>
+<path fill="none" stroke="black" d="M54.16,-24.69C62.64,-24.69 72.11,-24.69 80.83,-24.69"></path> <polygon fill="black" stroke="black" points="80.99,-28.19 90.99,-24.69 80.99,-21.19 80.99,-28.19"></polygon> </g> <!-- q1&#45;&gt;q2 --> <g id="edge2" class="edge">
+<title>
+q1-&gt;q2
+</title>
+<path fill="none" stroke="black" d="M132.72,-24.69C143.82,-24.69 157.92,-24.69 170.72,-24.69"></path> <polygon fill="black" stroke="black" points="171.06,-28.19 181.06,-24.69 171.06,-21.19 171.06,-28.19"></polygon> <text text-anchor="middle" x="156.83" y="-28.89" font-family="Times,serif" font-size="14.00">@</text> </g> <!-- q1&#45;&gt;q1 --> <g id="edge3" class="edge">
+<title>
+q1-&gt;q1
+</title>
+<path fill="none" stroke="black" d="M104.78,-44.6C103.82,-54.53 106.13,-63.39 111.69,-63.39 115.17,-63.39 117.38,-59.93 118.31,-54.91"></path> <polygon fill="black" stroke="black" points="121.82,-54.7 118.61,-44.6 114.82,-54.5 121.82,-54.7"></polygon> <text text-anchor="middle" x="111.69" y="-67.59" font-family="Times,serif" font-size="14.00">.</text> </g> </g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<p>Функція <code>re.search()</code> у стартовому стані, потім вона зчитує електронну адресу користувача зліва направо і вирішує, чи залишатися в цьому першому стані (<code>q1</code>), чи переходити в наступний (<code>q2</code>) за умови наявності символу <code>@</code>. Далі комп’ютер перевірить, чи дійшов він до кінцевого стану, який зображено подвійними колами. Це означає, що якщо комп’ютер опинився у другому стані прийняття після того, як прочитав увесь введений користувачем текст, то введена електронна адреса є дійсною.</p>
+<p>Ми можемо переписати нашу програму з використанням регулярного виразу <code>.+</code>, який означає “один або більше будь-яких символів”:</p>
+<div id="validate-re-search-edu-ua-2" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>email <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Введіть email: "</span>).strip()</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> re.search(<span class="st">".+@.+"</span>, email):</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Валідна адреса електронної пошти"</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Невалідна адреса електронної пошти"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>В такому випадку візуалізація недетермінованого скінченного автомату буде наступна:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 400.44 92.19" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(0.777778 0.777778) rotate(0) translate(4 88.19)">
+<title>
+finite_state_machine
+</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-88.19 396.44,-88.19 396.44,4 -4,4"></polygon> <!-- q4 --> <g id="node1" class="node">
+<title>
+q4
+</title>
+<ellipse fill="none" stroke="black" cx="367.75" cy="-24.69" rx="20.86" ry="20.86"></ellipse> <ellipse fill="none" stroke="black" cx="367.75" cy="-24.69" rx="24.89" ry="24.89"></ellipse> <text text-anchor="middle" x="367.75" y="-20.49" font-family="Times,serif" font-size="14.00">q4</text> </g> <!-- q4&#45;&gt;q4 --> <g id="edge6" class="edge">
+<title>
+q4-&gt;q4
+</title>
+<path fill="none" stroke="black" d="M359.6,-48.4C358.93,-58.63 361.65,-67.39 367.75,-67.39 371.66,-67.39 374.18,-63.79 375.31,-58.52"></path> <polygon fill="black" stroke="black" points="378.81,-58.59 375.9,-48.4 371.82,-58.18 378.81,-58.59"></polygon> <text text-anchor="middle" x="367.75" y="-71.59" font-family="Times,serif" font-size="14.00">.</text> </g> <!-- start --> <g id="node2" class="node">
+<title>
+start
+</title>
+<text text-anchor="middle" x="27" y="-20.49" font-family="Times,serif" font-size="14.00">start</text> </g> <!-- q1 --> <g id="node3" class="node">
+<title>
+q1
+</title>
+<ellipse fill="none" stroke="black" cx="111.69" cy="-24.69" rx="20.89" ry="20.89"></ellipse> <text text-anchor="middle" x="111.69" y="-20.49" font-family="Times,serif" font-size="14.00">q1</text> </g> <!-- start&#45;&gt;q1 --> <g id="edge1" class="edge">
+<title>
+start-&gt;q1
+</title>
+<path fill="none" stroke="black" d="M54.16,-24.69C62.64,-24.69 72.11,-24.69 80.83,-24.69"></path> <polygon fill="black" stroke="black" points="80.99,-28.19 90.99,-24.69 80.99,-21.19 80.99,-28.19"></polygon> </g> <!-- q2 --> <g id="node4" class="node">
+<title>
+q2
+</title>
+<ellipse fill="none" stroke="black" cx="192.58" cy="-24.69" rx="20.89" ry="20.89"></ellipse> <text text-anchor="middle" x="192.58" y="-20.49" font-family="Times,serif" font-size="14.00">q2</text> </g> <!-- q1&#45;&gt;q2 --> <g id="edge2" class="edge">
+<title>
+q1-&gt;q2
+</title>
+<path fill="none" stroke="black" d="M132.6,-24.69C141.38,-24.69 151.89,-24.69 161.59,-24.69"></path> <polygon fill="black" stroke="black" points="161.68,-28.19 171.68,-24.69 161.68,-21.19 161.68,-28.19"></polygon> <text text-anchor="middle" x="152.14" y="-28.89" font-family="Times,serif" font-size="14.00">.</text> </g> <!-- q2&#45;&gt;q2 --> <g id="edge3" class="edge">
+<title>
+q2-&gt;q2
+</title>
+<path fill="none" stroke="black" d="M185.34,-44.2C184.23,-54.29 186.64,-63.39 192.58,-63.39 196.38,-63.39 198.74,-59.65 199.65,-54.32"></path> <polygon fill="black" stroke="black" points="203.15,-54.26 199.82,-44.2 196.15,-54.15 203.15,-54.26"></polygon> <text text-anchor="middle" x="192.58" y="-67.59" font-family="Times,serif" font-size="14.00">.</text> </g> <!-- q3 --> <g id="node5" class="node">
+<title>
+q3
+</title>
+<ellipse fill="none" stroke="black" cx="282.86" cy="-24.69" rx="20.89" ry="20.89"></ellipse> <text text-anchor="middle" x="282.86" y="-20.49" font-family="Times,serif" font-size="14.00">q3</text> </g> <!-- q2&#45;&gt;q3 --> <g id="edge4" class="edge">
+<title>
+q2-&gt;q3
+</title>
+<path fill="none" stroke="black" d="M213.61,-24.69C224.9,-24.69 239.22,-24.69 251.83,-24.69"></path> <polygon fill="black" stroke="black" points="251.91,-28.19 261.91,-24.69 251.91,-21.19 251.91,-28.19"></polygon> <text text-anchor="middle" x="237.72" y="-28.89" font-family="Times,serif" font-size="14.00">@</text> </g> <!-- q3&#45;&gt;q4 --> <g id="edge5" class="edge">
+<title>
+q3-&gt;q4
+</title>
+<path fill="none" stroke="black" d="M303.92,-24.69C312.58,-24.69 322.95,-24.69 332.74,-24.69"></path> <polygon fill="black" stroke="black" points="333.04,-28.19 343.04,-24.69 333.04,-21.19 333.04,-28.19"></polygon> <text text-anchor="middle" x="323.3" y="-28.89" font-family="Times,serif" font-size="14.00">.</text> </g> </g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<p>Цього разу у стані <code>q1</code> ми перевіряємо <strong>наявність будь-якого символу</strong>, далі переходимо у стан <code>q2</code>, де перевіряємо <strong>1 або більше будь-яких символів</strong>, далі переходимо у стан <code>q3</code>, за умови наявності символу <code>@</code>, після чого повторюється процедури першого та другого стану. У разі успіху ми опинимося у кінцевому стані.</p>
+<p>Підемо далі і додамо перевірку, що домен закінчується на <code>.edu.ua</code>:</p>
+<div id="validate-re-search-edu-ua-3" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>email <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Введіть email: "</span>).strip()</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> re.search(<span class="vs">r".+@.+\.edu\.ua"</span>, email):</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Валідна адреса електронної пошти"</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Невалідна адреса електронної пошти"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: miroshnychenko@kneu.edu.ua</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Валідна</span> адреса електронної пошти</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: miroshnychenko<span class="pp">?</span>kneu.edu.ua</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Невалідна</span> адреса електронної пошти</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Увага
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Зверніть увагу, що ми використовуємо символ <code>\</code> для екранування крапки, оскільки в іншому випадку крапка буде сприйматися як будь-який символ.</p>
+<p>Крім того, слід враховувати, що комбінація символів <code>\n</code> вважається спеціальним символом, який позначає перехід на новий рядок. Тому ми вказуємо Python читати рядок як <strong>“сирий”</strong> (англ. <em>raw</em>), використовуючи префікс <code>r</code> перед рядком.</p>
+</div>
+</div>
+</section>
+<section id="початок-та-кінець-рядка" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="початок-та-кінець-рядка"><span class="header-section-number">8.3</span> Початок та кінець рядка</h2>
+<p>Наша програма все ще має ряд недоліків. Наприклад, вона не враховує пробіли, які можуть зустрічатися у введеному тексті:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: Моя пошта miroshnychenko@kneu.edu.ua</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Валідна</span> адреса електронної пошти</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Для таких випадків у світі регулярних виразів існують спеціальні символи початку <code>^</code> та кінця рядка <code>$</code>. Давайте спробуємо використати їх:</p>
+<div id="validate-re-search-edu-ua-4" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>email <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Введіть email: "</span>).strip()</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> re.search(<span class="vs">r"^.+@.+\.edu\.ua$"</span>, email):</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Валідна адреса електронної пошти"</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Невалідна адреса електронної пошти"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: Моя пошта miroshnychenko@kneu.edu.ua</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Невалідна</span> адреса електронної пошти</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="пошук-та-вилучення" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="пошук-та-вилучення"><span class="header-section-number">8.4</span> Пошук та вилучення</h2>
+<p>Є ще один значний недолік нашої програми. Вона не враховує умову одного символу <code>@</code> у адресі електронної пошти:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: miroshnychenko@@@kneu.edu.ua</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Валідна</span> адреса електронної пошти</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Для цього ми можемо використати символи <code>[]</code> для визначення набору символів, які можуть зустрічатися у тексті та <code>[^]</code> для символів, які не повинні зустрічатися у тексті. Оскільки ми не хочемо щоб символ <code>@</code> зустрічався більше одного разу, то ми можемо використати наступний регулярний вираз <code>[^@]</code>:</p>
+<div id="validate-re-search-edu-ua-5" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>email <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Введіть email: "</span>).strip()</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> re.search(<span class="vs">r"^[^@]+@[^@]+\.edu\.ua$"</span>, email):</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Валідна адреса електронної пошти"</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Невалідна адреса електронної пошти"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: miroshnychenko@@@kneu.edu.ua</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Невалідна</span> адреса електронної пошти</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="слова-та-цифри" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="слова-та-цифри"><span class="header-section-number">8.5</span> Слова та цифри</h2>
+<p>У світі стандартів існує багато різних специфікацій для адрес електронної пошти. Наприклад, вони повинні починатися з літери. Нам не потрібно перераховувати всі можливі літери алфавіту у нижньому та верхньому регістрі. Замість цього ми можемо використати спеціальний символ <code>[a-zA-Z]</code>, який означає будь-яку літеру англійського алфавіту незалежно від регістру. Якщо ж я хочу також врахувати цифри та символ <code>_</code>, то я можу використати спеціальний символ <code>[a-zA-Z0-9_]</code>. Давайте спробуємо використати цей регулярний вираз:</p>
+<div id="validate-re-search-edu-ua-6" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>email <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Введіть email: "</span>).strip()</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> re.search(<span class="vs">r"^[a-zA-Z0-9_]+@[a-zA-Z0-9_]+\.edu\.ua$"</span>, email):</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Валідна адреса електронної пошти"</span>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Невалідна адреса електронної пошти"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: miroshnychenko.ihor@@@kneu.edu.ua</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Невалідна</span> адреса електронної пошти</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Такі патерни досить часто зустрічаються, тому у регулярних виразах є готові спеціальні символи, які дозволяють замінити їх. Наприклад, спеціальний метасимвол <code>\w</code> означає будь-яку літеру англійського алфавіту незалежно від регістру, цифру або символ <code>_</code>. Також є спеціальний метасимвол <code>\d</code>, який означає будь-яку цифру. Давайте спробуємо використати ці спеціальні символи:</p>
+<div id="validate-re-search-edu-ua-7" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>email <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Введіть email: "</span>).strip()</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> re.search(<span class="vs">r"^\w+@\w+\.edu\.ua$"</span>, email):</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Валідна адреса електронної пошти"</span>)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Невалідна адреса електронної пошти"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Повний перелік спеціальних метасимволів:</p>
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Метасимвол</strong></th>
+<th style="text-align: left;"><strong>Опис</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>\w</code></td>
+<td style="text-align: left;">Будь-яка літера англійського алфавіту незалежно від регістру, цифра або символ <code>_</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>\d</code></td>
+<td style="text-align: left;">Будь-яка цифра</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>\s</code></td>
+<td style="text-align: left;">Будь-який пробіл</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>\W</code></td>
+<td style="text-align: left;">Будь-який символ, крім літер англійського алфавіту незалежно від регістру, цифр та символу <code>_</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>\D</code></td>
+<td style="text-align: left;">Будь-який символ, крім цифри</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>\S</code></td>
+<td style="text-align: left;">Будь-який символ, крім пробілу</td>
+</tr>
+</tbody>
+</table>
+<p>Давайте припустимо, що при введені адреси електронної пошти користувач випадково натиснув клавішу <kbd>Caps Lock</kbd> і ввів адресу з використанням великих літер. Якщо ми використаємо наш регулярний вираз, то програма не буде вважати таку адресу валідною:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> validate.py</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> email: MIROSHNYCHENKO@KNEU.EDU.UA</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Невалідна</span> адреса електронної пошти</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
