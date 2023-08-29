@@ -979,6 +979,79 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> format.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Деякі користувачі можуть мати звичку вводити спочатку своє ім’я, а потім прізвище через кому: <code>Гаррі, Поттер</code> замість <code>Поттер, Гаррі</code>. Це нормально, тому що обидва варіанти однаково добре читаються людиною. Але для комп’ютера це різні рядки. Тому нам потрібно буде очистити введені дані користувача. Створимо змінну <code>name</code>, яка буде містити введені дані користувача:</p>
+<div id="format-name" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Введіть ім'я: "</span>).strip()</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Подивимось, як працює програма з різними введеними даними:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> format.py</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> ім<span class="st">'я: Гаррі Поттер</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="st">Привіт, Гаррі Поттер!</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> format.py</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> ім<span class="st">'я: Поттер, Гаррі</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="st">Привіт, Поттер, Гаррі!</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Перший варіант нас може задовільнити, а от другий виглядає зовсім не так, як ми очікуємо. Давайте спробуємо виправити цю ситуацію через умовний оператор <code>if</code>:</p>
+<div id="format-name-2" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Введіть ім'я: "</span>).strip()</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">','</span> <span class="kw">in</span> name:</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    last, first <span class="op">=</span> name.split(<span class="st">', '</span>)</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>first<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>last<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> format.py</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> ім<span class="st">'я: Поттер, Гаррі</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="st">Привіт, Гаррі Поттер!</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ми виправили ситуацію, але що якщо користувач введе ім’я без використання пробілів? Наприклад, <code>Поттер,Гаррі</code>? Це призведе до помилки, оскільки ми використовуємо метод <code>split()</code> для розділення рядка на дві частини. Давайте спробуємо використати регулярний вираз для вирішення цієї проблеми. Для цього нам знадобиться функція <code>re.search()</code>, яка повертає об’єкт <code>Match</code>. Якщо відповідність знайдена, то ми можемо використати метод <code>group()</code> для отримання відповідного значення, які були записані у дужки.</p>
+<p>Давайте спробуємо використати регулярний вираз <code>^(.+), (.+)$</code>, який означає <em>“початок рядка, один або більше будь-яких символів, кома, пробіл, один або більше будь-яких символів, кінець рядка”</em>:</p>
+<div id="format-name-3" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Введіть ім'я: "</span>).strip()</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>matches <span class="op">=</span> re.search(<span class="vs">r'^(.+), (.+)$'</span>, name)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> matches:</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>    last, first <span class="op">=</span> matches.group()</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>first<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>last<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Якщо ми введемо ім’я користувача без коми, то з умовним оператором <code>if</code> нічого не буде відбуватися, оскільки <code>matches</code> буде <code>None</code> і програма одразу перейде до виведення привітання:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> format.py</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> ім<span class="st">'я: Гаррі Поттер</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="st">Привіт, Гаррі Поттер!</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>У випадку, коли користувач введе ім’я з комою, то відбудеться відповідність регулярному виразу і ми зможемо використати метод <code>group()</code> для отримання відповідних значень:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> format.py</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> ім<span class="st">'я: Поттер, Гаррі</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="st">Привіт, Гаррі Поттер!</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
