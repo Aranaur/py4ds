@@ -359,6 +359,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <li><a href="#опціональність" id="toc-опціональність" class="nav-link" data-scroll-target="#опціональність"><span class="header-section-number">8.7</span> Опціональність</a></li>
   <li><a href="#приклади-з-реального-світу" id="toc-приклади-з-реального-світу" class="nav-link" data-scroll-target="#приклади-з-реального-світу"><span class="header-section-number">8.8</span> Приклади з реального світу</a></li>
   <li><a href="#очищення-тексту" id="toc-очищення-тексту" class="nav-link" data-scroll-target="#очищення-тексту"><span class="header-section-number">8.9</span> Очищення тексту</a></li>
+  <li><a href="#моржевий-оператор" id="toc-моржевий-оператор" class="nav-link" data-scroll-target="#моржевий-оператор"><span class="header-section-number">8.10</span> Моржевий оператор</a></li>
+  <li><a href="#отримання-даних-з-рядка" id="toc-отримання-даних-з-рядка" class="nav-link" data-scroll-target="#отримання-даних-з-рядка"><span class="header-section-number">8.11</span> Отримання даних з рядка</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Aranaur/py4ds/edit/main/python_regex.qmd" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/python_regex.qmd" class="toc-action">Переглянути код</a></p></div></div></nav>
     </div>
@@ -1019,7 +1021,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> ім<span class="st">'я: Поттер, Гаррі</span></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="st">Привіт, Гаррі Поттер!</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Ми виправили ситуацію, але що якщо користувач введе ім’я без використання пробілів? Наприклад, <code>Поттер,Гаррі</code>? Це призведе до помилки, оскільки ми використовуємо метод <code>split()</code> для розділення рядка на дві частини. Давайте спробуємо використати регулярний вираз для вирішення цієї проблеми. Для цього нам знадобиться функція <code>re.search()</code>, яка повертає об’єкт <code>Match</code>. Якщо відповідність знайдена, то ми можемо використати метод <code>group()</code> для отримання відповідного значення, які були записані у дужки.</p>
+<p>Ми виправили ситуацію, але що якщо користувач введе ім’я без використання пробілів? Наприклад, <code>Поттер,Гаррі</code>? Це призведе до помилки, оскільки ми використовуємо метод <code>split()</code> для розділення рядка на дві частини. Давайте спробуємо використати регулярний вираз для вирішення цієї проблеми. Для цього нам знадобиться функція <code>re.search()</code>, яка повертає об’єкт <code>Match</code>. Якщо відповідність знайдена, то ми можемо використати метод <code>groups()</code> для отримання відповідного значення, які були записані у дужки.</p>
 <p>Давайте спробуємо використати регулярний вираз <code>^(.+), (.+)$</code>, який означає <em>“початок рядка, один або більше будь-яких символів, кома, пробіл, один або більше будь-яких символів, кінець рядка”</em>:</p>
 <div id="format-name-3" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
@@ -1029,7 +1031,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>matches <span class="op">=</span> re.search(<span class="vs">r'^(.+), (.+)$'</span>, name)</span>
 <span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> matches:</span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>    last, first <span class="op">=</span> matches.group()</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>    last, first <span class="op">=</span> matches.groups()</span>
 <span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>first<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>last<span class="sc">}</span><span class="ss">'</span></span>
 <span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1043,7 +1045,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> ім<span class="st">'я: Гаррі Поттер</span></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="st">Привіт, Гаррі Поттер!</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>У випадку, коли користувач введе ім’я з комою, то відбудеться відповідність регулярному виразу і ми зможемо використати метод <code>group()</code> для отримання відповідних значень:</p>
+<p>У випадку, коли користувач введе ім’я з комою, то відбудеться відповідність регулярному виразу і ми зможемо використати метод <code>groups()</code> для отримання відповідних значень:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
@@ -1052,6 +1054,108 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> ім<span class="st">'я: Поттер, Гаррі</span></span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="st">Привіт, Гаррі Поттер!</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Якщо ж потрібно повернути конкретні групи замість всіх, то можна використати метод <code>group()</code>, який приймає номер групи:</p>
+<div id="format-name-4" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Введіть ім'я: "</span>).strip()</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>matches <span class="op">=</span> re.search(<span class="vs">r'^(.+), (.+)$'</span>, name)</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> matches:</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>matches<span class="sc">.</span>group(<span class="dv">2</span>)<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>matches<span class="sc">.</span>group(<span class="dv">1</span>)<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ця програма має значний недолік - ми очікуємо, що ім’я та прізвище користувача будуть розділені одним пробілом. Якщо користувач введе ім’я без пробілу або навпаки використає декілька, то програма виведе не те, що ми очікуємо:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> format.py</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> ім<span class="st">'я: Поттер,Гаррі</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="st">Привіт, Поттер,Гаррі!</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Перший варіант, як врахувати таку ситуацію - це додати <code>*</code> до регулярного виразу:<code>^(.+), *(.+)?$</code>. Це буде означати <em>“початок рядка, один або більше будь-яких символів, кома, нуль або більше пробілів, один або більше будь-яких символів, кінець рядка”</em>:</p>
+<div id="format-name-5" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Введіть ім'я: "</span>).strip()</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>matches <span class="op">=</span> re.search(<span class="vs">r'^(.+), *(.+)?$'</span>, name)</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> matches:</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>matches<span class="sc">.</span>group(<span class="dv">2</span>)<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>matches<span class="sc">.</span>group(<span class="dv">1</span>)<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> format.py</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Введіть</span> ім<span class="st">'я: Поттер,Гаррі</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="st">Привіт, Гаррі Поттер!</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="st">python format.py</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="st">Введіть ім'</span>я: Поттер,      Гаррі</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Привіт,</span> Гаррі Поттер!</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Підказка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Залежно від того, наскільки безладними є дані, ваші регулярні вирази можуть ставати все складнішими і складнішими. Кількість умов напряму впливає на їх складність.</p>
+</div>
+</div>
+</section>
+<section id="моржевий-оператор" class="level2" data-number="8.10">
+<h2 data-number="8.10" class="anchored" data-anchor-id="моржевий-оператор"><span class="header-section-number">8.10</span> Моржевий оператор</h2>
+<p>Ми можемо скоротити наш код, використовуючи “моржевий оператор” <code>:=</code> (англ. <em>walrus operator</em>), який дозволяє присвоювати значення змінній та одночасно використовувати її у виразі:</p>
+<div id="format-name-6" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Введіть ім'я: "</span>).strip()</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> matches <span class="op">:=</span> re.search(<span class="vs">r'^(.+), *(.+)?$'</span>, name):</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>matches<span class="sc">.</span>group(<span class="dv">2</span>)<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>matches<span class="sc">.</span>group(<span class="dv">1</span>)<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="отримання-даних-з-рядка" class="level2" data-number="8.11">
+<h2 data-number="8.11" class="anchored" data-anchor-id="отримання-даних-з-рядка"><span class="header-section-number">8.11</span> Отримання даних з рядка</h2>
+<p>Розглянемо варіант програми, де нам потрібно отримати дані з рядка, щоб відповісти на якесь питання. Наприклад, давайте створимо програму <code>twitter.py</code>, яка буде запитувати у користувачів URL-адресу їхнього профілю в Twitter і витягти з неї ім’я користувача:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> twitter.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Розглянемо рядок <code>https://twitter.com/harrypotter</code>. Перше на що звертаємо увагу - це те, адреса сервісу завжди починається з <code>https://twitter.com/</code>. Тому ми можемо замінити цю частину рядка на порожній рядок. Для цього ми можемо використати метод <code>replace()</code>:</p>
+<div id="twitter-username" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://twitter.com/harrypotter'</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>username <span class="op">=</span> url.replace(<span class="st">'https://twitter.com/'</span>, <span class="st">''</span>)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Ім'я користувача: </span><span class="sc">{</span>username<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Ім'я користувача: harrypotter</code></pre>
+</div>
+</div>
+<p>Але така проста програма не враховує низку ситуацій:</p>
+<ul>
+<li>адреса може починатися без <code>https://</code></li>
+<li>адреса може починатися з <code>http://</code></li>
+<li>адреса може закінчуватися <code>/</code></li>
+<li>адреса може містити додаткові параметри</li>
+<li>тощо</li>
+</ul>
 
 
 </section>
