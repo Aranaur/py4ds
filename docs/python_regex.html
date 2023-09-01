@@ -1152,10 +1152,50 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <ul>
 <li>адреса може починатися без <code>https://</code></li>
 <li>адреса може починатися з <code>http://</code></li>
-<li>адреса може закінчуватися <code>/</code></li>
-<li>адреса може містити додаткові параметри</li>
+<li>адреса може містити <code>www.</code></li>
 <li>тощо</li>
 </ul>
+<p>Використаємо бібліотеку функцію <code>re.sub(pattern, repl, string, count=0, flags=0)</code>, яка замінює всі входження патерну <code>pattern</code> на <code>repl</code> у рядку <code>string</code>. Використаємо регулярний вираз <code>^(https?://)?(www\.)?twitter\.com/</code>, який читається як: <em>“початок рядка, група символів <code>https://</code> або <code>http://</code> 0 або 1 раз, група символів <code>www.</code> 0 або 1 раз, <code>twitter.com/</code>”</em>:</p>
+<div id="twitter-username-2" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://twitter.com/harrypotter'</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>username <span class="op">=</span> re.sub(<span class="vs">r'^(https?://)?(www\.)?twitter\.com/'</span>, <span class="st">''</span>, url)</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Ім'я користувача: </span><span class="sc">{</span>username<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Ім'я користувача: harrypotter</code></pre>
+</div>
+</div>
+<p>Проте, якщо користувач введе замість URL-адреси Twitter адресу іншого сервісу, регулярний вираз працювати не буде:</p>
+<div id="twitter-username-3" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://facebook.com/harrypotter'</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>username <span class="op">=</span> re.sub(<span class="vs">r'^(https?://)?(www\.)?twitter\.com/'</span>, <span class="st">''</span>, url)</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Ім'я користувача: </span><span class="sc">{</span>username<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Ім'я користувача: https://facebook.com/harrypotter</code></pre>
+</div>
+</div>
+<p>В такому випадку ми можемо повернутися до <code>re.search()</code> та використати групи для отримання імені користувача:</p>
+<div id="twitter-username-4" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://facebook.com/harrypotter'</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> matches <span class="op">:=</span> re.search(<span class="vs">r'^https?://?(www\.)?twitter\.com/(.+)$'</span>, url, re.IGNORECASE):</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>    username <span class="op">=</span> matches.group(<span class="dv">1</span>)</span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Ім'я користувача: </span><span class="sc">{</span>username<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Невідомий сервіс'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Невідомий сервіс</code></pre>
+</div>
+</div>
 
 
 </section>

@@ -692,9 +692,52 @@ print(f"Ім'я користувача: {username}")
 
 - адреса може починатися без ``https://``
 - адреса може починатися з ``http://``
-- адреса може закінчуватися `/`
-- адреса може містити додаткові параметри
+- адреса може містити `www.`
 - тощо
+
+Використаємо бібліотеку функцію `re.sub(pattern, repl, string, count=0, flags=0)`, яка замінює всі входження патерну `pattern` на `repl` у рядку `string`. Використаємо регулярний вираз `^(https?://)?(www\.)?twitter\.com/`, який читається як: *"початок рядка, група символів `https://` або `http://` 0 або 1 раз, група символів `www.` 0 або 1 раз, `twitter.com/`"*:
+
+```{python}
+#| label: twitter-username-2
+
+import re
+
+url = 'https://twitter.com/harrypotter'
+
+username = re.sub(r'^(https?://)?(www\.)?twitter\.com/', '', url)
+
+print(f"Ім'я користувача: {username}")
+```
+
+Проте, якщо користувач введе замість URL-адреси Twitter адресу іншого сервісу, регулярний вираз працювати не буде:
+
+```{python}
+#| label: twitter-username-3
+
+import re
+
+url = 'https://facebook.com/harrypotter'
+
+username = re.sub(r'^(https?://)?(www\.)?twitter\.com/', '', url)
+
+print(f"Ім'я користувача: {username}")
+```
+
+В такому випадку ми можемо повернутися до `re.search()` та використати групи для отримання імені користувача:
+
+```{python}
+#| label: twitter-username-4
+
+import re
+
+url = 'https://facebook.com/harrypotter'
+
+if matches := re.search(r'^https?://?(www\.)?twitter\.com/(.+)$', url, re.IGNORECASE):
+    username = matches.group(1)
+    print(f"Ім'я користувача: {username}")
+else:
+    print('Невідомий сервіс')
+```
 
 
 
