@@ -723,7 +723,7 @@ username = re.sub(r'^(https?://)?(www\.)?twitter\.com/', '', url)
 print(f"Ім'я користувача: {username}")
 ```
 
-В такому випадку ми можемо повернутися до `re.search()` та використати групи для отримання імені користувача:
+В такому випадку ми можемо повернутися до `re.search()` та використати групи для отримання імені користувача, але для виключення певної групи з переліку можна використати `?:`:
 
 ```{python}
 #| label: twitter-username-4
@@ -732,14 +732,52 @@ import re
 
 url = 'https://facebook.com/harrypotter'
 
-if matches := re.search(r'^https?://?(www\.)?twitter\.com/(.+)$', url, re.IGNORECASE):
+if matches := re.search(r'^https?://(?:www\.)?twitter\.com/(.+)$', url, re.IGNORECASE):
     username = matches.group(1)
     print(f"Ім'я користувача: {username}")
 else:
     print('Невідомий сервіс')
 ```
 
+Тепер програма буде працювати з будь-якими URL-адресами:
 
+```{python}
+#| label: twitter-username-5
 
+import re
+
+url = 'https://www.twitter.com/harrypotter'
+
+if matches := re.search(r'^https?://(?:www\.)?twitter\.com/(.+)$', url, re.IGNORECASE):
+    username = matches.group(1)
+    print(f"Ім'я користувача: {username}")
+else:
+    print('Невідомий сервіс')
+```
+
+Якщо ж ознайомитися з документацією Twitter, то можна знайти, що ім'я користувача може містити тільки літери, цифри, символ `_`, тобто не просто `.+`, що може бути чим завгодно. Тому ми можемо використати регулярний вираз `[a-z0-9_]+` для більш точного пошуку імені користувача, який читається як: *"будь-яка літера англійського алфавіту, цифра або символ `_` 1 або більше разів"*:
+
+```{python}
+#| label: twitter-username-6
+
+import re
+
+url = 'https://www.twitter.com/harrypotter'
+
+if matches := re.search(r'^https?://(?:www\.)?twitter\.com/([a-z0-9_]+)$', url, re.IGNORECASE):
+    username = matches.group(1)
+    print(f"Ім'я користувача: {username}")
+else:
+    print('Невідомий сервіс')
+```
+
+В пакеті `re` є ряд цікавих функцій:
+
+- `re.split(pattern, string, maxsplit=0, flags=0)` - розбиває рядок на частини за допомогою регулярного виразу
+- `re.findall(pattern, string, flags=0)` - повертає список всіх знайдених входжень регулярного виразу
+
+::: {.callout-tip}
+Для побудови, тестування та налагодження регулярних виразів можна використовувати [regex101.com](https://regex101.com/).
+:::
 
 
