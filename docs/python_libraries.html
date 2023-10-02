@@ -454,7 +454,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>coin <span class="op">=</span> [<span class="st">'орел'</span>, <span class="st">'решка'</span>]</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(choice(coin))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>решка</code></pre>
+<pre><code>орел</code></pre>
 </div>
 </div>
 <p>Тепер ми можемо використовувати функцію <code>choice()</code> без префіксу <code>random</code>.</p>
@@ -465,7 +465,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>d20 <span class="op">=</span> random.randint(<span class="dv">1</span>, <span class="dv">20</span>)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(d20)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>18</code></pre>
+<pre><code>11</code></pre>
 </div>
 </div>
 <p>Підемо далі, та розглянемо наступну функцію <code>random.shuffle(x)</code>, яка перемішує елементи списку <code>x</code> у випадковому порядку. Давайте використаємо цю функцію, щоб перемішати колоду карт:</p>
@@ -479,7 +479,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> card <span class="kw">in</span> cards:</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(card, end<span class="op">=</span><span class="st">' '</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Q 6 7 J 3 2 K 8 5 4 10 A 9 </code></pre>
+<pre><code>9 A 3 2 6 8 5 K 7 Q 4 10 J </code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -815,7 +815,7 @@ IndexError: list index out of range</code></pre>
 </div>
 <div id="itunes-echo" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-stdout">
-<pre><code>{'resultCount': 1, 'results': [{'wrapperType': 'track', 'kind': 'song', 'artistId': 466532, 'collectionId': 423045626, 'trackId': 423045744, 'artistName': 'Korn', 'collectionName': 'Korn', 'trackName': 'Blind', 'collectionCensoredName': 'Korn', 'trackCensoredName': 'Blind', 'artistViewUrl': 'https://music.apple.com/us/artist/korn/466532?uo=4', 'collectionViewUrl': 'https://music.apple.com/us/album/blind/423045626?i=423045744&amp;uo=4', 'trackViewUrl': 'https://music.apple.com/us/album/blind/423045626?i=423045744&amp;uo=4', 'previewUrl': 'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ef/a4/dd/efa4dd64-e8e0-6c12-c88b-a3a996b24b12/mzaf_13798363446300996858.plus.aac.p.m4a', 'artworkUrl30': 'https://is2-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/30x30bb.jpg', 'artworkUrl60': 'https://is2-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/60x60bb.jpg', 'artworkUrl100': 'https://is2-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/100x100bb.jpg', 'collectionPrice': 9.99, 'trackPrice': 1.29, 'releaseDate': '1994-08-01T07:00:00Z', 'collectionExplicitness': 'explicit', 'trackExplicitness': 'notExplicit', 'discCount': 1, 'discNumber': 1, 'trackCount': 12, 'trackNumber': 1, 'trackTimeMillis': 258267, 'country': 'USA', 'currency': 'USD', 'primaryGenreName': 'Metal', 'isStreamable': True}]}</code></pre>
+<pre><code>{'resultCount': 1, 'results': [{'wrapperType': 'track', 'kind': 'song', 'artistId': 466532, 'collectionId': 423045626, 'trackId': 423045744, 'artistName': 'Korn', 'collectionName': 'Korn', 'trackName': 'Blind', 'collectionCensoredName': 'Korn', 'trackCensoredName': 'Blind', 'artistViewUrl': 'https://music.apple.com/us/artist/korn/466532?uo=4', 'collectionViewUrl': 'https://music.apple.com/us/album/blind/423045626?i=423045744&amp;uo=4', 'trackViewUrl': 'https://music.apple.com/us/album/blind/423045626?i=423045744&amp;uo=4', 'previewUrl': 'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ef/a4/dd/efa4dd64-e8e0-6c12-c88b-a3a996b24b12/mzaf_13798363446300996858.plus.aac.p.m4a', 'artworkUrl30': 'https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/30x30bb.jpg', 'artworkUrl60': 'https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/60x60bb.jpg', 'artworkUrl100': 'https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/100x100bb.jpg', 'collectionPrice': 9.99, 'trackPrice': 1.29, 'releaseDate': '1994-08-01T07:00:00Z', 'collectionExplicitness': 'explicit', 'trackExplicitness': 'notExplicit', 'discCount': 1, 'discNumber': 1, 'trackCount': 12, 'trackNumber': 1, 'trackTimeMillis': 258267, 'country': 'USA', 'currency': 'USD', 'primaryGenreName': 'Metal', 'isStreamable': True}]}</code></pre>
 </div>
 </div>
 <p>Ми отримали той самий відформатований текст, але він був стандартизований у вигляді словника Python: Apple API віддає нам JSON, а пакет <code>requests</code> перетворює його у словник Python.</p>
@@ -852,9 +852,9 @@ IndexError: list index out of range</code></pre>
       "collectionViewUrl": "https://music.apple.com/us/album/blind/423045626?i=423045744&amp;uo=4",
       "trackViewUrl": "https://music.apple.com/us/album/blind/423045626?i=423045744&amp;uo=4",
       "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ef/a4/dd/efa4dd64-e8e0-6c12-c88b-a3a996b24b12/mzaf_13798363446300996858.plus.aac.p.m4a",
-      "artworkUrl30": "https://is2-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/30x30bb.jpg",
-      "artworkUrl60": "https://is2-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/60x60bb.jpg",
-      "artworkUrl100": "https://is2-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/100x100bb.jpg",
+      "artworkUrl30": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/30x30bb.jpg",
+      "artworkUrl60": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/60x60bb.jpg",
+      "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/100x100bb.jpg",
       "collectionPrice": 9.99,
       "trackPrice": 1.29,
       "releaseDate": "1994-08-01T07:00:00Z",
@@ -895,13 +895,13 @@ IndexError: list index out of range</code></pre>
 <pre><code>Blind
 Shoots and Ladders
 Faget
-Clown
-Divine
 Ball Tongue
+Divine
 Fake
 Need To
-Lies
-Daddy</code></pre>
+Daddy
+Helmet in the Bush
+Lies</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">

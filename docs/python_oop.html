@@ -591,13 +591,26 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Для створення класу використовується ключове слово <code>class</code>, за яким слідує ім’я класу, а потім двокрапка. Ім’я класу повинно починатися з великої літери, а якщо ім’я складається з декількох слів, то кожне слово повинно починатися з великої літери. Наприклад, <code>Student</code>:</p>
 <div id="student-class-1" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Student:</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    ...</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Документація до класів Python: <a href="https://docs.python.org/3/tutorial/classes.html" class="uri">https://docs.python.org/3/tutorial/classes.html</a></p>
+</div>
 </div>
 <p>Для того, щоб наша програма почала використовувати клас, ми повинні створити екземпляр класу, тобто об’єкт. Це можна зробити, використовуючи ім’я класу, за яким слідує дужка. Наприклад, <code>Student()</code>.</p>
 <p>Класи мають <strong>атрибути</strong> (англ. <em>attributes</em>), свого роду властивості, які дозволяють вам вказувати значення всередині них. Для того, щоб вказати атрибут, використовується крапка, за якою слідує ім’я атрибуту. Наприклад, <code>student.name</code>:</p>
 <div id="student-class-2" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Student:</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    ...</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    student <span class="op">=</span> get_student()</span>
@@ -622,19 +635,26 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="st">Гаррі з Грифіндор</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>Введемо ще одну термінологію. Ми створили клас за допомогою ключового слова <code>class</code>, але коли ми створюємо екземпляр класу, ми створюємо <strong>об’єкт</strong> (англ. <em>object</em>). Таким чином, об’єкт - це екземпляр класу. Якщо говорити метафорично, то клас - це план будинку, а об’єкт - це будинок, побудований за цим планом.</p>
+<p>Давайте додамо більше функціональності нашому класу. Досить нерозважливо просто вставляти все що завгодно всередину класу. Класи можна стандартизувати - вказувати якими можуть бути атрибути і які значення вони можуть приймати. Давайте всередині функції <code>get_student()</code> створимо локальні змінні <code>name</code> та <code>house</code>, а потім використаємо їх для створення екземпляру класу <code>Student</code>:</p>
+<div id="student-class-3" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Student:</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    student <span class="op">=</span> get_student()</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>student<span class="sc">.</span>name<span class="sc">}</span><span class="ss"> з </span><span class="sc">{</span>student<span class="sc">.</span>house<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_student():</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Ім'я: "</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    house <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Гуртожиток: "</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    student <span class="op">=</span> Student(name, house)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> student</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    main()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-title-container flex-fill">
-Примітка
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Документація до класів Python: <a href="https://docs.python.org/3/tutorial/classes.html" class="uri">https://docs.python.org/3/tutorial/classes.html</a></p>
-</div>
-</div>
+<p>Зараз, коли ми готуємось до більш потужних можливостей класів та об’єктно-орієнтованого програмування в цілому. Зверніть увагу, що ми передаємо локальні змінні <code>name</code> та <code>house</code> класу <code>Student</code>, як аргументи функції, але він поки не знає, що з ними робити. Зараз ми стандартизуємо цей клас, щоб він знав, що робити з цими аргументами. Це дасть можливість перевіряти ці дані на помилки, які можуть виникнути, коли користувач вводить неправильні дані.</p>
 
 
 </section>
