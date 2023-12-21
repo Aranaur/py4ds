@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.4.525">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -85,7 +85,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "Пошук не дав результату",
     "search-matching-documents-text": "Результати пошуку",
@@ -94,6 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "Додатковий результат у цьому документі",
     "search-more-matches-text": "Додаткові результати у цьому документі",
     "search-clear-button-title": "Очистити",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Скасувати",
     "search-submit-button-title": "Надіслати",
     "search-label": "Пошук"
@@ -109,7 +116,7 @@ gtag('js', new Date());
 gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -122,12 +129,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql.html">SQL</a></li><li class="breadcrumb-item"><a href="./sql_join.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Об'єднання таблиць</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql.html">SQL</a></li><li class="breadcrumb-item"><a href="./sql_join.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Об'єднання таблиць</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -137,7 +144,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
@@ -145,7 +152,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Від нуля до Python Data Scientist</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/Aranaur/py4ds" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/Aranaur/py4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -352,7 +359,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -369,12 +376,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <li><a href="#збираємо-списки-array_agg" id="toc-збираємо-списки-array_agg" class="nav-link" data-scroll-target="#збираємо-списки-array_agg"><span class="header-section-number">19.8</span> Збираємо списки: <code>array_agg()</code></a></li>
   <li><a href="#self-join" id="toc-self-join" class="nav-link" data-scroll-target="#self-join"><span class="header-section-number">19.9</span> SELF JOIN</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/Aranaur/py4ds/blob/main/sql_join.ipynb" class="toc-action">Редагувати сторінку</a></p><p><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action">Повідомити про проблему</a></p><p><a href="https://github.com/Aranaur/py4ds/blob/main/sql_join.ipynb" class="toc-action">Переглянути код</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.dev/Aranaur/py4ds/blob/main/sql_join.ipynb" class="toc-action"><i class="bi bi-github"></i>Редагувати сторінку</a></li><li><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action"><i class="bi empty"></i>Повідомити про проблему</a></li><li><a href="https://github.com/Aranaur/py4ds/blob/main/sql_join.ipynb" class="toc-action"><i class="bi empty"></i>Переглянути код</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql.html">SQL</a></li><li class="breadcrumb-item"><a href="./sql_join.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Об'єднання таблиць</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Об’єднання таблиць</span></h1>
 </div>
@@ -389,7 +396,9 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   </div>
   
 
+
 </header>
+
 <p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p>
 <section id="основні-типи-обєднань-join" class="level2" data-number="19.1">
 <h2 data-number="19.1" class="anchored" data-anchor-id="основні-типи-обєднань-join"><span class="header-section-number">19.1</span> Основні типи об’єднань JOIN</h2>
@@ -453,10 +462,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <ol type="1">
 <li>Спочатку кожен рядок першої таблиці зіставляється з кожним рядком другої таблиці, тобто відбувається <a href="https://uk.wikipedia.org/wiki/%D0%94%D0%B5%D0%BA%D0%B0%D1%80%D1%82%D1%96%D0%B2_%D0%B4%D0%BE%D0%B1%D1%83%D1%82%D0%BE%D0%BA_%D0%BC%D0%BD%D0%BE%D0%B6%D0%B8%D0%BD">декартів добуток</a> вдох множин, результатом якого є нове множина, що складається з різних пар вхідних рядків. Наприклад, якщо у одній таблиці було 50 записів, а інший 10, то результаті декартового добутку вийде 500 записів. На іграшковому прикладі це можна уявити так:</li>
 </ol>
-<div id="fig-cartesian" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="img/sql/cartesian.png" class="img-fluid figure-img" style="width:45.0%"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;19.1: Декартів добуток</figcaption>
+<div id="fig-cartesian" class="quarto-figure quarto-figure-center anchored" width="45%">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cartesian-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/sql/cartesian.png" class="img-fluid figure-img" style="width:45.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cartesian-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;19.1: Декартів добуток
+</figcaption>
 </figure>
 </div>
 <ol start="2" type="1">
@@ -504,14 +517,21 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>     <span class="kw">JOIN</span> table_B <span class="kw">as</span> B</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>     <span class="kw">ON</span> A.<span class="kw">id</span> <span class="op">=</span> B.<span class="kw">id</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>В результаті такого запиту таблиці <code>table_A</code> та <code>table_B</code> будуть об’єднані в таблицю <code>table_С</code>:</p>
-<div id="tbl-panel" class="tbl-parent quarto-layout-panel anchored">
-<div class="panel-caption table-caption">
-<p>Таблиця&nbsp;19.1: Приклад роботи <code>INNER JOIN</code></p>
-</div>
+<div id="tbl-panel" class="quarto-layout-panel anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Таблиця&nbsp;19.1: Приклад роботи <code>INNER JOIN</code>
+</figcaption>
+<div aria-describedby="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-A" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-A" class="sm primary bordered anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-A-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Таблиця A
+</figcaption>
+<div aria-describedby="tbl-A-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-sm table-primary table-bordered small table">
-<caption>(a) Таблиця A</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -530,9 +550,17 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tbody>
 </table>
 </div>
-<div id="tbl-B" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-B" class="sm secondary bordered anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-B-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Таблиця B
+</figcaption>
+<div aria-describedby="tbl-B-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-sm table-secondary table-bordered small table">
-<caption>(b) Таблиця B</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -551,11 +579,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tbody>
 </table>
 </div>
+</figure>
+</div>
+</div>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-C" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 100.0%;justify-content: center;">
+<div id="tbl-C" class="sm success bordered anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-C-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Таблиця C
+</figcaption>
+<div aria-describedby="tbl-C-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-sm table-success table-bordered small table">
-<caption>(c) Таблиця C</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -572,16 +608,25 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tbody>
 </table>
 </div>
+</figure>
 </div>
+</div>
+</div>
+</div>
+</figure>
 </div>
 <p>Оскільки таблиці збігаються лише за одним значенням у стовпці <code>id</code>, то в результат буде включено лише одне запис.</p>
-<p>Схематично результат роботи об’єднань прийнято зображувати за допомогою <a href="https://uk.wikipedia.org/wiki/%D0%94%D1%96%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%B0_%D0%92%D0%B5%D0%BD%D0%BD%D0%B0">діаграм Венна</a>. Для <code>INNER JOIN</code> наведено на <a href="#fig-sql-inner-join">рисунку&nbsp;<span>19.2</span></a>.</p>
-<div class="cell" data-execution_count="2">
+<p>Схематично результат роботи об’єднань прийнято зображувати за допомогою <a href="https://uk.wikipedia.org/wiki/%D0%94%D1%96%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%B0_%D0%92%D0%B5%D0%BD%D0%BD%D0%B0">діаграм Венна</a>. Для <code>INNER JOIN</code> наведено на <a href="#fig-sql-inner-join" class="quarto-xref">рисунку&nbsp;<span>19.2</span></a>.</p>
+<div id="cell-fig-sql-inner-join" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
-<div id="fig-sql-inner-join" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="sql_join_files/figure-html/fig-sql-inner-join-output-1.png" width="511" height="389" class="figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;19.2: Діаграма Венна: INNER JOIN</figcaption>
+<div id="fig-sql-inner-join" class="quarto-figure quarto-figure-center anchored" height="389" width="511">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sql-inner-join-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="sql_join_files/figure-html/fig-sql-inner-join-output-1.png" width="511" height="389" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sql-inner-join-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;19.2: Діаграма Венна: INNER JOIN
+</figcaption>
 </figure>
 </div>
 </div>
@@ -601,7 +646,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <p>А тепер давайте повернемося до нашої бази даних та вирішимо завдання.</p>
 <p>Для початку спробуйте виконати наступні два запити та порахувати кількість унікальних користувачів у таблицях <code>users</code> та <code>user_actions</code>:</p>
-<div class="cell" data-execution_count="3">
+<div id="cell-9" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>SELECT COUNT(DISTINCT user_id) AS users_count</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>FROM users</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -627,7 +672,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="4">
+<div id="cell-10" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>SELECT COUNT(DISTINCT user_id) <span class="im">as</span> users_count</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>FROM user_actions</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -661,7 +706,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -692,8 +737,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<div class="cell page-columns page-full" data-execution_count="5">
-<details>
+<div id="cell-15" class="cell page-columns page-full" data-execution_count="5">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>SELECT a.user_id <span class="im">as</span> user_id_left,</span>
@@ -848,7 +893,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -859,8 +904,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="6">
-<details>
+<div id="cell-18" class="cell" data-execution_count="6">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>SELECT count(distinct a.user_id) <span class="im">as</span> users_count</span>
@@ -928,14 +973,21 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> table_A <span class="kw">as</span> A</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>     <span class="kw">LEFT</span> <span class="kw">JOIN</span> table_B <span class="kw">as</span> B</span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>     <span class="kw">ON</span> A.<span class="kw">id</span> <span class="op">=</span> B.<span class="kw">id</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="tbl-panel" class="tbl-parent quarto-layout-panel anchored">
-<div class="panel-caption table-caption">
-<p>Таблиця&nbsp;19.2: Приклад роботи <code>LEFT JOIN</code></p>
-</div>
+<div id="tbl-panel" class="quarto-layout-panel anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Таблиця&nbsp;19.2: Приклад роботи <code>LEFT JOIN</code>
+</figcaption>
+<div aria-describedby="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-A-left" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-A-left" class="sm primary bordered anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-A-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Таблиця A
+</figcaption>
+<div aria-describedby="tbl-A-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-sm table-primary table-bordered small table">
-<caption>(a) Таблиця A</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -954,9 +1006,17 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tbody>
 </table>
 </div>
-<div id="tbl-B-left" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-B-left" class="sm secondary bordered anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-B-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Таблиця B
+</figcaption>
+<div aria-describedby="tbl-B-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-sm table-secondary table-bordered small table">
-<caption>(b) Таблиця B</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -975,11 +1035,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tbody>
 </table>
 </div>
+</figure>
+</div>
+</div>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-C-left" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 100.0%;justify-content: center;">
+<div id="tbl-C-left" class="sm success bordered anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-C-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Таблиця C
+</figcaption>
+<div aria-describedby="tbl-C-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-sm table-success table-bordered small table">
-<caption>(c) Таблиця C</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -1001,16 +1069,25 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tbody>
 </table>
 </div>
+</figure>
 </div>
+</div>
+</div>
+</div>
+</figure>
 </div>
 <p>У цьому випадку до результату потрапить запис з <code>id 2</code>, оскільки вона є в обох таблицях, а також запис з <code>id 1</code> з лівої таблиці.</p>
-<p>Діаграма Венна для <code>LEFT JOIN</code> наведено на <a href="#fig-sql_left-join">рис.&nbsp;<span>19.3</span></a>.</p>
-<div class="cell" data-execution_count="7">
+<p>Діаграма Венна для <code>LEFT JOIN</code> наведено на <a href="#fig-sql_left-join" class="quarto-xref">рис.&nbsp;<span>19.3</span></a>.</p>
+<div id="cell-fig-sql_left-join" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
-<div id="fig-sql_left-join" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="sql_join_files/figure-html/fig-sql_left-join-output-1.png" width="511" height="389" class="figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;19.3: Діаграма Венна: LEFT JOIN</figcaption>
+<div id="fig-sql_left-join" class="quarto-figure quarto-figure-center anchored" height="389" width="511">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sql_left-join-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="sql_join_files/figure-html/fig-sql_left-join-output-1.png" width="511" height="389" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sql_left-join-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;19.3: Діаграма Венна: LEFT JOIN
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1022,14 +1099,21 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> table_A <span class="kw">as</span> A</span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>     <span class="kw">RIGHT</span> <span class="kw">JOIN</span> table_B <span class="kw">as</span> B</span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>     <span class="kw">ON</span> A.<span class="kw">id</span> <span class="op">=</span> B.<span class="kw">id</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="tbl-panel" class="tbl-parent quarto-layout-panel anchored">
-<div class="panel-caption table-caption">
-<p>Таблиця&nbsp;19.3: Приклад роботи <code>RIGHT JOIN</code></p>
-</div>
+<div id="tbl-panel" class="quarto-layout-panel anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Таблиця&nbsp;19.3: Приклад роботи <code>RIGHT JOIN</code>
+</figcaption>
+<div aria-describedby="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-A-right" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-A-right" class="sm primary bordered anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-A-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Таблиця A
+</figcaption>
+<div aria-describedby="tbl-A-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-sm table-primary table-bordered small table">
-<caption>(a) Таблиця A</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -1048,9 +1132,17 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tbody>
 </table>
 </div>
-<div id="tbl-B-right" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-B-right" class="sm secondary bordered anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-B-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Таблиця B
+</figcaption>
+<div aria-describedby="tbl-B-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-sm table-secondary table-bordered small table">
-<caption>(b) Таблиця B</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -1069,11 +1161,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tbody>
 </table>
 </div>
+</figure>
+</div>
+</div>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-C-right" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 100.0%;justify-content: center;">
+<div id="tbl-C-right" class="sm success bordered anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-C-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Таблиця C
+</figcaption>
+<div aria-describedby="tbl-C-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-sm table-success table-bordered small table">
-<caption>(c) Таблиця C</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -1095,16 +1195,25 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tbody>
 </table>
 </div>
+</figure>
 </div>
+</div>
+</div>
+</div>
+</figure>
 </div>
 <p>Все як і у випадку з <code>LEFT JOIN</code>, тільки в результат вже потрапить запис з <code>id 3</code> з правої таблиці.</p>
-<p>Діаграма Венна для <code>RIGHT JOIN</code> зображена на <a href="#fig-sql_right-join">рис.&nbsp;<span>19.4</span></a></p>
-<div class="cell" data-execution_count="8">
+<p>Діаграма Венна для <code>RIGHT JOIN</code> зображена на <a href="#fig-sql_right-join" class="quarto-xref">рис.&nbsp;<span>19.4</span></a></p>
+<div id="cell-fig-sql_right-join" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
-<div id="fig-sql_right-join" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="sql_join_files/figure-html/fig-sql_right-join-output-1.png" width="511" height="389" class="figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;19.4: Діаграма Венна: LEFT JOIN</figcaption>
+<div id="fig-sql_right-join" class="quarto-figure quarto-figure-center anchored" height="389" width="511">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sql_right-join-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="sql_join_files/figure-html/fig-sql_right-join-output-1.png" width="511" height="389" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sql_right-join-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;19.4: Діаграма Венна: LEFT JOIN
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1117,7 +1226,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1128,8 +1237,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="9">
-<details>
+<div id="cell-32" class="cell" data-execution_count="9">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>SELECT a.user_id <span class="im">as</span> user_id_left,</span>
@@ -1285,7 +1394,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1296,8 +1405,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="10">
-<details>
+<div id="cell-35" class="cell" data-execution_count="10">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>SELECT count(distinct a.user_id) <span class="im">as</span> users_count</span>
@@ -1337,19 +1446,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-join-05" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 19.5 </strong></span><br> Візьміть запит із <a href="#exr-sql-join-03">завдання&nbsp;<span>19.3</span></a>, де ви об’єднували таблиці <code>user_actions</code> і <code>users</code> за допомогою <code>LEFT JOIN</code>, додайте до запиту оператор <code>WHERE</code> і виключіть значення <code>NULL</code> в колонці <code>user_id</code> з правої таблиці. Включіть у результат ті самі колонки і відсортуйте таблицю, що вийшла, за зростанням id користувача в колонці з лівої таблиці.</p>
+<p><span class="theorem-title"><strong>Завдання 19.5 </strong></span><br> Візьміть запит із <a href="#exr-sql-join-03" class="quarto-xref">завдання&nbsp;<span>19.3</span></a>, де ви об’єднували таблиці <code>user_actions</code> і <code>users</code> за допомогою <code>LEFT JOIN</code>, додайте до запиту оператор <code>WHERE</code> і виключіть значення <code>NULL</code> в колонці <code>user_id</code> з правої таблиці. Включіть у результат ті самі колонки і відсортуйте таблицю, що вийшла, за зростанням id користувача в колонці з лівої таблиці.</p>
 <p>Поля в результуючій таблиці: <code>user_id_left</code>, <code>user_id_right</code>, <code>order_id</code>, <code>time</code>, <code>action</code>, <code>sex</code>, <code>birth_date</code></p>
-<p>Після того як розв’яжете завдання, спробуйте порівняти це рішення із <a href="#exr-sql-join-01">завданням&nbsp;<span>19.1</span></a>. Подумайте, який <code>JOIN</code> ми отримали після всіх маніпуляцій з результатом. Заодно можете порахувати кількість унікальних <code>user_id</code> у запиті з цього завдання, щоб розставити всі крапки над “i”.</p>
+<p>Після того як розв’яжете завдання, спробуйте порівняти це рішення із <a href="#exr-sql-join-01" class="quarto-xref">завданням&nbsp;<span>19.1</span></a>. Подумайте, який <code>JOIN</code> ми отримали після всіх маніпуляцій з результатом. Заодно можете порахувати кількість унікальних <code>user_id</code> у запиті з цього завдання, щоб розставити всі крапки над “i”.</p>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="11">
-<details>
+<div id="cell-40" class="cell" data-execution_count="11">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>SELECT a.user_id <span class="im">as</span> user_id_left,</span>
@@ -1535,14 +1644,21 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> table_A <span class="kw">as</span> A</span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>     <span class="kw">FULL</span> <span class="kw">JOIN</span> table_B <span class="kw">as</span> B</span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>     <span class="kw">ON</span> A.<span class="kw">id</span> <span class="op">=</span> B.<span class="kw">id</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="tbl-panel" class="tbl-parent quarto-layout-panel anchored">
-<div class="panel-caption table-caption">
-<p>Таблиця&nbsp;19.4: Приклад роботи <code>FULL JOIN</code></p>
-</div>
+<div id="tbl-panel" class="quarto-layout-panel anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Таблиця&nbsp;19.4: Приклад роботи <code>FULL JOIN</code>
+</figcaption>
+<div aria-describedby="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-A-full" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-A-full" class="sm primary bordered anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-A-full-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Таблиця A
+</figcaption>
+<div aria-describedby="tbl-A-full-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-sm table-primary table-bordered small table">
-<caption>(a) Таблиця A</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -1561,9 +1677,17 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tbody>
 </table>
 </div>
-<div id="tbl-B-full" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-B-full" class="sm secondary bordered anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-B-full-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Таблиця B
+</figcaption>
+<div aria-describedby="tbl-B-full-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-sm table-secondary table-bordered small table">
-<caption>(b) Таблиця B</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -1581,12 +1705,20 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 </div>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-C-full" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 100.0%;justify-content: center;">
+<div id="tbl-C-full" class="sm success bordered anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-C-full-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Таблиця C
+</figcaption>
+<div aria-describedby="tbl-C-full-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-sm table-success table-bordered small table">
-<caption>(c) Таблиця C</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -1613,16 +1745,25 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tbody>
 </table>
 </div>
+</figure>
 </div>
+</div>
+</div>
+</div>
+</figure>
 </div>
 <p>В результат потрапив спільний запис з <code>id 2</code>, а також всі записи, до яких не було знайдено відповідності з інших таблиць. Усі невідповідності були заповнені порожніми значеннями.</p>
-<p>Діграма Венна для <code>FULL JOIN</code> наведено на <a href="#fig-sql-join-full-venn">рисунку&nbsp;<span>19.5</span></a>.</p>
-<div class="cell" data-execution_count="12">
+<p>Діграма Венна для <code>FULL JOIN</code> наведено на <a href="#fig-sql-join-full-venn" class="quarto-xref">рисунку&nbsp;<span>19.5</span></a>.</p>
+<div id="cell-fig-sql-join-full-venn" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
-<div id="fig-sql-join-full-venn" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="sql_join_files/figure-html/fig-sql-join-full-venn-output-1.png" width="511" height="389" class="figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;19.5: Діаграма Венна: FULL JOIN</figcaption>
+<div id="fig-sql-join-full-venn" class="quarto-figure quarto-figure-center anchored" height="389" width="511">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sql-join-full-venn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="sql_join_files/figure-html/fig-sql-join-full-venn-output-1.png" width="511" height="389" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sql-join-full-venn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;19.5: Діаграма Венна: FULL JOIN
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1630,7 +1771,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>А тепер розберемося з <code>FULL JOIN</code> на прикладі нашої бази даних.</p>
 <p>У нас є дві таблиці з датами народження користувачів та кур’єрів – <code>users</code> та <code>couriers</code>. Можна припустити, що в кожній таблиці у колонці <code>birth_date</code> є якісь дати, яких немає в іншій таблиці. Тобто такі дати, в які народився хтось із кур’єрів, але не народився жоден користувач, і навпаки. Ну що ж, спробуємо перевірити цю гіпотезу.</p>
 <p>Для початку згрупуємо дві таблиці по колонці <code>birth_date</code> і порахуємо скільки користувачів/кур’єрів народилися в кожен з днів. Для цього можете виконати такий запит:</p>
-<div class="cell" data-execution_count="13">
+<div id="cell-48" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>SELECT birth_date, COUNT(user_id) AS users_count</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>FROM users</span>
@@ -1711,7 +1852,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="14">
+<div id="cell-49" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>SELECT birth_date, COUNT(courier_id) AS couriers_count</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>FROM couriers</span>
@@ -1800,7 +1941,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1813,8 +1954,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="15">
-<details>
+<div id="cell-53" class="cell" data-execution_count="15">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>WITH a AS (</span>
@@ -1884,36 +2025,52 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="kw">UNION</span> <span class="kw">ALL</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> table_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Діаграми Венна для операцій над множинами виглядають зображено на <a href="#fig-sql-join-venn">рисунку&nbsp;<span>19.6</span></a>.</p>
-<div id="fig-sql-join-venn" class="cell column-page-inset quarto-layout-panel" data-execution_count="16">
-<figure class="figure">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
-<div id="fig-sql-join-venn-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="sql_join_files/figure-html/fig-sql-join-venn-output-1.png" class="img-fluid figure-img" data-ref-parent="fig-sql-join-venn" width="511"></p>
-<figcaption class="figure-caption">(a)</figcaption>
+<p>Діаграми Венна для операцій над множинами виглядають зображено на <a href="#fig-sql-join-venn" class="quarto-xref">рисунку&nbsp;<span>19.6</span></a>.</p>
+<div id="fig-sql-join-venn" class="quarto-layout-panel page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-sql-join-venn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<div class="quarto-layout-row quarto-layout-valign-top page-columns page-full">
+<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell page-columns page-full" data-ref-parent="fig-sql-join-venn" style="flex-basis: 33.3%;justify-content: center;">
+<div id="fig-sql-join-venn-1" class="quarto-figure quarto-figure-center anchored page-columns page-full" height="389" width="511">
+<figure class="quarto-float quarto-subfloat-fig figure page-columns page-full">
+<div aria-describedby="fig-sql-join-venn-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="sql_join_files/figure-html/fig-sql-join-venn-output-1.png" id="fig-sql-join-venn-1" data-ref-parent="fig-sql-join-venn" width="511" height="389" class="figure-img column-page-inset">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-sql-join-venn-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a)
+</figcaption>
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
-<div id="fig-sql-join-venn-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="sql_join_files/figure-html/fig-sql-join-venn-output-2.png" class="img-fluid figure-img" data-ref-parent="fig-sql-join-venn" width="511"></p>
-<figcaption class="figure-caption">(b)</figcaption>
+<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell page-columns page-full" data-ref-parent="fig-sql-join-venn" style="flex-basis: 33.3%;justify-content: center;">
+<div id="fig-sql-join-venn-2" class="quarto-figure quarto-figure-center anchored page-columns page-full" height="389" width="511">
+<figure class="quarto-float quarto-subfloat-fig figure page-columns page-full">
+<div aria-describedby="fig-sql-join-venn-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="sql_join_files/figure-html/fig-sql-join-venn-output-2.png" id="fig-sql-join-venn-2" data-ref-parent="fig-sql-join-venn" width="511" height="389" class="figure-img column-page-inset">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-sql-join-venn-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b)
+</figcaption>
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 33.3%;justify-content: center;">
-<div id="fig-sql-join-venn-3" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="sql_join_files/figure-html/fig-sql-join-venn-output-3.png" class="img-fluid figure-img" data-ref-parent="fig-sql-join-venn" width="511"></p>
-<figcaption class="figure-caption">(c)</figcaption>
+<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell page-columns page-full" data-ref-parent="fig-sql-join-venn" style="flex-basis: 33.3%;justify-content: center;">
+<div id="fig-sql-join-venn-3" class="quarto-figure quarto-figure-center anchored page-columns page-full" height="389" width="511">
+<figure class="quarto-float quarto-subfloat-fig figure page-columns page-full">
+<div aria-describedby="fig-sql-join-venn-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="sql_join_files/figure-html/fig-sql-join-venn-output-3.png" id="fig-sql-join-venn-3" data-ref-parent="fig-sql-join-venn" width="511" height="389" class="figure-img column-page-inset">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-sql-join-venn-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c)
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Рисунок&nbsp;19.6: Операції над множинами: діаграма Венна</figcaption><p></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sql-join-venn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;19.6: Операції над множинами: діаграма Венна
+</figcaption>
 </figure>
 </div>
 <p>Для роботи цих операцій необхідно, щоб виконувались такі умови:</p>
@@ -1923,7 +2080,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </ol>
 <p>При цьому кількість стовпців в операторі <code>SELECT</code> може бути будь-якою — головне, щоб вона була однаковою.</p>
 <p>Наприклад, наступний запит поверне унікальні ID користувачів, які щось замовляли в нашому сервісі, але яких з якоїсь причини немає в таблиці <code>users</code>:</p>
-<div class="cell" data-execution_count="17">
+<div id="cell-59" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>SELECT user_id</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>FROM user_actions</span>
@@ -2014,7 +2171,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2032,8 +2189,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="18">
-<details>
+<div id="cell-63" class="cell" data-execution_count="18">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>WITH sub_union <span class="im">as</span> (</span>
@@ -2085,14 +2242,21 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> table_A <span class="kw">as</span> A</span>
 <span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>     <span class="kw">CROSS</span> <span class="kw">JOIN</span> table_B <span class="kw">as</span> B</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>За допомогою <code>CROSS JOIN</code> ми отримуємо всі можливі комбінації значень із першої та другої таблиці:</p>
-<div id="tbl-panel" class="tbl-parent quarto-layout-panel anchored">
-<div class="panel-caption table-caption">
-<p>Таблиця&nbsp;19.5: Приклад роботи <code>FULL JOIN</code></p>
-</div>
+<div id="tbl-panel" class="quarto-layout-panel anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Таблиця&nbsp;19.5: Приклад роботи <code>FULL JOIN</code>
+</figcaption>
+<div aria-describedby="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-A-cross" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-A-cross" class="sm primary bordered anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-A-cross-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Таблиця A
+</figcaption>
+<div aria-describedby="tbl-A-cross-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-sm table-primary table-bordered small table">
-<caption>(a) Таблиця A</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">city</th>
@@ -2108,9 +2272,17 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tbody>
 </table>
 </div>
-<div id="tbl-B-cross" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-B-cross" class="sm secondary bordered anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-B-cross-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Таблиця B
+</figcaption>
+<div aria-describedby="tbl-B-cross-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-sm table-secondary table-bordered small table">
-<caption>(b) Таблиця B</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">country</th>
@@ -2128,12 +2300,20 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 </div>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-C-cross" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 100.0%;justify-content: center;">
+<div id="tbl-C-cross" class="sm success bordered anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-C-cross-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Таблиця C
+</figcaption>
+<div aria-describedby="tbl-C-cross-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-sm table-success table-bordered small table">
-<caption>(c) Таблиця C</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">city</th>
@@ -2168,7 +2348,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </tbody>
 </table>
 </div>
+</figure>
 </div>
+</div>
+</div>
+</div>
+</figure>
 </div>
 <p>А теперь давайте решим простую задачу.</p>
 <hr>
@@ -2178,7 +2363,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2189,8 +2374,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="19">
-<details>
+<div id="cell-70" class="cell" data-execution_count="19">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> user_100 <span class="im">as</span> (</span>
@@ -2217,7 +2402,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2229,8 +2414,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="20">
-<details>
+<div id="cell-75" class="cell" data-execution_count="20">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>SELECT  user_id,</span>
@@ -2337,19 +2522,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-join-10" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 19.10 </strong></span><br> Знову об’єднайте таблиці <code>user_actions</code> та <code>orders</code>, але тепер залиште лише унікальні нескасовані замовлення (ми робили схожий запит у <a href="sql_subquery.html#exr-sql-subquery-07">завданні&nbsp;<span>18.7</span></a>). Інші умови завдання ті самі: вивести ID користувачів та замовлень, а також список товарів у замовленні. Відсортуйте таблицю за id користувача за зростанням, потім за id замовлення теж за зростанням.</p>
+<p><span class="theorem-title"><strong>Завдання 19.10 </strong></span><br> Знову об’єднайте таблиці <code>user_actions</code> та <code>orders</code>, але тепер залиште лише унікальні нескасовані замовлення (ми робили схожий запит у <a href="sql_subquery.html#exr-sql-subquery-07" class="quarto-xref">завданні&nbsp;<span>18.7</span></a>). Інші умови завдання ті самі: вивести ID користувачів та замовлень, а також список товарів у замовленні. Відсортуйте таблицю за id користувача за зростанням, потім за id замовлення теж за зростанням.</p>
 <p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
 <p>Поля в результуючій таблиці: <code>user_id</code>, <code>order_id</code>, <code>product_ids</code></p>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="21">
-<details>
+<div id="cell-80" class="cell" data-execution_count="21">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>SELECT  user_id,</span>
@@ -2459,7 +2644,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2467,7 +2652,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p><span class="theorem-title"><strong>Завдання 19.11 </strong></span><br> Використовуючи запит із попереднього завдання, порахуйте, скільки в середньому товарів замовляє кожен користувач. Виведіть id користувача та середню кількість товарів у замовленні. Середнє значення округліть до двох знаків після коми. Колонку обчисленими значеннями назвіть <code>avg_order_size</code>. Результат виконання запиту відсортуйте за зростанням ID користувача.</p>
 <p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
 <p>Поля у результуючій таблиці: <code>user_id</code>, <code>avg_order_size</code></p>
-<p><strong>Пояснення:</strong> для вирішення вам знадобиться функція <code>array_length</code>. Ми розглядали її у <a href="sql_agg.html#exr-sql-agg-09">завданні&nbsp;<span>16.9</span></a>.</p>
+<p><strong>Пояснення:</strong> для вирішення вам знадобиться функція <code>array_length</code>. Ми розглядали її у <a href="sql_agg.html#exr-sql-agg-09" class="quarto-xref">завданні&nbsp;<span>16.9</span></a>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2487,8 +2672,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="22">
-<details>
+<div id="cell-85" class="cell" data-execution_count="22">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> user_order_prod <span class="im">as</span> (</span>
@@ -2532,19 +2717,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-join-12" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 19.12 </strong></span><br> Для початку до таблиці із замовленнями (<code>orders</code>) застосуйте функцію <code>unnest</code>, як ми робили <a href="sql_subquery.html#exr-sql-subquery-12">завданні&nbsp;<span>18.12</span></a>. Колонку із id товарів назвіть <code>product_id</code>. Потім до розширеної таблиці, що утворилася, за ключом <code>product_id</code> додайте інформацію про ціни на товари (з таблиці <code>products</code>). Повинна вийти таблиця із замовленнями, товарами всередині кожного замовлення та цінами на ці товари. Виведіть колонки з id замовлення, id товару та ціною товару. Результат відсортуйте спочатку за зростанням id замовлення, потім за зростанням id товару.</p>
+<p><span class="theorem-title"><strong>Завдання 19.12 </strong></span><br> Для початку до таблиці із замовленнями (<code>orders</code>) застосуйте функцію <code>unnest</code>, як ми робили <a href="sql_subquery.html#exr-sql-subquery-12" class="quarto-xref">завданні&nbsp;<span>18.12</span></a>. Колонку із id товарів назвіть <code>product_id</code>. Потім до розширеної таблиці, що утворилася, за ключом <code>product_id</code> додайте інформацію про ціни на товари (з таблиці <code>products</code>). Повинна вийти таблиця із замовленнями, товарами всередині кожного замовлення та цінами на ці товари. Виведіть колонки з id замовлення, id товару та ціною товару. Результат відсортуйте спочатку за зростанням id замовлення, потім за зростанням id товару.</p>
 <p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
 <p>Поля у результуючій таблиці: <code>order_id</code>, <code>product_id</code>, <code>price</code></p>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="23">
-<details>
+<div id="cell-90" class="cell" data-execution_count="23">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> unnest_id <span class="im">as</span> (SELECT order_id,</span>
@@ -2567,19 +2752,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-join-13" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 19.13 </strong></span><br> Використовуючи запит із <a href="#exr-sql-join-12">завдання&nbsp;<span>19.12</span></a>, розрахуйте сумарну вартість кожного замовлення. Виведіть колонки з id замовлень та їх вартістю. Колонку із вартістю замовлення назвіть <code>order_price</code>. Результат відсортуйте за зростанням id замовлення.</p>
+<p><span class="theorem-title"><strong>Завдання 19.13 </strong></span><br> Використовуючи запит із <a href="#exr-sql-join-12" class="quarto-xref">завдання&nbsp;<span>19.12</span></a>, розрахуйте сумарну вартість кожного замовлення. Виведіть колонки з id замовлень та їх вартістю. Колонку із вартістю замовлення назвіть <code>order_price</code>. Результат відсортуйте за зростанням id замовлення.</p>
 <p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
 <p>Поля у результуючій таблиці: <code>order_id</code>, <code>order_price</code></p>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="24">
-<details>
+<div id="cell-95" class="cell" data-execution_count="24">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>SELECT order_id,</span>
@@ -2698,12 +2883,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-join-14" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 19.14 </strong></span><br> Використовуючи результати попередніх завдань (<a href="#exr-sql-join-13">завд.&nbsp;<span>19.13</span></a> та <a href="#exr-sql-join-11">завд.&nbsp;<span>19.11</span></a>), напишіть запит для отримання інформації для кожного користувача:</p>
+<p><span class="theorem-title"><strong>Завдання 19.14 </strong></span><br> Використовуючи результати попередніх завдань (<a href="#exr-sql-join-13" class="quarto-xref">завд.&nbsp;<span>19.13</span></a> та <a href="#exr-sql-join-11" class="quarto-xref">завд.&nbsp;<span>19.11</span></a>), напишіть запит для отримання інформації для кожного користувача:</p>
 <ul>
 <li>загальна кількість замовлень - колонку назвіть <code>orders_count</code></li>
 <li>середня кількість товарів у замовленні — <code>avg_order_size</code></li>
@@ -2719,8 +2904,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="25">
-<details>
+<div id="cell-100" class="cell" data-execution_count="25">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span>    unnest_id <span class="im">as</span> (</span>
@@ -2783,7 +2968,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2793,8 +2978,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="26">
-<details>
+<div id="cell-105" class="cell" data-execution_count="26">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>SELECT name,</span>
@@ -2891,12 +3076,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-join-16" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 19.16 </strong></span><br> Візьміть за основу запит із <a href="sql_groupby.html#exr-sql-groupby-11">завдання&nbsp;<span>17.16</span></a> і підтягніть до нього з таблиці <code>users</code> дані про поле користувачів таким чином, щоб усі користувачі з таблиці <code>users_actions</code> залишилися в результаті. Потім порахуйте середнє значення <code>cancel_rate</code> для кожної статі, заокругливши його <strong>до трьох знаків після ком</strong>и. Колонку з порахованим середнім значенням назвіть <code>avg_cancel_rate</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 19.16 </strong></span><br> Візьміть за основу запит із <a href="sql_groupby.html#exr-sql-groupby-11" class="quarto-xref">завдання&nbsp;<span>17.16</span></a> і підтягніть до нього з таблиці <code>users</code> дані про поле користувачів таким чином, щоб усі користувачі з таблиці <code>users_actions</code> залишилися в результаті. Потім порахуйте середнє значення <code>cancel_rate</code> для кожної статі, заокругливши його <strong>до трьох знаків після ком</strong>и. Колонку з порахованим середнім значенням назвіть <code>avg_cancel_rate</code>.</p>
 <p>Пам’ятайте про відсутність інформації про поле деяких користувачів після об’єднання таблиць, тому що не всі користувачі таблиці <code>user_action</code> є в таблиці users. Для цієї групи також порахуйте <code>cancel_rate</code> і в результуючій таблиці для порожнього значення в колонці з підлогою вкажіть <strong>‘unknown’</strong> (без лапок). Можливо, для цього доведеться згадати, як працює <code>COALESCE</code>.</p>
 <p>Результат відсортуйте по колонці зі статтю користувача за зростанням.</p>
 <p>Поля у результуючій таблиці: <code>sex</code>, <code>avg_cancel_rate</code></p>
@@ -2924,8 +3109,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="27">
-<details>
+<div id="cell-110" class="cell" data-execution_count="27">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>SELECT coalesce(sex, <span class="st">'unknown'</span>) <span class="im">as</span> sex,</span>
@@ -2981,7 +3166,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -3007,8 +3192,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="28">
-<details>
+<div id="cell-113" class="cell" data-execution_count="28">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>SELECT order_id</span>
@@ -3103,7 +3288,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -3131,8 +3316,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="29">
-<details>
+<div id="cell-118" class="cell" data-execution_count="29">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>SELECT order_id,</span>
@@ -3224,7 +3409,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -3235,8 +3420,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="30">
-<details>
+<div id="cell-121" class="cell" data-execution_count="30">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> order_id_large_size <span class="im">as</span> (SELECT order_id</span>
@@ -3294,7 +3479,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -3324,8 +3509,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="31">
-<details>
+<div id="cell-126" class="cell" data-execution_count="31">
+<details class="code-fold">
 <summary>Рішення</summary>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-overflow-scroll code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> main_table <span class="im">as</span> (SELECT DISTINCT order_id,</span>
@@ -3431,6 +3616,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -3497,13 +3709,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -3582,10 +3796,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -3595,8 +3808,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -3609,6 +3831,135 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    const typesetMath = (el) => {
+      if (window.MathJax) {
+        // MathJax Typeset
+        window.MathJax.typeset([el]);
+      } else if (window.katex) {
+        // KaTeX Render
+        var mathElements = el.getElementsByClassName("math");
+        var macros = [];
+        for (var i = 0; i < mathElements.length; i++) {
+          var texText = mathElements[i].firstChild;
+          if (mathElements[i].tagName == "SPAN") {
+            window.katex.render(texText.data, mathElements[i], {
+              displayMode: mathElements[i].classList.contains('display'),
+              throwOnError: false,
+              macros: macros,
+              fleqn: false
+            });
+          }
+        }
+      }
+    }
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        typesetMath(container);
+        return container.innerHTML
+      } else {
+        typesetMath(note);
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      typesetMath(note);
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -3652,6 +4003,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -3677,6 +4029,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -3736,21 +4114,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<script src="https://giscus.app/client.js" data-repo="aranaur/py4ds" data-repo-id="R_kgDOIR_TDw" data-category="General" data-category-id="DIC_kwDOIR_TD84CYOoA" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+<script src="https://giscus.app/client.js" data-repo="aranaur/py4ds" data-repo-id="" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./sql_subquery.html" class="pagination-link">
+      <a href="./sql_subquery.html" class="pagination-link  aria-label=" &lt;span="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Підзапити</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./sql_window.html" class="pagination-link">
+      <a href="./sql_window.html" class="pagination-link" aria-label="<span class='chapter-number'>20</span>&nbsp; <span class='chapter-title'>Віконні функції</span>">
         <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Віконні функції</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

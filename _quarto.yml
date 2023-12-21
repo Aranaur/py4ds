@@ -82,6 +82,8 @@ language: _language-ukr.yml
 
 bibliography: references.bib
 
+engine: knitr
+
 format:
   html:
     df-print: kable
