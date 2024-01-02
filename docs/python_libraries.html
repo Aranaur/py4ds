@@ -414,7 +414,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>coin <span class="op">=</span> [<span class="st">'орел'</span>, <span class="st">'решка'</span>]</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(random.choice(coin))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>орел</code></pre>
+<pre><code>решка</code></pre>
 </div>
 </div>
 <p>Запис <code>random.choice(coin)</code> означає, що ми використовуємо функцію <code>choice()</code> з модуля <code>random</code> і передаємо їй список <code>coin</code> як аргумент. Ця функція повертає випадковий елемент зі списку <code>coin</code>, який ми виводимо на екран.</p>
@@ -438,7 +438,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>coin <span class="op">=</span> [<span class="st">'орел'</span>, <span class="st">'решка'</span>]</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(choice(coin))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>решка</code></pre>
+<pre><code>орел</code></pre>
 </div>
 </div>
 <p>Тепер ми можемо використовувати функцію <code>choice()</code> без префіксу <code>random</code>.</p>
@@ -449,7 +449,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>d20 <span class="op">=</span> random.randint(<span class="dv">1</span>, <span class="dv">20</span>)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(d20)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1</code></pre>
+<pre><code>18</code></pre>
 </div>
 </div>
 <p>Підемо далі, та розглянемо наступну функцію <code>random.shuffle(x)</code>, яка перемішує елементи списку <code>x</code> у випадковому порядку. Давайте використаємо цю функцію, щоб перемішати колоду карт:</p>
@@ -463,7 +463,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> card <span class="kw">in</span> cards:</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(card, end<span class="op">=</span><span class="st">' '</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Q 7 10 5 A K 2 3 6 4 J 8 9 </code></pre>
+<pre><code>7 J 8 4 9 5 A 3 K Q 10 2 6 </code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">

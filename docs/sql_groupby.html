@@ -1175,7 +1175,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p>У <a href="#exr-sql-agg-09" class="quarto-xref">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql-agg-09</span></a> ми навчилися працювати з функцією <code>array_length</code> і навіть порахували з її допомогою кількість товарів у кожному замовленні. Давайте для кожного розміру замовлення, яке зустрічається у даних, порахуємо загальну кількість замовлень такого розміру.</p>
+<p>У <a href="sql_agg.html#exr-sql-agg-09" class="quarto-xref">Завдання&nbsp;<span>16.9</span></a> ми навчилися працювати з функцією <code>array_length</code> і навіть порахували з її допомогою кількість товарів у кожному замовленні. Давайте для кожного розміру замовлення, яке зустрічається у даних, порахуємо загальну кількість замовлень такого розміру.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1705,7 +1705,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p>А тепер спробуємо вирішити складніше завдання. Для нього нам знову знадобиться агрегатний вираз із фільтрацією, який ми розглядали у <a href="#exr-sql-agg-16" class="quarto-xref">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql-agg-16</span></a>. Цю конструкцію можна застосовувати не лише до всієї таблиці, а й окремо до кожної групи, сформованої внаслідок застосування оператора <code>GROUP BY</code>. Загалом вона виглядатиме так:</p>
+<p>А тепер спробуємо вирішити складніше завдання. Для нього нам знову знадобиться агрегатний вираз із фільтрацією, який ми розглядали у <a href="sql_agg.html#exr-sql-agg-16" class="quarto-xref">Завдання&nbsp;<span>16.16</span></a>. Цю конструкцію можна застосовувати не лише до всієї таблиці, а й окремо до кожної групи, сформованої внаслідок застосування оператора <code>GROUP BY</code>. Загалом вона виглядатиме так:</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, agg_function(column_2) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> [condition])</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> column_1</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1816,7 +1816,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p>Повернімося до запиту з групуванням користувачів за віком, який робили у <a href="#exr-sql-agg-03" class="quarto-xref">завданні&nbsp;<span class="quarto-unresolved-ref ref-noprefix">exr-sql-agg-03</span></a>.</p>
+<p>Повернімося до запиту з групуванням користувачів за віком, який робили у <a href="sql_agg.html#exr-sql-agg-03" class="quarto-xref">завданні&nbsp;<span>16.3</span></a>.</p>
 <p>Ми порахували кількість користувачів кожного віку, але дивитися на дані саме в такому угрупованні не дуже цікаво. Давайте перейдемо від конкретних значень віку до вікових груп.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">

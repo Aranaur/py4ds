@@ -1659,7 +1659,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-window-08" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 20.8 </strong></span><br> Спочатку на основі таблиці <code>orders</code> сформуйте нову таблицю із загальною кількістю замовлень щодня. Ви вже робили у <a href="#exr-sql-window-04" class="quarto-xref">завданні&nbsp;<span class="quarto-unresolved-ref ref-noprefix">exr-sql-window-04</span></a>. Підраховуючи кількість замовлень, не враховуйте скасовані замовлення (їх можна визначити за таблицею <code>user_actions</code>). Назвіть колонку з кількістю замовлень <code>orders_count</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 20.8 </strong></span><br> Спочатку на основі таблиці <code>orders</code> сформуйте нову таблицю із загальною кількістю замовлень щодня. Ви вже робили у <a href="#exr-sql-window-04" class="quarto-xref">завданні&nbsp;<span>20.4</span></a>. Підраховуючи кількість замовлень, не враховуйте скасовані замовлення (їх можна визначити за таблицею <code>user_actions</code>). Назвіть колонку з кількістю замовлень <code>orders_count</code>.</p>
 <p>Потім помістіть отриману таблицю в підзапит і застосуйте до неї віконну функцію в парі з функцією <code>AVG</code> для розрахунку ковзного середнього числа замовлень. Ковзне середнє для кожного запису рахуйте за трьома попередніми днями. Подумайте, як правильно встановити межі рамки, щоб отримати коректні розрахунки.</p>
 <p>Отримані значення ковзного середнього округліть до <strong>двох знаків після коми</strong>. Колонку із розрахованим показником назвіть <code>moving_avg</code>. Сортувати результуючу таблицю робити не потрібно.</p>
 <p>Поля у результуючій таблиці: <code>date</code>, <code>orders_count</code>, <code>moving_avg</code></p>
@@ -1967,7 +1967,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </section>
 <section id="задача-з-filter" class="level2" data-number="20.14">
 <h2 data-number="20.14" class="anchored" data-anchor-id="задача-з-filter"><span class="header-section-number">20.14</span> Задача з <code>FILTER</code></h2>
-<p>У цьому завданні розглянемо ще більш сучасний функціонал і навчимося разом з віконними функціями застосовувати оператор <code>FILTER</code>, з яким ми вже працювали у <a href="#exr-sql-groupby-11" class="quarto-xref">завданні&nbsp;<span class="quarto-unresolved-ref ref-noprefix">exr-sql-groupby-11</span></a>.</p>
+<p>У цьому завданні розглянемо ще більш сучасний функціонал і навчимося разом з віконними функціями застосовувати оператор <code>FILTER</code>, з яким ми вже працювали у <a href="sql_groupby.html#exr-sql-groupby-11" class="quarto-xref">завданні&nbsp;<span>17.16</span></a>.</p>
 <p>Якщо до визначення віконної функції додати пропозицію <code>FILTER</code>, то у вікно потраплять лише ті вхідні рядки, для яких умова фільтра буде обчислена як дійсна.</p>
 <p>При цьому пропозиція <code>FILTER</code> допускається тільки для агрегатних віконних функцій.</p>
 <p>У загальному вигляді вся конструкція виглядає так:</p>
