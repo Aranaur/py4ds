@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.525">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="description" content="Книга-конспект матеріалів">
-
 <title>Від нуля до Python Data Scientist - 5&nbsp; Бібліотеки</title>
 <style>
 code{white-space: pre-wrap;}
@@ -57,7 +54,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -73,13 +69,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -105,27 +98,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Надіслати",
     "search-label": "Пошук"
   }
-}</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-0C9TJBF3C5"></script>
-
-<script type="text/javascript">
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-0C9TJBF3C5"></script><script type="text/javascript">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
-</script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-
+</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -136,44 +120,38 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
+      <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Від нуля до Python Data Scientist</a> 
-        <div class="sidebar-tools-main tools-wide">
+        <div class="sidebar-tools-main">
     <a href="https://github.com/Aranaur/py4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+<li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
               <i class="bi bi-bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
               <i class="bi bi-bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
               <i class="bi bi-bi-linkedin pe-1"></i>
             LinkedIn
             </a>
           </li>
       </ul>
-    </div>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Переключити темний режим"><i class="bi"></i></a>
+</div>
 </div>
     </div>
       </div>
@@ -184,7 +162,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Вступне слово</span></a>
@@ -199,8 +177,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./python_basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Функції та змінні</span></span></a>
@@ -279,7 +257,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -289,8 +267,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql_basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Базові запити</span></span></a>
@@ -345,7 +323,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
@@ -354,36 +332,36 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Зміст</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Зміст</h2>
    
   <ul>
-  <li><a href="#імпорт-бібліотек" id="toc-імпорт-бібліотек" class="nav-link active" data-scroll-target="#імпорт-бібліотек"><span class="header-section-number">5.1</span> Імпорт бібліотек</a>
+<li>
+<a href="#%D1%96%D0%BC%D0%BF%D0%BE%D1%80%D1%82-%D0%B1%D1%96%D0%B1%D0%BB%D1%96%D0%BE%D1%82%D0%B5%D0%BA" id="toc-імпорт-бібліотек" class="nav-link active" data-scroll-target="#%D1%96%D0%BC%D0%BF%D0%BE%D1%80%D1%82-%D0%B1%D1%96%D0%B1%D0%BB%D1%96%D0%BE%D1%82%D0%B5%D0%BA"><span class="header-section-number">5.1</span> Імпорт бібліотек</a>
   <ul class="collapse">
-  <li><a href="#випадковість" id="toc-випадковість" class="nav-link" data-scroll-target="#випадковість"><span class="header-section-number">5.1.1</span> Випадковість</a></li>
-  <li><a href="#статистика" id="toc-статистика" class="nav-link" data-scroll-target="#статистика"><span class="header-section-number">5.1.2</span> Статистика</a></li>
-  </ul></li>
-  <li><a href="#аргументи-командного-рядка" id="toc-аргументи-командного-рядка" class="nav-link" data-scroll-target="#аргументи-командного-рядка"><span class="header-section-number">5.2</span> Аргументи командного рядка</a></li>
-  <li><a href="#пакети" id="toc-пакети" class="nav-link" data-scroll-target="#пакети"><span class="header-section-number">5.3</span> Пакети</a>
-  <ul class="collapse">
-  <li><a href="#cowsay" id="toc-cowsay" class="nav-link" data-scroll-target="#cowsay"><span class="header-section-number">5.3.1</span> Cowsay</a></li>
-  <li><a href="#api" id="toc-api" class="nav-link" data-scroll-target="#api"><span class="header-section-number">5.3.2</span> API</a></li>
-  <li><a href="#власні-пакети" id="toc-власні-пакети" class="nav-link" data-scroll-target="#власні-пакети"><span class="header-section-number">5.3.3</span> Власні пакети</a></li>
-  </ul></li>
+<li><a href="#%D0%B2%D0%B8%D0%BF%D0%B0%D0%B4%D0%BA%D0%BE%D0%B2%D1%96%D1%81%D1%82%D1%8C" id="toc-випадковість" class="nav-link" data-scroll-target="#%D0%B2%D0%B8%D0%BF%D0%B0%D0%B4%D0%BA%D0%BE%D0%B2%D1%96%D1%81%D1%82%D1%8C"><span class="header-section-number">5.1.1</span> Випадковість</a></li>
+  <li><a href="#%D1%81%D1%82%D0%B0%D1%82%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0" id="toc-статистика" class="nav-link" data-scroll-target="#%D1%81%D1%82%D0%B0%D1%82%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0"><span class="header-section-number">5.1.2</span> Статистика</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Aranaur/py4ds/edit/main/python_libraries.qmd" class="toc-action"><i class="bi bi-github"></i>Редагувати сторінку</a></li><li><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action"><i class="bi empty"></i>Повідомити про проблему</a></li><li><a href="https://github.com/Aranaur/py4ds/blob/main/python_libraries.qmd" class="toc-action"><i class="bi empty"></i>Переглянути код</a></li></ul></div></nav>
+</li>
+  <li><a href="#%D0%B0%D1%80%D0%B3%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B8-%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%BD%D0%BE%D0%B3%D0%BE-%D1%80%D1%8F%D0%B4%D0%BA%D0%B0" id="toc-аргументи-командного-рядка" class="nav-link" data-scroll-target="#%D0%B0%D1%80%D0%B3%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B8-%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%BD%D0%BE%D0%B3%D0%BE-%D1%80%D1%8F%D0%B4%D0%BA%D0%B0"><span class="header-section-number">5.2</span> Аргументи командного рядка</a></li>
+  <li>
+<a href="#%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B8" id="toc-пакети" class="nav-link" data-scroll-target="#%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B8"><span class="header-section-number">5.3</span> Пакети</a>
+  <ul class="collapse">
+<li><a href="#cowsay" id="toc-cowsay" class="nav-link" data-scroll-target="#cowsay"><span class="header-section-number">5.3.1</span> Cowsay</a></li>
+  <li><a href="#api" id="toc-api" class="nav-link" data-scroll-target="#api"><span class="header-section-number">5.3.2</span> API</a></li>
+  <li><a href="#%D0%B2%D0%BB%D0%B0%D1%81%D0%BD%D1%96-%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B8" id="toc-власні-пакети" class="nav-link" data-scroll-target="#%D0%B2%D0%BB%D0%B0%D1%81%D0%BD%D1%96-%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B8"><span class="header-section-number">5.3.3</span> Власні пакети</a></li>
+  </ul>
+</li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/Aranaur/py4ds/edit/main/python_libraries.qmd" class="toc-action"><i class="bi bi-github"></i>Редагувати сторінку</a></li><li><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action"><i class="bi empty"></i>Повідомити про проблему</a></li><li><a href="https://github.com/Aranaur/py4ds/blob/main/python_libraries.qmd" class="toc-action"><i class="bi empty"></i>Переглянути код</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python.html">Python</a></li><li class="breadcrumb-item"><a href="./python_libraries.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Бібліотеки</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Бібліотеки</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./python.html">Python</a></li><li class="breadcrumb-item"><a href="./python_libraries.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Бібліотеки</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Бібліотеки</span>
+</h1>
 </div>
 
 
@@ -397,10 +375,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   
 
 
-</header>
-
-<p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p>
-<p><strong>Бібліотеки</strong> - це файли коду, написані людьми, які ви можете використовувати у своїх програмах. Це досить загальне визначення, тому що бібліотеки можуть бути різними. Це може бути невеличкий код, який спрощує доступ до API або цілий фреймворк для створення веб-сайтів.</p>
+</header><p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p><p><strong>Бібліотеки</strong> - це файли коду, написані людьми, які ви можете використовувати у своїх програмах. Це досить загальне визначення, тому що бібліотеки можуть бути різними. Це може бути невеличкий код, який спрощує доступ до API або цілий фреймворк для створення веб-сайтів.</p>
 <p>Python підтримує ідею можливості ділитися кодом з іншими і робить це за допомогою того, що він називає <strong>модулями</strong> (англ. <em>modules</em>) - це бібліотека, яка зазвичай має низку функцій, класів і інших речей, які ви можете використовувати у своїх програмах.</p>
 <p>Python встановлюється з низкою базових модулів, які ви можете використовувати у своїх програмах. Ці модулі включають в себе речі, такі як робота з файлами, робота з мережею, робота з даними, робота з датами і часом, робота з математичними функціями і багато іншого. Ці модулі називаються <strong>стандартними бібліотеками</strong> (англ. <em>standard libraries</em>).</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -416,8 +391,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Документація до стандартних бібліотек доступна за посиланням <a href="https://docs.python.org/3/library/">https://docs.python.org/3/library/</a>.</p>
 </div>
 </div>
-<section id="імпорт-бібліотек" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="імпорт-бібліотек"><span class="header-section-number">5.1</span> Імпорт бібліотек</h2>
+<section id="імпорт-бібліотек" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="імпорт-бібліотек">
+<span class="header-section-number">5.1</span> Імпорт бібліотек</h2>
 <p>Щоб використовувати бібліотеку, її потрібно імпортувати. Це означає, що ви повідомляєте Python, що ви хочете використовувати цю бібліотеку у своїй програмі. Це робиться за допомогою ключового слова <code>import</code> і назви бібліотеки.</p>
 <p>Для прикладу напишемо програму <code>generate.py</code>, яка буде симулювати підкидання монетки:</p>
 <div class="code-with-filename">
@@ -426,20 +401,20 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="sourceCode" id="cb1" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> generate.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="випадковість" class="level3" data-number="5.1.1">
-<h3 data-number="5.1.1" class="anchored" data-anchor-id="випадковість"><span class="header-section-number">5.1.1</span> Випадковість</h3>
+<section id="випадковість" class="level3" data-number="5.1.1"><h3 data-number="5.1.1" class="anchored" data-anchor-id="випадковість">
+<span class="header-section-number">5.1.1</span> Випадковість</h3>
 <p>Оскільки ми маємо справу з випадковим процесом (підкидання монетки), то нам знадобиться модуль <code>random</code>. Щоб його використати, ми повинні його імпортувати:</p>
-<div id="c2d01d6d" class="cell" data-execution_count="1">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Тепер ми можемо використовувати функції з цього модуля. Наприклад, функція <code>random.choice()</code> повертає випадковий елемент зі списку. Давайте використаємо цю функцію, щоб визначити, яка сторона монетки випала:</p>
-<div id="generate-default" class="cell" data-execution_count="2">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>coin <span class="op">=</span> [<span class="st">'орел'</span>, <span class="st">'решка'</span>]</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(random.choice(coin))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>решка</code></pre>
+<pre><code>орел</code></pre>
 </div>
 </div>
 <p>Запис <code>random.choice(coin)</code> означає, що ми використовуємо функцію <code>choice()</code> з модуля <code>random</code> і передаємо їй список <code>coin</code> як аргумент. Ця функція повертає випадковий елемент зі списку <code>coin</code>, який ми виводимо на екран.</p>
@@ -457,7 +432,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>В попередньому прикладі ми імпортували всю бібліотеку <code>random</code>. Але що, якщо нам потрібно використати лише одну функцію з цієї бібліотеки? Тоді ми можемо імпортувати лише цю функцію за допомогою комбінації ключових слів <code>from</code> та <code>import</code>:</p>
-<div id="generate-alternative" class="cell" data-execution_count="3">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> choice</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>coin <span class="op">=</span> [<span class="st">'орел'</span>, <span class="st">'решка'</span>]</span>
@@ -468,17 +443,17 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <p>Тепер ми можемо використовувати функцію <code>choice()</code> без префіксу <code>random</code>.</p>
 <p>Продовжимо досліджувати модуль <code>random</code>. Цього разу це буде функція <code>random.randint(a, b)</code>, яка повертає випадкове ціле число від <code>a</code> до <code>b</code> включно. Давайте використаємо цю функцію, щоб симулювати підкидання гральної кістки з 20 гранню<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>:</p>
-<div id="generate-dice" class="cell" data-execution_count="4">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>d20 <span class="op">=</span> random.randint(<span class="dv">1</span>, <span class="dv">20</span>)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(d20)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>3</code></pre>
+<pre><code>1</code></pre>
 </div>
 </div>
 <p>Підемо далі, та розглянемо наступну функцію <code>random.shuffle(x)</code>, яка перемішує елементи списку <code>x</code> у випадковому порядку. Давайте використаємо цю функцію, щоб перемішати колоду карт:</p>
-<div id="generate-shuffle" class="cell" data-execution_count="5">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>cards <span class="op">=</span> [<span class="st">'2'</span>, <span class="st">'3'</span>, <span class="st">'4'</span>, <span class="st">'5'</span>, <span class="st">'6'</span>, <span class="st">'7'</span>, <span class="st">'8'</span>, <span class="st">'9'</span>, <span class="st">'10'</span>, <span class="st">'J'</span>, <span class="st">'Q'</span>, <span class="st">'K'</span>, <span class="st">'A'</span>]</span>
@@ -488,7 +463,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> card <span class="kw">in</span> cards:</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(card, end<span class="op">=</span><span class="st">' '</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>3 9 7 J 2 6 8 Q K 5 10 A 4 </code></pre>
+<pre><code>Q 7 10 5 A K 2 3 6 4 J 8 9 </code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -505,9 +480,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Уважно читайте документацію!</p>
 </div>
 </div>
-</section>
-<section id="статистика" class="level3" data-number="5.1.2">
-<h3 data-number="5.1.2" class="anchored" data-anchor-id="статистика"><span class="header-section-number">5.1.2</span> Статистика</h3>
+</section><section id="статистика" class="level3" data-number="5.1.2"><h3 data-number="5.1.2" class="anchored" data-anchor-id="статистика">
+<span class="header-section-number">5.1.2</span> Статистика</h3>
 <p>Python також постачається з бібліотекою <code>statistics</code>, яка містить різноманітні статистичні функції для проведення базового дослідження мір центральної тенденції, варіації та залежностей.</p>
 <p>Створимо програму <code>average.py</code>, яка буде розраховувати середнє арифметичне значення списку чисел:</p>
 <div class="code-with-filename">
@@ -516,8 +490,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="sourceCode" id="cb11" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> average.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Імпортуємо модуль <code>statistics</code> та розрахуємо середнє значення поточної успішності студента за допомогою функції <code>mean()</code>:</p>
-<div id="average-import" class="cell" data-execution_count="6">
+<p>Імпортуємо модуль <code>statistics</code> та розрахуємо середнє значення поточної успішності студента за допомогою функції <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>:</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statistics</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>grades <span class="op">=</span> [</span>
@@ -544,10 +518,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Документація до модуля <code>statistics</code> доступна за посиланням <a href="https://docs.python.org/3/library/statistics.html">docs.python.org/3/library/statistics.html</a>.</p>
 </div>
 </div>
-</section>
-</section>
-<section id="аргументи-командного-рядка" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="аргументи-командного-рядка"><span class="header-section-number">5.2</span> Аргументи командного рядка</h2>
+</section></section><section id="аргументи-командного-рядка" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="аргументи-командного-рядка">
+<span class="header-section-number">5.2</span> Аргументи командного рядка</h2>
 <p>Існує ще більше функціональних можливостей, які постачаються з Python. Серед них є функції для роботи з аргументами командного рядка (англ. <em>command-line arguments</em>).</p>
 <p>Раніше, для запуску коду ми виконували команду <code>python hello.py</code> і жодного разу не писали нічого після імені файлу. Але Python дозволяє передавати аргументи командного рядка, які можуть використовуватися у програмі. Насправді, коли ви запускаєте програми в командному рядку, ви можете вказати будь-яку кількість слів, чисел або фраз після команди, яку ви вводите, і все це буде якимось чином передано як вхідні дані для самої програми. Що це означає? Давайте розглянемо приклад.</p>
 <p>Створимо файл <code>name.py</code>, в якому будемо використовувати новий модуль <code>sys</code>:</p>
@@ -572,7 +544,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>Ми зосередимо увагу на функції <code>sys.argv</code>, яка повертає список аргументів командного рядка, переданих програмі. Давайте використаємо цю функцію, щоб вивести на екран другий аргумент командного рядка:</p>
-<div id="name-argv" class="cell" data-execution_count="7">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Привіт, мене звати '</span> <span class="op">+</span> sys.argv[<span class="dv">1</span>] <span class="op">+</span> <span class="st">'!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -594,7 +566,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 IndexError: list index out of range</code></pre>
 <p>Це означає, що ми намагаємося отримати доступ до елемента списку, якого не існує. Це тому, що список <code>sys.argv</code> не містить жодного елемента, якщо не передати аргументів командного рядка.</p>
 <p>Давайте виправимо цю помилку, додавши перевірку наявності аргументів командного рядка:</p>
-<div id="name-argv-check" class="cell" data-execution_count="8">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
@@ -619,7 +591,7 @@ IndexError: list index out of range</code></pre>
 </div>
 <pre class="output"><code>Введіть своє ім'я як аргумент командного рядка!</code></pre>
 <p>З іншої сторони, ми можемо перевірити кількість аргументів командного рядка за допомогою функції <code>len()</code>:</p>
-<div id="name-argv-len" class="cell" data-execution_count="9">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">&lt;</span> <span class="dv">2</span>:</span>
@@ -629,7 +601,7 @@ IndexError: list index out of range</code></pre>
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Привіт, мене звати '</span> <span class="op">+</span> sys.argv[<span class="dv">1</span>] <span class="op">+</span> <span class="st">'!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Багато аргументів командного рядка!</code></pre>
+<pre><code>Мало аргументів командного рядка!</code></pre>
 </div>
 </div>
 <p>Виконаємо код з аргументами командного рядка:</p>
@@ -657,7 +629,7 @@ IndexError: list index out of range</code></pre>
 </div>
 <pre class="output"><code>Багато аргументів командного рядка!</code></pre>
 <p>Одна з речей, яка мені не подобається у цій версії коду полягає у тому, що суть моєї програми винесено у цей блок <code>else</code>. Є щось приємне в тому, щоб тримати всю обробку помилок окремо від коду, який вас дійсно цікавить. Існує кращий спосіб зробити це, використовуючи функцію <code>exit()</code>:</p>
-<div id="name-argv-print" class="cell" data-execution_count="10">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Перевіряємо кількість аргументів командного рядка</span></span>
@@ -669,7 +641,7 @@ IndexError: list index out of range</code></pre>
 <span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Виводимо повідомлення</span></span>
 <span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Привіт, мене звати '</span> <span class="op">+</span> sys.argv[<span class="dv">1</span>] <span class="op">+</span> <span class="st">'!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Функція <code>exit()</code> приймає один аргумент - повідомлення, яке буде виведено на екран, і зупиняє виконання програми. Тепер ми можемо використовувати функцію <code>print()</code> без блоку <code>else</code>.</p>
+<p>Функція <code>exit()</code> приймає один аргумент - повідомлення, яке буде виведено на екран, і зупиняє виконання програми. Тепер ми можемо використовувати функцію <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> без блоку <code>else</code>.</p>
 <p>Виконаємо код без аргументів командного рядка:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -695,7 +667,7 @@ IndexError: list index out of range</code></pre>
 </div>
 <pre class="output"><code>Привіт, мене звати Ігор Мірошниченко!</code></pre>
 <p>Припустимо, що я хочу, щоб друкувалося не тільки моє ім’я, але й імена інших користувачів. Для цього ми можемо використати зрізи (англ. <em>slices</em>) списків. Для цього використовуються квадратні дужки <code>[]</code>, які вказують, які елементи списку потрібно вивести. Перепишемо програму <code>name.py</code>:</p>
-<div id="name-argv-slice" class="cell" data-execution_count="11">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">&lt;</span> <span class="dv">2</span>:</span>
@@ -716,14 +688,13 @@ IndexError: list index out of range</code></pre>
 Привіт, мене звати Яромир!
 Привіт, мене звати Артур!
 Привіт, мене звати Святослав!</code></pre>
-</section>
-<section id="пакети" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="пакети"><span class="header-section-number">5.3</span> Пакети</h2>
+</section><section id="пакети" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="пакети">
+<span class="header-section-number">5.3</span> Пакети</h2>
 <p>Однією з причин того, що Python є настільки популярним і потужним в наші дні, є те, що існує багато бібліотек сторонніх розробників, також відомих як пакети (англ. <em>packages</em>). Строго кажучи, у самій мові Python є термін “пакети”, який по суті є модулем, реалізованим у папці, не просто у файлі. Але в більш загальному сенсі, пакети - це бібліотека сторонніх розробників, яку ми з вами можемо встановити на наш власний комп’ютер Mac або PC, або на наш хмарний сервер і отримати доступ до ще більшої функціональності, яку інші люди реалізували для нас.</p>
 <p>Одне з місць, де ви можете отримати всі ці пакунки, називається <a href="https://pypi.org/">PyPI</a> (The Python Package Index). Це репозиторій, де розробники можуть розміщувати свої пакети, щоб інші люди могли їх встановити. Існує багато інших репозиторіїв, але PyPI є найбільш популярним.</p>
 <p>Для встановлення пакетів, Python використовує менеджер пакетів <code>pip</code> - це програма, яка поставляється з Python і дозволяє встановлювати пакети.</p>
-<section id="cowsay" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="cowsay"><span class="header-section-number">5.3.1</span> Cowsay</h3>
+<section id="cowsay" class="level3" data-number="5.3.1"><h3 data-number="5.3.1" class="anchored" data-anchor-id="cowsay">
+<span class="header-section-number">5.3.1</span> Cowsay</h3>
 <p>Цікавий факт: існує пакет <code>cowsay</code>, який дозволяє виводити повідомлення на екран у вигляді корови<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Давайте встановимо пакет <code>cowsay</code> за допомогою команди <code>pip install cowsay</code>:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -752,7 +723,7 @@ IndexError: list index out of range</code></pre>
 <div class="sourceCode" id="cb43" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> cow.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Імпортуємо модуль <code>cowsay</code> та використаємо функцію <code>cowsay.cow()</code> для виведення повідомлення на екран у вигляді корови:</p>
-<div id="cow" class="cell" data-execution_count="12">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cowsay</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>cowsay.cow(<span class="st">'Привіт, мене звати Бакбик!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -769,9 +740,8 @@ IndexError: list index out of range</code></pre>
                                  ||     ||</code></pre>
 </div>
 </div>
-</section>
-<section id="api" class="level3" data-number="5.3.2">
-<h3 data-number="5.3.2" class="anchored" data-anchor-id="api"><span class="header-section-number">5.3.2</span> API</h3>
+</section><section id="api" class="level3" data-number="5.3.2"><h3 data-number="5.3.2" class="anchored" data-anchor-id="api">
+<span class="header-section-number">5.3.2</span> API</h3>
 <p>API (англ. <em>Application Programming Interface</em>) - це спосіб, за допомогою якого програми можуть взаємодіяти одна з одною. Існує багато різних API, які ви можете використовувати, наприклад, API для роботи з мережею, API для роботи з базами даних, API для роботи з файлами, API для роботи з графікою і багато іншого.</p>
 <p>Пакет, з яким ми будемо знайомитися, називається <code>requests</code>. Цей пакет дозволяє нам виконувати HTTP-запити до веб-сайтів. Для його встановлення виконаємо команду:</p>
 <div class="code-with-filename">
@@ -811,7 +781,7 @@ IndexError: list index out of range</code></pre>
 }</code></pre>
 <p>Наповнення виглядає дещо незрозуміло, воно має свою структуру: зверніть увагу на фігурні дужки, на квадратні дужки, на коми, на двокрапки, на лапки. Це називається форматом JSON (англ. <em>JavaScript Object Notation</em>). Це формат, який використовується для передачі даних між програмами. Існує багато інших форматів, таких як XML, CSV, YAML, але JSON є одним з найпопулярніших форматів.</p>
 <p>Цей текст містить інформацію з бази даних Apple про одну пісню Korn. Давайте використаємо пакет <code>requests</code>, щоб отримати цю інформацію і вивести її на екран:</p>
-<div id="itunes-eval" class="cell" data-execution_count="13">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -822,14 +792,14 @@ IndexError: list index out of range</code></pre>
 <span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
 <span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.json())</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="itunes-echo" class="cell" data-execution_count="14">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>{'resultCount': 1, 'results': [{'wrapperType': 'track', 'kind': 'song', 'artistId': 466532, 'collectionId': 423045626, 'trackId': 423045744, 'artistName': 'Korn', 'collectionName': 'Korn', 'trackName': 'Blind', 'collectionCensoredName': 'Korn', 'trackCensoredName': 'Blind', 'artistViewUrl': 'https://music.apple.com/us/artist/korn/466532?uo=4', 'collectionViewUrl': 'https://music.apple.com/us/album/blind/423045626?i=423045744&amp;uo=4', 'trackViewUrl': 'https://music.apple.com/us/album/blind/423045626?i=423045744&amp;uo=4', 'previewUrl': 'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ef/a4/dd/efa4dd64-e8e0-6c12-c88b-a3a996b24b12/mzaf_13798363446300996858.plus.aac.p.m4a', 'artworkUrl30': 'https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/30x30bb.jpg', 'artworkUrl60': 'https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/60x60bb.jpg', 'artworkUrl100': 'https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/09/2b/e7/092be7d0-7697-220d-c000-97f366e723e4/mzi.anacpwuj.jpg/100x100bb.jpg', 'collectionPrice': 9.99, 'trackPrice': 1.29, 'releaseDate': '1994-08-01T07:00:00Z', 'collectionExplicitness': 'explicit', 'trackExplicitness': 'notExplicit', 'discCount': 1, 'discNumber': 1, 'trackCount': 12, 'trackNumber': 1, 'trackTimeMillis': 258267, 'country': 'USA', 'currency': 'USD', 'primaryGenreName': 'Metal', 'isStreamable': True}]}</code></pre>
 </div>
 </div>
 <p>Ми отримали той самий відформатований текст, але він був стандартизований у вигляді словника Python: Apple API віддає нам JSON, а пакет <code>requests</code> перетворює його у словник Python.</p>
 <p>Давайте відформатуємо вивід, щоб він був більш читабельним. Для цього використаємо бібліотеку <code>json</code>, яка вбудована в Python:</p>
-<div id="itunes-pretty-eval" class="cell" data-execution_count="15">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
@@ -841,7 +811,7 @@ IndexError: list index out of range</code></pre>
 <span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
 <span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(json.dumps(response.json(), indent<span class="op">=</span><span class="dv">4</span>))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="itunes-pretty-echo" class="cell" data-execution_count="16">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>{
   "resultCount": 1,
@@ -884,7 +854,7 @@ IndexError: list index out of range</code></pre>
 </div>
 </div>
 <p>Тепер ми отримали відформатований текст, який більш читабельний. Але що, якщо ми хочемо вивести лише назву пісні? Для цього нам потрібно звернутися до словника Python, який міститься у змінній <code>response.json()</code>. Цей словник містить ключ <code>results</code>, який містить список пісень. Цей список містить словник, який містить ключ <code>trackName</code>, який містить назву пісні. Пропоную модифікувати URL-адресу і вивести на 1, а 10 треків (<code>limit=10</code>) гурту Korn:</p>
-<div id="itunes-track-eval" class="cell" data-execution_count="17">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
@@ -899,7 +869,7 @@ IndexError: list index out of range</code></pre>
 <span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> result <span class="kw">in</span> data[<span class="st">'results'</span>]:</span>
 <span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(result[<span class="st">'trackName'</span>])</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="itunes-track-echo" class="cell" data-execution_count="18">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Blind
 Shoots and Ladders
@@ -909,8 +879,8 @@ Divine
 Ball Tongue
 Fake
 Need To
-Daddy
-Lies</code></pre>
+Lies
+Daddy</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -926,9 +896,8 @@ Lies</code></pre>
 <p>Документація до пакету <code>json</code> доступна за посиланням <a href="https://docs.python.org/3/library/json.html">docs.python.org/3/library/json.html</a>.</p>
 </div>
 </div>
-</section>
-<section id="власні-пакети" class="level3" data-number="5.3.3">
-<h3 data-number="5.3.3" class="anchored" data-anchor-id="власні-пакети"><span class="header-section-number">5.3.3</span> Власні пакети</h3>
+</section><section id="власні-пакети" class="level3" data-number="5.3.3"><h3 data-number="5.3.3" class="anchored" data-anchor-id="власні-пакети">
+<span class="header-section-number">5.3.3</span> Власні пакети</h3>
 <p>Ви самі можете створювати власні бібліотеки. Досі ми писали всі наші функції в одному файлі. Хорошою практикою було б якось об’єднати код, який ви повторно використовуєте, і створити власний модуль або пакет Python. Ви можете тримати його локально на власному комп’ютері або хмарному сервері, або ж ви можете пройти через певні кроки, щоб зробити його безкоштовним і з відкритим вихідним кодом і викласти його, наприклад на PyPI, щоб інші також могли ним користуватися.</p>
 <p>Створимо новий файл <code>saying.py</code>, який буде моїм власним модулем:</p>
 <div class="code-with-filename">
@@ -938,7 +907,7 @@ Lies</code></pre>
 <div class="sourceCode" id="cb56" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> saying.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>В цьому файлі я створю функцію <code>say_hello()</code>, яка буде виводити вітальне повідомлення на екран, функцію <code>say_goodbye()</code>, яка буде виводити прощальне повідомлення на екран. Щоб переконатися, що ці функції працюють належним чином, я поміщу їх у функцію <code>main()</code>:</p>
-<div id="saying" class="cell" data-execution_count="19">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>    say_hello(<span class="st">'Гаррі'</span>)</span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>    say_goodbye(<span class="st">'Гаррі'</span>)</span>
@@ -963,7 +932,7 @@ Lies</code></pre>
 <div class="sourceCode" id="cb59" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> say.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>В цьому файлі я імпортую функції з модуля <code>saying</code> і використовую їх:</p>
-<div id="say-eval" class="cell" data-execution_count="20">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> saying <span class="im">import</span> say_hello</span>
 <span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -985,11 +954,9 @@ Lies</code></pre>
 <p>Код <code>from saying import say_hello</code> просить Python знайти модуль <code>saying</code>, прочитати його, а потім імпортувати функцію <code>say_hello()</code>. На жаль, до того часу, як Python прочитає файл зверху вниз зліва направо, останній рядок коду викликає функцію <code>main()</code>, що призводить до обов’язкового виклику всього коду.</p>
 <p>Для виправлення ситуації необхідно замість виклику функції <code>main()</code> у кінці коду використовувати запис:</p>
 <div id="lst-name-main" class="python listing">
-<figure class="quarto-float quarto-float-lst figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-name-main-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-lst figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-name-main-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Лістинг&nbsp;5.1: Умова виконання функції main()
-</figcaption>
-<div aria-describedby="lst-name-main-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</figcaption><div aria-describedby="lst-name-main-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="sourceCode" id="lst-name-main"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="lst-name-main-1"><a href="#lst-name-main-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
 <span id="lst-name-main-2"><a href="#lst-name-main-2" aria-hidden="true" tabindex="-1"></a>    main()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -997,7 +964,7 @@ Lies</code></pre>
 </div>
 <p>Запис <code>__name__</code> - це спеціальна змінна Python, яка містить ім’я поточного модуля. Якщо модуль виконується як програма, то ця змінна містить рядок <code>'__main__'</code>. Якщо ж модуль імпортується, то ця змінна містить ім’я модуля. Таким чином, ми можемо перевірити, чи виконується модуль як програма, і якщо так, то викликати функцію <code>main()</code>.</p>
 <p>Давайте подивимось. Спочатку виправимо нам модуль <code>saying.py</code>:</p>
-<div id="saying-main-eval-fix" class="cell" data-execution_count="21">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>    say_hello(<span class="st">'Гаррі'</span>)</span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>    say_goodbye(<span class="st">'Гаррі'</span>)</span>
@@ -1012,7 +979,7 @@ Lies</code></pre>
 <span id="cb63-12"><a href="#cb63-12" aria-hidden="true" tabindex="-1"></a>    main()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Імпортуємо модуль <code>saying</code>:</p>
-<div id="say-eval-fix" class="cell" data-execution_count="22">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> saying <span class="im">import</span> say_hello</span>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1029,18 +996,11 @@ Lies</code></pre>
 <pre class="output"><code>Привіт, Гаррі</code></pre>
 
 
-</section>
-</section>
-<aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
+</section></section><aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
 <ol>
 <li id="fn1"><p>20-гранна кістка використовується у деяких настільних іграх, наприклад, у <a href="https://uk.wikipedia.org/wiki/Dungeons_%26_Dragons">Dungeons &amp; Dragons</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Існує окрема форма образотворчого мистецтва під назвою <a href="https://uk.wikipedia.org/wiki/ASCII-%D0%B3%D1%80%D0%B0%D1%84%D1%96%D0%BA%D0%B0">ASCII-графіка</a>, яка використовує символи ASCII на екрані комп’ютерного терміналу або принтера для представлення зображень.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</aside>
-
-<p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p></main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</ol></aside><p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1060,150 +1020,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -1580,14 +1396,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<script src="https://giscus.app/client.js" data-repo="aranaur/py4ds" data-repo-id="" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script>
-<input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark">
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./python_exceptions.html" class="pagination-link  aria-label=" &lt;span="" та="" винятки&lt;="" span&gt;"="">
+</script><script src="https://giscus.app/client.js" data-repo="aranaur/py4ds" data-repo-id="" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script><input type="hidden" id="giscus-base-theme" value="light"><input type="hidden" id="giscus-alt-theme" value="dark"><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./python_exceptions.html" class="pagination-link  aria-label=">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Помилки та винятки</span></span>
       </a>          
   </div>
@@ -1598,7 +1409,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-
 
 
 

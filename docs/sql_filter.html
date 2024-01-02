@@ -73,12 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -151,7 +149,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Від нуля до Python Data Scientist</a> 
-        <div class="sidebar-tools-main tools-wide">
+        <div class="sidebar-tools-main">
     <a href="https://github.com/Aranaur/py4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
@@ -176,7 +174,6 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
           </li>
       </ul>
     </div>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Переключити темний режим"><i class="bi"></i></a>
 </div>
     </div>
       </div>
@@ -1675,7 +1672,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </section>
 <section id="фільтрація-з-null" class="level2" data-number="15.4">
 <h2 data-number="15.4" class="anchored" data-anchor-id="фільтрація-з-null"><span class="header-section-number">15.4</span> Фільтрація з <code>NULL</code></h2>
-<p>Раніше <a href="sql_basics.html#exr-sql11" class="quarto-xref">Завдання&nbsp;<span>14.11</span></a> ми зіткнулися з пропущеними значеннями в таблиці <code>couriers</code> — у деяких кур’єрів не було зазначено їхні дні народження.</p>
+<p>Раніше <a href="#exr-sql11" class="quarto-xref">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql11</span></a> ми зіткнулися з пропущеними значеннями в таблиці <code>couriers</code> — у деяких кур’єрів не було зазначено їхні дні народження.</p>
 <p>Для перевірки на <code>NULL</code> значення <strong>SQL</strong> є оператор <code>IS NULL</code>. У поєднанні з <code>WHERE</code> записується він так:</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
@@ -2044,7 +2041,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p><span class="theorem-title"><strong>Завдання 15.13 </strong></span><br> З таблиці <code>user_actions</code> отримаєте id всіх замовлень, зроблених користувачами сервісу <strong>у серпні 2022 року</strong>.</p>
 <p>Результат відсортуйте за зростанням id замовлення.</p>
 <p>Поле у результуючій таблиці: <code>order_id</code></p>
-<p><strong>Пояснення</strong>: зверніть увагу, що у вихідній таблиці є записи не лише з часом оформлення, а й часом скасування замовлення.У цій задачі може стати в нагоді функція <code>DATE_PART</code>. Ми розглядали її в <a href="sql_basics.html#exr-sql10" class="quarto-xref">Завдання&nbsp;<span>14.10</span></a>.</p>
+<p><strong>Пояснення</strong>: зверніть увагу, що у вихідній таблиці є записи не лише з часом оформлення, а й часом скасування замовлення.У цій задачі може стати в нагоді функція <code>DATE_PART</code>. Ми розглядали її в <a href="#exr-sql10" class="quarto-xref">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql10</span></a>.</p>
 </div>
 </div>
 </div>
@@ -2372,11 +2369,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-filter-16" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 15.16 </strong></span><br> Як і у минулому завданні (<a href="sql_basics.html#exr-sql15" class="quarto-xref">Завдання&nbsp;<span>14.15</span></a>), обчисліть ПДВ кожного товару в таблиці <code>products</code> і розрахуйте ціну без урахування ПДВ. Однак тепер врахуйте, що для товарів зі списку податок становить <strong>10%</strong>. Для решти товарів ПДВ той самий — <strong>20%</strong>.</p>
+<p><span class="theorem-title"><strong>Завдання 15.16 </strong></span><br> Як і у минулому завданні (<a href="#exr-sql15" class="quarto-xref">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql15</span></a>), обчисліть ПДВ кожного товару в таблиці <code>products</code> і розрахуйте ціну без урахування ПДВ. Однак тепер врахуйте, що для товарів зі списку податок становить <strong>10%</strong>. Для решти товарів ПДВ той самий — <strong>20%</strong>.</p>
 <p>Виведіть всю інформацію про товари, включаючи суму податку та ціну без його врахування. Колонки із сумою податку та ціною без ПДВ назвіть відповідно <code>tax</code> та <code>price_before_tax</code>. Округліть значення у цих колонках <strong>до двох знаків після коми</strong>.</p>
 <p>Результат відсортуйте спочатку за спаданням ціни товару без урахування ПДВ, потім за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code>, <code>tax</code>, <code>price_before_tax</code></p>
-<p><strong>Пояснення:</strong> порядок розрахунку податку той самий, що й у <a href="sql_basics.html#exr-sql15" class="quarto-xref">Завдання&nbsp;<span>14.15</span></a>. Для вирішення завдання вам можуть стати в нагоді конструкція <code>CASE</code> та оператор <code>IN</code>. Конструкцію <code>CASE</code> ми розглядали у <a href="sql_basics.html#exr-sql14" class="quarto-xref">Завдання&nbsp;<span>14.14</span></a>.</p>
+<p><strong>Пояснення:</strong> порядок розрахунку податку той самий, що й у <a href="#exr-sql15" class="quarto-xref">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql15</span></a>. Для вирішення завдання вам можуть стати в нагоді конструкція <code>CASE</code> та оператор <code>IN</code>. Конструкцію <code>CASE</code> ми розглядали у <a href="#exr-sql14" class="quarto-xref">Завдання&nbsp;<span class="quarto-unresolved-ref">exr-sql14</span></a>.</p>
 </div>
 </div>
 </div>
@@ -2552,150 +2549,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

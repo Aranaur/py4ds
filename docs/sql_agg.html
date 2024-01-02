@@ -73,12 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -151,7 +149,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Від нуля до Python Data Scientist</a> 
-        <div class="sidebar-tools-main tools-wide">
+        <div class="sidebar-tools-main">
     <a href="https://github.com/Aranaur/py4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
@@ -176,7 +174,6 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
           </li>
       </ul>
     </div>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Переключити темний режим"><i class="bi"></i></a>
 </div>
     </div>
       </div>
@@ -406,20 +403,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> <span class="kw">column</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Давайте спершу вирішимо просте завдання.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Примітка
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="question">
 <div id="exr-sql-agg-01" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 16.1 </strong></span><br> Виведіть <strong>ID всіх унікальних користувачів</strong> з таблиці <code>user_actions</code>. Результат відсортуйте за зростанням id.</p>
 <p>Поле у результуючій таблиці: <code>user_id</code></p>
-</div>
 </div>
 </div>
 <div id="cell-3" class="cell" data-execution_count="2">
@@ -498,21 +485,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> column_1, column_2</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У такому випадку запит поверне <strong>унікальні комбінації значень</strong> в колонках.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Примітка
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="question">
 <div id="exr-sql-agg-02" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 16.2 </strong></span><br> Застосуйте <code>DISTINCT</code> відразу до двох колонок таблиці <code>courier_actions</code> та відберіть унікальні пари значень <code>courier_id</code> та <code>order_id</code>.</p>
 <p>Результат відсортуйте спочатку за зростанням id кур’єра, потім за зростанням id замовлення.</p>
 <p>Поля у результуючій таблиці: <code>courier_id</code>, <code>order_id</code></p>
-</div>
 </div>
 </div>
 <div id="cell-6" class="cell" data-execution_count="3">
@@ -635,21 +612,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Докладніше про агрегатні функції в <strong>DuckDB</strong> можна ознайомитися <a href="https://duckdb.org/docs/sql/aggregates.html">тут</a>.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Примітка
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="question">
 <div id="exr-sql-agg-03" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 16.3 </strong></span><br> Порахуйте максимальну та мінімальну ціни товарів у таблиці <code>products</code>. Поля назвіть відповідно <code>max_price</code>, <code>min_price</code>.</p>
 <p>Поля у результуючій таблиці: <code>max_price</code>, <code>min_price</code></p>
 <p><strong>Пояснення</strong>: в одному запиті можна використовувати відразу кілька агрегаційних функцій — якщо необхідно, то навіть по кількох різних колонках.</p>
-</div>
 </div>
 </div>
 <div id="cell-9" class="cell" data-execution_count="4">
@@ -693,22 +660,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Однак важливо враховувати один нюанс: запит із зірочкою повертає кількість взагалі всіх записів у таблиці, а запит із зазначенням стовпця — кількість тих записів, де в заданому стовпці значення <strong>не є <code>NULL</code></strong>.</p>
 <p>Таким чином, якщо в деякій колонці <code>column</code> є перепустки, вирази <code>COUNT(*)</code> і <code>COUNT(column)</code> повернуть різні значення.</p>
 <p>Давайте перевіримо!</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Примітка
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="question">
 <div id="exr-sql-agg-04" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 16.4 </strong></span><br> Як ви пам’ятаєте, у таблиці <code>users</code> в деяких користувачів не було зазначено їх дати народження.</p>
 <p>Порахуйте в одному запиті кількість усіх записів у таблиці та кількість лише тих записів, для яких у колонці <code>birth_date</code> вказана дата народження.</p>
 <p>Колонку із загальним числом записів назвіть <code>dates</code>, а колонку із записами без перепусток — <code>dates_not_null</code>.</p>
 <p>Поля у результуючій таблиці: <code>dates</code>, <code>dates_not_null</code></p>
-</div>
 </div>
 </div>
 <div id="cell-12" class="cell" data-execution_count="5">
@@ -750,21 +707,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>При цьому досить часто <code>DISTINCT</code> використовується саме в поєднанні з <code>COUNT</code> для підрахунку числа унікальних користувачів, унікальних замовлень тощо.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="kw">DISTINCT</span> <span class="kw">column</span>) <span class="kw">AS</span> count_distinct</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Примітка
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="question">
 <div id="exr-sql-agg-05" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 16.5 </strong></span><br> Порахуйте кількість всіх значень у колонці <code>user_id</code> у таблиці <code>user_actions</code>, а також кількість унікальних значень у цій колонці (тобто кількість унікальних користувачів сервісу).</p>
 <p>Колонку з першим отриманим значенням назвіть <code>users</code>, а колонку з другим – <code>unique_users</code>.</p>
 <p>Поля у результуючій таблиці: <code>users</code>, <code>unique_users</code></p>
-</div>
 </div>
 </div>
 <div id="cell-15" class="cell" data-execution_count="6">
@@ -813,20 +760,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>       <span class="co">-- фільтрація даних</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span>    <span class="co">-- сортування результуючої таблиці</span></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span>       <span class="co">-- обмеження кількості записів, що виводяться</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Примітка
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="question">
 <div id="exr-sql-agg-06" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 16.6 </strong></span><br> Порахуйте кількість кур’єрів <strong>жіночої статі</strong> у таблиці <code>couriers</code>. Отриманий стовпець з одним значенням назвіть <code>couriers</code>.</p>
 <p>Поле в результуючій таблиці: <code>couriers</code></p>
-</div>
 </div>
 </div>
 <div id="cell-18" class="cell" data-execution_count="7">
@@ -860,22 +797,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>І ще одне завдання на агрегацію із фільтрацією. На цей раз проведемо розрахунки по колонці з даними у форматі <code>TIMESTAMP</code>.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Примітка
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="question">
 <div id="exr-sql-agg-07" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 16.7 </strong></span><br> Розрахуйте час, коли було здійснено першу та останню доставку замовлень у таблиці <code>courier_actions</code>.</p>
 <p>Колонку з часом першої доставки назвіть <code>first_delivery</code>, а колонку з часом останньої – <code>last_delivery</code>.</p>
 <p>Поля у результуючій таблиці: <code>first_delivery</code>, <code>last_delivery</code></p>
 <p><strong>Пояснення</strong>: зауважте, що в таблиці з діями кур’єрів є не тільки записи з часом доставки замовлень, але й записи з часом їх прийняття.</p>
-</div>
 </div>
 </div>
 <div id="cell-21" class="cell" data-execution_count="8">
@@ -913,16 +840,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <p>У поєднанні з агрегатними функціями можна використовувати ті ж умовні конструкції, які ми розглядали раніше.</p>
 <p>Давайте додамо до нашого запиту більш цікаву фільтрацію.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Примітка
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="question">
 <div id="exr-sql-agg-08" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 16.8 </strong></span><br> Уявіть, що один із користувачів сервісу зробив замовлення, до якого увійшли одна пачка крекерів (<code>crackers</code>), одна пачка чіпсів (<code>chips</code>) та один енергетичний напій (<code>energy drink</code>). Порахуйте вартість такого замовлення.</p>
 <p>Колонку із розрахованою вартістю замовлення назвіть <code>order_price</code>.</p>
@@ -930,9 +848,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Поле в результуючій таблиці: <code>order_price</code></p>
 </div>
 </div>
-</div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -941,7 +858,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Для вирішення завдання необхідно «сформувати» описане замовлення, відібравши з таблиці <code>products</code> зазначені товари та порахувавши їхню сумарну вартість.</p>
 </div>
@@ -1026,21 +943,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Дізнатися більше про функції для роботи з масивами можна у <a href="https://duckdb.org/docs/sql/functions/nested.html">документації</a>. З деякими з них ми познайомимося далі.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Примітка
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="question">
 <div id="exr-sql-agg-09" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 16.9 </strong></span><br> Порахуйте кількість замовлень у таблиці <code>orders</code> <strong>із дев’ятьма і більше товарами</strong>. Для цього скористайтесь функцією <code>array_length</code>, відфільтруйте дані щодо кількості товарів у замовленні та проведіть агрегацію. Отриманий стовпець назвіть <code>orders</code>.</p>
 <p>Поле в результуючій таблиці: <code>orders</code></p>
 <p><strong>Пояснення</strong>: у наших даних у колонці <code>product_ids</code> містяться звичайні списки товарів лише з однією розмірністю.</p>
-</div>
 </div>
 </div>
 <div id="cell-28" class="cell" data-execution_count="10">
@@ -1112,16 +1019,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="dt">year</span> <span class="dv">1</span> mon <span class="dv">2</span> days</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Примітка
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="question">
 <div id="exr-sql-agg-10" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 16.10 </strong></span><br> За допомогою функції <code>AGE</code> і агрегатної функції розрахуйте <strong>вік наймолодшого кур’єра чоловічої статі</strong> в таблиці <code>couriers</code>.</p>
 <p>Вік виведіть через кількість років, місяців і днів (як у прикладі вище), перевівши їх у тип <code>VARCHAR</code>.</p>
@@ -1130,7 +1028,6 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Поле у результуючій таблиці: <code>min_age</code></p>
 <p><strong>Пояснення</strong>: оскільки в якості дати, щодо якої проводиться розрахунок віку, ми використовуємо поточну дату, кожен новий день ми отримуватимемо новий результат.</p>
 <p>Зрозуміло, що рахувати вік у такий спосіб не зовсім коректно. Ми навчимося робити це правильно в розділі «Підзапити».</p>
-</div>
 </div>
 </div>
 <div id="cell-32" class="cell" data-execution_count="11">
@@ -1186,25 +1083,15 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="kw">AS</span> avg_price</span>
 <span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> products</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Давайте ускладнимо одне з попередніх завдань і розрахуємо вартість ще одного замовлення.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Примітка
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="question">
 <div id="exr-sql-agg-11" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 16.11 </strong></span><br> Порахуйте вартість замовлення, в якому будуть три пачки крекерів (<code>'crackers'</code>), дві пачки чіпсів (<code>'chips'</code>) та один енергетичний напій (<code>'energy drink'</code>). Колонку із розрахованою вартістю замовлення назвіть <code>order_price</code>.</p>
 <p>Для розрахунків використовуйте таблицю <code>products</code>.</p>
 <p>Поле в результуючій таблиці: <code>order_price</code></p>
 </div>
 </div>
-</div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1213,7 +1100,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Для розв’язання задачі необхідно за допомогою конструкції <code>CASE</code> створити розрахункову колонку, в якій навпроти кожного товару, який увійшов у замовлення, проставити ціну, помножену на кількість таких товарів у замовленні. Для товарів, які не увійшли у замовлення, необхідно вказати ціну, що дорівнює <code>0</code> або <code>NULL</code>. Потім за допомогою агрегатної функції достатньо порахувати суму значень у новій розрахунковій колонці.</p>
 </div>
@@ -1262,22 +1149,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="sourceCode" id="cb34"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">ROUND</span>(<span class="fu">SUM</span>(<span class="kw">column</span>)) <span class="kw">AS</span> rounded_sum</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Давайте вирішимо схоже завдання і заразом ненадовго повернемося до наших напоїв та оператора <code>LIKE</code>.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Примітка
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="question">
 <div id="exr-sql-agg-12" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 16.12 </strong></span><br> Розрахуйте середню ціну товарів у таблиці <code>products</code>, у назвах яких є слова <code>'tea'</code> чи <code>'coffee'</code>. Виключіть з розрахунку товари, що містять «іван-чай» (<code>'ivan-tea'</code>) або «чайний гриб» (<code>'tea mushroom'</code>).</p>
 <p>Середню ціну округліть до двох знаків після коми. Стовпець із отриманим значенням назвіть <code>avg_price</code>.</p>
 <p>Поле у результуючій таблиці: <code>avg_price</code></p>
 <p><strong>Пояснення</strong>: пам’ятайте, що виконання логічних виразів можна керувати за допомогою дужок. Це може стати в нагоді.</p>
-</div>
 </div>
 </div>
 <div id="cell-39" class="cell" data-execution_count="13">
@@ -1317,16 +1194,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="sourceCode" id="cb36"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> some_function(<span class="fu">SUM</span>(column_1), <span class="fu">SUM</span>(column_2)) <span class="kw">AS</span> result</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Наприклад, нам уже знайома функція <code>AGE</code>, яка може приймати одразу два аргументи - дату кінця та дату початку деякого періоду часу.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Примітка
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="question">
 <div id="exr-sql-agg-13" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 16.13 </strong></span><br> Скористайтеся функцією <code>AGE</code> та розрахуйте <strong>різницю у віці між найстарішим та наймолодшим користувачами чоловічої статі</strong> у таблиці <code>users</code>.</p>
 <p>Різницю у віці висловіть кількістю років, місяців та днів, перевівши її у тип <code>VARCHAR</code>.</p>
@@ -1334,9 +1202,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Поле у результуючій таблиці: <code>age_diff</code></p>
 </div>
 </div>
-</div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1345,7 +1212,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Це завдання можна вирішити різними способами: можна просто знайти різницю між датами народження наймолодшого і найстарішого користувачів, а можна порахувати різницю між їх віком. Можете піти будь-яким шляхом. Якщо рахуватимете вік, то в якості першої дати використовуйте свою поточну дату (<code>current_date</code>).</p>
 </div>
@@ -1386,25 +1253,15 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="sourceCode" id="cb38"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> function_two(<span class="fu">SUM</span>(funtion_one(<span class="kw">column</span>))) <span class="kw">AS</span> result</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У цьому прикладі спочатку до колонки <code>column</code> застосовується функція <code>funtion_one</code>, потім за допомогою функції <code>SUM</code> буде пораховано суму отриманих значень, і тільки потім до результату агрегації застосовується функція <code>funtion_two</code>.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Примітка
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="question">
 <div id="exr-sql-agg-14" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 16.14 </strong></span><br> Розрахуйте <strong>середню кількість товарів у замовленнях</strong> з таблиці <code>orders</code>, які користувачі оформляли у вихідні дні (субота та неділя) протягом усього часу роботи сервісу.</p>
 <p>Отримане значення округліть до двох знаків після коми. Назвіть колонку з ним <code>avg_order_size</code>.</p>
 <p>Поле у результуючій таблиці: <code>avg_order_size</code></p>
 </div>
 </div>
-</div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1413,7 +1270,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Для розрахунку кількості товарів у замовленнях скористайтесь функцією <code>array_length</code>. Для фільтрації таблиці у вихідні дні можна використовувати функцію <code>DATE_PART</code> з параметром <code>'dow'</code>.</p>
 </div>
@@ -1453,22 +1310,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="sourceCode" id="cb40"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> (<span class="fu">SUM</span>(column_1) <span class="op">+</span> <span class="fu">SUM</span>(column_2)) <span class="op">/</span> <span class="dv">2</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У запиті вище буде пораховано середнє арифметичне двох сум — значень колонки <code>column_1</code> і значень колонки <code>column_2</code>.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Примітка
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="question">
 <div id="exr-sql-agg-15" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 16.15 </strong></span><br> На основі даних у таблиці <code>user_actions</code> порахуйте: - <strong>кількість унікальних користувачів</strong> сервісу; - <strong>кількість унікальних замовлень</strong> - <strong>скільки замовлень припадає на одного користувача</strong>.</p>
 <p>У результуючій таблиці відобразіть усі три значення – поля назвіть відповідно <code>unique_users</code>, <code>unique_orders</code>, <code>orders_per_user</code>.</p>
 <p>Показник числа замовлень користувача округліть <strong>до двох знаків після коми</strong>.</p>
 <p>Поля у результуючій таблиці: <code>unique_users</code>, <code>unique_orders</code>, <code>orders_per_user</code></p>
-</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -1542,21 +1389,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Розглянемо ще один приклад.</p>
 <p>У нашому випадку досить зрозуміло, як порахувати загальну кількість користувачів. Також зрозуміло, як порахувати кількість користувачів, які хоча б раз скасовували замовлення — досить просто вказати потрібну умову в операторі <code>WHERE</code>. Але як у рамках одного запиту порахувати тих, хто ніколи не скасовував своє замовлення?</p>
 <p>Оскільки об’єднувати кілька запитів разом ми поки що не вміємо, нам допоможе прийти агрегатний вираз.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Примітка
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="question">
 <div id="exr-sql-agg-16" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 16.16 </strong></span><br> Порахуйте скільки користувачів ніколи не скасовували своє замовлення. Для цього із загальної кількості всіх унікальних користувачів відніміть кількість унікальних користувачів, які хоча б раз скасовували замовлення. Подумайте, яку умову необхідно вказати у <code>FILTER</code>, щоб отримати коректний результат.</p>
 <p>Отриманий стовпець назвіть <code>users_count</code>.</p>
 <p>Поле в результуючій таблиці: <code>users_count</code></p>
-</div>
 </div>
 </div>
 <div id="cell-54" class="cell" data-execution_count="17">
@@ -1592,16 +1429,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>Давайте вирішимо ще одне завдання на агрегатні вирази з фільтрацією - цього разу з більш складними розрахунками.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Примітка
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="question">
 <div id="exr-sql-agg-17" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 16.17 </strong></span><br> Порахуйте:</p>
 <ul>
@@ -1613,7 +1441,6 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Частку замовлень із п’ятьма та більше товарами у загальній кількості товарів округліть до двох знаків після коми.</p>
 <p>Поля в результуючій таблиці: <code>orders</code>, <code>large_orders</code>, <code>large_orders_share</code></p>
 <p>Пояснення: при розрахунку частки не забудьте хоча б одне із значень попередньо привести до типу <code>DECIMAL</code> (або домножити на <code>1.0</code>). Також пам’ятайте, що використовувати в розрахунках аліаси нових колонок не можна.</p>
-</div>
 </div>
 </div>
 <div id="cell-57" class="cell" data-execution_count="18">
@@ -1677,150 +1504,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

@@ -73,12 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -151,7 +149,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Від нуля до Python Data Scientist</a> 
-        <div class="sidebar-tools-main tools-wide">
+        <div class="sidebar-tools-main">
     <a href="https://github.com/Aranaur/py4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
@@ -176,7 +174,6 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
           </li>
       </ul>
     </div>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Переключити темний режим"><i class="bi"></i></a>
 </div>
     </div>
       </div>
@@ -616,10 +613,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </figure>
 </div>
 <p>Оскільки таблиці збігаються лише за одним значенням у стовпці <code>id</code>, то в результат буде включено лише одне запис.</p>
-<p>Схематично результат роботи об’єднань прийнято зображувати за допомогою <a href="https://uk.wikipedia.org/wiki/%D0%94%D1%96%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%B0_%D0%92%D0%B5%D0%BD%D0%BD%D0%B0">діаграм Венна</a>. Для <code>INNER JOIN</code> наведено на <a href="#fig-sql-inner-join" class="quarto-xref">рисунку&nbsp;<span>19.2</span></a>.</p>
+<p>Схематично результат роботи об’єднань прийнято зображувати за допомогою <a href="https://uk.wikipedia.org/wiki/%D0%94%D1%96%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%B0_%D0%92%D0%B5%D0%BD%D0%BD%D0%B0">діаграм Венна</a>. Для <code>INNER JOIN</code> наведено на <a href="#fig-sql-inner-join" class="quarto-xref">рисунку&nbsp;<span class="quarto-unresolved-ref ref-noprefix">fig-sql-inner-join</span></a>.</p>
 <div id="cell-fig-sql-inner-join" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
-<div id="fig-sql-inner-join" class="quarto-figure quarto-figure-center anchored" height="389" width="511">
+<div id="fig-sql-inner-join" class="quarto-figure quarto-figure-center anchored" width="511" height="389">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sql-inner-join-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="sql_join_files/figure-html/fig-sql-inner-join-output-1.png" width="511" height="389" class="figure-img">
@@ -1077,10 +1074,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </figure>
 </div>
 <p>У цьому випадку до результату потрапить запис з <code>id 2</code>, оскільки вона є в обох таблицях, а також запис з <code>id 1</code> з лівої таблиці.</p>
-<p>Діаграма Венна для <code>LEFT JOIN</code> наведено на <a href="#fig-sql_left-join" class="quarto-xref">рис.&nbsp;<span>19.3</span></a>.</p>
+<p>Діаграма Венна для <code>LEFT JOIN</code> наведено на <a href="#fig-sql_left-join" class="quarto-xref">рис.&nbsp;<span class="quarto-unresolved-ref ref-noprefix">fig-sql_left-join</span></a>.</p>
 <div id="cell-fig-sql_left-join" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
-<div id="fig-sql_left-join" class="quarto-figure quarto-figure-center anchored" height="389" width="511">
+<div id="fig-sql_left-join" class="quarto-figure quarto-figure-center anchored" width="511" height="389">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sql_left-join-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="sql_join_files/figure-html/fig-sql_left-join-output-1.png" width="511" height="389" class="figure-img">
@@ -1203,10 +1200,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </figure>
 </div>
 <p>Все як і у випадку з <code>LEFT JOIN</code>, тільки в результат вже потрапить запис з <code>id 3</code> з правої таблиці.</p>
-<p>Діаграма Венна для <code>RIGHT JOIN</code> зображена на <a href="#fig-sql_right-join" class="quarto-xref">рис.&nbsp;<span>19.4</span></a></p>
+<p>Діаграма Венна для <code>RIGHT JOIN</code> зображена на <a href="#fig-sql_right-join" class="quarto-xref">рис.&nbsp;<span class="quarto-unresolved-ref ref-noprefix">fig-sql_right-join</span></a></p>
 <div id="cell-fig-sql_right-join" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
-<div id="fig-sql_right-join" class="quarto-figure quarto-figure-center anchored" height="389" width="511">
+<div id="fig-sql_right-join" class="quarto-figure quarto-figure-center anchored" width="511" height="389">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sql_right-join-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="sql_join_files/figure-html/fig-sql_right-join-output-1.png" width="511" height="389" class="figure-img">
@@ -1451,9 +1448,9 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-join-05" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 19.5 </strong></span><br> Візьміть запит із <a href="#exr-sql-join-03" class="quarto-xref">завдання&nbsp;<span>19.3</span></a>, де ви об’єднували таблиці <code>user_actions</code> і <code>users</code> за допомогою <code>LEFT JOIN</code>, додайте до запиту оператор <code>WHERE</code> і виключіть значення <code>NULL</code> в колонці <code>user_id</code> з правої таблиці. Включіть у результат ті самі колонки і відсортуйте таблицю, що вийшла, за зростанням id користувача в колонці з лівої таблиці.</p>
+<p><span class="theorem-title"><strong>Завдання 19.5 </strong></span><br> Візьміть запит із <a href="#exr-sql-join-03" class="quarto-xref">завдання&nbsp;<span class="quarto-unresolved-ref ref-noprefix">exr-sql-join-03</span></a>, де ви об’єднували таблиці <code>user_actions</code> і <code>users</code> за допомогою <code>LEFT JOIN</code>, додайте до запиту оператор <code>WHERE</code> і виключіть значення <code>NULL</code> в колонці <code>user_id</code> з правої таблиці. Включіть у результат ті самі колонки і відсортуйте таблицю, що вийшла, за зростанням id користувача в колонці з лівої таблиці.</p>
 <p>Поля в результуючій таблиці: <code>user_id_left</code>, <code>user_id_right</code>, <code>order_id</code>, <code>time</code>, <code>action</code>, <code>sex</code>, <code>birth_date</code></p>
-<p>Після того як розв’яжете завдання, спробуйте порівняти це рішення із <a href="#exr-sql-join-01" class="quarto-xref">завданням&nbsp;<span>19.1</span></a>. Подумайте, який <code>JOIN</code> ми отримали після всіх маніпуляцій з результатом. Заодно можете порахувати кількість унікальних <code>user_id</code> у запиті з цього завдання, щоб розставити всі крапки над “i”.</p>
+<p>Після того як розв’яжете завдання, спробуйте порівняти це рішення із <a href="#exr-sql-join-01" class="quarto-xref">завданням&nbsp;<span class="quarto-unresolved-ref ref-noprefix">exr-sql-join-01</span></a>. Подумайте, який <code>JOIN</code> ми отримали після всіх маніпуляцій з результатом. Заодно можете порахувати кількість унікальних <code>user_id</code> у запиті з цього завдання, щоб розставити всі крапки над “i”.</p>
 </div>
 </div>
 </div>
@@ -1753,10 +1750,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </figure>
 </div>
 <p>В результат потрапив спільний запис з <code>id 2</code>, а також всі записи, до яких не було знайдено відповідності з інших таблиць. Усі невідповідності були заповнені порожніми значеннями.</p>
-<p>Діграма Венна для <code>FULL JOIN</code> наведено на <a href="#fig-sql-join-full-venn" class="quarto-xref">рисунку&nbsp;<span>19.5</span></a>.</p>
+<p>Діграма Венна для <code>FULL JOIN</code> наведено на <a href="#fig-sql-join-full-venn" class="quarto-xref">рисунку&nbsp;<span class="quarto-unresolved-ref ref-noprefix">fig-sql-join-full-venn</span></a>.</p>
 <div id="cell-fig-sql-join-full-venn" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
-<div id="fig-sql-join-full-venn" class="quarto-figure quarto-figure-center anchored" height="389" width="511">
+<div id="fig-sql-join-full-venn" class="quarto-figure quarto-figure-center anchored" width="511" height="389">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sql-join-full-venn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="sql_join_files/figure-html/fig-sql-join-full-venn-output-1.png" width="511" height="389" class="figure-img">
@@ -2025,13 +2022,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="kw">UNION</span> <span class="kw">ALL</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> table_2</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Діаграми Венна для операцій над множинами виглядають зображено на <a href="#fig-sql-join-venn" class="quarto-xref">рисунку&nbsp;<span>19.6</span></a>.</p>
+<p>Діаграми Венна для операцій над множинами виглядають зображено на <a href="#fig-sql-join-venn" class="quarto-xref">рисунку&nbsp;<span class="quarto-unresolved-ref ref-noprefix">fig-sql-join-venn</span></a>.</p>
 <div id="fig-sql-join-venn" class="quarto-layout-panel page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-sql-join-venn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
 <div class="quarto-layout-row quarto-layout-valign-top page-columns page-full">
 <div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell page-columns page-full" data-ref-parent="fig-sql-join-venn" style="flex-basis: 33.3%;justify-content: center;">
-<div id="fig-sql-join-venn-1" class="quarto-figure quarto-figure-center anchored page-columns page-full" height="389" width="511">
+<div id="fig-sql-join-venn-1" class="quarto-figure quarto-figure-center anchored page-columns page-full" width="511" height="389">
 <figure class="quarto-float quarto-subfloat-fig figure page-columns page-full">
 <div aria-describedby="fig-sql-join-venn-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
 <img src="sql_join_files/figure-html/fig-sql-join-venn-output-1.png" id="fig-sql-join-venn-1" data-ref-parent="fig-sql-join-venn" width="511" height="389" class="figure-img column-page-inset">
@@ -2043,7 +2040,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell page-columns page-full" data-ref-parent="fig-sql-join-venn" style="flex-basis: 33.3%;justify-content: center;">
-<div id="fig-sql-join-venn-2" class="quarto-figure quarto-figure-center anchored page-columns page-full" height="389" width="511">
+<div id="fig-sql-join-venn-2" class="quarto-figure quarto-figure-center anchored page-columns page-full" width="511" height="389">
 <figure class="quarto-float quarto-subfloat-fig figure page-columns page-full">
 <div aria-describedby="fig-sql-join-venn-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
 <img src="sql_join_files/figure-html/fig-sql-join-venn-output-2.png" id="fig-sql-join-venn-2" data-ref-parent="fig-sql-join-venn" width="511" height="389" class="figure-img column-page-inset">
@@ -2055,7 +2052,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell page-columns page-full" data-ref-parent="fig-sql-join-venn" style="flex-basis: 33.3%;justify-content: center;">
-<div id="fig-sql-join-venn-3" class="quarto-figure quarto-figure-center anchored page-columns page-full" height="389" width="511">
+<div id="fig-sql-join-venn-3" class="quarto-figure quarto-figure-center anchored page-columns page-full" width="511" height="389">
 <figure class="quarto-float quarto-subfloat-fig figure page-columns page-full">
 <div aria-describedby="fig-sql-join-venn-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
 <img src="sql_join_files/figure-html/fig-sql-join-venn-output-3.png" id="fig-sql-join-venn-3" data-ref-parent="fig-sql-join-venn" width="511" height="389" class="figure-img column-page-inset">
@@ -2527,7 +2524,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-join-10" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 19.10 </strong></span><br> Знову об’єднайте таблиці <code>user_actions</code> та <code>orders</code>, але тепер залиште лише унікальні нескасовані замовлення (ми робили схожий запит у <a href="sql_subquery.html#exr-sql-subquery-07" class="quarto-xref">завданні&nbsp;<span>18.7</span></a>). Інші умови завдання ті самі: вивести ID користувачів та замовлень, а також список товарів у замовленні. Відсортуйте таблицю за id користувача за зростанням, потім за id замовлення теж за зростанням.</p>
+<p><span class="theorem-title"><strong>Завдання 19.10 </strong></span><br> Знову об’єднайте таблиці <code>user_actions</code> та <code>orders</code>, але тепер залиште лише унікальні нескасовані замовлення (ми робили схожий запит у <a href="#exr-sql-subquery-07" class="quarto-xref">завданні&nbsp;<span class="quarto-unresolved-ref ref-noprefix">exr-sql-subquery-07</span></a>). Інші умови завдання ті самі: вивести ID користувачів та замовлень, а також список товарів у замовленні. Відсортуйте таблицю за id користувача за зростанням, потім за id замовлення теж за зростанням.</p>
 <p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
 <p>Поля в результуючій таблиці: <code>user_id</code>, <code>order_id</code>, <code>product_ids</code></p>
 </div>
@@ -2652,7 +2649,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p><span class="theorem-title"><strong>Завдання 19.11 </strong></span><br> Використовуючи запит із попереднього завдання, порахуйте, скільки в середньому товарів замовляє кожен користувач. Виведіть id користувача та середню кількість товарів у замовленні. Середнє значення округліть до двох знаків після коми. Колонку обчисленими значеннями назвіть <code>avg_order_size</code>. Результат виконання запиту відсортуйте за зростанням ID користувача.</p>
 <p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
 <p>Поля у результуючій таблиці: <code>user_id</code>, <code>avg_order_size</code></p>
-<p><strong>Пояснення:</strong> для вирішення вам знадобиться функція <code>array_length</code>. Ми розглядали її у <a href="sql_agg.html#exr-sql-agg-09" class="quarto-xref">завданні&nbsp;<span>16.9</span></a>.</p>
+<p><strong>Пояснення:</strong> для вирішення вам знадобиться функція <code>array_length</code>. Ми розглядали її у <a href="#exr-sql-agg-09" class="quarto-xref">завданні&nbsp;<span class="quarto-unresolved-ref ref-noprefix">exr-sql-agg-09</span></a>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2722,7 +2719,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-join-12" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 19.12 </strong></span><br> Для початку до таблиці із замовленнями (<code>orders</code>) застосуйте функцію <code>unnest</code>, як ми робили <a href="sql_subquery.html#exr-sql-subquery-12" class="quarto-xref">завданні&nbsp;<span>18.12</span></a>. Колонку із id товарів назвіть <code>product_id</code>. Потім до розширеної таблиці, що утворилася, за ключом <code>product_id</code> додайте інформацію про ціни на товари (з таблиці <code>products</code>). Повинна вийти таблиця із замовленнями, товарами всередині кожного замовлення та цінами на ці товари. Виведіть колонки з id замовлення, id товару та ціною товару. Результат відсортуйте спочатку за зростанням id замовлення, потім за зростанням id товару.</p>
+<p><span class="theorem-title"><strong>Завдання 19.12 </strong></span><br> Для початку до таблиці із замовленнями (<code>orders</code>) застосуйте функцію <code>unnest</code>, як ми робили <a href="#exr-sql-subquery-12" class="quarto-xref">завданні&nbsp;<span class="quarto-unresolved-ref ref-noprefix">exr-sql-subquery-12</span></a>. Колонку із id товарів назвіть <code>product_id</code>. Потім до розширеної таблиці, що утворилася, за ключом <code>product_id</code> додайте інформацію про ціни на товари (з таблиці <code>products</code>). Повинна вийти таблиця із замовленнями, товарами всередині кожного замовлення та цінами на ці товари. Виведіть колонки з id замовлення, id товару та ціною товару. Результат відсортуйте спочатку за зростанням id замовлення, потім за зростанням id товару.</p>
 <p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
 <p>Поля у результуючій таблиці: <code>order_id</code>, <code>product_id</code>, <code>price</code></p>
 </div>
@@ -2757,7 +2754,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-join-13" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 19.13 </strong></span><br> Використовуючи запит із <a href="#exr-sql-join-12" class="quarto-xref">завдання&nbsp;<span>19.12</span></a>, розрахуйте сумарну вартість кожного замовлення. Виведіть колонки з id замовлень та їх вартістю. Колонку із вартістю замовлення назвіть <code>order_price</code>. Результат відсортуйте за зростанням id замовлення.</p>
+<p><span class="theorem-title"><strong>Завдання 19.13 </strong></span><br> Використовуючи запит із <a href="#exr-sql-join-12" class="quarto-xref">завдання&nbsp;<span class="quarto-unresolved-ref ref-noprefix">exr-sql-join-12</span></a>, розрахуйте сумарну вартість кожного замовлення. Виведіть колонки з id замовлень та їх вартістю. Колонку із вартістю замовлення назвіть <code>order_price</code>. Результат відсортуйте за зростанням id замовлення.</p>
 <p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
 <p>Поля у результуючій таблиці: <code>order_id</code>, <code>order_price</code></p>
 </div>
@@ -2888,7 +2885,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-join-14" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 19.14 </strong></span><br> Використовуючи результати попередніх завдань (<a href="#exr-sql-join-13" class="quarto-xref">завд.&nbsp;<span>19.13</span></a> та <a href="#exr-sql-join-11" class="quarto-xref">завд.&nbsp;<span>19.11</span></a>), напишіть запит для отримання інформації для кожного користувача:</p>
+<p><span class="theorem-title"><strong>Завдання 19.14 </strong></span><br> Використовуючи результати попередніх завдань (<a href="#exr-sql-join-13" class="quarto-xref">завд.&nbsp;<span class="quarto-unresolved-ref ref-noprefix">exr-sql-join-13</span></a> та <a href="#exr-sql-join-11" class="quarto-xref">завд.&nbsp;<span class="quarto-unresolved-ref ref-noprefix">exr-sql-join-11</span></a>), напишіть запит для отримання інформації для кожного користувача:</p>
 <ul>
 <li>загальна кількість замовлень - колонку назвіть <code>orders_count</code></li>
 <li>середня кількість товарів у замовленні — <code>avg_order_size</code></li>
@@ -3081,7 +3078,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div id="exr-sql-join-16" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 19.16 </strong></span><br> Візьміть за основу запит із <a href="sql_groupby.html#exr-sql-groupby-11" class="quarto-xref">завдання&nbsp;<span>17.16</span></a> і підтягніть до нього з таблиці <code>users</code> дані про поле користувачів таким чином, щоб усі користувачі з таблиці <code>users_actions</code> залишилися в результаті. Потім порахуйте середнє значення <code>cancel_rate</code> для кожної статі, заокругливши його <strong>до трьох знаків після ком</strong>и. Колонку з порахованим середнім значенням назвіть <code>avg_cancel_rate</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 19.16 </strong></span><br> Візьміть за основу запит із <a href="#exr-sql-groupby-11" class="quarto-xref">завдання&nbsp;<span class="quarto-unresolved-ref ref-noprefix">exr-sql-groupby-11</span></a> і підтягніть до нього з таблиці <code>users</code> дані про поле користувачів таким чином, щоб усі користувачі з таблиці <code>users_actions</code> залишилися в результаті. Потім порахуйте середнє значення <code>cancel_rate</code> для кожної статі, заокругливши його <strong>до трьох знаків після ком</strong>и. Колонку з порахованим середнім значенням назвіть <code>avg_cancel_rate</code>.</p>
 <p>Пам’ятайте про відсутність інформації про поле деяких користувачів після об’єднання таблиць, тому що не всі користувачі таблиці <code>user_action</code> є в таблиці users. Для цієї групи також порахуйте <code>cancel_rate</code> і в результуючій таблиці для порожнього значення в колонці з підлогою вкажіть <strong>‘unknown’</strong> (без лапок). Можливо, для цього доведеться згадати, як працює <code>COALESCE</code>.</p>
 <p>Результат відсортуйте по колонці зі статтю користувача за зростанням.</p>
 <p>Поля у результуючій таблиці: <code>sex</code>, <code>avg_cancel_rate</code></p>
@@ -3593,150 +3590,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

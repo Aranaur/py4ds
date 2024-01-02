@@ -1,5 +1,8 @@
-# Quarto
+---
+engine: knitr
+---
 
+# Quarto
 
 ## Що таке Quarto
 [Quarto](https://quarto.org/) --- це науково--технічна видавнича система з відкритим кодом, яка ґрунтується на універсальному конверторі документів [Pandoc](https://pandoc.org/) та використовує мову розмітки [Markdown](https://www.markdownguide.org/). Це універсальний інструмент для тих, хто пише на R, Python, Julia та Observable JavaScript.
