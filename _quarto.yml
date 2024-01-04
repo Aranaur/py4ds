@@ -35,21 +35,21 @@ book:
   chapters:
     - index.qmd
     - text: "---"
-    - part: python.qmd
+    - part: chapters/python/python.qmd
       chapters: 
-      - python_basics.qmd
-      - python_conditionals.qmd
-      - python_loops.qmd
-      - python_exceptions.qmd
-      - python_libraries.qmd
-      - python_unit_tests.qmd
-      - python_files_io.qmd
-      - python_regex.qmd
-      - python_oop.qmd
-      - python_list_set.qmd
-      - python_functions.qmd
-      - python_exercises.qmd
-      - python_questions.qmd
+      - chapters/python/python_basics.qmd
+      - chapters/python/python_conditionals.qmd
+      - chapters/python/python_loops.qmd
+      - chapters/python/python_exceptions.qmd
+      - chapters/python/python_libraries.qmd
+      - chapters/python/python_unit_tests.qmd
+      - chapters/python/python_files_io.qmd
+      - chapters/python/python_regex.qmd
+      - chapters/python/python_oop.qmd
+      - chapters/python/python_list_set.qmd
+      - chapters/python/python_functions.qmd
+      - chapters/python/python_exercises.qmd
+      - chapters/python/python_questions.qmd
     # - text: "---"
     # - part: math4ds.qmd
     #   chapters: 
@@ -60,19 +60,19 @@ book:
       # - math4ds_exercises.qmd
       # - math4ds_questions.qmd
     - text: "---"
-    - part: sql.ipynb
+    - part: chapters/sql/sql.ipynb
       chapters: 
-      - sql_basics.ipynb
-      - sql_filter.ipynb
-      - sql_agg.ipynb
-      - sql_groupby.ipynb
-      - sql_subquery.ipynb
-      - sql_join.ipynb
-      - sql_window.ipynb
-      - sql_analytic.ipynb
-      - sql_metrics.ipynb
+      - chapters/sql/sql_basics.ipynb
+      - chapters/sql/sql_filter.ipynb
+      - chapters/sql/sql_agg.ipynb
+      - chapters/sql/sql_groupby.ipynb
+      - chapters/sql/sql_subquery.ipynb
+      - chapters/sql/sql_join.ipynb
+      - chapters/sql/sql_window.ipynb
+      - chapters/sql/sql_analytic.ipynb
+      - chapters/sql/sql_metrics.ipynb
     - text: "---"
-    - quarto.qmd
+    - chapters/quarto.qmd
 
 comments:
     giscus:

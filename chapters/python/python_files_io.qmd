@@ -1,0 +1,830 @@
+---
+engine: knitr
+---
+
+# Читання та запис файлів
+
+До цього часу більшість програм, які ми писали, просто зберігали всю інформацію в пам'яті, тобто в змінних або всередині самої програми. Недоліком цього є те, що як тільки програма завершує роботу, все, що ви ввели, все, що ви робили з цією програмою, втрачається.
+
+Використовуючи файли, ви можете зберігати інформацію довгостроково, і введення/виведення файлів (англ. *file I/O*) в контексті програмування - це написання коду, який може читати з файлів, тобто завантажувати інформацію з них, або записувати до них, тобто зберігати інформацію у самих файлах.
+
+## Запис даних
+
+Для початку пропоную розглянути знайому структуру даних, яку ми бачили раніше - `list`.
+
+Створимо програму `names.py`, яка буде зберігати імена у списку, а потім виводити їх на екран:
+
+```{.bash filename="Terminal"}
+code names.py
+```
+
+```{python}
+#| label: io-names-eval
+#| eval: false
+
+name = input("Як Вас звати? ")
+print(f'Привіт, {name}!')
+```
+
+Припустімо, що ми хочемо додати підтримку збереження декількох імен, наприклад трьох. Для цього ми можемо використати список. Для цього необхідно створити пустий список `names` і додавати (`append`) до нього імена, які вводить користувач. Вивід імен відсортуємо за алфавітом:
+
+```{python}
+#| label: io-names-list-eval
+#| eval: false
+
+names = []
+
+for _ in range(3):
+    names.append(input("Як Вас звати? "))
+
+for name in sorted(names):
+    print(f'Привіт, {name}!')
+```
+
+```{.output}
+Як Вас звати? Гаррі
+Як Вас звати? Рон
+Як Вас звати? Герміона
+Привіт, Гаррі!
+Привіт, Герміона!
+Привіт, Рон!
+```
+
+Звичайно, якщо я запущу цю програму ще раз, всі імена пропадуть. Було б непогано мати можливість якось зберігати цю інформацію. І саме тут з'являється ввід-вивід файлів, і саме тут з'являються файли.
+
+Давайте перепишемо нашу програму так, щоб вона зберігала імена у файлі `names.txt`. Для цього нам необхідно відкрити файл, використовуючи функцію `open` - ця функція приймає два аргументи: ім'я файлу і режим відкриття.
+
+Режим відкриття може бути:
+
+- `r` (англ. *read*) - читання, це режим за замовчуванням.
+- `w` (англ. *write*) - запис, цей режим перезаписує файл.
+- `a` (англ. *append*) - дописування, цей режим додає дані до файлу.
+
+ Якщо файл не існує, то він буде створений. Давайте перепишемо нашу програму з використанням функції `open`:
+
+```{python}
+#| label: io-names-list-file-eval
+#| eval: false
+
+name = input("Як Вас звати? ")
+
+file = open('names.txt', 'w')
+file.write(name)
+file.close()
+```
+
+Запустимо цю програму і перевіримо, чи вона працює:
+
+```{.bash filename="Terminal"}
+python names.py
+Як Вас звати? Гаррі
+code names.txt
+```
+
+Відкриємо створений файл:
+
+```{.bash filename="names.txt"}
+Гаррі
+```
+
+Все працює! Тепер давайте виконаємо цю програму ще раз, але цього разу введемо ім'я `Рон`:
+
+```{.bash filename="Terminal"}
+python names.py
+Як Вас звати? Рон
+code names.txt
+```
+
+Відкриємо створений файл:
+
+```{.bash filename="names.txt"}
+Рон
+```
+
+Як бачимо, файл перезаписався, і тепер в ньому знаходиться тільки ім'я `Рон`. Якщо ми хочемо додати ім'я до файлу, а не перезаписати його, то використовуйте режим `a`.
+
+Видаліть файл `names.txt` і давайте перепишемо нашу програму так, щоб вона дописувала імена до файлу `names.txt`:
+
+```{.bash filename="Terminal"}
+rm names.txt
+remove names.txt? y
+```
+
+```{python}
+#| label: io-names-list-file-append-eval
+#| eval: false
+
+name = input("Як Вас звати? ")
+
+file = open('names.txt', 'a')
+file.write(name)
+file.close()
+```
+
+Запустимо цю програму і перевіримо, чи вона працює:
+
+```{.bash filename="Terminal"}
+python names.py
+Як Вас звати? Герміона
+code names.txt
+```
+
+```{.bash filename="names.txt"}
+Герміона
+```
+
+Запустимо програму ще раз і спробуємо додати ім'я `Гаррі` та `Рон`:
+
+```{.bash filename="Terminal"}
+python names.py
+Як Вас звати? Гаррі
+python names.py
+Як Вас звати? Рон
+code names.txt
+```
+
+```{.bash filename="names.txt"}
+ГерміонаГарріРон
+```
+
+Зовсім не той результат, який ми очікували. Імена записалися в один рядок. Це тому, що функція `write` не додає символ переносу рядка (`\n`) після запису імені. Щоб це виправити, ми можемо додати символ переносу рядка після запису імені:
+
+```{.bash filename="Terminal"}
+rm names.txt
+remove names.txt? y
+```
+
+```{python}
+#| label: io-names-append-newline-eval
+#| eval: false
+
+name = input("Як Вас звати? ")
+
+file = open('names.txt', 'a')
+file.write(name + '\n')
+file.close()
+```
+
+Запустимо цю програму:
+
+```{.bash filename="Terminal"}
+python names.py
+Як Вас звати? Герміона
+python names.py
+Як Вас звати? Гаррі
+python names.py
+Як Вас звати? Рон
+code names.txt
+```
+
+```{.bash filename="names.txt"}
+Герміона
+Гаррі
+Рон
+
+```
+
+::: {.callout-note}
+Документація до функції `open`: <https://docs.python.org/3/library/functions.html#open>
+:::
+
+## Контекстний менеджер
+
+Під час написання коду дуже легко забути закрити файли і це може стати проблемою. Тому ми можемо піти більш безпечним шляхом і використовувати контекстний менеджер. 
+
+**Контекстний менеджер** - це спеціальна конструкція мови Python, яка дозволяє виконувати певні дії до входу в блок коду і після виходу з блоку коду. Для використання контекстного менеджера використовується ключове слово `with`. Давайте перепишемо нашу програму з використанням контекстного менеджера:
+
+```{python}
+#| label: io-names-list-file-with-eval
+#| eval: false
+
+name = input("Як Вас звати? ")
+
+with open('names.txt', 'a', encoding="utf8") as file:
+    file.write(name + '\n')
+```
+
+Такий підхід не змінює функціональність програми, але є більш пітоничним.
+
+## Читання даних
+
+Для читання у функції `open` використовується режим `r`. Давайте створимо програму `names_read.py`, яка буде читати імена з файлу `names.txt` і виводити їх на екран:
+
+```{.bash filename="Terminal"}
+code names_read.py
+```
+
+Для читання використаємо метод `readlines`, яка повертає список рядків, які містяться у файлі. Цей метод повертає список, тому ми можемо використати цикл `for` для виведення імен на екран. Також слід врахувати, що метод `readlines` повертає список, в якому кожен рядок містить символ переносу рядка (`\n`). Щоб цього уникнути, ми можемо використати метод `rstrip`, який видаляє символ переносу рядка з кінця рядка:
+
+```{python}
+#| label: io-names-list-file-read-eval
+#| eval: false
+
+with open('names.txt', 'r', encoding="utf8") as file:
+    lines = file.readlines()
+
+for line in lines:
+    print(f'Привіт, {line.rstrip()}!')
+```
+
+```{.output}
+Привіт, Герміона!
+Привіт, Гаррі!
+Привіт, Рон!
+```
+
+Але у попередньому прикладі ми двічі проходимось по всьому файлу: спочатку ми читаємо його у список, а потім виводимо список на екран. Це не є найкращим рішенням, оскільки ми можемо витратити багато пам'яті, якщо файл дуже великий. Тому ми можемо використати цикл `for` безпосередньо для читання файлу:
+
+```{python}
+#| label: io-names-list-file-read-eval-2
+#| eval: false
+
+with open('names.txt', 'r', encoding="utf8") as file:
+    for line in file:
+        print(f'Привіт, {line.rstrip()}!')
+```
+
+```{.output}
+Привіт, Герміона!
+Привіт, Гаррі!
+Привіт, Рон!
+```
+
+Тепер трошки ускладнимо задачу. Припустимо, що ми хочемо виводити привітання у алфавітному порядку. Для цього нам необхідно відсортувати список імен. Для цього ми можемо використати функцію `sorted`, яка повертає відсортований список. Давайте перепишемо нашу програму з використанням функції:
+
+```{python}
+#| label: io-names-list-file-read-sort-eval
+#| eval: false
+
+names = []
+
+with open('names.txt', 'r', encoding="utf8") as file:
+    for line in file:
+        names.append(line.rstrip())
+
+for name in sorted(names):
+    print(f'Привіт, {name}!')
+```
+
+```{.output}
+Привіт, Гаррі!
+Привіт, Герміона!
+Привіт, Рон!
+```
+
+Ми можемо зробити цю програму більш компактною. Для цього ми можемо відсортувати сам файл:
+
+```{python}
+#| label: io-names-list-file-read-sort-eval-2
+#| eval: false
+
+with open('names.txt', 'r', encoding="utf8") as file:
+    for line in sorted(file):
+        print(f'Привіт, {line.rstrip()}!')
+```
+
+```{.output}
+Привіт, Гаррі!
+Привіт, Герміона!
+Привіт, Рон!
+```
+
+Для зворотного сортування ми можемо використати параметр `reverse` функції `sorted`:
+
+```{python}
+#| label: io-names-list-file-read-sort-reverse-eval
+#| eval: false
+
+with open('names.txt', 'r', encoding="utf8") as file:
+    for line in sorted(file, reverse=True):
+        print(f'Привіт, {line.rstrip()}!')
+```
+
+```{.output}
+Привіт, Рон!
+Привіт, Герміона!
+Привіт, Гаррі!
+```
+
+::: {.callout-note}
+Документація до функції `sorted`: <https://docs.python.org/3/library/functions.html#sorted>
+:::
+
+## Файли csv
+
+Файли csv (англ. *comma-separated values*, значення, розділені комами) - це файли, які містять дані у вигляді таблиці, де значення розділені комами. Давайте створимо файл `students.csv`:
+
+```{.bash filename="Terminal"}
+code students.csv
+```
+
+Запишемо у нього імена і додамо гуртожиток:
+
+```{.bash filename="students.csv"}
+Гаррі,Гріфіндор
+Герміона,Гріфіндор
+Рон,Гріфіндор
+Драко,Слизерин
+```
+
+Тепер давайте створимо програму `students.py`, яка буде читати цей файл.
+
+```{.bash filename="Terminal"}
+code students.py
+```
+
+Отже, в нас є імені і гуртожитки, які розділені комами. Це означає, що ми можемо використати метод `split` для розділення рядка на частини. Давайте перепишемо нашу програму з використанням методу `split`:
+
+```{python}
+#| label: io-csv-eval
+#| eval: false
+
+with open('students.csv', 'r', encoding="utf8") as file:
+    for line in file:
+        row = line.rstrip().split(',')
+        print(f'{row[0]} живе в гуртожитку {row[1]}')
+```
+
+```{.output}
+Гаррі живе в гуртожитку Гріфіндор
+Герміона живе в гуртожитку Гріфіндор
+Рон живе в гуртожитку Гріфіндор
+Драко живе в гуртожитку Слизерин
+```
+
+Коли у вас є змінна, яка є списком, наприклад `row`, вам не обов'язково переносити всі ці змінні у окремий список. Ви можете розпакувати всю послідовність одразу. Іншими словами, якщо ви знаєте, що функція типу `split` повертає список, який містить два елементи, ви можете розпакувати цей список у дві змінні:
+
+```{python}
+#| label: io-csv-unpack-eval
+#| eval: false
+
+with open('students.csv', 'r', encoding="utf8") as file:
+    for line in file:
+        name, house = line.rstrip().split(',')
+        print(f'{name} живе в гуртожитку {house}')
+```
+
+```{.output}
+Гаррі живе в гуртожитку Гріфіндор
+Герміона живе в гуртожитку Гріфіндор
+Рон живе в гуртожитку Гріфіндор
+Драко живе в гуртожитку Слизерин
+```
+
+Уявімо, що я хочу відсортувати цей список даних. Для цього я можу використати функцію `sorted` і вказати, що я хочу сортувати за другим елементом списку:
+
+```{python}
+#| label: io-csv-sorted-eval
+#| eval: false
+
+students_lst = []
+
+with open('students.csv', 'r', encoding="utf8") as file:
+    for line in file:
+        name, house = line.rstrip().split(',')
+        students_lst.append(f'{name} живе в гуртожитку {house}')
+
+for student in sorted(students_lst):
+    print(student)
+```
+
+```{.output}
+Драко живе в гуртожитку Слизерин
+Гаррі живе в гуртожитку Гріфіндор
+Герміона живе в гуртожитку Гріфіндор
+Рон живе в гуртожитку Гріфіндор
+```
+
+З технічної точки зору, це працює, але це не є найкращим рішенням, оскільки дані сортуються по цілому реченню. Ми можемо вирішити таку задачу за допомогою словників. Для цього нам необхідно створити пустий словник `student_dict` і додавати до нього інформацію про студентів. Давайте перепишемо нашу програму з використанням словників:
+
+```{python}
+#| label: io-csv-dict-eval
+#| eval: false
+
+students_lst = []
+
+with open('students.csv', 'r', encoding="utf8") as file:
+    for line in file:
+        name, house = line.rstrip().split(',')
+        student_dict = {}
+        student_dict['name'] = name
+        student_dict['house'] = house
+        students_lst.append(student_dict)
+
+for student in students_lst:
+    print(f'{student["name"]} живе в гуртожитку {student["house"]}')
+```
+
+Ми можемо скоротити код шляхом присвоєння значень словнику одразу:
+
+```{python}
+#| label: io-csv-dict-eval-2
+#| eval: false
+
+students_lst = []
+
+with open('students.csv', 'r', encoding="utf8") as file:
+    for line in file:
+        name, house = line.rstrip().split(',')
+        student_dict = {'name': name, 'house': house}
+        students_lst.append(student_dict)
+
+for student in students_lst:
+    print(f'{student["name"]} живе в гуртожитку {student["house"]}')
+```
+
+Але результат все ще не відсортований. Функція `sorted` приймає параметр `key`, який вказує, за яким ключем сортувати. Для цього ми можемо використати функцію `get_name`, яка повертає ім'я студента і використаємо її як параметр `key`:
+
+```{python}
+#| label: io-csv-dict-sorted-eval
+#| eval: false
+
+students_lst = []
+
+with open('students.csv', 'r', encoding="utf8") as file:
+    for line in file:
+        name, house = line.rstrip().split(',')
+        student_dict = {'name': name, 'house': house}
+        students_lst.append(student_dict)
+
+def get_name(student):
+    return student['name']
+
+for student in sorted(students_lst, key=get_name):
+    print(f'{student["name"]} живе в гуртожитку {student["house"]}')
+```
+
+```{.output}
+Драко живе в гуртожитку Слизерин
+Гаррі живе в гуртожитку Гріфіндор
+Герміона живе в гуртожитку Гріфіндор
+Рон живе в гуртожитку Гріфіндор
+```
+
+Якщо ж я захочу відсортувати за гуртожитком у зворотному порядку, то я можу використати функцію `get_house` і додати параметр `reverse=True` у функцію `sorted`:
+
+```{python}
+#| label: io-csv-dict-sorted-eval-2
+#| eval: false
+
+students_lst = []
+
+with open('students.csv', 'r', encoding="utf8") as file:
+    for line in file:
+        name, house = line.rstrip().split(',')
+        student_dict = {'name': name, 'house': house}
+        students_lst.append(student_dict)
+
+def get_house(student):
+    return student['house']
+
+for student in sorted(students_lst, key=get_house, reverse=True):
+    print(f'{student["name"]} живе в гуртожитку {student["house"]}')
+```
+
+```{.output}
+Драко живе в гуртожитку Слизерин
+Гаррі живе в гуртожитку Гріфіндор
+Герміона живе в гуртожитку Гріфіндор
+Рон живе в гуртожитку Гріфіндор
+```
+
+::: {.callout-warning}
+Зверніть увагу, що в якості аргументу `key` функції `sorted` ми передаємо функцію `get_house`, **без дужок**. Ми хочемо передати функцію, а не викликати її.
+:::
+
+## Анонімні функції
+
+У попередньому прикладі ми використовували функції `get_name` і `get_house`, які одразу використовуємо і більші ніколи до них не повертаємось. Ми можемо спростити цей код і використати **анонімні функції** (англ. *lambda functions*), які дозволяють нам визначити функцію в одному рядку. Давайте перепишемо нашу програму з використанням анонімних функцій:
+
+```{python}
+#| label: io-csv-dict-sorted-eval-3
+#| eval: false
+
+students_lst = []
+
+with open('students.csv', 'r', encoding="utf8") as file:
+    for line in file:
+        name, house = line.rstrip().split(',')
+        student_dict = {'name': name, 'house': house}
+        students_lst.append(student_dict)
+
+for student in sorted(students_lst, key=lambda student: student['name']):
+    print(f'{student["name"]} живе в гуртожитку {student["house"]}')
+```
+
+```{.output}
+Драко живе в гуртожитку Слизерин
+Гаррі живе в гуртожитку Гріфіндор
+Герміона живе в гуртожитку Гріфіндор
+Рон живе в гуртожитку Гріфіндор
+```
+
+## Пакет `csv`
+
+### Читання csv-файлів
+
+Давайте змінимо файл `students.csv` і замінимо гуртожитки на будинки де вони виросли:
+
+```{.bash filename="students.csv"}
+Гаррі,Тисова, 4
+Рон,Нора
+Драко,Маєток Мелфоїв
+```
+
+Тепер давайте виведемо ці дані на екран:
+
+```{python}
+#| label: io-csv-dict-sorted-eval-4
+#| eval: false
+
+students_lst = []
+
+with open('students.csv', 'r', encoding="utf8") as file:
+    for line in file:
+        name, home = line.rstrip().split(',')
+        student_dict = {'name': name, 'home': home}
+        students_lst.append(student_dict)
+
+for student in sorted(students_lst, key=lambda student: student['home']):
+    print(f'{student["name"]} з {student["home"]}')
+```
+
+```{.output}
+ValueError: too many values to unpack (expected 2)
+```
+
+Отже, у нас виникла помилка. Це тому, що у нас є рядок, який містить дві коми, а ми спробували розпакувати його у дві змінні. Для вирішення цієї проблеми ми можемо використати в якості роздільника якийсь менш популярний символ, наприклад `|`:
+
+```{.bash filename="students.csv"}
+Гаррі|Тисова, 4
+Рон|Нора
+Драко|Маєток Мелфоїв
+```
+
+Інший варіант - це помістити значення у лапки:
+
+```{.bash filename="students.csv"}
+Гаррі,"Тисова, 4"
+Рон,Нора
+Драко,"Маєток Мелфоїв"
+```
+
+В будь-якому випадку необхідно буде змінювати код і продумувати логіку читання файлу. І це стає дуже незручним і складним, якщо у вас є багато різних файлів, які містять дані у різних форматах. Тому для роботи з csv-файлами використовують спеціальний пакет `csv`. Давайте перепишемо нашу програму з використанням пакету `csv`:
+
+::: {.panel-tabset}
+
+### Варіант 1
+
+```{python}
+#| label: io-csv-dict-sorted-eval-5
+#| eval: false
+
+import csv
+
+students_lst = []
+
+with open('students.csv', 'r', encoding="utf8") as file:
+    reader = csv.reader(file)
+    for row in reader:
+        student_dict = {'name': row[0], 'home': row[1]}
+        students_lst.append(student_dict)
+
+for student in sorted(students_lst, key=lambda student: student['home']):
+    print(f'{student["name"]} з {student["home"]}')
+```
+
+### Варіант 2
+
+Якщо ми чітко знаємо кількість стовпчиків у .csv-файлі, ми можемо розпакувати рядки одразу у змінні:
+
+```{python}
+#| label: io-csv-dict-sorted-eval-6
+#| eval: false
+
+import csv
+
+students_lst = []
+
+with open('students.csv', encoding="utf8") as file:
+    reader = csv.reader(file)
+    for name, home in reader:
+        students_lst.append({'name': name, 'home': home})
+
+for student in sorted(students_lst, key=lambda student: student['home']):
+    print(f'{student["name"]} з {student["home"]}')
+```
+
+:::
+
+```{.output}
+Драко з Маєток Мелфоїв
+Рон з Нора
+Гаррі з Тисова, 4
+```
+
+Часто у табличних файлах перший рядок відповідає за назву змінних. Давайте додамо `name` та `home` у `students.csv`:
+
+```{.bash filename="students.csv"}
+name,home
+Гаррі,"Тисова, 4"
+Рон,Нора
+Драко,Маєток Мелфоїв
+```
+
+В таких випадках ми можемо використати функцію `DictReader`, яка повертає словник, а не список:
+
+```{python}
+#| label: io-csv-dict-sorted-eval-7
+#| eval: false
+
+import csv
+
+students_lst = []
+
+with open('students.csv', encoding="utf8") as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        students_lst.append({'name': row['name'], 'home': row['home']}) # або students_lst.append(row)
+
+for student in sorted(students_lst, key=lambda student: student['home']):
+    print(f'{student["name"]} з {student["home"]}')
+```
+
+```{.output}
+Драко з Маєток Мелфоїв
+Рон з Нора
+Гаррі з Тисова, 4
+```
+
+Такий підхід є більш стійким до змін у файлі: хтось міг змінити порядок стовпчиків, але програма все одно буде працювати.
+
+::: {.callout-note}
+Документація до пакету `csv`: <https://docs.python.org/3/library/csv.html>
+:::
+
+### Запис csv-файлів
+
+Припустимо, що ми створюємо програму, яка буде записувати дані про студентів у файл `students.csv`. 
+Залишимо у файлі `students.csv` наступні дані:
+
+```{.bash filename="students.csv"}
+name,home
+```
+
+Давайте перепишемо програму `students.py`, яка буде записувати дані у файл `students.csv`:
+
+```{python}
+#| label: io-csv-write-eval
+#| eval: false
+
+import csv
+
+name = input('Як Вас звати? ') # Гаррі
+home = input('Де Ви живете? ') # Тисова, 4
+
+with open('students.csv', 'a', encoding="utf8") as file:
+    writer = csv.writer(file)
+    writer.writerow([name, home])
+```
+
+Запустимо цю програму:
+
+```{.bash filename="Terminal"}
+python students.py
+Як Вас звати? Гаррі
+Де Ви живете? Тисова, 4
+```
+
+Відкриємо файл `students.csv`:
+
+```{.bash filename="students.csv"}
+name,home
+Гаррі,"Тисова, 4"
+```
+
+Як бачите, Python автоматично взяв рядок з комою у лапки щоб уникнути помилки.
+
+Існує ще один спосіб реалізувати програму `students.py` не турбуючись про порядок змінних у списку. Для цього ми можемо використати функцію `DictWriter`, яка дозволяє записувати дані у файл у вигляді словника:
+
+```{python}
+#| label: io-csv-write-eval-2
+#| eval: false
+
+import csv
+
+name = input('Як Вас звати? ') # Драко
+home = input('Де Ви живете? ') # Маєток Мелфоїв
+
+with open('students.csv', 'a', encoding="utf8") as file:
+    writer = csv.DictWriter(file, fieldnames=['name', 'home'])
+    writer.writerow({'name': name, 'home': home})
+```
+
+Запустимо цю програму:
+
+```{.bash filename="Terminal"}
+python students.py
+Як Вас звати? Драко
+Де Ви живете? Маєток Мелфоїв
+```
+
+Відкриємо файл `students.csv`:
+
+```{.bash filename="students.csv"}
+name,home
+Гаррі,"Тисова, 4"
+Драко,Маєток Мелфоїв
+```
+
+## Бінарні файли
+
+**Бінарні файли** - це файл, який складається лише з нулів та одиниць і дозволяє зберігати будь-які дані: зображення, відео, звук, текст, тощо. 
+
+В Python є популярна бібліотека під назвою `pillow`, яка дозволяє працювати з зображеннями, застосовувати фільтри, як в Instagram, створювати анімації, тощо.
+
+::: {.callout-note}
+Документація до пакету `PIL`: <https://pillow.readthedocs.io>
+:::
+
+Давайте створимо анімоване GIF-зображення. Сьогодні такі файли зустрічаються скрізь у вигляді мемів, анімацій, наклейок тощо. Анімоване GIF-зображення -- це графічний файл, який містить кілька зображень всередині, а комп'ютер показує їх одне за одним, створюючи ефект анімації.
+
+Почнемо з двох статичних зображень:
+
+```{.bash filename="Terminal"}
+code costume1.gif
+code costume2.gif
+```
+
+::: {#fig-costume layout-ncol=2}
+
+![costume1.gif](img/python/costume1.gif){#fig-costume1}
+
+![costume2.gif](img/python/costume2.gif){#fig-costume2}
+
+Статичні зображення
+:::
+
+::: {.callout-note}
+Ці коти походять з мови програмування MIT під назвою Scratch.
+
+Посилання на зображення ви можете знайти у репозиторії: <https://github.com/Aranaur/py4ds/tree/main/img/python>
+:::
+
+Тепер створимо файл `costume.py`, який буде об'єднувати ці два зображення у анімацію:
+
+```{.bash filename="Terminal"}
+code costume.py
+```
+
+Для цього нам необхідно використати функцію `Image.open`, яка дозволяє відкрити зображення, а потім використати метод `save`, який дозволяє зберегти зображення у форматі GIF:
+
+```{python}
+#| label: io-gif-eval
+#| eval: false
+
+import sys
+from PIL import Image
+
+images_lst = []
+
+for arg in sys.argv[1:]:
+    image = Image.open(arg)
+    images_lst.append(image)
+
+images_lst[0].save(
+    'costume.gif',
+    save_all=True,
+    append_images=images_lst[1:],
+    duration=200,
+    loop=0)
+```
+
+```{python}
+#| label: io-gif-echo
+#| echo: false
+
+import glob
+from PIL import Image
+
+images_lst = []
+
+for filename in glob.glob('img/costume[1-2].gif'):
+    image = Image.open(filename)
+    images_lst.append(image)
+
+images_lst[0].save(
+    'img/costume.gif',
+    save_all=True,
+    append_images=images_lst[1:],
+    duration=200,
+    loop=0)
+```
+
+Відкриємо файл `costume.gif`:
+
+```{.bash filename="Terminal"}
+code costume.gif
+```
+
+![costume.gif](img/costume.gif){#fig-costume}

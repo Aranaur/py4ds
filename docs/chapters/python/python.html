@@ -6,11 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ігор Мірошниченко">
-<meta name="dcterms.date" content="2024-01-04">
 <meta name="description" content="Книга-конспект матеріалів">
 
-<title>Від нуля до Python Data Scientist</title>
+<title>Від нуля до Python Data Scientist - Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,60 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./cover.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/python/python_basics.html" rel="next">
+<link href="../../cover.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -127,7 +92,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Вступне слово</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/python/python.html">Python</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -141,11 +106,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Від нуля до Python Data Scientist</a> 
+      <a href="../../">Від нуля до Python Data Scientist</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/Aranaur/py4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
@@ -183,14 +148,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Вступне слово</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./chapters/python/python.html" class="sidebar-item-text sidebar-link">
+            <a href="../../chapters/python/python.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Python</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Переключити розділ">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -199,79 +164,79 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Функції та змінні</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_conditionals.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_conditionals.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Умовні оператори</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_loops.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_loops.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Цикли</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_exceptions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_exceptions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Помилки та винятки</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_libraries.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_libraries.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Бібліотеки</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_unit_tests.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_unit_tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Модульне тестування</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_files_io.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_files_io.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Читання та запис файлів</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_regex.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_regex.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Регулярні вирази</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_oop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_oop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Об’єктно-орієнтоване програмування</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_list_set.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_list_set.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Множини</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Функції</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_exercises.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_exercises.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Задачі</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_questions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_questions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Популярні питання</span></span></a>
   </div>
 </li>
@@ -280,7 +245,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./chapters/sql/sql.html" class="sidebar-item-text sidebar-link">
+            <a href="../../chapters/sql/sql.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">SQL</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Переключити розділ">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -289,55 +254,55 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/sql/sql_basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sql/sql_basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Базові запити</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/sql/sql_filter.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sql/sql_filter.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/sql/sql_agg.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sql/sql_agg.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Агрегація даних</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/sql/sql_groupby.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sql/sql_groupby.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Групування даних</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/sql/sql_subquery.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sql/sql_subquery.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Підзапити</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/sql/sql_join.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sql/sql_join.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Об’єднання таблиць</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/sql/sql_window.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sql/sql_window.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Віконні функції</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/sql/sql_analytic.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sql/sql_analytic.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Практичні задачі</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/sql/sql_metrics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sql/sql_metrics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Аналіз продуктових метрик</span></span></a>
   </div>
 </li>
@@ -346,7 +311,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/quarto.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/quarto.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
   </div>
 </li>
@@ -360,43 +325,30 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
     <h2 id="toc-title">Зміст</h2>
    
   <ul>
-  <li><a href="#вступне-слово" id="toc-вступне-слово" class="nav-link active" data-scroll-target="#вступне-слово">Вступне слово</a>
+  <li><a href="#встановлення-python" id="toc-встановлення-python" class="nav-link active" data-scroll-target="#встановлення-python">Встановлення Python</a>
   <ul class="collapse">
-  <li><a href="#перелік-необхідних-пакетів" id="toc-перелік-необхідних-пакетів" class="nav-link" data-scroll-target="#перелік-необхідних-пакетів">Перелік необхідних пакетів</a></li>
+  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows</a></li>
+  <li><a href="#linux-ubuntu-lts" id="toc-linux-ubuntu-lts" class="nav-link" data-scroll-target="#linux-ubuntu-lts">Linux (Ubuntu LTS)</a></li>
+  <li><a href="#macos" id="toc-macos" class="nav-link" data-scroll-target="#macos">MacOS</a></li>
+  <li><a href="#хмарні-сервіси" id="toc-хмарні-сервіси" class="nav-link" data-scroll-target="#хмарні-сервіси">Хмарні сервіси</a></li>
+  <li><a href="#integrated-development-environment-ide" id="toc-integrated-development-environment-ide" class="nav-link" data-scroll-target="#integrated-development-environment-ide">Integrated development environment (IDE)</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Aranaur/py4ds/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Редагувати сторінку</a></li><li><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action"><i class="bi empty"></i>Повідомити про проблему</a></li><li><a href="https://github.com/Aranaur/py4ds/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>Переглянути код</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Aranaur/py4ds/edit/main/chapters/python/python.qmd" class="toc-action"><i class="bi bi-github"></i>Редагувати сторінку</a></li><li><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action"><i class="bi empty"></i>Повідомити про проблему</a></li><li><a href="https://github.com/Aranaur/py4ds/blob/main/chapters/python/python.qmd" class="toc-action"><i class="bi empty"></i>Переглянути код</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Від нуля до Python Data Scientist</h1>
+<h1 class="title">Python</h1>
 </div>
 
-<div>
-  <div class="description">
-    Книга-конспект матеріалів
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Автор</div>
-    <div class="quarto-title-meta-contents">
-             <p>Ігор Мірошниченко <a href="mailto:ihor.miroshnychenko@kneu.ua" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0002-1307-7889" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Дата публікації</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2024-01-04</p>
-    </div>
-  </div>
   
     
   </div>
@@ -406,42 +358,65 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </header>
 
 <p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p>
-<section id="вступне-слово" class="level1 unnumbered">
-<h1 class="unnumbered">Вступне слово</h1>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Важливо
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Ця книга знаходиться на стадії розробки.</p>
-</div>
-</div>
-<p>Шановні читачі,</p>
-<p>Запрошую до книги “Від нуля до Python Data Scientist”! Сьогодні ми відкриваємо двері до захоплюючого світу аналізу даних та наукових досліджень, в якому Python стає вашим найкращим другом. Завдяки своїй простоті, гнучкості та потужності, Python виходить за межі звичайної мови програмування, перетворюючись на незамінного помічника для розв’язання складних задач і виявлення прихованих закономірностей.</p>
-<p>У цій книзі ми збираємося подорожувати у світі науки про дані, де Python та інші дотичні інструменти стають невід’ємною частиною процесу відкриття знань та розуміння складних систем. Ви дізнаєтеся, як за допомогою Python можна ефективно обробляти, аналізувати та візуалізувати дані, виявляти закономірності та робити передбачення. Завдяки цим інструментам ви зможете розкрити потужний потенціал ваших даних та прийняти обґрунтовані рішення на основі наукових фактів.</p>
-<p>Я запрошую вас на цю захоплюючу подорож, де ми разом з вами розкриємо секрети Python у науці про дані. Незалежно від вашого досвіду в програмуванні або знань про науку про дані, ця книга надасть вам необхідні знання та інструменти для успішного впровадження Python у ваші проекти. Будьте впевнені, що по закінченні цього шляху ви будете готові до викликів, які стоять перед вами у світі науки та досліджень.</p>
-<p>Нехай ця книга стане вашим надійним провідником у справжньому дослідницькому пригоді, де Python та його друзі стають вашими найкращими союзниками. Розпочнемо нашу подорож разом!</p>
-<p>З найкращими побажаннями, Ігор Мірошниченко</p>
-<section id="перелік-необхідних-пакетів" class="level2">
-<h2 class="anchored" data-anchor-id="перелік-необхідних-пакетів">Перелік необхідних пакетів</h2>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>requirements.txt</strong></pre>
-</div>
-<div class="sourceCode" id="cb1" data-filename="requirements.txt"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>duckdb</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>duckdb<span class="op">-</span>engine</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>jupysql</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>matplotlib<span class="op">-</span>venn</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>notebook</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>pandas</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>plotly</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>tabulate</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>Цей блок є чудовою можливістю для студентів вивчити основи програмування з використанням мови Python. Незалежно від рівня попереднього досвіду, учасники матимуть змогу освоїти ключові концепції та навички, які стануть основою для подальшого розвитку в галузі програмування. Цей курс допоможе побудувати стійку основу для створення програм та розв’язання реальних завдань з використанням Python.</p>
+<section id="встановлення-python" class="level2">
+<h2 class="anchored" data-anchor-id="встановлення-python">Встановлення Python</h2>
+<section id="windows" class="level3">
+<h3 class="anchored" data-anchor-id="windows">Windows</h3>
+<ol type="1">
+<li>Завантажити та запустити <a href="https://www.python.org/downloads/">Python</a> актуальної версії, наприклад Python 3.9.</li>
+<li>Відкрити командний рядок: <code>cmd</code></li>
+<li>Виконати у командному рядку: <code>pip install numpy</code></li>
+<li>Виконати у командному рядку: <code>pip install pandas</code></li>
+<li>Виконати у командному рядку: <code>pip install jupyter</code></li>
+<li>Запустити <strong>jupyter</strong>: виконати у командному рядку: <code>jupyter-notebook</code></li>
+</ol>
+</section>
+<section id="linux-ubuntu-lts" class="level3">
+<h3 class="anchored" data-anchor-id="linux-ubuntu-lts">Linux (Ubuntu LTS)</h3>
+<ol type="1">
+<li>Відкрити термінал</li>
+<li>Виконати у терміналі: <code>sudo apt update</code>, що оновить всі пакети.</li>
+<li>Виконати у терміналі: <code>sudo apt install software-properties-common</code>, що дозволить керувати дистрибутивами.</li>
+<li>Виконати у терміналі: <code>sudo add-apt-repository ppa:deadsnakes/ppa</code>, що додасть deadsnakes-репозиторій з пакетами Python різних версій.</li>
+<li>Виконати у терміналі: <code>sudo apt install python3.9-dev</code>, що встановить розширений Python 3.9.</li>
+<li>Виконати у терміналі: <code>sudo apt install curl</code> - консольна утиліта для роботи з URL-адресами.</li>
+<li>Виконати у терміналі: <code>curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</code> - завантажити і встановити pip.</li>
+<li>Виконати у терміналі: <code>sudo apt install python3.9-venv</code> - встановити віртуальне середовище Python 3.9.</li>
+<li>Виконати у терміналі: <code>sudo python3.9 get-pip.py</code> - встановити pip.</li>
+<li>Виконати у терміналі: <code>pip install numpy</code> - встановити <code>numpy</code> для роботи з матрицями</li>
+<li>Виконати у терміналі: <code>pip install pandas</code> - встановити <code>pandas</code> для роботи з даними у вигляді таблиць <code>DataFrame</code>.</li>
+<li>Виконати у терміналі: <code>pip install jupyter</code> - встановити <code>jupyter</code> для роботи з ноутбуками.</li>
+<li>Запустити Jupyter: <code>python3.9 -m notebook</code></li>
+</ol>
+</section>
+<section id="macos" class="level3">
+<h3 class="anchored" data-anchor-id="macos">MacOS</h3>
+<ol type="1">
+<li>Відкрити термінал</li>
+<li>Встановити <strong>Homebrew</strong>: виконати у терміналі команду із сайту https://brew.sh</li>
+<li>Встановити Python: <code>brew install python@3.9</code></li>
+<li>Виконати у терміналі: <code>python3.9 -m pip install numpy</code></li>
+<li>Виконати у терміналі: <code>python3.9 -m pip install pandas</code></li>
+<li>Виконати у терміналі: <code>python3.9 -m pip install jupyter</code></li>
+<li>Запустити Jupyter: виконати у терміналі: <code>jupyter-notebook</code></li>
+</ol>
+</section>
+<section id="хмарні-сервіси" class="level3">
+<h3 class="anchored" data-anchor-id="хмарні-сервіси">Хмарні сервіси</h3>
+<ol type="1">
+<li><a href="https://colab.research.google.com/">Google Colab</a></li>
+<li><a href="https://jupyter.org/try">Jupyter Notebook</a></li>
+<li><a href="https://posit.cloud/">Posit.cloud</a></li>
+</ol>
+</section>
+<section id="integrated-development-environment-ide" class="level3">
+<h3 class="anchored" data-anchor-id="integrated-development-environment-ide">Integrated development environment (IDE)</h3>
+<ol type="1">
+<li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+<li><a href="https://www.jetbrains.com/pycharm/">PyCharm</a></li>
+<li><a href="https://rstudio.com/">RStudio</a></li>
+</ol>
 
 
 </section>
@@ -849,6 +824,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <input type="hidden" id="giscus-base-theme" value="light">
 <input type="hidden" id="giscus-alt-theme" value="dark">
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../chapters/python/python_basics.html" class="pagination-link" aria-label="<span class='chapter-number'>1</span>&nbsp; <span class='chapter-title'>Функції та змінні</span>">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Функції та змінні</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

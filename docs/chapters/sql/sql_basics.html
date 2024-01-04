@@ -1,0 +1,2846 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.525">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Книга-конспект матеріалів">
+
+<title>Від нуля до Python Data Scientist - 14&nbsp; Базові запити</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/sql/sql_filter.html" rel="next">
+<link href="../../chapters/sql/sql.html" rel="prev">
+<link href="../../cover.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Пошук не дав результату",
+    "search-matching-documents-text": "Результати пошуку",
+    "search-copy-link-title": "Скопіюйте посилання для пошуку",
+    "search-hide-matches-text": "Приховати додаткові результати",
+    "search-more-match-text": "Додатковий результат у цьому документі",
+    "search-more-matches-text": "Додаткові результати у цьому документі",
+    "search-clear-button-title": "Очистити",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Скасувати",
+    "search-submit-button-title": "Надіслати",
+    "search-label": "Пошук"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-0C9TJBF3C5"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/sql/sql.html">SQL</a></li><li class="breadcrumb-item"><a href="../../chapters/sql/sql_basics.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Базові запити</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Від нуля до Python Data Scientist</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/Aranaur/py4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Пошук"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Вступне слово</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../chapters/python/python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Переключити розділ">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/python/python_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Функції та змінні</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/python/python_conditionals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Умовні оператори</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/python/python_loops.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Цикли</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/python/python_exceptions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Помилки та винятки</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/python/python_libraries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Бібліотеки</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/python/python_unit_tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Модульне тестування</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/python/python_files_io.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Читання та запис файлів</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/python/python_regex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Регулярні вирази</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/python/python_oop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Об’єктно-орієнтоване програмування</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/python/python_list_set.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Множини</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/python/python_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Функції</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/python/python_exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Задачі</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/python/python_questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Популярні питання</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../chapters/sql/sql.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Переключити розділ">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/sql/sql_basics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Базові запити</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/sql/sql_filter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/sql/sql_agg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Агрегація даних</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/sql/sql_groupby.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Групування даних</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/sql/sql_subquery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Підзапити</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/sql/sql_join.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Об’єднання таблиць</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/sql/sql_window.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Віконні функції</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/sql/sql_analytic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Практичні задачі</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/sql/sql_metrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Аналіз продуктових метрик</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Зміст</h2>
+   
+  <ul>
+  <li><a href="#відбір-select" id="toc-відбір-select" class="nav-link active" data-scroll-target="#відбір-select"><span class="header-section-number">14.1</span> Відбір: <code>SELECT</code></a></li>
+  <li><a href="#впорядкування-order-by" id="toc-впорядкування-order-by" class="nav-link" data-scroll-target="#впорядкування-order-by"><span class="header-section-number">14.2</span> Впорядкування: <code>ORDER BY</code></a></li>
+  <li><a href="#зміна-назви-as" id="toc-зміна-назви-as" class="nav-link" data-scroll-target="#зміна-назви-as"><span class="header-section-number">14.3</span> Зміна назви: <code>AS</code></a></li>
+  <li><a href="#кількість-символів-length" id="toc-кількість-символів-length" class="nav-link" data-scroll-target="#кількість-символів-length"><span class="header-section-number">14.4</span> Кількість символів: <code>LENGTH</code></a></li>
+  <li><a href="#поділ-та-повернення-split_part" id="toc-поділ-та-повернення-split_part" class="nav-link" data-scroll-target="#поділ-та-повернення-split_part"><span class="header-section-number">14.5</span> Поділ та повернення: <code>SPLIT_PART</code></a></li>
+  <li><a href="#зміна-типу-cast" id="toc-зміна-типу-cast" class="nav-link" data-scroll-target="#зміна-типу-cast"><span class="header-section-number">14.6</span> Зміна типу: <code>CAST</code></a></li>
+  <li><a href="#обєднання-concat" id="toc-обєднання-concat" class="nav-link" data-scroll-target="#обєднання-concat"><span class="header-section-number">14.7</span> Об’єднання: <code>CONCAT</code></a></li>
+  <li><a href="#частина-дати-date_part" id="toc-частина-дати-date_part" class="nav-link" data-scroll-target="#частина-дати-date_part"><span class="header-section-number">14.8</span> Частина дати: <code>DATE_PART</code></a></li>
+  <li><a href="#перше-ненульове-значення-coalesce" id="toc-перше-ненульове-значення-coalesce" class="nav-link" data-scroll-target="#перше-ненульове-значення-coalesce"><span class="header-section-number">14.9</span> Перше ненульове значення: <code>COALESCE</code></a></li>
+  <li><a href="#арифметичні-оператори" id="toc-арифметичні-оператори" class="nav-link" data-scroll-target="#арифметичні-оператори"><span class="header-section-number">14.10</span> Арифметичні оператори</a></li>
+  <li><a href="#математичні-функції" id="toc-математичні-функції" class="nav-link" data-scroll-target="#математичні-функції"><span class="header-section-number">14.11</span> Математичні функції</a></li>
+  <li><a href="#умовна-конструкція-case-when" id="toc-умовна-конструкція-case-when" class="nav-link" data-scroll-target="#умовна-конструкція-case-when"><span class="header-section-number">14.12</span> Умовна конструкція: <code>CASE</code> <code>WHEN</code></a></li>
+  <li><a href="#типові-помилки-при-написанні-sql-запитів." id="toc-типові-помилки-при-написанні-sql-запитів." class="nav-link" data-scroll-target="#типові-помилки-при-написанні-sql-запитів."><span class="header-section-number">14.13</span> Типові помилки при написанні SQL-запитів.</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.dev/Aranaur/py4ds/blob/main/chapters/sql/sql_basics.ipynb" class="toc-action"><i class="bi bi-github"></i>Редагувати сторінку</a></li><li><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action"><i class="bi empty"></i>Повідомити про проблему</a></li><li><a href="https://github.com/Aranaur/py4ds/blob/main/chapters/sql/sql_basics.ipynb" class="toc-action"><i class="bi empty"></i>Переглянути код</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/sql/sql.html">SQL</a></li><li class="breadcrumb-item"><a href="../../chapters/sql/sql_basics.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Базові запити</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Базові запити</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+<p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p>
+<section id="відбір-select" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="відбір-select"><span class="header-section-number">14.1</span> Відбір: <code>SELECT</code></h2>
+<p>Давайте спочатку напишемо найпростіший запит і подивимося, як виглядає таблиця <code>products</code>.</p>
+<p>Щоб вивести всі записи зі значеннями у всіх колонках, необхідно або перерахувати всі колонки в операторі <code>SELECT</code> або вказати після оператора спеціальний символ “<code>*</code>”:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2, <span class="op">..</span>.</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Оператор <code>FROM</code> завжди вказується після оператора <code>SELECT</code>. У зворотному порядку їх записувати не можна – база даних поверне помилку.</p>
+</div>
+</div>
+<div class="question">
+<div id="exr-sql01" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 14.1 </strong></span><br>Виведіть усі записи з таблиці <code>products</code>.</p>
+<p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code></p>
+</div>
+</div>
+<div id="cell-3" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>       price</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>FROM   products</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">product_id</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>sugar</td>
+<td>150.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>green tea bags</td>
+<td>50.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>still water</td>
+<td>80.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>lollipops</td>
+<td>46.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>coffee 3 in 1</td>
+<td>15.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">82</td>
+<td>83</td>
+<td>waffles</td>
+<td>55.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">83</td>
+<td>84</td>
+<td>tangerines</td>
+<td>90.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">84</td>
+<td>85</td>
+<td>jam</td>
+<td>200.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">85</td>
+<td>86</td>
+<td>cold coffee</td>
+<td>70.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">86</td>
+<td>87</td>
+<td>veal</td>
+<td>398.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>87 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<p>На практиці таблиці можуть бути дуже великими, тому дуже бажано використовувати оператор <code>LIMIT</code> для того щоб не виводити всю таблицю, що може займати багато часу. Крім того, можливо такий запит навіть не буде виконано, оскільки розумні дата інженери заборонили виконувати такі запити.</p>
+</section>
+<section id="впорядкування-order-by" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="впорядкування-order-by"><span class="header-section-number">14.2</span> Впорядкування: <code>ORDER BY</code></h2>
+<p>Для сортування значень по будь-якій колонці SQL використовується оператор <code>ORDER BY</code> з ключовими словами <code>ASC</code> (за зростанням) або <code>DESC</code> (за спаданням).</p>
+<p>При цьому за умовчанням сортування відбувається за зростанням, тобто <code>ASC</code> не обов’язково вказувати. Для сортування за спаданням після <code>ORDER BY</code> необхідно явно вказати <code>DESC</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1           <span class="co">-- сортування за зростанням</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">ASC</span>       <span class="co">-- сортування за зростанням</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>      <span class="co">-- сортування за спаданням</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="question">
+<div id="exr-sql02" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 14.2 </strong></span><br>Виведіть всі записи з таблиці <code>products</code>, відсортувавши їх за найменуванням товарів <em>у алфавітному порядку</em>, тобто за зростанням. Для сортування використовуйте оператор <code>ORDER BY</code>.</p>
+<p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Сортування можна робити не тільки по полях зі значеннями, вираженими числами, але й по полях, значення яких представлені у вигляді тексту, як у нашому випадку.</p>
+</div>
+</div>
+<div id="cell-8" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>       price</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>ORDER BY name</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>LIMIT <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">product_id</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>62</td>
+<td>apple juice</td>
+<td>120.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>71</td>
+<td>apples</td>
+<td>75.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>39</td>
+<td>bagels</td>
+<td>45.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>65</td>
+<td>bananas</td>
+<td>100.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>66</td>
+<td>beef</td>
+<td>370.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Сортувати результат SQL-запиту можна відразу за декількома колонками, вказуючи їх після <code>ORDER BY</code> через кому разом із напрямком сортування (<code>ASC</code> або <code>DESC</code>):</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>, column_2    <span class="co">-- спочатку сортування по першій колонці (за спаданням),</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                                    <span class="co">-- потім по другій (за зростанням)</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Важливо пам’ятати, що при роботі з великими таблицями потрібно по можливості обмежувати кількість виведених записів, щоб не створювати зайве навантаження на базу даних.</p>
+</div>
+</div>
+<p>Оператори <code>ORDER BY</code> та <code>LIMIT</code> можна поєднувати в одному запиті, при цьому оператор <code>LIMIT</code> записується та виконується після оператора <code>ORDER BY</code>, обмежуючи кількість записів у вже відсортованому результаті:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1 <span class="kw">DESC</span>, column_2</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="question">
+<div id="exr-sql03" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 14.3 </strong></span><br>Відсортуйте таблицю <code>courier_actions</code> спочатку по колонці <code>courier_id</code> за зростанням id кур’єра, потім по колонці <code>action</code> (знову за зростанням), а потім по колонці <code>time</code>, але вже за спаданням — від останньої дії до першої. Не забудьте включити колонку <code>order_id</code>.</p>
+<p>Додайте в запит оператор <code>LIMIT</code> та виведіть лише <strong>перші 1000 рядків</strong> результуючої таблиці.</p>
+<p>Поля у результуючій таблиці: <code>courier_id</code>, <code>order_id</code>, <code>action</code>, <code>time</code>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Як ви вже здогадалися, сортувати таблиці можна навіть по полях з датами та часом.</p>
+</div>
+</div>
+<div id="cell-12" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>SELECT courier_id,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>       order_id,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>       action,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>       time</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>FROM   courier_actions</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>ORDER BY courier_id, action, time DESC limit <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">courier_id</th>
+<th data-quarto-table-cell-role="th">order_id</th>
+<th data-quarto-table-cell-role="th">action</th>
+<th data-quarto-table-cell-role="th">time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>23149</td>
+<td>create_order</td>
+<td>2022-09-02 02:36:00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>22901</td>
+<td>create_order</td>
+<td>2022-09-02 00:58:00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1</td>
+<td>4683</td>
+<td>create_order</td>
+<td>2022-08-27 20:56:00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1</td>
+<td>1</td>
+<td>create_order</td>
+<td>2022-08-24 01:52:00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2</td>
+<td>7114</td>
+<td>create_order</td>
+<td>2022-08-28 18:11:00</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Зараз важливо запам’ятати порядок запису всіх відомих нам ключових слів:</p>
+<ol type="1">
+<li><code>SELECT</code></li>
+<li><code>FROM</code></li>
+<li><code>ORDER BY</code></li>
+<li><code>LIMIT</code></li>
+</ol>
+<p>Також важливо зрозуміти, що порядок їх виконання дещо відрізняється від того, в якій послідовності вони вказуються в SQL-запиті:</p>
+<ol type="1">
+<li>Спочатку виконується оператор <code>FROM</code> – відбувається вибір потрібної таблиці.</li>
+<li>Потім <code>SELECT</code> - відбираються вказані стовпці.</li>
+<li>Потім <code>ORDER BY</code> - проводиться сортування результуючої таблиці.</li>
+<li>І наприкінці <code>LIMIT</code> — обмежується кількість записів, що виводяться.</li>
+</ol>
+<div class="question">
+<div id="exr-sql04" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 14.4 </strong></span><br>Використовуючи оператори <code>SELECT</code>, <code>FROM</code>, <code>ORDER BY</code> та <code>LIMIT</code>, визначте 5 найдорожчих товарів у таблиці <code>products</code>, які доставляє наш сервіс. Виведіть їх найменування та ціну.</p>
+<p>Поля у результуючій таблиці: <code>name</code>, <code>price</code>.</p>
+</div>
+</div>
+<div id="cell-15" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>SELECT name,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>       price</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>ORDER BY price desc limit <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>caviar</td>
+<td>800.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>mutton</td>
+<td>559.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>olive oil</td>
+<td>450.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>pork</td>
+<td>450.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>decaffeinated coffee</td>
+<td>400.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="зміна-назви-as" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="зміна-назви-as"><span class="header-section-number">14.3</span> Зміна назви: <code>AS</code></h2>
+<p>При складанні SQL-запитів колонкам у результуючій таблиці можна надавати будь-які інші імена (їх ще називають «аліасами»). Це можна робити за допомогою оператора <code>AS</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name <span class="kw">AS</span> new_name</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Якщо раптом вам здасться, що на написання оператора <code>AS</code> йде занадто багато часу і сил, його можна опустити, вказавши нове ім’я колонки без нього. Наступний запис також спрацює:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name new_name</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="question">
+<div id="exr-sql05" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 14.5 </strong></span><br>Повторіть запит із з попереднього прикладу (<a href="#exr-sql03" class="quarto-xref">Завдання&nbsp;<span>14.3</span></a>), але тепер колонки <code>name</code> і <code>price</code> перейменуйте відповідно на <code>product_name</code> і <code>product_price</code>.</p>
+<p>Поля у результуючій таблиці: <code>product_name</code>, <code>product_price</code></p>
+</div>
+</div>
+<div id="cell-18" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>SELECT name AS product_name,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>       price AS product_price</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>ORDER BY price desc limit <span class="dv">5</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">product_name</th>
+<th data-quarto-table-cell-role="th">product_price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>caviar</td>
+<td>800.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>mutton</td>
+<td>559.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>olive oil</td>
+<td>450.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>pork</td>
+<td>450.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>decaffeinated coffee</td>
+<td>400.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="кількість-символів-length" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="кількість-символів-length"><span class="header-section-number">14.4</span> Кількість символів: <code>LENGTH</code></h2>
+<p>У SQL-запитах до колонок таблиць можна використовувати різні функції, наприклад, як в Excel.</p>
+<p>У загальному вигляді синтаксис функцій виглядає приблизно так:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">function</span>(a, b, c, <span class="op">..</span>.)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Замість <code>function</code> вказується назва функції, а дужках — її аргументи. Як аргументи можуть виступати як колонки зі значеннями, так і окремі значення. Залежно від функції кількість аргументів може відрізнятися.</p>
+<p>Якщо ви коли-небудь працювали в Excel, то вам, напевно, знайомі різні функції на кшталт <code>SUM</code>, <code>MIN</code>, <code>MAX</code> тощо, які роблять деякі обчислення по стовпцях. У SQL вони називаються <em>агрегуючими функціями</em>.</p>
+<p>Зараз як приклад розглянемо функцію <code>LENGTH</code>. Вона виконує досить просте завдання — підраховує кількість символів у поданому їй на вхід значенні текстового типу (текстовий тип даних часто називають рядком — від англ. «string»). Іншими словами, функція <code>LENGTH</code> вимірює довжину деякого рядка у символах:</p>
+<div id="cell-20" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>SELECT LENGTH(<span class="st">'I.love.Python'</span>) <span class="im">as</span> py_love</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">py_love</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>13</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Функція <code>LENGTH</code> також може застосовуватись до всього стовпця. У такому випадку довжина символів буде порахована для кожного значення в стовпці. Відповідний запит виглядатиме так:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">LENGTH</span>(<span class="kw">column</span>) <span class="kw">AS</span> column_length</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="question">
+<div id="exr-sql06" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 14.6 </strong></span><br>Використовуючи оператори <code>SELECT</code>, <code>FROM</code>, <code>ORDER BY</code> та <code>LIMIT</code>, а також функцію <code>LENGTH</code>, визначте товар із найдовшою назвою у таблиці <code>products</code>. Виведіть його найменування, довжину найменування у символах, а також ціну цього товару. Назвіть колонку з довжиною найменування в символах <code>name_length</code>.</p>
+<p>Поля у результуючій таблиці: <code>name</code>, <code>name_length</code>, <code>price</code>.</p>
+</div>
+</div>
+<div id="cell-23" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>SELECT name,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>       length(name) <span class="im">as</span> name_length,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>       price</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>ORDER BY name_length desc limit <span class="dv">1</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">name_length</th>
+<th data-quarto-table-cell-role="th">price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>fruit drink blueberry</td>
+<td>21</td>
+<td>170.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Зверніть увагу, що в цьому прикладі ви сортуєте результуючу таблицю по розрахунковій колонці <code>name_length</code>, якої спочатку не було таблиці <code>products</code>.</p>
+<p>Таке сортування за новими колонками можливе, оскільки це узгоджується з порядком виконання операторів у запиті: спочатку виконується вибір колонок і всі перетворення над ними в операторі <code>SELECT</code> — і тільки потім проводиться сортування за вказаними в <code>ORDER BY</code> стовпчиками. Тобто на момент сортування всі розрахункові поля вже існують, а значить, їх можна вказувати в <code>ORDER BY</code>.</p>
+<p>Також зверніть увагу, що ми двічі вказуємо колонку <code>name</code> в операторі <code>SELECT</code>: вперше просто звертаємося до неї за ім’ям, а вдруге - використовуємо її як аргумент функції <code>LENGTH</code>. У цьому випадку теж немає жодних протиріч - ми можемо вибирати колонку стільки разів, скільки необхідно, причому для цього навіть необов’язково надавати цим колонкам різні аліаси (база даних сама перейменує дублікат колонки).</p>
+</div>
+</div>
+<p>У SQL, як й у багатьох інших мовах, функції можна застосовувати до інших функцій, тобто. послідовно:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> function_one(function_two(a, b), c)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>У наведеній вище конструкції <code>a</code>, <code>b</code>, <code>c</code> аргументи функцій. При цьому одним із аргументів функції <code>function_one</code> є результат виконання функції <code>function_two</code>.</p>
+<p>Таким чином, спочатку буде виконана функція <code>function_two</code>, а потім її результат буде поданий на вхід функції <code>function_one</code> як один з аргументів.</p>
+<p>Розглянемо такий випадок на прикладі функцій <code>UPPER</code> та <code>LEFT</code>. Функція <code>UPPER</code> наводить подане їй на вхід текстове значення до верхнього регістру:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">UPPER</span>(<span class="st">'I.love.Python'</span>) <span class="kw">AS</span> upper_all</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>I.LOVE.PYTHON</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Функція <code>LEFT</code> повертає перші <code>n</code> символів у рядку:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">LEFT</span>(<span class="st">'I.love.Python'</span>, <span class="dv">6</span>) <span class="kw">AS</span> first_n</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>I.love</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ми можемо застосувати ці функції послідовно і в результаті отримаємо перші три символів верхнього регістру:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">UPPER</span>(<span class="kw">LEFT</span>(<span class="st">'I.love.Python'</span>, <span class="dv">6</span>))</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>I.LOVE</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Застереження
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Зверніть увагу, що у блоці <code>SELECT</code> не можна виконати дві операції окремо, тобто. ми не можемо спочатку створити розрахункову колонку з першими шістьма символами, а потім відразу ж звернутися до цієї нової колонки, застосувавши до неї функцію <code>UPPER</code>.</p>
+</div>
+</div>
+<p>Наступний запит не буде виконано, база даних поверне помилку:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">LEFT</span>(<span class="st">'I.love.Python'</span>, <span class="dv">3</span>) <span class="kw">AS</span> first_n,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">UPPER</span>(first_n) <span class="kw">AS</span> upper_first_n</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>Error running <span class="kw">query</span>: <span class="kw">column</span> <span class="ot">"new_name"</span> does <span class="kw">not</span> exist</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>В межах одного запиту колонки створюються не по черзі, а разом, тому в межах одного запиту колонки <code>upper_first_n</code> не існує, поки блок <code>SELECT</code> не буде повністю виконаний. Дуже важливо враховувати цю особливість мови.</p>
+<p>Однак на практиці до нових колонок доводиться звертатися досить часто — саме для цього є підзапити (запити до інших запитів). А поки що нам достатньо розуміти, що застосовувати функції до розрахункових колонок у тому ж запиті не можна.</p>
+</section>
+<section id="поділ-та-повернення-split_part" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="поділ-та-повернення-split_part"><span class="header-section-number">14.5</span> Поділ та повернення: <code>SPLIT_PART</code></h2>
+<p>Функція <code>SPLIT_PART</code> розбиває поданий їй на вхід рядок на кілька частин відповідно до зазначеного роздільника та повертає одну з частин.</p>
+<p>Крім самого рядка (або колонки зі значеннями рядкового типу), функція приймає ще два аргументи — роздільник і порядковий номер частини, яку необхідно повернути. Подивіться наступний приклад:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> SPLIT_PART(<span class="st">'I.love.Python'</span>, <span class="st">'.'</span>, <span class="dv">3</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>Python</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>У прикладі вище рядок <code>'I.love.Python'</code> було розбито на три частини (<code>'I'</code>, <code>'love'</code> та <code>'Python'</code>) по роздільнику “<code>.</code>”. Функція повернула <code>'Python'</code>, оскільки третім аргументом ми вказали частину із порядковим номером 3.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Докладніше з іншими функціями для роботи з рядками можна ознайомитись за <a href="https://duckdb.org/docs/sql/functions/char">посиланням</a>.</p>
+</div>
+</div>
+<div class="question">
+<div id="exr-sql07" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 14.7 </strong></span><br>Застосуйте послідовно функції <code>UPPER</code> та <code>SPLIT_PART</code> до колонки <code>name</code> та перетворіть найменування товарів у таблиці <code>products</code> так, щоб від назв залишилося тільки перше слово, записане у верхньому регістрі. Колонку з новою назвою, що складається із першого слова, назвіть <code>first_word</code>.</p>
+<p>У результаті виведіть вихідні найменування товарів, нові найменування з першого слова, а також ціну товарів. Результат відсортуйте за зростанням початкового найменування товару в колонці <code>name</code>.</p>
+<p>Поля у результуючій таблиці: <code>name</code>, <code>first_word</code>, <code>price</code></p>
+</div>
+</div>
+<div id="cell-26" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>SELECT</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    name,</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    UPPER(SPLIT_PART(name, <span class="st">' '</span>, <span class="dv">1</span>)) AS first_word,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    price</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>FROM</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    products</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>ORDER BY</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    name</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">first_word</th>
+<th data-quarto-table-cell-role="th">price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>apple juice</td>
+<td>APPLE</td>
+<td>120.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>apples</td>
+<td>APPLES</td>
+<td>75.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>bagels</td>
+<td>BAGELS</td>
+<td>45.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>bananas</td>
+<td>BANANAS</td>
+<td>100.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>beef</td>
+<td>BEEF</td>
+<td>370.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">82</td>
+<td>waffles</td>
+<td>WAFFLES</td>
+<td>55.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">83</td>
+<td>watermelon</td>
+<td>WATERMELON</td>
+<td>120.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">84</td>
+<td>white chocolate</td>
+<td>WHITE</td>
+<td>60.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">85</td>
+<td>yogurt</td>
+<td>YOGURT</td>
+<td>45.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">86</td>
+<td>сowberry juice</td>
+<td>СOWBERRY</td>
+<td>190.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>87 rows × 3 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="зміна-типу-cast" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="зміна-типу-cast"><span class="header-section-number">14.6</span> Зміна типу: <code>CAST</code></h2>
+<p>Іноді виникає необхідність змінити тип даних у якійсь колонці результуючої таблиці, не змінюючи при цьому властивості вихідної таблиці, наприклад, перетворити число на текст (тип даних <code>VARCHAR</code>). І тому існує функція <code>CAST</code>.</p>
+<p>На вхід функції <code>CAST</code> необхідно подати ім’я колонки, вказавши через <code>AS</code> тип даних, до якого потрібно привести всі значення:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">CAST</span>(<span class="kw">column</span> <span class="kw">AS</span> <span class="dt">VARCHAR</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Також можна змінити тип даних за допомогою спеціального синтаксису з двома двокрапками («<code>::</code>»):</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">column</span>:<span class="ch">:VARCHAR</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Наприклад, переведемо текст ‘100’ у число 100:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">CAST</span>(<span class="st">'100'</span> <span class="kw">AS</span> <span class="dt">INTEGER</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Зверніть увагу, що для успішної конвертації значення повинні бути конвертованими у вказаний тип. Наприклад, текст, який не виглядає як число, перевести до числового типу даних не вийде:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">CAST</span>(<span class="st">'text'</span> <span class="kw">AS</span> <span class="dt">INTEGER</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>Error running <span class="kw">query</span>: invalid input syntax <span class="cf">for</span> <span class="kw">type</span> <span class="dt">integer</span>: <span class="ot">"text"</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Аналогічним чином можна, наприклад, перетворити текст на дату (якщо він виглядає як дата):</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="st">'2022-12-31'</span>:<span class="ch">:DATE</span> <span class="kw">as</span> <span class="dt">date</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="dv">2022</span><span class="op">-</span><span class="dv">12</span><span class="op">-</span><span class="dv">31</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Докладніше з функцією <code>CAST</code> та перетворенням типів даних можна ознайомитись за цим <a href="https://duckdb.org/docs/sql/expressions/cast">посиланням</a>.</p>
+<p>Про самі типи даних можна почитати <a href="https://duckdb.org/docs/sql/data_types/overview">тут</a>.</p>
+</div>
+</div>
+<div class="question">
+<div id="exr-sql08" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 14.8 </strong></span><br>Змініть тип колонки <code>price</code> з таблиці <code>products</code> на <code>VARCHAR</code>. Виведіть колонки з найменуванням товарів, ціною у вихідному форматі та ціною у форматі <code>VARCHAR</code>. Нову колонку з ціною у новому форматі назвіть <code>price_char</code>.</p>
+<p>Результат відсортуйте за зростанням початкового найменування товару в колонці name. Кількість записів, що виводяться, не обмежуйте.</p>
+<p>Поля в результуючій таблиці: <code>name</code>, <code>price</code>, <code>price_char</code></p>
+</div>
+</div>
+<div id="cell-29" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>SELECT </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    name,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    price,</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    CAST(price <span class="im">as</span> VARCHAR) <span class="im">as</span> price_char</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>FROM</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    products</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>ORDER BY</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    name</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">price_char</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>apple juice</td>
+<td>120.0</td>
+<td>120.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>apples</td>
+<td>75.0</td>
+<td>75.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>bagels</td>
+<td>45.0</td>
+<td>45.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>bananas</td>
+<td>100.0</td>
+<td>100.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>beef</td>
+<td>370.0</td>
+<td>370.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">82</td>
+<td>waffles</td>
+<td>55.0</td>
+<td>55.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">83</td>
+<td>watermelon</td>
+<td>120.0</td>
+<td>120.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">84</td>
+<td>white chocolate</td>
+<td>60.0</td>
+<td>60.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">85</td>
+<td>yogurt</td>
+<td>45.0</td>
+<td>45.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">86</td>
+<td>сowberry juice</td>
+<td>190.0</td>
+<td>190.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>87 rows × 3 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="обєднання-concat" class="level2" data-number="14.7">
+<h2 data-number="14.7" class="anchored" data-anchor-id="обєднання-concat"><span class="header-section-number">14.7</span> Об’єднання: <code>CONCAT</code></h2>
+<p>У цьому підрозділі ми ще трохи попрацюємо з текстовими даними та розглянемо функцію <code>CONCAT</code>, за допомогою якої можна з’єднувати в один рядок значення кількох стовпців.</p>
+<p>Функція <code>CONCAT</code> приймає на вхід кілька аргументів і повертає результат їхньої послідовної складання один з одним. Хороша аналогія - складання речень з різних карток зі словами:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">CONCAT</span>(<span class="st">'SQL'</span>, <span class="st">' '</span>, <span class="st">'Python '</span>, <span class="dv">2023</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>SQL Python <span class="dv">2023</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>При цьому аргументи не обов’язково мають бути виражені текстовими значеннями — головне, вони мають бути конвертованими в текст. У прикладі вище число 2023 можна конвертувати в текст ‘2023’, тому запит працює без помилок.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ознайомитись з іншими прикладами використання функції <code>CONCAT</code> можна за <a href="https://duckdb.org/docs/sql/functions/char">посиланням</a>.</p>
+</div>
+</div>
+<div class="question">
+<div id="exr-sql09" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 14.9 </strong></span><br>Для перших 200 записів з таблиці <code>orders</code> виведіть інформацію у такому вигляді (зверніть увагу на пробіли):</p>
+<p>Замовлення № [<code>id_замовлення</code>] створено [<code>дата</code>]</p>
+<p>Отриману колонку назвіть <code>order_info</code>.</p>
+<p>Приклад результату:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>Замовлення № <span class="dv">65</span> створено <span class="dv">2022</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">01</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="cell-32" class="cell" data-execution_count="11">
+<details class="code-fold">
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>SELECT </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    CONCAT(</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Замовлення № '</span>,</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>        order_id,</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">' створено '</span>,</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>        creation_time::DATE</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>        ) <span class="im">as</span> order_info</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>FROM   </span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    orders</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>LIMIT <span class="dv">200</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">order_info</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Замовлення № 1 створено 2022-08-24</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Замовлення № 2 створено 2022-08-24</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Замовлення № 3 створено 2022-08-24</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Замовлення № 4 створено 2022-08-24</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Замовлення № 5 створено 2022-08-24</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">195</td>
+<td>Замовлення № 196 створено 2022-08-25</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">196</td>
+<td>Замовлення № 197 створено 2022-08-25</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">197</td>
+<td>Замовлення № 198 створено 2022-08-25</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">198</td>
+<td>Замовлення № 199 створено 2022-08-25</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">199</td>
+<td>Замовлення № 200 створено 2022-08-25</td>
+</tr>
+</tbody>
+</table>
+
+<p>200 rows × 1 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="частина-дати-date_part" class="level2" data-number="14.8">
+<h2 data-number="14.8" class="anchored" data-anchor-id="частина-дати-date_part"><span class="header-section-number">14.8</span> Частина дати: <code>DATE_PART</code></h2>
+<p>Як ви вже помітили, у наших таблицях значення деяких колонках представлені у форматі дати (<code>DATE</code>) і часу (<code>TIMESTAMP</code>). Давайте трохи попрацюємо з такими даними.</p>
+<p>Насправді часто зустрічаються завдання, коли потрібна, наприклад, не вся дата, а якась її частина: рік, місяць, день, година тощо. Витягти цю частину вихідних даних дозволяє функція <code>DATE_PART</code>. Її синтаксис наступний:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> DATE_PART(part, <span class="kw">column</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>На місці <code>part</code> необхідно в лапках вказати ту частину, яку потрібно витягти: <code>'year'</code>, <code>'month'</code>, <code>'day'</code>, <code>'hour'</code> тощо. На місці <code>column</code> слід вказати потрібну колонку чи конкретну дату чи час. Наприклад:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> DATE_PART(<span class="st">'day'</span>, <span class="dt">DATE</span> <span class="st">'2022-01-12'</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fl">12.00</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> DATE_PART(<span class="st">'minute'</span>, <span class="dt">TIMESTAMP</span> <span class="st">'2022-01-12 20:31:05'</span>)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="fl">31.00</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Вище ми вказали конкретну дату. На її місці міг бути, наприклад, стовпчик з датами <code>dates</code>. Тоді запит виглядав би так:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> DATE_PART(<span class="st">'day'</span>, dates)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ознайомитись з іншими прикладами використання функції <code>DATE_PART</code> можна за <a href="https://duckdb.org/docs/sql/functions/timestamptz">посиланням</a>.</p>
+</div>
+</div>
+<div class="question">
+<div id="exr-sql10" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 14.10 </strong></span><br>Виведіть id всіх кур’єрів та їхні роки народження з таблиці <code>couriers</code>.</p>
+<p>Рік народження необхідно одержати з колонки <code>birth_date</code>. Нову колонку з роком назвіть <code>birth_year</code>. Результат відсортуйте спочатку за спаданням року народження кур’єра (тобто від наймолодших до найстарших), потім за зростанням id кур’єра.</p>
+<p>Поля у результуючій таблиці: <code>courier_id</code>, <code>birth_year</code></p>
+</div>
+</div>
+<div id="cell-35" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>SELECT courier_id,</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>       date_part(<span class="st">'year'</span>, birth_date) <span class="im">as</span> birth_year</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>FROM   couriers</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>ORDER BY birth_year desc, courier_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">courier_id</th>
+<th data-quarto-table-cell-role="th">birth_year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1592</td>
+<td>2007.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2557</td>
+<td>2007.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1885</td>
+<td>2006.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>946</td>
+<td>2005.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1741</td>
+<td>2005.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2818</td>
+<td>2233</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2819</td>
+<td>2239</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2820</td>
+<td>2656</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2821</td>
+<td>2867</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2822</td>
+<td>2963</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+<p>2823 rows × 2 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="перше-ненульове-значення-coalesce" class="level2" data-number="14.9">
+<h2 data-number="14.9" class="anchored" data-anchor-id="перше-ненульове-значення-coalesce"><span class="header-section-number">14.9</span> Перше ненульове значення: <code>COALESCE</code></h2>
+<p>Ви могли помітити, що в минулому прикладі (<a href="#exr-sql10" class="quarto-xref">Завдання&nbsp;<span>14.10</span></a>) для окремих рядків функція <code>DATE_PART</code> не повернула рік народження кур’єра, а замість них утворилися порожні значення. Якщо не помітили, уважно подивіться на результат запиту.</p>
+<p>Насправді це сталося тому, що в наших даних у колонці <code>birth_date</code> є перепустки — так звані значення <code>NULL</code> (у виводі результату це <code>NA</code>). Іншими словами, для окремих кур’єрів просто не вказано їхні дні народження. Є безліч варіантів, чому так могло статися, але ми зараз не маємо часу все це з’ясовувати — нам просто потрібно навчитися якось обробляти такі випадки.</p>
+<p>Давайте зробимо так, щоб замість порожніх значень функція <code>DATE_PART</code> повертала якесь інше значення. У цьому нам допоможе функція <code>COALESCE</code>, яка повертає перше не <code>NULL</code> значення зі списку поданих на вхід аргументів.</p>
+<p>Роботу <code>COALESCE</code> можна описати так: вона буквально читає список значень зліва направо і, як тільки бачить значення, яке не є <code>NULL</code>, відразу ж повертає його та припиняє читання списку. Подивіться уважно на такі приклади:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">NULL</span>, <span class="st">'I am not NULL'</span> , <span class="st">'I.love.Python'</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>I am <span class="kw">not</span> <span class="kw">NULL</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">NULL</span>, <span class="dv">25</span>, <span class="dv">100</span>, <span class="dv">150</span>)</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="dv">25</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="st">'NULL'</span>, <span class="st">'I am not NULL'</span>, <span class="st">'I.love.Python'</span>)</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a><span class="kw">NULL</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Одним із аргументів функції <code>COALESCE</code> може бути результат виконання іншої функції:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">NULL</span>, <span class="fu">LOWER</span>(<span class="st">'I am not NULL'</span>), <span class="st">'I.love.Python'</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>i am <span class="kw">not</span> <span class="kw">null</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Щоб заповнити пропуски в колонці, достатньо застосувати функцію <code>COALESCE</code> до колонки з пропусками та вказати як другий аргумент те значення, яке ми хочемо бачити замість <code>NULL</code>:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">column</span>, <span class="st">'filler value'</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Функція <code>COALESCE</code> застосовується до кожного значення колонки. Якщо це значення виявиться <code>NULL</code>, вона замінить його значення, вказане другим аргументом. Якщо значення колонці, навпаки, виявиться не <code>NULL</code>, то функція просто поверне це значення.</p>
+<p>При цьому до колонки з перепустками можна заздалегідь застосовувати різні інші функції:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COALESCE</span>(<span class="kw">LEFT</span>(<span class="kw">column</span>, <span class="dv">5</span>), <span class="st">'filler value'</span>)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>З іншими прикладами використання функції <code>COALESCE</code> можна за <a href="https://duckdb.org/docs/sql/functions/utility">посиланням</a>.</p>
+</div>
+</div>
+<div class="question">
+<div id="exr-sql11" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 14.11 </strong></span><br>Як і в попередньому прикладі (<a href="#exr-sql10" class="quarto-xref">Завдання&nbsp;<span>14.10</span></a>), знову виведіть id десяти відсотків кур’єрів та їх роки народження, тільки тепер до вилученого року застосуйте функцію <code>COALESCE</code>. Вкажіть параметри функції так, щоб замість значення <code>NULL</code> в результат потрапляло текстове значення <code>unknown</code>. Назви полів залиште колишніми.</p>
+<p>Поля у результуючій таблиці: <code>courier_id</code>, <code>birth_year</code></p>
+</div>
+</div>
+<div id="cell-38" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>SELECT</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    courier_id,</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    COALESCE(date_part(<span class="st">'year'</span>, birth_date)::VARCHAR, <span class="st">'unknown'</span>) birth_year</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>FROM</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    couriers</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>USING SAMPLE <span class="dv">10</span> PERCENT (bernoulli, <span class="dv">123</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">courier_id</th>
+<th data-quarto-table-cell-role="th">birth_year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>17</td>
+<td>1997</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>24</td>
+<td>1986</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>40</td>
+<td>1993</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>49</td>
+<td>1996</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>52</td>
+<td>1995</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">278</td>
+<td>3103</td>
+<td>1991</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">279</td>
+<td>3124</td>
+<td>1992</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">280</td>
+<td>3128</td>
+<td>1997</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">281</td>
+<td>3162</td>
+<td>1996</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">282</td>
+<td>3166</td>
+<td>1994</td>
+</tr>
+</tbody>
+</table>
+
+<p>283 rows × 2 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="арифметичні-оператори" class="level2" data-number="14.10">
+<h2 data-number="14.10" class="anchored" data-anchor-id="арифметичні-оператори"><span class="header-section-number">14.10</span> Арифметичні оператори</h2>
+<p>Для роботи з числовими значеннями в <strong>DuckDB</strong> доступны різні арифметичні оператори. Нижче наведена таблиця з найбільш вживаними операторами:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th><strong>Оператор</strong></th>
+<th><strong>Опис</strong></th>
+<th><strong>Приклад</strong></th>
+<th><strong>Результат</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>+</td>
+<td>Додавання</td>
+<td>2 + 3</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>Віднімання</td>
+<td>2 - 3</td>
+<td>-1</td>
+</tr>
+<tr class="odd">
+<td>*</td>
+<td>Множення</td>
+<td>2 * 3</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>/</td>
+<td>Ділення</td>
+<td>4 / 2</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>%</td>
+<td>Залишок від ділення</td>
+<td>5 % 4</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>^</td>
+<td>Піднесення до степеня</td>
+<td>2 ^ 3</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p>Якби ми захотіли перевести 7600 гривен у долари за курсом 1 долар = 40 гривень, то операція виглядала б так:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="dv">7500</span> <span class="op">/</span> <span class="dv">40</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="dv">190</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Якби нам потрібно було відняти з кожного значення в одній із колонок нашої таблиці якесь число (наприклад, 100), то запит виглядав би так:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">column</span> <span class="op">-</span> <span class="dv">100</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Крім того, в арифметичних операціях можуть брати участь одразу кілька колонок. Наприклад, для кожного рядка таблиці можна обчислити середнє арифметичне двох чисел, які містяться у двох різних колонках:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> (column_1 <span class="op">+</span> column_2) <span class="op">/</span> <span class="dv">2</span> <span class="kw">AS</span> average</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ознайомитись з усіма арифметичними операторами можна за <a href="https://duckdb.org/docs/sql/functions/numeric.html#numeric-operators">посиланням</a>.</p>
+</div>
+</div>
+<div class="question">
+<div id="exr-sql12" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 14.12 </strong></span><br>Давайте уявимо, що з якоїсь незрозумілої причини ми раптом вирішили відразу підвищити ціну всіх товарів у таблиці <code>products</code> на <strong>5%</strong>.</p>
+<p>Виведіть id та найменування всіх товарів, їх стару та нову ціну. Колонку зі старою ціною назвіть <code>old_price</code>, а колонку з новою – <code>new_price</code>.</p>
+<p>Результат відсортуйте спочатку за спаданням нової ціни, потім за зростанням id товару.</p>
+<p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>old_price</code>, <code>new_price</code>.</p>
+</div>
+</div>
+<div id="cell-41" class="cell" data-execution_count="14">
+<details class="code-fold">
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>       price <span class="im">as</span> old_price,</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>       price<span class="op">*</span><span class="fl">1.05</span> <span class="im">as</span> new_price</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>ORDER BY new_price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">product_id</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">old_price</th>
+<th data-quarto-table-cell-role="th">new_price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>13</td>
+<td>caviar</td>
+<td>800.0</td>
+<td>840.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>37</td>
+<td>mutton</td>
+<td>559.0</td>
+<td>586.95</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>15</td>
+<td>olive oil</td>
+<td>450.0</td>
+<td>472.50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>57</td>
+<td>pork</td>
+<td>450.0</td>
+<td>472.50</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>43</td>
+<td>decaffeinated coffee</td>
+<td>400.0</td>
+<td>420.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">82</td>
+<td>6</td>
+<td>crackers</td>
+<td>25.0</td>
+<td>26.25</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">83</td>
+<td>5</td>
+<td>coffee 3 in 1</td>
+<td>15.0</td>
+<td>15.75</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">84</td>
+<td>73</td>
+<td>cake</td>
+<td>15.0</td>
+<td>15.75</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">85</td>
+<td>10</td>
+<td>seeds</td>
+<td>12.0</td>
+<td>12.60</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">86</td>
+<td>54</td>
+<td>paper bag</td>
+<td>1.0</td>
+<td>1.05</td>
+</tr>
+</tbody>
+</table>
+
+<p>87 rows × 4 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="математичні-функції" class="level2" data-number="14.11">
+<h2 data-number="14.11" class="anchored" data-anchor-id="математичні-функції"><span class="header-section-number">14.11</span> Математичні функції</h2>
+<p>Поряд з арифметичними операторами <strong>DuckDB</strong> також доступні різні математичні функції. Наприклад, для округлення чисел можна використовувати функцію <code>ROUND</code>:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">ROUND</span>(<span class="fl">100.5454</span>, <span class="dv">2</span>)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="fl">100.55</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">ROUND</span>(<span class="fl">100.551</span>, <span class="dv">1</span>)</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a><span class="fl">100.6</span></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">ROUND</span>(<span class="fl">100.5511</span>)</span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>Результат:</span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a><span class="fl">101.0</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Першим аргументом вказується саме значення, яке хочемо округлити. Другим число знаків після точки, до якої хочемо округлити. Другий аргумент вказувати не обов’язково: якщо його не вказати, відбудеться округлення до цілого числа (проте тип даних при цьому не зміниться).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ознайомитись з усіма арифметичними операторами можна за <a href="https://duckdb.org/docs/sql/functions/numeric.html#numeric-functions">посиланням</a>.</p>
+</div>
+</div>
+<div class="question">
+<div id="exr-sql13" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 14.13 </strong></span><br>Знову, як і в минулому завданні (<a href="#exr-sql12" class="quarto-xref">Завдання&nbsp;<span>14.12</span></a>), підвищите ціну всіх товарів на 5%, тільки тепер до колонки з новою ціною застосуйте функцію <code>ROUND</code>. Виведіть id та найменування товарів, їх стару ціну, а також нову ціну із округленням. Нову ціну округліть до десятих, але тип даних не змінюйте.</p>
+<p>Результат відсортуйте спочатку за спаданням нової ціни, потім за зростанням id товару.</p>
+<p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>old_price</code>, <code>new_price</code>.</p>
+</div>
+</div>
+<div id="cell-44" class="cell" data-execution_count="15">
+<details class="code-fold">
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>       price <span class="im">as</span> old_price,</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>       <span class="bu">round</span>(price <span class="op">*</span> <span class="fl">1.05</span>, <span class="dv">1</span>) <span class="im">as</span> new_price</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>ORDER BY new_price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">product_id</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">old_price</th>
+<th data-quarto-table-cell-role="th">new_price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>13</td>
+<td>caviar</td>
+<td>800.0</td>
+<td>840.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>37</td>
+<td>mutton</td>
+<td>559.0</td>
+<td>587.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>15</td>
+<td>olive oil</td>
+<td>450.0</td>
+<td>472.5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>57</td>
+<td>pork</td>
+<td>450.0</td>
+<td>472.5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>43</td>
+<td>decaffeinated coffee</td>
+<td>400.0</td>
+<td>420.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">82</td>
+<td>6</td>
+<td>crackers</td>
+<td>25.0</td>
+<td>26.3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">83</td>
+<td>5</td>
+<td>coffee 3 in 1</td>
+<td>15.0</td>
+<td>15.8</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">84</td>
+<td>73</td>
+<td>cake</td>
+<td>15.0</td>
+<td>15.8</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">85</td>
+<td>10</td>
+<td>seeds</td>
+<td>12.0</td>
+<td>12.6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">86</td>
+<td>54</td>
+<td>paper bag</td>
+<td>1.0</td>
+<td>1.1</td>
+</tr>
+</tbody>
+</table>
+
+<p>87 rows × 4 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="умовна-конструкція-case-when" class="level2" data-number="14.12">
+<h2 data-number="14.12" class="anchored" data-anchor-id="умовна-конструкція-case-when"><span class="header-section-number">14.12</span> Умовна конструкція: <code>CASE</code> <code>WHEN</code></h2>
+<p>А якби ми захотіли підвищити ціну не на всі товари, а, скажімо, тільки на дорогі?</p>
+<p>Для цього нам потрібно було б створити деяку функцію, яка перевіряла б кожне значення в колонці <code>price</code> і порівнювала б його з якимось пороговим значенням. Якби ціна виявлялася вищою за цей поріг, то функція підвищувала б ціну, а якщо ні — залишала б без змін.</p>
+<p>І таку функцію можна задати за допомогою умовної конструкції <code>CASE</code>. Вона має наступний синтаксис:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="cf">CASE</span>  </span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="cf">WHEN</span> logical_expression_1 <span class="cf">THEN</span> expression_1</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="cf">WHEN</span> logical_expression_2 <span class="cf">THEN</span> expression_2</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="cf">ELSE</span> expression_else</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="cf">END</span> <span class="kw">AS</span> case_example</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ця конструкція може бути громіздкою, але насправді в ній немає нічого складного. Логіка роботи оператора <code>CASE</code> досить проста:</p>
+<ol type="1">
+<li>На кожному етапі <code>WHEN - THEN</code> обчислюється деякий логічний вираз <code>logical_expression</code>, що стоїть після <code>WHEN</code>. Якщо воно виявляється істинним (<code>TRUE</code>), то в якості результату оператор повертає вираз <code>expression</code>, що стоїть після <code>THEN</code>, і закінчує свою роботу.</li>
+<li>Якщо вираз виявляється помилковим (<code>FALSE</code>), то оператор продовжує роботу та перевіряє наступну умову.</li>
+<li>Якщо жодна з умов не проходить перевірку на істинність, повертається вираз, вказаний після <code>ELSE</code>. При цьому <code>ELSE</code> вказувати не обов’язково - якщо його не вказати, то повернеться порожнє значення <code>NULL</code> (у разі, якщо всі перевірки після <code>WHEN</code> виявилися помилковими).</li>
+<li>Насамкінець обов’язково вказується ключове слово <code>END</code>, яке говорить про закінчення конструкції <code>CASE</code>. Також після <code>END</code> новому розрахунковому полю за допомогою <code>AS</code> можна надати деяке ім’я, але це робити не обов’язково. Обов’язковими є лише ключові слова <code>CASE</code>, <code>WHEN</code>, <code>THEN</code> та <code>END</code>.</li>
+</ol>
+<p>Наступна конструкція розіб’є весь список найменувань на три категорії: «м’ясо», «риба» та «інше». Відповідно, якщо у перших двох умовах ми не врахуємо якісь назви з колонки <code>name</code> (наприклад, «телятину»), то вони потраплять до категорії «інше».</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name,</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>       <span class="cf">CASE</span> </span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>       <span class="cf">WHEN</span> name<span class="op">=</span><span class="st">'свинина'</span> <span class="kw">OR</span> name<span class="op">=</span><span class="st">'баранина'</span> <span class="kw">OR</span> name<span class="op">=</span><span class="st">'курка'</span> <span class="cf">THEN</span> <span class="ot">"м'ясо"</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>       <span class="cf">WHEN</span> name<span class="op">=</span><span class="st">'тріска'</span> <span class="kw">OR</span> name<span class="op">=</span><span class="st">'форель'</span> <span class="kw">OR</span> name<span class="op">=</span><span class="st">'окунь'</span> <span class="cf">THEN</span> <span class="st">'риба'</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>       <span class="cf">ELSE</span> <span class="st">'інше'</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>       <span class="cf">END</span> <span class="kw">AS</span> сategory</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Тепер трохи про логічні вирази: SQL можуть включати <em>оператори порівняння</em> і <em>логічні операції</em>.</p>
+<p>До <strong>операторів порівняння</strong> належать:</p>
+<ul>
+<li><code>=</code> («рівно»)</li>
+<li><code>&lt;&gt;</code> або <code>!=</code> («не дорівнює»)</li>
+<li><code>&lt;</code> («менше»)</li>
+<li><code>&gt;</code> («більше»)</li>
+<li><code>&lt;=</code> («менше або дорівнює»)</li>
+<li><code>&gt;=</code> («більше чи дорівнює»)</li>
+</ul>
+<p>Результатом роботи операторів порівняння можуть бути три стани:</p>
+<ul>
+<li><code>TRUE</code> («істина»)</li>
+<li><code>FALSE</code> (помилка)</li>
+<li><code>NULL</code> («невизначений стан» - коли одне з порівнюваних значень <code>NULL</code>)</li>
+</ul>
+<p>З цими трьома станами можна проводити такі логічні операції:</p>
+<ul>
+<li><code>AND</code> («І»)</li>
+<li><code>OR</code> («АБО»)</li>
+<li><code>NOT</code> («НЕ»)</li>
+</ul>
+<p>Результатом цих логічних операцій також можуть бути три вищевказані логічні стани (<code>TRUE</code>, <code>FALSE</code> або <code>NULL</code>):</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th><code>a</code></th>
+<th><code>b</code></th>
+<th><code>a AND b</code></th>
+<th><code>a OR b</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>TRUE</td>
+<td>TRUE</td>
+<td>TRUE</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td>TRUE</td>
+<td>FALSE</td>
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td>TRUE</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td>FALSE</td>
+<td>FALSE</td>
+<td>FALSE</td>
+<td>FALSE</td>
+</tr>
+<tr class="odd">
+<td>FALSE</td>
+<td>NULL</td>
+<td>FALSE</td>
+<td>NULL</td>
+</tr>
+<tr class="even">
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<thead>
+<tr class="header">
+<th><code>a</code></th>
+<th><code>NOT a</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>TRUE</td>
+<td>FALSE</td>
+</tr>
+<tr class="even">
+<td>FALSE</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<p>Таким чином, оператори порівняння та логічні операції дозволяють писати комплексні логічні вирази.</p>
+<p>Запам’ятати всі ці таблиці та комбінації не обов’язково. Головне, завжди тримайте цю пам’ятку під рукою.</p>
+<p>Припустимо, відомо, що <span class="math inline">\(a=10\)</span> і <span class="math inline">\(b=5\)</span>. Тоді наступний логічний вираз поверне <code>TRUE</code>:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ex">a</span> <span class="op">&gt;</span>= 10 OR b <span class="op">&gt;</span> 10</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Також важливо розуміти, що є пріоритети виконання операцій:</p>
+<ol type="1">
+<li>множення та ділення (<code>*</code> та <code>/</code>)</li>
+<li>додавання та віднімання (<code>+</code> та <code>-</code>)</li>
+<li>оператори порівняння (<code>=</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>)</li>
+<li><code>NOT</code></li>
+<li><code>AND</code></li>
+<li><code>OR</code></li>
+</ol>
+<p>На порядок виконання операторів можна також впливати за допомогою дужок. Вирази, поміщені в дужки, матимуть найвищий пріоритет — як у математиці.</p>
+<div class="question">
+<div id="exr-sql14" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 14.14 </strong></span><br>Підвищіть ціну на <strong>5%</strong> тільки на товари, вартість яких <strong>перевищує 100 одиниць</strong>. Ціну решти товарів залиште без змін. Також <strong>не підвищуйте ціну на ікру</strong> <em>(caviar)</em>, яка й так коштує <strong>800 одиниць</strong>. Виведіть id та найменування всіх товарів, їх стару та нову ціну. Ціну округляти не потрібно.</p>
+<p>Результат відсортуйте спочатку за спаданням нової ціни, потім за зростанням id товару.</p>
+<p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>old_price</code>, <code>new_price</code></p>
+</div>
+</div>
+<div id="cell-47" class="cell" data-execution_count="16">
+<details class="code-fold">
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>       price <span class="im">as</span> old_price,</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>       <span class="cf">case</span> when price <span class="op">&lt;=</span> <span class="dv">100</span> <span class="kw">or</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>                 name <span class="op">=</span> <span class="st">'caviar'</span> then price</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span> price <span class="op">*</span> <span class="fl">1.05</span> end <span class="im">as</span> new_price</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>ORDER BY new_price desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">product_id</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">old_price</th>
+<th data-quarto-table-cell-role="th">new_price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>13</td>
+<td>caviar</td>
+<td>800.0</td>
+<td>800.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>37</td>
+<td>mutton</td>
+<td>559.0</td>
+<td>586.95</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>15</td>
+<td>olive oil</td>
+<td>450.0</td>
+<td>472.50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>57</td>
+<td>pork</td>
+<td>450.0</td>
+<td>472.50</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>43</td>
+<td>decaffeinated coffee</td>
+<td>400.0</td>
+<td>420.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">82</td>
+<td>6</td>
+<td>crackers</td>
+<td>25.0</td>
+<td>25.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">83</td>
+<td>5</td>
+<td>coffee 3 in 1</td>
+<td>15.0</td>
+<td>15.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">84</td>
+<td>73</td>
+<td>cake</td>
+<td>15.0</td>
+<td>15.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">85</td>
+<td>10</td>
+<td>seeds</td>
+<td>12.0</td>
+<td>12.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">86</td>
+<td>54</td>
+<td>paper bag</td>
+<td>1.0</td>
+<td>1.00</td>
+</tr>
+</tbody>
+</table>
+
+<p>87 rows × 4 columns</p>
+</div>
+</div>
+</div>
+<p>Уявіть, що до вас звернувся менеджер із сусіднього відділу із проханням порахувати ПДВ кожного товару. Жодних додаткових даних він вам не надав, тому ви вирішили виконати завдання на власний розсуд, вважаючи, що ПДВ єдиний для всіх товарів і становить 20%.</p>
+<div class="question">
+<div id="exr-sql15" class="theorem exercise">
+<p><span class="theorem-title"><strong>Завдання 14.15 </strong></span><br>Обчисліть ПДВ кожного товару у таблиці <code>products</code> та розрахуйте ціну без урахування ПДВ. Виведіть всю інформацію про товари, включаючи суму податку та ціну без його врахування. Колонки із сумою податку та ціною без ПДВ назвіть відповідно <code>tax</code> та <code>price_before_tax</code>. Округліть значення у цих колонках <strong>до двох знаків після коми</strong>.</p>
+<p>Результат відсортуйте спочатку за спаданням ціни товару без урахування ПДВ, потім за зростанням id товару.</p>
+<p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code>, <code>tax</code>, <code>price_before_tax</code>.</p>
+</div>
+</div>
+<div id="cell-50" class="cell" data-execution_count="17">
+<details class="code-fold">
+<summary>Рішення</summary>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>       price,</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>       <span class="bu">round</span>((price <span class="op">*</span> <span class="fl">0.2</span>) <span class="op">/</span> <span class="fl">1.2</span>, <span class="dv">2</span>) <span class="im">as</span> tax,</span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>       <span class="bu">round</span>(price <span class="op">/</span> <span class="fl">1.2</span>, <span class="dv">2</span>) <span class="im">as</span> price_before_tax</span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>ORDER BY price_before_tax desc, product_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">product_id</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">tax</th>
+<th data-quarto-table-cell-role="th">price_before_tax</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>13</td>
+<td>caviar</td>
+<td>800.0</td>
+<td>133.33</td>
+<td>666.67</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>37</td>
+<td>mutton</td>
+<td>559.0</td>
+<td>93.17</td>
+<td>465.83</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>15</td>
+<td>olive oil</td>
+<td>450.0</td>
+<td>75.00</td>
+<td>375.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>57</td>
+<td>pork</td>
+<td>450.0</td>
+<td>75.00</td>
+<td>375.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>43</td>
+<td>decaffeinated coffee</td>
+<td>400.0</td>
+<td>66.67</td>
+<td>333.33</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">82</td>
+<td>6</td>
+<td>crackers</td>
+<td>25.0</td>
+<td>4.17</td>
+<td>20.83</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">83</td>
+<td>5</td>
+<td>coffee 3 in 1</td>
+<td>15.0</td>
+<td>2.50</td>
+<td>12.50</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">84</td>
+<td>73</td>
+<td>cake</td>
+<td>15.0</td>
+<td>2.50</td>
+<td>12.50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">85</td>
+<td>10</td>
+<td>seeds</td>
+<td>12.0</td>
+<td>2.00</td>
+<td>10.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">86</td>
+<td>54</td>
+<td>paper bag</td>
+<td>1.0</td>
+<td>0.17</td>
+<td>0.83</td>
+</tr>
+</tbody>
+</table>
+
+<p>87 rows × 5 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="типові-помилки-при-написанні-sql-запитів." class="level2" data-number="14.13">
+<h2 data-number="14.13" class="anchored" data-anchor-id="типові-помилки-при-написанні-sql-запитів."><span class="header-section-number">14.13</span> Типові помилки при написанні SQL-запитів.</h2>
+<ul>
+<li>Неправильний порядок або помилки у ключових словах. Правильний порядок операторів у запиті виглядає так:</li>
+</ul>
+<div class="sourceCode" id="cb52"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>      <span class="co">-- перерахування полів результуючої таблиці</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>        <span class="co">-- вказівка джерела даних</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>       <span class="co">-- фільтрація даних</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span>    <span class="co">-- угруповання даних</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span>      <span class="co">-- фільтрація даних після угруповання</span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span>    <span class="co">-- сортування результуючої таблиці</span></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span>       <span class="co">-- обмеження кількості записів, що виводяться</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Неправильно названі функції та оператори, що використовуються в запиті (наприклад, <code>DATEPART</code>, а не <code>DATE_PART</code>).</li>
+<li>Неправильно вказано імена стовпців.</li>
+<li>Неправильно виконано сортування записів.</li>
+<li>Неправильно проведено розрахунки.</li>
+<li>Пропущена кома при перерахуванні стовпців у <code>SELECT</code></li>
+<li>Зайва кома після імені останнього стовпця в <code>SELECT</code></li>
+<li>Не закриті дужки (перевірте, що кількість дужок дорівнює кількості закривають).</li>
+<li>Допущено помилку в підзапиті (перед виконанням всього запиту перевірте, чи працюють окремі підзапити).</li>
+<li>Запущено відразу кілька запитів, не розділених крапкою з комою.</li>
+</ul>
+
+
+</section>
+
+<p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Скопійовано!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Скопійовано!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    const typesetMath = (el) => {
+      if (window.MathJax) {
+        // MathJax Typeset
+        window.MathJax.typeset([el]);
+      } else if (window.katex) {
+        // KaTeX Render
+        var mathElements = el.getElementsByClassName("math");
+        var macros = [];
+        for (var i = 0; i < mathElements.length; i++) {
+          var texText = mathElements[i].firstChild;
+          if (mathElements[i].tagName == "SPAN") {
+            window.katex.render(texText.data, mathElements[i], {
+              displayMode: mathElements[i].classList.contains('display'),
+              throwOnError: false,
+              macros: macros,
+              fleqn: false
+            });
+          }
+        }
+      }
+    }
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        typesetMath(container);
+        return container.innerHTML
+      } else {
+        typesetMath(note);
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      typesetMath(note);
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="aranaur/py4ds" data-repo-id="" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../chapters/sql/sql.html" class="pagination-link  aria-label=" sql"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">SQL</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../chapters/sql/sql_filter.html" class="pagination-link" aria-label="<span class='chapter-number'>15</span>&nbsp; <span class='chapter-title'>Фільтрація даних</span>">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

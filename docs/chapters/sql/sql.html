@@ -6,11 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ігор Мірошниченко">
-<meta name="dcterms.date" content="2024-01-04">
 <meta name="description" content="Книга-конспект матеріалів">
 
-<title>Від нуля до Python Data Scientist</title>
+<title>Від нуля до Python Data Scientist - SQL</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,23 +58,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./cover.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/sql/sql_basics.html" rel="next">
+<link href="../../cover.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -113,6 +112,12 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
@@ -127,7 +132,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Вступне слово</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/sql/sql.html">SQL</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -141,11 +146,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Від нуля до Python Data Scientist</a> 
+      <a href="../../">Від нуля до Python Data Scientist</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/Aranaur/py4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
@@ -183,14 +188,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Вступне слово</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./chapters/python/python.html" class="sidebar-item-text sidebar-link">
+            <a href="../../chapters/python/python.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Переключити розділ">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -199,79 +204,79 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Функції та змінні</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_conditionals.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_conditionals.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Умовні оператори</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_loops.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_loops.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Цикли</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_exceptions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_exceptions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Помилки та винятки</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_libraries.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_libraries.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Бібліотеки</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_unit_tests.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_unit_tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Модульне тестування</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_files_io.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_files_io.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Читання та запис файлів</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_regex.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_regex.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Регулярні вирази</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_oop.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_oop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Об’єктно-орієнтоване програмування</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_list_set.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_list_set.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Множини</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Функції</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_exercises.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_exercises.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Задачі</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/python/python_questions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_questions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Популярні питання</span></span></a>
   </div>
 </li>
@@ -280,7 +285,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./chapters/sql/sql.html" class="sidebar-item-text sidebar-link">
+            <a href="../../chapters/sql/sql.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">SQL</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Переключити розділ">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -289,55 +294,55 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/sql/sql_basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sql/sql_basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Базові запити</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/sql/sql_filter.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sql/sql_filter.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Фільтрація даних</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/sql/sql_agg.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sql/sql_agg.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Агрегація даних</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/sql/sql_groupby.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sql/sql_groupby.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Групування даних</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/sql/sql_subquery.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sql/sql_subquery.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Підзапити</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/sql/sql_join.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sql/sql_join.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Об’єднання таблиць</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/sql/sql_window.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sql/sql_window.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Віконні функції</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/sql/sql_analytic.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sql/sql_analytic.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Практичні задачі</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/sql/sql_metrics.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sql/sql_metrics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Аналіз продуктових метрик</span></span></a>
   </div>
 </li>
@@ -346,7 +351,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/quarto.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/quarto.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
   </div>
 </li>
@@ -360,43 +365,25 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
     <h2 id="toc-title">Зміст</h2>
    
   <ul>
-  <li><a href="#вступне-слово" id="toc-вступне-слово" class="nav-link active" data-scroll-target="#вступне-слово">Вступне слово</a>
-  <ul class="collapse">
-  <li><a href="#перелік-необхідних-пакетів" id="toc-перелік-необхідних-пакетів" class="nav-link" data-scroll-target="#перелік-необхідних-пакетів">Перелік необхідних пакетів</a></li>
-  </ul></li>
+  <li><a href="#схема-бази-даних" id="toc-схема-бази-даних" class="nav-link active" data-scroll-target="#схема-бази-даних">Схема бази даних</a></li>
+  <li><a href="#типи-даних" id="toc-типи-даних" class="nav-link" data-scroll-target="#типи-даних">Типи даних</a></li>
+  <li><a href="#структура-та-наповнення-таблиць" id="toc-структура-та-наповнення-таблиць" class="nav-link" data-scroll-target="#структура-та-наповнення-таблиць">Структура та наповнення таблиць</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Aranaur/py4ds/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Редагувати сторінку</a></li><li><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action"><i class="bi empty"></i>Повідомити про проблему</a></li><li><a href="https://github.com/Aranaur/py4ds/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>Переглянути код</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.dev/Aranaur/py4ds/blob/main/chapters/sql/sql.ipynb" class="toc-action"><i class="bi bi-github"></i>Редагувати сторінку</a></li><li><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action"><i class="bi empty"></i>Повідомити про проблему</a></li><li><a href="https://github.com/Aranaur/py4ds/blob/main/chapters/sql/sql.ipynb" class="toc-action"><i class="bi empty"></i>Переглянути код</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Від нуля до Python Data Scientist</h1>
+<h1 class="title"><span id="sec-sql" class="quarto-section-identifier">SQL</span></h1>
 </div>
 
-<div>
-  <div class="description">
-    Книга-конспект матеріалів
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Автор</div>
-    <div class="quarto-title-meta-contents">
-             <p>Ігор Мірошниченко <a href="mailto:ihor.miroshnychenko@kneu.ua" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0002-1307-7889" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Дата публікації</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2024-01-04</p>
-    </div>
-  </div>
   
     
   </div>
@@ -406,45 +393,426 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </header>
 
 <p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p>
-<section id="вступне-слово" class="level1 unnumbered">
-<h1 class="unnumbered">Вступне слово</h1>
-<div class="callout callout-style-default callout-important callout-titled">
+<p>SQL (анг. <em>Structured query language</em>) - мова запитів на якому ми спілкуємось з базами даних.</p>
+<p>База даних - це сховище даних, де зберігаються наші “таблиці”.</p>
+<section id="схема-бази-даних" class="level2">
+<h2 class="anchored" data-anchor-id="схема-бази-даних">Схема бази даних</h2>
+<p>У цьому розділі ми будемо використовувати набори даних, які представляють сервіс з доставки продуктів. Тут зберігається документація, котра допоможе розібратися з ними.</p>
+<p>Для запуску бази даних, я використовую <a href="https://duckdb.org/">DuckDB</a>. Самі файли з даними можна знайти в <a href="https://github.com/Aranaur/py4ds/tree/main/00_data/sql">репозиторії</a>. Для локального запуску бази даних необхідно виконати наступний код:</p>
+<div id="cell-2" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Встановлення та імпорт необхідних пакетів</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install <span class="op">--</span>quiet duckdb</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install <span class="op">--</span>quiet jupysql </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install <span class="op">--</span>quiet duckdb<span class="op">-</span>engine</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install <span class="op">--</span>quiet pandas</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install <span class="op">--</span>quiet matplotlib</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> duckdb</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Імпорт Jupyter-розширення jupysql для створення SQL комірок</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>load_ext sql</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Налаштування jupysql, щоб дані поверталися у вигляді DataFrame Pandas з меншим виводом</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config SqlMagic.autopandas <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config SqlMagic.feedback <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config SqlMagic.displaycon <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Підключення до DuckDB в режимі "in-memory"</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>conn <span class="op">=</span> duckdb.<span class="ex">connect</span>()</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>conn.execute(<span class="st">"INSTALL 'httpfs';"</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>sql conn <span class="op">--</span>alias duckdb<span class="op">-</span>native</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Завантаження даних з файлів</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>sql CREATE OR REPLACE TABLE user_actions AS SELECT <span class="op">*</span> FROM read_csv(<span class="st">'https://raw.githubusercontent.com/Aranaur/py4ds/main/00_data/sql/user_actions.csv'</span>, header<span class="op">=</span><span class="va">True</span>, columns<span class="op">=</span>{<span class="st">'user_id'</span>: <span class="st">'INT'</span>, <span class="st">'order_id'</span>: <span class="st">'INT'</span>, <span class="st">'action'</span>: <span class="st">'VARCHAR'</span>, <span class="st">'time'</span>: <span class="st">'TIMESTAMP'</span>}, timestampformat<span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%y %H:%M'</span>)<span class="op">;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>sql CREATE OR REPLACE TABLE courier_actions AS SELECT <span class="op">*</span> FROM read_csv(<span class="st">'https://raw.githubusercontent.com/Aranaur/py4ds/main/00_data/sql/courier_actions.csv'</span>, header<span class="op">=</span><span class="va">True</span>, columns<span class="op">=</span>{<span class="st">'courier_id'</span>: <span class="st">'INT'</span>, <span class="st">'order_id'</span>: <span class="st">'INT'</span>, <span class="st">'action'</span>: <span class="st">'VARCHAR'</span>, <span class="st">'time'</span>: <span class="st">'TIMESTAMP'</span>}, timestampformat<span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%y %H:%M'</span>)<span class="op">;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>sql CREATE OR REPLACE TABLE orders AS SELECT <span class="op">*</span> FROM read_csv(<span class="st">'https://raw.githubusercontent.com/Aranaur/py4ds/main/00_data/sql/orders.csv'</span>, header<span class="op">=</span><span class="va">True</span>, columns<span class="op">=</span>{<span class="st">'order_id'</span>: <span class="st">'INT'</span>, <span class="st">'creation_time'</span>: <span class="st">'TIMESTAMP'</span>, <span class="st">'product_ids'</span>: <span class="st">'INT[]'</span>}, timestampformat<span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%y %H:%M'</span>)<span class="op">;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>sql CREATE OR REPLACE TABLE users AS SELECT <span class="op">*</span> FROM read_csv(<span class="st">'https://raw.githubusercontent.com/Aranaur/py4ds/main/00_data/sql/users.csv'</span>, header<span class="op">=</span><span class="va">True</span>, columns<span class="op">=</span>{<span class="st">'user_id'</span>: <span class="st">'INT'</span>, <span class="st">'birth_date'</span>: <span class="st">'DATE'</span>, <span class="st">'sex'</span>: <span class="st">'VARCHAR'</span>}, dateformat<span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%y'</span>)<span class="op">;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>sql CREATE OR REPLACE TABLE couriers AS SELECT <span class="op">*</span> FROM read_csv(<span class="st">'https://raw.githubusercontent.com/Aranaur/py4ds/main/00_data/sql/couriers.csv'</span>, header<span class="op">=</span><span class="va">True</span>, columns<span class="op">=</span>{<span class="st">'courier_id'</span>: <span class="st">'INT'</span>, <span class="st">'birth_date'</span>: <span class="st">'DATE'</span>, <span class="st">'sex'</span>: <span class="st">'VARCHAR'</span>}, dateformat<span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%y'</span>)<span class="op">;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>sql CREATE OR REPLACE TABLE products AS SELECT <span class="op">*</span> FROM read_csv(<span class="st">'https://raw.githubusercontent.com/Aranaur/py4ds/main/00_data/sql/products.csv'</span>, header<span class="op">=</span><span class="va">True</span>, columns<span class="op">=</span>{<span class="st">'product_id'</span>: <span class="st">'INT'</span>, <span class="st">'name'</span>: <span class="st">'VARCHAR'</span>, <span class="st">'price'</span>: <span class="st">'DOUBLE'</span>})<span class="op">;</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>На схемі продемонстровані зв’язки між таблицями, а також опис даних:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+    orders }|..|{ products : product_ids-product_id
+    orders }|..|{ courier_actions : order_id
+    users }|..|{ user_actions : user_id
+    user_actions }|..|{ orders : order_id
+    user_actions }|..|{ courier_actions : time
+    courier_actions }|..|{ courier : product
+    
+    users {
+        DATE birth_date
+        VARCHAR sex
+        INT user_id
+    }
+    user_actions {
+        INT user_id
+        VARCHAR actions
+        INT order_id
+        TIMESTAMP time
+    }
+    orders {
+        INT order_id
+        ARRAY product_ids
+        TIMESTAMP creation_time
+    }
+    products {
+        INT product_id
+        NUMERIC price
+        VARCHAR name
+    }
+    courier_actions {
+        INT courier_id
+        VARCHAR action
+        INT order_id
+        TIMESTAMP time
+    }
+    courier {
+        INT courier_id
+        VARCHAR sex
+        DATE birth_date
+    }
+</pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="типи-даних" class="level2">
+<h2 class="anchored" data-anchor-id="типи-даних">Типи даних</h2>
+<p>В таблицях можуть зберігатися різні типи даних: цілі і дробові числа, текст, дати, масиви чисел. У цих даних ви зустрінетесь з наступними типами:</p>
+<div id="cell-sql-data-types" class="cell" data-execution_count="4">
+<div id="sql-data-types" class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Типи даних</th>
+<th data-quarto-table-cell-role="th">Опис</th>
+<th data-quarto-table-cell-role="th">Приклад</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>INT</td>
+<td>Ціле число</td>
+<td>id користувача: 123</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>NUMERIC / DECIMAL</td>
+<td>Дійсне число</td>
+<td>Вартість товару: 120.55</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>VARCHAR</td>
+<td>Текст</td>
+<td>Дія із замовленням: «create_order»</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>DATE</td>
+<td>Дата з точністю до дня</td>
+<td>Дата народження користувача: 25/03/91</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>TIMESTAMP</td>
+<td>Дата з точністю до секунди</td>
+<td>Час реєстрації у додатку: 24/08/22 01:52:24</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>[]</td>
+<td>Масив</td>
+<td>Список id товаров у замовленні: [1, 13, 22]</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Більш детально почитати про типи даних можна за <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-data-types/">посиланням</a></p>
+</section>
+<section id="структура-та-наповнення-таблиць" class="level2">
+<h2 class="anchored" data-anchor-id="структура-та-наповнення-таблиць">Структура та наповнення таблиць</h2>
+<p><code>user_actions</code> – дії користувачів із замовленнями.</p>
+<div id="cell-sql-user-actions" class="cell" data-execution_count="5">
+<div id="sql-user-actions" class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Стовпчик</th>
+<th data-quarto-table-cell-role="th">Тип даних</th>
+<th data-quarto-table-cell-role="th">Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>user_id</td>
+<td>INT</td>
+<td>id користувача</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>order_id</td>
+<td>INT</td>
+<td>id замовлення</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>action</td>
+<td>VARCHAR(50)</td>
+<td>дія користувача із замовленням; "create_order"...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>time</td>
+<td>TIMESTAMP</td>
+<td>час дії</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><code>courier_actions</code> – дії кур’єрів із замовленнями.</p>
+<div id="cell-sql-courier-actions" class="cell" data-execution_count="6">
+<div id="sql-courier-actions" class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Стовпчик</th>
+<th data-quarto-table-cell-role="th">Тип даних</th>
+<th data-quarto-table-cell-role="th">Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>courier_id</td>
+<td>INT</td>
+<td>id кур'єра</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>order_id</td>
+<td>INT</td>
+<td>id замовлення</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>action</td>
+<td>VARCHAR(50)</td>
+<td>дія кур'єра із замовленням; 'accept order' - п...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>time</td>
+<td>TIMESTAMP</td>
+<td>час дії</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><code>orders</code> - інформація про замовлення.</p>
+<div id="cell-sql-orders" class="cell" data-execution_count="7">
+<div id="sql-orders" class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Стовпчик</th>
+<th data-quarto-table-cell-role="th">Тип даних</th>
+<th data-quarto-table-cell-role="th">Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>order_id</td>
+<td>INT</td>
+<td>id замовлення</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>creation_time</td>
+<td>TIMESTAMP</td>
+<td>час створення замовлення</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>product_ids</td>
+<td>integer[]</td>
+<td>список id товарів у замовленні</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><code>users</code> - інформація про користувачів.</p>
+<div id="cell-sql-users" class="cell" data-execution_count="8">
+<div id="sql-users" class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Стовпчик</th>
+<th data-quarto-table-cell-role="th">Тип даних</th>
+<th data-quarto-table-cell-role="th">Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>user_id</td>
+<td>INT</td>
+<td>id користувача</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>birth_date</td>
+<td>DATE</td>
+<td>дата народження</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>sex</td>
+<td>VARCHAR(50)</td>
+<td>стать</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><code>couriers</code> - інформація про кур’єрів.</p>
+<div id="cell-sql-couriers" class="cell" data-execution_count="9">
+<div id="sql-couriers" class="cell-output cell-output-display" data-execution_count="8">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Стовпчик</th>
+<th data-quarto-table-cell-role="th">Тип даних</th>
+<th data-quarto-table-cell-role="th">Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>courier_id</td>
+<td>INT</td>
+<td>id кур'єра</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>birth_date</td>
+<td>DATE</td>
+<td>дата народження</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>sex</td>
+<td>VARCHAR(50)</td>
+<td>стать</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><code>products</code> - інформація про товари, які доставляє сервіс.</p>
+<div id="cell-sql-products" class="cell" data-execution_count="10">
+<div id="sql-products" class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Стовпчик</th>
+<th data-quarto-table-cell-role="th">Тип даних</th>
+<th data-quarto-table-cell-role="th">Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>courier_id</td>
+<td>INT</td>
+<td>id кур'єра</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>birth_date</td>
+<td>DATE</td>
+<td>дата народження</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>sex</td>
+<td>VARCHAR(50)</td>
+<td>стать</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Важливо
+Примітка
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Ця книга знаходиться на стадії розробки.</p>
+<p>У дужках типу <code>VARCHAR</code> вказано максимально допустиму кількість символів у тексті. У типу даних <code>NUMERIC</code> у дужках вказано загальну кількість символів.</p>
 </div>
-</div>
-<p>Шановні читачі,</p>
-<p>Запрошую до книги “Від нуля до Python Data Scientist”! Сьогодні ми відкриваємо двері до захоплюючого світу аналізу даних та наукових досліджень, в якому Python стає вашим найкращим другом. Завдяки своїй простоті, гнучкості та потужності, Python виходить за межі звичайної мови програмування, перетворюючись на незамінного помічника для розв’язання складних задач і виявлення прихованих закономірностей.</p>
-<p>У цій книзі ми збираємося подорожувати у світі науки про дані, де Python та інші дотичні інструменти стають невід’ємною частиною процесу відкриття знань та розуміння складних систем. Ви дізнаєтеся, як за допомогою Python можна ефективно обробляти, аналізувати та візуалізувати дані, виявляти закономірності та робити передбачення. Завдяки цим інструментам ви зможете розкрити потужний потенціал ваших даних та прийняти обґрунтовані рішення на основі наукових фактів.</p>
-<p>Я запрошую вас на цю захоплюючу подорож, де ми разом з вами розкриємо секрети Python у науці про дані. Незалежно від вашого досвіду в програмуванні або знань про науку про дані, ця книга надасть вам необхідні знання та інструменти для успішного впровадження Python у ваші проекти. Будьте впевнені, що по закінченні цього шляху ви будете готові до викликів, які стоять перед вами у світі науки та досліджень.</p>
-<p>Нехай ця книга стане вашим надійним провідником у справжньому дослідницькому пригоді, де Python та його друзі стають вашими найкращими союзниками. Розпочнемо нашу подорож разом!</p>
-<p>З найкращими побажаннями, Ігор Мірошниченко</p>
-<section id="перелік-необхідних-пакетів" class="level2">
-<h2 class="anchored" data-anchor-id="перелік-необхідних-пакетів">Перелік необхідних пакетів</h2>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>requirements.txt</strong></pre>
-</div>
-<div class="sourceCode" id="cb1" data-filename="requirements.txt"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>duckdb</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>duckdb<span class="op">-</span>engine</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>jupysql</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>matplotlib<span class="op">-</span>venn</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>notebook</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>pandas</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>plotly</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>tabulate</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
-</section>
 </section>
 
 <p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p></main> <!-- /main -->
@@ -849,6 +1217,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <input type="hidden" id="giscus-base-theme" value="light">
 <input type="hidden" id="giscus-alt-theme" value="dark">
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../chapters/sql/sql_basics.html" class="pagination-link" aria-label="<span class='chapter-number'>14</span>&nbsp; <span class='chapter-title'>Базові запити</span>">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Базові запити</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
