@@ -74,13 +74,13 @@ python student.py
 #| eval: false
 
 def main():
-    name, house = get_student()
+    name, house = get_student() #<<
     print(f"{name} з {house}")
 
-def get_student():
-    name = input("Ім'я: ")
-    house = input("Гуртожиток: ")
-    return name, house # це одне значення, якє є кортежем
+def get_student(): #<<
+    name = input("Ім'я: ") #<<
+    house = input("Гуртожиток: ") #<<
+    return name, house # це одне значення, якє є кортежем #<<
 
 if __name__ == "__main__":
     main()
@@ -103,8 +103,8 @@ python student.py
 #| eval: false
 
 def main():
-    student = get_student()
-    print(f"{student[0]} з {student[1]}")
+    student = get_student() #<<
+    print(f"{student[0]} з {student[1]}") #<<
 
 def get_student():
     name = input("Ім'я: ")
@@ -123,8 +123,8 @@ if __name__ == "__main__":
 
 def main():
     student = get_student()
-    if student[0] == "Падма":
-        student[1] = "Рейвенклов"
+    if student[0] == "Падма": #<<
+        student[1] = "Рейвенклов" #<<
     print(f"{student[0]} з {student[1]}")
 
 def get_student():
@@ -144,7 +144,7 @@ python student.py
 TypeError: 'tuple' object does not support item assignment
 ```
 
-Якщо ми передбачаємо можливість змінити значення у кортежі, то ми можемо використати список замість кортежу: `return [name, house]`: 
+Якщо ми передбачаємо можливість змінити значення у кортежі, то ми можемо використати список замість кортежу: 
 
 ```{python}
 #| label: student-py-6
@@ -159,7 +159,7 @@ def main():
 def get_student():
     name = input("Ім'я: ")
     house = input("Гуртожиток: ")
-    return [name, house]
+    return [name, house] #<<
 
 if __name__ == "__main__":
     main()
@@ -186,9 +186,9 @@ def main():
     print(f"{student['name']} з {student['house']}")
 
 def get_student():
-    student = {}
-    student['name'] = input("Ім'я: ")
-    student['house'] = input("Гуртожиток: ")
+    student = {} #<<
+    student['name'] = input("Ім'я: ") #<<
+    student['house'] = input("Гуртожиток: ") #<<
     return student
 
 if __name__ == "__main__":
@@ -206,10 +206,10 @@ def main():
     print(f"{student['name']} з {student['house']}")
 
 def get_student():
-    return {
-        'name': input("Ім'я: "),
-        'house': input("Гуртожиток: ")
-    }
+    return { #<<
+        'name': input("Ім'я: "), #<<
+        'house': input("Гуртожиток: ") #<<
+    } #<<
 
 if __name__ == "__main__":
     main()
@@ -223,8 +223,8 @@ if __name__ == "__main__":
 
 def main():
     student = get_student()
-    if student['name'] == "Падма":
-        student['house'] = "Рейвенклов"
+    if student['name'] == "Падма": #<<
+        student['house'] = "Рейвенклов" #<<
     print(f"{student['name']} з {student['house']}")
 
 def get_student():
@@ -306,6 +306,33 @@ def main():
     print(f"{student.name} з {student.house}")
 
 def get_student():
+    name = input("Ім'я: ") #<<
+    house = input("Гуртожиток: ") #<<
+    student = Student(name, house) #<<
+    return student
+
+if __name__ == "__main__":
+    main()
+```
+
+Зараз, коли ми готуємось до більш потужних можливостей класів та об'єктно-орієнтованого програмування в цілому. Зверніть увагу, що ми передаємо локальні змінні `name` та `house` класу `Student`, як аргументи функції, але він поки не знає, що з ними робити. Зараз ми стандартизуємо цей клас, щоб він знав, що робити з цими аргументами. Це дасть можливість перевіряти ці дані на помилки, які можуть виникнути, коли користувач вводить неправильні дані.
+
+Тепер перейдемо до класу `Student`, який до цього часу мав три крапки. У контексті класів є ряд не тільки атрибутів або змінних екземпляра, які ви можете помістити всередину, але і методи (анг. *methods*). Класи поставляються з певними методами або функціями всередині, які ви можете визначити, і вони просто поводяться особливим чином за природою того, як працює Python. Ці функції дозволяють вам визначати поведінку у стандартний спосіб. Для цього використовується ключове слово `def`, за яким слідує ім'я методу, а потім дужки. Наприклад, `__init__()`:
+
+```{python}
+#| label: student-class-4
+#| eval: false
+
+class Student:
+    def __init__(self, name, house): #<<
+        self.name = name #<<
+        self.house = house #<<
+
+def main():
+    student = get_student()
+    print(f"{student.name} з {student.house}")
+
+def get_student():
     name = input("Ім'я: ")
     house = input("Гуртожиток: ")
     student = Student(name, house)
@@ -315,6 +342,74 @@ if __name__ == "__main__":
     main()
 ```
 
-Зараз, коли ми готуємось до більш потужних можливостей класів та об'єктно-орієнтованого програмування в цілому. Зверніть увагу, що ми передаємо локальні змінні `name` та `house` класу `Student`, як аргументи функції, але він поки не знає, що з ними робити. Зараз ми стандартизуємо цей клас, щоб він знав, що робити з цими аргументами. Це дасть можливість перевіряти ці дані на помилки, які можуть виникнути, коли користувач вводить неправильні дані.
+В такому випадку ми визначаємо метод `__init__()`, який викликається, коли ми створюємо екземпляр класу. Це називається **конструктором** (англ. *constructor*). Він викликається автоматично, коли ми створюємо екземпляр класу. Він приймає аргумент `self`, який вказує на екземпляр класу, а також інші аргументи, які ми передаємо, коли створюємо екземпляр класу. В нашому випадку це `name` та `house`. Ми використовуємо `self.name` та `self.house`, щоб вказати, що ці атрибути належать екземпляру класу. Це дозволяє нам використовувати ці атрибути всередині класу.
 
-Для цього 
+Насправді, нам не потрібна змінна `student` у функції `get_student()`, оскільки ми можемо повернути екземпляр класу `Student`:
+
+```{python}
+#| label: student-class-5
+#| eval: false
+
+class Student:
+    def __init__(self, name, house):
+        self.name = name
+        self.house = house
+
+def main():
+    student = get_student()
+    print(f"{student.name} з {student.house}")
+
+def get_student():
+    name = input("Ім'я: ")
+    house = input("Гуртожиток: ")
+    return Student(name, house) #<<
+
+if __name__ == "__main__":
+    main()
+```
+
+А що, якщо щось піде не так при створенні студента? Наприклад, якщо користувач не дасть нам ім'я і просто натисне клавішу Enter, коли з'явиться запит на введення імені? Або введе некоректну назву гуртожитку. Для цього ми можемо змінити метод `__init__()` так, щоб він перевіряв правильність введення даних. Для цього ми можемо використати ключове слово `raise`, яке дозволяє викидати помилки. Наприклад, `raise ValueError()`:
+
+```{python}
+#| label: student-class-6
+#| eval: false
+
+class Student:
+    def __init__(self, name, house):
+        if not name: #<<
+            raise ValueError("Ім'я не може бути порожнім") #<<
+        if house not in ["Ґрифіндор", "Гафелпаф", "Рейвенклов", "Слизерин"]: #<<
+            raise ValueError("Неправильний гуртожиток") #<<
+        self.name = name
+        self.house = house
+
+def main():
+    student = get_student()
+    print(f"{student.name} з {student.house}")
+
+def get_student():
+    name = input("Ім'я: ")
+    house = input("Гуртожиток: ")
+    return Student(name, house)
+
+if __name__ == "__main__":
+    main()
+```
+
+Перевіримо роботу програми:
+
+```{.bash filename="Terminal"}
+
+```{.bash filename="Terminal"}
+python student.py
+Ім'я: Гаррі
+Гуртожиток: Ґрифіндор
+Гаррі з Ґрифіндор
+```
+
+```{.bash filename="Terminal"}
+python student.py
+Ім'я: Гаррі
+Гуртожиток: вул. Тисова, 4
+ValueError: Неправильний гуртожиток
+```
