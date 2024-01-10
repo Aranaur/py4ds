@@ -352,6 +352,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <li><a href="#%D0%B2%D0%BB%D0%B0%D1%81%D0%BD%D1%96-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B8" id="toc-власні-методи" class="nav-link" data-scroll-target="#%D0%B2%D0%BB%D0%B0%D1%81%D0%BD%D1%96-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B8"><span class="header-section-number">9.4</span> Власні методи</a></li>
   <li><a href="#%D0%B2%D0%BB%D0%B0%D1%81%D1%82%D0%B8%D0%B2%D0%BE%D1%81%D1%82%D1%96-%D1%82%D0%B0-%D0%B4%D0%B5%D0%BA%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%B8" id="toc-властивості-та-декоратори" class="nav-link" data-scroll-target="#%D0%B2%D0%BB%D0%B0%D1%81%D1%82%D0%B8%D0%B2%D0%BE%D1%81%D1%82%D1%96-%D1%82%D0%B0-%D0%B4%D0%B5%D0%BA%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%B8"><span class="header-section-number">9.5</span> Властивості та декоратори</a></li>
   <li><a href="#%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B8-%D0%BA%D0%BB%D0%B0%D1%81%D1%83" id="toc-методи-класу" class="nav-link" data-scroll-target="#%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B8-%D0%BA%D0%BB%D0%B0%D1%81%D1%83"><span class="header-section-number">9.6</span> Методи класу</a></li>
+  <li><a href="#%D1%83%D1%81%D0%BF%D0%B0%D0%B4%D0%BA%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F" id="toc-успадкування" class="nav-link" data-scroll-target="#%D1%83%D1%81%D0%BF%D0%B0%D0%B4%D0%BA%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F"><span class="header-section-number">9.7</span> Успадкування</a></li>
+  <li><a href="#%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%D0%BD%D1%82%D0%B0%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F-%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%96%D0%B2" id="toc-перевантаження-операторів" class="nav-link" data-scroll-target="#%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%D0%BD%D1%82%D0%B0%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F-%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%96%D0%B2"><span class="header-section-number">9.8</span> Перевантаження операторів</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/Aranaur/py4ds/edit/main/chapters/python/python_oop.qmd" class="toc-action"><i class="bi bi-github"></i>Редагувати сторінку</a></li><li><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action"><i class="bi empty"></i>Повідомити про проблему</a></li><li><a href="https://github.com/Aranaur/py4ds/blob/main/chapters/python/python_oop.qmd" class="toc-action"><i class="bi empty"></i>Переглянути код</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -1159,7 +1161,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <p>На жаль, Python фокусується на певних домовленостях, а не жорстких обмеженнях, тому ви можете обійти перевірку правильності введення даних, якщо ви звернетесь до атрибуту <code>_name</code> напряму:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45" data-source-line-numbers="nil" data-code-line-numbers="33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Student:</span>
+<div class="sourceCode cell-code" id="cb45" data-source-line-numbers="nil" data-code-line-numbers="32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Student:</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, house):</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
 <span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._house <span class="op">=</span> house</span>
@@ -1190,17 +1192,16 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb45-29"><a href="#cb45-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-30"><a href="#cb45-30" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
 <span id="cb45-31"><a href="#cb45-31" aria-hidden="true" tabindex="-1"></a>    student <span class="op">=</span> get_student()</span>
-<span id="cb45-32"><a href="#cb45-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(student)</span>
-<span id="cb45-33"><a href="#cb45-33" aria-hidden="true" tabindex="-1"></a>    student._house <span class="op">=</span> <span class="st">"вул. Тисова, 4"</span> </span>
-<span id="cb45-34"><a href="#cb45-34" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(student)</span>
-<span id="cb45-35"><a href="#cb45-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-36"><a href="#cb45-36" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_student():</span>
-<span id="cb45-37"><a href="#cb45-37" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Ім'я: "</span>)</span>
-<span id="cb45-38"><a href="#cb45-38" aria-hidden="true" tabindex="-1"></a>    house <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Гуртожиток: "</span>)</span>
-<span id="cb45-39"><a href="#cb45-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Student(name, house)</span>
-<span id="cb45-40"><a href="#cb45-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-41"><a href="#cb45-41" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb45-42"><a href="#cb45-42" aria-hidden="true" tabindex="-1"></a>    main()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb45-32"><a href="#cb45-32" aria-hidden="true" tabindex="-1"></a>    student._house <span class="op">=</span> <span class="st">"вул. Тисова, 4"</span> </span>
+<span id="cb45-33"><a href="#cb45-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(student)</span>
+<span id="cb45-34"><a href="#cb45-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-35"><a href="#cb45-35" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_student():</span>
+<span id="cb45-36"><a href="#cb45-36" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Ім'я: "</span>)</span>
+<span id="cb45-37"><a href="#cb45-37" aria-hidden="true" tabindex="-1"></a>    house <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Гуртожиток: "</span>)</span>
+<span id="cb45-38"><a href="#cb45-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Student(name, house)</span>
+<span id="cb45-39"><a href="#cb45-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-40"><a href="#cb45-40" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb45-41"><a href="#cb45-41" aria-hidden="true" tabindex="-1"></a>    main()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -1230,11 +1231,207 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span class="header-section-number">9.6</span> Методи класу</h2>
 <p>Досі я навмисно називав усі змінні змінними екземплярів, а всі методи - методами екземплярів. Виявляється, існують інші типи змінних та методів. І один з них називається методами класу (англ. <em>class methods</em>).</p>
 <p>Не обов’язково і не розумно пов’язувати функцію з об’єктами класу, а скоріше з самим класом. Екземпляр або об’єкт класу - це дуже специфічне його втілення. Іноді нам потрібна певна функціональність, яка була б пов’язана з самим класом, незалежно від того, якими є власні значення конкретного об’єкта або змінні екземпляра. І для цього у нас є ключове слово <code>@classmethod</code>. Це декоратор, який вказує Python, що функція, яку ви визначаєте, є методом класу.</p>
+<p>Створимо нову програму <code>hat.py</code>, яка буде виконувати функції Сортувального капелюха з книги “Гаррі Поттер і філософський камінь”:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb47" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> hat.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Давайте реалізуємо програму, яка буде приймати ім’я учня і обирати на якому факультеті повинен навчатися цей учень.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Hat:</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.houses <span class="op">=</span> [<span class="st">"Ґрифіндор"</span>, <span class="st">"Гафелпаф"</span>, <span class="st">"Рейвенклов"</span>, <span class="st">"Слизерин"</span>]</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> sort(<span class="va">self</span>, name):</span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(name, <span class="st">"з"</span>, random.choice(<span class="va">self</span>.houses))</span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>hat <span class="op">=</span> Hat()</span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>hat.sort(<span class="st">"Гаррі"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre data-code-line-numbers=""><code>Гаррі з Рейвенклов</code></pre>
+</div>
+</div>
+<p>На скільки нам відомо, у світі Гаррі Поттера є тільки один Сортувальний капелюх, який вибирає факультет для учнів. Тому нам не потрібно створювати екземпляр класу <code>Hat</code>. Для цього ми можемо створити змінну класу, яка буде зберігати список гуртожитків. І тоді ми можемо викликати метод <code><a href="https://rdrr.io/r/base/sort.html">sort()</a></code>, як метод класу, а не метод екземпляру. Для цього використовується декоратор <code>@classmethod</code>. І відповідно, в першому аргументі методу <code><a href="https://rdrr.io/r/base/sort.html">sort()</a></code> ми не будемо передавати <code>self</code>, але будемо передавати <code>cls</code>, який вказує на клас, а не на екземпляр класу. І вже в самому методі ми будемо використовувати <code>cls.houses</code> замість <code>self.houses</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50" data-source-line-numbers="nil" data-code-line-numbers="5,7,8,9,12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Hat:</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>    houses <span class="op">=</span> [<span class="st">"Ґрифіндор"</span>, <span class="st">"Гафелпаф"</span>, <span class="st">"Рейвенклов"</span>, <span class="st">"Слизерин"</span>] </span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">@classmethod</span> </span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> sort(cls, name): </span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(name, <span class="st">"з"</span>, random.choice(cls.houses)) </span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>Hat.sort(<span class="st">"Гаррі"</span>) </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre data-code-line-numbers=""><code>Гаррі з Ґрифіндор</code></pre>
+</div>
+</div>
+<p>Повернемося до класу <code>Student</code> у спрощеному вигляді:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Student:</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, house):</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._house <span class="op">=</span> house</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> з </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>house<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>    student <span class="op">=</span> get_student()</span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(student)</span>
+<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_student():</span>
+<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Ім'я: "</span>)</span>
+<span id="cb52-16"><a href="#cb52-16" aria-hidden="true" tabindex="-1"></a>    house <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Гуртожиток: "</span>)</span>
+<span id="cb52-17"><a href="#cb52-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Student(name, house)</span>
+<span id="cb52-18"><a href="#cb52-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-19"><a href="#cb52-19" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb52-20"><a href="#cb52-20" aria-hidden="true" tabindex="-1"></a>    main()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Зверніть увагу, що запит імені та гуртожитку відбувається за межами класу <code>Student</code> в окремій функції <code>get_student()</code>. Це виглядає досить дивно, оскільки ім’я та гуртожиток - це атрибути екземпляра класу <code>Student</code>. І вони повинні бути визначені в методі <code>__init__()</code>. Але в такому випадку, ми не зможемо використовувати функцію <code>get_student()</code> для створення екземплярів класу <code>Student</code> в інших програмах. Тому ми можемо визначити метод <code>get_student()</code> як метод класу, а не метод екземпляру. Для цього використовується декоратор <code>@classmethod</code>. І відповідно, в першому аргументі методу <code>get_student()</code> ми не будемо передавати <code>self</code>, але будемо передавати <code>cls</code>, який вказує на клас, а не на екземпляр класу. І вже в самому методі ми будемо використовувати <code>cls.houses</code> замість <code>self.houses</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53" data-source-line-numbers="nil" data-code-line-numbers="9,10,13,17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Student:</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, house):</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._house <span class="op">=</span> house</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> з </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>house<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">@classmethod</span> </span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_student(cls): </span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>        name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Ім'я: "</span>)</span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>        house <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Гуртожиток: "</span>)</span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> cls(name, house) </span>
+<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-16"><a href="#cb53-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb53-17"><a href="#cb53-17" aria-hidden="true" tabindex="-1"></a>    student <span class="op">=</span> Student.get_student() </span>
+<span id="cb53-18"><a href="#cb53-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(student)</span>
+<span id="cb53-19"><a href="#cb53-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-20"><a href="#cb53-20" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb53-21"><a href="#cb53-21" aria-hidden="true" tabindex="-1"></a>    main()</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="успадкування" class="level2" data-number="9.7"><h2 data-number="9.7" class="anchored" data-anchor-id="успадкування">
+<span class="header-section-number">9.7</span> Успадкування</h2>
+<p>У Python є й інші типи методів, які можна використовувати у класах. Їх зазвичай називають <strong>статичними методами</strong> (англ. <em>static methods</em>). І вони також мають інший декоратор, який називається <code>@staticmethod</code>, що є кролячою норою, в яку ми не будемо заглиблюватися, але усвідомлюємо, що існує ще одна функціональність, яку ви можете використовувати за допомогою об’єктно-орієнтованого програмування.</p>
+<p>Але ми вирішили зосередитись на деяких основних функціях, які можна знайти не тільки в Python, але й в інших мовах. І, мабуть, однією з найпривабливіших особливостей об’єктно-орієнтованого програмування, яку ми ще не використовували явно є поняття <strong>успадкування</strong> (англ. <em>inheritance</em>).</p>
+<p>За допомогою об’єктно-орієнтованого програмування є можливість створювати класи в ієрархічному порядку, коли один клас може успадковувати або запозичувати атрибути, тобто методи або змінні з іншого класу, якщо вони всі мають спільні риси.</p>
+<p>Створимо нову програму <code>wizard.py</code>:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb54" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> wizard.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>У цій програмі створимо два класи для студентів та професорів школи чарівників та чаклунів Хогвартс. Студенти будуть мати ім’я та гуртожиток, а професори - ім’я та предмет, який вони викладають:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Student:</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, house):</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.house <span class="op">=</span> house</span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Professor:</span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, subject):</span>
+<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb55-12"><a href="#cb55-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.subject <span class="op">=</span> subject</span>
+<span id="cb55-13"><a href="#cb55-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-14"><a href="#cb55-14" aria-hidden="true" tabindex="-1"></a>    ...</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Обидва класи мають спільну змінну <code>name</code> і робити перевірку введення даних окремо для кожного класу недоцільно. Тому ми можемо використовувати успадкування - визначити спільний клас <code>Wizard</code>, який буде містити спільні атрибути та методи для класів <code>Student</code> та <code>Professor</code>. Для успадкування використовується ключове слово <code>class</code> з ім’ям класу, який успадковується, а в дужках вказується ім’я класу, який успадковує. Таким чином, клас <code>Student</code> успадковує клас <code>Wizard</code>, і клас <code>Professor</code> успадковує клас <code>Wizard</code>. Для цього використовується ключове слово <code>super()</code>, яке вказує на батьківський клас. І вже в методі <code>__init__()</code> ми можемо викликати метод <code>__init__()</code> батьківського класу за допомогою <code>super().__init__()</code>. Таким чином, ми успадковуємо атрибути та методи класу <code>Wizard</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56" data-source-line-numbers="nil" data-code-line-numbers="1,2,3,4,5,10,12,18,20,26,27,28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Wizard: </span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name): </span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> name: </span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Ім'я не може бути порожнім"</span>) </span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name </span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Student(Wizard): </span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, house):</span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(name) </span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.house <span class="op">=</span> house</span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-17"><a href="#cb56-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-18"><a href="#cb56-18" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Professor(Wizard): </span>
+<span id="cb56-19"><a href="#cb56-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, subject):</span>
+<span id="cb56-20"><a href="#cb56-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(name) </span>
+<span id="cb56-21"><a href="#cb56-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.subject <span class="op">=</span> subject</span>
+<span id="cb56-22"><a href="#cb56-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-23"><a href="#cb56-23" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb56-24"><a href="#cb56-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-25"><a href="#cb56-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-26"><a href="#cb56-26" aria-hidden="true" tabindex="-1"></a>wizrd <span class="op">=</span> Wizard(<span class="st">"Альбус"</span>) </span>
+<span id="cb56-27"><a href="#cb56-27" aria-hidden="true" tabindex="-1"></a>student <span class="op">=</span> Student(<span class="st">"Гаррі"</span>, <span class="st">"Ґрифіндор"</span>) </span>
+<span id="cb56-28"><a href="#cb56-28" aria-hidden="true" tabindex="-1"></a>professor <span class="op">=</span> Professor(<span class="st">"Снейп"</span>, <span class="st">"Захист від темних мистецтв"</span>) </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Якщо ви подивитеся офіційну документацію про винятки в Python, то побачите, що там немає навіть тих, які ми бачили в класі, таких як помилка значення та інші. Існує безліч інших винятків. Але всі вони самі по собі ієрархічні за своєю природою:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>BaseException</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a> ├── KeyboardInterrupt</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a> └── Exception</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>      ├── ArithmeticError</span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>      │    └── ZeroDivisionError</span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>      ├── AssertionError</span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>      ├── AttributeError</span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a>      ├── EOFError</span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a>      ├── ImportError</span>
+<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a>      │    └── ModuleNotFoundError</span>
+<span id="cb57-11"><a href="#cb57-11" aria-hidden="true" tabindex="-1"></a>      ├── LookupError</span>
+<span id="cb57-12"><a href="#cb57-12" aria-hidden="true" tabindex="-1"></a>      │    └── KeyError</span>
+<span id="cb57-13"><a href="#cb57-13" aria-hidden="true" tabindex="-1"></a>      ├── NameError</span>
+<span id="cb57-14"><a href="#cb57-14" aria-hidden="true" tabindex="-1"></a>      ├── SyntaxError</span>
+<span id="cb57-15"><a href="#cb57-15" aria-hidden="true" tabindex="-1"></a>      │    └── IndentationError</span>
+<span id="cb57-16"><a href="#cb57-16" aria-hidden="true" tabindex="-1"></a>      ├── ValueError</span>
+<span id="cb57-17"><a href="#cb57-17" aria-hidden="true" tabindex="-1"></a>    ...</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Це лише підмножина доступних винятків<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, які вбудовані в Python. І ви можете створювати власні винятки. Але оскільки на цій діаграмі все зображено ієрархічно, всі винятки, які ми бачили до цього часу, насправді походять від суперкласів або успадковуються від них.</p>
+<p>Так, наприклад, внизу наведеного списку знаходиться помилка <code>ValueError</code>, яких ми бачили досить багато. І якщо ви підніметеся вгору по лінії на цій діаграмі у форматі ASCII, то побачите, що помилка значення має батьківський клас або суперклас, який називається <code>Exception</code>. А клас <code>Exception</code>, у свою чергу, має батьківський клас, який називається <code>BaseException</code>.</p>
+<p>Коли використовуєте ключові слова <code>try</code> та <code>accept</code> у Python, загалом, ви намагаєтесь перехопити дуже специфічні винятки. Але технічно, ви можете перехопити батьківське або навіть прабатьківське виключення для даного виключення.</p>
+<p>І якби вам довелося вигадувати власний виняток, ви, як правило, не захочете починати з нуля. Ви б скоріше хотіли походити від одного з цих існуючих винятків і додати до нього свій власний поворот, свою власну функціональність.</p>
+</section><section id="перевантаження-операторів" class="level2" data-number="9.8"><h2 data-number="9.8" class="anchored" data-anchor-id="перевантаження-операторів">
+<span class="header-section-number">9.8</span> Перевантаження операторів</h2>
+<p>Є ще одна особливість об’єктно-орієнтованого програмування яка, можливо, відкриє вам очі на те, що ви можете робити тепер, коли у вашому розпорядженні є класи. Python та деякі інші мови підтримують це поняття <strong>перевантаження операторів</strong> (англ. <em>operator overloading</em>), коли ви можете взяти дуже поширені символи, такі як <code>+</code> чи <code>-</code> або інший подібний синтаксис на клавіатурі, і реалізувати їх власну інтерпретацію.</p>
+<p>Давайте створимо програму <code>vault.py</code>, яка буде реалізовувати ідею сховища Ґрінґотса - банку, заснований гобліном Ґрінготом у 1474 році, в якому чарівники зберігають свої заощадження:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb58" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> vault.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>І тип грошей, який існує у світі Гаррі Поттера - це монети, які називаються ґалеони, серпики і кнати<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. У сховищі може бути ціла купа монет, золотих, срібних і бронзових. Тож як нам реалізувати ідею сховища, щоб ми могли зберігати, наприклад, для Гаррі Поттера стільки монет, скільки є в сімейному сховищі?</p>
+<p>Для початку створимо клас <code>Vault</code>, який має представляти банківське сховище, в якому зберігаються монети:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Vault:</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, galleons<span class="op">=</span><span class="dv">0</span>, sickles<span class="op">=</span><span class="dv">0</span>, knuts<span class="op">=</span><span class="dv">0</span>):</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.galleons <span class="op">=</span> galleons</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.sickles <span class="op">=</span> sickles</span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.knuts <span class="op">=</span> knuts</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section><aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
 <ol>
 <li id="fn1"><p>Патронус (англ. Patronus, від лат. Patronus - захисник) - магічна сутність, яка викликається заклинанням.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Повний перелік винятків в Python можна знайти за посиланням <a href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy" class="uri">https://docs.python.org/3/library/exceptions.html#exception-hierarchy</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Більш детально про гроші у світі Гаррі Поттера можна дізнатися за посиланням <a href="https://harrypotter.fandom.com/uk/wiki/%D0%A7%D0%B0%D0%BA%D0%BB%D1%83%D0%BD%D1%81%D1%8C%D0%BA%D1%96_%D0%B3%D1%80%D0%BE%D1%88%D1%96" class="uri">https://harrypotter.fandom.com/uk/wiki/Чаклунські_гроші</a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol></aside><p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
