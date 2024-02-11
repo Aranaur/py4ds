@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.525">
+<meta name="generator" content="quarto-1.4.547">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -77,6 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/line-highlight-1.0.0/line-highlight.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -150,7 +151,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
     <div class="sidebar-title mb-0 py-0">
       <a href="../../">Від нуля до Python Data Scientist</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/Aranaur/py4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/Aranaur/py4ds" title="Вихідний код" class="quarto-navigation-tool px-1" aria-label="Вихідний код"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -256,7 +257,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/python/python_list_set.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_et_cetera.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Множини</span></span></a>
   </div>
 </li>
@@ -400,19 +401,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <h2 data-number="16.1" class="anchored" data-anchor-id="унікальні-значення-distinct"><span class="header-section-number">16.1</span> Унікальні значення: <code>DISTINCT</code></h2>
 <p>Ключове слово <code>DISTINCT</code> дає змогу відбирати унікальні записи, тобто позбавлятися всіх дублікатів у таблиці.</p>
 <p>Вказується <code>DISTINCT</code> одразу після <code>SELECT</code>. Для виведення унікальних значень в одній колонці можна скласти наступний запит:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> <span class="kw">column</span></span>
+<div class="sourceCode" id="cb1" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> <span class="kw">column</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Давайте спершу вирішимо просте завдання.</p>
 <div class="question">
 <div id="exr-sql-agg-01" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 16.1 </strong></span><br> Виведіть <strong>ID всіх унікальних користувачів</strong> з таблиці <code>user_actions</code>. Результат відсортуйте за зростанням id.</p>
+<p><span class="theorem-title"><strong>Завдання 16.1</strong></span> <br> Виведіть <strong>ID всіх унікальних користувачів</strong> з таблиці <code>user_actions</code>. Результат відсортуйте за зростанням id.</p>
 <p>Поле у результуючій таблиці: <code>user_id</code></p>
 </div>
 </div>
 <div id="cell-3" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb2" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>SELECT DISTINCT user_id</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>FROM   user_actions</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>ORDER BY user_id</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -482,12 +483,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <p>Ключове слово <code>DISTINCT</code> можна застосовувати не тільки до однієї колонки, а й одразу до кількох.</p>
 <p>Наприклад, запит для двох колонок виглядатиме так:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> column_1, column_2</span>
+<div class="sourceCode" id="cb3" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> column_1, column_2</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У такому випадку запит поверне <strong>унікальні комбінації значень</strong> в колонках.</p>
 <div class="question">
 <div id="exr-sql-agg-02" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 16.2 </strong></span><br> Застосуйте <code>DISTINCT</code> відразу до двох колонок таблиці <code>courier_actions</code> та відберіть унікальні пари значень <code>courier_id</code> та <code>order_id</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 16.2</strong></span> <br> Застосуйте <code>DISTINCT</code> відразу до двох колонок таблиці <code>courier_actions</code> та відберіть унікальні пари значень <code>courier_id</code> та <code>order_id</code>.</p>
 <p>Результат відсортуйте спочатку за зростанням id кур’єра, потім за зростанням id замовлення.</p>
 <p>Поля у результуючій таблиці: <code>courier_id</code>, <code>order_id</code></p>
 </div>
@@ -495,7 +496,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-6" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb4" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>SELECT DISTINCT courier_id,</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                order_id</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>FROM   courier_actions</span>
@@ -589,7 +590,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <li><code>MIN</code>: обчислює мінімальне значення.</li>
 </ul>
 <p><strong>Приклад</strong>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="kw">column</span>) <span class="kw">AS</span> <span class="fu">count</span></span>
+<div class="sourceCode" id="cb5" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="kw">column</span>) <span class="kw">AS</span> <span class="fu">count</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -614,7 +615,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="question">
 <div id="exr-sql-agg-03" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 16.3 </strong></span><br> Порахуйте максимальну та мінімальну ціни товарів у таблиці <code>products</code>. Поля назвіть відповідно <code>max_price</code>, <code>min_price</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 16.3</strong></span> <br> Порахуйте максимальну та мінімальну ціни товарів у таблиці <code>products</code>. Поля назвіть відповідно <code>max_price</code>, <code>min_price</code>.</p>
 <p>Поля у результуючій таблиці: <code>max_price</code>, <code>min_price</code></p>
 <p><strong>Пояснення</strong>: в одному запиті можна використовувати відразу кілька агрегаційних функцій — якщо необхідно, то навіть по кількох різних колонках.</p>
 </div>
@@ -622,7 +623,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-9" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb6" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>SELECT <span class="bu">max</span>(price) <span class="im">as</span> max_price,</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>       <span class="bu">min</span>(price) <span class="im">as</span> min_price</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>FROM   products</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -655,14 +656,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <section id="count-vs-countcolumn" class="level2" data-number="16.3">
 <h2 data-number="16.3" class="anchored" data-anchor-id="count-vs-countcolumn"><span class="header-section-number">16.3</span> <code>COUNT(*)</code> vs <code>COUNT(column)</code></h2>
 <p>Також при підрахунку кількості записів іноді замість найменування колонки як атрибут функції <code>COUNT</code> використовують зірочку «<code>*</code>»:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="op">*</span>)</span>
+<div class="sourceCode" id="cb7" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="op">*</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Однак важливо враховувати один нюанс: запит із зірочкою повертає кількість взагалі всіх записів у таблиці, а запит із зазначенням стовпця — кількість тих записів, де в заданому стовпці значення <strong>не є <code>NULL</code></strong>.</p>
 <p>Таким чином, якщо в деякій колонці <code>column</code> є перепустки, вирази <code>COUNT(*)</code> і <code>COUNT(column)</code> повернуть різні значення.</p>
 <p>Давайте перевіримо!</p>
 <div class="question">
 <div id="exr-sql-agg-04" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 16.4 </strong></span><br> Як ви пам’ятаєте, у таблиці <code>users</code> в деяких користувачів не було зазначено їх дати народження.</p>
+<p><span class="theorem-title"><strong>Завдання 16.4</strong></span> <br> Як ви пам’ятаєте, у таблиці <code>users</code> в деяких користувачів не було зазначено їх дати народження.</p>
 <p>Порахуйте в одному запиті кількість усіх записів у таблиці та кількість лише тих записів, для яких у колонці <code>birth_date</code> вказана дата народження.</p>
 <p>Колонку із загальним числом записів назвіть <code>dates</code>, а колонку із записами без перепусток — <code>dates_not_null</code>.</p>
 <p>Поля у результуючій таблиці: <code>dates</code>, <code>dates_not_null</code></p>
@@ -671,7 +672,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-12" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb8" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>SELECT count(<span class="op">*</span>) <span class="im">as</span> dates,</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>       count(birth_date) <span class="im">as</span> dates_not_null</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>FROM   users</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -702,14 +703,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <p>І ще один важливий момент: агрегатні функції можна застосовувати в поєднанні з ключовим словом <code>DISTINCT</code>. У такому випадку розрахунки будуть проводитися лише за унікальними значеннями.</p>
 <p>Якщо у випадку з <code>MIN</code> та <code>MAX</code> це не має особливого сенсу, то при розрахунку <code>AVG</code>, <code>SUM</code> та <code>COUNT</code> іноді це буває корисно:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(<span class="kw">DISTINCT</span> <span class="kw">column</span>) <span class="kw">AS</span> sum_distinct</span>
+<div class="sourceCode" id="cb9" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(<span class="kw">DISTINCT</span> <span class="kw">column</span>) <span class="kw">AS</span> sum_distinct</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>При цьому досить часто <code>DISTINCT</code> використовується саме в поєднанні з <code>COUNT</code> для підрахунку числа унікальних користувачів, унікальних замовлень тощо.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="kw">DISTINCT</span> <span class="kw">column</span>) <span class="kw">AS</span> count_distinct</span>
+<div class="sourceCode" id="cb10" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="kw">DISTINCT</span> <span class="kw">column</span>) <span class="kw">AS</span> count_distinct</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="question">
 <div id="exr-sql-agg-05" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 16.5 </strong></span><br> Порахуйте кількість всіх значень у колонці <code>user_id</code> у таблиці <code>user_actions</code>, а також кількість унікальних значень у цій колонці (тобто кількість унікальних користувачів сервісу).</p>
+<p><span class="theorem-title"><strong>Завдання 16.5</strong></span> <br> Порахуйте кількість всіх значень у колонці <code>user_id</code> у таблиці <code>user_actions</code>, а також кількість унікальних значень у цій колонці (тобто кількість унікальних користувачів сервісу).</p>
 <p>Колонку з першим отриманим значенням назвіть <code>users</code>, а колонку з другим – <code>unique_users</code>.</p>
 <p>Поля у результуючій таблиці: <code>users</code>, <code>unique_users</code></p>
 </div>
@@ -717,7 +718,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-15" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb11" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>SELECT count(user_id) <span class="im">as</span> users,</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>       count(distinct user_id) <span class="im">as</span> unique_users</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>FROM   user_actions</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -750,26 +751,26 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <section id="фільтрація-та-агрегація" class="level2" data-number="16.4">
 <h2 data-number="16.4" class="anchored" data-anchor-id="фільтрація-та-агрегація"><span class="header-section-number">16.4</span> Фільтрація та агрегація</h2>
 <p>А якщо для розрахунків нам потрібні не всі дані в стовпці, а тільки якась частина? Тоді в запит з агрегатними функціями можна включити оператор <code>WHERE</code>, вказавши умову для відбору записів:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(column_1) <span class="kw">AS</span> <span class="fu">count</span></span>
+<div class="sourceCode" id="cb12" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(column_1) <span class="kw">AS</span> <span class="fu">count</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_2 <span class="op">&gt;</span> <span class="dv">100</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У такому випадку спочатку буде виконана фільтрація таблиці і тільки потім буде проведена агрегація по записах, що залишилися.</p>
 <p>Про всяк випадок нагадаємо порядок виконання у запиті відомих нам ключових операторів:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>      <span class="co">-- перерахування полів результуючої таблиці</span></span>
+<div class="sourceCode" id="cb13" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span>      <span class="co">-- перерахування полів результуючої таблиці</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span>        <span class="co">-- вказівка джерела даних</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span>       <span class="co">-- фільтрація даних</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span>    <span class="co">-- сортування результуючої таблиці</span></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span>       <span class="co">-- обмеження кількості записів, що виводяться</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="question">
 <div id="exr-sql-agg-06" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 16.6 </strong></span><br> Порахуйте кількість кур’єрів <strong>жіночої статі</strong> у таблиці <code>couriers</code>. Отриманий стовпець з одним значенням назвіть <code>couriers</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 16.6</strong></span> <br> Порахуйте кількість кур’єрів <strong>жіночої статі</strong> у таблиці <code>couriers</code>. Отриманий стовпець з одним значенням назвіть <code>couriers</code>.</p>
 <p>Поле в результуючій таблиці: <code>couriers</code></p>
 </div>
 </div>
 <div id="cell-18" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb14" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>SELECT count(distinct courier_id) <span class="im">as</span> couriers</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>FROM   couriers</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>WHERE  sex <span class="op">=</span> <span class="st">'female'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -799,7 +800,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>І ще одне завдання на агрегацію із фільтрацією. На цей раз проведемо розрахунки по колонці з даними у форматі <code>TIMESTAMP</code>.</p>
 <div class="question">
 <div id="exr-sql-agg-07" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 16.7 </strong></span><br> Розрахуйте час, коли було здійснено першу та останню доставку замовлень у таблиці <code>courier_actions</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 16.7</strong></span> <br> Розрахуйте час, коли було здійснено першу та останню доставку замовлень у таблиці <code>courier_actions</code>.</p>
 <p>Колонку з часом першої доставки назвіть <code>first_delivery</code>, а колонку з часом останньої – <code>last_delivery</code>.</p>
 <p>Поля у результуючій таблиці: <code>first_delivery</code>, <code>last_delivery</code></p>
 <p><strong>Пояснення</strong>: зауважте, що в таблиці з діями кур’єрів є не тільки записи з часом доставки замовлень, але й записи з часом їх прийняття.</p>
@@ -808,7 +809,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-21" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb15" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>SELECT <span class="bu">min</span>(time) <span class="im">as</span> first_delivery,</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>       <span class="bu">max</span>(time) <span class="im">as</span> last_delivery</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>FROM   courier_actions</span>
@@ -842,7 +843,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Давайте додамо до нашого запиту більш цікаву фільтрацію.</p>
 <div class="question">
 <div id="exr-sql-agg-08" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 16.8 </strong></span><br> Уявіть, що один із користувачів сервісу зробив замовлення, до якого увійшли одна пачка крекерів (<code>crackers</code>), одна пачка чіпсів (<code>chips</code>) та один енергетичний напій (<code>energy drink</code>). Порахуйте вартість такого замовлення.</p>
+<p><span class="theorem-title"><strong>Завдання 16.8</strong></span> <br> Уявіть, що один із користувачів сервісу зробив замовлення, до якого увійшли одна пачка крекерів (<code>crackers</code>), одна пачка чіпсів (<code>chips</code>) та один енергетичний напій (<code>energy drink</code>). Порахуйте вартість такого замовлення.</p>
 <p>Колонку із розрахованою вартістю замовлення назвіть <code>order_price</code>.</p>
 <p>Для розрахунків використовуйте таблицю <code>products</code>.</p>
 <p>Поле в результуючій таблиці: <code>order_price</code></p>
@@ -867,7 +868,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-25" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb16" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>SELECT <span class="bu">sum</span>(price) <span class="im">as</span> order_price</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>WHERE  name <span class="kw">in</span> (<span class="st">'crackers'</span>, <span class="st">'chips'</span>, <span class="st">'energy drink'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -899,7 +900,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <h2 data-number="16.5" class="anchored" data-anchor-id="довжина-списку-array_length"><span class="header-section-number">16.5</span> Довжина списку: <code>ARRAY_LENGTH</code></h2>
 <p>Як пам’ятаєте, у таблиці <code>orders</code> вміст замовлень представлено вигляді списків товарів (масивів). Щоб порахувати кількість товарів у кожному замовленні, можна скористатися функцією <code>array_length</code>.</p>
 <p>Функція <code>array_length</code> обчислює кількість елементів у масиві (довжину масиву) і записується так:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> array_length(<span class="dt">ARRAY</span>[<span class="st">'first'</span>, <span class="st">'second'</span>, <span class="st">'third'</span>], <span class="dv">1</span>)</span>
+<div class="sourceCode" id="cb17" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> array_length(<span class="dt">ARRAY</span>[<span class="st">'first'</span>, <span class="st">'second'</span>, <span class="st">'third'</span>], <span class="dv">1</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -908,16 +909,16 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Одиниця як другий аргумент — це розмірність масиву, за якій рахується його довжина. Так як список у нас одновимірний (просто значення, записані в один рядок), то вибір у нас невеликий – можемо вказати лише першу розмірність.</p>
 <p>Якби в нас була таблиця <code>N x N</code>, в якій були б і рядки, і стовпці, то розмірності було б дві: перша відповідала кількості рядків, а друга — числу стовпців. У такому випадку ми могли б вказати або першу, або другу розмірність.</p>
 <p>Давайте уявімо, що у нас є проста таблиця наступного виду:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a> _______</span>
+<div class="sourceCode" id="cb18" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a> _______</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>| 1 | 2 |</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>| 3 | 4 |</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>| 5 | 6 |</span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a> ‾‾‾‾‾‾‾</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У цій таблиці 3 рядки та 2 стовпці, тому її можна описати у вигляді наступного списку з трьох вкладених у нього списків:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dt">ARRAY</span>[[<span class="dv">1</span>,<span class="dv">2</span>], [<span class="dv">3</span>,<span class="dv">4</span>], [<span class="dv">5</span>,<span class="dv">6</span>]]</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dt">ARRAY</span>[[<span class="dv">1</span>,<span class="dv">2</span>], [<span class="dv">3</span>,<span class="dv">4</span>], [<span class="dv">5</span>,<span class="dv">6</span>]]</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У прикладі вище кількість списків усередині основного списку — кількість рядків у таблиці, а кількість елементів усередині кожного внутрішнього списку — кількість стовпців.</p>
 <p>Зверніть увагу на результат обчислень функції <code>array_length</code> для першої та другої розмірності:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> array_length(<span class="dt">ARRAY</span>[[<span class="dv">1</span>,<span class="dv">2</span>], [<span class="dv">3</span>,<span class="dv">4</span>], [<span class="dv">5</span>,<span class="dv">6</span>]], <span class="dv">1</span>)</span>
+<div class="sourceCode" id="cb20" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> array_length(<span class="dt">ARRAY</span>[[<span class="dv">1</span>,<span class="dv">2</span>], [<span class="dv">3</span>,<span class="dv">4</span>], [<span class="dv">5</span>,<span class="dv">6</span>]], <span class="dv">1</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span></span>
@@ -928,7 +929,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У це досить складно повірити, але значеннями в основній таблиці справді можуть бути інші таблиці (матриці). На щастя, у нас не такі дані, тому ми працюватимемо із простими однорозмірними списками значень.</p>
 <p>В якості аргументу функції <code>array_length</code> на місці масиву можна вказувати ім’я колонки, яка містить масиви (у нашому випадку це колонка <code>product_ids</code>):</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> array_length(<span class="kw">column</span>, <span class="dv">1</span>)</span>
+<div class="sourceCode" id="cb21" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> array_length(<span class="kw">column</span>, <span class="dv">1</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -945,7 +946,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="question">
 <div id="exr-sql-agg-09" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 16.9 </strong></span><br> Порахуйте кількість замовлень у таблиці <code>orders</code> <strong>із дев’ятьма і більше товарами</strong>. Для цього скористайтесь функцією <code>array_length</code>, відфільтруйте дані щодо кількості товарів у замовленні та проведіть агрегацію. Отриманий стовпець назвіть <code>orders</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 16.9</strong></span> <br> Порахуйте кількість замовлень у таблиці <code>orders</code> <strong>із дев’ятьма і більше товарами</strong>. Для цього скористайтесь функцією <code>array_length</code>, відфільтруйте дані щодо кількості товарів у замовленні та проведіть агрегацію. Отриманий стовпець назвіть <code>orders</code>.</p>
 <p>Поле в результуючій таблиці: <code>orders</code></p>
 <p><strong>Пояснення</strong>: у наших даних у колонці <code>product_ids</code> містяться звичайні списки товарів лише з однією розмірністю.</p>
 </div>
@@ -953,7 +954,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-28" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb22" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>SELECT count(order_id) <span class="im">as</span> orders</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>FROM   orders</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>WHERE  array_length(product_ids, <span class="dv">1</span>) <span class="op">&gt;=</span> <span class="dv">9</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -984,7 +985,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <section id="різниця-часу-age" class="level2" data-number="16.6">
 <h2 data-number="16.6" class="anchored" data-anchor-id="різниця-часу-age"><span class="header-section-number">16.6</span> Різниця часу: <code>AGE</code></h2>
 <p>В якості агрегатних функцій можуть виступати не тільки стовпці, але також розрахункові колонки або результат іншої функції:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">AVG</span>(some_function(<span class="kw">column</span>))</span>
+<div class="sourceCode" id="cb23" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">AVG</span>(some_function(<span class="kw">column</span>))</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -992,36 +993,36 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Спробуємо розрахувати середній вік користувачів чоловічої статі. Для цього скористаємось новою для нас функцією <code>AGE</code>.</p>
 <p>Функція <code>AGE</code> повертає різницю між двома значеннями, наведеними у форматі <code>TIMESTAMP</code>. При цьому від першого значення віднімається друге, а сама різниця повертається у форматі <code>INTERVAL</code>:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> AGE(<span class="st">'2022-12-12'</span>, <span class="st">'2021-11-10'</span>)</span>
+<div class="sourceCode" id="cb24" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> AGE(<span class="st">'2022-12-12'</span>, <span class="st">'2021-11-10'</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="dv">397</span> days, <span class="dv">0</span><span class="ch">:00:00</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Таким чином, з <code>'2021-11-10'</code> до <code>'2022-12-12'</code> пройшло рівно <strong>397 днів</strong>.</p>
 <p>Якщо в якості першого аргументу нічого не вказати, то на місце першої дати автоматично підставиться поточна дата (опівніч поточного дня, тобто початок дня).</p>
 <p>Якщо сьогодні <code>'2022-12-12'</code>, то з <code>'2021-11-10'</code> пройшло рівно стільки ж днів, скільки у прикладі вище:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> AGE(<span class="dt">TIMESTAMP</span> <span class="st">'2021-11-10'</span>)</span>
+<div class="sourceCode" id="cb25" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> AGE(<span class="dt">TIMESTAMP</span> <span class="st">'2021-11-10'</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="dv">397</span> days, <span class="dv">0</span><span class="ch">:00:00</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Насправді поточній даті відповідає значення <code>current_date</code>, яке можна вказувати як аргумент функції <code>AGE</code>:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> AGE(<span class="dt">TIMESTAMP</span> <span class="st">'2021-11-10'</span>)</span>
+<div class="sourceCode" id="cb26" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> AGE(<span class="dt">TIMESTAMP</span> <span class="st">'2021-11-10'</span>)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="dv">397</span> days, <span class="dv">0</span><span class="ch">:00:00</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Можете самостійно запустити два запити - з <code>current_date</code> і без - і порівняти отримані результати. У вашому випадку це будуть нові результати, але вони мають збігтися.</p>
 <p>А саме значення <code>current_date</code> можна викликати так:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">current_date</span></span>
+<div class="sourceCode" id="cb27" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">current_date</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="dv">2023</span><span class="op">-</span><span class="dv">06</span><span class="op">-</span><span class="dv">01</span>  </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Для того щоб результат відображався не у кількості днів, а в зручнішому форматі, можна переводити результат обчислень у тип <code>VARCHAR</code>:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> AGE(<span class="fu">current_date</span>, <span class="st">'2021-11-10'</span>):<span class="ch">:VARCHAR</span></span>
+<div class="sourceCode" id="cb28" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> AGE(<span class="fu">current_date</span>, <span class="st">'2021-11-10'</span>):<span class="ch">:VARCHAR</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="dt">year</span> <span class="dv">1</span> mon <span class="dv">2</span> days</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="question">
 <div id="exr-sql-agg-10" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 16.10 </strong></span><br> За допомогою функції <code>AGE</code> і агрегатної функції розрахуйте <strong>вік наймолодшого кур’єра чоловічої статі</strong> в таблиці <code>couriers</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 16.10</strong></span> <br> За допомогою функції <code>AGE</code> і агрегатної функції розрахуйте <strong>вік наймолодшого кур’єра чоловічої статі</strong> в таблиці <code>couriers</code>.</p>
 <p>Вік виведіть через кількість років, місяців і днів (як у прикладі вище), перевівши їх у тип <code>VARCHAR</code>.</p>
 <p>В якості дати, відносно якої необхідно розрахувати вік кур’єрів, використовуйте свою поточну дату (або не вказуйте її на місці першого аргументу, як показано в прикладах).</p>
 <p>Отриману колонку зі значенням віку назвіть <code>min_age</code>.</p>
@@ -1033,7 +1034,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-32" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb29" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>SELECT age(<span class="bu">max</span>(birth_date))::varchar <span class="im">as</span> min_age</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>FROM   couriers</span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>WHERE  sex <span class="op">=</span> <span class="st">'male'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1065,7 +1066,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <h2 data-number="16.7" class="anchored" data-anchor-id="агрегація-з-case-when"><span class="header-section-number">16.7</span> Агрегація з <code>CASE WHEN</code></h2>
 <p>Аргументом агрегатної функції може бути і складніша розрахункова колонка - наприклад, отримана в результаті роботи конструкції <code>CASE</code>.</p>
 <p>У такому випадку сама конструкція <code>CASE</code> поміщається всередину дужок агрегатної функції:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AVG</span>(</span>
+<div class="sourceCode" id="cb30" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AVG</span>(</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">CASE</span>  </span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> logical_expression_1 <span class="cf">THEN</span> expression_1</span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> logical_expression_2 <span class="cf">THEN</span> expression_2</span>
@@ -1073,7 +1074,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">END</span></span>
 <span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Так, якби в нашій таблиці всі товари були розбиті за категоріями і ми захотіли б порахувати середню ціну товарів з урахуванням підвищувальних чи знижувальних коефіцієнтів для кожної категорії, то ми могли б зробити це, наприклад, так:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">AVG</span>(</span>
+<div class="sourceCode" id="cb31" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">AVG</span>(</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">CASE</span> </span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> <span class="kw">category</span><span class="op">=</span><span class="ot">"м'ясо"</span> <span class="cf">THEN</span> price<span class="op">*</span><span class="fl">0.95</span></span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> <span class="kw">category</span><span class="op">=</span><span class="ot">"риба"</span> <span class="cf">THEN</span> price<span class="op">*</span><span class="fl">0.9</span></span>
@@ -1085,7 +1086,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Давайте ускладнимо одне з попередніх завдань і розрахуємо вартість ще одного замовлення.</p>
 <div class="question">
 <div id="exr-sql-agg-11" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 16.11 </strong></span><br> Порахуйте вартість замовлення, в якому будуть три пачки крекерів (<code>'crackers'</code>), дві пачки чіпсів (<code>'chips'</code>) та один енергетичний напій (<code>'energy drink'</code>). Колонку із розрахованою вартістю замовлення назвіть <code>order_price</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 16.11</strong></span> <br> Порахуйте вартість замовлення, в якому будуть три пачки крекерів (<code>'crackers'</code>), дві пачки чіпсів (<code>'chips'</code>) та один енергетичний напій (<code>'energy drink'</code>). Колонку із розрахованою вартістю замовлення назвіть <code>order_price</code>.</p>
 <p>Для розрахунків використовуйте таблицю <code>products</code>.</p>
 <p>Поле в результуючій таблиці: <code>order_price</code></p>
 </div>
@@ -1109,7 +1110,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-36" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb32" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>SELECT <span class="bu">sum</span>(case when name <span class="op">=</span> <span class="st">'crackers'</span> then price <span class="op">*</span> <span class="dv">3</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>                when name <span class="op">=</span> <span class="st">'chips'</span> then price <span class="op">*</span> <span class="dv">2</span></span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>                when name <span class="op">=</span> <span class="st">'energy drink'</span> then price</span>
@@ -1143,15 +1144,15 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <h2 data-number="16.8" class="anchored" data-anchor-id="агрегатні-вирази-з-фільтрацією"><span class="header-section-number">16.8</span> Агрегатні вирази з фільтрацією</h2>
 <p>Ми розглянули кілька прикладів, коли в якості агрументу агрегатних функцій виступає результат виконання іншої функції.</p>
 <p>Але агрегатна функція може і сама опинитися на місці аргументу якоїсь функції:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> some_function(<span class="fu">SUM</span>(<span class="kw">column</span>)) <span class="kw">AS</span> result</span>
+<div class="sourceCode" id="cb33" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> some_function(<span class="fu">SUM</span>(<span class="kw">column</span>)) <span class="kw">AS</span> result</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Наочний приклад — застосування функції <code>ROUND</code> до результату агрегації:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">ROUND</span>(<span class="fu">SUM</span>(<span class="kw">column</span>)) <span class="kw">AS</span> rounded_sum</span>
+<div class="sourceCode" id="cb34" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">ROUND</span>(<span class="fu">SUM</span>(<span class="kw">column</span>)) <span class="kw">AS</span> rounded_sum</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Давайте вирішимо схоже завдання і заразом ненадовго повернемося до наших напоїв та оператора <code>LIKE</code>.</p>
 <div class="question">
 <div id="exr-sql-agg-12" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 16.12 </strong></span><br> Розрахуйте середню ціну товарів у таблиці <code>products</code>, у назвах яких є слова <code>'tea'</code> чи <code>'coffee'</code>. Виключіть з розрахунку товари, що містять «іван-чай» (<code>'ivan-tea'</code>) або «чайний гриб» (<code>'tea mushroom'</code>).</p>
+<p><span class="theorem-title"><strong>Завдання 16.12</strong></span> <br> Розрахуйте середню ціну товарів у таблиці <code>products</code>, у назвах яких є слова <code>'tea'</code> чи <code>'coffee'</code>. Виключіть з розрахунку товари, що містять «іван-чай» (<code>'ivan-tea'</code>) або «чайний гриб» (<code>'tea mushroom'</code>).</p>
 <p>Середню ціну округліть до двох знаків після коми. Стовпець із отриманим значенням назвіть <code>avg_price</code>.</p>
 <p>Поле у результуючій таблиці: <code>avg_price</code></p>
 <p><strong>Пояснення</strong>: пам’ятайте, що виконання логічних виразів можна керувати за допомогою дужок. Це може стати в нагоді.</p>
@@ -1160,7 +1161,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-39" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb35" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>SELECT <span class="bu">round</span>(avg(price), <span class="dv">2</span>) <span class="im">as</span> avg_price</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>WHERE  (name like <span class="st">'%tea%'</span></span>
@@ -1191,12 +1192,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>Втім, бувають і випадки, коли як аргументи деякої функції виступають відразу кілька агрегатних функцій:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> some_function(<span class="fu">SUM</span>(column_1), <span class="fu">SUM</span>(column_2)) <span class="kw">AS</span> result</span>
+<div class="sourceCode" id="cb36" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> some_function(<span class="fu">SUM</span>(column_1), <span class="fu">SUM</span>(column_2)) <span class="kw">AS</span> result</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Наприклад, нам уже знайома функція <code>AGE</code>, яка може приймати одразу два аргументи - дату кінця та дату початку деякого періоду часу.</p>
 <div class="question">
 <div id="exr-sql-agg-13" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 16.13 </strong></span><br> Скористайтеся функцією <code>AGE</code> та розрахуйте <strong>різницю у віці між найстарішим та наймолодшим користувачами чоловічої статі</strong> у таблиці <code>users</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 16.13</strong></span> <br> Скористайтеся функцією <code>AGE</code> та розрахуйте <strong>різницю у віці між найстарішим та наймолодшим користувачами чоловічої статі</strong> у таблиці <code>users</code>.</p>
 <p>Різницю у віці висловіть кількістю років, місяців та днів, перевівши її у тип <code>VARCHAR</code>.</p>
 <p>Назвіть колонку з порахованим значенням <code>age_diff</code>.</p>
 <p>Поле у результуючій таблиці: <code>age_diff</code></p>
@@ -1221,7 +1222,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-43" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb37" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>SELECT age(<span class="bu">max</span>(birth_date), <span class="bu">min</span>(birth_date))::varchar <span class="im">as</span> age_diff</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>FROM   users</span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>WHERE  sex <span class="op">=</span> <span class="st">'male'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1250,12 +1251,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <p>А тепер розглянемо приклад, коли агрегатна функція приймає в якості аргументу одну функцію і при цьому сама є аргументом іншої функції.</p>
 <p>Виглядати це може так:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> function_two(<span class="fu">SUM</span>(funtion_one(<span class="kw">column</span>))) <span class="kw">AS</span> result</span>
+<div class="sourceCode" id="cb38" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> function_two(<span class="fu">SUM</span>(funtion_one(<span class="kw">column</span>))) <span class="kw">AS</span> result</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У цьому прикладі спочатку до колонки <code>column</code> застосовується функція <code>funtion_one</code>, потім за допомогою функції <code>SUM</code> буде пораховано суму отриманих значень, і тільки потім до результату агрегації застосовується функція <code>funtion_two</code>.</p>
 <div class="question">
 <div id="exr-sql-agg-14" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 16.14 </strong></span><br> Розрахуйте <strong>середню кількість товарів у замовленнях</strong> з таблиці <code>orders</code>, які користувачі оформляли у вихідні дні (субота та неділя) протягом усього часу роботи сервісу.</p>
+<p><span class="theorem-title"><strong>Завдання 16.14</strong></span> <br> Розрахуйте <strong>середню кількість товарів у замовленнях</strong> з таблиці <code>orders</code>, які користувачі оформляли у вихідні дні (субота та неділя) протягом усього часу роботи сервісу.</p>
 <p>Отримане значення округліть до двох знаків після коми. Назвіть колонку з ним <code>avg_order_size</code>.</p>
 <p>Поле у результуючій таблиці: <code>avg_order_size</code></p>
 </div>
@@ -1279,7 +1280,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-47" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb39" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>SELECT <span class="bu">round</span>(avg(array_length(product_ids, <span class="dv">1</span>)), <span class="dv">2</span>) <span class="im">as</span> avg_order_size</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>FROM   orders</span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>WHERE  date_part(<span class="st">'dow'</span>, creation_time) <span class="kw">in</span> (<span class="dv">6</span>, <span class="dv">0</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1307,12 +1308,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>Результати декількох агрегатних функцій можна використовувати в одному запиті для проведення над ними арифметичних операцій:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> (<span class="fu">SUM</span>(column_1) <span class="op">+</span> <span class="fu">SUM</span>(column_2)) <span class="op">/</span> <span class="dv">2</span></span>
+<div class="sourceCode" id="cb40" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> (<span class="fu">SUM</span>(column_1) <span class="op">+</span> <span class="fu">SUM</span>(column_2)) <span class="op">/</span> <span class="dv">2</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У запиті вище буде пораховано середнє арифметичне двох сум — значень колонки <code>column_1</code> і значень колонки <code>column_2</code>.</p>
 <div class="question">
 <div id="exr-sql-agg-15" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 16.15 </strong></span><br> На основі даних у таблиці <code>user_actions</code> порахуйте: - <strong>кількість унікальних користувачів</strong> сервісу; - <strong>кількість унікальних замовлень</strong> - <strong>скільки замовлень припадає на одного користувача</strong>.</p>
+<p><span class="theorem-title"><strong>Завдання 16.15</strong></span> <br> На основі даних у таблиці <code>user_actions</code> порахуйте: - <strong>кількість унікальних користувачів</strong> сервісу; - <strong>кількість унікальних замовлень</strong> - <strong>скільки замовлень припадає на одного користувача</strong>.</p>
 <p>У результуючій таблиці відобразіть усі три значення – поля назвіть відповідно <code>unique_users</code>, <code>unique_orders</code>, <code>orders_per_user</code>.</p>
 <p>Показник числа замовлень користувача округліть <strong>до двох знаків після коми</strong>.</p>
 <p>Поля у результуючій таблиці: <code>unique_users</code>, <code>unique_orders</code>, <code>orders_per_user</code></p>
@@ -1336,7 +1337,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-51" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb41" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>SELECT count(distinct user_id) <span class="im">as</span> unique_users,</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>       count(distinct order_id) <span class="im">as</span> unique_orders,</span>
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>       <span class="bu">round</span>(count(distinct order_id) <span class="op">*</span> <span class="fl">1.0</span> <span class="op">/</span> count(distinct user_id),</span>
@@ -1379,10 +1380,10 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>І насамкінець познайомимося з більш просунутим функціоналом — <strong>агрегатними виразами з фільтрацією</strong>.</p>
 <p>Якщо після агрегатної функції вказати ключове слово <code>FILTER</code> і помістити в дужках деяку умову <code>condition</code> після <code>WHERE</code>, то агрегатній функції на вхід будуть подані тільки ті рядки, для яких умова фільтра виявиться істинною.</p>
 <p>Загалом ця конструкція виглядає так:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> agg_function(<span class="kw">column</span>) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> condition)</span>
+<div class="sourceCode" id="cb42" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> agg_function(<span class="kw">column</span>) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> condition)</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Наприклад, якби ми захотіли порахувати середню ціну тільки для товарів категорії <code>'fish'</code>, то запит виглядав би так:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">AVG</span>(price) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> <span class="kw">category</span> <span class="op">=</span> <span class="st">'fish'</span>) <span class="kw">AS</span> avg_fish_price</span>
+<div class="sourceCode" id="cb43" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">AVG</span>(price) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> <span class="kw">category</span> <span class="op">=</span> <span class="st">'fish'</span>) <span class="kw">AS</span> avg_fish_price</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Зверніть увагу: це дуже схоже на звичайну фільтрацію з агрегацією, яку ми розглядали в попередніх завданнях, тільки в даному випадку умова відбору записів вказується відразу в блоці <code>SELECT</code>.</p>
 <p>Перевага такого запису в тому, що він дозволяє проводити розрахунки без проміжних запитів з умовами у блоці <code>WHERE</code>.</p>
@@ -1391,7 +1392,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Оскільки об’єднувати кілька запитів разом ми поки що не вміємо, нам допоможе прийти агрегатний вираз.</p>
 <div class="question">
 <div id="exr-sql-agg-16" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 16.16 </strong></span><br> Порахуйте скільки користувачів ніколи не скасовували своє замовлення. Для цього із загальної кількості всіх унікальних користувачів відніміть кількість унікальних користувачів, які хоча б раз скасовували замовлення. Подумайте, яку умову необхідно вказати у <code>FILTER</code>, щоб отримати коректний результат.</p>
+<p><span class="theorem-title"><strong>Завдання 16.16</strong></span> <br> Порахуйте скільки користувачів ніколи не скасовували своє замовлення. Для цього із загальної кількості всіх унікальних користувачів відніміть кількість унікальних користувачів, які хоча б раз скасовували замовлення. Подумайте, яку умову необхідно вказати у <code>FILTER</code>, щоб отримати коректний результат.</p>
 <p>Отриманий стовпець назвіть <code>users_count</code>.</p>
 <p>Поле в результуючій таблиці: <code>users_count</code></p>
 </div>
@@ -1399,7 +1400,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-54" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb44" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> Рішення через різницю</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>SELECT count(distinct user_id) <span class="op">-</span> count(distinct user_id) <span class="bu">filter</span> (WHERE action <span class="op">=</span> <span class="st">'cancel_order'</span>) <span class="im">as</span> users_count</span>
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>FROM   user_actions</span>
@@ -1431,7 +1432,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Давайте вирішимо ще одне завдання на агрегатні вирази з фільтрацією - цього разу з більш складними розрахунками.</p>
 <div class="question">
 <div id="exr-sql-agg-17" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 16.17 </strong></span><br> Порахуйте:</p>
+<p><span class="theorem-title"><strong>Завдання 16.17</strong></span> <br> Порахуйте:</p>
 <ul>
 <li>загальну кількість замовлень у таблиці <code>orders</code></li>
 <li>кількість замовлень <strong>із п’ятьма та більше товарами</strong></li>
@@ -1446,7 +1447,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-57" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb45" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>SELECT count(distinct order_id) <span class="im">as</span> orders,</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>       count(distinct order_id) <span class="bu">filter</span> (WHERE array_length(product_ids, <span class="dv">1</span>) <span class="op">&gt;=</span> <span class="dv">5</span>) <span class="im">as</span> large_orders,</span>
 <span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>       <span class="bu">round</span>(count(distinct order_id) <span class="bu">filter</span> (WHERE array_length(product_ids, <span class="dv">1</span>) <span class="op">&gt;=</span> <span class="dv">5</span>)::decimal <span class="op">/</span> count(distinct order_id),</span>
@@ -1612,27 +1613,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -1647,10 +1627,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             break;
           }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1659,8 +1643,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -1902,4 +1893,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/Aranaur/py4ds/blob/main/chapters/sql/sql_agg.ipynb" class="toc-action"><i class="bi bi-github"></i>Редагувати сторінку</a></li><li><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action"><i class="bi empty"></i>Повідомити про проблему</a></li><li><a href="https://github.com/Aranaur/py4ds/blob/main/chapters/sql/sql_agg.ipynb" class="toc-action"><i class="bi empty"></i>Переглянути код</a></li></ul></div></div></div></footer><script src="../../site_libs/quarto-contrib/line-highlight-1.0.0/line-highlight.js" defer="true"></script>
 </body></html>

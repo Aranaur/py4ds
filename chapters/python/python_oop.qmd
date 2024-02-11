@@ -1,7 +1,3 @@
----
-engine: knitr
----
-
 # Об'єктно-орієнтоване програмування
 
 У світі програмування існують різні парадигми мов програмування - різні способи вирішення проблем за допомогою коду. Це трохи важко побачити спочатку, якщо ви вивчили лише одну мову. Але з часом, якщо і коли ви вивчите інші мови, окрім Python, ви почнете помічати певні закономірності і певні можливості одних мов, але не інших. Досі у світі Python ми з вами здебільшого писали процедурний код, тобто писали процедури, писали функції і робили все зверху донизу. Все відбувається крок за кроком, як і можна було б очікувати від алгоритму. Але на цьому шляху ми спробували ще одну парадигму, відому як *функціональне програмування* за допомогою Python, завдяки якій ми змогли передавати функції по колу.
@@ -645,8 +641,6 @@ if __name__ == "__main__":
 Не дивлячись на той факт, що ми перевіряємо правильність введення даних, наша програма все ще не надійна. Ми можемо обійти перевірку шляхом перезапису атрибутів екземпляра класу у функції `main()`:
 
 ```{python}
-
-```{python}
 #| label: student-class-12
 #| eval: false
 
@@ -1179,18 +1173,86 @@ code vault.py
 
 [^pottermoney]: Більш детально про гроші у світі Гаррі Поттера можна дізнатися за посиланням <https://harrypotter.fandom.com/uk/wiki/Чаклунські_гроші>.
 
-Для початку створимо клас `Vault`, який має представляти банківське сховище, в якому зберігаються монети:
+Для початку створимо клас `Vault`, який має представляти банківське сховище, в якому зберігаються монети. Створимо екземпляр класу `Vault` для Гаррі Поттера, який має 100 ґалеонів, 50 серпиків і 25 кнатів:
 
 ```{python}
 #| label: vault-1
-#| eval: false
+#| eval: ture
 
 class Vault:
     def __init__(self, galleons=0, sickles=0, knuts=0):
         self.galleons = galleons
         self.sickles = sickles
         self.knuts = knuts
+
+potter = Vault(100, 50, 25)
+print(potter)
 ```
 
+Все працює, але вивід не дуже зрозумілий. Давайте визначимо метод `__str__()` для класу `Vault`, який буде виводити кількість монет кожного типу:
 
+```{python}
+#| label: vault-2
+#| eval: true
 
+class Vault:
+    def __init__(self, galleons=0, sickles=0, knuts=0):
+        self.galleons = galleons
+        self.sickles = sickles
+        self.knuts = knuts
+
+    def __str__(self): #<<
+        return f"Ґалеони: {self.galleons}, Серпики: {self.sickles}, Кнати: {self.knuts}" #<<
+
+potter = Vault(100, 50, 25)
+print(potter)
+```
+
+Тепер давайте додамо можливість додавати монети до сховища. Припустимо, що Гаррі Поттер та Рон Вісли вирішили зберегти свої монети разом:
+
+```{python}
+#| label: vault-3
+#| eval: true
+
+wesley = Vault(25, 50, 100)
+
+total = Vault(
+    potter.galleons + wesley.galleons,
+    potter.sickles + wesley.sickles,
+    potter.knuts + wesley.knuts
+)
+print(total)
+```
+
+Тепер згадаємо про перевантаження операторів. Якщо ви хочете додати два об'єкти класу `Vault`, ви можете визначити метод `__add__()` для класу `Vault`, який буде викликатися, коли ви використовуєте оператор `+` для об'єктів класу `Vault`. І вже в самому методі `__add__()` ви можете визначити, як саме ви хочете додати два об'єкти класу `Vault`:
+
+```{python}
+#| label: vault-4
+#| eval: true
+
+class Vault:
+    def __init__(self, galleons=0, sickles=0, knuts=0):
+        self.galleons = galleons
+        self.sickles = sickles
+        self.knuts = knuts
+
+    def __str__(self):
+        return f"Ґалеони: {self.galleons}, Серпики: {self.sickles}, Кнати: {self.knuts}"
+
+    def __add__(self, other): #<<
+        return Vault( #<<
+            self.galleons + other.galleons, #<<
+            self.sickles + other.sickles, #<<
+            self.knuts + other.knuts #<<
+        ) #<<
+
+potter = Vault(100, 50, 25)
+wesley = Vault(25, 50, 100)
+
+total = potter + wesley
+print(total)
+```
+
+::: {.callout-note}
+Більше про спеціальні методи можна дізнатися з офіційної документації Python за посиланням <https://docs.python.org/3/reference/datamodel.html#special-method-names>.
+:::

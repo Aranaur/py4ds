@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.525">
+<meta name="generator" content="quarto-1.4.547">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -77,6 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/line-highlight-1.0.0/line-highlight.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -150,7 +151,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
     <div class="sidebar-title mb-0 py-0">
       <a href="../../">Від нуля до Python Data Scientist</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/Aranaur/py4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/Aranaur/py4ds" title="Вихідний код" class="quarto-navigation-tool px-1" aria-label="Вихідний код"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -256,7 +257,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/python/python_list_set.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_et_cetera.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Множини</span></span></a>
   </div>
 </li>
@@ -401,12 +402,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>В SQL для фільтрації даних використовується оператор <code>WHERE</code>. Після оператора <code>WHERE</code> вказується логічний вираз, результат якого визначає, чи буде рядок включений до результуючої таблиці. Якщо умова виявляється істинною (<code>TRUE</code>), то рядок включається до результату, якщо хибним (<code>FALSE</code>) — рядок виключається.</p>
 <p>Таким чином, кожен рядок у таблиці проходить перевірку на відповідність певній умові, і в результаті цих перевірок формується таблиця, над якою проводяться операції, зазначені в блоці <code>SELECT</code>.</p>
 <p>Оператор <code>WHERE</code> та логічний вираз вказуються після блоку <code>FROM</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<div class="sourceCode" id="cb1" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_2 <span class="op">&gt;=</span> <span class="dv">0</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Наприклад, у результаті зазначеного вище запиту у вибірці попадуть лише записи з невід’ємними значеннями в колонці <code>column_2</code>.</p>
 <p>У свою чергу оператори <code>ORDER BY</code> і <code>LIMIT</code> записуються вже після оператора <code>WHERE</code>. Якщо додати їх у приклад вище, запит виглядатиме так:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<div class="sourceCode" id="cb2" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_2 <span class="op">&gt;=</span> <span class="dv">0</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> column_1</span>
@@ -444,14 +445,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="question">
 <div id="exr-sql-filter-01" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 15.1 </strong></span><br>Напишіть SQL-запит до таблиці <code>products</code> та виведіть всю інформацію про товари, ціна яких не перевищує 100 одиниць. Результат відсортуйте за зростанням id товару.</p>
+<p><span class="theorem-title"><strong>Завдання 15.1</strong></span> <br>Напишіть SQL-запит до таблиці <code>products</code> та виведіть всю інформацію про товари, ціна яких не перевищує 100 одиниць. Результат відсортуйте за зростанням id товару.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code></p>
 </div>
 </div>
 <div id="cell-3" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb3" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>SELECT </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    product_id,</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    name,</span>
@@ -542,12 +543,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>Фільтрувати дані в таблицях можна не тільки по полях з числовими значеннями, але і по полях зі значеннями, представленими у вигляді тексту:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<div class="sourceCode" id="cb4" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_2 <span class="op">=</span> <span class="st">'text'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У прикладі вище в результуючу таблицю потраплять лише рядки, значення в яких повністю збігаються із зазначеним у <code>WHERE</code> рядком <code>'text'</code>.</p>
 <p>При порівнянні рядків також допускається використовувати нерівності:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<div class="sourceCode" id="cb5" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_2 <span class="op">&gt;</span> <span class="st">'text'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Втім, така операція використовується рідше, оскільки не цілком очевидно, що означає «один рядок більше за інший».</p>
@@ -567,7 +568,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="question">
 <div id="exr-sql-filter-02" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 15.2 </strong></span><br>Виберіть користувачів жіночої статі з таблиці <code>users</code>. Виведіть лише id цих користувачів. Результат відсортуйте за зростанням id.</p>
+<p><span class="theorem-title"><strong>Завдання 15.2</strong></span> <br>Виберіть користувачів жіночої статі з таблиці <code>users</code>. Виведіть лише id цих користувачів. Результат відсортуйте за зростанням id.</p>
 <p>Додайте в запит оператор <code>LIMIT</code> і виведіть лише <code>10</code> перших ID з відсортованого списку.</p>
 <p>Поле у результуючій таблиці: <code>user_id</code></p>
 </div>
@@ -575,7 +576,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-6" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb6" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>SELECT </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    user_id</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>FROM   </span>
@@ -645,7 +646,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>Як значення для фільтрації можна також використовувати дати та час:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1</span>
+<div class="sourceCode" id="cb7" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_2 <span class="op">&lt;=</span> <span class="st">'2022-12-31'</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -656,7 +657,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Однак при цьому важливо заздалегідь переконатися, що в колонці, за якою фільтруватимуться дані, знаходяться саме дати або мітки часу, а не дані рядкового типу, зовні схожі на дати. Якщо в колонці виявляться рядки, то як такої помилки не відбудеться, проте результат сильно відрізнятиметься від очікуваного.</p>
 <p>Також в операціях порівняння дат важливо враховувати, що дата завжди інтерпретується опівночі (початок дня), тобто <code>'2022-12-31'</code> насправді означає <code>'2022-12-31 00:00:00'</code>.</p>
 <p>До речі, ніщо не забороняє нам комбінувати в блоці <code>WHERE</code> різні умови з різними типами даних і створювати складніші логічні вирази:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2, column_3</span>
+<div class="sourceCode" id="cb8" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2, column_3</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_1 <span class="op">&gt;=</span> <span class="dv">0</span> </span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>      <span class="kw">AND</span> column_2 <span class="op">=</span> <span class="st">'some text'</span> </span>
@@ -664,7 +665,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Давайте якраз вирішимо завдання одразу з кількома умовами!</p>
 <div class="question">
 <div id="exr-sql-filter-03" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 15.3 </strong></span><br> Виберіть з таблиці <code>user_actions</code> усі дії користувачів зі створення замовлень, які були зроблені ними <code>після опівночі 6 вересня 2022 року</code>. Виведіть колонки з id користувачів, id створених замовлень та часом їх створення.</p>
+<p><span class="theorem-title"><strong>Завдання 15.3</strong></span> <br> Виберіть з таблиці <code>user_actions</code> усі дії користувачів зі створення замовлень, які були зроблені ними <code>після опівночі 6 вересня 2022 року</code>. Виведіть колонки з id користувачів, id створених замовлень та часом їх створення.</p>
 <p>Результат має бути відсортований за зростанням id замовлення.</p>
 <p>Поля в результуючій таблиці: <code>user_id</code>, <code>order_id</code>, <code>time</code></p>
 <p><strong>Пояснення:</strong> зверніть увагу, що в таблиці user_actions у кожного користувача можуть бути записи не тільки з часом створення замовлення, а й часом його скасування. Нам необхідно отримати лише записи із створенням замовлень.</p>
@@ -673,7 +674,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-9" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb9" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>SELECT user_id,</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>       order_id,</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>       time</span>
@@ -769,7 +770,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>В операторі <code>WHERE</code> можна використовувати не тільки колонки, які вже є в таблиці, але й розрахункові колонки. При цьому вказувати їх у <code>SELECT</code> знову ж таки не обов’язково:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2, (column_1 <span class="op">+</span> column_2) <span class="op">*</span> <span class="fl">0.5</span> <span class="kw">AS</span> average</span>
+<div class="sourceCode" id="cb10" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2, (column_1 <span class="op">+</span> column_2) <span class="op">*</span> <span class="fl">0.5</span> <span class="kw">AS</span> average</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> (column_1 <span class="op">+</span> column_2) <span class="op">*</span> <span class="fl">0.5</span> <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -779,7 +780,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> (column_1 <span class="op">+</span> column_2) <span class="op">*</span> <span class="fl">0.5</span> <span class="op">=</span> <span class="dv">10</span> </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У прикладі вище ми відфільтруємо тільки ті записи, для яких середнє арифметичне двох чисел, що містяться в колонках <code>column_1</code> і <code>column_2</code>, дорівнюватиме <code>10</code>.</p>
 <p>Також важливо враховувати, що використовувати в блоці <code>WHERE</code> аліаси, які присвоєно новим розрахунковим колонкам, не можна. Зверніть увагу на приклади наступних запитів, які вважають частку значень колонки <code>column_1</code> у відповідних їм значеннях колонки <code>column_2</code>. Перший запит спрацює, а другий поверне помилку:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Цей запит спрацює:</span></span>
+<div class="sourceCode" id="cb11" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Цей запит спрацює:</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2, </span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>       column_1 <span class="op">/</span> column_2 <span class="kw">AS</span> <span class="kw">share</span></span>
@@ -795,7 +796,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="kw">share</span> <span class="op">&gt;</span> <span class="dv">50</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Це пов’язано всі з тією ж послідовністю виконання операторів у запиті: на момент виконання оператора <code>WHERE</code> аліас колонці ще не присвоєно, і тому база даних поки не знає про існування колонки з новим ім’ям.</p>
 <p>Можна розглянути ще більш тривіальний приклад: навіть якщо ми просто зробимо дублікат колонки з іншим ім’ям і спробуємо використати це ім’я в <code>WHERE</code>, все одно отримаємо помилку:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Цей запит поверне помилку:</span></span>
+<div class="sourceCode" id="cb12" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Цей запит поверне помилку:</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">column</span>, <span class="kw">column</span> <span class="kw">AS</span> same_column</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
@@ -803,7 +804,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>При вказівці фільтрів у блоці <code>WHERE</code> важливо враховувати розглянуті особливості. Можете керуватися наступним правилом: якщо збираєтеся фільтрувати дані по розрахунковій колонці, то дублюйте розрахунки <code>WHERE</code> і не використовуйте аліаси, присвоєні новим колонкам.</p>
 <div class="question">
 <div id="exr-sql-filter-04" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 15.4 </strong></span><br>Призначте знижку <code>20%</code> на всі товари з таблиці <code>products</code> та відберіть ті, ціна на які <code>з урахуванням знижки</code> перевищує <code>100</code>. Виведіть id товарів, їх найменування, колишню ціну та нову ціну з урахуванням знижки. Колонку зі старою ціною назвіть <code>old_price</code>, новою — <code>new_price</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 15.4</strong></span> <br>Призначте знижку <code>20%</code> на всі товари з таблиці <code>products</code> та відберіть ті, ціна на які <code>з урахуванням знижки</code> перевищує <code>100</code>. Виведіть id товарів, їх найменування, колишню ціну та нову ціну з урахуванням знижки. Колонку зі старою ціною назвіть <code>old_price</code>, новою — <code>new_price</code>.</p>
 <p>Результат має бути відсортований за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>old_price</code>, <code>new_price</code></p>
 <p><strong>Пояснення:</strong> будьте уважні, коли вказуватимете фільтр після оператора <code>WHERE</code>.</p>
@@ -812,7 +813,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-12" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb13" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>       price <span class="im">as</span> old_price,</span>
@@ -914,19 +915,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <p>Після оператора <code>WHERE</code> до колонок можна також застосовувати різні функції:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<div class="sourceCode" id="cb14" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span> </span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="fu">LOWER</span>(column_1) <span class="op">=</span> <span class="st">'i.love.python'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У прикладі вище кожне значення колонки <code>column_1</code> спочатку буде приведено до нижнього регістру, а потім зіставлено зі значенням ‘i.love.python’. При цьому результат буде включено вихідні значення в колонці <code>column_1</code>. Таким чином, функція послужить тільки для фільтрації записів, але самі значення в колонках ніяк не вплине.</p>
 <p>Зверніть увагу, що використовувати аліаси, присвоєні колонкам в операторі <code>SELECT</code>, так само не можна. Наступний запит поверне помилку:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Цей запит поверне помилку:</span></span>
+<div class="sourceCode" id="cb15" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Цей запит поверне помилку:</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1 <span class="kw">AS</span> new_column_1, column_2</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span> </span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="fu">LOWER</span>(new_column_1) <span class="op">=</span> <span class="st">'i.love.python'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="question">
 <div id="exr-sql-filter-05" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 15.5 </strong></span><br>Відберіть із таблиці <code>products</code> всі товари, назви яких або починаються зі слова «<code>tea</code>», або складаються <code>з п'яти символів</code>. Виведіть дві колонки: id товарів та їх найменування.</p>
+<p><span class="theorem-title"><strong>Завдання 15.5</strong></span> <br>Відберіть із таблиці <code>products</code> всі товари, назви яких або починаються зі слова «<code>tea</code>», або складаються <code>з п'яти символів</code>. Виведіть дві колонки: id товарів та їх найменування.</p>
 <p>Результат має бути відсортований за зростанням id товару.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code></p>
 <p><strong>Пояснення:</strong> для вирішення завдання вам знадобляться функції <code>SPLIT_PART</code> та <code>LENGTH</code>, які ми розглядали раніше.</p>
@@ -951,7 +952,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-16" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb16" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>       name</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
@@ -1047,7 +1048,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Зрозуміло, що ні. Для фільтрації по колонках з текстовими значеннями в <code>SQL</code> передбачений оператор <code>LIKE</code>.</p>
 <p>Оператор <code>LIKE</code> не просто порівнює рядки на повний збіг (або розбіжність), а перевіряє їх на відповідність заданому шаблону: якщо рядок йому відповідає, то повертається <code>TRUE</code>, інакше — <code>FALSE</code>. Як можна здогадатися, конструкція <code>NOT LIKE</code> працює з точністю навпаки.</p>
 <p>Шаблони можуть містити як звичайні символи, так і символи-шаблони: знак відсотка (<code>%</code>) та підкреслення (<code>_</code>). Підкреслення підміняє будь-який одиночний символ, а знак відсотка - будь-яку (у тому числі порожню) послідовність символів:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'love%'</span></span>
+<div class="sourceCode" id="cb17" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'love%'</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="kw">true</span></span>
@@ -1083,7 +1084,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a><span class="kw">false</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Зверніть увагу на останній приклад: оператор <code>LIKE</code> чутливий до регістру.</p>
 <p>Якщо шаблон не містить знаків відсотка та підкреслень, тоді шаблон є рядком і <code>LIKE</code> працює як оператор порівняння, перевіряючи рядки на точний збіг.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'love.python'</span></span>
+<div class="sourceCode" id="cb18" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="st">'love.python'</span> <span class="kw">LIKE</span> <span class="st">'love.python'</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="kw">true</span></span>
@@ -1107,7 +1108,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="question">
 <div id="exr-sql-filter-06" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 15.6 </strong></span><br>Відберіть із таблиці <code>products</code> всі товари, що містять у своїй назві послідовність символів «<code>tea</code>» (без лапок). Виведіть дві колонки: id продукту та його назву.</p>
+<p><span class="theorem-title"><strong>Завдання 15.6</strong></span> <br>Відберіть із таблиці <code>products</code> всі товари, що містять у своїй назві послідовність символів «<code>tea</code>» (без лапок). Виведіть дві колонки: id продукту та його назву.</p>
 <p>Результат має бути відсортований за зростанням id товару.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code></p>
 </div>
@@ -1115,7 +1116,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-19" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb19" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>SELECT  product_id,</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        name</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>FROM    products</span>
@@ -1189,7 +1190,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Тепер зробимо наш фільтр трохи цікавішим.</p>
 <div class="question">
 <div id="exr-sql-filter-07" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 15.7 </strong></span><br>Виберіть із таблиці <code>products</code> id та найменування лише тих товарів, назви яких починаються на букву “<code>c</code>” і містять <code>лише одне слово</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 15.7</strong></span> <br>Виберіть із таблиці <code>products</code> id та найменування лише тих товарів, назви яких починаються на букву “<code>c</code>” і містять <code>лише одне слово</code>.</p>
 <p>Результат має бути відсортований за зростанням id товару.</p>
 <p>Поля у результуючій таблиці: <code>product_id</code>, <code>name</code></p>
 </div>
@@ -1214,7 +1215,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-23" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb20" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>       name</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>FROM   products</span>
@@ -1285,21 +1286,21 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Що він далі робитиме з цими даними, вам невідомо, але завдання є завдання, до того ж не таке вже й складне. Спробуймо його вирішити!</p>
 <div class="question">
 <div id="exr-sql-filter-08" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 15.8 </strong></span><br>Складіть SQL-запит, який вибирає з таблиці <code>products</code> <strong>всі чаї вартістю більше 60</strong> і нараховує їм <strong>знижку 25%</strong>.</p>
+<p><span class="theorem-title"><strong>Завдання 15.8</strong></span> <br>Складіть SQL-запит, який вибирає з таблиці <code>products</code> <strong>всі чаї вартістю більше 60</strong> і нараховує їм <strong>знижку 25%</strong>.</p>
 <p>Знижку в % менеджер попросив вказати в окремому стовпці у форматі тексту, тобто так: «<strong>25%</strong>» (без лапок). Стовпці зі знижкою та новою ціною назвіть відповідно <code>discount</code> та <code>new_price</code>.</p>
 <p>Також необхідно будь-яким відомим способом позбавитися «<strong>tea mushroom</strong>»: навряд чи менеджер мав на увазі і його, коли ставив нам завдання.</p>
 <p>Результат має бути відсортований за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code>, <code>discount</code>, <code>new_price</code></p>
 <p><strong>Пояснення:</strong></p>
 <p>Щоб вказати стовпець з одним значенням для всіх записів (у нашому випадку це стовпець зі знижкою), достатньо просто ввести потрібне значення і дати стовпцю якусь назву - вказане значення автоматично проставиться у всіх рядках результуючої таблиці:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, <span class="st">'text'</span> <span class="kw">AS</span> column_2</span>
+<div class="sourceCode" id="cb21" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, <span class="st">'text'</span> <span class="kw">AS</span> column_2</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="cell-26" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb22" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>       price,</span>
@@ -1370,28 +1371,28 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <h2 data-number="15.3" class="anchored" data-anchor-id="in-та-between-для-фільтрації"><span class="header-section-number">15.3</span> <code>IN</code> та <code>BETWEEN</code> для фільтрації</h2>
 <p>Але якщо ми все-таки не хочемо перевіряти наші дані на відповідність якомусь шаблону, а просто хочемо відібрати значення з деякого списку або навіть діапазону? У цьому випадку у логічному виразі після ключового слова WHERE можна використовувати оператори <code>IN</code> та <code>BETWEEN</code>.</p>
 <p>Оператор <code>IN</code> перевіряє, чи відповідає значення в колонці одному із значень із заданого списку. Іншими словами, він перевіряє, чи входить значення до цього списку:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<div class="sourceCode" id="cb23" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_1 <span class="kw">IN</span> (<span class="st">'product_1'</span>, <span class="st">'product_2'</span>, <span class="st">'product_3'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У свою чергу, оператор <code>BETWEEN</code> дозволяє відібрати дані, що відносяться до деякого інтервалу. При цьому межі інтервалу включаються:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<div class="sourceCode" id="cb24" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_2 <span class="kw">BETWEEN</span> <span class="dv">5</span> <span class="kw">AND</span> <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Запит вище відповідає наступному запиту:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<div class="sourceCode" id="cb25" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_2 <span class="op">&gt;=</span> <span class="dv">5</span> <span class="kw">AND</span> column_2 <span class="op">&lt;=</span> <span class="dv">10</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Оператор <code>BETWEEN</code> можна використовувати і для фільтрації по колонках з датами та часом:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2, column_3</span>
+<div class="sourceCode" id="cb26" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2, column_3</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_3 <span class="kw">BETWEEN</span> <span class="st">'2022-11-20'</span> <span class="kw">AND</span> <span class="st">'2022-12-31'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Однак, в такому випадку, треба враховувати, що дата завжди інтерпретується опівночі (початок дня), тобто. <strong>‘2022-12-31’</strong> насправді означає <strong>‘2022-12-31 00:00:00’</strong>. Тож заданий вище інтервал не потраплять записи пізніше опівночі <strong>‘2022-12-31’</strong>, тобто цей день практично не буде враховано в інтервалі.</p>
 <p>При цьому, запит вище буде рівносильний наступному запиту:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2, column_3</span>
+<div class="sourceCode" id="cb27" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2, column_3</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_3 <span class="op">&gt;=</span> <span class="st">'2022-11-20'</span> <span class="kw">AND</span> column_3 <span class="op">&lt;=</span> <span class="st">'2022-12-31'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Для отримання зворотного результату у поєднанні з операторами <code>IN</code> та <code>BETWEEN</code> можна використовувати оператор <code>NOT</code>:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<div class="sourceCode" id="cb28" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_1 <span class="kw">NOT</span> <span class="kw">IN</span> (<span class="st">'product_1'</span>, <span class="st">'product_2'</span>, <span class="st">'product_3'</span>)</span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1414,14 +1415,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="question">
 <div id="exr-sql-filter-09" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 15.9 </strong></span><br>З таблиці <code>user_actions</code> виведіть всю інформацію про дії користувачів з id <strong>170</strong>, <strong>200</strong> та <strong>230</strong> за період <strong>з 25 серпня до 4 вересня 2022 року включно</strong>. Результат відсортуйте за зменшенням id замовлення - тобто від останніх до найпізніших.</p>
+<p><span class="theorem-title"><strong>Завдання 15.9</strong></span> <br>З таблиці <code>user_actions</code> виведіть всю інформацію про дії користувачів з id <strong>170</strong>, <strong>200</strong> та <strong>230</strong> за період <strong>з 25 серпня до 4 вересня 2022 року включно</strong>. Результат відсортуйте за зменшенням id замовлення - тобто від останніх до найпізніших.</p>
 <p>Поля у результуючій таблиці: <code>user_id</code>, <code>order_id</code>, <code>action</code>, <code>time</code></p>
 </div>
 </div>
 <div id="cell-29" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb29" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>SELECT user_id,</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>       order_id,</span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>       action,</span>
@@ -1584,16 +1585,16 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <h2 data-number="15.4" class="anchored" data-anchor-id="фільтрація-з-null"><span class="header-section-number">15.4</span> Фільтрація з <code>NULL</code></h2>
 <p>Раніше <a href="sql_basics.html#exr-sql11" class="quarto-xref">Завдання&nbsp;<span>14.11</span></a> ми зіткнулися з пропущеними значеннями в таблиці <code>couriers</code> — у деяких кур’єрів не було зазначено їхні дні народження.</p>
 <p>Для перевірки на <code>NULL</code> значення <strong>SQL</strong> є оператор <code>IS NULL</code>. У поєднанні з <code>WHERE</code> записується він так:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<div class="sourceCode" id="cb30" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_1 <span class="kw">IS</span> <span class="kw">NULL</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Якщо ж, навпаки, необхідно відібрати значення <code>не NULL</code>, то додатково використовується оператор <code>NOT</code>:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
+<div class="sourceCode" id="cb31" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column_1, column_2</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> column_1 <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Як ми знаємо, у світі даних <code>NULL</code> означає відсутність інформації. <code>NULL</code> - це не якась величина і тому її не можна порівняти з чимось ще. Результатом порівняння <code>NULL</code> з будь-яким іншим значенням буде той самий <code>NULL</code>. Більше того, <code>NULL</code> не вдасться порівняти і з іншим <code>NULL</code>, тому що в такому випадку порівнюватимуться дві невизначеності і не можна напевно сказати, рівні вони чи ні.</p>
 <p>Спробуйте виконати наступні запити:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">NULL</span> <span class="op">=</span> <span class="kw">NULL</span></span>
+<div class="sourceCode" id="cb32" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">NULL</span> <span class="op">=</span> <span class="kw">NULL</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="kw">NULL</span></span>
@@ -1627,7 +1628,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="question">
 <div id="exr-sql-filter-10" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 15.10 </strong></span><br>Напишіть SQL-запит до таблиці <code>couriers</code> та виведіть всю інформацію про кур’єрів, у яких не вказано їх день народження.</p>
+<p><span class="theorem-title"><strong>Завдання 15.10</strong></span> <br>Напишіть SQL-запит до таблиці <code>couriers</code> та виведіть всю інформацію про кур’єрів, у яких не вказано їх день народження.</p>
 <p>Результат має бути відсортований за зростанням id кур’єра.</p>
 <p>Поля в результуючій таблиці: <code>birth_date</code>, <code>courier_id</code>, <code>sex</code></p>
 </div>
@@ -1635,7 +1636,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-32" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb33" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>SELECT birth_date,</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>       courier_id,</span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>       sex</span>
@@ -1730,7 +1731,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Давайте вирішимо ще кілька завдань, щоб переконатися, що ми розібралися з фільтрацією даних.</p>
 <div class="question">
 <div id="exr-sql-filter-11" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 15.11 </strong></span><br> Визначте id та дати народження <strong>10 наймолодших користувачів <ins>чоловічої</ins> статі</strong> з таблиці <code>users</code>. Не враховуйте користувачів, у яких не вказано дату народження.</p>
+<p><span class="theorem-title"><strong>Завдання 15.11</strong></span> <br> Визначте id та дати народження <strong>10 наймолодших користувачів <ins>чоловічої</ins> статі</strong> з таблиці <code>users</code>. Не враховуйте користувачів, у яких не вказано дату народження.</p>
 <p>Поле в результуючій таблиці: <code>user_id</code>, <code>birth_date</code></p>
 <p><strong>Пояснення:</strong> будьте уважні і пам’ятайте про значення <code>NULL</code>.</p>
 </div>
@@ -1738,7 +1739,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-35" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb34" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>SELECT user_id,</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>       birth_date</span>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>FROM   users</span>
@@ -1818,7 +1819,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="question">
 <div id="exr-sql-filter-12" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 15.12 </strong></span><br> Напишіть SQL-запит до таблиці <code>courier_actions</code>, щоб дізнатися ID та час доставки <strong>останніх 10 замовлень</strong>, доставлених кур’єром з <strong>ID 100</strong>.</p>
+<p><span class="theorem-title"><strong>Завдання 15.12</strong></span> <br> Напишіть SQL-запит до таблиці <code>courier_actions</code>, щоб дізнатися ID та час доставки <strong>останніх 10 замовлень</strong>, доставлених кур’єром з <strong>ID 100</strong>.</p>
 <p>Поля у результуючій таблиці: <code>order_id</code>, <code>time</code></p>
 <p><strong>Пояснення</strong>: Зверніть увагу, що у вихідній таблиці є записи не лише з часом доставки, а й з часом прийняття замовлення.</p>
 </div>
@@ -1826,7 +1827,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-37" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb35" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>SELECT order_id,</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>       time</span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>FROM   courier_actions</span>
@@ -1909,7 +1910,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>І ще кілька завдань на роботу з датами та часом.</p>
 <div class="question">
 <div id="exr-sql-filter-13" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 15.13 </strong></span><br> З таблиці <code>user_actions</code> отримаєте id всіх замовлень, зроблених користувачами сервісу <strong>у серпні 2022 року</strong>.</p>
+<p><span class="theorem-title"><strong>Завдання 15.13</strong></span> <br> З таблиці <code>user_actions</code> отримаєте id всіх замовлень, зроблених користувачами сервісу <strong>у серпні 2022 року</strong>.</p>
 <p>Результат відсортуйте за зростанням id замовлення.</p>
 <p>Поле у результуючій таблиці: <code>order_id</code></p>
 <p><strong>Пояснення</strong>: зверніть увагу, що у вихідній таблиці є записи не лише з часом оформлення, а й часом скасування замовлення.У цій задачі може стати в нагоді функція <code>DATE_PART</code>. Ми розглядали її в <a href="sql_basics.html#exr-sql10" class="quarto-xref">Завдання&nbsp;<span>14.10</span></a>.</p>
@@ -1918,7 +1919,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-40" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb36" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>SELECT order_id</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>FROM   user_actions</span>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>WHERE  action <span class="op">=</span> <span class="st">'create_order'</span></span>
@@ -1991,7 +1992,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="question">
 <div id="exr-sql-filter-14" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 15.14 </strong></span><br> З таблиці <code>couriers</code> відберіть id всіх кур’єрів, що народилися в період <strong>з 1990 по 1995 включно</strong>.</p>
+<p><span class="theorem-title"><strong>Завдання 15.14</strong></span> <br> З таблиці <code>couriers</code> відберіть id всіх кур’єрів, що народилися в період <strong>з 1990 по 1995 включно</strong>.</p>
 <p>Результат відсортуйте за зростанням id кур’єра.</p>
 <p>Поле у результуючій таблиці: <code>courier_id</code></p>
 <p><strong>Пояснення</strong>: у цьому завдання знову може стати в нагоді функція <code>DATE_PART</code>.</p>
@@ -2000,7 +2001,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-42" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb37" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>SELECT courier_id</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>FROM   couriers</span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>WHERE  date_part(<span class="st">'year'</span>, birth_date) BETWEEN <span class="dv">1990</span></span>
@@ -2072,11 +2073,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="question">
 <div id="exr-sql-filter-15" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 15.15 </strong></span><br> З таблиці <code>user_actions</code> отримайте інформацію про всі скасування замовлень, які користувачі здійснювали <strong>протягом серпня 2022 по середах з 12:00 до 15:59</strong>.</p>
+<p><span class="theorem-title"><strong>Завдання 15.15</strong></span> <br> З таблиці <code>user_actions</code> отримайте інформацію про всі скасування замовлень, які користувачі здійснювали <strong>протягом серпня 2022 по середах з 12:00 до 15:59</strong>.</p>
 <p>Результат відсортуйте за зменшенням id скасованих замовлень.</p>
 <p>Поля у результуючій таблиці: <code>user_id</code>, <code>order_id</code>, <code>action</code>, <code>time</code></p>
 <p>Пояснення: будьте уважні при роботі з датами та часом. Для вирішення задачі вам знадобиться функція <code>DATE_PART</code>. Для отримання дня тижня можна вказати аргумент <code>'dow'</code> (“day of week”):</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> DATE_PART(<span class="st">'dow'</span>, <span class="dt">DATE</span> <span class="st">'2022-12-31'</span>)</span>
+<div class="sourceCode" id="cb38" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> DATE_PART(<span class="st">'dow'</span>, <span class="dt">DATE</span> <span class="st">'2022-12-31'</span>)</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fl">6.00</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2086,7 +2087,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-44" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb39" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>SELECT  user_id,</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>        order_id,</span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>        action,</span>
@@ -2199,7 +2200,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Минулого разу ми вирішили завдання для одного з менеджерів та порахували ПДВ кожного товару. Ви довго дивилися на розрахунки, що вийшли, і вас все-таки замучила совість: адже ви точно знаєте, що на окремі групи товарів ПДВ становить не 20%, а 10%.</p>
 <p>Оскільки менеджер раптово перестав відповідати на ваші повідомлення, ви вирішили написати безпосередньо бухгалтеру та запросили список товарів, на які поширюється ПДВ 10%.</p>
 <p>Ось який список ви отримали:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>'sugar', 'crackers', 'drying', 'seeds',</span>
+<div class="sourceCode" id="cb40" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>'sugar', 'crackers', 'drying', 'seeds',</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>'linseed oil', 'grapes', 'olive oil',</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>'watermelon', 'baton', 'yogurt', 'cream', 'buckwheat',</span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>'oatmeal', 'pasta', 'mutton', 'oranges',</span>
@@ -2210,7 +2211,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>'pears', 'flatbread', 'milk', 'chicken', 'lavash', 'waffles', 'tangerines'</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="question">
 <div id="exr-sql-filter-16" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 15.16 </strong></span><br> Як і у минулому завданні (<a href="sql_basics.html#exr-sql15" class="quarto-xref">Завдання&nbsp;<span>14.15</span></a>), обчисліть ПДВ кожного товару в таблиці <code>products</code> і розрахуйте ціну без урахування ПДВ. Однак тепер врахуйте, що для товарів зі списку податок становить <strong>10%</strong>. Для решти товарів ПДВ той самий — <strong>20%</strong>.</p>
+<p><span class="theorem-title"><strong>Завдання 15.16</strong></span> <br> Як і у минулому завданні (<a href="sql_basics.html#exr-sql15" class="quarto-xref">Завдання&nbsp;<span>14.15</span></a>), обчисліть ПДВ кожного товару в таблиці <code>products</code> і розрахуйте ціну без урахування ПДВ. Однак тепер врахуйте, що для товарів зі списку податок становить <strong>10%</strong>. Для решти товарів ПДВ той самий — <strong>20%</strong>.</p>
 <p>Виведіть всю інформацію про товари, включаючи суму податку та ціну без його врахування. Колонки із сумою податку та ціною без ПДВ назвіть відповідно <code>tax</code> та <code>price_before_tax</code>. Округліть значення у цих колонках <strong>до двох знаків після коми</strong>.</p>
 <p>Результат відсортуйте спочатку за спаданням ціни товару без урахування ПДВ, потім за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code>, <code>tax</code>, <code>price_before_tax</code></p>
@@ -2220,7 +2221,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-47" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb41" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>       price,</span>
@@ -2497,27 +2498,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -2532,10 +2512,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             break;
           }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -2544,8 +2528,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -2787,4 +2778,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/Aranaur/py4ds/blob/main/chapters/sql/sql_filter.ipynb" class="toc-action"><i class="bi bi-github"></i>Редагувати сторінку</a></li><li><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action"><i class="bi empty"></i>Повідомити про проблему</a></li><li><a href="https://github.com/Aranaur/py4ds/blob/main/chapters/sql/sql_filter.ipynb" class="toc-action"><i class="bi empty"></i>Переглянути код</a></li></ul></div></div></div></footer><script src="../../site_libs/quarto-contrib/line-highlight-1.0.0/line-highlight.js" defer="true"></script>
 </body></html>

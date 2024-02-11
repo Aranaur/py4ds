@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.525">
+<meta name="generator" content="quarto-1.4.547">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 <meta name="description" content="Книга-конспект матеріалів">
+
 <title>Від нуля до Python Data Scientist - 7&nbsp; Читання та запис файлів</title>
 <style>
 code{white-space: pre-wrap;}
@@ -54,6 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
+
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
@@ -72,7 +76,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/line-highlight-1.0.0/line-highlight.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -98,18 +104,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Надіслати",
     "search-label": "Пошук"
   }
-}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-0C9TJBF3C5"></script><script type="text/javascript">
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-0C9TJBF3C5"></script>
+
+<script type="text/javascript">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
-</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
 </head>
+
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -120,38 +135,43 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../../cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <img src="../../cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../../">Від нуля до Python Data Scientist</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/Aranaur/py4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/Aranaur/py4ds" title="Вихідний код" class="quarto-navigation-tool px-1" aria-label="Вихідний код"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-<li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
               <i class="bi bi-bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
               <i class="bi bi-bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
               <i class="bi bi-bi-linkedin pe-1"></i>
             LinkedIn
             </a>
           </li>
       </ul>
-</div>
+    </div>
 </div>
     </div>
       </div>
@@ -162,7 +182,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Вступне слово</span></a>
@@ -177,8 +197,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/python/python_basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Функції та змінні</span></span></a>
@@ -234,7 +254,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/python/python_list_set.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_et_cetera.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Множини</span></span></a>
   </div>
 </li>
@@ -257,7 +277,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -267,8 +287,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/sql/sql_basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Базові запити</span></span></a>
@@ -323,7 +343,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
@@ -332,33 +352,35 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   </div>
 </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Зміст</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Зміст</h2>
    
   <ul>
-<li><a href="#%D0%B7%D0%B0%D0%BF%D0%B8%D1%81-%D0%B4%D0%B0%D0%BD%D0%B8%D1%85" id="toc-запис-даних" class="nav-link active" data-scroll-target="#%D0%B7%D0%B0%D0%BF%D0%B8%D1%81-%D0%B4%D0%B0%D0%BD%D0%B8%D1%85"><span class="header-section-number">7.1</span> Запис даних</a></li>
-  <li><a href="#%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%BD%D0%B8%D0%B9-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80" id="toc-контекстний-менеджер" class="nav-link" data-scroll-target="#%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%BD%D0%B8%D0%B9-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80"><span class="header-section-number">7.2</span> Контекстний менеджер</a></li>
-  <li><a href="#%D1%87%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B4%D0%B0%D0%BD%D0%B8%D1%85" id="toc-читання-даних" class="nav-link" data-scroll-target="#%D1%87%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B4%D0%B0%D0%BD%D0%B8%D1%85"><span class="header-section-number">7.3</span> Читання даних</a></li>
-  <li><a href="#%D1%84%D0%B0%D0%B9%D0%BB%D0%B8-csv" id="toc-файли-csv" class="nav-link" data-scroll-target="#%D1%84%D0%B0%D0%B9%D0%BB%D0%B8-csv"><span class="header-section-number">7.4</span> Файли csv</a></li>
-  <li><a href="#%D0%B0%D0%BD%D0%BE%D0%BD%D1%96%D0%BC%D0%BD%D1%96-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D1%96%D1%97" id="toc-анонімні-функції" class="nav-link" data-scroll-target="#%D0%B0%D0%BD%D0%BE%D0%BD%D1%96%D0%BC%D0%BD%D1%96-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D1%96%D1%97"><span class="header-section-number">7.5</span> Анонімні функції</a></li>
-  <li>
-<a href="#%D0%BF%D0%B0%D0%BA%D0%B5%D1%82-csv" id="toc-пакет-csv" class="nav-link" data-scroll-target="#%D0%BF%D0%B0%D0%BA%D0%B5%D1%82-csv"><span class="header-section-number">7.6</span> Пакет <code>csv</code></a>
+  <li><a href="#запис-даних" id="toc-запис-даних" class="nav-link active" data-scroll-target="#запис-даних"><span class="header-section-number">7.1</span> Запис даних</a></li>
+  <li><a href="#контекстний-менеджер" id="toc-контекстний-менеджер" class="nav-link" data-scroll-target="#контекстний-менеджер"><span class="header-section-number">7.2</span> Контекстний менеджер</a></li>
+  <li><a href="#читання-даних" id="toc-читання-даних" class="nav-link" data-scroll-target="#читання-даних"><span class="header-section-number">7.3</span> Читання даних</a></li>
+  <li><a href="#файли-csv" id="toc-файли-csv" class="nav-link" data-scroll-target="#файли-csv"><span class="header-section-number">7.4</span> Файли csv</a></li>
+  <li><a href="#анонімні-функції" id="toc-анонімні-функції" class="nav-link" data-scroll-target="#анонімні-функції"><span class="header-section-number">7.5</span> Анонімні функції</a></li>
+  <li><a href="#пакет-csv" id="toc-пакет-csv" class="nav-link" data-scroll-target="#пакет-csv"><span class="header-section-number">7.6</span> Пакет <code>csv</code></a>
   <ul class="collapse">
-<li><a href="#%D1%87%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F-csv-%D1%84%D0%B0%D0%B9%D0%BB%D1%96%D0%B2" id="toc-читання-csv-файлів" class="nav-link" data-scroll-target="#%D1%87%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F-csv-%D1%84%D0%B0%D0%B9%D0%BB%D1%96%D0%B2"><span class="header-section-number">7.6.1</span> Читання csv-файлів</a></li>
-  <li><a href="#%D0%B7%D0%B0%D0%BF%D0%B8%D1%81-csv-%D1%84%D0%B0%D0%B9%D0%BB%D1%96%D0%B2" id="toc-запис-csv-файлів" class="nav-link" data-scroll-target="#%D0%B7%D0%B0%D0%BF%D0%B8%D1%81-csv-%D1%84%D0%B0%D0%B9%D0%BB%D1%96%D0%B2"><span class="header-section-number">7.6.2</span> Запис csv-файлів</a></li>
+  <li><a href="#читання-csv-файлів" id="toc-читання-csv-файлів" class="nav-link" data-scroll-target="#читання-csv-файлів"><span class="header-section-number">7.6.1</span> Читання csv-файлів</a></li>
+  <li><a href="#запис-csv-файлів" id="toc-запис-csv-файлів" class="nav-link" data-scroll-target="#запис-csv-файлів"><span class="header-section-number">7.6.2</span> Запис csv-файлів</a></li>
+  </ul></li>
+  <li><a href="#бінарні-файли" id="toc-бінарні-файли" class="nav-link" data-scroll-target="#бінарні-файли"><span class="header-section-number">7.7</span> Бінарні файли</a></li>
   </ul>
-</li>
-  <li><a href="#%D0%B1%D1%96%D0%BD%D0%B0%D1%80%D0%BD%D1%96-%D1%84%D0%B0%D0%B9%D0%BB%D0%B8" id="toc-бінарні-файли" class="nav-link" data-scroll-target="#%D0%B1%D1%96%D0%BD%D0%B0%D1%80%D0%BD%D1%96-%D1%84%D0%B0%D0%B9%D0%BB%D0%B8"><span class="header-section-number">7.7</span> Бінарні файли</a></li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/Aranaur/py4ds/edit/main/chapters/python/python_files_io.qmd" class="toc-action"><i class="bi bi-github"></i>Редагувати сторінку</a></li><li><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action"><i class="bi empty"></i>Повідомити про проблему</a></li><li><a href="https://github.com/Aranaur/py4ds/blob/main/chapters/python/python_files_io.qmd" class="toc-action"><i class="bi empty"></i>Переглянути код</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Aranaur/py4ds/edit/main/chapters/python/python_files_io.qmd" class="toc-action"><i class="bi bi-github"></i>Редагувати сторінку</a></li><li><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action"><i class="bi empty"></i>Повідомити про проблему</a></li><li><a href="https://github.com/Aranaur/py4ds/blob/main/chapters/python/python_files_io.qmd" class="toc-action"><i class="bi empty"></i>Переглянути код</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/python/python.html">Python</a></li><li class="breadcrumb-item"><a href="../../chapters/python/python_files_io.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Читання та запис файлів</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Читання та запис файлів</span>
-</h1>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/python/python.html">Python</a></li><li class="breadcrumb-item"><a href="../../chapters/python/python_files_io.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Читання та запис файлів</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Читання та запис файлів</span></h1>
 </div>
 
 
@@ -372,25 +394,28 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   
 
 
-</header><p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p><p>До цього часу більшість програм, які ми писали, просто зберігали всю інформацію в пам’яті, тобто в змінних або всередині самої програми. Недоліком цього є те, що як тільки програма завершує роботу, все, що ви ввели, все, що ви робили з цією програмою, втрачається.</p>
+</header>
+
+<p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p>
+<p>До цього часу більшість програм, які ми писали, просто зберігали всю інформацію в пам’яті, тобто в змінних або всередині самої програми. Недоліком цього є те, що як тільки програма завершує роботу, все, що ви ввели, все, що ви робили з цією програмою, втрачається.</p>
 <p>Використовуючи файли, ви можете зберігати інформацію довгостроково, і введення/виведення файлів (англ. <em>file I/O</em>) в контексті програмування - це написання коду, який може читати з файлів, тобто завантажувати інформацію з них, або записувати до них, тобто зберігати інформацію у самих файлах.</p>
-<section id="запис-даних" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="запис-даних">
-<span class="header-section-number">7.1</span> Запис даних</h2>
+<section id="запис-даних" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="запис-даних"><span class="header-section-number">7.1</span> Запис даних</h2>
 <p>Для початку пропоную розглянути знайому структуру даних, яку ми бачили раніше - <code>list</code>.</p>
 <p>Створимо програму <code>names.py</code>, яка буде зберігати імена у списку, а потім виводити їх на екран:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb1" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> names.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> names.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Як Вас звати? "</span>)</span>
+<div id="io-names-eval" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Як Вас звати? "</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Припустімо, що ми хочемо додати підтримку збереження декількох імен, наприклад трьох. Для цього ми можемо використати список. Для цього необхідно створити пустий список <code>names</code> і додавати (<code>append</code>) до нього імена, які вводить користувач. Вивід імен відсортуємо за алфавітом:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>names <span class="op">=</span> []</span>
+<div id="io-names-list-eval" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>names <span class="op">=</span> []</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    names.append(<span class="bu">input</span>(<span class="st">"Як Вас звати? "</span>))</span>
@@ -398,7 +423,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name <span class="kw">in</span> <span class="bu">sorted</span>(names):</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre class="output"><code>Як Вас звати? Гаррі
+<pre class="output" data-code-line-numbers=""><code>Як Вас звати? Гаррі
 Як Вас звати? Рон
 Як Вас звати? Герміона
 Привіт, Гаррі!
@@ -408,16 +433,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Давайте перепишемо нашу програму так, щоб вона зберігала імена у файлі <code>names.txt</code>. Для цього нам необхідно відкрити файл, використовуючи функцію <code>open</code> - ця функція приймає два аргументи: ім’я файлу і режим відкриття.</p>
 <p>Режим відкриття може бути:</p>
 <ul>
-<li>
-<code>r</code> (англ. <em>read</em>) - читання, це режим за замовчуванням.</li>
-<li>
-<code>w</code> (англ. <em>write</em>) - запис, цей режим перезаписує файл.</li>
-<li>
-<code>a</code> (англ. <em>append</em>) - дописування, цей режим додає дані до файлу.</li>
+<li><code>r</code> (англ. <em>read</em>) - читання, це режим за замовчуванням.</li>
+<li><code>w</code> (англ. <em>write</em>) - запис, цей режим перезаписує файл.</li>
+<li><code>a</code> (англ. <em>append</em>) - дописування, цей режим додає дані до файлу.</li>
 </ul>
 <p>Якщо файл не існує, то він буде створений. Давайте перепишемо нашу програму з використанням функції <code>open</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Як Вас звати? "</span>)</span>
+<div id="io-names-list-file-eval" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Як Вас звати? "</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'names.txt'</span>, <span class="st">'w'</span>)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span>.write(name)</span>
@@ -428,7 +450,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb6" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> names.py</span>
+<div class="sourceCode" id="cb6" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> names.py</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Як</span> Вас звати<span class="pp">?</span> Гаррі</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> names.txt</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -437,14 +459,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="code-with-filename-file">
 <pre><strong>names.txt</strong></pre>
 </div>
-<div class="sourceCode" id="cb7" data-filename="names.txt"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Гаррі</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7" data-filename="names.txt" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Гаррі</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Все працює! Тепер давайте виконаємо цю програму ще раз, але цього разу введемо ім’я <code>Рон</code>:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb8" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> names.py</span>
+<div class="sourceCode" id="cb8" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> names.py</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Як</span> Вас звати<span class="pp">?</span> Рон</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> names.txt</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -453,7 +475,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="code-with-filename-file">
 <pre><strong>names.txt</strong></pre>
 </div>
-<div class="sourceCode" id="cb9" data-filename="names.txt"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Рон</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9" data-filename="names.txt" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Рон</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Як бачимо, файл перезаписався, і тепер в ньому знаходиться тільки ім’я <code>Рон</code>. Якщо ми хочемо додати ім’я до файлу, а не перезаписати його, то використовуйте режим <code>a</code>.</p>
 <p>Видаліть файл <code>names.txt</code> і давайте перепишемо нашу програму так, щоб вона дописувала імена до файлу <code>names.txt</code>:</p>
@@ -461,11 +483,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb10" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> names.txt</span>
+<div class="sourceCode" id="cb10" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> names.txt</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">remove</span> names.txt<span class="pp">?</span> y</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Як Вас звати? "</span>)</span>
+<div id="io-names-list-file-append-eval" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb11" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Як Вас звати? "</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'names.txt'</span>, <span class="st">'a'</span>)</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span>.write(name)</span>
@@ -476,7 +498,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb12" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> names.py</span>
+<div class="sourceCode" id="cb12" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> names.py</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Як</span> Вас звати<span class="pp">?</span> Герміона</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> names.txt</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -484,14 +506,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="code-with-filename-file">
 <pre><strong>names.txt</strong></pre>
 </div>
-<div class="sourceCode" id="cb13" data-filename="names.txt"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Герміона</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13" data-filename="names.txt" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Герміона</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Запустимо програму ще раз і спробуємо додати ім’я <code>Гаррі</code> та <code>Рон</code>:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb14" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> names.py</span>
+<div class="sourceCode" id="cb14" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> names.py</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Як</span> Вас звати<span class="pp">?</span> Гаррі</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> names.py</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Як</span> Вас звати<span class="pp">?</span> Рон</span>
@@ -501,18 +523,18 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="code-with-filename-file">
 <pre><strong>names.txt</strong></pre>
 </div>
-<div class="sourceCode" id="cb15" data-filename="names.txt"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ГерміонаГарріРон</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15" data-filename="names.txt" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ГерміонаГарріРон</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Зовсім не той результат, який ми очікували. Імена записалися в один рядок. Це тому, що функція <code>write</code> не додає символ переносу рядка (<code>\n</code>) після запису імені. Щоб це виправити, ми можемо додати символ переносу рядка після запису імені:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb16" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> names.txt</span>
+<div class="sourceCode" id="cb16" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> names.txt</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">remove</span> names.txt<span class="pp">?</span> y</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Як Вас звати? "</span>)</span>
+<div id="io-names-append-newline-eval" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb17" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Як Вас звати? "</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">'names.txt'</span>, <span class="st">'a'</span>)</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span>.write(name <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
@@ -523,7 +545,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb18" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> names.py</span>
+<div class="sourceCode" id="cb18" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> names.py</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Як</span> Вас звати<span class="pp">?</span> Герміона</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> names.py</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Як</span> Вас звати<span class="pp">?</span> Гаррі</span>
@@ -535,7 +557,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="code-with-filename-file">
 <pre><strong>names.txt</strong></pre>
 </div>
-<div class="sourceCode" id="cb19" data-filename="names.txt"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Герміона</span></span>
+<div class="sourceCode" id="cb19" data-filename="names.txt" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Герміона</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Гаррі</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Рон</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -552,49 +574,51 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Документація до функції <code>open</code>: <a href="https://docs.python.org/3/library/functions.html#open" class="uri">https://docs.python.org/3/library/functions.html#open</a></p>
 </div>
 </div>
-</section><section id="контекстний-менеджер" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="контекстний-менеджер">
-<span class="header-section-number">7.2</span> Контекстний менеджер</h2>
+</section>
+<section id="контекстний-менеджер" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="контекстний-менеджер"><span class="header-section-number">7.2</span> Контекстний менеджер</h2>
 <p>Під час написання коду дуже легко забути закрити файли і це може стати проблемою. Тому ми можемо піти більш безпечним шляхом і використовувати контекстний менеджер.</p>
 <p><strong>Контекстний менеджер</strong> - це спеціальна конструкція мови Python, яка дозволяє виконувати певні дії до входу в блок коду і після виходу з блоку коду. Для використання контекстного менеджера використовується ключове слово <code>with</code>. Давайте перепишемо нашу програму з використанням контекстного менеджера:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Як Вас звати? "</span>)</span>
+<div id="io-names-list-file-with-eval" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb20" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Як Вас звати? "</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'names.txt'</span>, <span class="st">'a'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">file</span>.write(name <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Такий підхід не змінює функціональність програми, але є більш пітоничним.</p>
-</section><section id="читання-даних" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="читання-даних">
-<span class="header-section-number">7.3</span> Читання даних</h2>
+</section>
+<section id="читання-даних" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="читання-даних"><span class="header-section-number">7.3</span> Читання даних</h2>
 <p>Для читання у функції <code>open</code> використовується режим <code>r</code>. Давайте створимо програму <code>names_read.py</code>, яка буде читати імена з файлу <code>names.txt</code> і виводити їх на екран:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb21" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> names_read.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> names_read.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Для читання використаємо метод <code>readlines</code>, яка повертає список рядків, які містяться у файлі. Цей метод повертає список, тому ми можемо використати цикл <code>for</code> для виведення імен на екран. Також слід врахувати, що метод <code>readlines</code> повертає список, в якому кожен рядок містить символ переносу рядка (<code>\n</code>). Щоб цього уникнути, ми можемо використати метод <code>rstrip</code>, який видаляє символ переносу рядка з кінця рядка:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'names.txt'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<div id="io-names-list-file-read-eval" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb22" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'names.txt'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    lines <span class="op">=</span> <span class="bu">file</span>.readlines()</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> lines:</span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>line<span class="sc">.</span>rstrip()<span class="sc">}</span><span class="ss">!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre class="output"><code>Привіт, Герміона!
+<pre class="output" data-code-line-numbers=""><code>Привіт, Герміона!
 Привіт, Гаррі!
 Привіт, Рон!</code></pre>
 <p>Але у попередньому прикладі ми двічі проходимось по всьому файлу: спочатку ми читаємо його у список, а потім виводимо список на екран. Це не є найкращим рішенням, оскільки ми можемо витратити багато пам’яті, якщо файл дуже великий. Тому ми можемо використати цикл <code>for</code> безпосередньо для читання файлу:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'names.txt'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<div id="io-names-list-file-read-eval-2" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb24" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'names.txt'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>line<span class="sc">.</span>rstrip()<span class="sc">}</span><span class="ss">!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre class="output"><code>Привіт, Герміона!
+<pre class="output" data-code-line-numbers=""><code>Привіт, Герміона!
 Привіт, Гаррі!
 Привіт, Рон!</code></pre>
 <p>Тепер трошки ускладнимо задачу. Припустимо, що ми хочемо виводити привітання у алфавітному порядку. Для цього нам необхідно відсортувати список імен. Для цього ми можемо використати функцію <code>sorted</code>, яка повертає відсортований список. Давайте перепишемо нашу програму з використанням функції:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>names <span class="op">=</span> []</span>
+<div id="io-names-list-file-read-sort-eval" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb26" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>names <span class="op">=</span> []</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'names.txt'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
@@ -603,25 +627,25 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name <span class="kw">in</span> <span class="bu">sorted</span>(names):</span>
 <span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre class="output"><code>Привіт, Гаррі!
+<pre class="output" data-code-line-numbers=""><code>Привіт, Гаррі!
 Привіт, Герміона!
 Привіт, Рон!</code></pre>
 <p>Ми можемо зробити цю програму більш компактною. Для цього ми можемо відсортувати сам файл:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'names.txt'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<div id="io-names-list-file-read-sort-eval-2" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb28" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'names.txt'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">sorted</span>(<span class="bu">file</span>):</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>line<span class="sc">.</span>rstrip()<span class="sc">}</span><span class="ss">!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre class="output"><code>Привіт, Гаррі!
+<pre class="output" data-code-line-numbers=""><code>Привіт, Гаррі!
 Привіт, Герміона!
 Привіт, Рон!</code></pre>
 <p>Для зворотного сортування ми можемо використати параметр <code>reverse</code> функції <code>sorted</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'names.txt'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<div id="io-names-list-file-read-sort-reverse-eval" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb30" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'names.txt'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">sorted</span>(<span class="bu">file</span>, reverse<span class="op">=</span><span class="va">True</span>):</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'Привіт, </span><span class="sc">{</span>line<span class="sc">.</span>rstrip()<span class="sc">}</span><span class="ss">!'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre class="output"><code>Привіт, Рон!
+<pre class="output" data-code-line-numbers=""><code>Привіт, Рон!
 Привіт, Герміона!
 Привіт, Гаррі!</code></pre>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -637,21 +661,22 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Документація до функції <code>sorted</code>: <a href="https://docs.python.org/3/library/functions.html#sorted" class="uri">https://docs.python.org/3/library/functions.html#sorted</a></p>
 </div>
 </div>
-</section><section id="файли-csv" class="level2" data-number="7.4"><h2 data-number="7.4" class="anchored" data-anchor-id="файли-csv">
-<span class="header-section-number">7.4</span> Файли csv</h2>
+</section>
+<section id="файли-csv" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="файли-csv"><span class="header-section-number">7.4</span> Файли csv</h2>
 <p>Файли csv (англ. <em>comma-separated values</em>, значення, розділені комами) - це файли, які містять дані у вигляді таблиці, де значення розділені комами. Давайте створимо файл <code>students.csv</code>:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb32" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> students.csv</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> students.csv</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Запишемо у нього імена і додамо гуртожиток:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>students.csv</strong></pre>
 </div>
-<div class="sourceCode" id="cb33" data-filename="students.csv"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Гаррі,Гріфіндор</span></span>
+<div class="sourceCode" id="cb33" data-filename="students.csv" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Гаррі,Гріфіндор</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Герміона,Гріфіндор</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Рон,Гріфіндор</span></span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Драко,Слизерин</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -661,33 +686,33 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb34" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> students.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> students.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Отже, в нас є імені і гуртожитки, які розділені комами. Це означає, що ми можемо використати метод <code>split</code> для розділення рядка на частини. Давайте перепишемо нашу програму з використанням методу <code>split</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'students.csv'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<div id="io-csv-eval" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb35" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'students.csv'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>        row <span class="op">=</span> line.rstrip().split(<span class="st">','</span>)</span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>row[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> живе в гуртожитку </span><span class="sc">{</span>row[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre class="output"><code>Гаррі живе в гуртожитку Гріфіндор
+<pre class="output" data-code-line-numbers=""><code>Гаррі живе в гуртожитку Гріфіндор
 Герміона живе в гуртожитку Гріфіндор
 Рон живе в гуртожитку Гріфіндор
 Драко живе в гуртожитку Слизерин</code></pre>
 <p>Коли у вас є змінна, яка є списком, наприклад <code>row</code>, вам не обов’язково переносити всі ці змінні у окремий список. Ви можете розпакувати всю послідовність одразу. Іншими словами, якщо ви знаєте, що функція типу <code>split</code> повертає список, який містить два елементи, ви можете розпакувати цей список у дві змінні:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'students.csv'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<div id="io-csv-unpack-eval" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb37" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'students.csv'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>        name, house <span class="op">=</span> line.rstrip().split(<span class="st">','</span>)</span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> живе в гуртожитку </span><span class="sc">{</span>house<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre class="output"><code>Гаррі живе в гуртожитку Гріфіндор
+<pre class="output" data-code-line-numbers=""><code>Гаррі живе в гуртожитку Гріфіндор
 Герміона живе в гуртожитку Гріфіндор
 Рон живе в гуртожитку Гріфіндор
 Драко живе в гуртожитку Слизерин</code></pre>
 <p>Уявімо, що я хочу відсортувати цей список даних. Для цього я можу використати функцію <code>sorted</code> і вказати, що я хочу сортувати за другим елементом списку:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
+<div id="io-csv-sorted-eval" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb39" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'students.csv'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
@@ -697,13 +722,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> student <span class="kw">in</span> <span class="bu">sorted</span>(students_lst):</span>
 <span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(student)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre class="output"><code>Драко живе в гуртожитку Слизерин
+<pre class="output" data-code-line-numbers=""><code>Драко живе в гуртожитку Слизерин
 Гаррі живе в гуртожитку Гріфіндор
 Герміона живе в гуртожитку Гріфіндор
 Рон живе в гуртожитку Гріфіндор</code></pre>
 <p>З технічної точки зору, це працює, але це не є найкращим рішенням, оскільки дані сортуються по цілому реченню. Ми можемо вирішити таку задачу за допомогою словників. Для цього нам необхідно створити пустий словник <code>student_dict</code> і додавати до нього інформацію про студентів. Давайте перепишемо нашу програму з використанням словників:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
+<div id="io-csv-dict-eval" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb41" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'students.csv'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
@@ -717,8 +742,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>student[<span class="st">"name"</span>]<span class="sc">}</span><span class="ss"> живе в гуртожитку </span><span class="sc">{</span>student[<span class="st">"house"</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Ми можемо скоротити код шляхом присвоєння значень словнику одразу:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
+<div id="io-csv-dict-eval-2" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb42" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'students.csv'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
@@ -730,8 +755,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>student[<span class="st">"name"</span>]<span class="sc">}</span><span class="ss"> живе в гуртожитку </span><span class="sc">{</span>student[<span class="st">"house"</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Але результат все ще не відсортований. Функція <code>sorted</code> приймає параметр <code>key</code>, який вказує, за яким ключем сортувати. Для цього ми можемо використати функцію <code>get_name</code>, яка повертає ім’я студента і використаємо її як параметр <code>key</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
+<div id="io-csv-dict-sorted-eval" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb43" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'students.csv'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
@@ -745,13 +770,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> student <span class="kw">in</span> <span class="bu">sorted</span>(students_lst, key<span class="op">=</span>get_name):</span>
 <span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>student[<span class="st">"name"</span>]<span class="sc">}</span><span class="ss"> живе в гуртожитку </span><span class="sc">{</span>student[<span class="st">"house"</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre class="output"><code>Драко живе в гуртожитку Слизерин
+<pre class="output" data-code-line-numbers=""><code>Драко живе в гуртожитку Слизерин
 Гаррі живе в гуртожитку Гріфіндор
 Герміона живе в гуртожитку Гріфіндор
 Рон живе в гуртожитку Гріфіндор</code></pre>
 <p>Якщо ж я захочу відсортувати за гуртожитком у зворотному порядку, то я можу використати функцію <code>get_house</code> і додати параметр <code>reverse=True</code> у функцію <code>sorted</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
+<div id="io-csv-dict-sorted-eval-2" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb45" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'students.csv'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
@@ -765,7 +790,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> student <span class="kw">in</span> <span class="bu">sorted</span>(students_lst, key<span class="op">=</span>get_house, reverse<span class="op">=</span><span class="va">True</span>):</span>
 <span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>student[<span class="st">"name"</span>]<span class="sc">}</span><span class="ss"> живе в гуртожитку </span><span class="sc">{</span>student[<span class="st">"house"</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre class="output"><code>Драко живе в гуртожитку Слизерин
+<pre class="output" data-code-line-numbers=""><code>Драко живе в гуртожитку Слизерин
 Гаррі живе в гуртожитку Гріфіндор
 Герміона живе в гуртожитку Гріфіндор
 Рон живе в гуртожитку Гріфіндор</code></pre>
@@ -782,11 +807,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Зверніть увагу, що в якості аргументу <code>key</code> функції <code>sorted</code> ми передаємо функцію <code>get_house</code>, <strong>без дужок</strong>. Ми хочемо передати функцію, а не викликати її.</p>
 </div>
 </div>
-</section><section id="анонімні-функції" class="level2" data-number="7.5"><h2 data-number="7.5" class="anchored" data-anchor-id="анонімні-функції">
-<span class="header-section-number">7.5</span> Анонімні функції</h2>
+</section>
+<section id="анонімні-функції" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="анонімні-функції"><span class="header-section-number">7.5</span> Анонімні функції</h2>
 <p>У попередньому прикладі ми використовували функції <code>get_name</code> і <code>get_house</code>, які одразу використовуємо і більші ніколи до них не повертаємось. Ми можемо спростити цей код і використати <strong>анонімні функції</strong> (англ. <em>lambda functions</em>), які дозволяють нам визначити функцію в одному рядку. Давайте перепишемо нашу програму з використанням анонімних функцій:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
+<div id="io-csv-dict-sorted-eval-3" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb47" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'students.csv'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
@@ -797,27 +823,27 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> student <span class="kw">in</span> <span class="bu">sorted</span>(students_lst, key<span class="op">=</span><span class="kw">lambda</span> student: student[<span class="st">'name'</span>]):</span>
 <span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>student[<span class="st">"name"</span>]<span class="sc">}</span><span class="ss"> живе в гуртожитку </span><span class="sc">{</span>student[<span class="st">"house"</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre class="output"><code>Драко живе в гуртожитку Слизерин
+<pre class="output" data-code-line-numbers=""><code>Драко живе в гуртожитку Слизерин
 Гаррі живе в гуртожитку Гріфіндор
 Герміона живе в гуртожитку Гріфіндор
 Рон живе в гуртожитку Гріфіндор</code></pre>
-</section><section id="пакет-csv" class="level2" data-number="7.6"><h2 data-number="7.6" class="anchored" data-anchor-id="пакет-csv">
-<span class="header-section-number">7.6</span> Пакет <code>csv</code>
-</h2>
-<section id="читання-csv-файлів" class="level3" data-number="7.6.1"><h3 data-number="7.6.1" class="anchored" data-anchor-id="читання-csv-файлів">
-<span class="header-section-number">7.6.1</span> Читання csv-файлів</h3>
+</section>
+<section id="пакет-csv" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="пакет-csv"><span class="header-section-number">7.6</span> Пакет <code>csv</code></h2>
+<section id="читання-csv-файлів" class="level3" data-number="7.6.1">
+<h3 data-number="7.6.1" class="anchored" data-anchor-id="читання-csv-файлів"><span class="header-section-number">7.6.1</span> Читання csv-файлів</h3>
 <p>Давайте змінимо файл <code>students.csv</code> і замінимо гуртожитки на будинки де вони виросли:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>students.csv</strong></pre>
 </div>
-<div class="sourceCode" id="cb49" data-filename="students.csv"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Гаррі,Тисова,</span> 4</span>
+<div class="sourceCode" id="cb49" data-filename="students.csv" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Гаррі,Тисова,</span> 4</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Рон,Нора</span></span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Драко,Маєток</span> Мелфоїв</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Тепер давайте виведемо ці дані на екран:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
+<div id="io-csv-dict-sorted-eval-4" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb50" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'students.csv'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">"utf8"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
@@ -828,13 +854,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> student <span class="kw">in</span> <span class="bu">sorted</span>(students_lst, key<span class="op">=</span><span class="kw">lambda</span> student: student[<span class="st">'home'</span>]):</span>
 <span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>student[<span class="st">"name"</span>]<span class="sc">}</span><span class="ss"> з </span><span class="sc">{</span>student[<span class="st">"home"</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre class="output"><code>ValueError: too many values to unpack (expected 2)</code></pre>
+<pre class="output" data-code-line-numbers=""><code>ValueError: too many values to unpack (expected 2)</code></pre>
 <p>Отже, у нас виникла помилка. Це тому, що у нас є рядок, який містить дві коми, а ми спробували розпакувати його у дві змінні. Для вирішення цієї проблеми ми можемо використати в якості роздільника якийсь менш популярний символ, наприклад <code>|</code>:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>students.csv</strong></pre>
 </div>
-<div class="sourceCode" id="cb52" data-filename="students.csv"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Гаррі</span><span class="kw">|</span><span class="ex">Тисова,</span> 4</span>
+<div class="sourceCode" id="cb52" data-filename="students.csv" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Гаррі</span><span class="kw">|</span><span class="ex">Тисова,</span> 4</span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Рон</span><span class="kw">|</span><span class="ex">Нора</span></span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Драко</span><span class="kw">|</span><span class="ex">Маєток</span> Мелфоїв</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -843,20 +869,17 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="code-with-filename-file">
 <pre><strong>students.csv</strong></pre>
 </div>
-<div class="sourceCode" id="cb53" data-filename="students.csv"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Гаррі,</span><span class="st">"Тисова, 4"</span></span>
+<div class="sourceCode" id="cb53" data-filename="students.csv" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Гаррі,</span><span class="st">"Тисова, 4"</span></span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Рон,Нора</span></span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Драко,</span><span class="st">"Маєток Мелфоїв"</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>В будь-якому випадку необхідно буде змінювати код і продумувати логіку читання файлу. І це стає дуже незручним і складним, якщо у вас є багато різних файлів, які містять дані у різних форматах. Тому для роботи з csv-файлами використовують спеціальний пакет <code>csv</code>. Давайте перепишемо нашу програму з використанням пакету <code>csv</code>:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Варіант 1</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Варіант 2</a></li>
-</ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Варіант 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Варіант 2</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
+<div id="io-csv-dict-sorted-eval-5" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb54" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
 <span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -872,8 +895,8 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>Якщо ми чітко знаємо кількість стовпчиків у .csv-файлі, ми можемо розпакувати рядки одразу у змінні:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
+<div id="io-csv-dict-sorted-eval-6" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb55" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
 <span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -888,7 +911,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<pre class="output"><code>Драко з Маєток Мелфоїв
+<pre class="output" data-code-line-numbers=""><code>Драко з Маєток Мелфоїв
 Рон з Нора
 Гаррі з Тисова, 4</code></pre>
 <p>Часто у табличних файлах перший рядок відповідає за назву змінних. Давайте додамо <code>name</code> та <code>home</code> у <code>students.csv</code>:</p>
@@ -896,14 +919,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="code-with-filename-file">
 <pre><strong>students.csv</strong></pre>
 </div>
-<div class="sourceCode" id="cb57" data-filename="students.csv"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="ex">name,home</span></span>
+<div class="sourceCode" id="cb57" data-filename="students.csv" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="ex">name,home</span></span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Гаррі,</span><span class="st">"Тисова, 4"</span></span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Рон,Нора</span></span>
 <span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Драко,Маєток</span> Мелфоїв</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>В таких випадках ми можемо використати функцію <code>DictReader</code>, яка повертає словник, а не список:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
+<div id="io-csv-dict-sorted-eval-7" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb58" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>students_lst <span class="op">=</span> []</span>
 <span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -915,7 +938,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> student <span class="kw">in</span> <span class="bu">sorted</span>(students_lst, key<span class="op">=</span><span class="kw">lambda</span> student: student[<span class="st">'home'</span>]):</span>
 <span id="cb58-11"><a href="#cb58-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>student[<span class="st">"name"</span>]<span class="sc">}</span><span class="ss"> з </span><span class="sc">{</span>student[<span class="st">"home"</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<pre class="output"><code>Драко з Маєток Мелфоїв
+<pre class="output" data-code-line-numbers=""><code>Драко з Маєток Мелфоїв
 Рон з Нора
 Гаррі з Тисова, 4</code></pre>
 <p>Такий підхід є більш стійким до змін у файлі: хтось міг змінити порядок стовпчиків, але програма все одно буде працювати.</p>
@@ -932,18 +955,19 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Документація до пакету <code>csv</code>: <a href="https://docs.python.org/3/library/csv.html" class="uri">https://docs.python.org/3/library/csv.html</a></p>
 </div>
 </div>
-</section><section id="запис-csv-файлів" class="level3" data-number="7.6.2"><h3 data-number="7.6.2" class="anchored" data-anchor-id="запис-csv-файлів">
-<span class="header-section-number">7.6.2</span> Запис csv-файлів</h3>
+</section>
+<section id="запис-csv-файлів" class="level3" data-number="7.6.2">
+<h3 data-number="7.6.2" class="anchored" data-anchor-id="запис-csv-файлів"><span class="header-section-number">7.6.2</span> Запис csv-файлів</h3>
 <p>Припустимо, що ми створюємо програму, яка буде записувати дані про студентів у файл <code>students.csv</code>. Залишимо у файлі <code>students.csv</code> наступні дані:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>students.csv</strong></pre>
 </div>
-<div class="sourceCode" id="cb60" data-filename="students.csv"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="ex">name,home</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb60" data-filename="students.csv" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="ex">name,home</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Давайте перепишемо програму <code>students.py</code>, яка буде записувати дані у файл <code>students.csv</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
+<div id="io-csv-write-eval" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb61" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">'Як Вас звати? '</span>) <span class="co"># Гаррі</span></span>
 <span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>home <span class="op">=</span> <span class="bu">input</span>(<span class="st">'Де Ви живете? '</span>) <span class="co"># Тисова, 4</span></span>
@@ -957,7 +981,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb62" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> students.py</span>
+<div class="sourceCode" id="cb62" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> students.py</span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Як</span> Вас звати<span class="pp">?</span> Гаррі</span>
 <span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Де</span> Ви живете<span class="pp">?</span> Тисова, 4</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -966,13 +990,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="code-with-filename-file">
 <pre><strong>students.csv</strong></pre>
 </div>
-<div class="sourceCode" id="cb63" data-filename="students.csv"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="ex">name,home</span></span>
+<div class="sourceCode" id="cb63" data-filename="students.csv" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="ex">name,home</span></span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Гаррі,</span><span class="st">"Тисова, 4"</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Як бачите, Python автоматично взяв рядок з комою у лапки щоб уникнути помилки.</p>
 <p>Існує ще один спосіб реалізувати програму <code>students.py</code> не турбуючись про порядок змінних у списку. Для цього ми можемо використати функцію <code>DictWriter</code>, яка дозволяє записувати дані у файл у вигляді словника:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
+<div id="io-csv-write-eval-2" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb64" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="bu">input</span>(<span class="st">'Як Вас звати? '</span>) <span class="co"># Драко</span></span>
 <span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>home <span class="op">=</span> <span class="bu">input</span>(<span class="st">'Де Ви живете? '</span>) <span class="co"># Маєток Мелфоїв</span></span>
@@ -986,7 +1010,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb65" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> students.py</span>
+<div class="sourceCode" id="cb65" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> students.py</span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Як</span> Вас звати<span class="pp">?</span> Драко</span>
 <span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Де</span> Ви живете<span class="pp">?</span> Маєток Мелфоїв</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -995,12 +1019,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="code-with-filename-file">
 <pre><strong>students.csv</strong></pre>
 </div>
-<div class="sourceCode" id="cb66" data-filename="students.csv"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="ex">name,home</span></span>
+<div class="sourceCode" id="cb66" data-filename="students.csv" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="ex">name,home</span></span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Гаррі,</span><span class="st">"Тисова, 4"</span></span>
 <span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Драко,Маєток</span> Мелфоїв</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="бінарні-файли" class="level2" data-number="7.7"><h2 data-number="7.7" class="anchored" data-anchor-id="бінарні-файли">
-<span class="header-section-number">7.7</span> Бінарні файли</h2>
+</section>
+</section>
+<section id="бінарні-файли" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="бінарні-файли"><span class="header-section-number">7.7</span> Бінарні файли</h2>
 <p><strong>Бінарні файли</strong> - це файл, який складається лише з нулів та одиниць і дозволяє зберігати будь-які дані: зображення, відео, звук, текст, тощо.</p>
 <p>В Python є популярна бібліотека під назвою <code>pillow</code>, яка дозволяє працювати з зображеннями, застосовувати фільтри, як в Instagram, створювати анімації, тощо.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1022,37 +1048,43 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb67" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> costume1.gif</span>
+<div class="sourceCode" id="cb67" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> costume1.gif</span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> costume2.gif</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="fig-costume" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-costume-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-costume" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-costume1" class="quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure"><div aria-describedby="fig-costume1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-costume-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-costume" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-costume1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-costume1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/python/costume1.gif" class="img-fluid figure-img" data-ref-parent="fig-costume">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-costume1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) costume1.gif
-</figcaption></figure>
+</figcaption>
+</figure>
 </div>
 </div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-costume" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-costume2" class="quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure"><div aria-describedby="fig-costume2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-costume" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-costume2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-costume2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/python/costume2.gif" class="img-fluid figure-img" data-ref-parent="fig-costume">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-costume2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) costume2.gif
-</figcaption></figure>
+</figcaption>
+</figure>
 </div>
 </div>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-costume-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;7.1: Статичні зображення
-</figcaption></figure>
+</figcaption>
+</figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1073,11 +1105,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb68" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> costume.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb68" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> costume.py</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Для цього нам необхідно використати функцію <code>Image.open</code>, яка дозволяє відкрити зображення, а потім використати метод <code>save</code>, який дозволяє зберегти зображення у форматі GIF:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<div id="io-gif-eval" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb69" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>images_lst <span class="op">=</span> []</span>
@@ -1098,19 +1130,24 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb70" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> costume.gif</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb70" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> costume.gif</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="fig-costume" class="quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-costume-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-costume" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-costume-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/costume.gif" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-costume-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;7.2: costume.gif
-</figcaption></figure>
+</figcaption>
+</figure>
 </div>
 
 
-</section><p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+
+<p><a href="https://t.me/araprof"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white.png" class="img-fluid" alt="Data Miorsh"></a> <a href="https://www.linkedin.com/in/ihormiroshnychenko/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white.png" class="img-fluid" alt="Ihor Miroshnychenko"></a> <a href="https://www.youtube.com/@datamirosh"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white.png" class="img-fluid" alt="Youtube"></a> <a href="https://send.monobank.ua/jar/3rgj2uzZTs"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&amp;logo=GitHub-Sponsors&amp;logoColor=#white.png" class="img-fluid" alt="Monobank"></a></p></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1238,27 +1275,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -1273,10 +1289,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             break;
           }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1285,8 +1305,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -1506,9 +1533,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><script src="https://giscus.app/client.js" data-repo="aranaur/py4ds" data-repo-id="" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script><input type="hidden" id="giscus-base-theme" value="light"><input type="hidden" id="giscus-alt-theme" value="dark"><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../chapters/python/python_unit_tests.html" class="pagination-link  aria-label=">
+</script>
+<script src="https://giscus.app/client.js" data-repo="aranaur/py4ds" data-repo-id="" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../chapters/python/python_unit_tests.html" class="pagination-link  aria-label=" &lt;span="" тестування&lt;="" span&gt;"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Модульне тестування</span></span>
       </a>          
   </div>
@@ -1522,4 +1554,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Aranaur/py4ds/edit/main/chapters/python/python_files_io.qmd" class="toc-action"><i class="bi bi-github"></i>Редагувати сторінку</a></li><li><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action"><i class="bi empty"></i>Повідомити про проблему</a></li><li><a href="https://github.com/Aranaur/py4ds/blob/main/chapters/python/python_files_io.qmd" class="toc-action"><i class="bi empty"></i>Переглянути код</a></li></ul></div></div></div></footer><script src="../../site_libs/quarto-contrib/line-highlight-1.0.0/line-highlight.js" defer="true"></script>
 </body></html>

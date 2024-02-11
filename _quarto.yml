@@ -46,7 +46,7 @@ book:
       - chapters/python/python_files_io.qmd
       - chapters/python/python_regex.qmd
       - chapters/python/python_oop.qmd
-      - chapters/python/python_list_set.qmd
+      - chapters/python/python_et_cetera.qmd
       - chapters/python/python_functions.qmd
       - chapters/python/python_exercises.qmd
       - chapters/python/python_questions.qmd

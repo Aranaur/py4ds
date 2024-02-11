@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.525">
+<meta name="generator" content="quarto-1.4.547">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -77,6 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/line-highlight-1.0.0/line-highlight.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -121,6 +122,33 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating">
@@ -152,7 +180,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
     <div class="sidebar-title mb-0 py-0">
       <a href="../../">Від нуля до Python Data Scientist</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/Aranaur/py4ds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/Aranaur/py4ds" title="Вихідний код" class="quarto-navigation-tool px-1" aria-label="Вихідний код"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -258,7 +286,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/python/python_list_set.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/python/python_et_cetera.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Множини</span></span></a>
   </div>
 </li>
@@ -411,13 +439,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <section id="over---визначення-вікна" class="level2" data-number="20.1">
 <h2 data-number="20.1" class="anchored" data-anchor-id="over---визначення-вікна"><span class="header-section-number">20.1</span> <code>OVER</code> - визначення вікна</h2>
 <p>Визначаються вікна за допомогою оператора <code>OVER</code> – у загальному вигляді його синтаксис виглядає так:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">OVER</span> (</span>
+<div class="sourceCode" id="cb1" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">OVER</span> (</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="kw">PARTITION</span> <span class="kw">BY</span> column_1, column_2, <span class="op">..</span>.   <span class="op">-</span> визначаються партиції усередині вікна (аналог <span class="kw">GROUP</span> <span class="kw">BY</span>) </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="kw">ORDER</span> <span class="kw">BY</span> column_3, <span class="op">..</span>.                 <span class="op">-</span> вказується сортування записів у партиціях</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>     <span class="kw">ROWS</span><span class="op">/</span><span class="kw">RANGE</span> <span class="kw">BETWEEN</span> <span class="op">..</span>.                 <span class="op">-</span> задаються межі вікна</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Для проведення обчислень за заданим в <code>OVER</code> вікну використовуються різні функції. Наприклад, з агрегуючою функцією <code>SUM</code> запис може виглядати так:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(<span class="kw">column</span>) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ROWS</span><span class="op">/</span><span class="kw">RANGE</span> <span class="kw">BETWEEN</span> <span class="op">..</span>.) <span class="kw">AS</span> <span class="fu">sum</span></span>
+<div class="sourceCode" id="cb2" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(<span class="kw">column</span>) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ROWS</span><span class="op">/</span><span class="kw">RANGE</span> <span class="kw">BETWEEN</span> <span class="op">..</span>.) <span class="kw">AS</span> <span class="fu">sum</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Тепер кілька слів про інструкції, які можна вказувати під час створення вікна. Усього їх три:</p>
 <ul>
@@ -430,7 +458,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <section id="partition-by" class="level2" data-number="20.2">
 <h2 data-number="20.2" class="anchored" data-anchor-id="partition-by"><span class="header-section-number">20.2</span> <code>PARTITION BY</code></h2>
 <p>Інструкція <code>PARTITION BY</code> визначає стовпець, яким дані ділитися на групи, які називаються партіціями. Наприклад, так як буде виглядати групування за <code>user_id</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> user_id, <span class="dt">date</span>, price, </span>
+<div class="sourceCode" id="cb3" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> user_id, <span class="dt">date</span>, price, </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">SUM</span>(price) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> user_id) <span class="kw">AS</span> <span class="fu">sum</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>В результаті такого запиту для кожного запису в таблиці буде обчислено загальну суму всіх покупок даного користувача, а результат обчислень буде вписаний в стовпець <code>sum</code>:</p>
@@ -480,7 +508,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <section id="order-by" class="level2" data-number="20.3">
 <h2 data-number="20.3" class="anchored" data-anchor-id="order-by"><span class="header-section-number">20.3</span> <code>ORDER BY</code></h2>
 <p>Інструкція <code>ORDER BY</code> визначає стовпець, яким значення всередині вікна будуть сортуватися при обробці. Наприклад, сортування по <code>date</code> всередині вікна задається так:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> user_id, <span class="dt">date</span>, price, </span>
+<div class="sourceCode" id="cb4" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> user_id, <span class="dt">date</span>, price, </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">SUM</span>(price) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> user_id <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">date</span>) <span class="kw">AS</span> <span class="fu">sum</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>У цьому випадку для кожного запису в таблиці буде обчислено суму поточної та всіх попередніх покупок користувача. Результат обчислень буде вписаний у стовпець <code>sum</code>:</p>
@@ -530,14 +558,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Справа в тому, що при використанні у парі віконних та агрегатних функцій для кожного рядка визначається так звана <strong>рамка вікна</strong> - набір рядків у її партиції. Якщо в <code>OVER</code> вказати <code>ORDER BY</code>, то за замовчуванням рамка складатиметься з усіх рядків від початку партиції до поточного рядка (також у рамку будуть включені рядки, що дорівнюють поточному рядку за значенням вказаним у <code>ORDER BY</code>).</p>
 <p>Саме тому в нашому прикладі сума вважається за кожним користувачем наростаючим підсумком.</p>
 <p>Якщо ж <code>ORDER BY</code> не вказувати, то стандартна рамка буде складатися з усіх рядків партиції, тобто буде пораховано суму всіх покупок кожного користувача. Також можна не вказувати і <code>PARTITION BY</code> – тоді рамкою вікна стане вся таблиця, і ми просто порахуємо суму покупок усіх користувачів:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> user_id, <span class="dt">date</span>, price, </span>
+<div class="sourceCode" id="cb5" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> user_id, <span class="dt">date</span>, price, </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">SUM</span>(price) <span class="kw">OVER</span> () <span class="kw">AS</span> <span class="fu">sum</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="rowsrange-between" class="level2" data-number="20.4">
 <h2 data-number="20.4" class="anchored" data-anchor-id="rowsrange-between"><span class="header-section-number">20.4</span> <code>ROWS/RANGE BETWEEN</code></h2>
 <p>Інструкції <code>ROWS</code> та <code>RANGE</code> можуть додатково задавати межі рамки вікна та обмежувати діапазон роботи функцій усередині партиції. Першим аргументом вказується початок рамки, другим - кінець рамки:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> user_id, <span class="dt">date</span>, price, </span>
+<div class="sourceCode" id="cb6" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> user_id, <span class="dt">date</span>, price, </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">SUM</span>(price) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> user_id <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">date</span> <span class="kw">ROWS</span> <span class="kw">BETWEEN</span> <span class="dv">1</span> <span class="kw">PRECEDING</span> <span class="kw">AND</span> <span class="kw">CURRENT</span> <span class="kw">ROW</span>) <span class="kw">AS</span> <span class="fu">sum</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>В результаті для кожного запису в таблиці буде обчислено суму поточної та попередньої покупок користувача, а результат буде знову вписаний в стовпець <code>sum</code>:</p>
@@ -589,7 +617,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <li><code>RANGE</code> — початок та кінець рамки задаються різницею значень у стовпці з <code>ORDER BY</code>.</li>
 </ul>
 <p>Початок і кінець рамки задаються одним із наступних способів:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">UNBOUNDED</span> <span class="kw">PRECEDING</span></span>
+<div class="sourceCode" id="cb7" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">UNBOUNDED</span> <span class="kw">PRECEDING</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>значення <span class="kw">PRECEDING</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CURRENT</span> <span class="kw">ROW</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>значення <span class="kw">FOLLOWING</span></span>
@@ -602,14 +630,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </ul>
 <p>Рамка завжди починається з початку рамки та закінчується кінцем рамки. Якщо кінець рамки не вказаний, мається на увазі <code>CURRENT ROW</code>.</p>
 <p>За замовчуванням рамка визначається так:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">RANGE</span> <span class="kw">UNBOUNDED</span> <span class="kw">PRECEDING</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">RANGE</span> <span class="kw">UNBOUNDED</span> <span class="kw">PRECEDING</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Це рівносильно розширеному визначенню рамки:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">RANGE</span> <span class="kw">BETWEEN</span> <span class="kw">UNBOUNDED</span> <span class="kw">PRECEDING</span> <span class="kw">AND</span> <span class="kw">CURRENT</span> <span class="kw">ROW</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">RANGE</span> <span class="kw">BETWEEN</span> <span class="kw">UNBOUNDED</span> <span class="kw">PRECEDING</span> <span class="kw">AND</span> <span class="kw">CURRENT</span> <span class="kw">ROW</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Варіанти значення <code>PRECEDING</code> та значення <code>FOLLOWING</code> допускаються лише у режимі <code>ROWS</code>.</p>
 <p>Наприклад, наступний запис означає створення рамки, що включає <strong>3 рядки до поточної і 3 рядки після поточної</strong> (зрозуміло, поточний рядок також включається до рамки):</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ROWS</span> <span class="kw">BETWEEN</span> <span class="dv">3</span> <span class="kw">PRECEDING</span> <span class="kw">AND</span> <span class="dv">3</span> <span class="kw">FOLLOWING</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ROWS</span> <span class="kw">BETWEEN</span> <span class="dv">3</span> <span class="kw">PRECEDING</span> <span class="kw">AND</span> <span class="dv">3</span> <span class="kw">FOLLOWING</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Якщо в інструкції <code>ORDER BY</code> знаходиться стовпець <code>date</code> з типом даних <code>DATE</code>, то рамку вікна можна задати так:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">RANGE</span> <span class="kw">BETWEEN</span> <span class="st">'3 days'</span> <span class="kw">PRECEDING</span> <span class="kw">AND</span> <span class="st">'3 days'</span> <span class="kw">FOLLOWING</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">RANGE</span> <span class="kw">BETWEEN</span> <span class="st">'3 days'</span> <span class="kw">PRECEDING</span> <span class="kw">AND</span> <span class="st">'3 days'</span> <span class="kw">FOLLOWING</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Це означатиме рамку, що включає <strong>3 дні перед та 3 дні після поточної дати</strong> (включаючи поточну дату).</p>
 <p>При вказівці рамки через <code>RANGE</code> обов’язковою умовою є лише один стовпчик в інструкції <code>ORDER BY</code>.</p>
 <p>Як і решта інструкцій, інструкція <code>ROWS/RANGE BETWEEN</code> є необов’язковою.</p>
@@ -618,23 +646,23 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <h2 data-number="20.5" class="anchored" data-anchor-id="де-та-як-можна-використовувати-віконні-функції"><span class="header-section-number">20.5</span> Де та як можна використовувати віконні функції?</h2>
 <p>Також важливо знати, що віконні функції дозволяється використовувати у запиті лише у <code>SELECT</code> та <code>ORDER BY</code>. В інших операторах, включаючи <code>WHERE</code>, <code>HAVING</code> і <code>GROUP BY</code>, вони заборонені, оскільки логічно виконуються після звичайних агрегатних функцій.</p>
 <p>Якщо потрібно відфільтрувати або згрупувати рядки після обчислення віконних функцій, можна використати вкладений запит:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> user_id, <span class="dt">date</span>, price, <span class="fu">sum</span></span>
+<div class="sourceCode" id="cb12" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> user_id, <span class="dt">date</span>, price, <span class="fu">sum</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> (</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> user_id, <span class="dt">date</span>, price, <span class="fu">SUM</span>(price) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> user_id <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">date</span>) <span class="kw">AS</span> <span class="fu">sum</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>) t</span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="fu">sum</span> <span class="op">&gt;</span> <span class="dv">1000</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Над результатом віконних функцій можна виконувати різні арифметичні операції. Також результат віконних функцій може виступати як аргумент інших функцій:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> user_id, <span class="dt">date</span>, price, <span class="fl">1.15</span> <span class="op">*</span> <span class="fu">SUM</span>(price) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> user_id <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">date</span>) <span class="kw">AS</span> <span class="fu">sum</span></span>
+<div class="sourceCode" id="cb13" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> user_id, <span class="dt">date</span>, price, <span class="fl">1.15</span> <span class="op">*</span> <span class="fu">SUM</span>(price) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> user_id <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">date</span>) <span class="kw">AS</span> <span class="fu">sum</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> user_id, <span class="dt">date</span>, price, <span class="fu">ROUND</span>(<span class="fu">AVG</span>(price) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> user_id <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">date</span>), <span class="dv">2</span>) <span class="kw">AS</span> <span class="fu">sum</span></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Також для визначення інструкцій усередині вікна можна використовувати розрахункові поля:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> user_id, <span class="dt">date</span>, price, <span class="fu">SUM</span>(price) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> DATE_TRUNC(<span class="st">'month'</span>, <span class="dt">date</span>)) <span class="kw">AS</span> monthly_sum</span>
+<div class="sourceCode" id="cb14" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> user_id, <span class="dt">date</span>, price, <span class="fu">SUM</span>(price) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> DATE_TRUNC(<span class="st">'month'</span>, <span class="dt">date</span>)) <span class="kw">AS</span> monthly_sum</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span>  </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Самі вікна також можна визначати через оператор <code>WINDOW</code>, а потім викликати по аліасу в операторі <code>SELECT</code>:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(<span class="kw">column</span>) <span class="kw">OVER</span> w <span class="kw">AS</span> <span class="fu">sum</span></span>
+<div class="sourceCode" id="cb15" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(<span class="kw">column</span>) <span class="kw">OVER</span> w <span class="kw">AS</span> <span class="fu">sum</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="op">..</span>.</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="op">..</span>.</span>
@@ -689,7 +717,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <section id="ранжуючі-функції" class="level2" data-number="20.7">
 <h2 data-number="20.7" class="anchored" data-anchor-id="ранжуючі-функції"><span class="header-section-number">20.7</span> Ранжуючі функції</h2>
 <p>Почнемо знайомство з віконними функціями з найпростіших завдань. Для початку попрацюємо з ранжуючими функціями:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">ROW_NUMBER</span>() <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ROWS</span><span class="op">/</span><span class="kw">RANGE</span> <span class="kw">BETWEEN</span> <span class="op">..</span>.) <span class="kw">AS</span> <span class="fu">row_number</span></span>
+<div class="sourceCode" id="cb16" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">ROW_NUMBER</span>() <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ROWS</span><span class="op">/</span><span class="kw">RANGE</span> <span class="kw">BETWEEN</span> <span class="op">..</span>.) <span class="kw">AS</span> <span class="fu">row_number</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">RANK</span>() <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ROWS</span><span class="op">/</span><span class="kw">RANGE</span> <span class="kw">BETWEEN</span> <span class="op">..</span>.) <span class="kw">AS</span> <span class="fu">rank</span></span>
@@ -700,7 +728,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <hr>
 <div class="question">
 <div id="exr-sql-window-01" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 20.1 </strong></span><br> Застосуйте віконні функції до таблиці <code>products</code> і за допомогою ранжирующих функцій упорядкуйте всі товари за ціною від найдорожчих до найдешевших. Додайте до таблиці наступні колонки:</p>
+<p><span class="theorem-title"><strong>Завдання 20.1</strong></span> <br> Застосуйте віконні функції до таблиці <code>products</code> і за допомогою ранжирующих функцій упорядкуйте всі товари за ціною від найдорожчих до найдешевших. Додайте до таблиці наступні колонки:</p>
 <ul>
 <li>Колонку <code>product_number</code> із порядковим номером товару (функція <code>ROW_NUMBER</code>).</li>
 <li>Колонку <code>product_rank</code> із рангом товару з пропусками рангів (функція RANK).</li>
@@ -713,7 +741,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-11" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb17" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>       price,</span>
@@ -849,12 +877,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <section id="агрегатні-функції" class="level2" data-number="20.8">
 <h2 data-number="20.8" class="anchored" data-anchor-id="агрегатні-функції"><span class="header-section-number">20.8</span> Агрегатні функції</h2>
 <p>З ранжуючими функціями розібралися, тепер давайте навчимося в парі з віконними і агрегуючі функції:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(<span class="kw">column</span>) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ROWS</span><span class="op">/</span><span class="kw">RANGE</span> <span class="kw">BETWEEN</span> <span class="op">..</span>.) <span class="kw">AS</span> <span class="fu">sum</span></span>
+<div class="sourceCode" id="cb18" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(<span class="kw">column</span>) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ROWS</span><span class="op">/</span><span class="kw">RANGE</span> <span class="kw">BETWEEN</span> <span class="op">..</span>.) <span class="kw">AS</span> <span class="fu">sum</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 <div class="question">
 <div id="exr-sql-window-02" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 20.2 </strong></span><br> Застосуйте віконну функцію до таблиці <code>products</code> і за допомогою агрегатної функції в окремій колонці для кожного запису проставте ціну найдорожчого товару. Колонку із цим значенням назвіть <code>max_price</code>. Потім для кожного товару порахуйте частку його ціни у вартості найдорожчого товару - просто поділіть одну колонку на іншу. Отримані частки округліть до <strong>двох знаків</strong> після коми. Колонку із частками назвіть <code>share_of_max</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 20.2</strong></span> <br> Застосуйте віконну функцію до таблиці <code>products</code> і за допомогою агрегатної функції в окремій колонці для кожного запису проставте ціну найдорожчого товару. Колонку із цим значенням назвіть <code>max_price</code>. Потім для кожного товару порахуйте частку його ціни у вартості найдорожчого товару - просто поділіть одну колонку на іншу. Отримані частки округліть до <strong>двох знаків</strong> після коми. Колонку із частками назвіть <code>share_of_max</code>.</p>
 <p>Виведіть всю інформацію про товари, включаючи значення у нових колонках. Результат відсортуйте спочатку за спаданням ціни товару, потім за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code>, <code>max_price</code>, <code>share_of_max</code></p>
 <p><strong>Пояснення:</strong></p>
@@ -865,7 +893,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-15" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb19" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>       price,</span>
@@ -992,7 +1020,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <hr>
 <div class="question">
 <div id="exr-sql-window-03" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 20.3 </strong></span><br> Застосуйте дві віконні функції до таблиці <code>products</code> — одна з функцією <code>MAX</code>, а інша <code>MIN</code> — для обчислення максимальної та мінімальної ціни. Для двох вікон задайте інструкцію <code>ORDER BY</code> щодо зменшення ціни. Помістіть результат обчислень у дві колонки <code>max_price</code> та <code>min_price</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 20.3</strong></span> <br> Застосуйте дві віконні функції до таблиці <code>products</code> — одна з функцією <code>MAX</code>, а інша <code>MIN</code> — для обчислення максимальної та мінімальної ціни. Для двох вікон задайте інструкцію <code>ORDER BY</code> щодо зменшення ціни. Помістіть результат обчислень у дві колонки <code>max_price</code> та <code>min_price</code>.</p>
 <p>Виведіть всю інформацію про товари, включаючи значення у нових колонках. Результат відсортуйте спочатку за спаданням ціни товару, потім за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code>, <code>max_price</code>, <code>min_price</code></p>
 <p>Після того, як вирішите завдання, проаналізуйте отриманий результат і подумайте, чому вийшли саме такі розрахунки. За потреби поверніться до першого кроку і ще раз уважно ознайомтеся з тим, як працює рамка вікна під час сортування.</p>
@@ -1001,7 +1029,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-19" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb20" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>       price,</span>
@@ -1127,7 +1155,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <hr>
 <div class="question">
 <div id="exr-sql-window-04" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 20.4 </strong></span><br> Спочатку на основі таблиці <code>orders</code> сформуйте нову таблицю із загальною кількістю замовлень по дням. Підраховуючи кількість замовлень, не враховуйте скасовані замовлення (їх можна визначити за таблицею <code>user_actions</code>). Колонку з днями назвіть <code>date</code>, а колонку з числом замовлень <code>orders_count</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 20.4</strong></span> <br> Спочатку на основі таблиці <code>orders</code> сформуйте нову таблицю із загальною кількістю замовлень по дням. Підраховуючи кількість замовлень, не враховуйте скасовані замовлення (їх можна визначити за таблицею <code>user_actions</code>). Колонку з днями назвіть <code>date</code>, а колонку з числом замовлень <code>orders_count</code>.</p>
 <p>Потім помістіть отриману таблицю в підзапит і застосуйте до неї віконну функцію в парі з функцією <code>SUM</code> для розрахунку кумулятивної суми числа замовлень. Не забудьте для вікна вказати інструкцію <code>ORDER BY</code> за датою.</p>
 <p>Назвіть колонку з накопичувальною сумою <code>orders_cum_count</code>. В результаті такої операції значення кумулятивної суми для останнього дня має вийти рівним загальній кількості замовлень за весь період.</p>
 <p>Сортувати результуючу таблицю робити не потрібно.</p>
@@ -1139,7 +1167,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-24" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb21" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> t1 <span class="im">as</span> (SELECT creation_time::date <span class="im">as</span> date,</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    COUNT(<span class="op">*</span>) <span class="im">as</span> orders_count</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>FROM orders</span>
@@ -1159,14 +1187,14 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <hr>
 <div class="question">
 <div id="exr-sql-window-05" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 20.5 </strong></span><br> Для кожного користувача у таблиці <code>user_actions</code> порахуйте порядковий номер кожного замовлення. Для цього застосовуйте віконну функцію <code>ROW_NUMBER</code> до колонки з часом замовлення. Не забудьте вказати поділ на партиції за користувачами та сортування усередині партицій. Скасовані замовлення не враховуйте. Нову колонку із порядковим номером замовлення назвіть <code>order_number</code>. Результат відсортуйте спочатку за зростанням ID користувача, потім за зростанням order_number. Додати <code>LIMIT 1000</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 20.5</strong></span> <br> Для кожного користувача у таблиці <code>user_actions</code> порахуйте порядковий номер кожного замовлення. Для цього застосовуйте віконну функцію <code>ROW_NUMBER</code> до колонки з часом замовлення. Не забудьте вказати поділ на партиції за користувачами та сортування усередині партицій. Скасовані замовлення не враховуйте. Нову колонку із порядковим номером замовлення назвіть <code>order_number</code>. Результат відсортуйте спочатку за зростанням ID користувача, потім за зростанням order_number. Додати <code>LIMIT 1000</code>.</p>
 <p>Поля в результуючій таблиці: <code>user_id</code>, <code>order_id</code>, <code>time</code>, <code>order_number</code></p>
 </div>
 </div>
 <div id="cell-28" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb22" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>SELECT user_id,</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>       order_id,</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>       time,</span>
@@ -1281,7 +1309,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <section id="віконні-функції-та-зміщення" class="level2" data-number="20.11">
 <h2 data-number="20.11" class="anchored" data-anchor-id="віконні-функції-та-зміщення"><span class="header-section-number">20.11</span> Віконні функції та зміщення</h2>
 <p>Тепер давайте попрацюємо з функціями зміщення – у цьому теж немає нічого складного:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">LAG</span>(<span class="kw">column</span>, <span class="dv">1</span>) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ROWS</span><span class="op">/</span><span class="kw">RANGE</span> <span class="kw">BETWEEN</span> <span class="op">..</span>.) <span class="kw">AS</span> lag_value</span>
+<div class="sourceCode" id="cb23" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">LAG</span>(<span class="kw">column</span>, <span class="dv">1</span>) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ROWS</span><span class="op">/</span><span class="kw">RANGE</span> <span class="kw">BETWEEN</span> <span class="op">..</span>.) <span class="kw">AS</span> lag_value</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">LEAD</span>(<span class="kw">column</span>, <span class="dv">1</span>) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="op">..</span>. <span class="kw">ROWS</span><span class="op">/</span><span class="kw">RANGE</span> <span class="kw">BETWEEN</span> <span class="op">..</span>.) <span class="kw">AS</span> lead_value</span>
@@ -1290,9 +1318,9 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <hr>
 <div class="question">
 <div id="exr-sql-window-06" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 20.6 </strong></span><br> Доповніть запит із попереднього завдання та за допомогою віконної функції для кожного замовлення кожного користувача розрахуйте, скільки часу пройшло з попереднього замовлення.</p>
+<p><span class="theorem-title"><strong>Завдання 20.6</strong></span> <br> Доповніть запит із попереднього завдання та за допомогою віконної функції для кожного замовлення кожного користувача розрахуйте, скільки часу пройшло з попереднього замовлення.</p>
 <p>Для цього спочатку в окремому стовпці за допомогою <code>LAG</code> зробіть зміщення по стовпцю часу на одне значення назад. Стовпець зі зміщеними значеннями назвіть <code>time_lag</code>. Потім відніміть від кожного значення колонці <code>time</code> нове значення зі зміщенням (або можете використовувати вже знайому функцію <code>AGE</code>). Назвіть колонку з отриманим інтервалом <code>time_diff</code>. Змінювати формат відображення значень не потрібно, вони повинні мати приблизно такий вигляд:</p>
-<pre><code>3 days, 12:18:22</code></pre>
+<pre data-code-line-numbers=""><code>3 days, 12:18:22</code></pre>
 <p>Як і раніше, не враховуйте скасовані замовлення. Також залиште у запиті порядковий номер кожного замовлення, розрахований на минулому етапі. Результат відсортуйте спочатку за зростанням ID користувача, потім за зростанням порядкового номера замовлення. Додати <code>LIMIT 1000</code>.</p>
 <p>Поля в результуючій таблиці: <code>user_id</code>, <code>order_id</code>, <code>time</code>, <code>order_number</code>, <code>time_lag</code>, <code>time_diff</code></p>
 <p><strong>Пояснення:</strong></p>
@@ -1304,7 +1332,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-32" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb25" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>SELECT user_id,</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>       order_id,</span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>       time,</span>
@@ -1448,13 +1476,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <hr>
 <div class="question">
 <div id="exr-sql-window-07" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 20.7 </strong></span><br> На основі запиту попереднього завдання для кожного користувача розрахуйте, <strong>скільки в середньому часу проходить між його замовленнями</strong>. Порахуйте цей показник лише для користувачів, які за весь час оформили <strong>більше одного замовлення</strong>.</p>
+<p><span class="theorem-title"><strong>Завдання 20.7</strong></span> <br> На основі запиту попереднього завдання для кожного користувача розрахуйте, <strong>скільки в середньому часу проходить між його замовленнями</strong>. Порахуйте цей показник лише для користувачів, які за весь час оформили <strong>більше одного замовлення</strong>.</p>
 <p>Середній час між замовленнями виразіть у <strong>годинах</strong>, округливши значення <strong>до цілого числа</strong>. Колонку із середнім значенням часу назвіть <code>hours_between_orders</code>. Результат відсортуйте за зростанням id користувача.</p>
 <p>Додайте в запит оператор <code>LIMIT</code> і включіть у результат лише <strong>перші 1000 записів</strong>.</p>
 <p>Поля у результуючій таблиці: <code>user_id</code>, <code>hours_between_orders</code></p>
 <p><strong>Пояснення:</strong></p>
 <p>Щоб перевести значення інтервалу в години, необхідно витягти з нього кількість секунд, а потім поділити на кількість секунд в одній годині. Для отримання кількості секунд з інтервалу можна скористатися такою конструкцією:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">EXTRACT</span>(epoch <span class="kw">FROM</span> <span class="dt">INTERVAL</span> <span class="st">'3 days, 1:21:32'</span>)</span>
+<div class="sourceCode" id="cb26" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">EXTRACT</span>(epoch <span class="kw">FROM</span> <span class="dt">INTERVAL</span> <span class="st">'3 days, 1:21:32'</span>)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>Результат:</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="dv">264092</span>  </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1466,7 +1494,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-37" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb27" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>SELECT user_id,</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>       avg(time_diff)::integer <span class="im">as</span> hours_between_orders</span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>FROM   (SELECT user_id,</span>
@@ -1564,13 +1592,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <section id="задачі-з-rows-between" class="level2" data-number="20.12">
 <h2 data-number="20.12" class="anchored" data-anchor-id="задачі-з-rows-between"><span class="header-section-number">20.12</span> Задачі з <code>ROWS BETWEEN</code></h2>
 <p>Настав час трохи попрацювати з інструкцією <code>ROWS BETWEEN</code>, яку докладно розглядали раніше. Нагадаємо, що початок і кінець рамки задаються такими способами:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">UNBOUNDED</span> <span class="kw">PRECEDING</span></span>
+<div class="sourceCode" id="cb28" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">UNBOUNDED</span> <span class="kw">PRECEDING</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>значення <span class="kw">PRECEDING</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CURRENT</span> <span class="kw">ROW</span></span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>значення <span class="kw">FOLLOWING</span></span>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="kw">UNBOUNDED</span> <span class="kw">FOLLOWING</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ось ще один приклад вказівки меж рамки:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(column_3) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> column_1 </span>
+<div class="sourceCode" id="cb29" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(column_3) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> column_1 </span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>                           <span class="kw">ORDER</span> <span class="kw">BY</span> column_2 </span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>                           <span class="kw">ROWS</span> <span class="kw">BETWEEN</span> <span class="kw">UNBOUNDED</span> <span class="kw">PRECEDING</span> <span class="kw">AND</span> <span class="dv">3</span> <span class="kw">FOLLOWING</span>) <span class="kw">AS</span> <span class="fu">sum</span></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1580,7 +1608,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <hr>
 <div class="question">
 <div id="exr-sql-window-08" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 20.8 </strong></span><br> Спочатку на основі таблиці <code>orders</code> сформуйте нову таблицю із загальною кількістю замовлень щодня. Ви вже робили у <a href="#exr-sql-window-04" class="quarto-xref">завданні&nbsp;<span>20.4</span></a>. Підраховуючи кількість замовлень, не враховуйте скасовані замовлення (їх можна визначити за таблицею <code>user_actions</code>). Назвіть колонку з кількістю замовлень <code>orders_count</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 20.8</strong></span> <br> Спочатку на основі таблиці <code>orders</code> сформуйте нову таблицю із загальною кількістю замовлень щодня. Ви вже робили у <a href="#exr-sql-window-04" class="quarto-xref">завданні&nbsp;<span>20.4</span></a>. Підраховуючи кількість замовлень, не враховуйте скасовані замовлення (їх можна визначити за таблицею <code>user_actions</code>). Назвіть колонку з кількістю замовлень <code>orders_count</code>.</p>
 <p>Потім помістіть отриману таблицю в підзапит і застосуйте до неї віконну функцію в парі з функцією <code>AVG</code> для розрахунку ковзного середнього числа замовлень. Ковзне середнє для кожного запису рахуйте за трьома попередніми днями. Подумайте, як правильно встановити межі рамки, щоб отримати коректні розрахунки.</p>
 <p>Отримані значення ковзного середнього округліть до <strong>двох знаків після коми</strong>. Колонку із розрахованим показником назвіть <code>moving_avg</code>. Сортувати результуючу таблицю робити не потрібно.</p>
 <p>Поля у результуючій таблиці: <code>date</code>, <code>orders_count</code>, <code>moving_avg</code></p>
@@ -1592,7 +1620,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-41" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb30" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>SELECT date,</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>       orders_count,</span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>       <span class="bu">round</span>(avg(orders_count) OVER (ORDER BY date rows between <span class="dv">3</span> preceding <span class="kw">and</span> <span class="dv">1</span> preceding),</span>
@@ -1726,7 +1754,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <section id="задача-з-case" class="level2" data-number="20.13">
 <h2 data-number="20.13" class="anchored" data-anchor-id="задача-з-case"><span class="header-section-number">20.13</span> Задача з <code>CASE</code></h2>
 <p>Тепер навчимося разом із віконними функціями застосовувати конструкцію <code>CASE</code>. Приклад такого запису:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<div class="sourceCode" id="cb31" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">CASE</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> <span class="fu">SUM</span>(<span class="kw">column</span>) <span class="kw">OVER</span> (<span class="op">..</span>.) <span class="op">&gt;</span> <span class="dv">100</span> <span class="cf">THEN</span> <span class="st">'above 100'</span></span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> <span class="fu">SUM</span>(<span class="kw">column</span>) <span class="kw">OVER</span> (<span class="op">..</span>.) <span class="op">&lt;</span> <span class="dv">100</span> <span class="cf">THEN</span> <span class="st">'below 100'</span></span>
@@ -1736,7 +1764,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <hr>
 <div class="question">
 <div id="exr-sql-window-09" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 20.9 </strong></span><br> Позначте в окремій таблиці тих кур’єрів, які доставили у <strong>вересні 2022 замовлень більше, ніж у середньому всі кур’єри</strong>.</p>
+<p><span class="theorem-title"><strong>Завдання 20.9</strong></span> <br> Позначте в окремій таблиці тих кур’єрів, які доставили у <strong>вересні 2022 замовлень більше, ніж у середньому всі кур’єри</strong>.</p>
 <p>Спочатку для кожного кур’єра у таблиці <code>courier_actions</code> розрахуйте загальну кількість доставлених у вересні замовлень. Потім в окремому стовпці за допомогою віконної функції вкажіть, скільки в середньому замовлень доставили цього місяця всі кур’єри. Після цього порівняйте кількість замовлень, доставлених кожним кур’єром, із середнім значенням у новому стовпці. Якщо кур’єр доставив більше замовлень, ніж у середньому всі кур’єри, то окремому стовпці за допомогою <code>CASE</code> вкажіть число 1, інакше вкажіть 0.</p>
 <p>Колонку з результатом порівняння назвіть <code>is_above_avg</code>, колонку з кількістю доставлених замовлень кожним кур’єром – <code>delivered_orders</code>, а колонку із середнім значенням – <code>avg_delivered_orders</code>. При розрахунку середнього значення округліть його <strong>до двох знаків</strong> після коми. Результат відсортуйте за зростанням id кур’єра.</p>
 <p>Поля в результуючій таблиці: <code>courier_id</code>, <code>delivered_orders</code>, <code>avg_delivered_orders</code>, <code>is_above_avg</code></p>
@@ -1748,7 +1776,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-45" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb32" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>SELECT courier_id,</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>       delivered_orders,</span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>       <span class="bu">round</span>(avg(delivered_orders) OVER (), <span class="dv">2</span>) <span class="im">as</span> avg_delivered_orders,</span>
@@ -1881,15 +1909,15 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Якщо до визначення віконної функції додати пропозицію <code>FILTER</code>, то у вікно потраплять лише ті вхідні рядки, для яких умова фільтра буде обчислена як дійсна.</p>
 <p>При цьому пропозиція <code>FILTER</code> допускається тільки для агрегатних віконних функцій.</p>
 <p>У загальному вигляді вся конструкція виглядає так:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> agg_function(<span class="kw">column</span>) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> [condition]) <span class="kw">OVER</span> (<span class="op">..</span>.)</span>
+<div class="sourceCode" id="cb33" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> agg_function(<span class="kw">column</span>) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> [condition]) <span class="kw">OVER</span> (<span class="op">..</span>.)</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Приклад:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(column_1) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> column_2 <span class="op">&gt;</span> <span class="dv">100</span>) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> column_3 <span class="kw">ORDER</span> <span class="kw">BY</span> column_4) <span class="kw">AS</span> <span class="fu">sum</span></span>
+<div class="sourceCode" id="cb34" data-code-line-numbers=""><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(column_1) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> column_2 <span class="op">&gt;</span> <span class="dv">100</span>) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> column_3 <span class="kw">ORDER</span> <span class="kw">BY</span> column_4) <span class="kw">AS</span> <span class="fu">sum</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">table</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 <div class="question">
 <div id="exr-sql-window-10" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 20.10 </strong></span><br> Застосуйте віконну функцію до таблиці <code>products</code> та за допомогою агрегуючої функції в окремій колонці для кожного запису проставте середню ціну всіх товарів. Колонку із цим значенням назвіть <code>avg_price</code>. Потім за допомогою віконної функції та оператора <code>FILTER</code> в окремій колонці розрахуйте середню ціну товарів без урахування найдорожчого. Колонку із цим середнім значенням назвіть <code>avg_price_filtered</code>. Отримані середні значення в колонках <code>avg_price</code> та <code>avg_price_filtered</code> округліть <strong>до двох знаків після коми</strong>.</p>
+<p><span class="theorem-title"><strong>Завдання 20.10</strong></span> <br> Застосуйте віконну функцію до таблиці <code>products</code> та за допомогою агрегуючої функції в окремій колонці для кожного запису проставте середню ціну всіх товарів. Колонку із цим значенням назвіть <code>avg_price</code>. Потім за допомогою віконної функції та оператора <code>FILTER</code> в окремій колонці розрахуйте середню ціну товарів без урахування найдорожчого. Колонку із цим середнім значенням назвіть <code>avg_price_filtered</code>. Отримані середні значення в колонках <code>avg_price</code> та <code>avg_price_filtered</code> округліть <strong>до двох знаків після коми</strong>.</p>
 <p>Виведіть всю інформацію про товари, включаючи значення у нових колонках. Результат відсортуйте спочатку за спаданням ціни товару, потім за зростанням id товару.</p>
 <p>Поля в результуючій таблиці: <code>product_id</code>, <code>name</code>, <code>price</code>, <code>avg_price</code>, <code>avg_price_filtered</code></p>
 <p><strong>Пояснення:</strong></p>
@@ -1899,7 +1927,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-49" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb35" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>SELECT product_id,</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>       name,</span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>       price,</span>
@@ -2025,7 +2053,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>А тепер ще одне завдання на фільтрацію по вікну — цього разу складніше.</p>
 <div class="question">
 <div id="exr-sql-window-11" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 20.11 </strong></span><br> Для кожного запису в таблиці user_actions за допомогою віконних функцій та <code>FILTER</code> порахуйте скільки замовлень зробив і скільки скасував кожен користувач на момент здійснення нової дії.</p>
+<p><span class="theorem-title"><strong>Завдання 20.11</strong></span> <br> Для кожного запису в таблиці user_actions за допомогою віконних функцій та <code>FILTER</code> порахуйте скільки замовлень зробив і скільки скасував кожен користувач на момент здійснення нової дії.</p>
 <p>Іншими словами, <strong>для кожного користувача в кожний момент часу</strong> порахуйте дві накопичувальні суми - числа оформлених та відмінених замовлень. Якщо користувач оформляє замовлення, кількість оформлених ним замовлень збільшуйте на 1, якщо скасовує — збільшуйте на 1 кількість скасуваних.</p>
 <p>Колонки з накопичувальними сумами числа оформлених та скасованих замовлень назвіть відповідно <code>created_orders</code> та <code>canceled_orders</code>. На основі цих двох колонок для кожного запису користувача порахуйте показник <code>cancel_rate</code>, тобто частку скасованих замовлень у загальній кількості оформлених замовлень. Значення показника округліть <strong>до двох знаків після коми</strong>. Назвіть колонку з ним <code>cancel_rate</code>.</p>
 <p>В результаті у вас повинні вийти три нові колонки з динамічними показниками, які змінюються в часі з кожною новою дією користувача.</p>
@@ -2040,7 +2068,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-53" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb36" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>SELECT user_id,</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>       order_id,</span>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>       action,</span>
@@ -2197,7 +2225,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <hr>
 <div class="question">
 <div id="exr-sql-window-12" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 20.12 </strong></span><br> З таблиці <code>courier_actions</code> відберіть <strong>топ 10%</strong> кур’єрів за кількістю доставлених за весь час замовлень. Виведіть id кур’єрів, кількість доставлених замовлень та порядковий номер кур’єра відповідно до кількості доставлених замовлень.</p>
+<p><span class="theorem-title"><strong>Завдання 20.12</strong></span> <br> З таблиці <code>courier_actions</code> відберіть <strong>топ 10%</strong> кур’єрів за кількістю доставлених за весь час замовлень. Виведіть id кур’єрів, кількість доставлених замовлень та порядковий номер кур’єра відповідно до кількості доставлених замовлень.</p>
 <p>У кур’єра, який доставив найбільше замовлень, порядковий номер повинен дорівнювати 1, а кур’єра з найменшою кількістю замовлень — числу, що дорівнює десяти відсоткам від кількості кур’єрів у таблиці <code>courier_actions</code>.</p>
 <p>Під час розрахунку номера останнього кур’єра округляйте значення <strong>до цілого числа</strong>.</p>
 <p>Колонки з кількістю доставлених замовлень та порядковим номером назвіть відповідно <code>orders_count</code> та <code>courier_rank</code>. Результат відсортуйте за зростанням порядкового номера кур’єра.</p>
@@ -2209,7 +2237,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-56" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb37" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> courier_count <span class="im">as</span> (SELECT count(distinct courier_id)</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>                       FROM   courier_actions)</span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>SELECT courier_id,</span>
@@ -2229,7 +2257,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <hr>
 <div class="question">
 <div id="exr-sql-window-13" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 20.13 </strong></span><br> За допомогою віконної функції відберіть із таблиці <code>courier_actions</code> всіх кур’єрів, які працюють у нашій компанії <strong>10 і більше днів</strong>. Також розрахуйте <strong>скільки замовлень вони вже встигли доставити за весь час роботи</strong>.</p>
+<p><span class="theorem-title"><strong>Завдання 20.13</strong></span> <br> За допомогою віконної функції відберіть із таблиці <code>courier_actions</code> всіх кур’єрів, які працюють у нашій компанії <strong>10 і більше днів</strong>. Також розрахуйте <strong>скільки замовлень вони вже встигли доставити за весь час роботи</strong>.</p>
 <p>Вважатимемо, що наш сервіс пропонує найвигідніші умови праці і тому за весь аналізований період жоден кур’єр не звільнився з компанії. Можливих перерв між змінами не враховуйте — для нас важлива лише різниця в часі між першою дією кур’єра і поточною позначкою часу.</p>
 <p>Поточною відміткою часу, щодо якої необхідно розраховувати тривалість роботи кур’єра, вважайте час останньої дії таблиці <code>courier_actions</code>. Враховуйте лише цілі дні, що пройшли з моменту першого виходу кур’єра на роботу (<strong>години та хвилини не враховуйте</strong>).</p>
 <p>У результат включіть три колонки: id кур’єра, тривалість роботи в днях та кількість доставлених замовлень. Дві нові колонки назвіть відповідно <code>days_employed</code> та <code>delivered_orders</code>. Результат відсортуйте спочатку за зменшенням кількості відпрацьованих днів, потім за зростанням id кур’єра.</p>
@@ -2242,7 +2270,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-59" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb38" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>SELECT courier_id,</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>       days_employed,</span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>       delivered_orders</span>
@@ -2348,7 +2376,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <hr>
 <div class="question">
 <div id="exr-sql-window-14" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 20.14 </strong></span><br> За допомогою інформації в таблицях <code>orders</code> і <code>products</code> розрахуйте вартість кожного замовлення, щоденний виторг сервісу та частку вартості кожного замовлення в щоденній виручці, виражену у відсотках. У результаті включіть наступні колонки: id замовлення, час створення замовлення, вартість замовлення, виручку за день, в який було здійснено замовлення, а також частку вартості замовлення у виручці за день, що виражається у відсотках.</p>
+<p><span class="theorem-title"><strong>Завдання 20.14</strong></span> <br> За допомогою інформації в таблицях <code>orders</code> і <code>products</code> розрахуйте вартість кожного замовлення, щоденний виторг сервісу та частку вартості кожного замовлення в щоденній виручці, виражену у відсотках. У результаті включіть наступні колонки: id замовлення, час створення замовлення, вартість замовлення, виручку за день, в який було здійснено замовлення, а також частку вартості замовлення у виручці за день, що виражається у відсотках.</p>
 <p>При розрахунку часток округляйте їх <strong>до трьох знаків після коми</strong>.</p>
 <p>Результат відсортуйте спочатку за спаданням дати здійснення замовлення (саме дати, а не часу), потім за зменшенням частки замовлення у виручці за день, потім за зростанням id замовлення.</p>
 <p>Під час проведення розрахунків скасовані замовлення не враховуйте.</p>
@@ -2358,7 +2386,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-62" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb39" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>SELECT</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  order_id,</span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  creation_time,</span>
@@ -2407,7 +2435,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <hr>
 <div class="question">
 <div id="exr-sql-window-15" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 20.15 </strong></span><br> За допомогою інформації в таблицях <code>orders</code> та <code>products</code> розрахуйте щоденну виручку сервісу та відобразіть її в колонці <code>daily_revenue</code>. Потім за допомогою віконних функцій та функцій зміщення порахуйте щоденний приріст виручки. Приріст виручки відобразіть як у абсолютних значеннях, і у % щодо попереднього дня. Колонку з абсолютним приростом назвіть <code>revenue_growth_abs</code>, а колонку з відносним – <code>revenue_growth_percentage</code>.</p>
+<p><span class="theorem-title"><strong>Завдання 20.15</strong></span> <br> За допомогою інформації в таблицях <code>orders</code> та <code>products</code> розрахуйте щоденну виручку сервісу та відобразіть її в колонці <code>daily_revenue</code>. Потім за допомогою віконних функцій та функцій зміщення порахуйте щоденний приріст виручки. Приріст виручки відобразіть як у абсолютних значеннях, і у % щодо попереднього дня. Колонку з абсолютним приростом назвіть <code>revenue_growth_abs</code>, а колонку з відносним – <code>revenue_growth_percentage</code>.</p>
 <p>Для першого дня вкажіть приріст рівним 0 в обох колонках. Під час проведення розрахунків скасовані замовлення не враховуйте. Результат відсортуйте по колонці з датами зростання.</p>
 <p>Метрики <code>daily_revenue</code>, <code>revenue_growth_abs</code>, <code>revenue_growth_percentage</code> округліть <strong>до одного знака</strong> за допомогою <code>ROUND()</code>.</p>
 <p>Поля в результуючій таблиці: <code>date</code>, <code>daily_revenue</code>, <code>revenue_growth_abs</code>, <code>revenue_growth_percentage</code></p>
@@ -2416,7 +2444,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-65" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb40" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> t1 <span class="im">as</span> (</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    SELECT order_id,</span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>                       creation_time,</span>
@@ -2448,11 +2476,11 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Насправді при розрахунку середніх значень аналітикам часто доводиться мати справу з екстремально малими чи екстремально великими значеннями у вибірках. Тому замість звичайного середнього іноді доводиться рахувати медіану.</p>
 <p><strong>Медіана</strong> - це таке значення в деякому впорядкованому за зростанням наборі чисел, що одна половина елементів набору не менше за нього, а інша половина не більше. Тобто це таке число, що знаходиться десь у середині цього набору.</p>
 <p>Наведемо приклад. Допустимо, у нас є набір наступних чисел:</p>
-<pre><code>1, 5, 2, 12, 17, 8, 50, 12, 9, 1, 3</code></pre>
+<pre data-code-line-numbers=""><code>1, 5, 2, 12, 17, 8, 50, 12, 9, 1, 3</code></pre>
 <p>Якщо ми впорядкуємо цей набір за зростанням, то отримаємо наступний числовий ряд:</p>
-<pre><code>1, 1, 2, 3, 5, 8, 9, 12, 12, 17, 50</code></pre>
+<pre data-code-line-numbers=""><code>1, 1, 2, 3, 5, 8, 9, 12, 12, 17, 50</code></pre>
 <p>Давайте пронумеруємо елементи впорядкованого набору:</p>
-<pre><code>Числовий ряд:
+<pre data-code-line-numbers=""><code>Числовий ряд:
 1, 1, 2, 3, 5, 8, 9, 12, 12, 17, 50
 
 Номер елемента:
@@ -2460,7 +2488,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Тепер добре видно, що центральним елементом ряду є число 8 (елемент під номером 6), оскільки одна половина значень (елементи під номерами 1-5) не більша за 8, а друга половина (елементи під номерами 7-11) не менше 8. Таким чином, медіана нашого ряду дорівнює 8.</p>
 <p>Але це працює, коли ряд складається з непарної кількості елементів (у нас їх 11). Якщо ж у вибірці парне число елементів, тоді як медіану вважають середнє значення двох елементів, що у середині ряду.</p>
 <p>Давайте додамо до нашого ряду число 0 і подивимося, що в результаті вийде:</p>
-<pre><code>Числовий ряд:
+<pre data-code-line-numbers=""><code>Числовий ряд:
 0, 1, 1, 2, 3, 5, 8, 9, 12, 12, 17, 50
 
 Номер елемента:
@@ -2468,7 +2496,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Тепер центральними є числа 5 та 8 (елементи під номерами 6 та 7). Медіана у цьому випадку дорівнює: <span class="math display">\[(5+8)/2=6.5\]</span></p>
 <p>Знову половина значень (елементи під номерами 1-5) не більше 6.5, а друга половина (елементи під номерами 7-11) не менше 6.5.</p>
 <p>Трапляються випадки, коли в ряді, що складається з парного числа елементів, граничними є два однакові значення. Давайте замінимо у нашому ряді число 8 на число 5:</p>
-<pre><code>Числовий ряд:
+<pre data-code-line-numbers=""><code>Числовий ряд:
 0, 1, 1, 2, 3, 5, 5, 9, 12, 12, 17, 50
 
 Номер елемента:
@@ -2478,7 +2506,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <hr>
 <div class="question">
 <div id="exr-sql-window-16" class="theorem exercise">
-<p><span class="theorem-title"><strong>Завдання 20.16 </strong></span><br> За допомогою віконної функції розрахуйте медіанну вартість всіх замовлень із таблиці <code>orders</code>, оформлених у нашому сервісі. Як результат виведіть одне число. Назвіть колонку з ним <code>median_price</code>. Скасовані замовлення не враховуйте.</p>
+<p><span class="theorem-title"><strong>Завдання 20.16</strong></span> <br> За допомогою віконної функції розрахуйте медіанну вартість всіх замовлень із таблиці <code>orders</code>, оформлених у нашому сервісі. Як результат виведіть одне число. Назвіть колонку з ним <code>median_price</code>. Скасовані замовлення не враховуйте.</p>
 <p>Поле у результуючій таблиці: <code>median_price</code></p>
 <p><strong>Пояснення:</strong></p>
 <p>Запит повинен враховувати два можливі сценарії: для парного та непарного числа замовлень. Вбудовані функції для розрахунку квантилей застосовувати не можна.</p>
@@ -2503,7 +2531,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="cell-70" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
+<div class="sourceCode cell-code" id="cb46" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>sql</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>WITH orders_prods AS (SELECT <span class="op">*</span>,</span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>                             unnest(product_ids) AS product_id</span>
 <span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>                      FROM orders),</span>
@@ -2738,27 +2766,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -2773,10 +2780,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             break;
           }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -2785,8 +2796,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -3028,4 +3046,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/Aranaur/py4ds/blob/main/chapters/sql/sql_window.ipynb" class="toc-action"><i class="bi bi-github"></i>Редагувати сторінку</a></li><li><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action"><i class="bi empty"></i>Повідомити про проблему</a></li><li><a href="https://github.com/Aranaur/py4ds/blob/main/chapters/sql/sql_window.ipynb" class="toc-action"><i class="bi empty"></i>Переглянути код</a></li></ul></div></div></div></footer><script src="../../site_libs/quarto-contrib/line-highlight-1.0.0/line-highlight.js" defer="true"></script>
 </body></html>

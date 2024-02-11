@@ -1,7 +1,3 @@
----
-engine: knitr
----
-
 # Помилки та винятки
 
 ## SyntaxError
