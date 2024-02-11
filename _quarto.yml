@@ -35,21 +35,21 @@ book:
   chapters:
     - index.qmd
     - text: "---"
-    - part: chapters/python/python.qmd
+    - part: chapters/python/index.qmd
       chapters: 
-      - chapters/python/python_basics.qmd
-      - chapters/python/python_conditionals.qmd
-      - chapters/python/python_loops.qmd
-      - chapters/python/python_exceptions.qmd
-      - chapters/python/python_libraries.qmd
-      - chapters/python/python_unit_tests.qmd
-      - chapters/python/python_files_io.qmd
-      - chapters/python/python_regex.qmd
-      - chapters/python/python_oop.qmd
-      - chapters/python/python_et_cetera.qmd
-      - chapters/python/python_functions.qmd
-      - chapters/python/python_exercises.qmd
-      - chapters/python/python_questions.qmd
+      - chapters/python/basics.qmd
+      - chapters/python/conditionals.qmd
+      - chapters/python/loops.qmd
+      - chapters/python/exceptions.qmd
+      - chapters/python/libraries.qmd
+      - chapters/python/unit_tests.qmd
+      - chapters/python/files_io.qmd
+      - chapters/python/regex.qmd
+      - chapters/python/oop.qmd
+      - chapters/python/et_cetera.qmd
+      - chapters/python/functions.qmd
+      - chapters/python/exercises.qmd
+      - chapters/python/questions.qmd
     # - text: "---"
     # - part: math4ds.qmd
     #   chapters: 
@@ -60,17 +60,17 @@ book:
       # - math4ds_exercises.qmd
       # - math4ds_questions.qmd
     - text: "---"
-    - part: chapters/sql/sql.ipynb
+    - part: chapters/sql/index.ipynb
       chapters: 
-      - chapters/sql/sql_basics.ipynb
-      - chapters/sql/sql_filter.ipynb
-      - chapters/sql/sql_agg.ipynb
-      - chapters/sql/sql_groupby.ipynb
-      - chapters/sql/sql_subquery.ipynb
-      - chapters/sql/sql_join.ipynb
-      - chapters/sql/sql_window.ipynb
-      - chapters/sql/sql_analytic.ipynb
-      - chapters/sql/sql_metrics.ipynb
+      - chapters/sql/basics.ipynb
+      - chapters/sql/filter.ipynb
+      - chapters/sql/agg.ipynb
+      - chapters/sql/groupby.ipynb
+      - chapters/sql/subquery.ipynb
+      - chapters/sql/join.ipynb
+      - chapters/sql/window.ipynb
+      - chapters/sql/analytic.ipynb
+      - chapters/sql/metrics.ipynb
     - text: "---"
     - chapters/quarto.qmd
 
