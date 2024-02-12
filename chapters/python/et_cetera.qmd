@@ -1,333 +1,254 @@
-# Множини
+# Додаткові матеріали
 
-**Множини** - це набір унікальних елементів. Множини створюються за допомогою фігурних дужок `{}`. Наприклад:
+## Множини
+
+Поміж різних типів даних у Python є ще один, який ми ще не мали нагоди використати, а саме множина. У математиці множина - це набір значень, в якому немає повторень. В Python **множина** (англ. *set*) - це структура даних, що містить унікальні елементи. Множини створюються за допомогою фігурних дужок `{}`.
+
+Повернемося до прикладу `houses.py`, де ми створили список словників з даними про студентів Гоґвортсу:
 
 ```{python}
-fruits = {'apple', 'apple', 'banana', 'orange'}
-print(fruits)
+#| label: houses-py
+
+students = [
+        {'name': 'Гаррі Поттер', 'house': 'Ґрифіндор'},
+        {'name': 'Герміона Грейнджер', 'house': 'Ґрифіндор'},
+        {'name': 'Рон Уізлі', 'house': 'Ґрифіндор'},
+        {'name': 'Драко Малфой', 'house': 'Слизерин'},
+        {'name': 'Том Реддл', 'house': 'Слизерин'},
+        {'name': 'Седрик Діггорі', 'house': 'Гафелпаф'},
+        {'name': 'Луна Лавґуд', 'house': 'Рейвенклов'}
+]
 ```
+
+Припустимо, що наша мета --- з'ясувати унікальні гуртожитки в Гоґвортсі у світі Гаррі Поттера?
+
+Перший підхід, який приходить на думку, це створити список унікальних гуртожитків, переглянути всіх студентів та додати гуртожиток до списку, якщо його там ще немає:
+
+```{python}
+#| label: houses-py-unique-houses
+
+unique_houses = []
+for student in students:
+    if student['house'] not in unique_houses:
+        unique_houses.append(student['house'])
+
+print(unique_houses)
+```
+
+Другий підхід - використати множину за допомогою функції `set()`. Множина автоматично видаляє усі повторення, тому ми можемо просто створити множину з усіх гуртожитків:
+
+```{python}
+#| label: houses-py-unique-houses-set
+
+unique_houses = set()
+for student in students:
+    unique_houses.add(student['house'])
+
+print(unique_houses)
+```
+
+::: callout-note
+Документацію по різним типам даних Python можна знайти за посиланням <https://docs.python.org/3/library/stdtypes.html>.
+:::
 
 ### Методи множин
 
-- `add(element)` - додає елемент до множини. Наприклад:
+Множини мають ряд методів, які дозволяють виконувати різні операції з множинами. Розглянемо декілька з них
+
+- `add(element)` - додає елемент до множини:
 
 ```{python}
-fruits = {'apple', 'banana', 'orange'}
-fruits.add('melon')
-print(fruits)
+#| label: set-add
+
+students = {'Гаррі Поттер', 'Герміона Грейнджер', 'Рон Уізлі'}
+students.add('Драко Малфой')
+
+print(students)
 ```
 
-- `union(set)` - повертає об'єднання двох множин. Наприклад:
+- `union(set)` - повертає об'єднання двох множин:
 
 ```{python}
-fruits = {'apple', 'banana', 'orange'}
-fruits2 = {'melon', 'watermelon'}
-fruits3 = fruits.union(fruits2)
-print(fruits3)
+#| label: set-union
+
+students1 = {'Гаррі Поттер', 'Герміона Грейнджер', 'Рон Уізлі'}
+students2 = {'Драко Малфой', 'Том Реддл'}
+all_students = students1.union(students2)
+
+print(all_students)
 ```
 
-- `clear()` - видаляє всі елементи множини. Наприклад:
+- `clear()` - видаляє всі елементи множини:
 
 ```{python}
-fruits = {'apple', 'banana', 'orange'}
-fruits.clear()
-print(fruits)
+#| label: set-clear
+
+students = {'Гаррі Поттер', 'Герміона Грейнджер', 'Рон Уізлі'}
+students.clear()
+
+print(students)
 ```
 
-- `copy()` - повертає копію множини. Наприклад:
+- `copy()` - повертає копію множини:
 
 ```{python}
-fruits = {'apple', 'banana', 'orange'}
-fruits_copy = fruits.copy()
-print(fruits_copy)
+#| label: set-copy
+
+students = {'Гаррі Поттер', 'Герміона Грейнджер', 'Рон Уізлі'}
+students2 = students.copy()
+
+print(students2)
 ```
 
-- `difference(set)` - повертає різницю двох множин. Наприклад:
+- `difference(set)` - повертає різницю двох множин:
 
 ```{python}
-fruits = {'apple', 'banana', 'orange'}
-fruits2 = {'apple', 'melon', 'watermelon'}
-fruits3 = fruits.difference(fruits2)
-print(fruits3)
+#| label: set-difference
+
+students1 = {'Гаррі Поттер', 'Герміона Грейнджер', 'Рон Уізлі'}
+students2 = {'Гаррі Поттер', 'Рон Уізлі'}
+students3 = students1.difference(students2)
+
+print(students3)
 ```
 
-- `discard(element)` - видаляє елемент із множини, якщо він там є. Якщо елементу немає у множині, то нічого не відбувається. Наприклад:
+- `discard(element)` - видаляє елемент із множини, якщо він там є. Якщо елементу немає у множині, то нічого не відбувається:
 
 ```{python}
-fruits = {'apple', 'banana', 'orange'}
-fruits.discard('apple')
-print(fruits)
-```
+#| label: set-discard
 
-```{python}
-fruits = {'apple', 'banana', 'orange'}
-fruits.discard('watermelon')
-print(fruits)
-```
+students = {'Гаррі Поттер', 'Герміона Грейнджер', 'Рон Уізлі'}
+students.discard('Гаррі Поттер')
 
-- `remove(element)` - видаляє елемент із множини, якщо він там є. Якщо елементу немає у множині, то видає помилку `KeyError`. Наприклад:
-
-```{python}
-fruits = {'apple', 'banana', 'orange'}
-fruits.remove('apple')
-print(fruits)
+print(students)
 ```
 
 ```{python}
+#| label: set-discard-2
+
+students = {'Гаррі Поттер', 'Герміона Грейнджер', 'Рон Уізлі'}
+students.discard('Драко Малфой')
+
+print(students)
+```
+
+- `remove(element)` - видаляє елемент із множини, якщо він там є. Якщо елементу немає у множині, то видає помилку `KeyError`:
+
+```{python}
+#| label: set-remove
+
+students = {'Гаррі Поттер', 'Герміона Грейнджер', 'Рон Уізлі'}
+students.remove('Гаррі Поттер')
+
+print(students)
+```
+
+```{python}
+#| label: set-remove-2
 #| error: true
-fruits = {'apple', 'banana', 'orange'}
-fruits.remove('watermelon')
-print(fruits)
+
+students = {'Гаррі Поттер', 'Герміона Грейнджер', 'Рон Уізлі'}
+students.remove('Драко Малфой')
+
+print(students)
 ```
 
-- `intersection(set)` - повертає перетин двох множин. Наприклад:
+- `intersection(set)` - повертає перетин двох множин:
 
 ```{python}
-fruits = {'apple', 'banana', 'orange'}
-fruits2 = {'apple', 'melon', 'watermelon'}
-fruits3 = fruits.intersection(fruits2)
-print(fruits3)
+#| label: set-intersection
+
+students1 = {'Гаррі Поттер', 'Герміона Грейнджер', 'Рон Уізлі'}
+students2 = {'Гаррі Поттер', 'Рон Уізлі'}
+students3 = students1.intersection(students2)
+
+print(students3)
 ```
 
 - `isdisjoint(set)` - повертає `True`, якщо дві множини не мають спільних елементів. Наприклад:
 
 ```{python}
-fruits = {'apple', 'banana', 'orange'}
-fruits2 = {'melon', 'watermelon'}
-print(fruits.isdisjoint(fruits2))
+#| label: set-isdisjoint
+
+students1 = {'Гаррі Поттер', 'Герміона Грейнджер', 'Рон Уізлі'}
+students2 = {'Драко Малфой', 'Том Реддл'}
+
+print(students1.isdisjoint(students2))
 ```
 
 - `issubset(set)` - повертає `True`, якщо множина є підмножиною іншої множини. Наприклад:
 
 ```{python}
-fruits = {'apple', 'banana', 'orange', 'watermelon'}
-fruits2 = {'banana', 'orange'}
-print(fruits2.issubset(fruits))
+#| label: set-issubset
+
+students1 = {'Гаррі Поттер', 'Герміона Грейнджер'}
+students2 = {'Гаррі Поттер', 'Герміона Грейнджер', 'Рон Уізлі'}
+
+print(students1.issubset(students2))
 ```
-
-:::: question
-::: {#exr-py-list-set-08}
-<br>
-Дано два списки `list_1` і `list_2`. Відсортуйте `list_1` за зростанням, а `list_2` за спаданням.
-Поєднайте `list_1` та `list_2` в один відсортований за зростанням список `list_3`.
-У змінну `list_3_len` збережіть довжину `list_3`.
-
-**Приклад:**
-
-```{{python}}
-list_1 = [1, 5, 3]
-list_2 = [2, 8]
-# -> 
-list_1 = [1, 3, 5]
-list_2 = [8, 2]
-list_3 = [1, 2, 3, 5, 8]
-list_3_len = 5
-```
-
-```{python}
-#| code-fold: true
-#| code-summary: "Рішення"
-
-list_1 = [1, 5, 3]
-list_2 = [2, 8]
-
-```
-
-:::
-::::
-
-:::: question
-::: {#exr-py-list-set-10}
-<br>
-У змінній `menu` зберігається множина усіх позицій меню кав'ярні, а в змінній `stop` - множина позицій меню кав'ярні, недоступних для замовлення сьогодні. Збережіть у змінну `menu_today` позиції меню, доступні для замовлення сьогодні.
-
-**Приклад:**
-
-```{{python}}
-menu = {'White Chocolate Mocha', 'Americano', 'Flat White', 'Latte', 
-        'Blueberry Muffin', 'Chocolate Chip Cookie'}
-stop = {'White Chocolate Mocha', 'Blueberry Muffin'}
-
-menu_today = {'Americano', 'Flat White', 'Latte', 'Chocolate Chip Cookie'}
-```
-
-```{python}
-#| code-fold: true
-#| code-summary: "Рішення"
-
-menu = {'White Chocolate Mocha', 'Americano', 'Flat White', 'Latte', 
-        'Blueberry Muffin', 'Chocolate Chip Cookie'}
-stop = {'White Chocolate Mocha', 'Blueberry Muffin'}
-
-menu_today = menu - stop
-# або
-menu_today = menu.difference(stop)
-```
-
-:::
-::::
-
-:::: question
-::: {#exr-py-list-set-11}
-<br>
-У змінній `my_set` множина (`set`) із чисел. У змінній `to_delete` число, яке потрібно видалити з `my_set`, якщо воно там є. Якщо такого числа немає в `my_set` нічого робити не треба.
-
-**Приклад:**
-
-```{{python}}
-my_set = {0, 10, 100}
-to_delete = 0
-# ====>
-my_set = {10, 100} # видалили 0
-
-my_set = {0, 10, 100}
-to_delete = -2
-# ====>
-my_set = {0, 10, 100} # нічого не робили
-
-```
-
-```{python}
-#| code-fold: true
-#| code-summary: "Рішення"
-
-my_set = {0, 10, 100}
-to_delete = 0
-my_set.discard(to_delete)
-```
-
-:::
-::::
-
-:::: question
-::: {#exr-py-list-set-12}
-<br>
-У `students` зберігається множина студентів. Студент, ім'я якого записано в `new_student`, з іншого інституту, його ім'я потрібно додати в `students`. У змінній `churn_student` - студент, який хоче перевестися до іншого інституту, його ім'я потрібно прибрати зі `students`. 
-
-**Приклад:**
-
-```{{python}}
-students = {'Крупін Владислав', 'Крашеніннікова Олександра', "Михолап Мар'яна", 'Дробина Юлія', 'Алексєєва Віталіна'}
-new_student = 'Піщікова Катерина'
-churn_student = "Михолап Мар'яна"
-# ->
-students = {'Крупін Владислав', 'Крашеніннікова Олександра', 'Дробина Юлія', 'Алексєєва Віталіна', 'Піщікова Катерина'}
-```
-
-```{python}
-#| code-fold: true
-#| code-summary: "Рішення"
-
-students = {'Крупін Владислав', 'Крашеніннікова Олександра', 'Михолап Мар\'яна', 'Дробина Юлія', 'Алексєєва Віталіна'}
-new_student = 'Піщікова Катерина'
-churn_student = 'Михолап Мар\'яна'
-students.add(new_student)
-students.discard(churn_student)
-# або
-# students.remove(churn_student)
-```
-
-:::
-::::
-
-:::: question
-::: {#exr-py-list-set-13}
-<br>
-У змінній `da_students` зберігаються імена студентів курсу "Аналітик даних", а у змінній `dv_students` - імена студентів курсу "Візуалізація даних". Збережіть у змінну `students` студентів, які навчаються на обох курсах.
-
-Порядок елементів у `students` не має значення.
-
-**Приклад:**
-
-```{{python}}
-# студенти курсу "Аналітик даних"
-da_students = {'Крупін Владислав', 'Крашеніннікова Олександра', "Михолап Мар'яна", 'Дробина Юлія'}
-# студенти курсу "Візуалізація даних"
-dv_students = {"Михолап Мар'яна", 'Дробина Юлія', 'Алексєєва Віталіна'}
-
-# результат
-students = {"Михолап Мар'яна", 'Дробина Юлія'}
-```
-
-```{python}
-#| code-fold: true
-#| code-summary: "Рішення"
-
-da_students = {'Крупін Владислав', 'Крашеніннікова Олександра', "Михолап Мар'яна", 'Дробина Юлія'}
-dv_students = {"Михолап Мар'яна", 'Дробина Юлія', 'Алексєєва Віталіна'}
-students = da_students & dv_students
-# або
-students = da_students.intersection(dv_students)
-# або
-students = da_students - dv_students
-```
-
-:::
-::::
 
 ### Frozenset {#sec-frozenset}
 
 У множини теж є незмінний аналог. **Frozenset** - це незмінний набір об'єктів, він має ту ж функціональність, що і `set`, але його елементи не можуть бути змінені після створення.
 
 ```{python}
-my_frozenset = frozenset([1, 2, 3])
-print(my_frozenset)
+#| label: frozenset
+
+students = frozenset({'Гаррі Поттер', 'Герміона Грейнджер', 'Рон Уізлі'})
+print(students)
 ```
 
 На старті ви не так часто зіштовхуватиметеся з `frozenset`, але чим глибше ви занурюватиметеся в розробку, тим вище ймовірність, що ви зустрінетеся з `frozenset` при роботі з множинами.
 
-Зараз нам просто корисно знати, що існує незмінний аналог множин, надалі ми ще повернемося до `frozenset` і продемонструємо кілька прикладів його використання.
+::: callout-note
+Документацію по `frozenset` Python можна знайти за посиланням <https://docs.python.org/3/library/stdtypes.html#frozenset>.
+:::
 
-:::: question
-::: {#exr-py-list-set-07}
-<br>
-- У змінній `numbers_list` збережено список із цілими числами. У списку щонайменше два різних цілих числа.
-- У змінну `numbers_list_ordered` збережіть усі числа зі списку `numbers_list`, відсортовані за спаданням. При цьому список `numbers_list` не повинен змінюватися.
-- У змінну `numbers_set` збережіть множину унікальних чисел зі списку `numbers_list`. Доповніть цю множину наступним цілим числом після максимального числа з `numbers_list`.
-- У змінну `numbers_frozenset` збережіть незмінну множину з усіх унікальних чисел зі списку `numbers_list`, крім мінімального числа.
+## Глобальні змінні
 
-**Приклад:**
+У Python є можливість створювати змінні, які будуть доступні в усій програмі. Такі змінні називаються **глобальними**. Глобальні змінні можна створити за межами будь-якої функції, але вони будуть доступні в усій програмі. Для створення глобальної змінної потрібно використати ключове слово `global`.
 
-```{{python}}
-# Приклад 1
-numbers_list = [1, 5, 3, 3, 5]
-
-numbers_list_ordered = [5, 5, 3, 3, 1]
-numbers_set = set([1, 3, 5, 6])
-numbers_frozenset = frozenset([3, 5])
-```
-
-```{{python}}
-# Приклад 2
-numbers_list = [-1, 0, 1]
-
-numbers_list_ordered = [1, 0, -1]
-numbers_set = set([-1, 0, 1, 2])
-numbers_frozenset = frozenset([0, 1])
-```
-
-```{{python}}
-# Приклад 3
-numbers_list [-1, -5, -1]
-
-numbers_list_ordered = [-1, -1, -5]
-numbers_set = set([-5, -1, 0])
-numbers_frozenset = frozenset([-1])
-```
+Для прикладу створимо програму `bank.py`, яка буде відслідковувати баланс рахунку. Спочатку баланс рахунку буде дорівнювати 0:
 
 ```{python}
-#| code-fold: true
-#| code-summary: "Рішення"
+#| label: bank-py
 
-numbers_list = [1, 1, 5, 3, 3, 5]
-numbers_list_ordered = sorted(numbers_list, reverse=True)
-numbers_set = set(numbers_list)
-numbers_set.add(max(numbers_list) + 1)
-numbers_frozenset = frozenset(sorted(set(numbers_list))[1:]) 
+balance = 0
+
+def main():
+    print("Баланс рахунку:", balance)
+
+if __name__ == "__main__":
+    main()
 ```
 
-:::
-::::
+Навіть якщо ви оголосите змінну в Python поза межами ваших функцій ви можете отримати до неї доступ. 
+
+Тепер давайте додамо функції, які дозволить збільшувати та зменшувати баланс рахунку:
+
+```{python}
+#| label: bank-py-2
+
+balance = 0
+
+def increase_balance(amount):
+    global balance
+    balance += amount
+
+def decrease_balance(amount):
+    global balance
+    balance -= amount
+
+def main():
+    increase_balance(100)
+    decrease_balance(50)
+    print("Баланс рахунку:", balance)
+
+if __name__ == "__main__":
+    main()
+```
+
+
 
 ## Корисні функції
 
@@ -608,3 +529,216 @@ print(result_list)
 Зараз важливо запам'ятати, що за допомогою зв'язки `list(zip(x, y))` ми можемо швидко й ефективно об'єднувати кілька списків.
 
 Важливо зазначити, що результат `zip()` матиме довжину, що дорівнює довжині найкоротшої з вихідних послідовностей. Якщо довжини послідовностей відрізняються, то зайві елементи будуть проігноровані. Функція `zip()` може використовуватися в таких ситуаціях, як ітерація за кількома послідовностями одночасно або поєднання елементів з декількох списків.
+
+## Завдання
+
+:::: question
+::: {#exr-py-list-set-08}
+<br>
+Дано два списки `list_1` і `list_2`. Відсортуйте `list_1` за зростанням, а `list_2` за спаданням.
+Поєднайте `list_1` та `list_2` в один відсортований за зростанням список `list_3`.
+У змінну `list_3_len` збережіть довжину `list_3`.
+
+**Приклад:**
+
+```{{python}}
+list_1 = [1, 5, 3]
+list_2 = [2, 8]
+# -> 
+list_1 = [1, 3, 5]
+list_2 = [8, 2]
+list_3 = [1, 2, 3, 5, 8]
+list_3_len = 5
+```
+
+```{python}
+#| code-fold: true
+#| code-summary: "Рішення"
+
+list_1 = [1, 5, 3]
+list_2 = [2, 8]
+
+```
+
+:::
+::::
+
+:::: question
+::: {#exr-py-list-set-10}
+<br>
+У змінній `menu` зберігається множина усіх позицій меню кав'ярні, а в змінній `stop` - множина позицій меню кав'ярні, недоступних для замовлення сьогодні. Збережіть у змінну `menu_today` позиції меню, доступні для замовлення сьогодні.
+
+**Приклад:**
+
+```{{python}}
+menu = {'White Chocolate Mocha', 'Americano', 'Flat White', 'Latte', 
+        'Blueberry Muffin', 'Chocolate Chip Cookie'}
+stop = {'White Chocolate Mocha', 'Blueberry Muffin'}
+
+menu_today = {'Americano', 'Flat White', 'Latte', 'Chocolate Chip Cookie'}
+```
+
+```{python}
+#| code-fold: true
+#| code-summary: "Рішення"
+
+menu = {'White Chocolate Mocha', 'Americano', 'Flat White', 'Latte', 
+        'Blueberry Muffin', 'Chocolate Chip Cookie'}
+stop = {'White Chocolate Mocha', 'Blueberry Muffin'}
+
+menu_today = menu - stop
+# або
+menu_today = menu.difference(stop)
+```
+
+:::
+::::
+
+:::: question
+::: {#exr-py-list-set-11}
+<br>
+У змінній `my_set` множина (`set`) із чисел. У змінній `to_delete` число, яке потрібно видалити з `my_set`, якщо воно там є. Якщо такого числа немає в `my_set` нічого робити не треба.
+
+**Приклад:**
+
+```{{python}}
+my_set = {0, 10, 100}
+to_delete = 0
+# ====>
+my_set = {10, 100} # видалили 0
+
+my_set = {0, 10, 100}
+to_delete = -2
+# ====>
+my_set = {0, 10, 100} # нічого не робили
+
+```
+
+```{python}
+#| code-fold: true
+#| code-summary: "Рішення"
+
+my_set = {0, 10, 100}
+to_delete = 0
+my_set.discard(to_delete)
+```
+
+:::
+::::
+
+:::: question
+::: {#exr-py-list-set-12}
+<br>
+У `students` зберігається множина студентів. Студент, ім'я якого записано в `new_student`, з іншого інституту, його ім'я потрібно додати в `students`. У змінній `churn_student` - студент, який хоче перевестися до іншого інституту, його ім'я потрібно прибрати зі `students`. 
+
+**Приклад:**
+
+```{{python}}
+students = {'Крупін Владислав', 'Крашеніннікова Олександра', "Михолап Мар'яна", 'Дробина Юлія', 'Алексєєва Віталіна'}
+new_student = 'Піщікова Катерина'
+churn_student = "Михолап Мар'яна"
+# ->
+students = {'Крупін Владислав', 'Крашеніннікова Олександра', 'Дробина Юлія', 'Алексєєва Віталіна', 'Піщікова Катерина'}
+```
+
+```{python}
+#| code-fold: true
+#| code-summary: "Рішення"
+
+students = {'Крупін Владислав', 'Крашеніннікова Олександра', 'Михолап Мар\'яна', 'Дробина Юлія', 'Алексєєва Віталіна'}
+new_student = 'Піщікова Катерина'
+churn_student = 'Михолап Мар\'яна'
+students.add(new_student)
+students.discard(churn_student)
+# або
+# students.remove(churn_student)
+```
+
+:::
+::::
+
+:::: question
+::: {#exr-py-list-set-13}
+<br>
+У змінній `da_students` зберігаються імена студентів курсу "Аналітик даних", а у змінній `dv_students` - імена студентів курсу "Візуалізація даних". Збережіть у змінну `students` студентів, які навчаються на обох курсах.
+
+Порядок елементів у `students` не має значення.
+
+**Приклад:**
+
+```{{python}}
+# студенти курсу "Аналітик даних"
+da_students = {'Крупін Владислав', 'Крашеніннікова Олександра', "Михолап Мар'яна", 'Дробина Юлія'}
+# студенти курсу "Візуалізація даних"
+dv_students = {"Михолап Мар'яна", 'Дробина Юлія', 'Алексєєва Віталіна'}
+
+# результат
+students = {"Михолап Мар'яна", 'Дробина Юлія'}
+```
+
+```{python}
+#| code-fold: true
+#| code-summary: "Рішення"
+
+da_students = {'Крупін Владислав', 'Крашеніннікова Олександра', "Михолап Мар'яна", 'Дробина Юлія'}
+dv_students = {"Михолап Мар'яна", 'Дробина Юлія', 'Алексєєва Віталіна'}
+students = da_students & dv_students
+# або
+students = da_students.intersection(dv_students)
+# або
+students = da_students - dv_students
+```
+
+:::
+::::
+
+:::: question
+::: {#exr-py-list-set-07}
+<br>
+- У змінній `numbers_list` збережено список із цілими числами. У списку щонайменше два різних цілих числа.
+- У змінну `numbers_list_ordered` збережіть усі числа зі списку `numbers_list`, відсортовані за спаданням. При цьому список `numbers_list` не повинен змінюватися.
+- У змінну `numbers_set` збережіть множину унікальних чисел зі списку `numbers_list`. Доповніть цю множину наступним цілим числом після максимального числа з `numbers_list`.
+- У змінну `numbers_frozenset` збережіть незмінну множину з усіх унікальних чисел зі списку `numbers_list`, крім мінімального числа.
+
+**Приклад:**
+
+```{{python}}
+# Приклад 1
+numbers_list = [1, 5, 3, 3, 5]
+
+numbers_list_ordered = [5, 5, 3, 3, 1]
+numbers_set = set([1, 3, 5, 6])
+numbers_frozenset = frozenset([3, 5])
+```
+
+```{{python}}
+# Приклад 2
+numbers_list = [-1, 0, 1]
+
+numbers_list_ordered = [1, 0, -1]
+numbers_set = set([-1, 0, 1, 2])
+numbers_frozenset = frozenset([0, 1])
+```
+
+```{{python}}
+# Приклад 3
+numbers_list [-1, -5, -1]
+
+numbers_list_ordered = [-1, -1, -5]
+numbers_set = set([-5, -1, 0])
+numbers_frozenset = frozenset([-1])
+```
+
+```{python}
+#| code-fold: true
+#| code-summary: "Рішення"
+
+numbers_list = [1, 1, 5, 3, 3, 5]
+numbers_list_ordered = sorted(numbers_list, reverse=True)
+numbers_set = set(numbers_list)
+numbers_set.add(max(numbers_list) + 1)
+numbers_frozenset = frozenset(sorted(set(numbers_list))[1:]) 
+```
+
+:::
+::::
