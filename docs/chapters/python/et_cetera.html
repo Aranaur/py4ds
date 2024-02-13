@@ -369,14 +369,17 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <li><a href="#глобальні-змінні" id="toc-глобальні-змінні" class="nav-link" data-scroll-target="#глобальні-змінні"><span class="header-section-number">10.2</span> Глобальні змінні</a></li>
   <li><a href="#константи" id="toc-константи" class="nav-link" data-scroll-target="#константи"><span class="header-section-number">10.3</span> Константи</a></li>
   <li><a href="#анотації-типів" id="toc-анотації-типів" class="nav-link" data-scroll-target="#анотації-типів"><span class="header-section-number">10.4</span> Анотації типів</a></li>
-  <li><a href="#корисні-функції" id="toc-корисні-функції" class="nav-link" data-scroll-target="#корисні-функції"><span class="header-section-number">10.5</span> Корисні функції</a>
+  <li><a href="#docstrings" id="toc-docstrings" class="nav-link" data-scroll-target="#docstrings"><span class="header-section-number">10.5</span> Docstrings</a></li>
+  <li><a href="#розширені-можливості-командного-рядка" id="toc-розширені-можливості-командного-рядка" class="nav-link" data-scroll-target="#розширені-можливості-командного-рядка"><span class="header-section-number">10.6</span> Розширені можливості командного рядка</a></li>
+  <li><a href="#розпакування" id="toc-розпакування" class="nav-link" data-scroll-target="#розпакування"><span class="header-section-number">10.7</span> Розпакування</a></li>
+  <li><a href="#корисні-функції" id="toc-корисні-функції" class="nav-link" data-scroll-target="#корисні-функції"><span class="header-section-number">10.8</span> Корисні функції</a>
   <ul class="collapse">
-  <li><a href="#range" id="toc-range" class="nav-link" data-scroll-target="#range"><span class="header-section-number">10.5.1</span> range()</a></li>
+  <li><a href="#range" id="toc-range" class="nav-link" data-scroll-target="#range"><span class="header-section-number">10.8.1</span> range()</a></li>
   </ul></li>
-  <li><a href="#sec-mutable-immutable" id="toc-sec-mutable-immutable" class="nav-link" data-scroll-target="#sec-mutable-immutable"><span class="header-section-number">10.6</span> Змінювані та незмінювані об’єкти</a></li>
-  <li><a href="#кортежі" id="toc-кортежі" class="nav-link" data-scroll-target="#кортежі"><span class="header-section-number">10.7</span> Кортежі</a></li>
-  <li><a href="#sec-list-zip" id="toc-sec-list-zip" class="nav-link" data-scroll-target="#sec-list-zip"><span class="header-section-number">10.8</span> Функція <code>zip()</code> для об’єднання послідовностей</a></li>
-  <li><a href="#завдання" id="toc-завдання" class="nav-link" data-scroll-target="#завдання"><span class="header-section-number">10.9</span> Завдання</a></li>
+  <li><a href="#sec-mutable-immutable" id="toc-sec-mutable-immutable" class="nav-link" data-scroll-target="#sec-mutable-immutable"><span class="header-section-number">10.9</span> Змінювані та незмінювані об’єкти</a></li>
+  <li><a href="#кортежі" id="toc-кортежі" class="nav-link" data-scroll-target="#кортежі"><span class="header-section-number">10.10</span> Кортежі</a></li>
+  <li><a href="#sec-list-zip" id="toc-sec-list-zip" class="nav-link" data-scroll-target="#sec-list-zip"><span class="header-section-number">10.11</span> Функція <code>zip()</code> для об’єднання послідовностей</a></li>
+  <li><a href="#завдання" id="toc-завдання" class="nav-link" data-scroll-target="#завдання"><span class="header-section-number">10.12</span> Завдання</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Aranaur/py4ds/edit/main/chapters/python/et_cetera.qmd" class="toc-action"><i class="bi bi-github"></i>Редагувати сторінку</a></li><li><a href="https://github.com/Aranaur/py4ds/issues/new" class="toc-action"><i class="bi empty"></i>Повідомити про проблему</a></li><li><a href="https://github.com/Aranaur/py4ds/blob/main/chapters/python/et_cetera.qmd" class="toc-action"><i class="bi empty"></i>Переглянути код</a></li></ul></div></nav>
     </div>
@@ -438,7 +441,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unique_houses)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre data-code-line-numbers=""><code>{'Гафелпаф', 'Ґрифіндор', 'Рейвенклов', 'Слизерин'}</code></pre>
+<pre data-code-line-numbers=""><code>{'Гафелпаф', 'Ґрифіндор', 'Слизерин', 'Рейвенклов'}</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -466,7 +469,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(students)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre data-code-line-numbers=""><code>{'Драко Малфой', 'Гаррі Поттер', 'Рон Уізлі', 'Герміона Грейнджер'}</code></pre>
+<pre data-code-line-numbers=""><code>{'Рон Уізлі', 'Герміона Грейнджер', 'Драко Малфой', 'Гаррі Поттер'}</code></pre>
 </div>
 </div>
 <ul>
@@ -479,7 +482,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(all_students)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre data-code-line-numbers=""><code>{'Герміона Грейнджер', 'Драко Малфой', 'Гаррі Поттер', 'Рон Уізлі', 'Том Реддл'}</code></pre>
+<pre data-code-line-numbers=""><code>{'Герміона Грейнджер', 'Гаррі Поттер', 'Рон Уізлі', 'Том Реддл', 'Драко Малфой'}</code></pre>
 </div>
 </div>
 <ul>
@@ -503,7 +506,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(students2)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre data-code-line-numbers=""><code>{'Гаррі Поттер', 'Рон Уізлі', 'Герміона Грейнджер'}</code></pre>
+<pre data-code-line-numbers=""><code>{'Рон Уізлі', 'Герміона Грейнджер', 'Гаррі Поттер'}</code></pre>
 </div>
 </div>
 <ul>
@@ -537,7 +540,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(students)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre data-code-line-numbers=""><code>{'Гаррі Поттер', 'Рон Уізлі', 'Герміона Грейнджер'}</code></pre>
+<pre data-code-line-numbers=""><code>{'Рон Уізлі', 'Герміона Грейнджер', 'Гаррі Поттер'}</code></pre>
 </div>
 </div>
 <ul>
@@ -571,7 +574,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(students3)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre data-code-line-numbers=""><code>{'Гаррі Поттер', 'Рон Уізлі'}</code></pre>
+<pre data-code-line-numbers=""><code>{'Рон Уізлі', 'Гаррі Поттер'}</code></pre>
 </div>
 </div>
 <ul>
@@ -606,7 +609,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div class="sourceCode cell-code" id="cb30" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> <span class="bu">frozenset</span>({<span class="st">'Гаррі Поттер'</span>, <span class="st">'Герміона Грейнджер'</span>, <span class="st">'Рон Уізлі'</span>})</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(students)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre data-code-line-numbers=""><code>frozenset({'Гаррі Поттер', 'Рон Уізлі', 'Герміона Грейнджер'})</code></pre>
+<pre data-code-line-numbers=""><code>frozenset({'Рон Уізлі', 'Герміона Грейнджер', 'Гаррі Поттер'})</code></pre>
 </div>
 </div>
 <p>На старті ви не так часто зіштовхуватиметеся з <code>frozenset</code>, але чим глибше ви занурюватиметеся в розробку, тим вище ймовірність, що ви зустрінетеся з <code>frozenset</code> при роботі з множинами.</p>
@@ -792,22 +795,175 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 </section>
-<section id="корисні-функції" class="level2" data-number="10.5">
-<h2 data-number="10.5" class="anchored" data-anchor-id="корисні-функції"><span class="header-section-number">10.5</span> Корисні функції</h2>
+<section id="docstrings" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="docstrings"><span class="header-section-number">10.5</span> Docstrings</h2>
+<p><strong>Docstrings</strong> - це рядок документації, який служить для пояснення роботи функції, класу чи модуля. Docstrings розміщуються в першому рядку функції, класу чи модуля, після рядка з імпортами. Docstrings можуть бути багаторядковими, тобто складатися з декількох рядків:</p>
+<div id="docstrings" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb46" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> meow(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Функція повертає рядок "meow" n разів.</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="co">    :param n: кількість разів</span></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="co">    :type n: int</span></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="co">    :return: рядок "meow" n разів</span></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="co">    :rtype: str</span></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"meow "</span> <span class="op">*</span> n</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Більше інформації про docstrings можна знайти за посиланням <a href="https://www.python.org/dev/peps/pep-0257/" class="uri">https://www.python.org/dev/peps/pep-0257/</a>.</p>
+</div>
+</div>
+</section>
+<section id="розширені-можливості-командного-рядка" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="розширені-можливості-командного-рядка"><span class="header-section-number">10.6</span> Розширені можливості командного рядка</h2>
+<p>Раніше ми розглянули, як використовувати командний рядок для передачі аргументів у програму за допомогою <code>sys.argv</code>. Давайте розглянемо деякі додаткові можливості.</p>
+<p>Припустимо, що ми хочемо створити програму, яка приймає аргументи командного рядка у вигляді ключових слів. Наприклад, ми хочемо, щоб програма приймала аргументи <code>-n</code>, який вказує кількість разів, які потрібно вивести слово “meow”:</p>
+<div id="command-line-arguments" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb47" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"meow"</span>)</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> <span class="bu">len</span>(sys.argv) <span class="op">==</span> <span class="dv">3</span> <span class="kw">and</span> sys.argv[<span class="dv">1</span>] <span class="op">==</span> <span class="st">"-n"</span>:</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">int</span>(sys.argv[<span class="dv">2</span>])</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"meow "</span> <span class="op">*</span> n)</span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"використання: python meow.py [-n &lt;кількість&gt;]"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre data-code-line-numbers=""><code>використання: python meow.py [-n &lt;кількість&gt;]</code></pre>
+</div>
+</div>
+<p>Тепер ми можемо викликати програму з командного рядка:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb49" data-filename="Terminal" data-code-line-numbers=""><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> meow.py <span class="at">-n</span> 3</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Якщо ж маштаби програми зростають, то можна використовувати бібліотеку <code>argparse</code>, яка дозволяє створювати більш складні програми з багатьма аргументами командного рядка:</p>
+<div id="argparse" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="annotated-cell-28" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-28-1"><a href="#annotated-cell-28-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> argparse</span>
+<span id="annotated-cell-28-2"><a href="#annotated-cell-28-2" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-28" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-28-3" class="code-annotation-target"><a href="#annotated-cell-28-3" aria-hidden="true" tabindex="-1"></a>parser <span class="op">=</span> argparse.ArgumentParser(description<span class="op">=</span><span class="st">"Функція повертає рядок 'meow' n разів."</span>)</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-28" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-28-4" class="code-annotation-target"><a href="#annotated-cell-28-4" aria-hidden="true" tabindex="-1"></a>parser.add_argument(<span class="st">"-n"</span>, default<span class="op">=</span><span class="dv">1</span>, <span class="bu">type</span><span class="op">=</span><span class="bu">int</span>, <span class="bu">help</span><span class="op">=</span><span class="st">"кількість разів"</span>)</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-28" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-28-5" class="code-annotation-target"><a href="#annotated-cell-28-5" aria-hidden="true" tabindex="-1"></a>args <span class="op">=</span> parser.parse_args()</span>
+<span id="annotated-cell-28-6"><a href="#annotated-cell-28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-28-7"><a href="#annotated-cell-28-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"meow "</span> <span class="op">*</span> args.n)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-28" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-28" data-code-lines="3" data-code-annotation="1">Ми створюємо об’єкт <code>ArgumentParser</code> з описом програми.</span>
+</dd>
+<dt data-target-cell="annotated-cell-28" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-28" data-code-lines="4" data-code-annotation="2">Додаємо аргумент командного рядка <code>-n</code> зі значенням за замовчуванням <code>1</code>, типом <code>int</code> та описом.</span>
+</dd>
+<dt data-target-cell="annotated-cell-28" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-28" data-code-lines="5" data-code-annotation="3">Парсимо аргументи командного рядка.</span>
+</dd>
+</dl>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Примітка
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Більше інформації про <code>argparse</code> можна знайти за посиланням <a href="https://docs.python.org/3/library/argparse.html" class="uri">https://docs.python.org/3/library/argparse.html</a>.</p>
+</div>
+</div>
+</section>
+<section id="розпакування" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="розпакування"><span class="header-section-number">10.7</span> Розпакування</h2>
+<p>Розпакування - це процес розпакування послідовності елементів у змінні. Розпакування може бути корисним, коли ви хочете розпакувати значення зі списку, кортежу або словника. Розглянемо декілька прикладів.</p>
+<p><strong>- Розпакування списку</strong></p>
+<p>За допомогою розпакування списку можна легко присвоїти значення кількох змінним:</p>
+<div id="unpacking" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="annotated-cell-29" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-29-1"><a href="#annotated-cell-29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> total(galleons, sickles, knuts):</span>
+<span id="annotated-cell-29-2"><a href="#annotated-cell-29-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (galleons <span class="op">*</span> <span class="dv">17</span> <span class="op">+</span> sickles) <span class="op">*</span> <span class="dv">29</span> <span class="op">+</span> knuts</span>
+<span id="annotated-cell-29-3"><a href="#annotated-cell-29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-29-4"><a href="#annotated-cell-29-4" aria-hidden="true" tabindex="-1"></a>coins <span class="op">=</span> [<span class="dv">100</span>, <span class="dv">50</span>, <span class="dv">25</span>]</span>
+<span id="annotated-cell-29-5"><a href="#annotated-cell-29-5" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-29" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-29-6" class="code-annotation-target"><a href="#annotated-cell-29-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(total(<span class="op">*</span>coins), <span class="st">"Кнатів"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-29" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-29" data-code-lines="6" data-code-annotation="1">Ми використовуємо оператор <code>*</code> для розпакування списку <code>coins</code> у аргументи функції <code>total</code>.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre data-code-line-numbers=""><code>50775 Кнатів</code></pre>
+</div>
+</div>
+<p><strong>- Розпакування кортежу</strong></p>
+<p>Розпакування кортежу працює так само, як розпакування списку:</p>
+<div id="unpacking-2" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb51" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> total(galleons, sickles, knuts):</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (galleons <span class="op">*</span> <span class="dv">17</span> <span class="op">+</span> sickles) <span class="op">*</span> <span class="dv">29</span> <span class="op">+</span> knuts</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>coins <span class="op">=</span> (<span class="dv">100</span>, <span class="dv">50</span>, <span class="dv">25</span>)</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(total(<span class="op">*</span>coins), <span class="st">"Кнатів"</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre data-code-line-numbers=""><code>50775 Кнатів</code></pre>
+</div>
+</div>
+<p><strong>- Розпакування словника</strong></p>
+<p>Розпакування словника дозволяє передавати ключові слова як аргументи функції:</p>
+<div id="unpacking-3" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="annotated-cell-31" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-31-1"><a href="#annotated-cell-31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> total(galleons, sickles, knuts):</span>
+<span id="annotated-cell-31-2"><a href="#annotated-cell-31-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (galleons <span class="op">*</span> <span class="dv">17</span> <span class="op">+</span> sickles) <span class="op">*</span> <span class="dv">29</span> <span class="op">+</span> knuts</span>
+<span id="annotated-cell-31-3"><a href="#annotated-cell-31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-31-4"><a href="#annotated-cell-31-4" aria-hidden="true" tabindex="-1"></a>coins <span class="op">=</span> {<span class="st">'galleons'</span>: <span class="dv">100</span>, <span class="st">'sickles'</span>: <span class="dv">50</span>, <span class="st">'knuts'</span>: <span class="dv">25</span>}</span>
+<span id="annotated-cell-31-5"><a href="#annotated-cell-31-5" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-31" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-31-6" class="code-annotation-target"><a href="#annotated-cell-31-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(total(<span class="op">**</span>coins), <span class="st">"Кнатів"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-31" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-31" data-code-lines="6" data-code-annotation="1">Ми використовуємо оператор <code>**</code> для розпакування значень словника <code>coins</code> у аргументи функції <code>total</code>.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre data-code-line-numbers=""><code>50775 Кнатів</code></pre>
+</div>
+</div>
+</section>
+<section id="корисні-функції" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="корисні-функції"><span class="header-section-number">10.8</span> Корисні функції</h2>
 <p>Також давайте подивимося на різні функції, які допомагають нам працювати зі списками та множинами:</p>
 <ul>
 <li><code>len()</code> - повертає кількість елементів у списку або множині. Наприклад:</li>
 </ul>
-<div id="ed0c7621" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb46" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>]</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(fruits))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="90a42607" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb54" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>]</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(fruits))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>3</code></pre>
 </div>
 </div>
-<div id="eac86482" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb48" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> {<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'banana'</span>, <span class="st">'apple'</span>}</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(fruits))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="33d9e8d3" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb56" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> {<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'banana'</span>, <span class="st">'apple'</span>}</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(fruits))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>2</code></pre>
 </div>
@@ -815,23 +971,23 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <ul>
 <li><code>max()</code> - повертає найбільший елемент у списку або множині. Наприклад:</li>
 </ul>
-<div id="82a5e4b4" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb50" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>]</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">max</span>(fruits))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="df5604df" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb58" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>]</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">max</span>(fruits))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>orange</code></pre>
 </div>
 </div>
-<div id="4c906500" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb52" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">1</span>, <span class="dv">9</span>]</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">max</span>(numbers))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="db89a81f" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb60" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">1</span>, <span class="dv">9</span>]</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">max</span>(numbers))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>9</code></pre>
 </div>
 </div>
-<div id="7724516a" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb54" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>my_set <span class="op">=</span> {<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">1</span>, <span class="dv">8</span>}</span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">max</span>(my_set))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0658e531" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb62" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>my_set <span class="op">=</span> {<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">1</span>, <span class="dv">8</span>}</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">max</span>(my_set))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>8</code></pre>
 </div>
@@ -839,16 +995,16 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <ul>
 <li><code>min()</code> - повертає найменший елемент у списку або множині. Наприклад:</li>
 </ul>
-<div id="424ff9f1" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb56" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>]</span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">min</span>(fruits))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="118948b2" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb64" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'orange'</span>]</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">min</span>(fruits))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>apple</code></pre>
 </div>
 </div>
-<div id="f7784a80" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb58" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">1</span>, <span class="dv">9</span>]</span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">min</span>(numbers))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a4078b3f" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb66" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">1</span>, <span class="dv">9</span>]</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">min</span>(numbers))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>1</code></pre>
 </div>
@@ -856,54 +1012,54 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <ul>
 <li><code>sorted()</code> - повертає відсортований список або множину. Вона може приймати параметр <code>reverse=True</code>, щоб відсортувати послідовність у зворотному порядку (за спаданням). Наприклад:</li>
 </ul>
-<div id="b3ecb81f" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb60" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">'banana'</span>, <span class="st">'orange'</span>, <span class="st">'apple'</span>]</span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sorted</span>(fruits))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="68d6abb6" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb68" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">'banana'</span>, <span class="st">'orange'</span>, <span class="st">'apple'</span>]</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sorted</span>(fruits))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>['apple', 'banana', 'orange']</code></pre>
 </div>
 </div>
-<div id="670150c1" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb62" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">1</span>, <span class="dv">9</span>]</span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sorted</span>(numbers, reverse<span class="op">=</span><span class="va">True</span>))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e96e97bb" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb70" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">1</span>, <span class="dv">9</span>]</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sorted</span>(numbers, reverse<span class="op">=</span><span class="va">True</span>))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>[9, 8, 5, 2, 1]</code></pre>
 </div>
 </div>
 <p>А от якщо відсортувати множину, то вийде список!</p>
-<div id="5866699d" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb64" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>my_set <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>}</span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sorted</span>(my_set))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b580caed" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb72" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>my_set <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>}</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sorted</span>(my_set))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>[1, 2]</code></pre>
 </div>
 </div>
-<section id="range" class="level3" data-number="10.5.1">
-<h3 data-number="10.5.1" class="anchored" data-anchor-id="range"><span class="header-section-number">10.5.1</span> range()</h3>
+<section id="range" class="level3" data-number="10.8.1">
+<h3 data-number="10.8.1" class="anchored" data-anchor-id="range"><span class="header-section-number">10.8.1</span> range()</h3>
 <p>Функція <code>range()</code> дозволяє створити послідовність чисел.</p>
 <pre data-code-line-numbers=""><code>range(start, stop, step)
 # start - з цього числа починаємо за замовчуванням 0
 # stop - кінець послідовності, але саме число stop не включено до результату.
 # step - крок переходу між числами за замовчуванням 1</code></pre>
 <p>Функція дозволяє нам генерувати послідовність цілих чисел із заданим початком, кінцем та кроком. Після виконання функція повертає спеціальний тип даних – <code>range</code>. Для зручнішої роботи з послідовністю можна перевести <code>range</code> до списку. Обов’язково потрібно вказати лише аргумент <code>stop</code>, початок та крок за умовчанням дорівнюють <code>0</code> і <code>1</code> відповідно. Розглянемо приклади:</p>
-<div id="4a828ea8" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb67" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># від 0 до 4 з кроком 1</span></span>
-<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">5</span>))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="34">
+<div id="a00d030d" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb75" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># від 0 до 4 з кроком 1</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">5</span>))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="97">
 <pre data-code-line-numbers=""><code>[0, 1, 2, 3, 4]</code></pre>
 </div>
 </div>
-<div id="9c11d7c2" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb69" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># від 2 до 9 з кроком 2</span></span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">2</span>))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="35">
+<div id="182f915e" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb77" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># від 2 до 9 з кроком 2</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">2</span>))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="98">
 <pre data-code-line-numbers=""><code>[2, 4, 6, 8]</code></pre>
 </div>
 </div>
-<div id="58f75909" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb71" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># від 10 до 2 з кроком 1</span></span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">10</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="36">
+<div id="c659e138" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb79" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># від 10 до 2 з кроком 1</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">10</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="99">
 <pre data-code-line-numbers=""><code>[10, 9, 8, 7, 6, 5, 4, 3, 2]</code></pre>
 </div>
 </div>
@@ -912,12 +1068,12 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p><span class="theorem-title"><strong>Завдання 10.1</strong></span> <br> У змінну <code>var_1</code> збережіть список з числами <strong>від -100 до 100 включно з кроком 1</strong>.</p>
 <p>У змінну var_2 збережіть список з числами <strong>від 250 до 0 включно з кроком 2</strong>.</p>
 <p>У змінну var_3 збережіть список з усіма <strong>непарними числами від 100 до 200</strong>.</p>
-<div id="701fbb1f" class="cell" data-execution_count="37">
+<div id="4ca2dac1" class="cell" data-execution_count="43">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb73" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>var_1 <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="op">-</span><span class="dv">100</span>, <span class="dv">101</span>, <span class="dv">1</span>))</span>
-<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>var_2 <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">250</span>, <span class="op">-</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">2</span>))</span>
-<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>var_3 <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">101</span>, <span class="dv">200</span>, <span class="dv">2</span>))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>var_1 <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="op">-</span><span class="dv">100</span>, <span class="dv">101</span>, <span class="dv">1</span>))</span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>var_2 <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">250</span>, <span class="op">-</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">2</span>))</span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>var_3 <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">101</span>, <span class="dv">200</span>, <span class="dv">2</span>))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -926,42 +1082,42 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="exr-py-list-set-03" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 10.2</strong></span> <br> У змінних <code>a</code> та <code>b</code> зберігаються числа - початок і кінець діапазону. Напишіть програму, яка поверне суму всіх чисел із цього діапазону. Збережіть значення змінної <code>result</code>.</p>
 <p><strong>Приклад:</strong></p>
-<div class="sourceCode" id="cb74" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="in">a = 1</span></span>
-<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="in">b = 3 </span></span>
-<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a><span class="in">result = 6</span></span>
-<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="6b29c8bd" class="cell" data-execution_count="38">
+<div class="sourceCode" id="cb82" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="in">a = 1</span></span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a><span class="in">b = 3 </span></span>
+<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb82-5"><a href="#cb82-5" aria-hidden="true" tabindex="-1"></a><span class="in">result = 6</span></span>
+<span id="cb82-6"><a href="#cb82-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c73cb2a7" class="cell" data-execution_count="44">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb75" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="bu">sum</span>(<span class="bu">range</span>(a, b <span class="op">+</span> <span class="dv">1</span>))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb83" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="bu">sum</span>(<span class="bu">range</span>(a, b <span class="op">+</span> <span class="dv">1</span>))</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="sec-mutable-immutable" class="level2" data-number="10.6">
-<h2 data-number="10.6" class="anchored" data-anchor-id="sec-mutable-immutable"><span class="header-section-number">10.6</span> Змінювані та незмінювані об’єкти</h2>
+<section id="sec-mutable-immutable" class="level2" data-number="10.9">
+<h2 data-number="10.9" class="anchored" data-anchor-id="sec-mutable-immutable"><span class="header-section-number">10.9</span> Змінювані та незмінювані об’єкти</h2>
 <p>Настав час розібратися з досить складною для початківців концепцією змінних і незмінних об’єктів у Python. Ми вже знаємо, що можемо змінювати створені списки, наприклад, замінити або видалити один із елементів у списку. Однак ця особливість списку, його змінність призводить до несподіваних на перший погляд наслідків:</p>
-<div id="cb1e800b" class="cell" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb76" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># збережемо список у змінну my_list_1</span></span>
-<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>my_list_1 <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>]</span>
-<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a><span class="co"># у змінну my_list_2 збережемо список my_list_1</span></span>
-<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a>my_list_2 <span class="op">=</span> my_list_1</span>
-<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a><span class="co"># змінимо список my_list_1</span></span>
-<span id="cb76-8"><a href="#cb76-8" aria-hidden="true" tabindex="-1"></a>my_list_1.append(<span class="dv">4</span>)</span>
-<span id="cb76-9"><a href="#cb76-9" aria-hidden="true" tabindex="-1"></a>my_list_1.sort()</span>
-<span id="cb76-10"><a href="#cb76-10" aria-hidden="true" tabindex="-1"></a>my_list_1[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb76-11"><a href="#cb76-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb76-12"><a href="#cb76-12" aria-hidden="true" tabindex="-1"></a><span class="co"># подивимося на обидва списки</span></span>
-<span id="cb76-13"><a href="#cb76-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Результат списку my_list_1:"</span>, my_list_1)</span>
-<span id="cb76-14"><a href="#cb76-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Результат списку my_list_2:"</span>, my_list_2)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="63c4709c" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb84" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># збережемо список у змінну my_list_1</span></span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>my_list_1 <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>]</span>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a><span class="co"># у змінну my_list_2 збережемо список my_list_1</span></span>
+<span id="cb84-5"><a href="#cb84-5" aria-hidden="true" tabindex="-1"></a>my_list_2 <span class="op">=</span> my_list_1</span>
+<span id="cb84-6"><a href="#cb84-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-7"><a href="#cb84-7" aria-hidden="true" tabindex="-1"></a><span class="co"># змінимо список my_list_1</span></span>
+<span id="cb84-8"><a href="#cb84-8" aria-hidden="true" tabindex="-1"></a>my_list_1.append(<span class="dv">4</span>)</span>
+<span id="cb84-9"><a href="#cb84-9" aria-hidden="true" tabindex="-1"></a>my_list_1.sort()</span>
+<span id="cb84-10"><a href="#cb84-10" aria-hidden="true" tabindex="-1"></a>my_list_1[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb84-11"><a href="#cb84-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-12"><a href="#cb84-12" aria-hidden="true" tabindex="-1"></a><span class="co"># подивимося на обидва списки</span></span>
+<span id="cb84-13"><a href="#cb84-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Результат списку my_list_1:"</span>, my_list_1)</span>
+<span id="cb84-14"><a href="#cb84-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Результат списку my_list_2:"</span>, my_list_2)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>Результат списку my_list_1: [100, 2, 3, 4]
 Результат списку my_list_2: [100, 2, 3, 4]</code></pre>
@@ -969,44 +1125,44 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <p>Дивно, адже ми відсортували лише перший список, але другий також змінився! Вся справа в тому, що списки, масиви та словники — це об’єкти, що змінюються. Замість того, щоб створити ще одну коробочку в пам’яті з ім’ям <code>my_list_2</code> та покласти в неї список із коробочки <code>my_list_1</code>, Python просто запам’ятав, що тепер на вихідну коробочку посилаються дві змінні. Коли змінюємо список <code>my_list_1</code>, змінюється і <code>my_list_2</code>. І навпаки, при зміні <code>my_list_2</code> зміниться і <code>my_list_1</code>.</p>
 <p>Саме тому список має метод <code>copy()</code>. Він дозволяє створити копію першого списку у новій змінній. У такому разі зміни першого списку вже не вплинуть на копію цього списку.</p>
-<div id="d62df9a7" class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb78" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># збережемо список у змінну my_list_1</span></span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>my_list_1 <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>]</span>
-<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="co"># у змінну my_list_2 збережемо список my_list_1 з методом copy()</span></span>
-<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a>my_list_2 <span class="op">=</span> my_list_1.copy()</span>
-<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a><span class="co"># змінимо список my_list_1</span></span>
-<span id="cb78-8"><a href="#cb78-8" aria-hidden="true" tabindex="-1"></a>my_list_1.append(<span class="dv">4</span>)</span>
-<span id="cb78-9"><a href="#cb78-9" aria-hidden="true" tabindex="-1"></a>my_list_1.sort()</span>
-<span id="cb78-10"><a href="#cb78-10" aria-hidden="true" tabindex="-1"></a>my_list_1[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb78-11"><a href="#cb78-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb78-12"><a href="#cb78-12" aria-hidden="true" tabindex="-1"></a><span class="co"># подивимося на обидва списки</span></span>
-<span id="cb78-13"><a href="#cb78-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Результат списку my_list_1:"</span>, my_list_1)</span>
-<span id="cb78-14"><a href="#cb78-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Результат списку my_list_2:"</span>, my_list_2)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="958b05d2" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb86" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># збережемо список у змінну my_list_1</span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>my_list_1 <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>]</span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a><span class="co"># у змінну my_list_2 збережемо список my_list_1 з методом copy()</span></span>
+<span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a>my_list_2 <span class="op">=</span> my_list_1.copy()</span>
+<span id="cb86-6"><a href="#cb86-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-7"><a href="#cb86-7" aria-hidden="true" tabindex="-1"></a><span class="co"># змінимо список my_list_1</span></span>
+<span id="cb86-8"><a href="#cb86-8" aria-hidden="true" tabindex="-1"></a>my_list_1.append(<span class="dv">4</span>)</span>
+<span id="cb86-9"><a href="#cb86-9" aria-hidden="true" tabindex="-1"></a>my_list_1.sort()</span>
+<span id="cb86-10"><a href="#cb86-10" aria-hidden="true" tabindex="-1"></a>my_list_1[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb86-11"><a href="#cb86-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-12"><a href="#cb86-12" aria-hidden="true" tabindex="-1"></a><span class="co"># подивимося на обидва списки</span></span>
+<span id="cb86-13"><a href="#cb86-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Результат списку my_list_1:"</span>, my_list_1)</span>
+<span id="cb86-14"><a href="#cb86-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Результат списку my_list_2:"</span>, my_list_2)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>Результат списку my_list_1: [100, 2, 3, 4]
 Результат списку my_list_2: [3, 1, 2]</code></pre>
 </div>
 </div>
 <p>Тому при роботі з об’єктами в Python важливо розуміти, чи змінюємо ми вихідний об’єкт чи створюємо новий. Уважно читайте документацію функцій та методів. Припустимо, ми маємо список <code>my_list</code>, ми хочемо завести новий список <code>my_list_ordered</code> з відсортованими елементами зі списку <code>my_list</code>:</p>
-<div id="1ed81e8b" class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb80" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="op">-</span><span class="dv">2</span>]</span>
-<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="co"># так правильно</span></span>
-<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>my_list_ordered <span class="op">=</span> <span class="bu">sorted</span>(my_list) <span class="co"># функція sorted повертає новий список, не змінює список my_list</span></span>
-<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Результат списку my_list_ordered:"</span>, my_list_ordered)</span>
-<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Результат списку my_list:"</span>, my_list)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3d28cb28" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb88" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="op">-</span><span class="dv">2</span>]</span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a><span class="co"># так правильно</span></span>
+<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a>my_list_ordered <span class="op">=</span> <span class="bu">sorted</span>(my_list) <span class="co"># функція sorted повертає новий список, не змінює список my_list</span></span>
+<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Результат списку my_list_ordered:"</span>, my_list_ordered)</span>
+<span id="cb88-6"><a href="#cb88-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Результат списку my_list:"</span>, my_list)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>Результат списку my_list_ordered: [-2, 1, 2, 3]
 Результат списку my_list: [1, 2, 3, -2]</code></pre>
 </div>
 </div>
-<div id="b5c0aa76" class="cell" data-execution_count="43">
-<div class="sourceCode cell-code" id="cb82" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># так неправильно</span></span>
-<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>my_list_ordered <span class="op">=</span> my_list.sort() <span class="co"># метод sort нічого не повертає, а лише змінює список my_list</span></span>
-<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Результат списку my_list_ordered:"</span>, my_list_ordered)</span>
-<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Результат списку my_list:"</span>, my_list)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3011b9bf" class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb90" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># так неправильно</span></span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>my_list_ordered <span class="op">=</span> my_list.sort() <span class="co"># метод sort нічого не повертає, а лише змінює список my_list</span></span>
+<span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Результат списку my_list_ordered:"</span>, my_list_ordered)</span>
+<span id="cb90-4"><a href="#cb90-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Результат списку my_list:"</span>, my_list)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>Результат списку my_list_ordered: None
 Результат списку my_list: [-2, 1, 2, 3]</code></pre>
@@ -1014,30 +1170,30 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <p>А ось вже знайомі нам числа <code>int</code> і <code>float</code>, рядки та логічні значення - це незмінні об’єкти. Тобто після створення об’єкта не можна змінити його значення, лише створити новий об’єкт із зміненим значенням.</p>
 </section>
-<section id="кортежі" class="level2" data-number="10.7">
-<h2 data-number="10.7" class="anchored" data-anchor-id="кортежі"><span class="header-section-number">10.7</span> Кортежі</h2>
+<section id="кортежі" class="level2" data-number="10.10">
+<h2 data-number="10.10" class="anchored" data-anchor-id="кортежі"><span class="header-section-number">10.10</span> Кортежі</h2>
 <p>Незважаючи на деякі підводні камені, можливість змінювати списки та множини робить їх дуже зручними структурами для роботи. У процесі виконання програми ми можемо додавати, змінювати чи видаляти елементи.</p>
 <p>Іноді можуть виникнути ситуації, коли хочемо зберігати набір елементів без можливості змінювати його. Тому у списків існує їхній незмінний аналог - <strong>кортежі</strong> (<code>tuple</code>). Кортежі створюються за допомогою круглих дужок <code>()</code>, а елементи розділені комами. Кортежі не можна змінювати після створення, тобто не можна додавати, видаляти чи змінювати елементи в кортежі. Тому кортежі краще використовувати, коли треба зберігати значення, які не змінюватимуться. Наприклад, назви місяців:</p>
-<div id="fb149d7d" class="cell" data-execution_count="44">
-<div class="sourceCode cell-code" id="cb84" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># створимо кортеж</span></span>
-<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>months <span class="op">=</span> (<span class="st">'January'</span>, <span class="st">'February'</span>, <span class="st">'March'</span>, <span class="st">'April'</span>, <span class="st">'May'</span>,</span>
-<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a>           <span class="st">'June'</span>, <span class="st">'July'</span>, <span class="st">'August'</span>, <span class="st">'September'</span>, <span class="st">'October'</span>, <span class="st">'November'</span>, <span class="st">'December'</span>)</span>
-<span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-5"><a href="#cb84-5" aria-hidden="true" tabindex="-1"></a><span class="co"># спробуємо додати тринадцятий місяць</span></span>
-<span id="cb84-6"><a href="#cb84-6" aria-hidden="true" tabindex="-1"></a>months[<span class="dv">12</span>] <span class="op">=</span> <span class="st">'Undecimber'</span></span>
-<span id="cb84-7"><a href="#cb84-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-8"><a href="#cb84-8" aria-hidden="true" tabindex="-1"></a><span class="co"># або змінити другий місяць</span></span>
-<span id="cb84-9"><a href="#cb84-9" aria-hidden="true" tabindex="-1"></a>months[<span class="dv">1</span>] <span class="op">=</span> <span class="st">'Лютий'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="17539dc8" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb92" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># створимо кортеж</span></span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>months <span class="op">=</span> (<span class="st">'January'</span>, <span class="st">'February'</span>, <span class="st">'March'</span>, <span class="st">'April'</span>, <span class="st">'May'</span>,</span>
+<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a>           <span class="st">'June'</span>, <span class="st">'July'</span>, <span class="st">'August'</span>, <span class="st">'September'</span>, <span class="st">'October'</span>, <span class="st">'November'</span>, <span class="st">'December'</span>)</span>
+<span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-5"><a href="#cb92-5" aria-hidden="true" tabindex="-1"></a><span class="co"># спробуємо додати тринадцятий місяць</span></span>
+<span id="cb92-6"><a href="#cb92-6" aria-hidden="true" tabindex="-1"></a>months[<span class="dv">12</span>] <span class="op">=</span> <span class="st">'Undecimber'</span></span>
+<span id="cb92-7"><a href="#cb92-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-8"><a href="#cb92-8" aria-hidden="true" tabindex="-1"></a><span class="co"># або змінити другий місяць</span></span>
+<span id="cb92-9"><a href="#cb92-9" aria-hidden="true" tabindex="-1"></a>months[<span class="dv">1</span>] <span class="op">=</span> <span class="st">'Лютий'</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre data-code-line-numbers=""><code>TypeError: 'tuple' object does not support item assignment</code></pre>
 </div>
 </div>
 <p>При виконанні коду отримаємо помилку <code>TypeError: 'tuple' object does no support item assignment</code>. Помилка говорить про те, що кортеж не підтримує зміну чи додавання елементів, тому спроба привласнення нового значення елементу викликає помилку <code>TypeError</code>.</p>
 <p>Кортежі в основному використовуються в тих місцях, де потрібна ефективність та продуктивність. Кортежі займають менше місця, ніж списки, та обробляються швидше. При цьому кортежі, як і списки, підтримують індексацію. Наприклад, якщо ми хочемо отримати назву першого місяця, можемо використовувати вже звичний запис:</p>
-<div id="65be4bcd" class="cell" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb86" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>month_index <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>month_name <span class="op">=</span> months[month_index] </span>
-<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(month_name)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3ba5092e" class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb94" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>month_index <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>month_name <span class="op">=</span> months[month_index] </span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(month_name)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>January</code></pre>
 </div>
@@ -1046,29 +1202,29 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="exr-py-list-set-06" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 10.3</strong></span> <br> Створіть кортеж із назвами днів тижня та збережіть його у змінну <code>days_of_the_week</code>.</p>
 <pre data-code-line-numbers=""><code>'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'</code></pre>
-<div id="2f64bef6" class="cell" data-execution_count="46">
+<div id="23f95bfb" class="cell" data-execution_count="52">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb89" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>days_of_the_week <span class="op">=</span> (<span class="st">'Monday'</span>, <span class="st">'Tuesday'</span>, <span class="st">'Wednesday'</span>, <span class="st">'Thursday'</span>, <span class="st">'Friday'</span>, <span class="st">'Saturday'</span>, <span class="st">'Sunday'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb97" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>days_of_the_week <span class="op">=</span> (<span class="st">'Monday'</span>, <span class="st">'Tuesday'</span>, <span class="st">'Wednesday'</span>, <span class="st">'Thursday'</span>, <span class="st">'Friday'</span>, <span class="st">'Saturday'</span>, <span class="st">'Sunday'</span>)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
 </div>
 </section>
-<section id="sec-list-zip" class="level2" data-number="10.8">
-<h2 data-number="10.8" class="anchored" data-anchor-id="sec-list-zip"><span class="header-section-number">10.8</span> Функція <code>zip()</code> для об’єднання послідовностей</h2>
+<section id="sec-list-zip" class="level2" data-number="10.11">
+<h2 data-number="10.11" class="anchored" data-anchor-id="sec-list-zip"><span class="header-section-number">10.11</span> Функція <code>zip()</code> для об’єднання послідовностей</h2>
 <p>Дуже часто нам доводиться працювати одразу з двома наборами даних, наприклад, з двома списками або множинами. Функція <code>zip()</code> у Python об’єднує елементи з декількох послідовностей. Давайте розглянемо приклад:</p>
-<div id="748eb483" class="cell" data-execution_count="47">
-<div class="sourceCode cell-code" id="cb90" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
-<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>]</span>
-<span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb90-4"><a href="#cb90-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Використовуємо функцію zip() для об'єднання елементів із двох списків</span></span>
-<span id="cb90-5"><a href="#cb90-5" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="bu">zip</span>(x, y)</span>
-<span id="cb90-6"><a href="#cb90-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb90-7"><a href="#cb90-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Перетворюємо результат на список</span></span>
-<span id="cb90-8"><a href="#cb90-8" aria-hidden="true" tabindex="-1"></a>result_list <span class="op">=</span> <span class="bu">list</span>(result)</span>
-<span id="cb90-9"><a href="#cb90-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb90-10"><a href="#cb90-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result_list)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="eae7c8f8" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb98" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>]</span>
+<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Використовуємо функцію zip() для об'єднання елементів із двох списків</span></span>
+<span id="cb98-5"><a href="#cb98-5" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> <span class="bu">zip</span>(x, y)</span>
+<span id="cb98-6"><a href="#cb98-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-7"><a href="#cb98-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Перетворюємо результат на список</span></span>
+<span id="cb98-8"><a href="#cb98-8" aria-hidden="true" tabindex="-1"></a>result_list <span class="op">=</span> <span class="bu">list</span>(result)</span>
+<span id="cb98-9"><a href="#cb98-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-10"><a href="#cb98-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result_list)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-code-line-numbers=""><code>[(1, 'a'), (2, 'b'), (3, 'c')]</code></pre>
 </div>
@@ -1077,26 +1233,26 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Зараз важливо запам’ятати, що за допомогою зв’язки <code>list(zip(x, y))</code> ми можемо швидко й ефективно об’єднувати кілька списків.</p>
 <p>Важливо зазначити, що результат <code>zip()</code> матиме довжину, що дорівнює довжині найкоротшої з вихідних послідовностей. Якщо довжини послідовностей відрізняються, то зайві елементи будуть проігноровані. Функція <code>zip()</code> може використовуватися в таких ситуаціях, як ітерація за кількома послідовностями одночасно або поєднання елементів з декількох списків.</p>
 </section>
-<section id="завдання" class="level2" data-number="10.9">
-<h2 data-number="10.9" class="anchored" data-anchor-id="завдання"><span class="header-section-number">10.9</span> Завдання</h2>
+<section id="завдання" class="level2" data-number="10.12">
+<h2 data-number="10.12" class="anchored" data-anchor-id="завдання"><span class="header-section-number">10.12</span> Завдання</h2>
 <div class="question">
 <div id="exr-py-list-set-08" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 10.4</strong></span> <br> Дано два списки <code>list_1</code> і <code>list_2</code>. Відсортуйте <code>list_1</code> за зростанням, а <code>list_2</code> за спаданням. Поєднайте <code>list_1</code> та <code>list_2</code> в один відсортований за зростанням список <code>list_3</code>. У змінну <code>list_3_len</code> збережіть довжину <code>list_3</code>.</p>
 <p><strong>Приклад:</strong></p>
-<div class="sourceCode" id="cb92" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="in">list_1 = [1, 5, 3]</span></span>
-<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a><span class="in">list_2 = [2, 8]</span></span>
-<span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a><span class="in"># -&gt; </span></span>
-<span id="cb92-5"><a href="#cb92-5" aria-hidden="true" tabindex="-1"></a><span class="in">list_1 = [1, 3, 5]</span></span>
-<span id="cb92-6"><a href="#cb92-6" aria-hidden="true" tabindex="-1"></a><span class="in">list_2 = [8, 2]</span></span>
-<span id="cb92-7"><a href="#cb92-7" aria-hidden="true" tabindex="-1"></a><span class="in">list_3 = [1, 2, 3, 5, 8]</span></span>
-<span id="cb92-8"><a href="#cb92-8" aria-hidden="true" tabindex="-1"></a><span class="in">list_3_len = 5</span></span>
-<span id="cb92-9"><a href="#cb92-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="f0873a93" class="cell" data-execution_count="48">
+<div class="sourceCode" id="cb100" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="in">list_1 = [1, 5, 3]</span></span>
+<span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="in">list_2 = [2, 8]</span></span>
+<span id="cb100-4"><a href="#cb100-4" aria-hidden="true" tabindex="-1"></a><span class="in"># -&gt; </span></span>
+<span id="cb100-5"><a href="#cb100-5" aria-hidden="true" tabindex="-1"></a><span class="in">list_1 = [1, 3, 5]</span></span>
+<span id="cb100-6"><a href="#cb100-6" aria-hidden="true" tabindex="-1"></a><span class="in">list_2 = [8, 2]</span></span>
+<span id="cb100-7"><a href="#cb100-7" aria-hidden="true" tabindex="-1"></a><span class="in">list_3 = [1, 2, 3, 5, 8]</span></span>
+<span id="cb100-8"><a href="#cb100-8" aria-hidden="true" tabindex="-1"></a><span class="in">list_3_len = 5</span></span>
+<span id="cb100-9"><a href="#cb100-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ffad622e" class="cell" data-execution_count="54">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb93" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>list_1 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>]</span>
-<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>list_2 <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">8</span>]</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb101" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a>list_1 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>]</span>
+<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>list_2 <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">8</span>]</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -1105,23 +1261,23 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="exr-py-list-set-10" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 10.5</strong></span> <br> У змінній <code>menu</code> зберігається множина усіх позицій меню кав’ярні, а в змінній <code>stop</code> - множина позицій меню кав’ярні, недоступних для замовлення сьогодні. Збережіть у змінну <code>menu_today</code> позиції меню, доступні для замовлення сьогодні.</p>
 <p><strong>Приклад:</strong></p>
-<div class="sourceCode" id="cb94" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="in">menu = {'White Chocolate Mocha', 'Americano', 'Flat White', 'Latte', </span></span>
-<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a><span class="in">        'Blueberry Muffin', 'Chocolate Chip Cookie'}</span></span>
-<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a><span class="in">stop = {'White Chocolate Mocha', 'Blueberry Muffin'}</span></span>
-<span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb94-6"><a href="#cb94-6" aria-hidden="true" tabindex="-1"></a><span class="in">menu_today = {'Americano', 'Flat White', 'Latte', 'Chocolate Chip Cookie'}</span></span>
-<span id="cb94-7"><a href="#cb94-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="13781e55" class="cell" data-execution_count="49">
+<div class="sourceCode" id="cb102" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="in">menu = {'White Chocolate Mocha', 'Americano', 'Flat White', 'Latte', </span></span>
+<span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="in">        'Blueberry Muffin', 'Chocolate Chip Cookie'}</span></span>
+<span id="cb102-4"><a href="#cb102-4" aria-hidden="true" tabindex="-1"></a><span class="in">stop = {'White Chocolate Mocha', 'Blueberry Muffin'}</span></span>
+<span id="cb102-5"><a href="#cb102-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-6"><a href="#cb102-6" aria-hidden="true" tabindex="-1"></a><span class="in">menu_today = {'Americano', 'Flat White', 'Latte', 'Chocolate Chip Cookie'}</span></span>
+<span id="cb102-7"><a href="#cb102-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="00398beb" class="cell" data-execution_count="55">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb95" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>menu <span class="op">=</span> {<span class="st">'White Chocolate Mocha'</span>, <span class="st">'Americano'</span>, <span class="st">'Flat White'</span>, <span class="st">'Latte'</span>, </span>
-<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Blueberry Muffin'</span>, <span class="st">'Chocolate Chip Cookie'</span>}</span>
-<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>stop <span class="op">=</span> {<span class="st">'White Chocolate Mocha'</span>, <span class="st">'Blueberry Muffin'</span>}</span>
-<span id="cb95-4"><a href="#cb95-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb95-5"><a href="#cb95-5" aria-hidden="true" tabindex="-1"></a>menu_today <span class="op">=</span> menu <span class="op">-</span> stop</span>
-<span id="cb95-6"><a href="#cb95-6" aria-hidden="true" tabindex="-1"></a><span class="co"># або</span></span>
-<span id="cb95-7"><a href="#cb95-7" aria-hidden="true" tabindex="-1"></a>menu_today <span class="op">=</span> menu.difference(stop)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb103" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>menu <span class="op">=</span> {<span class="st">'White Chocolate Mocha'</span>, <span class="st">'Americano'</span>, <span class="st">'Flat White'</span>, <span class="st">'Latte'</span>, </span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Blueberry Muffin'</span>, <span class="st">'Chocolate Chip Cookie'</span>}</span>
+<span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a>stop <span class="op">=</span> {<span class="st">'White Chocolate Mocha'</span>, <span class="st">'Blueberry Muffin'</span>}</span>
+<span id="cb103-4"><a href="#cb103-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-5"><a href="#cb103-5" aria-hidden="true" tabindex="-1"></a>menu_today <span class="op">=</span> menu <span class="op">-</span> stop</span>
+<span id="cb103-6"><a href="#cb103-6" aria-hidden="true" tabindex="-1"></a><span class="co"># або</span></span>
+<span id="cb103-7"><a href="#cb103-7" aria-hidden="true" tabindex="-1"></a>menu_today <span class="op">=</span> menu.difference(stop)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -1130,24 +1286,24 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="exr-py-list-set-11" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 10.6</strong></span> <br> У змінній <code>my_set</code> множина (<code>set</code>) із чисел. У змінній <code>to_delete</code> число, яке потрібно видалити з <code>my_set</code>, якщо воно там є. Якщо такого числа немає в <code>my_set</code> нічого робити не треба.</p>
 <p><strong>Приклад:</strong></p>
-<div class="sourceCode" id="cb96" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="in">my_set = {0, 10, 100}</span></span>
-<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a><span class="in">to_delete = 0</span></span>
-<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a><span class="in"># ====&gt;</span></span>
-<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a><span class="in">my_set = {10, 100} # видалили 0</span></span>
-<span id="cb96-6"><a href="#cb96-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb96-7"><a href="#cb96-7" aria-hidden="true" tabindex="-1"></a><span class="in">my_set = {0, 10, 100}</span></span>
-<span id="cb96-8"><a href="#cb96-8" aria-hidden="true" tabindex="-1"></a><span class="in">to_delete = -2</span></span>
-<span id="cb96-9"><a href="#cb96-9" aria-hidden="true" tabindex="-1"></a><span class="in"># ====&gt;</span></span>
-<span id="cb96-10"><a href="#cb96-10" aria-hidden="true" tabindex="-1"></a><span class="in">my_set = {0, 10, 100} # нічого не робили</span></span>
-<span id="cb96-11"><a href="#cb96-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb96-12"><a href="#cb96-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="c983d897" class="cell" data-execution_count="50">
+<div class="sourceCode" id="cb104" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="in">my_set = {0, 10, 100}</span></span>
+<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a><span class="in">to_delete = 0</span></span>
+<span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a><span class="in"># ====&gt;</span></span>
+<span id="cb104-5"><a href="#cb104-5" aria-hidden="true" tabindex="-1"></a><span class="in">my_set = {10, 100} # видалили 0</span></span>
+<span id="cb104-6"><a href="#cb104-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-7"><a href="#cb104-7" aria-hidden="true" tabindex="-1"></a><span class="in">my_set = {0, 10, 100}</span></span>
+<span id="cb104-8"><a href="#cb104-8" aria-hidden="true" tabindex="-1"></a><span class="in">to_delete = -2</span></span>
+<span id="cb104-9"><a href="#cb104-9" aria-hidden="true" tabindex="-1"></a><span class="in"># ====&gt;</span></span>
+<span id="cb104-10"><a href="#cb104-10" aria-hidden="true" tabindex="-1"></a><span class="in">my_set = {0, 10, 100} # нічого не робили</span></span>
+<span id="cb104-11"><a href="#cb104-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-12"><a href="#cb104-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c1102d18" class="cell" data-execution_count="56">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb97" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>my_set <span class="op">=</span> {<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">100</span>}</span>
-<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>to_delete <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a>my_set.discard(to_delete)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb105" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>my_set <span class="op">=</span> {<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">100</span>}</span>
+<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a>to_delete <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb105-3"><a href="#cb105-3" aria-hidden="true" tabindex="-1"></a>my_set.discard(to_delete)</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -1156,23 +1312,23 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="exr-py-list-set-12" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 10.7</strong></span> <br> У <code>students</code> зберігається множина студентів. Студент, ім’я якого записано в <code>new_student</code>, з іншого інституту, його ім’я потрібно додати в <code>students</code>. У змінній <code>churn_student</code> - студент, який хоче перевестися до іншого інституту, його ім’я потрібно прибрати зі <code>students</code>.</p>
 <p><strong>Приклад:</strong></p>
-<div class="sourceCode" id="cb98" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="in">students = {'Крупін Владислав', 'Крашеніннікова Олександра', "Михолап Мар'яна", 'Дробина Юлія', 'Алексєєва Віталіна'}</span></span>
-<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="in">new_student = 'Піщікова Катерина'</span></span>
-<span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a><span class="in">churn_student = "Михолап Мар'яна"</span></span>
-<span id="cb98-5"><a href="#cb98-5" aria-hidden="true" tabindex="-1"></a><span class="in"># -&gt;</span></span>
-<span id="cb98-6"><a href="#cb98-6" aria-hidden="true" tabindex="-1"></a><span class="in">students = {'Крупін Владислав', 'Крашеніннікова Олександра', 'Дробина Юлія', 'Алексєєва Віталіна', 'Піщікова Катерина'}</span></span>
-<span id="cb98-7"><a href="#cb98-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="0a4d0d78" class="cell" data-execution_count="51">
+<div class="sourceCode" id="cb106" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="in">students = {'Крупін Владислав', 'Крашеніннікова Олександра', "Михолап Мар'яна", 'Дробина Юлія', 'Алексєєва Віталіна'}</span></span>
+<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a><span class="in">new_student = 'Піщікова Катерина'</span></span>
+<span id="cb106-4"><a href="#cb106-4" aria-hidden="true" tabindex="-1"></a><span class="in">churn_student = "Михолап Мар'яна"</span></span>
+<span id="cb106-5"><a href="#cb106-5" aria-hidden="true" tabindex="-1"></a><span class="in"># -&gt;</span></span>
+<span id="cb106-6"><a href="#cb106-6" aria-hidden="true" tabindex="-1"></a><span class="in">students = {'Крупін Владислав', 'Крашеніннікова Олександра', 'Дробина Юлія', 'Алексєєва Віталіна', 'Піщікова Катерина'}</span></span>
+<span id="cb106-7"><a href="#cb106-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fd472a1a" class="cell" data-execution_count="57">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb99" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> {<span class="st">'Крупін Владислав'</span>, <span class="st">'Крашеніннікова Олександра'</span>, <span class="st">'Михолап Мар</span><span class="ch">\'</span><span class="st">яна'</span>, <span class="st">'Дробина Юлія'</span>, <span class="st">'Алексєєва Віталіна'</span>}</span>
-<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>new_student <span class="op">=</span> <span class="st">'Піщікова Катерина'</span></span>
-<span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a>churn_student <span class="op">=</span> <span class="st">'Михолап Мар</span><span class="ch">\'</span><span class="st">яна'</span></span>
-<span id="cb99-4"><a href="#cb99-4" aria-hidden="true" tabindex="-1"></a>students.add(new_student)</span>
-<span id="cb99-5"><a href="#cb99-5" aria-hidden="true" tabindex="-1"></a>students.discard(churn_student)</span>
-<span id="cb99-6"><a href="#cb99-6" aria-hidden="true" tabindex="-1"></a><span class="co"># або</span></span>
-<span id="cb99-7"><a href="#cb99-7" aria-hidden="true" tabindex="-1"></a><span class="co"># students.remove(churn_student)</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb107" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> {<span class="st">'Крупін Владислав'</span>, <span class="st">'Крашеніннікова Олександра'</span>, <span class="st">'Михолап Мар</span><span class="ch">\'</span><span class="st">яна'</span>, <span class="st">'Дробина Юлія'</span>, <span class="st">'Алексєєва Віталіна'</span>}</span>
+<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a>new_student <span class="op">=</span> <span class="st">'Піщікова Катерина'</span></span>
+<span id="cb107-3"><a href="#cb107-3" aria-hidden="true" tabindex="-1"></a>churn_student <span class="op">=</span> <span class="st">'Михолап Мар</span><span class="ch">\'</span><span class="st">яна'</span></span>
+<span id="cb107-4"><a href="#cb107-4" aria-hidden="true" tabindex="-1"></a>students.add(new_student)</span>
+<span id="cb107-5"><a href="#cb107-5" aria-hidden="true" tabindex="-1"></a>students.discard(churn_student)</span>
+<span id="cb107-6"><a href="#cb107-6" aria-hidden="true" tabindex="-1"></a><span class="co"># або</span></span>
+<span id="cb107-7"><a href="#cb107-7" aria-hidden="true" tabindex="-1"></a><span class="co"># students.remove(churn_student)</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -1182,25 +1338,25 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p><span class="theorem-title"><strong>Завдання 10.8</strong></span> <br> У змінній <code>da_students</code> зберігаються імена студентів курсу “Аналітик даних”, а у змінній <code>dv_students</code> - імена студентів курсу “Візуалізація даних”. Збережіть у змінну <code>students</code> студентів, які навчаються на обох курсах.</p>
 <p>Порядок елементів у <code>students</code> не має значення.</p>
 <p><strong>Приклад:</strong></p>
-<div class="sourceCode" id="cb100" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="in"># студенти курсу "Аналітик даних"</span></span>
-<span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="in">da_students = {'Крупін Владислав', 'Крашеніннікова Олександра', "Михолап Мар'яна", 'Дробина Юлія'}</span></span>
-<span id="cb100-4"><a href="#cb100-4" aria-hidden="true" tabindex="-1"></a><span class="in"># студенти курсу "Візуалізація даних"</span></span>
-<span id="cb100-5"><a href="#cb100-5" aria-hidden="true" tabindex="-1"></a><span class="in">dv_students = {"Михолап Мар'яна", 'Дробина Юлія', 'Алексєєва Віталіна'}</span></span>
-<span id="cb100-6"><a href="#cb100-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb100-7"><a href="#cb100-7" aria-hidden="true" tabindex="-1"></a><span class="in"># результат</span></span>
-<span id="cb100-8"><a href="#cb100-8" aria-hidden="true" tabindex="-1"></a><span class="in">students = {"Михолап Мар'яна", 'Дробина Юлія'}</span></span>
-<span id="cb100-9"><a href="#cb100-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="51632310" class="cell" data-execution_count="52">
+<div class="sourceCode" id="cb108" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a><span class="in"># студенти курсу "Аналітик даних"</span></span>
+<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a><span class="in">da_students = {'Крупін Владислав', 'Крашеніннікова Олександра', "Михолап Мар'яна", 'Дробина Юлія'}</span></span>
+<span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a><span class="in"># студенти курсу "Візуалізація даних"</span></span>
+<span id="cb108-5"><a href="#cb108-5" aria-hidden="true" tabindex="-1"></a><span class="in">dv_students = {"Михолап Мар'яна", 'Дробина Юлія', 'Алексєєва Віталіна'}</span></span>
+<span id="cb108-6"><a href="#cb108-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-7"><a href="#cb108-7" aria-hidden="true" tabindex="-1"></a><span class="in"># результат</span></span>
+<span id="cb108-8"><a href="#cb108-8" aria-hidden="true" tabindex="-1"></a><span class="in">students = {"Михолап Мар'яна", 'Дробина Юлія'}</span></span>
+<span id="cb108-9"><a href="#cb108-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a1ea34cc" class="cell" data-execution_count="58">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb101" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a>da_students <span class="op">=</span> {<span class="st">'Крупін Владислав'</span>, <span class="st">'Крашеніннікова Олександра'</span>, <span class="st">"Михолап Мар'яна"</span>, <span class="st">'Дробина Юлія'</span>}</span>
-<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>dv_students <span class="op">=</span> {<span class="st">"Михолап Мар'яна"</span>, <span class="st">'Дробина Юлія'</span>, <span class="st">'Алексєєва Віталіна'</span>}</span>
-<span id="cb101-3"><a href="#cb101-3" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> da_students <span class="op">&amp;</span> dv_students</span>
-<span id="cb101-4"><a href="#cb101-4" aria-hidden="true" tabindex="-1"></a><span class="co"># або</span></span>
-<span id="cb101-5"><a href="#cb101-5" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> da_students.intersection(dv_students)</span>
-<span id="cb101-6"><a href="#cb101-6" aria-hidden="true" tabindex="-1"></a><span class="co"># або</span></span>
-<span id="cb101-7"><a href="#cb101-7" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> da_students <span class="op">-</span> dv_students</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb109" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>da_students <span class="op">=</span> {<span class="st">'Крупін Владислав'</span>, <span class="st">'Крашеніннікова Олександра'</span>, <span class="st">"Михолап Мар'яна"</span>, <span class="st">'Дробина Юлія'</span>}</span>
+<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a>dv_students <span class="op">=</span> {<span class="st">"Михолап Мар'яна"</span>, <span class="st">'Дробина Юлія'</span>, <span class="st">'Алексєєва Віталіна'</span>}</span>
+<span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> da_students <span class="op">&amp;</span> dv_students</span>
+<span id="cb109-4"><a href="#cb109-4" aria-hidden="true" tabindex="-1"></a><span class="co"># або</span></span>
+<span id="cb109-5"><a href="#cb109-5" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> da_students.intersection(dv_students)</span>
+<span id="cb109-6"><a href="#cb109-6" aria-hidden="true" tabindex="-1"></a><span class="co"># або</span></span>
+<span id="cb109-7"><a href="#cb109-7" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> da_students <span class="op">-</span> dv_students</span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -1209,38 +1365,38 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="exr-py-list-set-07" class="theorem exercise">
 <p><span class="theorem-title"><strong>Завдання 10.9</strong></span> <br> - У змінній <code>numbers_list</code> збережено список із цілими числами. У списку щонайменше два різних цілих числа. - У змінну <code>numbers_list_ordered</code> збережіть усі числа зі списку <code>numbers_list</code>, відсортовані за спаданням. При цьому список <code>numbers_list</code> не повинен змінюватися. - У змінну <code>numbers_set</code> збережіть множину унікальних чисел зі списку <code>numbers_list</code>. Доповніть цю множину наступним цілим числом після максимального числа з <code>numbers_list</code>. - У змінну <code>numbers_frozenset</code> збережіть незмінну множину з усіх унікальних чисел зі списку <code>numbers_list</code>, крім мінімального числа.</p>
 <p><strong>Приклад:</strong></p>
-<div class="sourceCode" id="cb102" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="in"># Приклад 1</span></span>
-<span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_list = [1, 5, 3, 3, 5]</span></span>
-<span id="cb102-4"><a href="#cb102-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-5"><a href="#cb102-5" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_list_ordered = [5, 5, 3, 3, 1]</span></span>
-<span id="cb102-6"><a href="#cb102-6" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_set = set([1, 3, 5, 6])</span></span>
-<span id="cb102-7"><a href="#cb102-7" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_frozenset = frozenset([3, 5])</span></span>
-<span id="cb102-8"><a href="#cb102-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb103" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="in"># Приклад 2</span></span>
-<span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_list = [-1, 0, 1]</span></span>
-<span id="cb103-4"><a href="#cb103-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb103-5"><a href="#cb103-5" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_list_ordered = [1, 0, -1]</span></span>
-<span id="cb103-6"><a href="#cb103-6" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_set = set([-1, 0, 1, 2])</span></span>
-<span id="cb103-7"><a href="#cb103-7" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_frozenset = frozenset([0, 1])</span></span>
-<span id="cb103-8"><a href="#cb103-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb104" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="in"># Приклад 3</span></span>
-<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_list [-1, -5, -1]</span></span>
-<span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-5"><a href="#cb104-5" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_list_ordered = [-1, -1, -5]</span></span>
-<span id="cb104-6"><a href="#cb104-6" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_set = set([-5, -1, 0])</span></span>
-<span id="cb104-7"><a href="#cb104-7" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_frozenset = frozenset([-1])</span></span>
-<span id="cb104-8"><a href="#cb104-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="39816039" class="cell" data-execution_count="53">
+<div class="sourceCode" id="cb110" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a><span class="in"># Приклад 1</span></span>
+<span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_list = [1, 5, 3, 3, 5]</span></span>
+<span id="cb110-4"><a href="#cb110-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-5"><a href="#cb110-5" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_list_ordered = [5, 5, 3, 3, 1]</span></span>
+<span id="cb110-6"><a href="#cb110-6" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_set = set([1, 3, 5, 6])</span></span>
+<span id="cb110-7"><a href="#cb110-7" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_frozenset = frozenset([3, 5])</span></span>
+<span id="cb110-8"><a href="#cb110-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb111" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a><span class="in"># Приклад 2</span></span>
+<span id="cb111-3"><a href="#cb111-3" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_list = [-1, 0, 1]</span></span>
+<span id="cb111-4"><a href="#cb111-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-5"><a href="#cb111-5" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_list_ordered = [1, 0, -1]</span></span>
+<span id="cb111-6"><a href="#cb111-6" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_set = set([-1, 0, 1, 2])</span></span>
+<span id="cb111-7"><a href="#cb111-7" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_frozenset = frozenset([0, 1])</span></span>
+<span id="cb111-8"><a href="#cb111-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb112" data-code-line-numbers=""><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="in"># Приклад 3</span></span>
+<span id="cb112-3"><a href="#cb112-3" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_list [-1, -5, -1]</span></span>
+<span id="cb112-4"><a href="#cb112-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-5"><a href="#cb112-5" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_list_ordered = [-1, -1, -5]</span></span>
+<span id="cb112-6"><a href="#cb112-6" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_set = set([-5, -1, 0])</span></span>
+<span id="cb112-7"><a href="#cb112-7" aria-hidden="true" tabindex="-1"></a><span class="in">numbers_frozenset = frozenset([-1])</span></span>
+<span id="cb112-8"><a href="#cb112-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b426b962" class="cell" data-execution_count="59">
 <details class="code-fold">
 <summary>Рішення</summary>
-<div class="sourceCode cell-code" id="cb105" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>numbers_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">5</span>]</span>
-<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a>numbers_list_ordered <span class="op">=</span> <span class="bu">sorted</span>(numbers_list, reverse<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb105-3"><a href="#cb105-3" aria-hidden="true" tabindex="-1"></a>numbers_set <span class="op">=</span> <span class="bu">set</span>(numbers_list)</span>
-<span id="cb105-4"><a href="#cb105-4" aria-hidden="true" tabindex="-1"></a>numbers_set.add(<span class="bu">max</span>(numbers_list) <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb105-5"><a href="#cb105-5" aria-hidden="true" tabindex="-1"></a>numbers_frozenset <span class="op">=</span> <span class="bu">frozenset</span>(<span class="bu">sorted</span>(<span class="bu">set</span>(numbers_list))[<span class="dv">1</span>:]) </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb113" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>numbers_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">5</span>]</span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>numbers_list_ordered <span class="op">=</span> <span class="bu">sorted</span>(numbers_list, reverse<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>numbers_set <span class="op">=</span> <span class="bu">set</span>(numbers_list)</span>
+<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a>numbers_set.add(<span class="bu">max</span>(numbers_list) <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a>numbers_frozenset <span class="op">=</span> <span class="bu">frozenset</span>(<span class="bu">sorted</span>(<span class="bu">set</span>(numbers_list))[<span class="dv">1</span>:]) </span></code><button title="Копіювати" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
