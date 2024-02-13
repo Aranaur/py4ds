@@ -228,15 +228,14 @@ if __name__ == "__main__":
 
 ```{python}
 #| label: bank-py-2
+#| error: true
 
 balance = 0
 
 def increase_balance(amount):
-    global balance
     balance += amount
 
 def decrease_balance(amount):
-    global balance
     balance -= amount
 
 def main():
@@ -248,7 +247,122 @@ if __name__ == "__main__":
     main()
 ```
 
+При виконанні коду отримаємо помилку `UnboundLocalError`. Це трапляється через те, що Python не знає, що ми маємо на увазі, коли звертаємося до змінної `balance` всередині функції. Щоб виправити цю помилку, потрібно вказати, що ми маємо на увазі глобальну змінну `balance`:
 
+```{python}
+#| label: bank-py-3
+
+balance = 0
+
+def increase_balance(amount):
+    global balance # <<
+    balance += amount
+
+def decrease_balance(amount):
+    global balance # <<
+    balance -= amount
+
+def main():
+    increase_balance(100)
+    decrease_balance(30)
+    print("Баланс рахунку:", balance)
+
+if __name__ == "__main__":
+    main()
+```
+
+Існує й інше рішення цієї задачі через об'єктно-орієнтоване програмування:
+
+```{python}
+#| label: bank-py-4
+
+class BankAccount:
+    def __init__(self):
+        self._balance = 0
+
+    @property
+    def balance(self):
+        return self._balance
+
+    def increase_balance(self, amount):
+        self._balance += amount
+
+    def decrease_balance(self, amount):
+        self._balance -= amount
+
+
+def main():
+    account = BankAccount()
+    print("Баланс рахунку:", account.balance)
+    account.increase_balance(100)
+    account.decrease_balance(30)
+    print("Баланс рахунку:", account.balance)
+
+if __name__ == "__main__":
+    main()
+```
+
+Використання глобальних змінних може призвести до певних проблем, особливо великих програмах. Тому використовуйте глобальні змінні обережно.
+
+## Константи
+
+Деякі мови дозволяють визначати константи - значення, які неможливо змінити. Це дозволяє вам писати досить захищений код. На випадок, якщо хтось випадково спробує змінити значення цієї змінної, вона не може бути змінена, або, як правило, не може бути змінена без великих зусиль.
+
+У Python немає спеціального синтаксису для визначення констант. Проте, константи можна визначити, використовуючи змінні з великими літерами. Це не забороняє змінювати значення цих змінних, але це є загальною практикою в багатьох мовах програмування:
+
+```{python}
+#| label: constants
+
+PI = 3.14159
+GRAVITY = 9.8
+```
+
+Аналогічно, ви можете використовувати константи в класах:
+
+```{python}
+#| label: constants-2
+
+class Circle:
+    PI = 3.14159
+
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return Circle.PI * self.radius * self.radius
+
+circle = Circle(5)
+print(circle.area())
+```
+
+## Анотації типів
+
+Python 3.5 вперше ввів підтримку анотацій типів. Це означає, що ви можете вказати типи аргументів та значень, які повертає функція. Це допомагає зрозуміти, які типи даних очікується від функції, а також допомагає знайти помилки в коді.
+
+Створимо функцію `meow()`, яка приймає аргумент `n` типу `int` та повертає рядок:
+
+```{python}
+#| label: type-annotations
+
+def meow(n: int) -> str:
+    return "meow " * n
+
+print(meow(3))
+```
+
+::: callout-note
+Документацію по анотаціям типів Python можна знайти за посиланням <https://docs.python.org/3/library/typing.html>.
+:::
+
+Анотації типів не впливають на роботу програми, вони використовуються лише для документації та підказок. Однак, вони можуть бути корисні для інструментів, які аналізують код, таких як `mypy`:
+
+```{.bash filename="Terminal"}
+pip install mypy
+```
+
+::: callout-note
+Документацію по `mypy` можна знайти за посиланням <https://mypy.readthedocs.io/>.
+:::
 
 ## Корисні функції
 
