@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.547">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="description" content="Книга-конспект матеріалів">
 
-<title>Від нуля до Python Data Scientist - 19&nbsp; Об’єднання таблиць</title>
+<title>19&nbsp; Об’єднання таблиць – Від нуля до Python Data Scientist</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -34,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -73,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-d2c87cfb1f02b32db4b7df989ab642ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/line-highlight-1.0.0/line-highlight.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -128,13 +128,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/sql/index.html">SQL</a></li><li class="breadcrumb-item"><a href="../../chapters/sql/join.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Об’єднання таблиць</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключити бокову панель навігації" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Пошук" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -153,23 +153,23 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
         <div class="sidebar-tools-main">
     <a href="https://github.com/Aranaur/py4ds" title="Вихідний код" class="quarto-navigation-tool px-1" aria-label="Вихідний код"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
-              <i class="bi bi-bi-linkedin pe-1"></i>
+              <i class="bi bi-linkedin pe-1"></i>
             LinkedIn
             </a>
           </li>
@@ -196,7 +196,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <div class="sidebar-item-container"> 
             <a href="../../chapters/python/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Переключити розділ">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Переключити розділ">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -258,7 +258,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/python/et_cetera.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Множини</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Додаткові матеріали</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -286,7 +286,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
       <div class="sidebar-item-container"> 
             <a href="../../chapters/sql/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">SQL</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Переключити розділ">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Переключити розділ">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -460,7 +460,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <ol type="1">
 <li>Спочатку кожен рядок першої таблиці зіставляється з кожним рядком другої таблиці, тобто відбувається <a href="https://uk.wikipedia.org/wiki/%D0%94%D0%B5%D0%BA%D0%B0%D1%80%D1%82%D1%96%D0%B2_%D0%B4%D0%BE%D0%B1%D1%83%D1%82%D0%BE%D0%BA_%D0%BC%D0%BD%D0%BE%D0%B6%D0%B8%D0%BD">декартів добуток</a> вдох множин, результатом якого є нове множина, що складається з різних пар вхідних рядків. Наприклад, якщо у одній таблиці було 50 записів, а інший 10, то результаті декартового добутку вийде 500 записів. На іграшковому прикладі це можна уявити так:</li>
 </ol>
-<div id="fig-cartesian" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-cartesian" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-cartesian-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/sql/cartesian.png" class="img-fluid figure-img" style="width:45.0%">
@@ -523,13 +523,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div aria-describedby="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
-<div id="tbl-A" class="sm primary bordered quarto-float anchored">
+<div id="tbl-A" class="sm primary bordered quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-A-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Таблиця A
 </figcaption>
 <div aria-describedby="tbl-A-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-sm table-primary table-bordered small table">
+<table class="table-sm table-primary table-bordered small caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -552,13 +552,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
-<div id="tbl-B" class="sm secondary bordered quarto-float anchored">
+<div id="tbl-B" class="sm secondary bordered quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-B-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Таблиця B
 </figcaption>
 <div aria-describedby="tbl-B-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-sm table-secondary table-bordered small table">
+<table class="table-sm table-secondary table-bordered small caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -583,13 +583,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 100.0%;justify-content: center;">
-<div id="tbl-C" class="sm success bordered quarto-float anchored">
+<div id="tbl-C" class="sm success bordered quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-C-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (c) Таблиця C
 </figcaption>
 <div aria-describedby="tbl-C-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-sm table-success table-bordered small table">
+<table class="table-sm table-success table-bordered small caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -617,7 +617,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Схематично результат роботи об’єднань прийнято зображувати за допомогою <a href="https://uk.wikipedia.org/wiki/%D0%94%D1%96%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%B0_%D0%92%D0%B5%D0%BD%D0%BD%D0%B0">діаграм Венна</a>. Для <code>INNER JOIN</code> наведено на <a href="#fig-sql-inner-join" class="quarto-xref">рисунку&nbsp;<span>19.2</span></a>.</p>
 <div id="cell-fig-sql-inner-join" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
-<div id="fig-sql-inner-join" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-sql-inner-join" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sql-inner-join-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="join_files/figure-html/fig-sql-inner-join-output-1.png" width="511" height="389" class="figure-img">
@@ -652,7 +652,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -678,7 +678,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -743,7 +743,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -894,7 +894,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -959,13 +959,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div aria-describedby="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
-<div id="tbl-A-left" class="sm primary bordered quarto-float anchored">
+<div id="tbl-A-left" class="sm primary bordered quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-A-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Таблиця A
 </figcaption>
 <div aria-describedby="tbl-A-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-sm table-primary table-bordered small table">
+<table class="table-sm table-primary table-bordered small caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -988,13 +988,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
-<div id="tbl-B-left" class="sm secondary bordered quarto-float anchored">
+<div id="tbl-B-left" class="sm secondary bordered quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-B-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Таблиця B
 </figcaption>
 <div aria-describedby="tbl-B-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-sm table-secondary table-bordered small table">
+<table class="table-sm table-secondary table-bordered small caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -1019,13 +1019,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 100.0%;justify-content: center;">
-<div id="tbl-C-left" class="sm success bordered quarto-float anchored">
+<div id="tbl-C-left" class="sm success bordered quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-C-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (c) Таблиця C
 </figcaption>
 <div aria-describedby="tbl-C-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-sm table-success table-bordered small table">
+<table class="table-sm table-success table-bordered small caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -1058,7 +1058,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Діаграма Венна для <code>LEFT JOIN</code> наведено на <a href="#fig-sql_left-join" class="quarto-xref">рис.&nbsp;<span>19.3</span></a>.</p>
 <div id="cell-fig-sql_left-join" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
-<div id="fig-sql_left-join" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-sql_left-join" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sql_left-join-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="join_files/figure-html/fig-sql_left-join-output-1.png" width="511" height="389" class="figure-img">
@@ -1085,13 +1085,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div aria-describedby="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
-<div id="tbl-A-right" class="sm primary bordered quarto-float anchored">
+<div id="tbl-A-right" class="sm primary bordered quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-A-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Таблиця A
 </figcaption>
 <div aria-describedby="tbl-A-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-sm table-primary table-bordered small table">
+<table class="table-sm table-primary table-bordered small caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -1114,13 +1114,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
-<div id="tbl-B-right" class="sm secondary bordered quarto-float anchored">
+<div id="tbl-B-right" class="sm secondary bordered quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-B-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Таблиця B
 </figcaption>
 <div aria-describedby="tbl-B-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-sm table-secondary table-bordered small table">
+<table class="table-sm table-secondary table-bordered small caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -1145,13 +1145,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 100.0%;justify-content: center;">
-<div id="tbl-C-right" class="sm success bordered quarto-float anchored">
+<div id="tbl-C-right" class="sm success bordered quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-C-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (c) Таблиця C
 </figcaption>
 <div aria-describedby="tbl-C-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-sm table-success table-bordered small table">
+<table class="table-sm table-success table-bordered small caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -1184,7 +1184,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Діаграма Венна для <code>RIGHT JOIN</code> зображена на <a href="#fig-sql_right-join" class="quarto-xref">рис.&nbsp;<span>19.4</span></a></p>
 <div id="cell-fig-sql_right-join" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
-<div id="fig-sql_right-join" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-sql_right-join" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sql_right-join-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="join_files/figure-html/fig-sql_right-join-output-1.png" width="511" height="389" class="figure-img">
@@ -1224,7 +1224,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1375,7 +1375,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1425,7 +1425,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1600,13 +1600,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div aria-describedby="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
-<div id="tbl-A-full" class="sm primary bordered quarto-float anchored">
+<div id="tbl-A-full" class="sm primary bordered quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-A-full-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Таблиця A
 </figcaption>
 <div aria-describedby="tbl-A-full-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-sm table-primary table-bordered small table">
+<table class="table-sm table-primary table-bordered small caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -1629,13 +1629,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
-<div id="tbl-B-full" class="sm secondary bordered quarto-float anchored">
+<div id="tbl-B-full" class="sm secondary bordered quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-B-full-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Таблиця B
 </figcaption>
 <div aria-describedby="tbl-B-full-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-sm table-secondary table-bordered small table">
+<table class="table-sm table-secondary table-bordered small caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -1660,13 +1660,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 100.0%;justify-content: center;">
-<div id="tbl-C-full" class="sm success bordered quarto-float anchored">
+<div id="tbl-C-full" class="sm success bordered quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-C-full-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (c) Таблиця C
 </figcaption>
 <div aria-describedby="tbl-C-full-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-sm table-success table-bordered small table">
+<table class="table-sm table-success table-bordered small caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -1704,7 +1704,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <p>Діграма Венна для <code>FULL JOIN</code> наведено на <a href="#fig-sql-join-full-venn" class="quarto-xref">рисунку&nbsp;<span>19.5</span></a>.</p>
 <div id="cell-fig-sql-join-full-venn" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
-<div id="fig-sql-join-full-venn" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-sql-join-full-venn" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sql-join-full-venn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="join_files/figure-html/fig-sql-join-full-venn-output-1.png" width="511" height="389" class="figure-img">
@@ -1729,7 +1729,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1810,7 +1810,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1967,9 +1967,9 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div id="fig-sql-join-venn" class="quarto-layout-panel page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-sql-join-venn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<div class="quarto-layout-row page-columns page-full">
+<div class="quarto-layout-row page-full">
 <div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell page-columns page-full" data-ref-parent="fig-sql-join-venn" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div id="fig-sql-join-venn-1" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" height="389" width="511">
+<div id="fig-sql-join-venn-1" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" height="389" width="511">
 <figure class="quarto-float quarto-subfloat-fig figure page-columns page-full">
 <div aria-describedby="fig-sql-join-venn-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
 <img src="join_files/figure-html/fig-sql-join-venn-output-1.png" id="fig-sql-join-venn-1" data-ref-parent="fig-sql-join-venn" width="511" height="389" class="figure-img column-page-inset">
@@ -1981,7 +1981,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell page-columns page-full" data-ref-parent="fig-sql-join-venn" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div id="fig-sql-join-venn-2" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" height="389" width="511">
+<div id="fig-sql-join-venn-2" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" height="389" width="511">
 <figure class="quarto-float quarto-subfloat-fig figure page-columns page-full">
 <div aria-describedby="fig-sql-join-venn-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
 <img src="join_files/figure-html/fig-sql-join-venn-output-2.png" id="fig-sql-join-venn-2" data-ref-parent="fig-sql-join-venn" width="511" height="389" class="figure-img column-page-inset">
@@ -1993,7 +1993,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell page-columns page-full" data-ref-parent="fig-sql-join-venn" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div id="fig-sql-join-venn-3" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" height="389" width="511">
+<div id="fig-sql-join-venn-3" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" height="389" width="511">
 <figure class="quarto-float quarto-subfloat-fig figure page-columns page-full">
 <div aria-describedby="fig-sql-join-venn-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
 <img src="join_files/figure-html/fig-sql-join-venn-output-3.png" id="fig-sql-join-venn-3" data-ref-parent="fig-sql-join-venn" width="511" height="389" class="figure-img column-page-inset">
@@ -2029,7 +2029,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2138,7 +2138,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2178,13 +2178,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div aria-describedby="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
-<div id="tbl-A-cross" class="sm primary bordered quarto-float anchored">
+<div id="tbl-A-cross" class="sm primary bordered quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-A-cross-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Таблиця A
 </figcaption>
 <div aria-describedby="tbl-A-cross-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-sm table-primary table-bordered small table">
+<table class="table-sm table-primary table-bordered small caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">city</th>
@@ -2204,13 +2204,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 50.0%;justify-content: center;">
-<div id="tbl-B-cross" class="sm secondary bordered quarto-float anchored">
+<div id="tbl-B-cross" class="sm secondary bordered quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-B-cross-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Таблиця B
 </figcaption>
 <div aria-describedby="tbl-B-cross-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-sm table-secondary table-bordered small table">
+<table class="table-sm table-secondary table-bordered small caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">country</th>
@@ -2235,13 +2235,13 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-panel" style="flex-basis: 100.0%;justify-content: center;">
-<div id="tbl-C-cross" class="sm success bordered quarto-float anchored">
+<div id="tbl-C-cross" class="sm success bordered quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-C-cross-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (c) Таблиця C
 </figcaption>
 <div aria-describedby="tbl-C-cross-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-sm table-success table-bordered small table">
+<table class="table-sm table-success table-bordered small caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">city</th>
@@ -2338,7 +2338,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2450,7 +2450,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2670,7 +2670,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2850,7 +2850,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2967,7 +2967,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -3045,7 +3045,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -3149,7 +3149,7 @@ gtag('config', 'G-0C9TJBF3C5', { 'anonymize_ip': true});
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -3406,18 +3406,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -3449,7 +3438,45 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -3484,7 +3511,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -3532,7 +3563,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -3764,12 +3794,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-alt-theme" value="dark">
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../chapters/sql/subquery.html" class="pagination-link  aria-label=" &lt;span="">
+      <a href="../../chapters/sql/subquery.html" class="pagination-link" aria-label="Підзапити">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Підзапити</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../chapters/sql/window.html" class="pagination-link" aria-label="<span class='chapter-number'>20</span>&nbsp; <span class='chapter-title'>Віконні функції</span>">
+      <a href="../../chapters/sql/window.html" class="pagination-link" aria-label="Віконні функції">
         <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Віконні функції</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
